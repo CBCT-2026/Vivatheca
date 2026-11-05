@@ -69,3 +69,27 @@ test('the disclaimer is translated, with a note that the English version prevail
   await page.goto('/');
   await expect(page.locator('.prototype-note')).toContainText('臨床(りんしょう)レビュー未実施(みじっし)');
 });
+
+test('model library, model page, About, Privacy and Report are translated', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  for (const [route, heading] of [
+    ['/models?lang=ja', '正常と比べられる模型。'],
+    ['/models/impacted-wisdom-tooth?lang=ja', '埋伏した下の親知らず'],
+    ['/about?lang=ja', '診療チェアでの会話のための、わかりやすい3D模型。'],
+    ['/privacy?lang=ja', 'プライバシー'],
+    ['/report?lang=ja', '誤りを報告'],
+  ]) {
+    await page.goto(route);
+    await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+    // The h1 text without its furigana readings.
+    await expect.poll(() => page.locator('h1').evaluate((h) => { const c = h.cloneNode(true) as HTMLElement; c.querySelectorAll('rt, rp').forEach((e) => e.remove()); return c.textContent; })).toBe(heading);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth), route).toBe(false);
+  }
+  // Reports are always emailed in English.
+  await page.locator('textarea').fill('神経の位置が違うと思います。');
+  const href = await page.evaluate(() => new Promise<string>((resolve) => {
+    Object.defineProperty(window, 'location', { value: { set href(v: string) { resolve(v); } }, configurable: true });
+    document.querySelector('form')!.requestSubmit();
+  })).catch(() => '');
+  if (href) expect(decodeURIComponent(href)).toContain('Issue: Anatomy is wrong');
+});

@@ -1,83 +1,96 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader, SiteFooter } from '../../site-chrome';
-import { catalogue, licence, wisdomTooth } from '../catalogue';
+import { catalogue, formatDate, licence, wisdomTooth } from '../catalogue';
 import { CompareViewer } from '../compare';
 import { CopyCitation } from './copy-citation';
-import { disclaimerHref, modelDisclaimer } from '../../disclaimer-text';
+import { disclaimerHref } from '../../disclaimer-text';
+import { localeTags } from '../../i18n/config';
+import { format } from '../../i18n/dictionaries';
+import { getI18n } from '../../i18n/server';
+import { plain, Ruby } from '../../i18n/ruby';
 
 const model = catalogue.find((item) => item.slug === 'impacted-wisdom-tooth')!;
 
-export const metadata: Metadata = {
-  title: 'Impacted lower wisdom tooth and matched normal — Vivatheca',
-  description: 'Free 3D model of an impacted lower wisdom tooth near the inferior alveolar nerve, with a matched normal jaw. GLB and STL downloads, sources and licence.',
-  alternates: { canonical: '/models/impacted-wisdom-tooth' },
-  openGraph: { url: '/models/impacted-wisdom-tooth', images: ['/assets/renders/wisdom-tooth-compare.webp'] },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getI18n();
+  return {
+    title: t.wisdom.title,
+    description: t.wisdom.description,
+    alternates: { canonical: '/models/impacted-wisdom-tooth' },
+    openGraph: { url: '/models/impacted-wisdom-tooth', images: ['/assets/renders/wisdom-tooth-compare.webp'] },
+  };
+}
 
-export default function WisdomToothPage() {
+export default async function WisdomToothPage() {
+  const { t, locale } = await getI18n();
+  const w = t.wisdom;
+  const item = t.library.items[model.slug];
+  const date = (iso: string) => formatDate(iso, localeTags[locale].intl);
+  const reviewNote = <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <Link href={disclaimerHref}><Ruby text={t.disclaimer.full} /></Link></p>;
   return (
     <>
-      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader current="/models" />
       <main id="main-content" className="info-page model-page">
-        <nav className="breadcrumb" aria-label="Breadcrumb"><Link href="/models">Model library</Link><span aria-hidden="true">/</span><span aria-current="page">{model.title}</span></nav>
+        <nav className="breadcrumb" aria-label={plain(w.breadcrumb)}><Link href="/models"><Ruby text={t.library.eyebrow} /></Link><span aria-hidden="true">/</span><span aria-current="page"><Ruby text={item.title} /></span></nav>
         <div className="info-intro">
-          <p className="eyebrow">{model.specialty}</p>
-          <h1>{model.title}</h1>
-          <p>{model.summary}</p>
+          <p className="eyebrow"><Ruby text={item.specialty} /></p>
+          <h1><Ruby text={item.title} /></h1>
+          <p><Ruby text={item.summary} /></p>
         </div>
 
-        <CompareViewer impacted={wisdomTooth.impacted} normal={wisdomTooth.normal} />
-        <p className="prototype-note model-disclaimer"><strong>Not yet clinically reviewed.</strong> {modelDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
+        <CompareViewer impacted={{ glb: wisdomTooth.impacted.glb, alt: plain(w.impactedAlt) }} normal={{ glb: wisdomTooth.normal.glb, alt: plain(w.normalAlt) }} />
+        <div className="model-disclaimer">{reviewNote}</div>
 
         <div className="model-details">
           <section aria-labelledby="downloads-title" className="detail-block detail-downloads">
-            <h2 id="downloads-title">Download</h2>
+            <h2 id="downloads-title"><Ruby text={w.download} /></h2>
             <ul className="file-list">
-              {wisdomTooth.files.map((file) => (
-                <li key={file.href}><a href={file.href} download><img aria-hidden="true" src="/icons/download.svg" width="20" height="20" alt="" />{file.label}</a><span>{file.size}</span></li>
+              {wisdomTooth.files.map((file, index) => (
+                <li key={file.href}><a href={file.href} download><img aria-hidden="true" src="/icons/download.svg" width="20" height="20" alt="" /><Ruby text={w.files[index]} /></a><span>{file.size}</span></li>
               ))}
             </ul>
-            <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> {modelDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
-            <p className="detail-note">Licence: <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. You may use, adapt and print these models, including in your own patient materials, if you credit Vivatheca. If you change the model, or images of it, share your changed version under CC BY-SA 4.0.</p>
-            <Link className="button button-compact" href="/create">Make patient information for this model</Link>
+            {reviewNote}
+            <p className="detail-note"><Ruby text={w.licence} /> <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. <Ruby text={w.licenceText} /></p>
+            <Link className="button button-compact" href="/create"><Ruby text={w.makeInfo} /></Link>
           </section>
 
           <section aria-labelledby="details-title" className="detail-block">
-            <h2 id="details-title">Model details</h2>
+            <h2 id="details-title"><Ruby text={w.details} /></h2>
             <dl className="fact-list">
-              <div><dt>Version</dt><dd>{model.version}, updated {model.updated}</dd></div>
-              <div><dt>Review status</dt><dd>{model.status}. No independent clinician has checked it yet.</dd></div>
-              <div><dt>Pair</dt><dd>{model.pairing}</dd></div>
+              <div><dt><Ruby text={w.versionLabel} /></dt><dd><Ruby text={format(w.versionValue, { v: model.version, date: date(model.updated) })} /></dd></div>
+              <div><dt><Ruby text={w.statusLabel} /></dt><dd><Ruby text={w.statusValue} /></dd></div>
+              <div><dt><Ruby text={w.pairLabel} /></dt><dd><Ruby text={item.pairing} /></dd></div>
             </dl>
 
-            <h3>What it shows</h3>
-            <ul className="plain-list">{wisdomTooth.shows.map((item) => <li key={item}>{item}</li>)}</ul>
+            <h3><Ruby text={w.showsHeading} /></h3>
+            <ul className="plain-list">{w.shows.map((text) => <li key={text}><Ruby text={text} /></li>)}</ul>
 
-            <h3>How the normal was made</h3>
-            <p>{wisdomTooth.normalMethod}</p>
+            <h3><Ruby text={w.normalHeading} /></h3>
+            <p><Ruby text={w.normalMethod} /></p>
 
-            <h3>What is simplified</h3>
-            <ul className="plain-list">{wisdomTooth.simplifications.map((item) => <li key={item}>{item}</li>)}</ul>
+            <h3><Ruby text={w.simplifiedHeading} /></h3>
+            <ul className="plain-list">{w.simplifications.map((text) => <li key={text}><Ruby text={text} /></li>)}</ul>
 
-            <h3>Published sources</h3>
-            <ol className="source-list">{wisdomTooth.sources.map((source) => <li key={source.href}>{source.text} <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}</ol>
+            <h3><Ruby text={w.sourcesHeading} /></h3>
+            {w.sourcesNote ? <p className="detail-note"><Ruby text={w.sourcesNote} /></p> : null}
+            <ol className="source-list" lang="en">{wisdomTooth.sources.map((source) => <li key={source.href}>{source.text} <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}</ol>
 
-            <h3>Change log</h3>
-            <ul className="plain-list">{wisdomTooth.changelog.map((entry) => <li key={entry.version}><strong>{entry.version}</strong> ({entry.date}): {entry.text}</li>)}</ul>
+            <h3><Ruby text={w.changelogHeading} /></h3>
+            <ul className="plain-list">{w.changelog.map((entry) => <li key={entry.version}><strong>{entry.version}</strong> ({date(wisdomTooth.changelogDates[entry.version])}): <Ruby text={entry.text} /></li>)}</ul>
 
-            <h3>How to credit</h3>
+            <h3><Ruby text={w.creditHeading} /></h3>
             <CopyCitation text={wisdomTooth.citation} />
           </section>
         </div>
 
         <aside className="report-band" aria-labelledby="report-title">
           <div>
-            <h2 id="report-title">Spotted something wrong?</h2>
-            <p>If anything in this model does not match the anatomy or the condition, please tell us. Every report is read and the change log above records each fix.</p>
+            <h2 id="report-title"><Ruby text={w.reportHeading} /></h2>
+            <p><Ruby text={w.reportText} /></p>
           </div>
-          <Link className="button button-light" href="/report?model=impacted-wisdom-tooth">Report an inaccuracy</Link>
+          <Link className="button button-light" href="/report?model=impacted-wisdom-tooth"><Ruby text={t.nav.report} /></Link>
         </aside>
       </main>
       <SiteFooter />

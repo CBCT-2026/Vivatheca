@@ -2,57 +2,68 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader, SiteFooter } from '../site-chrome';
 import { catalogue, licence } from './catalogue';
-import { disclaimerHref, modelDisclaimer } from '../disclaimer-text';
+import { disclaimerHref } from '../disclaimer-text';
+import { format } from '../i18n/dictionaries';
+import { getI18n } from '../i18n/server';
+import { plain, Ruby } from '../i18n/ruby';
 
-export const metadata: Metadata = {
-  title: 'Model library — Vivatheca',
-  description: 'Free 3D models of dental and oral and maxillofacial conditions, each paired with normal anatomy, with GLB and STL downloads.',
-  alternates: { canonical: '/models' },
-  openGraph: { url: '/models', images: ['/assets/og-image.jpg'] },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getI18n();
+  return {
+    title: t.library.title,
+    description: t.library.description,
+    alternates: { canonical: '/models' },
+    openGraph: { url: '/models', images: ['/assets/og-image.jpg'] },
+  };
+}
 
 // Static pages under public/ need their trailing slash, which next/link removes.
 function CardLink({ href, children }: { href: string; children: React.ReactNode }) {
   return href.endsWith('/') ? <a href={href} className="library-card-link">{children}</a> : <Link href={href} className="library-card-link">{children}</Link>;
 }
 
-export default function ModelsPage() {
+export default async function ModelsPage() {
+  const { t } = await getI18n();
+  const l = t.library;
   return (
     <>
-      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader current="/models" />
       <main id="main-content" className="info-page">
         <div className="info-intro">
-          <p className="eyebrow">Model library</p>
-          <h1>Models with a normal to compare.</h1>
-          <p>Every condition comes with matching normal anatomy, so you can show a patient what is different and why it matters. All models are free to view, download, print and adapt under <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>.</p>
-          <p className="prototype-note"><strong>Review status is shown on each model.</strong> {modelDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
+          <p className="eyebrow"><Ruby text={l.eyebrow} /></p>
+          <h1><Ruby text={l.heading} /></h1>
+          <p><Ruby text={l.intro} /> <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>.</p>
+          <p className="prototype-note"><strong><Ruby text={l.reviewLead} /></strong> <Ruby text={t.disclaimer.model} /> <Link href={disclaimerHref}><Ruby text={t.disclaimer.full} /></Link></p>
         </div>
 
-        <ul className="library-grid" aria-label="Models">
-          {catalogue.map((model) => (
-            <li key={model.slug} className="library-card">
-              <CardLink href={model.href}>
-                <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
-                <div className="library-card-body">
-                  <p className="library-meta">{model.specialty}</p>
-                  <h2>{model.title}</h2>
-                  <p>{model.summary}</p>
-                  <ul className="library-tags" aria-label="Model facts">
-                    <li>{model.pairing}</li>
-                    <li>Version {model.version}</li>
-                    <li>{model.status}</li>
-                  </ul>
-                </div>
-              </CardLink>
-            </li>
-          ))}
+        <ul className="library-grid" aria-label={plain(l.listLabel)}>
+          {catalogue.map((model) => {
+            const item = l.items[model.slug];
+            return (
+              <li key={model.slug} className="library-card">
+                <CardLink href={model.href}>
+                  <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
+                  <div className="library-card-body">
+                    <p className="library-meta"><Ruby text={item.specialty} /></p>
+                    <h2><Ruby text={item.title} /></h2>
+                    <p><Ruby text={item.summary} /></p>
+                    <ul className="library-tags" aria-label={plain(l.factsLabel)}>
+                      <li><Ruby text={item.pairing} /></li>
+                      <li>{format(l.version, { v: model.version })}</li>
+                      <li><Ruby text={l.notReviewed} /></li>
+                    </ul>
+                  </div>
+                </CardLink>
+              </li>
+            );
+          })}
         </ul>
 
         <section className="library-next" aria-labelledby="next-title">
-          <h2 id="next-title">Coming next</h2>
-          <p>The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: periodontitis, a periapical abscess, an atrophic jaw without teeth, a jaw cyst and orthodontic bite classes.</p>
-          <p>Want a particular model, or able to check one for accuracy? <Link href="/report">Tell us</Link>.</p>
+          <h2 id="next-title"><Ruby text={l.nextHeading} /></h2>
+          <p><Ruby text={l.nextText} /></p>
+          <p><Ruby text={l.askText} /> <Link href="/report"><Ruby text={l.askLink} /></Link>.</p>
         </section>
       </main>
       <SiteFooter />

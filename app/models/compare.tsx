@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { useI18n } from '../i18n/context';
+import { plain, Ruby } from '../i18n/ruby';
 
 type Side = { glb: string; alt: string };
 type Mode = 'both' | 'impacted' | 'normal';
@@ -8,6 +10,8 @@ type Mode = 'both' | 'impacted' | 'normal';
 type ModelViewerElement = HTMLElement & { cameraOrbit: string; getCameraOrbit: () => { toString: () => string } };
 
 export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Side }) {
+  const { t } = useI18n();
+  const c = t.compare;
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [mode, setMode] = useState<Mode>('both');
@@ -60,28 +64,28 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
   return (
     <div className="compare">
       <div className="compare-controls">
-        <div className="segmented segmented-3" role="group" aria-label="Which model to show">
-          <button type="button" aria-pressed={mode === 'both'} onClick={() => setMode('both')}>Side by side</button>
-          <button type="button" aria-pressed={mode === 'impacted'} onClick={() => setMode('impacted')}>Impacted</button>
-          <button type="button" aria-pressed={mode === 'normal'} onClick={() => setMode('normal')}>Normal</button>
+        <div className="segmented segmented-3" role="group" aria-label={plain(c.which)}>
+          <button type="button" aria-pressed={mode === 'both'} onClick={() => setMode('both')}><Ruby text={c.both} /></button>
+          <button type="button" aria-pressed={mode === 'impacted'} onClick={() => setMode('impacted')}><Ruby text={c.impacted} /></button>
+          <button type="button" aria-pressed={mode === 'normal'} onClick={() => setMode('normal')}><Ruby text={c.normal} /></button>
         </div>
         {mode === 'both' ? (
           <label className="compare-link">
             <input type="checkbox" checked={linked} onChange={(event) => setLinked(event.target.checked)} />
-            Turn both together
+            <Ruby text={c.together} />
           </label>
         ) : null}
       </div>
-      <p className="compare-diff"><strong>Only the wisdom tooth differs.</strong> Impacted: tilted forward against the second molar, roots around the nerve (red). Normal: upright and erupted, in line with the other molars.</p>
+      <p className="compare-diff"><strong><Ruby text={c.diffLead} /></strong> <Ruby text={c.diff} /></p>
       <div className={`compare-stage compare-${mode}`}>
         {(['impacted', 'normal'] as const).map((key) => (
           <figure key={key} className="compare-pane" hidden={mode !== 'both' && mode !== key}>
-            <figcaption><span className={`compare-dot ${key}`} aria-hidden="true" />{key === 'impacted' ? 'Impacted (mesioangular)' : 'Matched normal (erupted)'}</figcaption>
-            {ready ? viewer(key === 'impacted' ? impacted : normal, key === 'impacted' ? setLeft : setRight) : <div className="compare-model compare-loading" role="status">{failed ? 'The 3D viewer could not load. Use the download links below to open the model.' : 'Loading 3D model…'}</div>}
+            <figcaption><span className={`compare-dot ${key}`} aria-hidden="true" /><Ruby text={key === 'impacted' ? c.impactedCaption : c.normalCaption} /></figcaption>
+            {ready ? viewer(key === 'impacted' ? impacted : normal, key === 'impacted' ? setLeft : setRight) : <div className="compare-model compare-loading" role="status"><Ruby text={failed ? c.failed : c.loading} /></div>}
           </figure>
         ))}
       </div>
-      <p className="model-help compare-help">Drag to rotate · Scroll or pinch to zoom · On a phone, tap the AR icon to place the model on a table</p>
+      <p className="model-help compare-help"><Ruby text={c.help} /></p>
     </div>
   );
 }

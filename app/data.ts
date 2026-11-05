@@ -11,6 +11,7 @@ export function footerGroups(t: Dictionary) {
         { label: f.library, href: '/models' },
         { label: f.wisdomTooth, href: '/models/impacted-wisdom-tooth' },
         { label: f.development, href: '/development/' },
+        { label: f.orthognathic, href: '/orthognathic/' },
         { label: t.nav.createInfo, href: '/create' },
       ],
     },
