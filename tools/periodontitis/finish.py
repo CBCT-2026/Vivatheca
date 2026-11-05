@@ -4,7 +4,7 @@ import json, struct, subprocess, sys, zipfile
 from pathlib import Path
 import numpy as np, trimesh
 # Linear RGB. Bone: latest wisdom tooth model. Teeth: #E3DCD3, slightly lighter than bone (Luke, 5 Nov 2026).
-COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.768, 0.716, 0.651, 1], 'lost': [0.80, 0.16, 0.14, 0.35]}
+COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.768, 0.716, 0.651, 1], 'lost': [0.665, 0.0953, 0.0648, 0.35]}  # lost: affected-coral #d55748 (DESIGN.md)
 NAME = {'bone': 'bone', 'teeth': 'teeth', 'lost': 'lost-bone'}
 src, site = Path(sys.argv[1]), Path(sys.argv[2])
 models = site / 'models'; dl = site / 'downloads'; models.mkdir(parents=True, exist_ok=True); dl.mkdir(parents=True, exist_ok=True)
@@ -33,5 +33,5 @@ for f in sorted(src.glob('*.glb')):
         v = g.vertices * 1000; g = trimesh.Trimesh(np.c_[v[:, 0], -v[:, 2], v[:, 1]], g.faces)
         z.writestr(f'{f.stem}-{name}.stl', g.export(file_type='stl'))
         print(f.stem, name, len(g.faces), 'watertight' if g.is_watertight else 'NOT watertight')
-    z.writestr('README.txt', README); z.close()
+    z.writestr('README.txt', f'Model: {f.stem}\n\n' + README); z.close()
     print(f.name, (models / f.name).stat().st_size, (dl / z.filename.split('/')[-1]).stat().st_size)

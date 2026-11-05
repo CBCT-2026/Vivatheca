@@ -20,7 +20,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   .stages button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
   .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
   .stage p { margin: 0 0 6px; } .stage p:last-child { margin: 0; }
-  .dot.teeth { background: #e3dcd3; } .dot.bone { background: #d7cbbb; } .dot.lost { background: #e5918a; }
+  .dot.teeth { background: #e3dcd3; } .dot.bone { background: #d7cbbb; } .dot.lost { background: #d55748; opacity: .6; }
   .review { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
   .review b { color: var(--text); }
   .table-wrap { overflow-x: auto; margin: 8px 0; }
@@ -30,6 +30,12 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   tbody th { font-weight: 600; color: var(--heading); }
   caption { caption-side: bottom; text-align: left; font-size: 13px; color: var(--muted); padding-top: 6px; }
   .download { display: inline-block; margin-top: 4px; }
+  main p, main li, .stage p { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
+  .cite + .cite::before { content: none; } .cite.pair::before { content: ","; }
+  .table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .swipe { display: none; font-size: 13px; color: var(--muted); margin: 0; }
+  @media (max-width: 640px) { .swipe { display: block; } }
+  #lost:disabled { opacity: .5; cursor: default; }
 </style>
 <script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
 </head>
@@ -47,7 +53,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <model-viewer id="mv"
     src="models/healthy.glb"
     alt="3D model of a healthy lower jaw with 14 teeth."
-    camera-controls camera-orbit="-35deg 75deg auto" touch-action="pan-y" interaction-prompt="auto"
+    camera-controls camera-orbit="-35deg 65deg 240mm" camera-target="0mm -12mm 8mm" touch-action="pan-y" interaction-prompt="auto"
     min-camera-orbit="auto auto 40mm" shadow-intensity="1" exposure="1" loading="eager">
     <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
   </model-viewer>
@@ -57,13 +63,13 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <button type="button" data-stage="stage-1" aria-pressed="false">Stage I<small>initial</small></button>
     <button type="button" data-stage="stage-2" aria-pressed="false">Stage II<small>moderate</small></button>
     <button type="button" data-stage="stage-3" aria-pressed="false">Stage III<small>severe</small></button>
-    <button type="button" data-stage="stage-4" aria-pressed="false">Stage IV<small>advanced</small></button>
+    <button type="button" data-stage="stage-4" aria-pressed="false">Stage IV<small>dentition at risk</small></button>
   </div>
   <div class="controls" role="group" aria-label="Model controls">
-    <button type="button" data-orbit="-35deg 75deg auto" aria-pressed="true">Whole jaw</button>
-    <button type="button" data-orbit="-90deg 80deg 95mm" data-target="-24mm -22mm 12mm" aria-pressed="false">Right back teeth</button>
+    <button type="button" data-orbit="-35deg 65deg 240mm" data-target="0mm -12mm 8mm" aria-pressed="true">Whole jaw</button>
+    <button type="button" data-orbit="-80deg 80deg 120mm" data-target="-20mm -22mm 20mm" aria-pressed="false">Right back teeth</button>
     <button type="button" data-orbit="0deg 80deg 90mm" data-target="0mm -24mm 30mm" aria-pressed="false">Front teeth</button>
-    <button type="button" data-orbit="0deg 10deg 120mm" data-target="0mm -20mm 15mm" aria-pressed="false">From above</button>
+    <button type="button" data-orbit="0deg 10deg 200mm" data-target="0mm -20mm 15mm" aria-pressed="false">From above</button>
     <button type="button" id="lost" aria-pressed="true">Show lost bone</button>
   </div>
   <ul class="legend">
@@ -78,24 +84,26 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <section>
     <h2>What periodontitis is</h2>
     <p>Gum disease starts as <b>gingivitis</b>: red, swollen gums that bleed when you brush. Gingivitis can be reversed. If it goes on, it can turn into <b>periodontitis</b>, where the gum attachment and the bone that hold the teeth in place are slowly lost. Teeth can then become loose, move, or need to be removed.<sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></p>
-    <p>Periodontitis cannot be cured, but it can be controlled.<sup class="cite"><a href="#ref-7">7</a></sup> Treatment aims to stop further loss. Lost bone mostly does not grow back, although some deep vertical defects can be partly rebuilt with surgery.<sup class="cite"><a href="#ref-4">4</a></sup> Smoking and poorly controlled diabetes make periodontitis more likely and worse.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></p>
-    <p>Signs include bleeding, red or swollen gums, gums shrinking back, bad breath, a bad taste, tenderness when biting, and loose or moving teeth.<sup class="cite"><a href="#ref-8">8</a></sup> See a dentist if your gums keep bleeding.</p>
+    <p>Periodontitis cannot be cured, but it can be controlled.<sup class="cite"><a href="#ref-7">7</a></sup> Treatment aims to stop further loss. Lost bone mostly does not grow back, although some vertical defects 3 mm or deeper, and some class II furcations in lower molars, can be partly rebuilt with regenerative surgery.<sup class="cite"><a href="#ref-4">4</a></sup> Smoking and poorly controlled diabetes make periodontitis more likely and worse.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></p>
+    <p>Signs include bleeding, red or swollen gums, gums shrinking back, bad breath, a bad taste, tenderness when biting, and loose or moving teeth.<sup class="cite"><a href="#ref-8">8</a></sup> If your gums have not improved or keep bleeding after four weeks, see an oral health professional.<sup class="cite"><a href="#ref-8">8</a></sup></p>
+    <p>Dentists diagnose periodontitis when attachment loss between the teeth is found at 2 or more teeth that are not next to each other, or when attachment loss of 3 mm or more on the cheek or tongue side comes with pockets deeper than 3 mm at 2 or more teeth.<sup class="cite"><a href="#ref-2">2</a></sup></p>
   </section>
 
   <section>
     <h2>How dentists stage periodontitis</h2>
     <p>The current classification comes from the 2017 World Workshop of the American Academy of Periodontology (AAP) and the European Federation of Periodontology (EFP).<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-2">2</a></sup> The <b>stage</b> (I to IV) describes how severe the disease is and how complex it is to manage. The <b>grade</b> (A to C) describes how fast it is getting worse.<sup class="cite"><a href="#ref-1">1</a></sup> The EFP treatment guideline for Stages I to III is built on this system.<sup class="cite"><a href="#ref-4">4</a></sup></p>
-    <div class="table-wrap">
+    <p class="swipe">Swipe the table sideways to see all stages.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Stage criteria table, scrolls sideways">
     <table>
-      <thead><tr><th scope="col"></th><th scope="col">Stage I</th><th scope="col">Stage II</th><th scope="col">Stage III</th><th scope="col">Stage IV</th></tr></thead>
+      <caption>Source: Tonetti, Greenwell and Kornman 2018, Table 2,<sup class="cite"><a href="#ref-1">1</a></sup> as reproduced in the AAP staging and grading chart.<sup class="cite"><a href="#ref-9">9</a></sup> Wording shortened. The stage is set first by attachment loss, or by bone loss on X-ray if attachment loss is not available. Tooth loss and one or more complexity factors can move the stage higher. Stage names: I initial, II moderate, III severe with potential for additional tooth loss, IV severe with potential for loss of the dentition.<sup class="cite"><a href="#ref-2">2</a></sup> A stage is not lowered after successful treatment.<sup class="cite"><a href="#ref-1">1</a></sup></caption>
+      <thead><tr><td></td><th scope="col">Stage I</th><th scope="col">Stage II</th><th scope="col">Stage III</th><th scope="col">Stage IV</th></tr></thead>
       <tbody>
         <tr><th scope="row">Attachment loss between teeth (worst site)</th><td>1–2 mm</td><td>3–4 mm</td><td>≥5 mm</td><td>≥5 mm</td></tr>
-        <tr><th scope="row">Bone loss on X-ray</th><td>Coronal third (&lt;15%)</td><td>Coronal third (15–33%)</td><td>Extending to middle third of root and beyond</td><td>Extending to middle third of root and beyond</td></tr>
+        <tr><th scope="row">Bone loss on X-ray</th><td>Top (coronal) third (&lt;15%)</td><td>Top (coronal) third (15–33%)</td><td>Extending to middle third of root and beyond</td><td>Extending to middle third of root and beyond</td></tr>
         <tr><th scope="row">Teeth lost because of periodontitis</th><td colspan="2">No tooth loss</td><td>≤4 teeth</td><td>≥5 teeth</td></tr>
         <tr><th scope="row">Complexity</th><td>Max. pocket depth ≤4 mm; mostly horizontal bone loss</td><td>Max. pocket depth ≤5 mm; mostly horizontal bone loss</td><td>In addition to Stage II: pocket depth ≥6 mm; vertical bone loss ≥3 mm; furcation involvement class II or III; moderate ridge defect</td><td>In addition to Stage III: need for complex rehabilitation due to chewing dysfunction, secondary occlusal trauma (tooth mobility degree ≥2), severe ridge defect, bite collapse, drifting, flaring; &lt;20 remaining teeth (10 opposing pairs)</td></tr>
         <tr><th scope="row">Extent</th><td colspan="4">Added to each stage: localised (&lt;30% of teeth), generalised, or molar/incisor pattern</td></tr>
       </tbody>
-      <caption>Source: Tonetti, Greenwell and Kornman 2018, Table 2,<sup class="cite"><a href="#ref-1">1</a></sup> as reproduced in the AAP staging and grading chart.<sup class="cite"><a href="#ref-9">9</a></sup> Wording shortened. The stage is set first by attachment loss, or by bone loss on X-ray if attachment loss is not available. Tooth loss and one or more complexity factors can move the stage higher.</caption>
     </table>
     </div>
     <p class="small">The models show bone only, so they show the <b>bone loss</b> row. Attachment loss and pocket depth are measured on the gum with a probe, and the gum is not modelled.</p>
@@ -104,9 +112,11 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <section>
     <h2>Grades A to C: how fast it is progressing</h2>
     <p>Two people can have the same stage, but one may have got there over 40 years and the other over 10. The grade describes this rate, and the risk that the disease will keep getting worse or respond less well to treatment.<sup class="cite"><a href="#ref-1">1</a></sup> A grade cannot be seen in a single model, because it depends on age, history and risk factors, so there are no separate grade models.</p>
-    <div class="table-wrap">
+    <p class="swipe">Swipe the table sideways to see all grades.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Grade criteria table, scrolls sideways">
     <table>
-      <thead><tr><th scope="col"></th><th scope="col">Grade A: slow</th><th scope="col">Grade B: moderate</th><th scope="col">Grade C: rapid</th></tr></thead>
+      <caption>Source: Tonetti, Greenwell and Kornman 2018, Table 3,<sup class="cite"><a href="#ref-1">1</a></sup> as reproduced in the AAP chart.<sup class="cite"><a href="#ref-9">9</a></sup> Wording shortened. Direct evidence is used when it is available. Clinicians start by assuming Grade B and look for evidence to move to A or C. Smoking and diabetes can move the grade up.</caption>
+      <thead><tr><td></td><th scope="col">Grade A: slow</th><th scope="col">Grade B: moderate</th><th scope="col">Grade C: rapid</th></tr></thead>
       <tbody>
         <tr><th scope="row">Direct evidence: bone or attachment loss over 5 years</th><td>No loss</td><td>&lt;2 mm</td><td>≥2 mm</td></tr>
         <tr><th scope="row">Indirect evidence: % bone loss ÷ age</th><td>&lt;0.25</td><td>0.25 to 1.0</td><td>&gt;1.0</td></tr>
@@ -114,11 +124,10 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
         <tr><th scope="row">Grade modifier: smoking</th><td>Non-smoker</td><td>&lt;10 cigarettes a day</td><td>≥10 cigarettes a day</td></tr>
         <tr><th scope="row">Grade modifier: diabetes</th><td>Normal blood sugar, no diabetes</td><td>HbA1c &lt;7.0% with diabetes</td><td>HbA1c ≥7.0% with diabetes</td></tr>
       </tbody>
-      <caption>Source: Tonetti, Greenwell and Kornman 2018, Table 3,<sup class="cite"><a href="#ref-1">1</a></sup> as reproduced in the AAP chart.<sup class="cite"><a href="#ref-9">9</a></sup> Wording shortened. Direct evidence is used when it is available. Clinicians start by assuming Grade B and look for evidence to move to A or C.</caption>
     </table>
     </div>
     <h3>Worked examples (bone loss ÷ age)</h3>
-    <p>The ratio uses the bone loss at the worst-affected tooth, as a percentage of root length, divided by age in years.<sup class="cite"><a href="#ref-1">1</a></sup> Using the bone loss built into these models:</p>
+    <p>The ratio uses the bone loss at the worst-affected tooth, as a percentage of root length, divided by age in years.<sup class="cite"><a href="#ref-1">1</a></sup> Using the bone loss built into these models (measured from the normal crest level, so measuring from the CEJ would give somewhat higher numbers):</p>
     <ul>
       <li>The <b>Stage III</b> model (40% bone loss) in a 30-year-old: 40 ÷ 30 = 1.33, more than 1.0, so <b>Grade C</b>.</li>
       <li>The same Stage III model in a 60-year-old: 40 ÷ 60 = 0.67, so <b>Grade B</b>.</li>
@@ -129,8 +138,8 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 
   <section>
     <h2>How the models were made</h2>
-    <p>All five models start from the same adult lower jaw and 14 teeth (no wisdom teeth) from Z-Anatomy. For each tooth, the CEJ was placed using typical crown and root lengths for lower teeth.<sup class="cite"><a href="#ref-6">6</a></sup> In the healthy model the bone crest sits 1.5 mm below the CEJ,<sup class="cite"><a href="#ref-5">5</a></sup> higher between the teeth where the CEJ curves up.<sup class="cite"><a href="#ref-6">6</a></sup> For each stage, the bone was lowered by a set percentage of root length (Stage I 10%, II 25%, III 40%, IV 60%), chosen to sit inside each stage's bone loss band.<sup class="cite"><a href="#ref-1">1</a></sup> Stages III and IV add the complexity features listed under each stage.</p>
-    <p class="small">Simplifications: bone loss is mostly even around the whole jaw (generalised); real periodontitis is often uneven. The gum, root surfaces and tooth movement other than one tipped molar are not modelled. Percentages are measured along the vertical, not the tooth's own long axis.</p>
+    <p>All five models start from the same adult lower jaw and 14 teeth (no wisdom teeth) from Z-Anatomy.<sup class="cite"><a href="#ref-12">12</a></sup> For each tooth, the cemento-enamel junction (CEJ, where the enamel of the crown ends) was placed using typical crown and root lengths for lower teeth.<sup class="cite"><a href="#ref-6">6</a></sup> In the healthy model the bone crest sits 1.5 mm below the CEJ,<sup class="cite"><a href="#ref-5">5</a></sup> higher between the teeth where the CEJ curves up.<sup class="cite"><a href="#ref-6">6</a></sup> For each stage, the bone was lowered by a set percentage of root length (Stage I 10%, II 25% with 15% at the molars, III 40%, IV 60%), measured from the normal crest level (1.5 mm below the CEJ) to the root tip, not from the CEJ. The values were chosen to sit inside each stage's bone loss band.<sup class="cite"><a href="#ref-1">1</a></sup> Measured from the CEJ instead, the same models read up to about 10 percentage points higher (most for Stage I), which puts the Stage I model near the top of its band. The reference point here is our own choice, not taken from a source, so treat the percentages as approximate. Stages III and IV add the complexity features listed under each stage.</p>
+    <p class="small">Simplifications: bone loss is mostly even around the whole jaw (generalised); real periodontitis is often uneven, and craters between the teeth, common at molars, are not shown. The gum, root surfaces and tooth movement other than one tipped molar are not modelled. Percentages are measured along the vertical, not the tooth's own long axis.</p>
   </section>
 
   <section>
@@ -159,6 +168,9 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
       <li id="ref-7">Healthdirect Australia (Australian Government). Gum disease. Last reviewed February 2025. <a href="https://www.healthdirect.gov.au/gum-disease">healthdirect.gov.au/gum-disease</a></li>
       <li id="ref-8">Better Health Channel, Department of Health, Victoria. Gum disease. Reviewed 1 August 2025. <a href="https://www.betterhealth.vic.gov.au/health/conditionsandtreatments/gum-disease">betterhealth.vic.gov.au</a></li>
       <li id="ref-9">American Academy of Periodontology. Staging and grading periodontitis (chart of Tables 2 and 3 from source 1). <a href="https://www.perio.org/wp-content/uploads/2019/08/Staging-and-Grading-Periodontitis.pdf">perio.org</a></li>
+      <li id="ref-10">Hamp SE, Nyman S, Lindhe J. Periodontal treatment of multirooted teeth: results after 5 years. J Clin Periodontol. 1975;2(3):126-135. <a href="https://doi.org/10.1111/j.1600-051x.1975.tb01734.x">doi.org/10.1111/j.1600-051x.1975.tb01734.x</a></li>
+      <li id="ref-11">Tonetti MS, Sanz M. Implementation of the new classification of periodontal diseases: decision-making algorithms for clinical practice and education. J Clin Periodontol. 2019;46(4):398-405. <a href="https://doi.org/10.1111/jcpe.13104">doi.org/10.1111/jcpe.13104</a></li>
+      <li id="ref-12">Z-Anatomy: the libre 3D atlas of anatomy (Gauthier G), CC BY-SA 4.0, <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">github.com/Z-Anatomy</a>; based on BodyParts3D, The Database Center for Life Science, CC BY-SA 2.1 Japan.</li>
     </ol>
   </details>
   </section>

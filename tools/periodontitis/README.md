@@ -13,7 +13,7 @@ Needs Python 3.11+ with `trimesh`, `scipy`, `scikit-image`, `rtree`, and `npx` (
 ## Method
 - CEJ per tooth: cusp tip minus Wheeler's crown length for that tooth, scaled to the Z-Anatomy tooth's length (Nelson 2020).
 - Healthy bone crest: 1.5 mm below the CEJ (Hausmann 1991: 0.4 to 1.9 mm in health), raised between teeth by Wheeler's CEJ curvature (incisors 2-3 mm, canine 1-2.5 mm, back teeth 0-1 mm). The crest is smoothed (1.5 mm) so neighbouring teeth join without steps, and rises away from the teeth so the jaw body and ramus are not cut.
-- Each stage lowers the crest by a percentage of root length measured from the healthy crest: I 10%, II 25%, III 40%, IV 60% (inside the bone loss bands of Tonetti 2018 Table 2: <15%, 15-33%, middle third and beyond).
+- Each stage lowers the crest by a percentage of root length measured from the healthy crest (not the CEJ): I 10%, II 25% (molars 15%, so furcations stay closed), III 40%, IV 60% (inside the bone loss bands of Tonetti 2018 Table 2: <15%, 15-33%, middle third and beyond).
 - Stage III adds two vertical defects (4 mm and 3.5 mm extra, about 2 mm wide) and opens the molar furcations through the 40% loss.
 - Stage IV removes 36, 37, 46 and 41 (healed and lowered ridge), tips 47 forward by 15 degrees and adds two vertical defects.
 - Lost bone = healthy bone minus stage bone (not counting the teeth), shown see-through red.
@@ -22,7 +22,7 @@ Needs Python 3.11+ with `trimesh`, `scipy`, `scikit-image`, `rtree`, and `npx` (
 Bone only: gum, attachment loss and probing depths are not modelled. Bone loss is generalised and even; real disease is uneven. Percentages are measured vertically. Print STLs are simplified and the bone may need a repair pass in the slicer.
 
 ## Colours
-Bone: linear (0.6724, 0.5972, 0.4969), roughness 0.7, as the latest wisdom tooth model. Teeth: #E3DCD3, linear (0.768, 0.716, 0.651), slightly lighter than bone. Lost bone: linear (0.80, 0.16, 0.14), 35% opacity.
+Bone: linear (0.6724, 0.5972, 0.4969), roughness 0.7, as the latest wisdom tooth model. Teeth: #E3DCD3, linear (0.768, 0.716, 0.651), slightly lighter than bone. Lost bone: affected-coral #d55748 from DESIGN.md, linear (0.665, 0.095, 0.065), 35% opacity.
 
 ## Licence
 Derived from Z-Anatomy (CC BY-SA 4.0), which uses BodyParts3D (CC BY-SA 2.1 Japan). The models are CC BY-SA 4.0.
