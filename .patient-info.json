@@ -1,1 +1,44 @@
-{ "files": [{ "glob": "public/development/index.html", "lang": "en" }], "ignore_selectors": ["sup.cite", ".credit", ".refs", ".small"], "address_reader": "you" }
+{
+  "files": [
+    {
+      "glob": ".pitk/*.en.html",
+      "lang": "en"
+    },
+    {
+      "glob": ".pitk/*.ja.html",
+      "lang": "ja"
+    }
+  ],
+  "ignore_selectors": [
+    "sup.cite",
+    "rt",
+    "rp",
+    ".credit",
+    ".refs",
+    ".small",
+    ".clin",
+    ".status",
+    ".review",
+    ".disclaimer",
+    ".pitk-skip"
+  ],
+  "ignore_sections": [
+    "^Sources$",
+    "^出典$",
+    "^For clinicians",
+    "^医療者向け",
+    "^About th(is|ese) models?$",
+    "^3D printing$",
+    "^3Dプリント"
+  ],
+  "address_reader": "you",
+  "ja_address_reader": "omit",
+  "ja_kanji": "jouyou",
+  "jargon_allow": [
+    "上顎洞",
+    "上顎",
+    "II",
+    "III",
+    "IV"
+  ]
+}

@@ -187,7 +187,7 @@ const en = {
       {
         label: 'Start here',
         title: 'The wisdom tooth is stuck under the gum',
-        text: 'This model shows a lower left wisdom tooth that is tilted forward and has not come through.',
+        text: 'This model shows a lower left wisdom tooth. It leans forward and has not come through the gum.',
         clinical: 'The model depicts a mesioangularly impacted left mandibular third molar (Winter classification) against the distal surface of the second molar. It is one illustrative position, not a typical or most common case.',
       },
       {
@@ -198,8 +198,8 @@ const en = {
       },
       {
         label: 'Discuss next steps',
-        title: 'Use the model as a conversation aid',
-        text: 'A clinician can connect this view to symptoms, imaging and treatment options for an individual patient.',
+        title: 'Use the model to talk it through',
+        text: 'Your dentist can use this model to show you what your X-rays mean and what your choices are.',
         clinical: 'Use this visualisation alongside clinical findings and imaging. It is an educational aid, not a diagnostic record or treatment recommendation.',
       },
     ],

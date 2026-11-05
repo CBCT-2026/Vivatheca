@@ -77,6 +77,18 @@ This is a standing project rule. It applies to every page, model, download, text
 - If no good source can be found, remove the claim or label it clearly as unverified. Do not invent or guess references; check each one (for example on PubMed) before citing it.
 - Operational or organisational statements (what Vivatheca plans or offers) are not health claims, but must not imply evidence or verification that does not exist.
 
+## Patient education text (required)
+
+This is a standing project rule. Every text-based patient education material on Vivatheca (model pages, stage captions, tours, leaflets, builder drafts and exports, in every language) must follow the [patient-education-toolkit](https://github.com/CBCT-2026/patient-education-toolkit) (`pitk`) rules and pass its checker with no errors.
+
+- Run `node tools/patient-text/snapshot.mjs` then `pitk check` (or `pnpm check:patient-text`) before submitting any change to patient-facing text. CI (`.github/workflows/patient-text.yml`) runs the same check on every pull request. Setup and what is left out: `tools/patient-text/README.md`.
+- New static pages under `public/` are found automatically. New patient-facing app text must be added to `tools/patient-text/snapshot.mjs`.
+- Write for patients: speak to the reader ("you"), short sentences (20 words or fewer; Japanese 50 characters or fewer), active voice, plain words first with the medical name in brackets ("the big upper back tooth (first molar)"), risks as "X in 100" with the same denominator. Japanese uses やさしい日本語 with furigana, jouyou kanji only.
+- Put technical detail for clinicians in a closed `<details class="clin">` or a section headed "For clinicians"; the checker leaves those out. Do not hide patient text from the checker with `.small` or `.pitk-skip`.
+- Plain-language rewrites must keep every citation and must not change what the source says. The evidence, disclaimer and language rules still apply; the disclaimer wording stays verbatim.
+- The `/create` builder applies the same rules in the browser (`app/create/checker.ts`, `briefs.ts`). When the toolkit changes, update the port, the pinned commit in the workflow, and this section.
+- For judgement the checker cannot make (PEMAT, CDC Clear Communication Index, risk wording), use the toolkit's skills, and test materials with people from the audience.
+
 ## Disclaimer (required everywhere)
 
 `app/disclaimer-text.ts` is the single source of the disclaimer wording; `/disclaimer` (`app/disclaimer/page.tsx`) shows the full version. Every page must show `siteDisclaimer` (the footer does this) or a link to `/disclaimer`. Every model viewer, model page and download must show its review status, `modelDisclaimer` and a link to `/disclaimer`. Static pages under `public/` copy the model wording verbatim. Generated or exported materials keep the AI and DRAFT notices. Never describe a model as suitable for diagnosis, treatment planning, surgical guides or use in or on the body. Translations of the disclaimer must be reviewed by a fluent speaker before release.
