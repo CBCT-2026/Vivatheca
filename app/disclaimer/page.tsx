@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CompactFooter } from '../contact-section';
 import Link from 'next/link';
 import { ThemeToggle } from '../ui';
 import { format } from '../i18n/dictionaries';
@@ -42,6 +43,7 @@ export default async function DisclaimerPage() {
           </section>
         ))}
       </main>
+      <CompactFooter t={t} />
     </>
   );
 }

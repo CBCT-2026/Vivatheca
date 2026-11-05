@@ -1,4 +1,5 @@
 import type { Dictionary } from './i18n/dictionaries';
+import { mailto } from './contact';
 
 // Links and icons stay here; their words come from the dictionary for the visitor's language.
 
@@ -17,17 +18,17 @@ export function footerGroups(t: Dictionary) {
     {
       label: f.participate.label,
       links: [
-        { label: f.participate.contribute, href: 'mailto:hello@vivatheca.com?subject=Contribute%20a%20model' },
-        { label: f.participate.review, href: 'mailto:hello@vivatheca.com?subject=Join%20clinical%20review' },
+        { label: f.participate.contribute, href: mailto('Contribute a model') },
+        { label: f.participate.review, href: mailto('Join clinical review') },
         { label: f.participate.sponsor, href: '#sponsor' },
       ],
     },
     {
       label: f.connect.label,
       links: [
-        { label: f.connect.partnerships, href: 'mailto:hello@vivatheca.com?subject=Institutional%20partnership' },
-        { label: f.connect.contact, href: 'mailto:hello@vivatheca.com' },
-        { label: f.connect.accessibility, href: 'mailto:hello@vivatheca.com?subject=Accessibility%20feedback' },
+        { label: f.connect.partnerships, href: mailto('Institutional partnership') },
+        { label: f.connect.contact, href: mailto() },
+        { label: f.connect.accessibility, href: mailto('Accessibility feedback') },
       ],
     },
   ];
@@ -81,7 +82,7 @@ export function publications(t: Dictionary) {
 export function contributionPaths(t: Dictionary) {
   const c = t.contribute;
   return [
-    { icon: '3d_rotation', ...c.submit, href: 'mailto:hello@vivatheca.com?subject=Submit%20a%20model' },
-    { icon: 'health_and_safety', ...c.review, href: 'mailto:hello@vivatheca.com?subject=Review%20clinical%20accuracy' },
+    { icon: '3d_rotation', ...c.submit, href: mailto('Submit a model') },
+    { icon: 'health_and_safety', ...c.review, href: mailto('Review clinical accuracy') },
   ];
 }
