@@ -88,6 +88,11 @@ export default async function Home() {
             <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.collection.label} /></div>
           </div>
           <ModelExperience />
+          <div className="prototype-links">
+            <h3><Ruby text={t.collection.moreHeading} /></h3>
+            <a className="text-link" href="/head-neck/"><Ruby text={t.collection.moreHeadNeck} /> <Icon name="arrow_forward" /></a>
+            <Link className="text-link" href="/models"><Ruby text={t.collection.allModels} /> <Icon name="arrow_forward" /></Link>
+          </div>
         </section>
 
         <section className="understanding-section" id="how-it-works">

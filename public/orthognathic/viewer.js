@@ -14,17 +14,17 @@ const STATES = {
   'class2-after': {
     title: 'Class II, after surgery: lower jaw moved forward',
     alt: '3D model of a skull after a bilateral sagittal split osteotomy: the front part of the lower jaw has been moved forward and held with a titanium plate on each side.',
-    text: 'A <b>bilateral sagittal split osteotomy</b> (BSSO) splits each side of the lower jaw lengthwise. The part with the teeth slides 6 mm forward, so the teeth meet as in the normal model. A small titanium plate on each side holds the pieces while the bone heals. Red shows cut bone.',
+    text: 'A <b>lower jaw split</b> (BSSO) splits each side of the lower jaw along its length. The part with the teeth slides 6 mm forward, so the teeth meet as in the normal model. A small titanium plate on each side holds the pieces while the bone heals. Red shows cut bone.',
   },
   'class3-before': {
     title: 'Class III, before surgery: upper jaw back, lower jaw forward',
     alt: '3D model of a skull with a Class III bite: the lower front teeth sit in front of the upper front teeth. The mouth is shown slightly open.',
-    text: 'The upper jaw sits 3 mm back and the tooth-bearing part of the lower jaw 5 mm forward. The lower front teeth are in front of the upper front teeth (a reverse bite). The mouth is shown slightly open so the teeth do not pass through each other in the model.',
+    text: 'The upper jaw sits 3 mm back and the tooth-bearing part of the lower jaw 5 mm forward. The lower front teeth are in front of the upper front teeth (a reverse bite). We show the mouth slightly open so the teeth do not pass through each other in the model.',
   },
   'class3-after': {
     title: 'Class III, after surgery: both jaws moved',
     alt: '3D model of a skull after a Le Fort I osteotomy and a bilateral sagittal split osteotomy, with titanium plates on the upper and lower jaw.',
-    text: 'Two operations at once (<b>bimaxillary surgery</b>). A <b>Le Fort I osteotomy</b> cuts the upper jaw above the tooth roots and moves it 3 mm forward. A <b>BSSO</b> moves the lower teeth 5 mm back. Four plates hold the upper jaw and one plate on each side holds the lower jaw. Red shows cut bone.',
+    text: 'The surgeon operates on both jaws at once. An <b>upper jaw cut</b> (Le Fort I) above the tooth roots lets the upper jaw move 3 mm forward. A <b>lower jaw split</b> (BSSO) moves the lower teeth 5 mm back. Four plates hold the upper jaw and one plate on each side holds the lower jaw. Red shows cut bone.',
   },
 };
 

@@ -203,6 +203,9 @@ const en = {
     text: 'Rotate the impacted wisdom tooth, follow a short tour and switch between plain language and clinician detail.',
     compare: 'Compare it with the matched normal',
     label: 'Interactive model',
+    moreHeading: 'Prototype models',
+    moreHeadNeck: 'Jaw and palate surgery: what is removed, and why it differs by disease (6 cases)',
+    allModels: 'See every model in the library',
   },
   understanding: {
     heading: 'One model. More ways to understand.',
@@ -361,7 +364,7 @@ const en = {
       {
         label: 'Start here',
         title: 'The wisdom tooth is stuck under the gum',
-        text: 'This model shows a lower left wisdom tooth that is tilted forward and has not come through.',
+        text: 'This model shows a lower left wisdom tooth. It leans forward and has not come through the gum.',
         clinical: 'The model depicts a mesioangularly impacted left mandibular third molar (Winter classification) against the distal surface of the second molar. It is one illustrative position, not a typical or most common case.',
       },
       {
@@ -372,8 +375,8 @@ const en = {
       },
       {
         label: 'Discuss next steps',
-        title: 'Use the model as a conversation aid',
-        text: 'A clinician can connect this view to symptoms, imaging and treatment options for an individual patient.',
+        title: 'Use the model to talk it through',
+        text: 'Your dentist can use this model to show you what your X-rays mean and what your choices are.',
         clinical: 'Use this visualisation alongside clinical findings and imaging. It is an educational aid, not a diagnostic record or treatment recommendation.',
       },
     ],
@@ -555,6 +558,24 @@ const en = {
         specialty: 'Oral and maxillofacial surgery',
         summary: 'Oroantral communication and fistula, how they are closed, and the normal sinus floor above an upper molar. Pictured: normal (left) and an opening after extraction (right).',
         pairing: 'Condition + matched normal',
+      },
+      'cracked-tooth': {
+        title: 'Cracked tooth: filling or crown',
+        specialty: 'Restorative dentistry and prosthodontics',
+        summary: 'A healthy and a cracked molar under biting force, and how a filling or a crown holds the crack together. Pictured: healthy (left) and cracked (right), cut open.',
+        pairing: 'Condition + healthy normal + treatments',
+      },
+      'stainless-steel-crown': {
+        title: 'Stainless steel crown on a baby molar',
+        specialty: 'Paediatric dentistry',
+        summary: 'Five stages from a healthy baby molar through decay and tooth preparation to a fitted stainless steel crown. Pictured: decay (left) and the crown (right).',
+        pairing: 'Healthy normal + treatment stages',
+      },
+      'head-neck': {
+        title: 'Jaw and palate surgery: what is removed and why',
+        specialty: 'Oral and maxillofacial surgery (head and neck)',
+        summary: 'Six tumour cases in the jaw and palate, showing how much is removed for each disease and how the jaw is rebuilt. Pictured: ameloblastoma (left) and squamous cell carcinoma (right).',
+        pairing: 'Six conditions',
       },
       orthognathic: {
         title: 'Jaw surgery to correct the bite',

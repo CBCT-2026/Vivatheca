@@ -13,6 +13,7 @@ const eslintConfig = defineConfig([
     '.agents/**',
     '.impeccable/**',
     'next-env.d.ts',
+    'public/**/vendor/**',
   ]),
 ]);
 

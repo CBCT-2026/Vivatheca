@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jaw and palate surgery: what is removed and why | Vivatheca</title>
+<meta name="description" content="Interactive 3D cases showing how much bone, teeth and lining are removed for six jaw and palate diseases, and how the gap is closed. Every cut is based on published guidance.">
+<meta name="robots" content="noindex">
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+</script>
+<link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>
+    <a class="lang" href="/models" data-i18n="allModels">All models</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+
+<main>
+  <h1 data-i18n="h1">Jaw and palate surgery: what is removed, and why it differs by disease</h1>
+  <p class="lede" data-i18n="lede">Six life-size cases on the same adult jaw: three in the lower jaw and three on the palate. Each one shows the disease, the safety margin, what the surgeon removes (bone, teeth and lining), the gap left behind and how the gap is closed.</p>
+  <div class="note"><p data-i18n="viewOnly"><b>3D viewing only for now.</b> Print files are planned once the models are finalised, but they are not available yet.</p></div>
+
+  <p class="group-label" data-i18n="groupLower">Lower jaw</p>
+  <div class="cases" role="group" aria-label="Lower jaw cases" data-i18n-aria="groupLower">
+    <button type="button" data-case="scc" aria-pressed="true" data-i18n="c_scc">Squamous cell carcinoma</button>
+    <button type="button" data-case="ameloblastoma" aria-pressed="false" data-i18n="c_ameloblastoma">Ameloblastoma</button>
+    <button type="button" data-case="okc" aria-pressed="false" data-i18n="c_okc">Odontogenic keratocyst</button>
+  </div>
+  <p class="group-label" data-i18n="groupPalate">Palate</p>
+  <div class="cases" role="group" aria-label="Palate cases" data-i18n-aria="groupPalate">
+    <button type="button" data-case="pa" aria-pressed="false" data-i18n="c_pa">Pleomorphic adenoma</button>
+    <button type="button" data-case="mec" aria-pressed="false" data-i18n="c_mec">Mucoepidermoid carcinoma</button>
+    <button type="button" data-case="acc" aria-pressed="false" data-i18n="c_acc">Adenoid cystic carcinoma</button>
+  </div>
+
+  <div class="viewer" id="viewer">
+    <div class="problem" id="status" data-i18n="loading">Loading model…</div>
+    <ul class="vlegend" id="legend" aria-live="polite"></ul>
+    <span class="hint" data-i18n="hint">Drag to rotate · pinch or scroll to zoom</span>
+  </div>
+
+  <div class="row stages" role="group" aria-label="Stage" data-i18n-aria="stage">
+    <button type="button" data-stage="pre" aria-pressed="true" data-i18n="s_pre">1 · Before surgery</button>
+    <button type="button" data-stage="op" aria-pressed="false" data-i18n="s_op">2 · What is removed</button>
+    <button type="button" data-stage="post" aria-pressed="false" data-i18n="s_post">3 · Gap left behind</button>
+    <button type="button" data-stage="recon" aria-pressed="false" id="btn-recon" data-i18n="s_recon">4 · Closing the gap</button>
+  </div>
+  <div class="row toggles">
+    <button type="button" id="btn-margin" aria-pressed="false" data-i18n="t_margin">Safety margin</button>
+    <button type="button" id="btn-xray" aria-pressed="false" data-i18n="t_xray">See-through bone</button>
+  </div>
+  <div class="row views" role="group" aria-label="View" data-i18n-aria="view">
+    <button type="button" data-view="front" data-i18n="v_front">Front</button>
+    <button type="button" data-view="side" data-i18n="v_side">Right side</button>
+    <button type="button" data-view="under" data-i18n="v_under">From below</button>
+    <button type="button" data-view="above" data-i18n="v_above">From above</button>
+  </div>
+
+  <section class="case-info" id="info" aria-live="polite"></section>
+
+  <section>
+    <h2 data-i18n="rulesH">Rules used for every case</h2>
+    <ul>
+      <li data-i18n="rule1">No tooth that stays in the mouth is cut. Each bone cut runs through the socket of a tooth that is taken out at the operation. Teeth inside the removed block come out with the bone.<sup class="cite"><a href="#ref-2">2</a></sup></li>
+      <li data-i18n="rule2">Margins are measured, not drawn: each cut was moved until the distance from the disease to the cut reached the target in the cited guidance.</li>
+      <li data-i18n="rule3">Teeth next to a bone cut are kept but can lose their nerve supply, so they are checked afterwards.<sup class="cite"><a href="#ref-5">5</a></sup></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-i18n="compareH">The six cases side by side</h2>
+    <div class="tablewrap"><table>
+      <thead data-i18n="thead"><tr><th>Disease</th><th>Operation shown</th><th>Margin in the model</th><th>Teeth removed</th><th>Lining removed</th><th>Gap closed by</th></tr></thead>
+      <tbody data-i18n="tbody">
+        <tr><td>Squamous cell carcinoma (cancer)</td><td>Segmental mandibulectomy</td><td>At least 10 mm of bone</td><td>44–47 with the bone; 43 at the cut</td><td>Gum and lining 1–1.5 cm around the tumour</td><td>Fibula flap (shown)</td></tr>
+        <tr><td>Ameloblastoma (benign but invasive)</td><td>Segmental resection</td><td>At least 15 mm of bone</td><td>44–47 with the bone; 43 at the cut</td><td>Gum over the tumour</td><td>Fibula flap (shown)</td></tr>
+        <tr><td>Odontogenic keratocyst (cyst)</td><td>Enucleation and peripheral ostectomy</td><td>1.5 mm of bone shaved</td><td>None (47 kept and checked)</td><td>Only where the cyst breaks through</td><td>Heals on its own</td></tr>
+        <tr><td>Pleomorphic adenoma (benign)</td><td>Wide local excision</td><td>Cuff of normal lining plus periosteum</td><td>None</td><td>Palate lining and periosteum</td><td>Heals, or a local flap</td></tr>
+        <tr><td>Mucoepidermoid carcinoma</td><td>Low (infrastructure) maxillectomy</td><td>At least 10 mm</td><td>15–17 with the bone; 14 at the cut</td><td>Palate, gum and sinus floor</td><td>Obturator (shown) or flap</td></tr>
+        <tr><td>Adenoid cystic carcinoma</td><td>Maxillectomy with the pterygoid plates</td><td>At least 10 mm; 20 mm upwards along the nerve</td><td>16–17 with the bone; 15 at the cut</td><td>Palate, gum and sinus floor</td><td>Free flap (shown) or obturator</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="disclaimer">
+    <h2 data-i18n="aboutH">About these models</h2>
+    <p data-i18n="about1"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small" data-i18n="about2">Prototype. The diseases are simple shapes sized from the cited case series. Gum, palate lining and muscle are not modelled except where they are removed. The neck is not shown, although neck surgery is often part of cancer treatment. The skull model has no wisdom teeth. Where guidance gives no number, our modelling choice is stated in the case notes.</p>
+    <p class="small credit" data-i18n="credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: remeshed, cut, diseases and prostheses added, recoloured. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. 3D viewer: three.js (MIT licence). Font: Manrope (SIL Open Font Licence).</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2 data-i18n="sourcesH">Sources</h2></summary>
+    <ol id="refs"></ol>
+  </details>
+  </section>
+
+  <p class="small" data-i18n="version">Version 0.2, 5 November 2026.</p>
+</main>
+<script src="i18n.js"></script>
+<script src="theme.js"></script>
+<script src="vendor/three/three.min.js"></script>
+<script src="vendor/three/GLTFLoader.js"></script>
+<script src="vendor/three/OrbitControls.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>

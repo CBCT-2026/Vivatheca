@@ -52,7 +52,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 </header>
 
 <main>
-  <h1><span lang="en">Removing an upper back tooth: when an opening into the sinus forms (OAC and OAF)</span><span lang="ja">{上|うえ}の{奥歯|おくば}の{抜歯|ばっし}で{上顎洞|じょうがくどう}に{穴|あな}があくとき（{口腔上顎洞|こうくうじょうがくどう}{交通|こうつう}と{口腔上顎洞瘻|こうくうじょうがくどうろう}）</span></h1>
+  <h1><span lang="en">Removing an upper back tooth: when an opening into the sinus forms (OAC and OAF)</span><span lang="ja">{上|うえ}の{奥歯|おくば}を{抜|ぬ}いて{上顎洞|じょうがくどう}に{穴|あな}があくとき（OACとOAF）</span></h1>
 
   <model-viewer id="mv"
     src="models/normal.glb"
@@ -62,23 +62,23 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
   </model-viewer>
 
-  <p class="stages-head"><span lang="en">Before and after the tooth is removed</span><span lang="ja">{抜歯|ばっし}の{前|まえ}と{後|あと}</span></p>
+  <p class="stages-head"><span lang="en">Before and after the dentist takes out the tooth</span><span lang="ja">{歯|は}を{抜|ぬ}く{前|まえ}と{後|あと}</span></p>
   <div class="stages" role="group" aria-label="Choose a stage">
     <button type="button" data-stage="normal" aria-pressed="true"><span lang="en">1 Normal</span><span lang="ja">1 {正常|せいじょう}</span><small lang="en">for comparison</small><small lang="ja">{比較用|ひかくよう}</small></button>
     <button type="button" data-stage="risk" aria-pressed="false"><span lang="en">2 At risk</span><span lang="ja">2 {要注意|ようちゅうい}</span><small lang="en">roots in sinus</small><small lang="ja">{根|ね}が{洞内|どうない}に</small></button>
     <button type="button" data-stage="oac" aria-pressed="false"><span lang="en">3 OAC</span><span lang="ja">3 {交通|こうつう}</span><small lang="en">new opening</small><small lang="ja">{新|あたら}しい{穴|あな}</small></button>
-    <button type="button" data-stage="oaf" aria-pressed="false"><span lang="en">4 OAF</span><span lang="ja">4 {瘻孔|ろうこう}</span><small lang="en">lined tunnel</small><small lang="ja">{上皮|じょうひ}のトンネル</small></button>
+    <button type="button" data-stage="oaf" aria-pressed="false"><span lang="en">4 OAF</span><span lang="ja">4 トンネル</span><small lang="en">lined tunnel</small><small lang="ja">{上皮|じょうひ}のトンネル</small></button>
   </div>
   <p class="stages-head"><span lang="en">Ways to close the opening</span><span lang="ja">{穴|あな}を{閉|と}じる{方法|ほうほう}</span></p>
   <div class="stages" role="group" aria-label="Choose a repair">
     <button type="button" data-stage="clot" aria-pressed="false"><span lang="en">Blood clot</span><span lang="ja">{血餅|けっぺい}</span><small lang="en">small opening</small><small lang="ja">{小|ちい}さい{穴|あな}</small></button>
-    <button type="button" data-stage="flap" aria-pressed="false"><span lang="en">Cheek flap</span><span lang="ja">{頬側弁|きょうそくべん}</span><small lang="en">buccal flap</small><small lang="ja">{歯肉|しにく}を{移動|いどう}</small></button>
-    <button type="button" data-stage="bfp" aria-pressed="false"><span lang="en">Fat pad</span><span lang="ja">{頬脂肪体|きょうしぼうたい}</span><small lang="en">buccal fat pad</small><small lang="ja">{頬|ほお}の{脂肪|しぼう}</small></button>
+    <button type="button" data-stage="flap" aria-pressed="false"><span lang="en">Cheek flap</span><span lang="ja">ほお{側|がわ}の{弁|べん}</span><small lang="en">buccal flap</small><small lang="ja">{歯|は}ぐきを{移動|いどう}</small></button>
+    <button type="button" data-stage="bfp" aria-pressed="false"><span lang="en">Fat pad</span><span lang="ja">ほおの{脂肪|しぼう}のかたまり</span><small lang="en">buccal fat pad</small><small lang="ja">ほおの{脂肪|しぼう}</small></button>
   </div>
 
   <div class="controls" role="group" aria-label="Model controls">
     <button type="button" data-orbit="0deg 85deg auto" aria-pressed="true"><span lang="en">Cut face</span><span lang="ja">{断面|だんめん}</span></button>
-    <button type="button" data-orbit="-90deg 80deg auto" aria-pressed="false"><span lang="en">Cheek side</span><span lang="ja">{頬側|きょうそく}</span></button>
+    <button type="button" data-orbit="-90deg 80deg auto" aria-pressed="false"><span lang="en">Cheek side</span><span lang="ja">ほお{側|がわ}</span></button>
     <button type="button" data-orbit="-25deg 150deg auto" aria-pressed="false"><span lang="en">From the mouth</span><span lang="ja">{口|くち}の{中|なか}から</span></button>
     <button type="button" id="xray" aria-pressed="false"><span lang="en">See-through bone</span><span lang="ja">{骨|ほね}を{透|す}かす</span></button>
     <button type="button" id="labels" aria-pressed="true"><span lang="en">Labels</span><span lang="ja">ラベル</span></button>
@@ -86,12 +86,12 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <ul class="legend" id="legend">
     <li data-k="bone"><span class="dot bone"></span><span lang="en">Bone</span><span lang="ja">{骨|ほね}</span></li>
     <li data-k="teeth"><span class="dot teeth"></span><span lang="en">Teeth</span><span lang="ja">{歯|は}</span></li>
-    <li data-k="gum"><span class="dot gum"></span><span lang="en">Gum</span><span lang="ja">{歯肉|しにく}</span></li>
+    <li data-k="gum"><span class="dot gum"></span><span lang="en">Gum</span><span lang="ja">{歯|は}ぐき</span></li>
     <li data-k="sinus"><span class="dot sinus"></span><span lang="en">Sinus (air)</span><span lang="ja">{上顎洞|じょうがくどう}（{空気|くうき}）</span></li>
     <li data-k="clot"><span class="dot clot"></span><span lang="en">Blood clot</span><span lang="ja">{血餅|けっぺい}</span></li>
-    <li data-k="flap"><span class="dot flap"></span><span lang="en">Gum flap</span><span lang="ja">{歯肉弁|しにくべん}</span></li>
-    <li data-k="fat"><span class="dot fat"></span><span lang="en">Fat pad</span><span lang="ja">{頬脂肪体|きょうしぼうたい}</span></li>
-    <li data-k="tract"><span class="dot tract"></span><span lang="en">Fistula lining</span><span lang="ja">{瘻孔|ろうこう}の{上皮|じょうひ}</span></li>
+    <li data-k="flap"><span class="dot flap"></span><span lang="en">Gum flap</span><span lang="ja">{歯|は}ぐきの{弁|べん}</span></li>
+    <li data-k="fat"><span class="dot fat"></span><span lang="en">Fat pad</span><span lang="ja">ほおの{脂肪|しぼう}のかたまり</span></li>
+    <li data-k="tract"><span class="dot tract"></span><span lang="en">Fistula lining</span><span lang="ja">トンネルの{上皮|じょうひ}</span></li>
     <li data-k="lining"><span class="dot lining"></span><span lang="en">Swollen sinus lining</span><span lang="ja">{腫|は}れた{洞粘膜|どうねんまく}</span></li>
   </ul>
 
@@ -104,7 +104,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <section>
     <div lang="en">
       <h2>What the model shows</h2>
-      <p>The model shows the right side of the upper jaw, life size. It is cut from front to back through the upper first molar (a back tooth). You look at the cut face. Above the teeth is the <b>maxillary sinus</b> (an air space in the cheekbone). It drains into the nose. The roots of the upper back teeth sit just under the floor of the sinus.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>The model shows the right side of the upper jaw, life size. We cut it from front to back through the big upper back tooth (first molar). You look at the cut face. Above the teeth is the <b>sinus</b> (an air space in the cheekbone, called the maxillary sinus). It drains into the nose. The roots of the upper back teeth sit just under the floor of the sinus.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
       <p>Choose a stage to see:</p>
       <ul>
         <li>a healthy jaw</li>
@@ -115,14 +115,14 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     </div>
     <div lang="ja">
       <h2>このモデルについて</h2>
-      <p>{右|みぎ}の{上顎|じょうがく}を{実物大|じつぶつだい}で{示|しめ}し、{上|うえ}の{第一大臼歯|だいいちだいきゅうし}の{真|ま}ん{中|なか}で{前後|ぜんご}に{切|き}った{断面|だんめん}を{見|み}ています。{歯|は}の{上|うえ}にある{空間|くうかん}が<b>{上顎洞|じょうがくどう}</b>で、{頬|ほお}の{骨|ほね}の{中|なか}にあり、{鼻|はな}につながっています。{奥歯|おくば}の{根|ね}は{上顎洞|じょうがくどう}の{底|そこ}のすぐ{下|した}にあります。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>{右|みぎ}の{上|うわ}あごを{実物大|じつぶつだい}で{示|しめ}し、{上|うえ}の{第一大臼歯|だいいちだいきゅうし}の{真|ま}ん{中|なか}で{前後|ぜんご}に{切|き}った{断面|だんめん}を{見|み}ています。{歯|は}の{上|うえ}にある{空気|くうき}の{部屋|へや}が<b>{上顎洞|じょうがくどう}</b>（{鼻|はな}のよこにある{空洞|くうどう}）で、ほおの{骨|ほね}の{中|なか}にあり、{鼻|はな}につながっています。{奥歯|おくば}の{根|ね}は{上顎洞|じょうがくどう}の{底|そこ}のすぐ{下|した}にあります。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
     </div>
   </section>
 
   <section>
     <div lang="en">
       <h2>OAC and OAF are not the same</h2>
-      <p>An <b>oroantral communication (OAC)</b> is a new hole between the mouth and the sinus. It usually forms when a dentist takes out an upper back tooth. An <b>oroantral fistula (OAF)</b> is an OAC that stays open. Over time, skin-like lining (epithelium) grows into the hole, and it becomes a lasting tunnel.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>An <b>OAC</b> is a new hole between the mouth and the sinus (full name: oroantral communication). It usually forms when a dentist takes out an upper back tooth. An <b>OAF</b> is an OAC that stays open (full name: oroantral fistula). Over time, skin-like lining (epithelium) grows into the hole, and it becomes a lasting tunnel.<sup class="cite"><a href="#ref-1">1</a></sup></p>
       <table class="compare">
         <thead><tr><th></th><th>OAC (new hole)</th><th>OAF (lined tunnel)</th></tr></thead>
         <tbody>
@@ -136,15 +136,15 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
       <p class="small">Table based on Parvini and colleagues 2019.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup></p>
     </div>
     <div lang="ja">
-      <h2>{交通|こうつう}（OAC）と{瘻孔|ろうこう}（OAF）のちがい</h2>
-      <p><b>{口腔上顎洞|こうくうじょうがくどう}{交通|こうつう}（OAC）</b>は、{口|くち}と{上顎洞|じょうがくどう}の{間|あいだ}にできた{新|あたら}しい{穴|あな}で、{多|おお}くは{上|うえ}の{奥歯|おくば}を{抜|ぬ}いたときにできます。<b>{口腔上顎洞瘻|こうくうじょうがくどうろう}（OAF）</b>は、その{穴|あな}が{閉|と}じずに{残|のこ}り、{内側|うちがわ}が{皮膚|ひふ}のような{上皮|じょうひ}でおおわれて、{長|なが}く{続|つづ}くトンネルになったものです。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <h2>OACとOAFのちがい</h2>
+      <p><b>OAC</b>は、{口|くち}と{上顎洞|じょうがくどう}の{間|あいだ}にできた{新|あたら}しい{穴|あな}で、{多|おお}くは{上|うえ}の{奥歯|おくば}を{抜|ぬ}いたときにできます。<b>OAF</b>は、その{穴|あな}が{閉|と}じずに{残|のこ}り、{内側|うちがわ}が{皮膚|ひふ}のような{上皮|じょうひ}でおおわれて、{長|なが}く{続|つづ}くトンネルになったものです。<sup class="cite"><a href="#ref-1">1</a></sup></p>
       <table class="compare">
-        <thead><tr><th></th><th>OAC（{交通|こうつう}）</th><th>OAF（{瘻孔|ろうこう}）</th></tr></thead>
+        <thead><tr><th></th><th>OAC（{新|あたら}しい{穴|あな}）</th><th>OAF（トンネル）</th></tr></thead>
         <tbody>
-          <tr><th>{何|なに}か</th><td>{抜歯|ばっし}した{穴|あな}と{上顎洞|じょうがくどう}をつなぐ{新|あたら}しい{傷|きず}</td><td>{閉|と}じずに{残|のこ}り、{上皮|じょうひ}でおおわれた{穴|あな}</td></tr>
-          <tr><th>いつ</th><td>{抜歯|ばっし}のとき</td><td>そのあと、{交通|こうつう}が{閉|と}じない{場合|ばあい}。3{週間|しゅうかん}{以上|いじょう}{続|つづ}く{穴|あな}は{自然|しぜん}に{閉|と}じることはまれ</td></tr>
+          <tr><th>{何|なに}か</th><td>{歯|は}を{抜|ぬ}いた{穴|あな}と{上顎洞|じょうがくどう}をつなぐ{新|あたら}しい{傷|きず}</td><td>{閉|と}じずに{残|のこ}り、{上皮|じょうひ}でおおわれた{穴|あな}</td></tr>
+          <tr><th>いつ</th><td>{歯|は}を{抜|ぬ}くとき</td><td>そのあと、{交通|こうつう}が{閉|と}じない{場合|ばあい}。3{週間|しゅうかん}{以上|いじょう}{続|つづ}く{穴|あな}は{自然|しぜん}に{閉|と}じることはまれ</td></tr>
           <tr><th>{自然|しぜん}に{治|なお}る？</th><td>{小|ちい}さく（{約|やく}2 mm{未満|みまん}）{感染|かんせん}がなければ、{血餅|けっぺい}ができて{治|なお}ることが{多|おお}い</td><td>{治|なお}らない。{手術|しゅじゅつ}が{必要|ひつよう}</td></tr>
-          <tr><th>{上顎洞|じょうがくどう}</th><td>{最初|さいしょ}はたいてい{健康|けんこう}</td><td>{感染|かんせん}（{副鼻腔炎|ふくびくうえん}）が{多|おお}い</td></tr>
+          <tr><th>{上顎洞|じょうがくどう}</th><td>{最初|さいしょ}はたいてい{健康|けんこう}</td><td>{感染|かんせん}（{上顎洞|じょうがくどう}の{炎症|えんしょう}）が{多|おお}い</td></tr>
           <tr><th>{主|おも}な{治療|ちりょう}</th><td>なるべく{早|はや}く（24〜48{時間|じかん}{以内|いない}）{閉|と}じる。{小|ちい}さければ{血餅|けっぺい}を{守|まも}り、{大|おお}きければ{弁|べん}で{閉|と}じる</td><td>{上顎洞|じょうがくどう}の{感染|かんせん}を{治療|ちりょう}し、{上皮|じょうひ}のトンネルを{切|き}り{取|と}ってから{弁|べん}で{閉|と}じる</td></tr>
         </tbody>
       </table>
@@ -156,18 +156,18 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <div lang="en">
       <h2>Who is at risk</h2>
       <ul>
-        <li><b>Roots close to or inside the sinus.</b> The upper first and second molars are closest. In CT scans (3D X-rays), the average gap between root tip and sinus is about 0 to 4 mm at these teeth. Some roots reach into the sinus.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></li>
-        <li><b>The tooth.</b> Many reports say taking out an upper first molar is the most common cause.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
+        <li><b>Roots close to or inside the sinus.</b> The big upper back teeth (first and second molars) are closest. 3D X-rays (CT scans) show an average gap of about 0 to 4 mm here. Some roots reach into the sinus.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></li>
+        <li><b>The tooth.</b> In many reports, the tooth taken out most often in these cases is the big upper back tooth (first molar).<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
         <li><b>Other factors.</b> Reports also list older age, a root that breaks during removal, and infection at the root tip. Roots that seem to enter the sinus on an X-ray are another sign.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-10">10</a></sup></li>
       </ul>
-      <p>A panoramic X-ray (one X-ray of all the teeth) works well when there is a clear gap between roots and sinus. When roots seem to touch or enter the sinus, a 3D scan (CBCT) shows this more clearly.<sup class="cite"><a href="#ref-11">11</a></sup></p>
+      <p>One X-ray of all the teeth (a panoramic X-ray) works well if roots and sinus are clearly apart. When roots seem to touch or enter the sinus, a 3D scan (CBCT) shows this more clearly.<sup class="cite"><a href="#ref-11">11</a></sup></p>
     </div>
     <div lang="ja">
       <h2>どんな{人|ひと}に{起|お}こりやすいか</h2>
       <ul>
         <li><b>{根|ね}が{上顎洞|じょうがくどう}に{近|ちか}い、または{入|はい}りこんでいる。</b>{上|うえ}の{第一|だいいち}・{第二大臼歯|だいにだいきゅうし}がもっとも{近|ちか}く、CT{研究|けんきゅう}では{根|ね}の{先|さき}と{洞|どう}の{底|そこ}の{距離|きょり}は{平均|へいきん}0〜4 mm{程度|ていど}で、{洞|どう}の{中|なか}に{入|はい}る{根|ね}もあります。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></li>
-        <li><b>{抜|ぬ}く{歯|は}。</b>{多|おお}くの{報告|ほうこく}で、{上|うえ}の{第一大臼歯|だいいちだいきゅうし}の{抜歯|ばっし}がもっとも{多|おお}い{原因|げんいん}です。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
-        <li><b>そのほか、</b>{年齢|ねんれい}が{高|たか}い、{抜歯中|ばっしちゅう}に{根|ね}が{折|お}れる、{根|ね}の{先|さき}の{感染|かんせん}、X{線|せん}で{根|ね}が{洞|どう}に{重|かさ}なって{見|み}える、などが{報告|ほうこく}されています。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-10">10</a></sup></li>
+        <li><b>{抜|ぬ}く{歯|は}。</b>{多|おお}くの{報告|ほうこく}で、{上|うえ}の{第一大臼歯|だいいちだいきゅうし}を{抜|ぬ}くことがもっとも{多|おお}い{原因|げんいん}です。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
+        <li><b>そのほか、</b>{年齢|ねんれい}が{高|たか}い、{歯|は}を{抜|ぬ}いている{間|あいだ}に{根|ね}が{折|お}れる、{根|ね}の{先|さき}の{感染|かんせん}、X{線|せん}で{根|ね}が{洞|どう}に{重|かさ}なって{見|み}える、などが{報告|ほうこく}されています。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-10">10</a></sup></li>
       </ul>
       <p>パノラマX{線|せん}は{根|ね}と{洞|どう}の{間|あいだ}がはっきり{離|はな}れていれば{信頼|しんらい}できますが、{接|せっ}している・{入|はい}っているように{見|み}えるときは、3D{撮影|さつえい}（CBCT）のほうが{正確|せいかく}です。<sup class="cite"><a href="#ref-11">11</a></sup></p>
     </div>
@@ -197,9 +197,9 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
       <ul>
         <li>{飲|の}み{物|もの}や{食|た}べ{物|もの}が{同|おな}じ{側|がわ}の{鼻|はな}から{出|で}てくる</li>
         <li>{口|くち}と{鼻|はな}の{間|あいだ}で{空気|くうき}がもれる、ヒューという{音|おと}がする</li>
-        <li>いやな{味|あじ}、{膿|うみ}、{鼻|はな}づまり、その{側|がわ}の{痛|いた}み（{上顎洞|じょうがくどう}の{感染|かんせん}のサイン）</li>
+        <li>いやな{味|あじ}、うみ、{鼻|はな}づまり、その{側|がわ}の{痛|いた}み（{上顎洞|じょうがくどう}の{感染|かんせん}のサイン）</li>
       </ul>
-      <p>とても{小|ちい}さい{穴|あな}では{何|なに}も{感|かん}じないこともあります。<sup class="cite"><a href="#ref-1">1</a></sup>{上|うえ}の{歯|は}を{抜|ぬ}いたあとにこれらに{気|き}づいたら、{歯科医師|しかいし}または{口腔外科医|こうくうげかい}に{連絡|れんらく}してください（これは{特定|とくてい}の{研究|けんきゅう}の{結果|けっか}ではなく{一般的|いっぱんてき}な{助言|じょげん}です）。</p>
+      <p>とても{小|ちい}さい{穴|あな}では{何|なに}も{感|かん}じないこともあります。<sup class="cite"><a href="#ref-1">1</a></sup>{上|うえ}の{歯|は}を{抜|ぬ}いたあとにこれらに{気|き}づいたら、{歯科医師|しかいし}または{口|くち}の{外科|げか}の{医師|いし}に{連絡|れんらく}してください（これは{特定|とくてい}の{研究|けんきゅう}の{結果|けっか}ではなく{一般的|いっぱんてき}な{助言|じょげん}です）。</p>
       <h2>{閉|と}じたあとの{注意|ちゅうい}</h2>
       <p>{閉|と}じたあとは、{鼻|はな}を{強|つよ}くかまない、くしゃみは{口|くち}を{開|あ}けてする、しばらく{激|はげ}しい{運動|うんどう}をしない、やわらかい{食事|しょくじ}にする、などがよく{指示|しじ}されます。{痛|いた}み{止|ど}めや{鼻|はな}の{薬|くすり}が{出|で}ることもあります。<sup class="cite"><a href="#ref-1">1</a></sup>{担当|たんとう}の{先生|せんせい}の{指示|しじ}に{従|したが}ってください。</p>
     </div>
@@ -221,8 +221,8 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
         <li>OACは24〜48{時間|じかん}{以内|いない}に{閉鎖|へいさ}する。{遷延|せんえん}すると{上顎洞炎|じょうがくどうえん}のリスクが{上|あ}がる。<sup class="cite"><a href="#ref-1">1</a></sup></li>
         <li>OAF：{上皮|じょうひ}の{瘻管|ろうかん}を{切除|せつじょ}し、{血流|けつりゅう}のよい{組織|そしき}まで{掻爬|そうは}する。{洞|どう}の{感染|かんせん}がない{状態|じょうたい}で{閉鎖|へいさ}する（{感染|かんせん}があれば{洗浄|せんじょう}と{抗菌薬|こうきんやく}を{先|さき}に）。<sup class="cite"><a href="#ref-1">1</a></sup></li>
         <li>{弁|べん}の{縫合線|ほうごうせん}は{欠損|けっそん}から5 mm{以上|いじょう}{離|はな}れた{健全|けんぜん}な{骨|ほね}の{上|うえ}に、{緊張|きんちょう}なく{置|お}く。<sup class="cite"><a href="#ref-1">1</a></sup></li>
-        <li>{頬側|きょうそく}{前進弁|ぜんしんべん}（Rehrmann{法|ほう}）は{小|しょう}〜{中|ちゅう}{程度|ていど}の{欠損|けっそん}に{用|もち}いるが、{口腔前庭|こうくうぜんてい}が{浅|あさ}くなる。{口蓋|こうがい}{回転弁|かいてんべん}は{小臼歯部|しょうきゅうしぶ}、{頬脂肪体|きょうしぼうたい}は{後方|こうほう}の{欠損|けっそん}に{適|てき}し、{頬側弁|きょうそくべん}と{併用|へいよう}できる。<sup class="cite"><a href="#ref-1">1</a></sup></li>
-        <li>RCT 9{件|けん}のネットワークメタアナリシスでは、{閉鎖|へいさ}と{再発|さいはつ}について{頬脂肪体|きょうしぼうたい}が{頬側|きょうそく}{前進弁|ぜんしんべん}・{口蓋|こうがい}{回転弁|かいてんべん}より{優|すぐ}れていた。<sup class="cite"><a href="#ref-4">4</a></sup></li>
+        <li>ほお{側|がわ}{前進弁|ぜんしんべん}（Rehrmann{法|ほう}）は{小|しょう}〜{中|ちゅう}{程度|ていど}の{欠損|けっそん}に{用|もち}いるが、{口腔前庭|こうくうぜんてい}が{浅|あさ}くなる。{口蓋|こうがい}{回転弁|かいてんべん}は{小臼歯部|しょうきゅうしぶ}、ほおの{脂肪|しぼう}のかたまりは{後方|こうほう}の{欠損|けっそん}に{適|てき}し、ほお{側|がわ}の{弁|べん}と{併用|へいよう}できる。<sup class="cite"><a href="#ref-1">1</a></sup></li>
+        <li>RCT 9{件|けん}のネットワークメタアナリシスでは、{閉鎖|へいさ}と{再発|さいはつ}についてほおの{脂肪|しぼう}のかたまりがほお{側|がわ}{前進弁|ぜんしんべん}・{口蓋|こうがい}{回転弁|かいてんべん}より{優|すぐ}れていた。<sup class="cite"><a href="#ref-4">4</a></sup></li>
       </ul>
     </details>
   </section>
@@ -232,7 +232,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <p><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
     <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
     <p class="small" lang="en">Prototype, version 0.1. How the model was made: the bone and the two molars come from the Z-Anatomy skull. That maxilla has only a small sinus space, so the sinus was carved inside it, keeping a 1.5 mm wall. Sinus floor heights were set by hand to match published ranges: 3 mm of bone over the root tips in the normal stage, and root tips 4 mm inside the sinus (covered by 0.5 mm of bone) in the other stages.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup> The gum is drawn as a 2.25 mm layer on the mouth side (an estimate, not from a source). The opening, the fistula (3.2 mm across), the clot, the flap and the fat pad are drawn to show the idea, not measured from patients. The sinus lining is shown only where it is swollen. Real sizes, shapes and techniques vary. Sources also differ on which openings can be left to heal: Parvini and colleagues give under 2 mm, while a 2025 review reports conservative care for openings under 5 mm.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></p>
-    <p class="small" lang="ja">プロトタイプ（{版|はん}0.1）。{骨|ほね}と2{本|ほん}の{大臼歯|だいきゅうし}は Z-Anatomy の{頭蓋骨|ずがいこつ}から{作|つく}りました。{上顎洞|じょうがくどう}の{形|かたち}、{洞|どう}の{底|そこ}の{高|たか}さ（{正常|せいじょう}：{根|ね}の{先|さき}から3 mm{上|うえ}、ほかの{段階|だんかい}：{根|ね}の{先|さき}が4 mm{洞内|どうない}に{入|はい}る）、{歯肉|しにく}（2.25 mm、{推定|すいてい}）、{穴|あな}、{瘻孔|ろうこう}、{血餅|けっぺい}、{弁|べん}、{頬脂肪体|きょうしぼうたい}は、{文献|ぶんけん}の{範囲|はんい}に{合|あ}わせて{手|て}で{作|つく}った{説明用|せつめいよう}の{形|かたち}です。</p>
+    <p class="small" lang="ja">プロトタイプ（{版|はん}0.1）。{骨|ほね}と2{本|ほん}の{大臼歯|だいきゅうし}は Z-Anatomy の{頭蓋骨|ずがいこつ}から{作|つく}りました。{上顎洞|じょうがくどう}の{形|かたち}、{洞|どう}の{底|そこ}の{高|たか}さ（{正常|せいじょう}：{根|ね}の{先|さき}から3 mm{上|うえ}、ほかの{段階|だんかい}：{根|ね}の{先|さき}が4 mm{洞内|どうない}に{入|はい}る）、{歯|は}ぐき（2.25 mm、{推定|すいてい}）、{穴|あな}、トンネル、{血餅|けっぺい}、{弁|べん}、ほおの{脂肪|しぼう}のかたまりは、{文献|ぶんけん}の{範囲|はんい}に{合|あ}わせて{手|て}で{作|つく}った{説明用|せつめいよう}の{形|かたち}です。</p>
     <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: right maxilla, palatine and zygomatic bones and the right upper first and second molars extracted, cut, voxel-remeshed; sinus, gum, clot, flap, fat pad and fistula added. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
     <p class="small">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health.</p>
   </section>

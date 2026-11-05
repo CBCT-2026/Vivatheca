@@ -20,6 +20,9 @@ export const catalogue: CatalogueModel[] = [
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '1.0', updated: '2026-11-05' },
+  { slug: 'cracked-tooth', href: '/cracked-tooth/', image: '/assets/renders/cracked-tooth.webp', version: '1.0', updated: '2026-11-05' },
+  { slug: 'stainless-steel-crown', href: '/stainless-steel-crown/', image: '/assets/renders/stainless-steel-crown.webp', version: '1.0', updated: '2026-11-05' },
+  { slug: 'head-neck', href: '/head-neck/', image: '/assets/renders/head-neck.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'orthognathic', href: '/orthognathic/', image: '/assets/renders/orthognathic.webp', version: '1.0', updated: '2026-11-05' },
 ];
 
