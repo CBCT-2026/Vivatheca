@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { trustItems, understandingPaths } from './data';
 import { SiteFooter } from './site-chrome';
-import { MobileNavigation, ModelExperience } from './ui';
+import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -44,6 +44,7 @@ export default function Home() {
           <Link href="/models">Models</Link><a href="#how-it-works">How it works</a><a href="#publications">Evidence</a><Link href="/create">Create</Link><Link href="/about">About</Link>
         </nav>
         <div className="header-actions">
+          <ThemeToggle />
           <a className="button button-compact" href="#sponsor">Sponsor a model</a>
           <MobileNavigation />
         </div>

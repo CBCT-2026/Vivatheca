@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { THEME_KEY } from './theme';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -138,5 +139,40 @@ export function ModelExperience() {
         <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> Educational aid only, not a diagnostic record.</p>
       </div>
     </div>
+  );
+}
+
+// Site-wide light/dark switch (see theme.ts). The label names the mode it switches to.
+
+const themeLabels = {
+  en: { dark: 'Dark mode', light: 'Light mode' },
+  ja: { dark: 'ダークモード', light: 'ライトモード' },
+} as const;
+
+// Reads the <html> data-theme and lang attributes, re-rendering when either changes.
+function subscribeToRoot(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'lang'] });
+  return () => observer.disconnect();
+}
+
+export function ThemeToggle() {
+  const theme = useSyncExternalStore(subscribeToRoot, () => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'), () => 'light');
+  const lang = useSyncExternalStore(subscribeToRoot, () => (document.documentElement.lang.startsWith('ja') ? 'ja' : 'en'), () => 'en') as keyof typeof themeLabels;
+  const next = theme === 'dark' ? 'light' : 'dark';
+  const label = themeLabels[lang][next];
+  const toggle = () => {
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem(THEME_KEY, next); } catch { /* storage blocked: the choice lasts for this page only */ }
+  };
+  return (
+    <button className="theme-toggle" type="button" onClick={toggle} title={label}>
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24">
+        {next === 'dark'
+          ? <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" />
+          : <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM2 13h2a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2zm18 0h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2zM11 2v2a1 1 0 0 0 2 0V2a1 1 0 0 0-2 0zm0 18v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-2 0zM5.99 4.58a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41l-1.06-1.06zm1.06-10.96a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06zM7.05 18.36a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06z" />}
+      </svg>
+      <span className="theme-toggle-label" lang={lang}>{label}</span>
+    </button>
   );
 }
