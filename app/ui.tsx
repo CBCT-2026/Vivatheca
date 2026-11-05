@@ -16,7 +16,6 @@ export function MobileNavigation() {
       {open ? (
         <nav className="mobile-nav-panel" aria-label="Mobile navigation">
           <a href="#collection" onClick={() => setOpen(false)}>Browse the collection</a>
-          <a href="#disciplines" onClick={() => setOpen(false)}>Disciplines</a>
           <a href="#how-it-works" onClick={() => setOpen(false)}>How it works</a>
           <a href="#publications" onClick={() => setOpen(false)}>Publications</a>
           <a href="#contribute" onClick={() => setOpen(false)}>Contribute</a>
@@ -28,10 +27,12 @@ export function MobileNavigation() {
 }
 
 const tourSteps = [
-  { label: 'Start here', title: 'The wisdom tooth is angled forward', text: 'The supplied model shows a lower third molar that does not have a clear path to erupt normally.' },
-  { label: 'Look closer', title: 'It meets the tooth in front', text: 'Rotate the model to inspect how the impacted tooth sits against the adjacent molar.' },
+  { label: 'Start here', title: 'The wisdom tooth is stuck under the gum', text: 'This lower left wisdom tooth is tilted forward and does not have room to come through.' },
+  { label: 'Look closer', title: 'The red line is a nerve', text: 'This nerve gives feeling to the lower lip and chin. Turn the model to see how close the tooth roots sit to it.' },
   { label: 'Discuss next steps', title: 'Use the model as a conversation aid', text: 'A clinician can connect this view to symptoms, imaging and treatment options for an individual patient.' },
 ];
+
+export const modelLicence = { name: 'CC BY-SA 4.0', href: 'https://creativecommons.org/licenses/by-sa/4.0/' };
 
 export function ModelExperience() {
   const [ready, setReady] = useState(false);
@@ -74,7 +75,7 @@ export function ModelExperience() {
 
   const modelViewer = React.createElement('model-viewer', {
     src: '/models/impacted-molar.glb',
-    alt: 'Interactive 3D model of a lower jaw with an impacted wisdom tooth',
+    alt: 'Interactive 3D model of a lower left jaw with an impacted wisdom tooth whose roots lie close to the inferior alveolar nerve, shown in red',
     'camera-controls': true,
     'touch-action': 'pan-y',
     'auto-rotate': rotationEnabled || undefined,
@@ -82,8 +83,8 @@ export function ModelExperience() {
     'rotation-per-second': '18deg',
     'shadow-intensity': '0.7',
     'environment-image': 'neutral',
-    'camera-orbit': '8deg 78deg 74%',
-    'field-of-view': '28deg',
+    'camera-orbit': '90deg 80deg auto',
+    'field-of-view': '30deg',
     reveal: 'auto',
     'interaction-prompt': 'none',
     ar: true,
@@ -92,9 +93,9 @@ export function ModelExperience() {
   });
 
   const clinicalText = step === 0
-    ? 'The demonstration model depicts a mesioangularly impacted mandibular third molar. This description is prototype content and requires clinical review.'
+    ? 'The model depicts a mesioangularly impacted left mandibular third molar against the distal surface of the second molar.'
     : step === 1
-      ? 'Inspect the distal aspect of the adjacent second molar and the relationship of the third molar crown. Individual anatomy must be assessed using appropriate imaging.'
+      ? 'The inferior alveolar nerve (red) runs close to the third molar roots. Individual root–canal relationships must be assessed with appropriate imaging such as CBCT.'
       : 'Use this visualisation alongside clinical findings and imaging. It is an educational aid, not a diagnostic record or treatment recommendation.';
 
   return (
@@ -130,9 +131,10 @@ export function ModelExperience() {
         </div>
         <div className="model-links">
           <a href="/models/impacted-molar.glb" download><Icon name="download" />Download GLB</a>
-          <span aria-disabled="true"><Icon name="view_in_ar" />AR where supported</span>
+          <a href="/models/impacted-molar.stl" download><Icon name="print" />Download STL (for printing)</a>
         </div>
-        <p className="prototype-note"><strong>Prototype notice:</strong> reviewer, licence, DOI and medical copy are not yet verified for production.</p>
+        <p className="licence-note">Model licence: <a href={modelLicence.href} target="_blank" rel="noreferrer">{modelLicence.name}</a>. Free to use, adapt and print with attribution to Vivatheca.</p>
+        <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> Educational aid only, not a diagnostic record.</p>
       </div>
     </div>
   );
