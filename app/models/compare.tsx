@@ -72,10 +72,11 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
           </label>
         ) : null}
       </div>
+      <p className="compare-diff"><strong>Only the wisdom tooth differs.</strong> Impacted: tilted forward against the second molar, roots around the nerve (red). Normal: upright and erupted, in line with the other molars.</p>
       <div className={`compare-stage compare-${mode}`}>
         {(['impacted', 'normal'] as const).map((key) => (
           <figure key={key} className="compare-pane" hidden={mode !== 'both' && mode !== key}>
-            <figcaption><span className={`compare-dot ${key}`} aria-hidden="true" />{key === 'impacted' ? 'Impacted wisdom tooth' : 'Matched normal'}</figcaption>
+            <figcaption><span className={`compare-dot ${key}`} aria-hidden="true" />{key === 'impacted' ? 'Impacted (mesioangular)' : 'Matched normal (erupted)'}</figcaption>
             {ready ? viewer(key === 'impacted' ? impacted : normal, key === 'impacted' ? setLeft : setRight) : <div className="compare-model compare-loading" role="status">{failed ? 'The 3D viewer could not load. Use the download links below to open the model.' : 'Loading 3D model…'}</div>}
           </figure>
         ))}

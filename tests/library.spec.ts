@@ -19,8 +19,8 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/wisdom-tooth-normal.glb');
 
   await page.getByRole('button', { name: 'Normal', exact: true }).click();
-  await expect(page.locator('.compare').getByText('Impacted wisdom tooth', { exact: true })).toBeHidden();
-  await expect(page.locator('.compare').getByText('Matched normal', { exact: true })).toBeVisible();
+  await expect(page.locator('.compare').getByText('Impacted (mesioangular)', { exact: true })).toBeHidden();
+  await expect(page.locator('.compare').getByText('Matched normal (erupted)', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Side by side' }).click();
   await expect(page.getByRole('checkbox', { name: 'Turn both together' })).toBeChecked();
 

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ThemeToggle } from '../ui';
+import { PageHeader, SiteFooter } from '../site-chrome';
 import { Builder } from './builder';
 
 export const metadata: Metadata = {
@@ -15,14 +14,7 @@ export default function CreatePage() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
-      <header className="site-header builder-header">
-        <Link className="brand" href="/" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
-        <span />
-        <div className="header-actions">
-          <ThemeToggle />
-          <Link className="button button-secondary button-compact builder-back" href="/">Back to models</Link>
-        </div>
-      </header>
+      <PageHeader current={'/create'} />
       <main id="main-content" className="builder-page">
         <div className="builder-intro">
           <p className="eyebrow">Prototype · For clinicians</p>
@@ -31,6 +23,7 @@ export default function CreatePage() {
         </div>
         <Builder />
       </main>
+      <SiteFooter />
     </>
   );
 }

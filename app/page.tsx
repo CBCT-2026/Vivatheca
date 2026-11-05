@@ -97,7 +97,7 @@ export default function Home() {
         </section>
 
         <section className="print-section">
-          <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt="The impacted wisdom tooth model beside its matched normal, where the wisdom tooth stands upright in line with the other molars." width="1200" height="800" /><figcaption className="figure-note">Screenshot of the impacted and matched normal models.</figcaption></figure>
+          <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt="The impacted wisdom tooth model beside its matched normal, where the wisdom tooth stands upright in line with the other molars." width="1200" height="800" /><figcaption className="figure-note">Left: impacted wisdom tooth. Right: matched normal, with the wisdom tooth upright. Screenshots of the models.</figcaption></figure>
           <div className="print-copy"><h2>From the screen to something you can hold.</h2><p>Every model comes with a free STL file in millimetres, with its print scale stated on the model page, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands.</p><Link className="text-link" href="/models/impacted-wisdom-tooth">Download both STL files <Icon name="download" /></Link></div>
         </section>
 

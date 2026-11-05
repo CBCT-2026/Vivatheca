@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { PageHeader, SiteFooter } from '../site-chrome';
 import { disclaimerUpdated, fullDisclaimer, siteDisclaimer } from '../disclaimer-text';
 
 export const metadata: Metadata = {
@@ -13,11 +13,7 @@ export default function DisclaimerPage() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
-      <header className="site-header builder-header">
-        <Link className="brand" href="/" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
-        <span />
-        <Link className="button button-secondary button-compact builder-back" href="/">Back to models</Link>
-      </header>
+      <PageHeader />
       <main id="main-content" className="disclaimer-page">
         <p className="eyebrow">Last updated {disclaimerUpdated}</p>
         <h1>Disclaimer</h1>
@@ -29,6 +25,7 @@ export default function DisclaimerPage() {
           </section>
         ))}
       </main>
+      <SiteFooter />
     </>
   );
 }
