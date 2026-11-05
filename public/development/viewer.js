@@ -23,7 +23,7 @@ const STAGES = {
   },
   '11.5': {
     title: 'About 11 years old',
-    text: 'The upper adult canines and the premolars are coming through. Most baby teeth are gone. The second adult molars are close to the gum behind the first molars.',
+    text: 'The upper adult canines and the premolars are coming through. Most baby teeth are gone. The last baby back teeth (<b>second baby molars</b>) are often loose now. The second adult molars are close to the gum behind the first molars.',
   },
   '12.5': {
     title: 'About 12 years old',
