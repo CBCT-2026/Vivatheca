@@ -9,7 +9,7 @@ for (const path of pages) {
     await page.goto(path);
     // Surgical photos sit behind a click-to-show warning; open them so their images load.
     await page.locator('details.surgical').evaluateAll((items) => items.forEach((d) => d.setAttribute('open', '')));
-    const figures = page.locator('figure.clin, figure.clinical-figure');
+    const figures = page.locator('figure.clin-fig, figure.clinical-figure');
     const count = await figures.count();
     expect(count).toBeGreaterThan(0);
     for (let i = 0; i < count; i += 1) {

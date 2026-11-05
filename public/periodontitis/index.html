@@ -13,6 +13,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 </script>
 <link rel="stylesheet" href="../development/style.css">
 <style>
+  details.clin summary { cursor: pointer; font-weight: 600; color: var(--heading); }
   .stages { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
   .stages button { min-height: 44px; padding: 6px 2px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
     color: var(--text); font: 600 15px/1.1 system-ui, -apple-system, sans-serif; cursor: pointer; }
@@ -76,14 +77,22 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <section class="stage" id="stage" aria-live="polite"></section>
 
   <section>
-    <h2>What periodontitis is</h2>
-    <p>Gum disease starts as <b>gingivitis</b>: red, swollen gums that bleed when you brush. Gingivitis can be reversed. If it goes on, it can turn into <b>periodontitis</b>, where the gum attachment and the bone that hold the teeth in place are slowly lost. Teeth can then become loose, move, or need to be removed.<sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></p>
-    <p>Periodontitis cannot be cured, but it can be controlled.<sup class="cite"><a href="#ref-7">7</a></sup> Treatment aims to stop further loss. Lost bone mostly does not grow back, although some deep vertical defects can be partly rebuilt with surgery.<sup class="cite"><a href="#ref-4">4</a></sup> Smoking and poorly controlled diabetes make periodontitis more likely and worse.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></p>
-    <p>Signs include bleeding, red or swollen gums, gums shrinking back, bad breath, a bad taste, tenderness when biting, and loose or moving teeth.<sup class="cite"><a href="#ref-8">8</a></sup> See a dentist if your gums keep bleeding.</p>
+    <h2>What gum disease is</h2>
+    <p>Gum disease starts with red, swollen gums that bleed when you brush (called gingivitis). You can reverse gingivitis. If it goes on, it can turn into a deeper gum disease (called periodontitis). The gum and the bone that hold the teeth in place slowly wear away. Teeth can then become loose, move, or need to come out.<sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></p>
+    <p>There is no cure for this deeper gum disease, but you and your dentist can control it.<sup class="cite"><a href="#ref-7">7</a></sup> Treatment aims to stop more loss. Lost bone mostly does not grow back. Surgery can partly rebuild some deep, narrow dips in the bone.<sup class="cite"><a href="#ref-4">4</a></sup> Smoking, and diabetes that is not well controlled, make gum disease more likely and worse.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></p>
+    <p>Signs include bleeding, red or swollen gums, and gums that shrink back. Others are bad breath, a bad taste, sore teeth when you bite, and loose or moving teeth.<sup class="cite"><a href="#ref-8">8</a></sup> See a dentist if your gums keep bleeding.</p>
   </section>
 
   <section>
-    <h2>How dentists stage periodontitis</h2>
+    <h2>Stages I to IV and grades A to C</h2>
+    <p>Dentists use a system from 2017 to describe gum disease.<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-2">2</a></sup> The <b>stage</b> (I to IV) shows how bad it is and how hard it is to treat. Stage I is the mildest. The <b>grade</b> (A to C) shows how fast it is getting worse.<sup class="cite"><a href="#ref-1">1</a></sup> Your dentist works these out from a gum check, X-rays, your age and your health. For example, smoking and diabetes can mean a faster grade.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    <p>The models show the bone only. You cannot see a grade in a model, so there are no grade models.</p>
+  </section>
+
+  <section>
+    <details class="clin">
+      <summary>For clinicians: 2017 staging and grading tables</summary>
+    <h3>How dentists stage periodontitis</h3>
     <p>The current classification comes from the 2017 World Workshop of the American Academy of Periodontology (AAP) and the European Federation of Periodontology (EFP).<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-2">2</a></sup> The <b>stage</b> (I to IV) describes how severe the disease is and how complex it is to manage. The <b>grade</b> (A to C) describes how fast it is getting worse.<sup class="cite"><a href="#ref-1">1</a></sup> The EFP treatment guideline for Stages I to III is built on this system.<sup class="cite"><a href="#ref-4">4</a></sup></p>
     <div class="table-wrap">
     <table>
@@ -99,35 +108,8 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     </table>
     </div>
     <p class="small">The models show bone only, so they show the <b>bone loss</b> row. Attachment loss and pocket depth are measured on the gum with a probe, and the gum is not modelled.</p>
-  </section>
 
-  <section id="clinical-images">
-    <h2>Real X-rays and photos</h2>
-    <p class="clinical-note">These images are from real patients. Their authors published them openly with the patient's consent where shown. Each image keeps its own licence, given under it; it is not covered by the model licence. The models show one typical pattern of bone loss; real cases vary.</p>
-    <figure class="clin" id="img-1">
-      <img src="/images/clinical/development/opg-age-19-healthy.jpg" width="1200" height="621" loading="lazy" alt="Panoramic X-ray of a full set of healthy adult teeth. The bone reaches up close to the necks of all the teeth.">
-      <figcaption><b>Image 1. Healthy comparison.</b> Panoramic X-ray (OPG) of a 19-year-old with a full set of adult teeth, described by its author as in very good condition. The bone sits close to the necks of the teeth, like the healthy model. (The thin bright lines behind the front teeth are bonded retainers.)
-        <span class="credit">Roquex, own work. <a href="https://commons.wikimedia.org/wiki/File:Idealpano.png">Wikimedia Commons: Idealpano.png</a>. Licence: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> (public domain). Changes: resized.</span></figcaption>
-    </figure>
-    <figure class="clin" id="img-2">
-      <img src="/images/clinical/periodontitis/periapicals-stage3-gradeC-adult.jpg" width="750" height="249" loading="lazy" alt="Fourteen small dental X-rays covering all the teeth of an adult with periodontitis. The bone around many teeth is much lower than normal.">
-      <figcaption><b>Image 2. Stage III, Grade C periodontitis in an adult.</b> A full set of small X-rays (periapicals) at the first visit. The authors diagnosed Stage III, Grade C, using gum measurements as well as these X-rays. Around many teeth the bone is lower than normal. Grade C means it got worse quickly (see Grades below). <a href="/images/clinical/periodontitis/periapicals-stage3-gradeC-adult.jpg">Open larger image</a>
-        <span class="credit">Hisanaga-Mokudai R, Yoshikawa K, Saito A. Treatment of Stage III Grade C periodontitis with smoking cessation care and periodontal surgery including regenerative therapy: a case report with a two-year follow-up. Cureus. 2025;17(6):e85449, Figure 3. <a href="https://doi.org/10.7759/cureus.85449">doi.org/10.7759/cureus.85449</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none.</span></figcaption>
-    </figure>
-    <figure class="clin" id="img-3">
-      <img src="/images/clinical/periodontitis/opg-stage3-gradeC-teen.jpg" width="780" height="362" loading="lazy" alt="Panoramic X-ray of a teenager with periodontitis, showing bone loss around the front teeth and first molars.">
-      <figcaption><b>Image 3. Stage III, Grade C periodontitis in a teenager.</b> Panoramic X-ray before treatment. The authors describe it as an aggressive form of the disease in a young patient, so it is not typical.
-        <span class="credit">Păunica S, Giurgiu MC, Ciongaru DN, et al. Clinical aspects and therapeutic management of an aggressive manifestation of Stage III Grade C periodontitis in a female teenager. Diagnostics. 2023;13(6):1077, Figure 3. <a href="https://doi.org/10.3390/diagnostics13061077">doi.org/10.3390/diagnostics13061077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient's written consent.</span></figcaption>
-    </figure>
-    <figure class="clin" id="img-4">
-      <img src="/images/clinical/periodontitis/photos-stage3-gradeC-teen.jpg" width="716" height="335" loading="lazy" alt="Five photos inside the mouth of the same teenager: the gums are red and swollen, with round swellings (abscesses) above the upper front teeth.">
-      <figcaption><b>Image 4. The same patient's gums.</b> Red, swollen gums around the upper teeth, with round swellings (gum abscesses) above the front teeth, before treatment.
-        <span class="credit">Same article as Image 3, Figure 1. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. Patient's written consent recorded in the article.</span></figcaption>
-    </figure>
-  </section>
-
-  <section>
-    <h2>Grades A to C: how fast it is progressing</h2>
+    <h3>Grades A to C: how fast it is progressing</h3>
     <p>Two people can have the same stage, but one may have got there over 40 years and the other over 10. The grade describes this rate, and the risk that the disease will keep getting worse or respond less well to treatment.<sup class="cite"><a href="#ref-1">1</a></sup> A grade cannot be seen in a single model, because it depends on age, history and risk factors, so there are no separate grade models.</p>
     <div class="table-wrap">
     <table>
@@ -142,7 +124,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
       <caption>Source: Tonetti, Greenwell and Kornman 2018, Table 3,<sup class="cite"><a href="#ref-1">1</a></sup> as reproduced in the AAP chart.<sup class="cite"><a href="#ref-9">9</a></sup> Wording shortened. Direct evidence is used when it is available. Clinicians start by assuming Grade B and look for evidence to move to A or C.</caption>
     </table>
     </div>
-    <h3>Worked examples (bone loss ÷ age)</h3>
+    <h4>Worked examples (bone loss ÷ age)</h4>
     <p>The ratio uses the bone loss at the worst-affected tooth, as a percentage of root length, divided by age in years.<sup class="cite"><a href="#ref-1">1</a></sup> Using the bone loss built into these models:</p>
     <ul>
       <li>The <b>Stage III</b> model (40% bone loss) in a 30-year-old: 40 ÷ 30 = 1.33, more than 1.0, so <b>Grade C</b>.</li>
@@ -150,10 +132,37 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
       <li>The <b>Stage I</b> model (10% bone loss) in a 50-year-old: 10 ÷ 50 = 0.2, less than 0.25, so <b>Grade A</b>.</li>
     </ul>
     <p class="small">These examples only show how the ratio works. A real grade also uses direct evidence, the case phenotype and the risk factors above.</p>
+
+    </details>
+  </section>
+
+  <section id="clinical-images">
+    <h2>Real X-rays and photos</h2>
+    <p class="clinical-note">These images are from real patients. Their authors published them openly with the patient's consent where shown. Each image keeps its own licence, given under it; it is not covered by the model licence. The models show one typical pattern of bone loss; real cases vary.</p>
+    <figure class="clin-fig" id="img-1">
+      <img src="/images/clinical/development/opg-age-19-healthy.jpg" width="1200" height="621" loading="lazy" alt="Panoramic X-ray of a full set of healthy adult teeth. The bone reaches up close to the necks of all the teeth.">
+      <figcaption><b>Image 1. Healthy comparison.</b> Panoramic X-ray (OPG) of a 19-year-old with a full set of adult teeth, described by its author as in very good condition. The bone sits close to the necks of the teeth, like the healthy model. (The thin bright lines behind the front teeth are bonded retainers.)
+        <span class="credit">Roquex, own work. <a href="https://commons.wikimedia.org/wiki/File:Idealpano.png">Wikimedia Commons: Idealpano.png</a>. Licence: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> (public domain). Changes: resized.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-2">
+      <img src="/images/clinical/periodontitis/periapicals-stage3-gradeC-adult.jpg" width="750" height="249" loading="lazy" alt="Fourteen small dental X-rays covering all the teeth of an adult with periodontitis. The bone around many teeth is much lower than normal.">
+      <figcaption><b>Image 2. Stage III, Grade C periodontitis in an adult.</b> A full set of small X-rays (periapicals) at the first visit. The authors diagnosed Stage III, Grade C, using gum measurements as well as these X-rays. Around many teeth the bone is lower than normal. Grade C means it got worse quickly (see "Grades A to C" above). <a href="/images/clinical/periodontitis/periapicals-stage3-gradeC-adult.jpg">Open larger image</a>
+        <span class="credit">Hisanaga-Mokudai R, Yoshikawa K, Saito A. Treatment of Stage III Grade C periodontitis with smoking cessation care and periodontal surgery including regenerative therapy: a case report with a two-year follow-up. Cureus. 2025;17(6):e85449, Figure 3. <a href="https://doi.org/10.7759/cureus.85449">doi.org/10.7759/cureus.85449</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-3">
+      <img src="/images/clinical/periodontitis/opg-stage3-gradeC-teen.jpg" width="780" height="362" loading="lazy" alt="Panoramic X-ray of a teenager with periodontitis, showing bone loss around the front teeth and first molars.">
+      <figcaption><b>Image 3. Stage III, Grade C periodontitis in a teenager.</b> Panoramic X-ray before treatment. The authors describe it as an aggressive form of the disease in a young patient, so it is not typical.
+        <span class="credit">Păunica S, Giurgiu MC, Ciongaru DN, et al. Clinical aspects and therapeutic management of an aggressive manifestation of Stage III Grade C periodontitis in a female teenager. Diagnostics. 2023;13(6):1077, Figure 3. <a href="https://doi.org/10.3390/diagnostics13061077">doi.org/10.3390/diagnostics13061077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient's written consent.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-4">
+      <img src="/images/clinical/periodontitis/photos-stage3-gradeC-teen.jpg" width="716" height="335" loading="lazy" alt="Five photos inside the mouth of the same teenager: the gums are red and swollen, with round swellings (abscesses) above the upper front teeth.">
+      <figcaption><b>Image 4. The same patient's gums.</b> Red, swollen gums around the upper teeth, with round swellings (gum abscesses) above the front teeth, before treatment.
+        <span class="credit">Same article as Image 3, Figure 1. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. Patient's written consent recorded in the article.</span></figcaption>
+    </figure>
   </section>
 
   <section>
-    <h2>How the models were made</h2>
+    <h2>For clinicians: how the models were made</h2>
     <p>All five models start from the same adult lower jaw and 14 teeth (no wisdom teeth) from Z-Anatomy. For each tooth, the CEJ was placed using typical crown and root lengths for lower teeth.<sup class="cite"><a href="#ref-6">6</a></sup> In the healthy model the bone crest sits 1.5 mm below the CEJ,<sup class="cite"><a href="#ref-5">5</a></sup> higher between the teeth where the CEJ curves up.<sup class="cite"><a href="#ref-6">6</a></sup> For each stage, the bone was lowered by a set percentage of root length (Stage I 10%, II 25%, III 40%, IV 60%), chosen to sit inside each stage's bone loss band.<sup class="cite"><a href="#ref-1">1</a></sup> Stages III and IV add the complexity features listed under each stage.</p>
     <p class="small">Simplifications: bone loss is mostly even around the whole jaw (generalised); real periodontitis is often uneven. The gum, root surfaces and tooth movement other than one tipped molar are not modelled. Percentages are measured along the vertical, not the tooth's own long axis.</p>
   </section>

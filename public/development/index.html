@@ -36,6 +36,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
 
 <main>
   <h1 data-i18n="h1">How your child's teeth grow: ages 6 to 12</h1>
+  <p class="small student-link" data-i18n="studentLink">Studying dentistry or medicine? <a href="/learn/development">Read the student guide</a> (technical terms, staging systems and sources).</p>
 
   <model-viewer id="mv"
     src="models/age-6-5.glb"
@@ -71,7 +72,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
   <p class="small" data-i18n="stageSources">Ages and order of eruption for each stage: London Atlas, ADA and AAPD charts.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup> Root formation: Moorrees et al.<sup class="cite"><a href="#ref-3">3</a></sup></p>
 
   <section class="important">
-    <p data-i18n="important"><b>Every child is different. The normal age range for each tooth spans one to several years, so teeth often come through earlier or later than shown here. This is usually normal.</b><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    <p data-i18n="important"><b>Every child is different. The normal age for each tooth can vary by a year or more. So teeth often come through earlier or later than shown here. This is usually normal.</b><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
   </section>
 
   <section>
@@ -90,12 +91,12 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
   <section id="clinical-images">
     <h2 data-i18n="clinH">What this looks like on a real X-ray</h2>
     <p class="clinical-note" data-i18n="clinNote">Dentists see growing teeth on a panoramic X-ray (OPG), one picture of all the teeth and both jaws. These two are from real people. Their authors released them into the public domain; the licence is not the model licence.</p>
-    <figure class="clin" id="img-1">
+    <figure class="clin-fig" id="img-1">
       <img src="/images/clinical/development/opg-age-8-healthy.jpg" width="1200" height="623" loading="lazy" alt="Panoramic X-ray of an 8-year-old. Baby teeth are in the mouth and many adult teeth are growing inside the jaws below and above them.">
       <figcaption><span data-i18n="clin1"><b>Image 1. Age 8 years 7 months.</b> A mix of baby teeth and adult teeth. You can see adult teeth growing inside the jaw under the baby teeth, as in the 8 and 9 year models. Its author describes it as a healthy child with no missing teeth. The round shapes at the very back are wisdom teeth starting to form.</span>
         <span class="credit">Roquex, own work. <a href="https://commons.wikimedia.org/wiki/File:Pano8.png">Wikimedia Commons: Pano8.png</a>. Licence: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> (public domain). Changes: resized.</span></figcaption>
     </figure>
-    <figure class="clin" id="img-2">
+    <figure class="clin-fig" id="img-2">
       <img src="/images/clinical/development/opg-age-19-healthy.jpg" width="1200" height="621" loading="lazy" alt="Panoramic X-ray of a 19-year-old with a full set of adult teeth, including all four wisdom teeth.">
       <figcaption><span data-i18n="clin2"><b>Image 2. Age 19, for comparison.</b> All the baby teeth have gone and every adult tooth is in place, including the wisdom teeth at the back. (The thin bright lines behind the front teeth are retainers from braces.)</span>
         <span class="credit">Roquex, own work. <a href="https://commons.wikimedia.org/wiki/File:Idealpano.png">Wikimedia Commons: Idealpano.png</a>. Licence: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> (public domain). Changes: resized.</span></figcaption>
@@ -109,7 +110,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
       <li data-i18n="ask2">An adult tooth comes through but the baby tooth in front of it is still firm after a few months.</li>
       <li data-i18n="ask3">Your child has pain, swelling, or a tooth that looks dark or broken.</li>
     </ul>
-    <p data-i18n="ask4">The first point is a sign of late eruption described in a review of delayed tooth eruption.<sup class="cite"><a href="#ref-7">7</a></sup> The other points are general advice to see a dentist, not findings from a specific study. Your dentist can take an X-ray to see the growing teeth, as this model does.</p>
+    <p data-i18n="ask4">The first point is a sign that teeth are late coming through, from a review of late teeth.<sup class="cite"><a href="#ref-7">7</a></sup> The other points are general advice to see a dentist, not findings from a specific study. Your dentist can take an X-ray to see the growing teeth, as this model does.</p>
   </section>
 
   <section>
@@ -121,7 +122,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
   <section class="disclaimer">
     <h2 data-i18n="aboutH">About this model</h2>
     <p data-i18n="about1"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. It does not replace advice from your dentist. <a href="/disclaimer">Full disclaimer</a></p>
-    <p class="small" data-i18n="about2">Prototype. Tooth timings are typical ages, checked against the American Dental Association and AAPD eruption charts and the London Atlas.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-1">1</a></sup> The baby teeth are made by resizing adult tooth shapes to typical baby tooth widths and lengths.<sup class="cite"><a href="#ref-8">8</a></sup> Their crown and root shapes are therefore not true baby tooth shapes. A growing jaw is shown by shortening the back of an adult jaw (to 80% at 6 years, rising to 92% at 12) and lowering the ramus. These exact values are our estimates: we found no published study that gives them for these parts of the jaw. A 3D CT growth study shows that the ramus (the upright back part of the jaw) grows mostly late, with a growth spurt at puberty, while jaw length matures earlier.<sup class="cite"><a href="#ref-9">9</a></sup> Our model may therefore show the ramus too tall at the younger ages. Colours (baby teeth blue, adult teeth yellow) follow the Schour and Massler chart.<sup class="cite"><a href="#ref-2">2</a></sup> Adult and baby teeth are in their typical places; real teeth vary in position and angle.</p>
+    <p class="small" data-i18n="about2">Prototype. Tooth timings are typical ages, checked against the American Dental Association and AAPD eruption charts and the London Atlas.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-1">1</a></sup> The baby teeth are made by resizing adult tooth shapes to typical baby tooth widths and lengths.<sup class="cite"><a href="#ref-8">8</a></sup> Their crown and root shapes are therefore not true baby tooth shapes. A growing jaw is shown by shrinking the back of an adult jaw to the average child size for each age, from the University of Michigan growth study.<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup> The upright back part of the jaw (the ramus) is 76% of adult height in the 6-year model and 89% in the 12-year model; the jaw body is 80% and 94% of adult length (boys and girls averaged). The ramus grows later than the jaw body, with a growth spurt at puberty.<sup class="cite"><a href="#ref-9">9</a></sup> The missing length is taken from behind the first molar, where the space for the back molars keeps growing through childhood.<sup class="cite"><a href="#ref-12">12</a></sup> The upper jaw behind the first molar is shortened by the same amount, which is our estimate. This is a simplification: the rest of the jaw keeps its adult shape, and the averages come from 2D X-rays of American children from the 1950s to 1970s. Colours (baby teeth blue, adult teeth yellow) follow the Schour and Massler chart.<sup class="cite"><a href="#ref-2">2</a></sup> Adult and baby teeth are in their typical places; real teeth vary in position and angle.</p>
     <p class="small credit" data-i18n="credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: teeth and jaw shapes extracted, resized, moved and cut away for each age. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
   </section>
 
@@ -138,11 +139,14 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
       <li id="ref-7">Suri L, Gagari E, Vastardis H. Delayed tooth eruption: pathogenesis, diagnosis, and treatment. A literature review. Am J Orthod Dentofacial Orthop. 2004;126(4):432-445. <a href="https://doi.org/10.1016/j.ajodo.2003.10.031">doi.org/10.1016/j.ajodo.2003.10.031</a></li>
       <li id="ref-8">Nelson SJ. Wheeler's Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Average crown and root dimensions of primary and permanent teeth.)</li>
       <li id="ref-9">Kelly MP, Vorperian HK, Wang Y, et al. Characterizing mandibular growth using three-dimensional imaging techniques and anatomic landmarks. Arch Oral Biol. 2017;77:27-38. <a href="https://doi.org/10.1016/j.archoralbio.2017.01.018">doi.org/10.1016/j.archoralbio.2017.01.018</a></li>
+      <li id="ref-10">Riolo ML, Moyers RE, McNamara JA, Hunter WS. An Atlas of Craniofacial Growth. Craniofacial Growth Series, Monograph 2. Ann Arbor: Center for Human Growth and Development, University of Michigan; 1974. <a href="https://hdl.handle.net/2027.42/146700">hdl.handle.net/2027.42/146700</a></li>
+      <li id="ref-11">West KS, McNamara JA. Changes in the craniofacial complex from adolescence to midadulthood: a cephalometric study. Am J Orthod Dentofacial Orthop. 1999;115(5):521-532. <a href="https://doi.org/10.1016/s0889-5406(99)70274-x">doi.org/10.1016/s0889-5406(99)70274-x</a></li>
+      <li id="ref-12">Nguyen A, Caplin J, Avenetti D, et al. A longitudinal assessment of sex differences in the growth of the mandibular retromolar space. Arch Oral Biol. 2022;143:105547. <a href="https://doi.org/10.1016/j.archoralbio.2022.105547">doi.org/10.1016/j.archoralbio.2022.105547</a></li>
     </ol>
   </details>
   </section>
 
-  <p class="small" data-i18n="version">Version 0.3, 5 November 2026.</p>
+  <p class="small" data-i18n="version">Version 0.4, 5 November 2026.</p>
 </main>
 <!-- CONTACT: copy of app/contact.ts. When the Instagram/X handles are known, turn the
      "Coming soon" items into links like the email one. -->

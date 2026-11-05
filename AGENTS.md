@@ -58,6 +58,10 @@ The platform is translated into English (default) and Japanese; the structure is
 
 Japanese text carries furigana for every kanji word, written inline as `{漢字|かんじ}` and rendered by `<Ruby>` (`app/i18n/ruby.tsx`) as `<ruby>` with `aria-hidden` readings. Use `plain()` for attributes (alt, aria-label, placeholders, metadata). Visitors can hide furigana. Use standard Japanese dental terminology with dental readings (下顎 = かがく, 下歯槽神経 = かしそうしんけい, 智歯 = ちし) and everyday words first in plain-language text (親知らず). The static `/development` page reads the same cookie through `public/development/i18n.js` (`data-i18n` keys). Japanese translations need review by a native-speaking clinician before launch.
 
+## Student pages (/learn)
+
+The site has two audiences, kept on separate pages: clinicians educating patients (homepage, model pages, `/create`) and dental and medical students (`/learn`). The homepage `#audiences` section and the "Students" nav link route between them. Never mix student-level text into patient pages; link instead. `app/learn/page.tsx` is the hub, `app/learn/development/page.tsx` the first student guide, `app/learn/chrome.tsx` the shared header, footer and `<Cited>` helper (`[n]` markers in dictionary text become numbered links to `#src-n`), and `app/learn/sources.ts` the guide's checked sources. Student text lives in `t.learn` and `t.learnDev` in both dictionaries. Every student guide shows the review status, the model disclaimer and a link to `/disclaimer`, and says where the model simplifies the evidence. When a model page's method changes, check the matching student guide still agrees.
+
 ## Patient Information Builder
 
 `app/create/` holds the `/create` builder: `briefs.ts` (model briefs with label names, material types and the system prompt condensed from the patient-education-toolkit skills), `checker.ts` (TypeScript port of the toolkit's deterministic checks), `markdown.ts` (safe Markdown rendering) and `builder.tsx` (UI). `app/api/generate/route.ts` calls Claude (`claude-opus-5-5`) only when the `ANTHROPIC_API_KEY` secret is set; otherwise the builder runs in copy-prompt mode. Keep the AI-limits acknowledgement, the persistent warning banner, the patient-details check and the DRAFT export notice. Never store briefs or drafts on the server. When a new model ships, add its brief (label names exactly as on the model) to `modelBriefs`.
@@ -76,6 +80,18 @@ This is a standing project rule. It applies to every page, model, download, text
 - When evidence is uncertain or conflicting, say so on the page.
 - If no good source can be found, remove the claim or label it clearly as unverified. Do not invent or guess references; check each one (for example on PubMed) before citing it.
 - Operational or organisational statements (what Vivatheca plans or offers) are not health claims, but must not imply evidence or verification that does not exist.
+
+## Patient education text (required)
+
+This is a standing project rule. Every text-based patient education material on Vivatheca (model pages, stage captions, tours, leaflets, builder drafts and exports, in every language) must follow the [patient-education-toolkit](https://github.com/CBCT-2026/patient-education-toolkit) (`pitk`) rules and pass its checker with no errors.
+
+- Run `node tools/patient-text/snapshot.mjs` then `pitk check` (or `pnpm check:patient-text`) before submitting any change to patient-facing text. CI (`.github/workflows/patient-text.yml`) runs the same check on every pull request. Setup and what is left out: `tools/patient-text/README.md`.
+- New static pages under `public/` are found automatically. New patient-facing app text must be added to `tools/patient-text/snapshot.mjs`.
+- Write for patients: speak to the reader ("you"), short sentences (20 words or fewer; Japanese 50 characters or fewer), active voice, plain words first with the medical name in brackets ("the big upper back tooth (first molar)"), risks as "X in 100" with the same denominator. Japanese uses やさしい日本語 with furigana, jouyou kanji only.
+- Put technical detail for clinicians in a closed `<details class="clin">` or a section headed "For clinicians"; the checker leaves those out. Do not hide patient text from the checker with `.small` or `.pitk-skip`.
+- Plain-language rewrites must keep every citation and must not change what the source says. The evidence, disclaimer and language rules still apply; the disclaimer wording stays verbatim.
+- The `/create` builder applies the same rules in the browser (`app/create/checker.ts`, `briefs.ts`). When the toolkit changes, update the port, the pinned commit in the workflow, and this section.
+- For judgement the checker cannot make (PEMAT, CDC Clear Communication Index, risk wording), use the toolkit's skills, and test materials with people from the audience.
 
 ## Clinical images (required for all conditions and cases)
 

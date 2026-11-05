@@ -10,7 +10,8 @@
     "build": "vinext build",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "check:patient-text": "node tools/patient-text/snapshot.mjs && pitk check"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.5.0",
