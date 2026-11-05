@@ -123,6 +123,10 @@ The palette is drawn from the supplied logo and extended with accessible tonal r
 
 **The Labelled Map Role Rule.** Map roles never rely on colour alone: creator cyan, donor amber, reviewer coral and translator violet markers carry C, D, R or T and are paired with explicit legend and location labels.
 
+### Light and Dark Mode
+
+The site opens in light mode for every visitor, whatever their system setting. The header's theme toggle switches to dark mode, and the choice is remembered in `localStorage` under `vivatheca-theme`, shared by the app pages and the static `/development/` pages. Dark mode keeps the core palette: Deep Navy (`#001a37`) page fields, Navy (`#00244d`) cards, white headings and bright brand cyan (`#14c9d7`) for accents and primary buttons. Style new components with the theme-aware tokens in `app/globals.css` (`--surface`, `--surface-alt`, `--surface-tint`, `--heading`, `--text-strong`, `--accent`, `--ink`, `--muted`, `--line`) rather than raw navy or white, so they follow the toggle. The toggle label is available in English and Japanese and follows the page's `lang`.
+
 ## Typography
 
 **Display Font:** Manrope Variable (with Manrope and sans-serif fallbacks)

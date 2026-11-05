@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@fontsource-variable/manrope';
 import './globals.css';
+import { themeInitScript } from './theme';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vivatheca.com'),
@@ -33,8 +34,9 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <span hidden aria-hidden="true" dangerouslySetInnerHTML={{ __html: `<!-- ${designContract.replaceAll('--', '—')} -->` }} />
         {children}
       </body>
