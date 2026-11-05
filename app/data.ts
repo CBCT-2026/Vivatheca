@@ -35,19 +35,19 @@ export const understandingPaths = [
 
 export const trustItems = [
   {
-    title: 'A review status visitors can read',
-    text: 'Each model record is designed to show whether it is approved, rejected or awaiting clinical review, its model rating, and whether it has been recommended for review by clinicians.',
+    title: 'Sources you can check',
+    text: 'Each model lists the peer-reviewed sources it was checked against, with links, plus what is simplified and a change log of every fix.',
   },
   {
-    title: 'Private verification, limited public attribution',
-    text: 'A clinician’s identity and eligibility to review are verified privately. The public record is limited to the reviewer’s title, initials, occupation and country of practice.',
+    title: 'A review status visitors can read',
+    text: 'Each model shows whether it has been clinically reviewed. When review starts, approved models will show the reviewer’s title, initials, occupation and country of practice; identity checks stay private.',
   },
   {
     title: 'A focused educational assessment',
-    text: 'Reviewers are not asked to provide medical or health advice, or information about the procedure or condition. Their role is only to approve or reject whether the model reflects the named condition or procedure well enough for patient education.',
+    text: 'Reviewers will not be asked for medical or health advice. Their role is only to check whether the model shows the named condition well enough for patient education.',
   },
   {
-    title: 'Public information with a traceable source',
-    text: 'Condition and procedure information is drawn from appropriately licensed public government health-service information, with source attribution and directions showing where to access further information.',
+    title: 'Corrections in the open',
+    text: 'Anyone can report an inaccuracy. Reports are checked against published sources, and fixes are recorded in the model’s change log.',
   },
 ];

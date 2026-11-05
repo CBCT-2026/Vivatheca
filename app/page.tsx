@@ -10,19 +10,19 @@ function Icon({ name, size = 20 }: { name: string; size?: number }) {
 const publications = [
   {
     title: 'Impact of 3D-Printed Anatomical Models on Doctor-Patient Communication in Orthopedic Consultations',
-    journal: 'Cureus · 2024 · Randomized clinical trial',
+    journal: 'Cureus · 2024 · Randomised clinical trial',
     finding: 'The trial compared consultations with and without 3D anatomical models and reported stronger patient knowledge and communication measures in the model group.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/39493008/',
   },
   {
     title: 'The use of 3-dimensionally printed models to optimize patient education and alleviate perioperative anxiety in Mohs surgery',
-    journal: 'Journal of the American Academy of Dermatology · 2019 · Randomized controlled trial',
-    finding: 'The study evaluated a printed procedural model alongside standardized education for patient understanding and perioperative anxiety.',
+    journal: 'Journal of the American Academy of Dermatology · 2019 · Randomised controlled trial',
+    finding: 'The study evaluated a printed procedural model alongside standardised education for patient understanding and perioperative anxiety.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/31163232/',
   },
   {
     title: 'Impact of a Virtual Three-Dimensional Thyroid Model on Patient Communication in Thyroid Surgery',
-    journal: 'Cancers · 2026 · Randomized controlled trial',
+    journal: 'Cancers · 2026 · Randomised controlled trial',
     finding: 'Patients using a virtual 3D thyroid model showed improved comprehension of selected anatomy, surgical procedures and complications.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/41595161/',
   },
@@ -97,8 +97,8 @@ export default function Home() {
         </section>
 
         <section className="print-section">
-          <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt="The impacted wisdom tooth model beside its matched normal, where the wisdom tooth stands upright in line with the other molars." width="1200" height="800" /><figcaption className="ai-disclaimer">Screenshot of the impacted and matched normal models.</figcaption></figure>
-          <div className="print-copy"><h2>From the screen to something you can hold.</h2><p>Every model comes with a free STL file, scaled in millimetres, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands.</p><Link className="text-link" href="/models/impacted-wisdom-tooth">Download both STL files <Icon name="download" /></Link></div>
+          <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt="The impacted wisdom tooth model beside its matched normal, where the wisdom tooth stands upright in line with the other molars." width="1200" height="800" /><figcaption className="figure-note">Screenshot of the impacted and matched normal models.</figcaption></figure>
+          <div className="print-copy"><h2>From the screen to something you can hold.</h2><p>Every model comes with a free STL file in millimetres, with its print scale stated on the model page, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands.</p><Link className="text-link" href="/models/impacted-wisdom-tooth">Download both STL files <Icon name="download" /></Link></div>
         </section>
 
         <section className="trust-section" id="trust">
@@ -129,11 +129,11 @@ export default function Home() {
 
         <section className="contribute-section" id="contribute">
           <div className="contribute-copy"><h2>Help build the collection.</h2><p>Clinicians keep the library accurate and decide what gets built next.</p><div className="contribution-paths">{contributionPaths.map((path) => <article key={path.title}><Icon name={path.icon} size={26} /><div><h3>{path.title}</h3><p>{path.text}</p><a className="text-link" href={path.href}>{path.href.startsWith('/') ? 'Open the form' : 'Email us'} <Icon name="arrow_forward" /></a></div></article>)}</div></div>
-          <figure><img src="/assets/renders/dental-development.webp" alt="Dental development model at 9.5 years: right upper and lower jaw with blue baby teeth and yellow adult teeth forming beneath them." width="1200" height="800" /><figcaption className="ai-disclaimer">Screenshot of the dental development series, age 9.5. <a href="/development/">Open the series</a>.</figcaption></figure>
+          <figure><img src="/assets/renders/dental-development.webp" alt="Dental development model at 9.5 years: right upper and lower jaw with blue baby teeth and yellow adult teeth forming beneath them." width="1200" height="800" /><figcaption className="figure-note">Screenshot of the dental development series, age 9.5. <a href="/development/">Open the series</a>.</figcaption></figure>
         </section>
 
         <section className="sponsor-section" id="sponsor">
-          <div className="sponsor-intro"><div><h2>Help a model travel further.</h2><p>Sponsorship can support model development and future physical distribution to clinics that cannot print locally.</p></div><a className="button button-light" href="mailto:hello@vivatheca.com?subject=Sponsor%20a%20Vivatheca%20model">Start a sponsorship conversation <Icon name="arrow_forward" /></a></div>
+          <div className="sponsor-intro"><div><h2>Help a model travel further.</h2><p>Sponsorship can support model development and future physical distribution to clinics that cannot print locally. Vivatheca is not yet a registered charity, so sponsorship is not tax-deductible.</p></div><a className="button button-light" href="mailto:hello@vivatheca.com?subject=Sponsor%20a%20Vivatheca%20model">Start a sponsorship conversation <Icon name="arrow_forward" /></a></div>
         </section>
       </main>
 

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { catalogue } from '../models/catalogue';
 
 const issueTypes = ['Anatomy is wrong', 'Condition is not shown accurately', 'Label or text is wrong', 'Download or print problem', 'Other'];
-const roles = ['Dentist', 'Dental specialist', 'Oral health therapist or hygienist', 'Medical doctor', 'Student', 'Patient or carer', 'Other'];
+const roles = ['Dentist', 'Dental specialist', 'Oral health therapist or hygienist', 'Dental therapist', 'Dental prosthetist', 'Medical doctor', 'Student', 'Patient or carer', 'Other'];
 
 export function ReportForm({ initialModel }: { initialModel?: string }) {
   const [model, setModel] = useState(initialModel && catalogue.some((item) => item.slug === initialModel) ? initialModel : catalogue[0].slug);
@@ -35,13 +35,19 @@ export function ReportForm({ initialModel }: { initialModel?: string }) {
     }
     setError('');
     const subject = `Inaccuracy report: ${modelTitle}`;
-    window.location.href = `mailto:hello@vivatheca.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const url = `mailto:hello@vivatheca.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.replace(/\n/g, '\r\n'))}`;
+    if (url.length > 1900) {
+      setError('This report is too long for an email link. Use “Copy report text” and paste it into an email to hello@vivatheca.com.');
+      return;
+    }
+    window.location.href = url;
   }
 
   async function copy() {
     try {
       await navigator.clipboard.writeText(`To: hello@vivatheca.com\nSubject: Inaccuracy report: ${modelTitle}\n\n${body}`);
       setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
     }
@@ -65,8 +71,9 @@ export function ReportForm({ initialModel }: { initialModel?: string }) {
           {roles.map((item) => <option key={item}>{item}</option>)}
         </select>
       </label>
+      <p className="report-privacy" id="report-privacy"><strong>Do not include patient details</strong> such as names, dates of birth or images from a patient record.</p>
       <label>What is wrong and where?
-        <textarea rows={6} value={details} onChange={(event) => setDetails(event.target.value)} aria-invalid={error ? true : undefined} aria-describedby={error ? 'report-error' : undefined} placeholder="For example: the nerve should run below the second molar roots, not between them." />
+        <textarea rows={6} maxLength={1500} value={details} onChange={(event) => setDetails(event.target.value)} aria-invalid={error ? true : undefined} aria-describedby={error ? 'report-privacy report-error' : 'report-privacy'} placeholder="For example: the nerve should run below the second molar roots, not between them." />
       </label>
       {error ? <p className="form-error" id="report-error" role="alert">{error}</p> : null}
       <label>Supporting source (optional)

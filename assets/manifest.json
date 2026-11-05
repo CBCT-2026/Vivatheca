@@ -18,7 +18,8 @@
       "purpose": "Landing-page consultation hero",
       "alt": "A clinician and patient examine a three-dimensional lower jaw model showing an impacted wisdom tooth.",
       "prompt": "assets/prompts/consultation-hero.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/screen-to-print.png",
@@ -27,7 +28,8 @@
       "purpose": "Browser-to-physical-model explanation",
       "alt": "A jaw model moves from an interactive screen through a 3D printer to a physical teaching model held by a clinician.",
       "prompt": "assets/prompts/screen-to-print.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/open-review-network-v2.png",
@@ -35,7 +37,8 @@
       "purpose": "Open clinical review and contributor network",
       "alt": "Experienced clinicians, biomedical engineers, model creators and translators use digital anatomy tools around a heart encased in clear resin.",
       "prompt": "assets/prompts/open-review-network-v2.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/global-access-map.png",
@@ -43,7 +46,8 @@
       "purpose": "Geographically legible base for the global access and collaboration visualization",
       "alt": "Detailed world map beneath demonstration model deliveries and collaborator locations",
       "prompt": "assets/prompts/global-access-map.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/sustainable-printing.png",
@@ -51,7 +55,8 @@
       "purpose": "Exploratory lower-waste physical printing commitment",
       "alt": "Gloved hands sorting retired anatomical teaching prints, supports and empty spools beside filament recovery equipment.",
       "prompt": "assets/prompts/sustainable-printing.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/impacted-molar-review-interface-v2.png",
@@ -59,7 +64,8 @@
       "purpose": "Illustrative impacted-molar clinical review record interface",
       "alt": "Impacted lower wisdom tooth model with the left inferior alveolar nerve in a clinical review interface.",
       "prompt": "assets/prompts/impacted-molar-review-interface-v2.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/flags/",
@@ -77,7 +83,8 @@
       "purpose": "Interpretive illustration for the orthopedic communication trial",
       "alt": "A clinician and patient use a three-dimensional knee model during an orthopedic consultation.",
       "prompt": "assets/prompts/research-orthopedic-communication.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/research-mohs-education.png",
@@ -85,7 +92,8 @@
       "purpose": "Interpretive illustration for the Mohs surgery patient-education trial",
       "alt": "A dermatologist and patient discuss a layered, non-graphic three-dimensional skin model.",
       "prompt": "assets/prompts/research-mohs-education.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     },
     {
       "source": "assets/research-virtual-thyroid.png",
@@ -93,7 +101,9 @@
       "purpose": "Interpretive illustration for the virtual thyroid model trial",
       "alt": "A clinician and patient explore an interactive three-dimensional thyroid model on a tablet.",
       "prompt": "assets/prompts/research-virtual-thyroid.txt",
-      "generatedWith": "OpenAI ImageGen built-in tool"
+      "generatedWith": "OpenAI ImageGen built-in tool",
+      "status": "retired 2026-11-05: replaced by model screenshots in public/assets/renders/"
     }
-  ]
+  ],
+  "note": "Since 5 November 2026 the site ships screenshots of its own models (public/assets/renders/, public/assets/og-image.jpg) instead of AI illustrations. Retired entries are kept for provenance."
 }

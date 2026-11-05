@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'About — Vivatheca',
   description: 'Why Vivatheca exists, who runs it and how it is governed as a not-for-profit.',
   alternates: { canonical: '/about' },
+  openGraph: { url: '/about', images: ['/assets/og-image.jpg'] },
 };
 
 const principles = [
@@ -20,7 +21,7 @@ export default function AboutPage() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
-      <PageHeader />
+      <PageHeader current="/about" />
       <main id="main-content" className="info-page prose-page">
         <div className="info-intro">
           <p className="eyebrow">About</p>
@@ -30,7 +31,7 @@ export default function AboutPage() {
 
         <section aria-labelledby="why-title">
           <h2 id="why-title">Why it exists</h2>
-          <p>Patients often leave an appointment without a clear picture of what is happening in their mouth. Radiographs and diagrams are hard to read for most people. Studies of 3D models in consultations report better patient understanding and communication, but good models are expensive, hard to find, or locked to one product.</p>
+          <p>Patients often leave an appointment without a clear picture of what is happening in their mouth. Radiographs and diagrams are hard to read for most people. Trials in other surgical specialties report that 3D models can improve patient understanding and communication, though dental evidence is still limited. Good models are expensive, hard to find, or locked to one product.</p>
           <p>Vivatheca makes those models open: one place to find a condition, see it beside normal anatomy, and download it for any use in patient education.</p>
         </section>
 
@@ -44,7 +45,7 @@ export default function AboutPage() {
 
         <section aria-labelledby="founder-title">
           <h2 id="founder-title">Who runs it</h2>
-          <p><strong>Luke Seifert, Founder &amp; Director.</strong> Vivatheca was founded in Australia by Luke, a dental professional who models and 3D prints anatomy. He builds each model, checks it against published sources and tests prints on a desktop printer. It is currently a one-person project, supported by clinicians who review models and suggest new ones.</p>
+          <p><strong>Luke Seifert, Founder &amp; Director.</strong> Vivatheca was founded in Australia by Luke, a dental professional who models and 3D prints anatomy. He builds each model, checks it against published sources and tests prints on a desktop printer. It is currently a one-person project. Clinicians are being invited to review models and suggest new ones.</p>
           <p>Vivatheca has no commercial sponsor and earns no money from the models.</p>
         </section>
 

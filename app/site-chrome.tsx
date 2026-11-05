@@ -7,15 +7,15 @@ export const primaryLinks = [
   { label: 'Models', href: '/models' },
   { label: 'Create', href: '/create' },
   { label: 'About', href: '/about' },
-  { label: 'Report an issue', href: '/report' },
+  { label: 'Report an inaccuracy', href: '/report' },
 ];
 
-export function PageHeader() {
+export function PageHeader({ current }: { current?: string }) {
   return (
     <header className="site-header page-header">
       <Link className="brand" href="/" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
       <nav className="page-nav" aria-label="Primary navigation">
-        {primaryLinks.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+        {primaryLinks.map((link) => <Link key={link.href} href={link.href} aria-current={current === link.href ? 'page' : undefined}>{link.label}</Link>)}
       </nav>
       <div className="page-header-actions"><ThemeToggle /></div>
     </header>

@@ -31,8 +31,8 @@ export function MobileNavigation() {
 }
 
 const tourSteps = [
-  { label: 'Start here', title: 'The wisdom tooth is stuck under the gum', text: 'This lower left wisdom tooth is tilted forward and does not have room to come through.' },
-  { label: 'Look closer', title: 'The red line is a nerve', text: 'This nerve gives feeling to the lower lip and chin. Turn the model to see how close the tooth roots sit to it.' },
+  { label: 'Start here', title: 'The wisdom tooth is stuck', text: 'This lower left wisdom tooth is tilted forward against the tooth in front, so it cannot come through properly.' },
+  { label: 'Look closer', title: 'The red line is a nerve', text: 'This nerve gives feeling to the lower teeth, gums, lip and chin. In this model the tooth’s roots wrap around it. Turn the model to see.' },
   { label: 'Discuss next steps', title: 'Use the model as a conversation aid', text: 'A clinician can connect this view to symptoms, imaging and treatment options for an individual patient.' },
 ];
 
@@ -99,7 +99,7 @@ export function ModelExperience() {
   const clinicalText = step === 0
     ? 'The model depicts a mesioangularly impacted left mandibular third molar against the distal surface of the second molar.'
     : step === 1
-      ? 'The inferior alveolar nerve (red) runs close to the third molar roots. Individual root–canal relationships must be assessed with appropriate imaging such as CBCT.'
+      ? 'The inferior alveolar nerve (red) passes between the third molar roots. The relationship between each root and the mandibular canal must be assessed with appropriate imaging such as CBCT.'
       : 'Use this visualisation alongside clinical findings and imaging. It is an educational aid, not a diagnostic record or treatment recommendation.';
 
   return (

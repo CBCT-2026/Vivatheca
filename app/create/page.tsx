@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Create patient information — Vivatheca',
   description: 'Draft, check and refine patient education materials that match Vivatheca 3D models.',
   alternates: { canonical: '/create' },
+  openGraph: { url: '/create', images: ['/assets/og-image.jpg'] },
   robots: { index: false },
 };
 

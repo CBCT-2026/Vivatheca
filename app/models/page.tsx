@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Model library — Vivatheca',
   description: 'Free 3D models of dental and oral and maxillofacial conditions, each paired with normal anatomy, with GLB and STL downloads.',
   alternates: { canonical: '/models' },
+  openGraph: { url: '/models', images: ['/assets/og-image.jpg'] },
 };
 
 // Static pages under public/ need their trailing slash, which next/link removes.
@@ -19,7 +20,7 @@ export default function ModelsPage() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
-      <PageHeader />
+      <PageHeader current="/models" />
       <main id="main-content" className="info-page">
         <div className="info-intro">
           <p className="eyebrow">Model library</p>
@@ -32,7 +33,7 @@ export default function ModelsPage() {
           {catalogue.map((model) => (
             <li key={model.slug} className="library-card">
               <CardLink href={model.href}>
-                <img src={model.image} alt={model.imageAlt} width="1200" height="800" loading="lazy" />
+                <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
                 <div className="library-card-body">
                   <p className="library-meta">{model.specialty}</p>
                   <h2>{model.title}</h2>

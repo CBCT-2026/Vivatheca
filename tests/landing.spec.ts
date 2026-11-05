@@ -70,11 +70,9 @@ test('trust section explains transparent and privacy-preserving clinical review'
   const trust = page.locator('#trust');
 
   await expect(trust.getByRole('heading', { name: 'Trust should be visible, not implied.' })).toBeVisible();
-  await expect(trust).toContainText('approved, rejected or awaiting clinical review');
-  await expect(trust).toContainText('verified privately');
+  await expect(trust).toContainText('peer-reviewed sources');
   await expect(trust).toContainText('title, initials, occupation and country of practice');
-  await expect(trust).toContainText('not asked to provide medical or health advice');
-  await expect(trust).toContainText('appropriately licensed public government health-service information');
+  await expect(trust).toContainText('change log');
   await expect(trust).toContainText('Review status today');
   await expect(trust.getByRole('link', { name: 'Report an inaccuracy' })).toHaveAttribute('href', '/report');
 });

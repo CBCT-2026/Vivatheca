@@ -12,16 +12,16 @@ export const metadata: Metadata = {
   title: 'Impacted lower wisdom tooth and matched normal — Vivatheca',
   description: 'Free 3D model of an impacted lower wisdom tooth near the inferior alveolar nerve, with a matched normal jaw. GLB and STL downloads, sources and licence.',
   alternates: { canonical: '/models/impacted-wisdom-tooth' },
-  openGraph: { images: ['/assets/renders/wisdom-tooth-compare.webp'] },
+  openGraph: { url: '/models/impacted-wisdom-tooth', images: ['/assets/renders/wisdom-tooth-compare.webp'] },
 };
 
 export default function WisdomToothPage() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
-      <PageHeader />
+      <PageHeader current="/models" />
       <main id="main-content" className="info-page model-page">
-        <nav className="breadcrumb" aria-label="Breadcrumb"><Link href="/models">Model library</Link><span aria-hidden="true">/</span><span>{model.title}</span></nav>
+        <nav className="breadcrumb" aria-label="Breadcrumb"><Link href="/models">Model library</Link><span aria-hidden="true">/</span><span aria-current="page">{model.title}</span></nav>
         <div className="info-intro">
           <p className="eyebrow">{model.specialty}</p>
           <h1>{model.title}</h1>
@@ -40,7 +40,7 @@ export default function WisdomToothPage() {
               ))}
             </ul>
             <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> {modelDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
-            <p className="detail-note">Licence: <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. You may use, adapt and print these models, including in your own patient materials, if you credit Vivatheca and share any changed model under the same licence.</p>
+            <p className="detail-note">Licence: <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. You may use, adapt and print these models, including in your own patient materials, if you credit Vivatheca. If you change the model, or images of it, share your changed version under CC BY-SA 4.0.</p>
             <Link className="button button-compact" href="/create">Make patient information for this model</Link>
           </section>
 

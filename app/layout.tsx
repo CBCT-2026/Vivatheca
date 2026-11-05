@@ -10,17 +10,11 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   icons: { icon: '/favicon.svg' },
   openGraph: {
-    title: 'Vivatheca — Medical models made clear',
-    description: 'Free 3D dental and oral surgery models, each with a matched normal, for clinicians making patient education materials.',
+    siteName: 'Vivatheca',
     url: '/',
     images: ['/assets/og-image.jpg'],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Vivatheca — Medical models made clear',
-    description: 'Free 3D dental and oral surgery models, each with a matched normal, for clinicians making patient education materials.',
-    images: ['/assets/og-image.jpg'],
-  },
+  twitter: { card: 'summary_large_image' },
 };
 
 const designContract = `

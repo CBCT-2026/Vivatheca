@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Disclaimer — Vivatheca',
   description: 'Vivatheca models and information are for general education only and are not medical advice.',
   alternates: { canonical: '/disclaimer' },
+  openGraph: { url: '/disclaimer', images: ['/assets/og-image.jpg'] },
 };
 
 export default function DisclaimerPage() {

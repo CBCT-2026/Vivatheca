@@ -9,6 +9,7 @@ type ModelViewerElement = HTMLElement & { cameraOrbit: string; getCameraOrbit: (
 
 export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Side }) {
   const [ready, setReady] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [mode, setMode] = useState<Mode>('both');
   const [linked, setLinked] = useState(true);
   const [left, setLeft] = useState<ModelViewerElement | null>(null);
@@ -16,7 +17,7 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
 
   useEffect(() => {
     let active = true;
-    import('@google/model-viewer').then(() => { if (active) setReady(true); });
+    import('@google/model-viewer').then(() => { if (active) setReady(true); }).catch(() => { if (active) setFailed(true); });
     return () => { active = false; };
   }, []);
 
@@ -75,7 +76,7 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
         {(['impacted', 'normal'] as const).map((key) => (
           <figure key={key} className="compare-pane" hidden={mode !== 'both' && mode !== key}>
             <figcaption><span className={`compare-dot ${key}`} aria-hidden="true" />{key === 'impacted' ? 'Impacted wisdom tooth' : 'Matched normal'}</figcaption>
-            {ready ? viewer(key === 'impacted' ? impacted : normal, key === 'impacted' ? setLeft : setRight) : <div className="compare-model compare-loading" role="status">Loading 3D model…</div>}
+            {ready ? viewer(key === 'impacted' ? impacted : normal, key === 'impacted' ? setLeft : setRight) : <div className="compare-model compare-loading" role="status">{failed ? 'The 3D viewer could not load. Use the download links below to open the model.' : 'Loading 3D model…'}</div>}
           </figure>
         ))}
       </div>

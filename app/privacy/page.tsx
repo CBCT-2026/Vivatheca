@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Privacy — Vivatheca',
   description: 'What Vivatheca collects when you use the site, and what it does not.',
   alternates: { canonical: '/privacy' },
+  openGraph: { url: '/privacy', images: ['/assets/og-image.jpg'] },
 };
 
 export default function PrivacyPage() {
@@ -21,12 +22,12 @@ export default function PrivacyPage() {
 
         <section aria-labelledby="no-accounts">
           <h2 id="no-accounts">No accounts, no tracking cookies</h2>
-          <p>You do not need an account to view or download models. The site does not use advertising, tracking cookies or third-party trackers.</p>
+          <p>You do not need an account to view or download models. The site does not use advertising or tracking cookies.</p>
         </section>
 
         <section aria-labelledby="analytics">
           <h2 id="analytics">Visitor counts</h2>
-          <p>We use Cloudflare Web Analytics to count page visits. It does not use cookies, does not collect personal information and does not follow you across other sites. We use it only to see which models are useful.</p>
+          <p>We may use Cloudflare Web Analytics to count page visits. It does not use cookies, does not collect personal information and does not follow you across other sites. We use it only to see which models are useful.</p>
         </section>
 
         <section aria-labelledby="hosting">
@@ -41,7 +42,7 @@ export default function PrivacyPage() {
 
         <section aria-labelledby="builder">
           <h2 id="builder">Patient information builder</h2>
-          <p>If you use the AI drafting option, the brief you type is sent to Anthropic’s Claude service to write the draft and is not stored by Vivatheca. Never enter a patient’s name, date of birth or other identifying details.</p>
+          <p>If you use the AI drafting option, the brief you type is sent to Anthropic (United States) to write the draft. Anthropic may keep it for a limited time under its own terms; Vivatheca does not store it. Never enter a patient’s name, date of birth or other identifying details.</p>
         </section>
 
         <section aria-labelledby="email">
