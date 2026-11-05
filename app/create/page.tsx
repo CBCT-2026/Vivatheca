@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CompactFooter } from '../contact-section';
 import Link from 'next/link';
 import { getI18n } from '../i18n/server';
 import { plain, Ruby } from '../i18n/ruby';
@@ -56,6 +57,7 @@ export default async function CreatePage() {
           </ol>
         </section>
       </main>
+      <CompactFooter t={t} />
     </>
   );
 }

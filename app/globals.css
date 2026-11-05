@@ -479,6 +479,7 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 
 /* Patient information builder (/create) */
 .builder-header { position: static; }
+.site-header.builder-header { grid-template-columns: auto 1fr auto; }
 .builder-page { max-width: 1240px; margin: 0 auto; padding: 2rem clamp(1rem,4vw,3rem) 5rem; }
 .builder-intro { max-width: 760px; margin-bottom: 1.5rem; }
 .builder-intro h1 { margin: .2rem 0 .6rem; font-size: clamp(2rem,4vw,3rem); line-height: 1.1; color: var(--heading); }
@@ -599,11 +600,34 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .language-switcher button:hover { color: var(--cyan-600); }
 .language-switcher .furigana-toggle { margin-left: .35rem; border-color: var(--line); font-size: .78rem; }
 .language-switcher.in-menu { display: flex; flex-wrap: wrap; padding: .75rem .25rem 0; }
-@media (max-width: 1100px) {
-  .header-actions > .language-switcher:not(.always) { display: none; }
-}
+.language-switcher .lang-short { display: none; }
+.language-switcher.in-menu .furigana-toggle { margin-left: 0; }
+/* Phones: keep the language and theme switches in the top bar, made compact. */
 @media (max-width: 560px) {
-  .builder-header .language-switcher .ui-icon { display: none; }
+  .site-header { gap: .5rem; padding-inline: 1rem; }
+  .header-actions { gap: .35rem; }
+  .brand { width: 108px; height: 42px; }
+  .brand img { width: 108px; }
+  .header-actions > .language-switcher .ui-icon { display: none; }
+  .header-actions > .language-switcher { gap: 0; border: 1px solid var(--line); border-radius: 999px; padding: 1px; }
+  .header-actions > .language-switcher button { min-width: 40px; padding: .3rem .45rem; font-size: .8rem; white-space: nowrap; }
+  .header-actions > .language-switcher .furigana-toggle { min-width: 0; margin-left: .15rem; padding-inline: .35rem; font-size: .72rem; }
+  .header-actions > .language-switcher .lang-full { display: none; }
+  .header-actions > .language-switcher .lang-short { display: inline; }
+  .theme-toggle { min-width: 42px; }
+  .mobile-nav .icon-button { min-width: 42px; }
+  /* The logo already links home, so the Back button gives way to the switches. */
+  .builder-header .builder-back { display: none !important; }
+}
+/* The homepage menu repeats the furigana switch, so the header drops it on phones. */
+@media (max-width: 560px) {
+  .site-header:not(.builder-header) .header-actions > .language-switcher .furigana-toggle { display: none; }
+}
+@media (max-width: 340px) {
+  .brand { width: 96px; }
+  .brand img { width: 96px; }
+  /* No room on the smallest phones; the homepage menu still has the furigana switch. */
+  .header-actions > .language-switcher .furigana-toggle { display: none; }
 }
 
 /* Japanese text: furigana above kanji, and line breaks suited to Japanese. */
@@ -676,9 +700,6 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .learn-sources li { margin-bottom: .45rem; overflow-wrap: anywhere; }
 .learn-sources a, .learn-page p a, .learn-model-disclaimer a { color: var(--accent); }
 .learn-sources li:target { background: var(--surface-tint); }
-.learn-footer { border-top: 1px solid var(--line); padding: 1.5rem clamp(1rem,4vw,3rem) 2.5rem; color: var(--muted); font-size: .88rem; text-align: center; }
-.learn-footer p { max-width: 760px; margin: 0 auto .4rem; }
-.learn-footer a { color: inherit; font-weight: 800; }
 @media (max-width: 720px) { .learn-crumbs { display: none; } }
 /* Six header links: tighten them on mid-size desktops so the language and theme controls keep their room. */
 @media (max-width: 1400px) { .desktop-nav { gap: .9rem; } .desktop-nav a { font-size: .9rem; } }
@@ -687,4 +708,30 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
   .site-header { grid-template-columns: auto 1fr; }
   .header-actions { justify-content: flex-end; }
   .mobile-nav { display: block; }
+}
+/* Contact band (app/contact-section.tsx), in every page footer. */
+.contact-section { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 1.5rem 3rem; border-top: 1px solid rgba(255,255,255,.18); padding: 2.5rem 0; }
+.contact-section h2 { margin: 0 0 .4rem; color: var(--white); font-size: clamp(1.5rem,2.4vw,2rem); }
+.contact-section p { max-width: 52ch; margin: 0; color: rgba(255,255,255,.78); }
+.contact-links { display: flex; flex-wrap: wrap; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.contact-links a, .contact-pending {
+  display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: .7rem; align-items: center;
+  min-width: 190px; min-height: 64px; border: 1px solid rgba(20,201,215,.45); border-radius: var(--radius-sm);
+  padding: .65rem 1rem; color: var(--white); text-decoration: none; transition: border-color 160ms ease, background-color 160ms ease;
+}
+.contact-links svg { grid-row: 1 / 3; color: var(--cyan-500); }
+.contact-name { font-weight: 800; line-height: 1.2; }
+.contact-handle { color: rgba(255,255,255,.72); font-size: .82rem; overflow-wrap: anywhere; }
+.contact-links a:hover { border-color: var(--cyan-500); background: rgba(20,201,215,.1); }
+.contact-links a:focus-visible { outline: 3px solid var(--cyan-500); outline-offset: 2px; }
+.contact-pending { border-style: dashed; border-color: rgba(255,255,255,.28); }
+.contact-pending svg { color: rgba(255,255,255,.55); }
+.site-footer-compact { padding-top: 0; }
+.site-footer-compact .contact-section { border-top: 0; }
+@media (max-width: 900px) {
+  .contact-section { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .contact-links { display: grid; grid-template-columns: 1fr; }
+  .contact-links a, .contact-pending { min-width: 0; }
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
 import { ThemeToggle } from '../ui';
-import { disclaimerHref } from '../disclaimer-text';
+import { CompactFooter } from '../contact-section';
 import type { Dictionary } from '../i18n/dictionaries';
 import { plain, Ruby } from '../i18n/ruby';
 import { LanguageSwitcher } from '../i18n/switcher';
@@ -28,13 +28,9 @@ export function LearnHeader({ t, furigana }: { t: Dictionary; furigana: boolean 
   );
 }
 
+// Same footer as the other inner pages: contact band, site disclaimer and legal links.
 export function LearnFooter({ t }: { t: Dictionary }) {
-  return (
-    <footer className="learn-footer">
-      <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
-      <p>© 2026 Vivatheca</p>
-    </footer>
-  );
+  return <CompactFooter t={t} />;
 }
 
 // Renders text with [n] markers as numbered superscript links to #src-n.
