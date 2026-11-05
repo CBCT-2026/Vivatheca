@@ -20,7 +20,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
   .ages button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
   .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
   .stage p { margin: 0; }
-  .dot.baby { background: #5982ce; } .dot.adult { background: #d7cbbb; }
+  .dot.baby { background: #5982ce; } .dot.adult { background: #e3cf5a; } .dot.bone { background: #d7cbbb; }
   .download { display: inline-block; margin-top: 4px; }
 </style>
 <script type="module" src="vendor/model-viewer/model-viewer.min.js"></script>
@@ -62,7 +62,8 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
   </div>
   <ul class="legend">
     <li><span class="dot baby"></span>Baby teeth</li>
-    <li><span class="dot adult"></span>Adult teeth and bone</li>
+    <li><span class="dot adult"></span>Adult teeth</li>
+    <li><span class="dot bone"></span>Bone</li>
   </ul>
 
   <section class="stage" id="stage" aria-live="polite"></section>
@@ -73,7 +74,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
 
   <section>
     <h2>What the model shows</h2>
-    <p>The model shows the right side of the upper and lower jaw. We cut away the bone on the cheek side, so you can see the adult teeth growing inside the jaw. Baby teeth are blue. Adult teeth and bone are cream. Tap <b>See-through bone</b> to see all the growing teeth at once.</p>
+    <p>The model shows the right side of the upper and lower jaw. We cut away the bone on the cheek side, so you can see the adult teeth growing inside the jaw. Baby teeth are blue, adult teeth are yellow, and bone is cream. Tap <b>See-through bone</b> to see all the growing teeth at once.</p>
     <p>Choose an age to see what usually happens at that age. The ages are averages from large studies of how teeth grow.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup></p>
   </section>
 

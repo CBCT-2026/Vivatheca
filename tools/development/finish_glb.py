@@ -2,7 +2,7 @@
 Run: python3 finish_glb.py <in_dir> <out_dir>   (needs npx; uses @gltf-transform/cli 4.1.1 as the wisdom tooth site does)"""
 import json, struct, subprocess, sys
 from pathlib import Path
-COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'adult': [0.6724, 0.5972, 0.4969, 1], 'baby': [0.1, 0.22, 0.62, 1]}
+COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'adult': [0.768, 0.624, 0.102, 1], 'baby': [0.1, 0.22, 0.62, 1]}
 NAME = {'bone': 'bone', 'adult': 'teeth', 'baby': 'baby-teeth'}
 src, dst = Path(sys.argv[1]), Path(sys.argv[2]); dst.mkdir(parents=True, exist_ok=True)
 for f in sorted(src.glob('age-*.glb')):

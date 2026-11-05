@@ -20,7 +20,7 @@ See the docstring at the top of `generate.py`. In short:
 - For printing, any baby tooth that did not touch bone was nudged up to 3 mm towards the tongue and up to 4 mm deeper; see `print-notes.txt`.
 
 ## Colours
-Bone and adult teeth: linear (0.6724, 0.5972, 0.4969), roughness 0.7, the same as the latest wisdom tooth model. Baby teeth: blue (0.10, 0.22, 0.62), as on the Schour–Massler chart.
+Bone: linear (0.6724, 0.5972, 0.4969), roughness 0.7, the same as the latest wisdom tooth model. Adult teeth: yellow (0.768, 0.624, 0.102). Baby teeth: blue (0.10, 0.22, 0.62). Yellow and blue follow the Schour–Massler chart.
 
 ## Licence
 Derived from Z-Anatomy (CC BY-SA 4.0), which uses BodyParts3D (CC BY-SA 2.1 Japan). The models are CC BY-SA 4.0.
