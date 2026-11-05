@@ -47,3 +47,5 @@ See your dentist if you have:
 - a line you can see on a tooth.
 
 These were the signs people noticed most in the US study. Your dentist will check the tooth. They will explain your choices, and if the tooth needs treatment now.
+
+Dental students can read the student guide to cracked teeth. It has more detail on the studies.
