@@ -327,7 +327,7 @@ ${markdownToHtml(stripClinicianNotes(draft))}
                 </li>
               ))}
             </ul>
-            <p className="builder-hint">Checks from the open-source patient-education-toolkit (NHS, CDC, IPDAS guidance). Scores are estimates.</p>
+            <p className="builder-hint">Checks from the open-source patient-education-toolkit, based on the guidance listed below the builder (NHS, ISO 24495-1, CDC, PEMAT, IPDAS). Scores are estimates.</p>
           </aside>
         </div>
         <div className="builder-actions">

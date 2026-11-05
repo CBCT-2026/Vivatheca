@@ -59,6 +59,17 @@ Keep global-access data markers, legends and location labels as accessible HTML 
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.
 
+## Evidence and transparency (required for everything)
+
+This is a standing project rule. It applies to every page, model, download, text and generated material, whether or not a task restates it.
+
+- Use only high-quality sources: peer-reviewed literature, systematic reviews, specialty society guidelines (for example AAP/EFP, AAPD, AAE, AAOMS, NCCN) and government or formally approved resources. Never use unsourced claims, blogs or AI-generated content as evidence.
+- Every factual statement in page text and every model design decision must cite its source visibly on the page: author, year, title or organisation, and a link (DOI or official URL) where one exists. Use numbered superscript citations with a "Sources" list on the same page.
+- Say plainly where a model simplifies or departs from the evidence, and which values are estimates rather than sourced.
+- When evidence is uncertain or conflicting, say so on the page.
+- If no good source can be found, remove the claim or label it clearly as unverified. Do not invent or guess references; check each one (for example on PubMed) before citing it.
+- Operational or organisational statements (what Vivatheca plans or offers) are not health claims, but must not imply evidence or verification that does not exist.
+
 ## Disclaimer (required everywhere)
 
 `app/disclaimer-text.ts` is the single source of the disclaimer wording; `/disclaimer` (`app/disclaimer/page.tsx`) shows the full version. Every page must show `siteDisclaimer` (the footer does this) or a link to `/disclaimer`. Every model viewer, model page and download must show its review status, `modelDisclaimer` and a link to `/disclaimer`. Static pages under `public/` copy the model wording verbatim. Generated or exported materials keep the AI and DRAFT notices. Never describe a model as suitable for diagnosis, treatment planning, surgical guides or use in or on the body. Translations of the disclaimer must be reviewed by a fluent speaker before release.
@@ -69,7 +80,7 @@ Never commit credentials, patient information, private form submissions, or `.en
 
 `https://vivatheca.com` is the canonical production origin. During the private-preview period, preserve the hosted project’s owner-only access policy and keep authentication at the edge. Never implement a client-side password gate or commit a shared password. Use explicit identity allowlists with Cloudflare Access or the existing Sites access policy; an unauthenticated visitor must not receive protected HTML, the GLB or generated assets.
 
-Contribution copy must distinguish model submissions, printed-model donations, 3D-printing resource donations, clinical review, and translation. Clinical-review records must expose approval state, ratings and review recommendations without exposing more than a verified reviewer’s title, initials, occupation and country of practice. Reviewers assess educational model fidelity only; condition and procedure information must point to appropriately licensed public government health-service sources.
+Contribution copy must distinguish model submissions, printed-model donations, 3D-printing resource donations, clinical review, and translation. Clinical-review records must expose approval state, ratings and review recommendations without exposing more than a verified reviewer’s title, initials, occupation and country of practice. Reviewers assess educational model fidelity only; condition and procedure information must cite high-quality sources visibly (see Evidence and transparency).
 
 The impacted-molar review example is explicitly illustrative prototype data. Its generated anatomy shows no erupted tooth directly above the impaction and depicts the left inferior alveolar nerve below the tooth roots, emerging through the left mental foramen; clinical accuracy must still be independently verified. Keep the review example compact, cap it at 1280px on wide screens, and stack the image and review data below 900px.
 

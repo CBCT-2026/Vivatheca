@@ -47,6 +47,6 @@ export const trustItems = [
   },
   {
     title: 'Public information with a traceable source',
-    text: 'Condition and procedure information is drawn from appropriately licensed public government health-service information, with source attribution and directions showing where to access further information.',
+    text: 'Condition and procedure information is drawn only from peer-reviewed research, specialty society guidelines and appropriately licensed public government health-service information. Every statement shows its source (author, year, organisation and link), and pages say where a model simplifies the evidence or where evidence is uncertain.',
   },
 ];

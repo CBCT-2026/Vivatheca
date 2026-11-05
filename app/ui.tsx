@@ -29,11 +29,29 @@ export function MobileNavigation() {
   );
 }
 
+// Each tour step lists the sources (numbers in modelSources) that support its text.
 const tourSteps = [
-  { label: 'Start here', title: 'The wisdom tooth is stuck under the gum', text: 'This lower left wisdom tooth is tilted forward and does not have room to come through.' },
-  { label: 'Look closer', title: 'The red line is a nerve', text: 'This nerve gives feeling to the lower lip and chin. Turn the model to see how close the tooth roots sit to it.' },
-  { label: 'Discuss next steps', title: 'Use the model as a conversation aid', text: 'A clinician can connect this view to symptoms, imaging and treatment options for an individual patient.' },
+  { label: 'Start here', title: 'The wisdom tooth is stuck under the gum', text: 'This model shows a lower left wisdom tooth that is tilted forward and has not come through.', cites: [1] },
+  { label: 'Look closer', title: 'The red line is a nerve', text: 'This nerve gives feeling to the lower lip and chin. Turn the model to see how close the tooth roots sit to it.', cites: [2] },
+  { label: 'Discuss next steps', title: 'Use the model as a conversation aid', text: 'A clinician can connect this view to symptoms, imaging and treatment options for an individual patient.', cites: [] as number[] },
 ];
+
+const clinicalTour = [
+  { text: 'The model depicts a mesioangularly impacted left mandibular third molar (Winter classification) against the distal surface of the second molar. It is one illustrative position, not a typical or most common case.', cites: [1] },
+  { text: 'The inferior alveolar nerve (red) runs close to the third molar roots; injury to it can alter sensation of the lower lip and chin. Individual root–canal relationships must be assessed with imaging: CBCT is more accurate than panoramic radiography for predicting nerve exposure, though its specificity is moderate.', cites: [2, 3] },
+  { text: 'Use this visualisation alongside clinical findings and imaging. It is an educational aid, not a diagnostic record or treatment recommendation.', cites: [] as number[] },
+];
+
+// Visible sources for the wisdom tooth model. Checked on PubMed, 5 November 2026.
+export const modelSources = [
+  { id: 1, text: 'Winter GB. Principles of exodontia as applied to the impacted mandibular third molar. St Louis: American Medical Book Co; 1926. (Origin of the angulation terms used here.)' },
+  { id: 2, text: 'Renton T. Oral surgery: part 4. Minimising and managing nerve injuries and other complications. Br Dent J. 2013;215(8):393-399.', href: 'https://doi.org/10.1038/sj.bdj.2013.993' },
+  { id: 3, text: 'Reia VCB, de Toledo Telles-Araujo G, Peralta-Mamani M, et al. Diagnostic accuracy of CBCT compared to panoramic radiography in predicting IAN exposure: a systematic review and meta-analysis. Clin Oral Investig. 2021;25(8):4721-4733.', href: 'https://doi.org/10.1007/s00784-021-03942-4' },
+];
+
+function Cites({ ids }: { ids: number[] }) {
+  return <>{ids.map((id) => <sup key={id} className="cite"><a href={`#model-ref-${id}`} aria-label={`Source ${id}`} onClick={() => document.querySelector('.model-sources')?.setAttribute('open', '')}>{id}</a></sup>)}</>;
+}
 
 export const modelLicence = { name: 'CC BY-SA 4.0', href: 'https://creativecommons.org/licenses/by-sa/4.0/' };
 
@@ -95,11 +113,7 @@ export function ModelExperience() {
     className: 'model-viewer',
   });
 
-  const clinicalText = step === 0
-    ? 'The model depicts a mesioangularly impacted left mandibular third molar against the distal surface of the second molar.'
-    : step === 1
-      ? 'The inferior alveolar nerve (red) runs close to the third molar roots. Individual root–canal relationships must be assessed with appropriate imaging such as CBCT.'
-      : 'Use this visualisation alongside clinical findings and imaging. It is an educational aid, not a diagnostic record or treatment recommendation.';
+  const current = detail === 'plain' ? tourSteps[step] : clinicalTour[step];
 
   return (
     <div className="model-experience">
@@ -126,7 +140,7 @@ export function ModelExperience() {
         </div>
         <h3>{tourSteps[step].title}</h3>
         <p className="model-index">{tourSteps[step].label} · {step + 1} of {tourSteps.length}</p>
-        <p>{detail === 'plain' ? tourSteps[step].text : clinicalText}</p>
+        <p>{current.text}<Cites ids={current.cites} /></p>
         <div className="tour-controls">
           <button type="button" className="text-button" disabled={step === 0} onClick={() => setStep((value) => value - 1)}>Previous</button>
           <div className="tour-dots" aria-label={`Tour step ${step + 1} of ${tourSteps.length}`}>{tourSteps.map((item, index) => <span key={item.label} className={index === step ? 'active' : ''} />)}</div>
@@ -137,6 +151,11 @@ export function ModelExperience() {
           <a href="/models/impacted-molar.stl" download><Icon name="print" />Download STL (for printing)</a>
         </div>
         <p className="licence-note">Model licence: <a href={modelLicence.href} target="_blank" rel="noreferrer">{modelLicence.name}</a>. Free to use, adapt and print with attribution to Vivatheca.</p>
+        <details className="model-sources">
+          <summary>Sources and how this model was made</summary>
+          <p>The tooth position and nerve path are illustrative choices, not measurements from a patient or a study. Real nerve and root positions vary widely. The anatomical sources and method used to build this model are not yet documented; until they are, treat its shapes and sizes as unverified.</p>
+          <ol>{modelSources.map((source) => <li key={source.id} id={`model-ref-${source.id}`}>{source.text}{source.href ? <> <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></> : null}</li>)}</ol>
+        </details>
         <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> {modelDisclaimer} <a href={disclaimerHref}>Full disclaimer</a></p>
       </div>
     </div>

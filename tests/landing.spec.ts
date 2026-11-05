@@ -73,7 +73,7 @@ test('trust section explains transparent and privacy-preserving clinical review'
   await expect(trust).toContainText('verified privately');
   await expect(trust).toContainText('title, initials, occupation and country of practice');
   await expect(trust).toContainText('not asked to provide medical or health advice');
-  await expect(trust).toContainText('appropriately licensed public government health-service information');
+  await expect(trust).toContainText('peer-reviewed research, specialty society guidelines');
   await expect(trust).toContainText('Prototype governance');
 });
 
