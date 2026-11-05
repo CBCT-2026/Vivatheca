@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How your child's teeth grow: ages 6 to 12 | Vivatheca</title>
+<meta name="description" content="Interactive 3D models of a child's teeth growing from age 6 to 12: baby teeth, adult teeth forming in the jaw, and the order they come through. Free to view and 3D print.">
+<meta name="robots" content="noindex">
+<script>
+try { if (sessionStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// The models are Draco-compressed; the decoder is served from this site.
+self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="style.css">
+<style>
+  .ages { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .ages button { min-height: 44px; padding: 6px 2px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.1 system-ui, -apple-system, sans-serif; cursor: pointer; }
+  .ages button small { display: block; font-weight: 500; font-size: 11px; color: var(--muted); }
+  .ages button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .dot.baby { background: #5982ce; } .dot.adult { background: #d7cbbb; }
+  .download { display: inline-block; margin-top: 4px; }
+</style>
+<script type="module" src="vendor/model-viewer/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/">Vivatheca home</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
+  </div>
+</header>
+
+<main>
+  <h1>How your child's teeth grow: ages 6 to 12</h1>
+
+  <model-viewer id="mv"
+    src="models/age-6-5.glb"
+    alt="3D model of the right side of a child's upper and lower jaw, with the cheek side of the bone cut away to show baby teeth and growing adult teeth."
+    camera-controls camera-orbit="-90deg 80deg auto" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="1" exposure="1" loading="eager">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <div class="ages" role="group" aria-label="Choose an age">
+    <button type="button" data-age="6.5" aria-pressed="true">6<small>years</small></button>
+    <button type="button" data-age="7.5" aria-pressed="false">7<small>years</small></button>
+    <button type="button" data-age="8.5" aria-pressed="false">8<small>years</small></button>
+    <button type="button" data-age="9.5" aria-pressed="false">9<small>years</small></button>
+    <button type="button" data-age="10.5" aria-pressed="false">10<small>years</small></button>
+    <button type="button" data-age="11.5" aria-pressed="false">11<small>years</small></button>
+    <button type="button" data-age="12.5" aria-pressed="false">12<small>years</small></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model controls">
+    <button type="button" data-orbit="-90deg 80deg auto" aria-pressed="true">Cheek side</button>
+    <button type="button" data-orbit="0deg 85deg auto" aria-pressed="false">Front</button>
+    <button type="button" data-orbit="-60deg 15deg auto" aria-pressed="false">Lower teeth from above</button>
+    <button type="button" data-orbit="-60deg 165deg auto" aria-pressed="false">Upper teeth from below</button>
+    <button type="button" id="xray" aria-pressed="false">See-through bone</button>
+  </div>
+  <ul class="legend">
+    <li><span class="dot baby"></span>Baby teeth</li>
+    <li><span class="dot adult"></span>Adult teeth and bone</li>
+  </ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <section class="important">
+    <p><b>Every child is different. Teeth often come through a year or more earlier or later than shown here. This is usually normal.</b></p>
+  </section>
+
+  <section>
+    <h2>What the model shows</h2>
+    <p>The model shows the right side of the upper and lower jaw. We cut away the bone on the cheek side, so you can see the adult teeth growing inside the jaw. Baby teeth are blue. Adult teeth and bone are cream. Tap <b>See-through bone</b> to see all the growing teeth at once.</p>
+    <p>Choose an age to see what usually happens at that age. The ages are averages from large studies of how teeth grow.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup></p>
+  </section>
+
+  <section>
+    <h2>How an adult tooth grows</h2>
+    <p>Each adult tooth starts as a crown (the top part you see in the mouth) deep in the jaw. The root grows down from the crown. As the root grows, the tooth moves toward the gum.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    <p>An adult front tooth or premolar grows under a baby tooth. As it moves up, the root of the baby tooth melts away. The baby tooth gets loose and falls out. The adult tooth then comes through in its place.</p>
+    <p>The adult molars are different. They come through behind the baby teeth and do not replace any baby tooth. The first molars come at about 6 and the second molars at about 12. Wisdom teeth (if they come) arrive in the late teens or later.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+  </section>
+
+  <section>
+    <h2>When to ask your dentist</h2>
+    <ul>
+      <li>A tooth comes through on one side, but its partner on the other side is still missing 6 months later.</li>
+      <li>An adult tooth comes through but the baby tooth in front of it is still firm after a few months.</li>
+      <li>Your child has pain, swelling, or a tooth that looks dark or broken.</li>
+    </ul>
+    <p>Your dentist can take an X-ray to see the growing teeth, as this model does.</p>
+  </section>
+
+  <section>
+    <h2>3D printing</h2>
+    <p><a class="download" id="download" href="downloads/vivatheca-dental-development-age-6-5-1.5x.zip">Download 3D print files</a></p>
+    <p class="small">Each download has the upper and lower jaw as separate STL parts: bone, adult teeth and baby teeth, so you can print them in different colours. Size: 1.5 times life size, because a child's teeth are small. The parts overlap; load them as one object in your slicer. Life-size (1.0x) files are available on request.</p>
+  </section>
+
+  <section class="disclaimer">
+    <h2>About this model</h2>
+    <p>This page is for education. It does not replace advice from your dentist.</p>
+    <p class="small">Prototype. Tooth timings are typical textbook ages and are being checked against the London Atlas.<sup class="cite"><a href="#ref-1">1</a></sup> The baby teeth are made by resizing adult tooth shapes to typical baby tooth sizes. A growing jaw is shown by shortening the back of an adult jaw, which is a simplification. Adult and baby teeth are in their typical places; real teeth vary in position and angle.</p>
+    <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: teeth and jaw shapes extracted, resized, moved and cut away for each age. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2>Sources</h2></summary>
+    <ol>
+      <li id="ref-1">AlQahtani SJ, Hector MP, Liversidge HM. Brief communication: the London atlas of human tooth development and eruption. Am J Phys Anthropol. 2010;142(3):481-490. <a href="https://doi.org/10.1002/ajpa.21258">doi.org/10.1002/ajpa.21258</a></li>
+      <li id="ref-2">Schour I, Massler M. The development of the human dentition. J Am Dent Assoc. 1941;28:1153-1160.</li>
+      <li id="ref-3">Moorrees CFA, Fanning EA, Hunt EE. Age variation of formation stages for ten permanent teeth. J Dent Res. 1963;42(6):1490-1502. <a href="https://doi.org/10.1177/00220345630420062701">doi.org/10.1177/00220345630420062701</a></li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small">Version 0.1, 5 November 2026.</p>
+</main>
+<script src="theme.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>
