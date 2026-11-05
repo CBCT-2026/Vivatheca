@@ -36,7 +36,9 @@ function isAuthorised(request: Request, env: Env): boolean {
 }
 
 export default {
-  async fetch(request: Request, env: Env, ctx: unknown): Promise<Response> {
+  async fetch(request: Request, workerEnv: Env | undefined, ctx: unknown): Promise<Response> {
+    // `vinext start` (Node, used by the Playwright tests) calls this without bindings.
+    const env: Env = workerEnv ?? {};
     if (env.SITE_PASSWORD && !isAuthorised(request, env)) {
       return new Response('This preview of Vivatheca is password protected.', {
         status: 401,

@@ -34,4 +34,13 @@ The site can be locked behind one shared username and password (HTTP Basic Auth)
 - **Username:** `vivatheca` (change it by adding a `SITE_USERNAME` variable).
 - **Turn off (make public):** delete the `SITE_PASSWORD` secret.
 
+## Patient information builder (`/create`)
+
+Clinicians draft, check and export patient education materials that match a Vivatheca model. Code: `app/create/` (page, brief and prompt text, in-browser checker) and `app/api/generate/route.ts` (server call to Claude).
+
+- **Free mode (default):** with no API key, the page shows the full prompt to copy into any AI chat, and the checker scores whatever is pasted back.
+- **One-click AI drafts:** add a Cloudflare secret `ANTHROPIC_API_KEY` (Workers & Pages → vivatheca → Settings → Variables and Secrets → Add → type *Secret*). The key comes from https://console.anthropic.com → API keys; usage is billed to that Anthropic account's prepaid credits. Set a monthly spend limit there (Settings → Limits). Model: `claude-opus-5-5`.
+- Optional variable `AI_DAILY_LIMIT_PER_VISITOR` (default 30). It is counted per Worker instance, so it is a brake, not a hard cap; the Console spend limit is the hard cap.
+- Checks are a TypeScript port of [patient-education-toolkit](https://github.com/CBCT-2026/patient-education-toolkit) (MIT). Exports carry a red "DRAFT: AI-assisted, not clinically verified" notice until the clinician ticks every item of the check list. No briefs or drafts are stored on the server.
+
 More project context: `PRODUCT.md`, `DESIGN.md`, `AGENTS.md`, `docs/`.

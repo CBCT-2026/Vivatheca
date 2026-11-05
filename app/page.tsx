@@ -44,7 +44,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#collection">Browse</a><a href="#how-it-works">How it works</a><a href="#publications">Publications</a><a href="#contribute">Contribute</a>
+          <a href="#collection">Browse</a><a href="#how-it-works">How it works</a><a href="#publications">Publications</a><a href="#contribute">Contribute</a><a href="/create">Create</a>
         </nav>
         <div className="header-actions">
           <a className="button button-compact" href="#sponsor">Sponsor a model</a>

@@ -51,6 +51,10 @@ The current 24-language roadmap replaces Indonesian with Dutch (`Nederlands`) an
 
 Keep global-access data markers, legends and location labels as accessible HTML layered over the generated cartographic base. Social badges may use official platform symbols, but account links remain disabled until the organisation supplies or independently verifies the exact profile URLs.
 
+## Patient Information Builder
+
+`app/create/` holds the `/create` builder: `briefs.ts` (model briefs with label names, material types and the system prompt condensed from the patient-education-toolkit skills), `checker.ts` (TypeScript port of the toolkit's deterministic checks), `markdown.ts` (safe Markdown rendering) and `builder.tsx` (UI). `app/api/generate/route.ts` calls Claude (`claude-opus-5-5`) only when the `ANTHROPIC_API_KEY` secret is set; otherwise the builder runs in copy-prompt mode. Keep the AI-limits acknowledgement, the persistent warning banner, the patient-details check and the DRAFT export notice. Never store briefs or drafts on the server. When a new model ships, add its brief (label names exactly as on the model) to `modelBriefs`.
+
 ## Testing Guidelines
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.

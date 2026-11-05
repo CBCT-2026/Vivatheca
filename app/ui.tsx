@@ -20,6 +20,7 @@ export function MobileNavigation() {
           <a href="#publications" onClick={() => setOpen(false)}>Publications</a>
           <a href="#contribute" onClick={() => setOpen(false)}>Contribute</a>
           <a href="#sponsor" onClick={() => setOpen(false)}>Sponsor a model</a>
+          <a href="/create">Create patient information</a>
         </nav>
       ) : null}
     </div>
