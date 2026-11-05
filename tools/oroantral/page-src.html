@@ -46,7 +46,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 <header class="bar">
   <div class="bar-left">
     <a class="lang" href="/"><span lang="en">Vivatheca home</span><span lang="ja">Vivatheca ホーム</span></a>
-    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
   </div>
   <div class="langs" id="langs" role="group" aria-label="Language"></div>
 </header>
@@ -104,8 +104,14 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <section>
     <div lang="en">
       <h2>What the model shows</h2>
-      <p>The model is the right side of the upper jaw, life size, cut from front to back through the middle of the upper first molar. You look at the cut face. Above the teeth is the <b>maxillary sinus</b>, an air space inside the cheekbone that drains into the nose. The roots of the upper back teeth sit just under the sinus floor.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
-      <p>Choose a stage to see a healthy jaw, a jaw where the roots reach into the sinus, the opening that can form when that tooth is removed, and three ways the opening is closed.</p>
+      <p>The model shows the right side of the upper jaw, life size. It is cut from front to back through the upper first molar (a back tooth). You look at the cut face. Above the teeth is the <b>maxillary sinus</b> (an air space in the cheekbone). It drains into the nose. The roots of the upper back teeth sit just under the floor of the sinus.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>Choose a stage to see:</p>
+      <ul>
+        <li>a healthy jaw</li>
+        <li>a jaw where the roots reach into the sinus</li>
+        <li>the hole that can form when the dentist takes out that tooth</li>
+        <li>three ways to close the hole.</li>
+      </ul>
     </div>
     <div lang="ja">
       <h2>このモデルについて</h2>
@@ -116,15 +122,15 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   <section>
     <div lang="en">
       <h2>OAC and OAF are not the same</h2>
-      <p>An <b>oroantral communication (OAC)</b> is a fresh hole between the mouth and the sinus, usually made at the moment an upper back tooth is removed. An <b>oroantral fistula (OAF)</b> is what an OAC can become if it stays open: the hole gets a skin-like lining (epithelium) and turns into a lasting tunnel.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>An <b>oroantral communication (OAC)</b> is a new hole between the mouth and the sinus. It usually forms when a dentist takes out an upper back tooth. An <b>oroantral fistula (OAF)</b> is an OAC that stays open. Over time, skin-like lining (epithelium) grows into the hole, and it becomes a lasting tunnel.<sup class="cite"><a href="#ref-1">1</a></sup></p>
       <table class="compare">
-        <thead><tr><th></th><th>OAC (communication)</th><th>OAF (fistula)</th></tr></thead>
+        <thead><tr><th></th><th>OAC (new hole)</th><th>OAF (lined tunnel)</th></tr></thead>
         <tbody>
-          <tr><th>What it is</th><td>A new, raw opening between the tooth socket and the sinus</td><td>An opening that has stayed open and is lined with epithelium</td></tr>
-          <tr><th>When</th><td>At the time of the extraction</td><td>Later, if an OAC does not close. Openings present for more than 3 weeks rarely close by themselves</td></tr>
-          <tr><th>Can it heal by itself?</th><td>A small one (under about 2 mm) with no infection often can, once a blood clot forms</td><td>No. It needs surgery</td></tr>
+          <tr><th>What it is</th><td>A new, raw hole between the tooth socket and the sinus</td><td>A hole that stayed open and now has a skin-like lining</td></tr>
+          <tr><th>When</th><td>When the tooth comes out</td><td>Later, if the OAC does not close. Holes open for over 3 weeks rarely close by themselves</td></tr>
+          <tr><th>Can it heal by itself?</th><td>A small one (under about 2 mm) with no infection often can. A blood clot seals it</td><td>No. It needs surgery</td></tr>
           <tr><th>Sinus</th><td>Usually healthy at first</td><td>Often infected (sinusitis)</td></tr>
-          <tr><th>Usual treatment</th><td>Close it early, ideally within 24 to 48 hours: protect the clot if small, or close with a flap</td><td>Treat the sinus infection, cut out the lined tunnel, then close with a flap</td></tr>
+          <tr><th>Usual treatment</th><td>Close it soon, within 24 to 48 hours. Protect the clot if the hole is small. Use a flap if it is larger</td><td>Treat the infection. Cut out the lined tunnel. Then close the hole with a flap</td></tr>
         </tbody>
       </table>
       <p class="small">Table based on Parvini and colleagues 2019.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup></p>
@@ -150,34 +156,41 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <div lang="en">
       <h2>Who is at risk</h2>
       <ul>
-        <li><b>Roots close to or inside the sinus.</b> The upper first and second molars are closest. In CT studies the average gap between root tip and sinus floor is about 0 to 4 mm at the molars, and some roots reach into the sinus.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></li>
-        <li><b>The tooth involved.</b> Removal of an upper first molar is the most common cause in many reports.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
-        <li><b>Other factors</b> reported include older age, a root breaking during removal, infection at the root tip, and roots that project into the sinus on an X-ray.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></li>
+        <li><b>Roots close to or inside the sinus.</b> The upper first and second molars are closest. In CT scans (3D X-rays), the average gap between root tip and sinus is about 0 to 4 mm at these teeth. Some roots reach into the sinus.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></li>
+        <li><b>The tooth.</b> Many reports say taking out an upper first molar is the most common cause.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
+        <li><b>Other factors.</b> Reports also list older age, a root that breaks during removal, and infection at the root tip. Roots that seem to enter the sinus on an X-ray are another sign.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-10">10</a></sup></li>
       </ul>
-      <p>A panoramic X-ray is reliable when there is a clear gap between roots and sinus, but when roots appear to touch or enter the sinus, a 3D scan (CBCT) shows the relationship more accurately.<sup class="cite"><a href="#ref-12">12</a></sup></p>
+      <p>A panoramic X-ray (one X-ray of all the teeth) works well when there is a clear gap between roots and sinus. When roots seem to touch or enter the sinus, a 3D scan (CBCT) shows this more clearly.<sup class="cite"><a href="#ref-11">11</a></sup></p>
     </div>
     <div lang="ja">
       <h2>どんな{人|ひと}に{起|お}こりやすいか</h2>
       <ul>
         <li><b>{根|ね}が{上顎洞|じょうがくどう}に{近|ちか}い、または{入|はい}りこんでいる。</b>{上|うえ}の{第一|だいいち}・{第二大臼歯|だいにだいきゅうし}がもっとも{近|ちか}く、CT{研究|けんきゅう}では{根|ね}の{先|さき}と{洞|どう}の{底|そこ}の{距離|きょり}は{平均|へいきん}0〜4 mm{程度|ていど}で、{洞|どう}の{中|なか}に{入|はい}る{根|ね}もあります。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></li>
         <li><b>{抜|ぬ}く{歯|は}。</b>{多|おお}くの{報告|ほうこく}で、{上|うえ}の{第一大臼歯|だいいちだいきゅうし}の{抜歯|ばっし}がもっとも{多|おお}い{原因|げんいん}です。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
-        <li><b>そのほか、</b>{年齢|ねんれい}が{高|たか}い、{抜歯中|ばっしちゅう}に{根|ね}が{折|お}れる、{根|ね}の{先|さき}の{感染|かんせん}、X{線|せん}で{根|ね}が{洞|どう}に{重|かさ}なって{見|み}える、などが{報告|ほうこく}されています。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></li>
+        <li><b>そのほか、</b>{年齢|ねんれい}が{高|たか}い、{抜歯中|ばっしちゅう}に{根|ね}が{折|お}れる、{根|ね}の{先|さき}の{感染|かんせん}、X{線|せん}で{根|ね}が{洞|どう}に{重|かさ}なって{見|み}える、などが{報告|ほうこく}されています。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-10">10</a></sup></li>
       </ul>
-      <p>パノラマX{線|せん}は{根|ね}と{洞|どう}の{間|あいだ}がはっきり{離|はな}れていれば{信頼|しんらい}できますが、{接|せっ}している・{入|はい}っているように{見|み}えるときは、3D{撮影|さつえい}（CBCT）のほうが{正確|せいかく}です。<sup class="cite"><a href="#ref-12">12</a></sup></p>
+      <p>パノラマX{線|せん}は{根|ね}と{洞|どう}の{間|あいだ}がはっきり{離|はな}れていれば{信頼|しんらい}できますが、{接|せっ}している・{入|はい}っているように{見|み}えるときは、3D{撮影|さつえい}（CBCT）のほうが{正確|せいかく}です。<sup class="cite"><a href="#ref-11">11</a></sup></p>
     </div>
   </section>
 
   <section>
     <div lang="en">
-      <h2>Signs of an opening</h2>
+      <h2>Signs of a hole</h2>
       <ul>
-        <li>Drinks or food coming out of the nose on the same side</li>
-        <li>Air passing between the mouth and nose, or a whistling sound</li>
+        <li>Drinks or food come out of your nose on the same side</li>
+        <li>Air passes between your mouth and nose, or you hear a whistle</li>
         <li>A bad taste, pus, a blocked nose or pain on that side (signs of sinus infection)</li>
       </ul>
-      <p>A very small opening may cause no signs at all.<sup class="cite"><a href="#ref-1">1</a></sup> If you notice any of these after an upper tooth is removed, contact your dentist or oral surgeon. (This last point is general advice, not a finding from a specific study.)</p>
-      <h2>Looking after a closed opening</h2>
-      <p>After closure, people are usually asked to avoid blowing their nose, to sneeze with the mouth open, to avoid hard exercise for a while and to eat soft food. Pain relief and nasal decongestants are often given.<sup class="cite"><a href="#ref-1">1</a></sup> Follow the advice of your own surgeon.</p>
+      <p>A very small hole may cause no signs at all.<sup class="cite"><a href="#ref-1">1</a></sup> If you notice any of these after an upper tooth comes out, contact your dentist or oral surgeon. (This last point is general advice, not a finding from a study.)</p>
+      <h2>After the hole is closed</h2>
+      <p>Your surgeon will usually ask you to:<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <ul>
+        <li>not blow your nose</li>
+        <li>sneeze with your mouth open</li>
+        <li>avoid hard exercise for a while</li>
+        <li>eat soft food.</li>
+      </ul>
+      <p>You may also get pain relief and medicine to unblock your nose.<sup class="cite"><a href="#ref-1">1</a></sup> Follow your own surgeon's advice.</p>
     </div>
     <div lang="ja">
       <h2>{穴|あな}があいているサイン</h2>
@@ -237,16 +250,14 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
       <li id="ref-7">Kwak HH, Park HD, Yoon HR, Kang MK, Koh KS, Kim HJ. Topographic anatomy of the inferior wall of the maxillary sinus in Koreans. Int J Oral Maxillofac Surg. 2004;33(4):382-388. <a href="https://doi.org/10.1016/j.ijom.2003.10.012">doi.org/10.1016/j.ijom.2003.10.012</a></li>
       <li id="ref-8">Estrela C, Nunes CA, Guedes OA, et al. Study of anatomical relationship between posterior teeth and maxillary sinus floor in a subpopulation of the Brazilian central region using cone-beam computed tomography, part 2. Braz Dent J. 2016;27(1):9-15. <a href="https://doi.org/10.1590/0103-6440201600679">doi.org/10.1590/0103-6440201600679</a></li>
       <li id="ref-9">Hernando J, Gallego L, Junquera L, Villarreal P. Oroantral communications: a retrospective analysis. Med Oral Patol Oral Cir Bucal. 2010;15(3):e499-503. <a href="https://doi.org/10.4317/medoral.15.e499">doi.org/10.4317/medoral.15.e499</a></li>
-      <li id="ref-10">Rehrmann A. Eine Methode zur Schließung von Kieferhöhlenperforationen. Dtsch Zahnärztl Wochenschr. 1936;39:1136-1139. (Original description of the buccal advancement flap; not in PubMed, cited from secondary sources.)</li>
-      <li id="ref-11">Pourmand PP, Sigron GR, Mache B, Stadlinger B, Locher MC. The most common complications after wisdom-tooth removal: part 2: a retrospective study of 1,562 cases in the maxilla. Swiss Dent J. 2014;124(10):1047-1051. <a href="https://doi.org/10.61872/sdj-2014-10-02">doi.org/10.61872/sdj-2014-10-02</a></li>
-      <li id="ref-12">Amani R, Noroozi M, Ashrafi MMS. Assessment of the relationships between posterior root apices and the maxillary sinus floor: a comparison of panoramic radiography and cone beam computed tomography. Gen Dent. 2023;71(5):58-63. <a href="https://pubmed.ncbi.nlm.nih.gov/37595085/">PubMed 37595085</a></li>
+      <li id="ref-10">Pourmand PP, Sigron GR, Mache B, Stadlinger B, Locher MC. The most common complications after wisdom-tooth removal: part 2: a retrospective study of 1,562 cases in the maxilla. Swiss Dent J. 2014;124(10):1047-1051. <a href="https://doi.org/10.61872/sdj-2014-10-02">doi.org/10.61872/sdj-2014-10-02</a></li>
+      <li id="ref-11">Amani R, Noroozi M, Ashrafi MMS. Assessment of the relationships between posterior root apices and the maxillary sinus floor: a comparison of panoramic radiography and cone beam computed tomography. Gen Dent. 2023;71(5):58-63. <a href="https://pubmed.ncbi.nlm.nih.gov/37595085/">PubMed 37595085</a></li>
     </ol>
   </details>
   </section>
 
   <p class="small"><span lang="en">Version 0.1, 5 November 2026. Sources found through PubMed.</span><span lang="ja">{版|はん}0.1、2026{年|ねん}11{月|がつ}5{日|か}。{出典|しゅってん}は PubMed で{検索|けんさく}。</span></p>
 </main>
-<script src="../development/theme.js"></script>
 <script src="viewer.js"></script>
 </body>
 </html>
