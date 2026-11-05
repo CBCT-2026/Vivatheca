@@ -15,6 +15,7 @@ Seven 3D stages of the right upper jaw, life size, cut front to back through the
 ## Rebuild
 Needs Python 3.11 with `trimesh`, `scipy`, `scikit-image`, `fast-simplification`, `matplotlib`, and `npx` for Draco.
 
+0. Page text: edit `page-src.html` ({漢字|かな} marks furigana), then `python3 gen.py page-src.html ../../public/oroantral/index.html`.
 1. `python -I explore.py`: splits `skull_cranium_with_upper_teeth.stl` (project files, `head-neck-recon/z-anatomy-base/`, smoothed version) into the right maxilla, palatine and zygomatic bones and the right upper first and second molars (`work/*.stl`).
 2. `python -I vox.py`: voxelises them at 0.25 mm (`work/*.npy`).
 3. `python -I build.py work out`: builds the stages as GLB and `labels.json` (label anchor points, copied into `public/oroantral/viewer.js`).
