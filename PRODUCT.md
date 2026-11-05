@@ -55,6 +55,8 @@ The product is used in clinical conversations, classrooms, independent patient r
 - During private preview, access is enforced at the hosting edge with an owner-only or explicit identity allowlist. No reusable password, access token or authorization decision may be embedded in client code or committed to the repository.
 - Adding the custom apex domain must not change the platform’s appearance, responsive behavior, 3D interaction, downloads or accessibility. DNS, certificate and authentication checks are release gates before the domain is declared active.
 
+- The `/create` patient information builder helps clinicians draft, check and export leaflets, A4 sheets, consent sections and narration scripts that match a Vivatheca model. Users must accept that AI drafts can be wrong and are not guaranteed before using it; every export says it is an unverified AI-assisted draft until the clinician completes the check list; no patient information is accepted or stored. Without an API key it works in a free copy-prompt mode.
+
 ## Brand Commitments
 
 Use the Vivatheca name and supplied logo without redrawing or distorting it. The visual system is anchored in the logo's deep navy `#00244D` and cyan `#14C9D7`, with Manrope as the interface font. The voice is calm, plain, trustworthy, collaborative, and never promotional about unverified clinical claims. The platform is founded and operated in Australia.
