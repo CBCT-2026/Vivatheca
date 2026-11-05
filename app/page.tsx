@@ -1,4 +1,6 @@
-import { footerGroups, trustItems, understandingPaths } from './data';
+import Link from 'next/link';
+import { trustItems, understandingPaths } from './data';
+import { SiteFooter } from './site-chrome';
 import { MobileNavigation, ModelExperience } from './ui';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
@@ -11,30 +13,25 @@ const publications = [
     journal: 'Cureus · 2024 · Randomized clinical trial',
     finding: 'The trial compared consultations with and without 3D anatomical models and reported stronger patient knowledge and communication measures in the model group.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/39493008/',
-    image: '/assets/research-orthopedic-communication.webp',
-    alt: 'A clinician and patient use a three-dimensional knee model during an orthopedic consultation.',
   },
   {
     title: 'The use of 3-dimensionally printed models to optimize patient education and alleviate perioperative anxiety in Mohs surgery',
     journal: 'Journal of the American Academy of Dermatology · 2019 · Randomized controlled trial',
     finding: 'The study evaluated a printed procedural model alongside standardized education for patient understanding and perioperative anxiety.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/31163232/',
-    image: '/assets/research-mohs-education.webp',
-    alt: 'A dermatologist and patient discuss a layered, non-graphic three-dimensional skin model.',
   },
   {
     title: 'Impact of a Virtual Three-Dimensional Thyroid Model on Patient Communication in Thyroid Surgery',
     journal: 'Cancers · 2026 · Randomized controlled trial',
     finding: 'Patients using a virtual 3D thyroid model showed improved comprehension of selected anatomy, surgical procedures and complications.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/41595161/',
-    image: '/assets/research-virtual-thyroid.webp',
-    alt: 'A clinician and patient explore an interactive three-dimensional thyroid model on a tablet.',
   },
 ];
 
 const contributionPaths = [
-  { icon: '3d_rotation', title: 'Submit a model', text: 'Share browser-ready anatomy, documentation and source details for review.', href: 'mailto:hello@vivatheca.com?subject=Submit%20a%20model' },
-  { icon: 'health_and_safety', title: 'Review clinical accuracy', text: 'Clinicians can assess anatomy, limitations and usefulness for patient education.', href: 'mailto:hello@vivatheca.com?subject=Review%20clinical%20accuracy' },
+  { icon: 'health_and_safety', title: 'Report an inaccuracy', text: 'Seen anatomy or a label that does not look right? Tell us what and where, with a source if you have one.', href: '/report' },
+  { icon: 'school', title: 'Join clinical review', text: 'Dentists, specialists and oral health professionals can check a model against their practice and the literature.', href: 'mailto:hello@vivatheca.com?subject=Join%20clinical%20review' },
+  { icon: '3d_rotation', title: 'Request or submit a model', text: 'Tell us which condition you would use with patients, or share a model with its sources.', href: 'mailto:hello@vivatheca.com?subject=Model%20request' },
 ];
 
 export default function Home() {
@@ -44,7 +41,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#collection">Browse</a><a href="#how-it-works">How it works</a><a href="#publications">Publications</a><a href="#contribute">Contribute</a><a href="/create">Create</a>
+          <Link href="/models">Models</Link><a href="#how-it-works">How it works</a><a href="#publications">Evidence</a><Link href="/create">Create</Link><Link href="/about">About</Link>
         </nav>
         <div className="header-actions">
           <a className="button button-compact" href="#sponsor">Sponsor a model</a>
@@ -56,17 +53,16 @@ export default function Home() {
         <section className="hero" id="top">
           <div className="hero-copy">
             <h1 className="hero-title"><span className="hero-line">Medical models</span><span className="hero-line">made clear.</span></h1>
-            <p className="hero-lede">The Vivatheca platform is a non-profit, open-source library for exploring, explaining, sharing and printing medical models. Browser-based access keeps the first step simple; transparent review and known limitations keep trust visible.</p>
+            <p className="hero-lede">A free, not-for-profit library of 3D dental and oral surgery models. Each condition comes with a matched normal, so clinicians can show patients what is different, on screen or as a 3D print.</p>
             <div className="hero-actions">
-              <a className="button" href="#collection">Explore the collection <Icon name="arrow_forward" /></a>
-              <a className="button button-secondary" href="#how-it-works">See how it works</a>
+              <Link className="button" href="/models">Browse the models <Icon name="arrow_forward" /></Link>
+              <a className="button button-secondary" href="#collection">Try the 3D viewer</a>
             </div>
-            <ul className="access-list" aria-label="Access commitments"><li>Free to use</li><li>Open access</li><li>View digitally or print</li></ul>
+            <ul className="access-list" aria-label="Access commitments"><li>Free to use</li><li>Open access</li><li>View digitally or print</li><li>Matched normal</li></ul>
           </div>
           <figure className="hero-visual">
-            <img src="/assets/consultation-hero.webp" alt="A clinician and patient examine a three-dimensional lower jaw model showing an impacted wisdom tooth." width="1536" height="1024" fetchPriority="high" />
-            <figcaption>Visual explanation designed for the conversation, not just the classroom.</figcaption>
-            <p className="ai-disclaimer">AI-generated illustration.</p>
+            <img src="/assets/renders/wisdom-tooth-hero.webp" alt="3D model of a lower left jaw with an impacted wisdom tooth tilted against the second molar, its roots close to the nerve shown in red." width="1536" height="1024" fetchPriority="high" />
+            <figcaption>Impacted lower wisdom tooth, with the nerve in red. Screenshot of the Vivatheca model.</figcaption>
           </figure>
         </section>
 
@@ -78,13 +74,13 @@ export default function Home() {
         </aside>
 
         <section className="mission-band" aria-label="Vivatheca mission">
-          <p>Open-source medical education for clearer conversations.</p>
+          <p>Open 3D models for clearer conversations.</p>
           <div className="mission-links"><span>View in 3D</span><span>Share by link</span><span>Print where possible</span></div>
         </section>
 
         <section className="collection-section" id="collection">
           <div className="section-heading split-heading">
-            <div><h2>See the explanation from every angle.</h2><p>The impacted wisdom tooth is the Vivatheca platform’s working demonstration. Rotate it, follow a short tour and switch the level of detail.</p></div>
+            <div><h2>See the explanation from every angle.</h2><p>Rotate the impacted wisdom tooth, follow a short tour and switch between plain language and clinician detail. <Link href="/models/impacted-wisdom-tooth">Compare it with the matched normal</Link>.</p></div>
             <div className="section-label"><Icon name="3d_rotation" size={24} />Interactive model</div>
           </div>
           <ModelExperience />
@@ -100,21 +96,21 @@ export default function Home() {
         </section>
 
         <section className="print-section">
-          <figure><img src="/assets/screen-to-print.webp" alt="A jaw model moves from an interactive screen through a 3D printer to a physical teaching model held by a clinician." width="1536" height="1024" /><figcaption className="ai-disclaimer">AI-generated illustration.</figcaption></figure>
-          <div className="print-copy"><h2>From the screen to something you can hold.</h2><p>Every model comes with a free STL file, scaled in millimetres, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands.</p><a className="text-link" href="/models/impacted-molar.stl" download>Download the wisdom tooth STL <Icon name="download" /></a></div>
+          <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt="The impacted wisdom tooth model beside its matched normal, where the wisdom tooth stands upright in line with the other molars." width="1200" height="800" /><figcaption className="ai-disclaimer">Screenshot of the impacted and matched normal models.</figcaption></figure>
+          <div className="print-copy"><h2>From the screen to something you can hold.</h2><p>Every model comes with a free STL file, scaled in millimetres, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands.</p><Link className="text-link" href="/models/impacted-wisdom-tooth">Download both STL files <Icon name="download" /></Link></div>
         </section>
 
         <section className="trust-section" id="trust">
-          <div className="trust-intro"><Icon name="health_and_safety" size={36} /><h2>Trust should be visible, not implied.</h2><p>The planned review record makes clinical approval, reviewer privacy and the source of supporting health information visible without asking clinicians to give medical advice.</p></div>
+          <div className="trust-intro"><Icon name="health_and_safety" size={36} /><h2>Trust should be visible, not implied.</h2><p>Every model lists its published sources, what is simplified, its version and change log, and whether a clinician has reviewed it yet. <Link href="/report">Report an inaccuracy</Link> and the fix is recorded in the change log.</p></div>
           <ul>{trustItems.map((item) => <li key={item.title}><span aria-hidden="true">✓</span><div><h3>{item.title}</h3><p>{item.text}</p></div></li>)}</ul>
-          <p className="trust-warning"><strong>Prototype governance:</strong> these safeguards describe the intended review workflow. No reviewer record or approval is presented as verified until the process is operating and complete.</p>
+          <p className="trust-warning"><strong>Review status today:</strong> no model has been independently reviewed yet, and each model page says so. Reviewers are being invited now.</p>
         </section>
 
         <section className="publications-section" id="publications">
           <div className="publications-intro">
             <h2>Evidence for seeing and holding anatomy.</h2>
             <p>Independent, peer-reviewed research has tested how physical and virtual 3D models can support patient knowledge, communication and understanding. Findings depend on the clinical setting and should not be treated as universal proof.</p>
-            <p className="evidence-note">These articles are independent evidence. Publication records connected to the Vivatheca platform will be added only after authorship and journal details are verified. The accompanying visuals are interpretive, not figures from the papers.</p>
+            <p className="evidence-note">These articles are independent evidence and are not connected to Vivatheca.</p>
           </div>
           <div className="publication-list">
             {publications.map((publication) => (
@@ -125,18 +121,14 @@ export default function Home() {
                   <p>{publication.finding}</p>
                   <a className="text-link" href={publication.href} target="_blank" rel="noreferrer">Read the peer-reviewed article <Icon name="arrow_forward" /></a>
                 </div>
-                <figure className="publication-visual">
-                  <img src={publication.image} alt={publication.alt} width="1024" height="1024" />
-                  <figcaption className="ai-disclaimer">AI-generated illustration.</figcaption>
-                </figure>
               </article>
             ))}
           </div>
         </section>
 
         <section className="contribute-section" id="contribute">
-          <div className="contribute-copy"><h2>Help build the collection.</h2><p>Contributions can add new models and check that existing ones are clinically accurate.</p><div className="contribution-paths">{contributionPaths.map((path) => <article key={path.title}><Icon name={path.icon} size={26} /><div><h3>{path.title}</h3><p>{path.text}</p><a className="text-link" href={path.href}>Learn how <Icon name="arrow_forward" /></a></div></article>)}</div></div>
-          <figure><img src="/assets/open-review-network-v2.webp" alt="Experienced clinicians, biomedical engineers, model creators and translators use digital anatomy tools around a heart encased in clear resin." width="1536" height="1024" /><figcaption className="ai-disclaimer">AI-generated illustration.</figcaption></figure>
+          <div className="contribute-copy"><h2>Help build the collection.</h2><p>Clinicians keep the library accurate and decide what gets built next.</p><div className="contribution-paths">{contributionPaths.map((path) => <article key={path.title}><Icon name={path.icon} size={26} /><div><h3>{path.title}</h3><p>{path.text}</p><a className="text-link" href={path.href}>{path.href.startsWith('/') ? 'Open the form' : 'Email us'} <Icon name="arrow_forward" /></a></div></article>)}</div></div>
+          <figure><img src="/assets/renders/dental-development.webp" alt="Dental development model at 9.5 years: right upper and lower jaw with blue baby teeth and yellow adult teeth forming beneath them." width="1200" height="800" /><figcaption className="ai-disclaimer">Screenshot of the dental development series, age 9.5. <Link href="/development/">Open the series</Link>.</figcaption></figure>
         </section>
 
         <section className="sponsor-section" id="sponsor">
@@ -144,30 +136,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="footer-main">
-          <div className="footer-about">
-            <a className="brand footer-brand" href="#top" aria-label="Back to the top of Vivatheca"><img src="/brand/vivatheca-logo-primary.svg" alt="" width="181" height="136" /></a>
-            <p>The Vivatheca platform offers open 3D health information for clearer conversations. Free, browser-based and built for everyone.</p>
-            <span className="footer-badge">Non-profit · Open source</span>
-          </div>
-          <div className="footer-links">
-            {footerGroups.map((group) => (
-              <nav key={group.label} aria-label={group.label} className="footer-nav">
-                <h2>{group.label}</h2>
-                <ul>{group.links.map((link) => <li key={link.label}><a href={link.href}>{link.label}</a></li>)}</ul>
-                
-              </nav>
-            ))}
-          </div>
-        </div>
-
-        <div className="footer-legal">
-          <p>© 2026 Vivatheca</p>
-          <p className="disclaimer">Educational information only—not a substitute for professional medical advice.</p>
-          <nav aria-label="Legal and accessibility"><a href="mailto:hello@vivatheca.com?subject=Privacy%20question">Privacy questions</a><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback">Accessibility feedback</a></nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

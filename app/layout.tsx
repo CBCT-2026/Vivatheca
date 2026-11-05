@@ -5,20 +5,20 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://vivatheca.com'),
   title: 'Vivatheca — Medical models made clear',
-  description: 'Free, browser-based 3D medical models for clearer clinical conversations, learning, sharing and printing.',
+  description: 'Free 3D dental and oral surgery models, each with a matched normal, for clinicians making patient education materials. View, download and print.',
   alternates: { canonical: '/' },
   icons: { icon: '/favicon.svg' },
   openGraph: {
     title: 'Vivatheca — Medical models made clear',
-    description: 'Explore free, browser-based 3D medical models designed for clearer clinical conversations.',
+    description: 'Free 3D dental and oral surgery models, each with a matched normal, for clinicians making patient education materials.',
     url: '/',
-    images: ['/assets/consultation-hero.webp'],
+    images: ['/assets/og-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vivatheca — Medical models made clear',
-    description: 'Explore free, browser-based 3D medical models designed for clearer clinical conversations.',
-    images: ['/assets/consultation-hero.webp'],
+    description: 'Free 3D dental and oral surgery models, each with a matched normal, for clinicians making patient education materials.',
+    images: ['/assets/og-image.jpg'],
   },
 };
 

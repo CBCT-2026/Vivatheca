@@ -15,12 +15,12 @@ export function MobileNavigation() {
       </button>
       {open ? (
         <nav className="mobile-nav-panel" aria-label="Mobile navigation">
-          <a href="#collection" onClick={() => setOpen(false)}>Browse the collection</a>
-          <a href="#how-it-works" onClick={() => setOpen(false)}>How it works</a>
-          <a href="#publications" onClick={() => setOpen(false)}>Publications</a>
-          <a href="#contribute" onClick={() => setOpen(false)}>Contribute</a>
-          <a href="#sponsor" onClick={() => setOpen(false)}>Sponsor a model</a>
+          <a href="/models">Model library</a>
+          <a href="#collection" onClick={() => setOpen(false)}>Try the 3D viewer</a>
+          <a href="#publications" onClick={() => setOpen(false)}>Evidence</a>
           <a href="/create">Create patient information</a>
+          <a href="/about">About</a>
+          <a href="/report">Report an inaccuracy</a>
         </nav>
       ) : null}
     </div>

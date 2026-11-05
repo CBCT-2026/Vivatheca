@@ -2,26 +2,27 @@ export const footerGroups = [
   {
     label: 'Explore',
     links: [
-      { label: 'Browse the featured model', href: '#collection' },
-      { label: 'How it works', href: '#how-it-works' },
-      { label: 'Publications', href: '#publications' },
-      { label: 'Trust and review', href: '#trust' },
+      { label: 'Model library', href: '/models' },
+      { label: 'Impacted wisdom tooth', href: '/models/impacted-wisdom-tooth' },
+      { label: 'Dental development, ages 6 to 12', href: '/development/' },
+      { label: 'Create patient information', href: '/create' },
     ],
   },
   {
     label: 'Participate',
     links: [
-      { label: 'Contribute a model', href: 'mailto:hello@vivatheca.com?subject=Contribute%20a%20model' },
+      { label: 'Report an inaccuracy', href: '/report' },
       { label: 'Join clinical review', href: 'mailto:hello@vivatheca.com?subject=Join%20clinical%20review' },
-      { label: 'Sponsor a model', href: '#sponsor' },
+      { label: 'Contribute a model', href: 'mailto:hello@vivatheca.com?subject=Contribute%20a%20model' },
+      { label: 'Sponsor a model', href: '/#sponsor' },
     ],
   },
   {
-    label: 'Connect',
+    label: 'About',
     links: [
-      { label: 'Institutional partnerships', href: 'mailto:hello@vivatheca.com?subject=Institutional%20partnership' },
-      { label: 'Contact Vivatheca', href: 'mailto:hello@vivatheca.com' },
-      { label: 'Accessibility feedback', href: 'mailto:hello@vivatheca.com?subject=Accessibility%20feedback' },
+      { label: 'About Vivatheca', href: '/about' },
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Contact', href: 'mailto:hello@vivatheca.com' },
     ],
   },
 ];
