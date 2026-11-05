@@ -1,5 +1,5 @@
 import { footerGroups, trustItems, understandingPaths } from './data';
-import { MobileNavigation, ModelExperience } from './ui';
+import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
 import { disclaimerHref, siteDisclaimer } from './disclaimer-text';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
@@ -48,6 +48,7 @@ export default function Home() {
           <a href="#collection">Browse</a><a href="#how-it-works">How it works</a><a href="#publications">Publications</a><a href="#contribute">Contribute</a><a href="/create">Create</a>
         </nav>
         <div className="header-actions">
+          <ThemeToggle />
           <a className="button button-compact" href="#sponsor">Sponsor a model</a>
           <MobileNavigation />
         </div>

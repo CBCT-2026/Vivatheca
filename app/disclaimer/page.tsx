@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ThemeToggle } from '../ui';
 import { disclaimerUpdated, fullDisclaimer, siteDisclaimer } from '../disclaimer-text';
 
 export const metadata: Metadata = {
@@ -15,7 +16,10 @@ export default function DisclaimerPage() {
       <header className="site-header builder-header">
         <Link className="brand" href="/" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
         <span />
-        <Link className="button button-secondary button-compact builder-back" href="/">Back to models</Link>
+        <div className="header-actions">
+          <ThemeToggle />
+          <Link className="button button-secondary button-compact builder-back" href="/">Back to models</Link>
+        </div>
       </header>
       <main id="main-content" className="disclaimer-page">
         <p className="eyebrow">Last updated {disclaimerUpdated}</p>
