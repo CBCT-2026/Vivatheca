@@ -59,6 +59,10 @@ Keep global-access data markers, legends and location labels as accessible HTML 
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.
 
+## Disclaimer (required everywhere)
+
+`app/disclaimer-text.ts` is the single source of the disclaimer wording; `/disclaimer` (`app/disclaimer/page.tsx`) shows the full version. Every page must show `siteDisclaimer` (the footer does this) or a link to `/disclaimer`. Every model viewer, model page and download must show its review status, `modelDisclaimer` and a link to `/disclaimer`. Static pages under `public/` copy the model wording verbatim. Generated or exported materials keep the AI and DRAFT notices. Never describe a model as suitable for diagnosis, treatment planning, surgical guides or use in or on the body. Translations of the disclaimer must be reviewed by a fluent speaker before release.
+
 ## Security & Clinical Content
 
 Never commit credentials, patient information, private form submissions, or `.env` files. Medical claims, reviewer records, licences, translations, and model limitations require verification before being presented as final. Clearly label prototype content and unavailable production workflows. Describe Vivatheca as a platform, not a site or service. Treat Australian operation as user-supplied organisational information; source official flag media from the Australian Government. Present recycling and recovery work as exploratory until a verified programme or partner exists.

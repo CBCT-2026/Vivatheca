@@ -1,5 +1,6 @@
 import { footerGroups, trustItems, understandingPaths } from './data';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
+import { disclaimerHref, siteDisclaimer } from './disclaimer-text';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -165,8 +166,8 @@ export default function Home() {
 
         <div className="footer-legal">
           <p>© 2026 Vivatheca</p>
-          <p className="disclaimer">Educational information only—not a substitute for professional medical advice.</p>
-          <nav aria-label="Legal and accessibility"><a href="mailto:hello@vivatheca.com?subject=Privacy%20question">Privacy questions</a><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback">Accessibility feedback</a></nav>
+          <p className="disclaimer">{siteDisclaimer} <a href={disclaimerHref}>Full disclaimer</a></p>
+          <nav aria-label="Legal and accessibility"><a href={disclaimerHref}>Disclaimer</a><a href="mailto:hello@vivatheca.com?subject=Privacy%20question">Privacy questions</a><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback">Accessibility feedback</a></nav>
         </div>
       </footer>
     </>

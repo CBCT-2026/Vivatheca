@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { THEME_KEY } from './theme';
+import { disclaimerHref, modelDisclaimer } from './disclaimer-text';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -136,7 +137,7 @@ export function ModelExperience() {
           <a href="/models/impacted-molar.stl" download><Icon name="print" />Download STL (for printing)</a>
         </div>
         <p className="licence-note">Model licence: <a href={modelLicence.href} target="_blank" rel="noreferrer">{modelLicence.name}</a>. Free to use, adapt and print with attribution to Vivatheca.</p>
-        <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> Educational aid only, not a diagnostic record.</p>
+        <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> {modelDisclaimer} <a href={disclaimerHref}>Full disclaimer</a></p>
       </div>
     </div>
   );
