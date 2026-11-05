@@ -43,13 +43,23 @@ test('?lang=ja makes a shareable Japanese link', async ({ page }) => {
   await expect(page.locator('h1')).toHaveText('患者(かんじゃ)説明(せつめい)資料(しりょう)をつくる');
 });
 
-test('the language menu is reachable on mobile', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
+test('language and theme switches stay in the top bar on phones', async ({ page }) => {
+  for (const path of ['/', '/create', '/disclaimer']) {
+    await page.setViewportSize({ width: 360, height: 780 });
+    await page.goto(path);
+    const header = page.locator('header.site-header');
+    await expect(header.getByRole('button', { name: '日本語' })).toBeVisible();
+    await expect(header.locator('.theme-toggle')).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
+  }
   await page.goto('/');
-  await page.getByRole('button', { name: 'Open navigation' }).click();
-  await page.getByRole('navigation', { name: 'Mobile navigation' }).getByRole('button', { name: '日本語' }).click();
+  await page.locator('header.site-header').getByRole('button', { name: '日本語' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+  await expect(page.locator('header.site-header').getByRole('button', { name: 'English' })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
+  // The furigana switch moves into the menu on phones.
+  await page.locator('.mobile-nav .icon-button').click();
+  await expect(page.locator('.mobile-nav-panel .furigana-toggle')).toBeVisible();
 });
 
 test('the dental development page follows the chosen language', async ({ page, context }) => {
