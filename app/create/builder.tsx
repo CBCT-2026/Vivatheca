@@ -8,21 +8,17 @@ import {
 } from './briefs';
 import { checkMarkdown, findPossiblePatientDetails, limits, spokenSeconds, stripClinicianNotes } from './checker';
 import { markdownTitle, markdownToHtml } from './markdown';
+import { disclaimerHref } from '../disclaimer-text';
+import { localeTags } from '../i18n/config';
+import { useI18n } from '../i18n/context';
+import { format } from '../i18n/dictionaries';
+import { plain, RichText, Ruby } from '../i18n/ruby';
 
 const STORAGE = {
   acknowledged: 'vivatheca:builder:acknowledged',
   brief: 'vivatheca:builder:brief',
   draft: 'vivatheca:builder:draft',
 };
-
-const verificationItems = [
-  'I have checked every fact against current evidence and my own clinical knowledge.',
-  'Every risk number has a source, and the sources are listed.',
-  'All [CHECK] markers are resolved and the checker shows no errors, or I accept the remaining ones.',
-  'The material contains no patient-identifying information.',
-];
-
-const DRAFT_NOTICE = 'DRAFT: AI-assisted, not clinically verified. May contain errors. Not medical advice.';
 
 function readStorage(key: string): string | null {
   try {
@@ -42,7 +38,7 @@ function writeStorage(key: string, value: string) {
 
 const emptyBrief: Brief = {
   modelId: 'impacted-molar',
-  topic: 'Having a lower wisdom tooth taken out',
+  topic: '',
   material: 'leaflet',
   audience: 'adult',
   keyPoints: '',
@@ -55,6 +51,10 @@ function escapeHtml(s: string): string {
 }
 
 export function Builder() {
+  const { locale, t } = useI18n();
+  const b = t.builder;
+  const verificationItems = b.verification;
+  const DRAFT_NOTICE = plain(b.draftNotice);
   const [acknowledged, setAcknowledged] = useState(false);
   const [ackTicked, setAckTicked] = useState(false);
   const [aiEnabled, setAiEnabled] = useState(false);
@@ -75,14 +75,16 @@ export function Builder() {
     /* eslint-disable react-hooks/set-state-in-effect */
     setAcknowledged(readStorage(STORAGE.acknowledged) === 'yes');
     const savedBrief = readStorage(STORAGE.brief);
+    const startBrief = { ...emptyBrief, topic: plain(b.defaultTopic) };
+    setBrief(startBrief);
     if (savedBrief) {
-      try { setBrief({ ...emptyBrief, ...JSON.parse(savedBrief) }); } catch { /* ignore */ }
+      try { setBrief({ ...startBrief, ...JSON.parse(savedBrief) }); } catch { /* ignore */ }
     }
     setDraft(readStorage(STORAGE.draft) ?? '');
     /* eslint-enable react-hooks/set-state-in-effect */
     fetch('/api/generate').then((r) => (r.ok ? (r.json() as Promise<{ enabled?: boolean }>) : null)).then((d) => setAiEnabled(Boolean(d?.enabled))).catch(() => setAiEnabled(false));
     import('@google/model-viewer').then(() => setViewerReady(true)).catch(() => undefined);
-  }, []);
+  }, [b.defaultTopic]);
 
   useEffect(() => { writeStorage(STORAGE.brief, JSON.stringify(brief)); }, [brief]);
   useEffect(() => { writeStorage(STORAGE.draft, draft); }, [draft]);
@@ -112,7 +114,7 @@ export function Builder() {
     const response = await fetch('/api/generate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     if (!response.ok || !response.body) {
       const data = (await response.json().catch(() => null)) as { error?: string } | null;
-      throw new Error(data?.error ?? 'The AI request failed.');
+      throw new Error(data?.error ?? b.status.failed);
     }
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
@@ -129,11 +131,11 @@ export function Builder() {
   async function generate() {
     if (briefDetails.length) return;
     setBusy('draft');
-    setStatus('Drafting with Claude. This can take up to a minute.');
+    setStatus(b.status.drafting);
     setReview('');
     try {
-      await callAi({ action: 'draft', brief }, setDraft);
-      setStatus('Draft ready. Check every fact before use.');
+      await callAi({ action: 'draft', brief, language: locale }, setDraft);
+      setStatus(b.status.draftReady);
     } catch (error) {
       setStatus((error as Error).message);
     } finally {
@@ -145,11 +147,11 @@ export function Builder() {
     if (draftDetails.length) return;
     const findings = result.findings.map((f) => `${f.section}: ${f.message}${f.excerpt ? ` ("${f.excerpt}")` : ''}`);
     setBusy(action);
-    setStatus(action === 'simplify' ? 'Simplifying the draft.' : 'Reviewing with PEMAT and the CDC Clear Communication Index.');
+    setStatus(action === 'simplify' ? b.status.simplifying : b.status.reviewing);
     try {
       if (action === 'simplify') await callAi({ action, draft, findings }, setDraft);
       else await callAi({ action, draft, findings }, setReview);
-      setStatus('Done. Check the changes before use.');
+      setStatus(b.status.done);
     } catch (error) {
       setStatus((error as Error).message);
     } finally {
@@ -160,13 +162,13 @@ export function Builder() {
   async function copy(text: string, label: string) {
     try {
       await navigator.clipboard.writeText(text);
-      setStatus(`${label} copied. Paste it into your AI chat, then paste the answer into the draft box.`);
+      setStatus(format(b.status.copied, { label }));
     } catch {
-      setStatus('Copying is blocked in this browser. Select the prompt text and copy it by hand.');
+      setStatus(b.status.copyBlocked);
     }
   }
 
-  const draftPrompt = `${systemPrompt}\n\n---\n\n${buildUserPrompt(brief)}`;
+  const draftPrompt = `${systemPrompt}\n\n---\n\n${buildUserPrompt(brief, locale)}`;
   const simplifyPrompt = `${systemPrompt}\n\n---\n\n${buildRefinePrompt('simplify', draft, result.findings.map((f) => `${f.section}: ${f.message}`))}`;
 
   function captureView() {
@@ -174,7 +176,7 @@ export function Builder() {
     const url = viewer?.toDataURL?.('image/png');
     if (url) {
       setSnapshot(url);
-      setStatus('Model view saved for the A4 sheet.');
+      setStatus(b.status.viewSaved);
     }
   }
 
@@ -185,13 +187,14 @@ export function Builder() {
     qr.addData(modelUrl);
     qr.make();
     const footer = allVerified
-      ? `Checked by ${escapeHtml(signoff || 'the treating clinician')} on ${new Date().toLocaleDateString('en-AU')}. Drafted with AI assistance on Vivatheca. Talk to your dentist or doctor about your own situation.`
-      : DRAFT_NOTICE;
+      ? escapeHtml(plain(format(b.exportFooter, { name: signoff || plain(b.treatingClinician), date: new Date().toLocaleDateString(localeTags[locale].intl) })))
+      : escapeHtml(DRAFT_NOTICE);
+    const modelName = plain(b.models[model?.id ?? ''] ?? model?.name ?? '');
     const figure = snapshot && model?.id !== 'none'
-      ? `<figure><img src="${snapshot}" alt="3D model view: ${escapeHtml(model?.name ?? '')}"><figcaption>${escapeHtml(model?.labels.map((l) => l.plain).join(' · ') ?? '')}</figcaption></figure>`
+      ? `<figure><img src="${snapshot}" alt="${escapeHtml(plain(format(b.modelView, { name: modelName })))}"><figcaption>${escapeHtml(model?.labels.map((l) => l.plain).join(' · ') ?? '')}</figcaption></figure>`
       : '';
     return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(title)}</title>
+<html lang="${localeTags[locale].html}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(title)}</title>
 <style>
 @page { size: A4; margin: 14mm; }
 body { font-family: Manrope, "Segoe UI", Arial, sans-serif; color: #06233f; line-height: 1.5; font-size: 11.5pt; max-width: 180mm; margin: 0 auto; padding: 8mm 0; }
@@ -202,7 +205,7 @@ figure { float: right; width: 62mm; margin: 0 0 6pt 8pt; } figure img { width: 1
 .qr { float: right; width: 26mm; text-align: center; font-size: 8pt; color: #4d6378; margin-left: 8pt; } .qr svg { width: 26mm; height: 26mm; }
 footer { clear: both; margin-top: 10pt; border-top: 1px solid #cfe1e7; padding-top: 5pt; font-size: 8.5pt; color: ${allVerified ? '#4d6378' : '#b3261e'}; font-weight: ${allVerified ? 400 : 700}; }
 </style></head><body>
-<div class="qr">${qr.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}<div>Scan to open the 3D model</div></div>
+<div class="qr">${qr.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}<div>${escapeHtml(plain(b.scanQr))}</div></div>
 ${figure}
 ${markdownToHtml(stripClinicianNotes(draft))}
 <footer>${footer}</footer>
@@ -226,7 +229,7 @@ ${markdownToHtml(stripClinicianNotes(draft))}
   function printSheet() {
     const win = window.open('', '_blank');
     if (!win) {
-      setStatus('Pop-ups are blocked. Use "Download HTML" and print that file instead.');
+      setStatus(b.status.popupBlocked);
       return;
     }
     win.document.write(exportHtml());
@@ -243,82 +246,79 @@ ${markdownToHtml(stripClinicianNotes(draft))}
   if (!acknowledged) {
     return (
       <section className="builder-ack" aria-labelledby="ack-title">
-        <h2 id="ack-title">Before you start</h2>
+        <h2 id="ack-title"><Ruby text={b.ack.heading} /></h2>
         <ul>
-          <li><strong>Drafts are generated by AI and are not guaranteed to be accurate.</strong> AI can make mistakes, including invented facts, numbers or sources that look convincing.</li>
-          <li>Nothing here is medical advice, and Vivatheca does not review or verify what you create. Read the <a href="/disclaimer" target="_blank" rel="noreferrer">full disclaimer</a>.</li>
-          <li><strong>You are responsible</strong> for checking every fact, number and source before giving the material to patients, and for following your local consent and governance rules.</li>
-          <li><strong>Do not enter patient information.</strong> Use general facts only. Briefs and drafts stay in this browser; AI requests are sent to Anthropic for processing and are not stored by Vivatheca.</li>
-          <li>The readability checker is a first filter, not proof of quality. Test materials with people from the intended audience.</li>
+          {b.ack.items.map((item, i) => <li key={item}><RichText text={item} />{i === 1 ? <> <a href={disclaimerHref} target="_blank" rel="noreferrer"><Ruby text={t.disclaimer.readFull} /></a></> : null}</li>)}
         </ul>
-        <label className="builder-check"><input type="checkbox" checked={ackTicked} onChange={(e) => setAckTicked(e.target.checked)} /> I understand and accept these limits.</label>
-        <button className="button" type="button" disabled={!ackTicked} onClick={acknowledge}>Continue to the builder</button>
+        <label className="builder-check"><input type="checkbox" checked={ackTicked} onChange={(e) => setAckTicked(e.target.checked)} /> <Ruby text={b.ack.accept} /></label>
+        <button className="button" type="button" disabled={!ackTicked} onClick={acknowledge}><Ruby text={b.ack.continue} /></button>
       </section>
     );
   }
 
   return (
     <div className="builder">
-      <p className="builder-banner" role="note"><strong>AI can make mistakes.</strong> Every draft is unverified until you check it. Do not enter patient information.</p>
+      <p className="builder-banner" role="note"><strong><Ruby text={b.bannerStrong} /></strong> <Ruby text={b.banner} /></p>
 
       <section className="builder-panel" aria-labelledby="brief-title">
-        <h2 id="brief-title"><span className="builder-step">1</span> Brief</h2>
+        <h2 id="brief-title"><span className="builder-step">1</span> <Ruby text={b.brief} /></h2>
         <div className="builder-grid">
-          <label>Vivatheca model
+          <label><Ruby text={b.model} />
             <select value={brief.modelId} onChange={(e) => update('modelId', e.target.value)}>
-              {modelBriefs.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+              {modelBriefs.map((m) => <option key={m.id} value={m.id}>{plain(b.models[m.id] ?? m.name)}</option>)}
             </select>
           </label>
-          <label>What to make
+          <label><Ruby text={b.material} />
             <select value={brief.material} onChange={(e) => update('material', e.target.value as MaterialType)}>
-              {Object.entries(materialTypes).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
+              {Object.keys(materialTypes).map((k) => <option key={k} value={k}>{plain(b.materials[k as MaterialType])}</option>)}
             </select>
           </label>
-          <label>Audience
+          <label><Ruby text={b.audience} />
             <select value={brief.audience} onChange={(e) => update('audience', e.target.value as Audience)}>
-              {Object.entries(audiences).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+              {Object.keys(audiences).map((k) => <option key={k} value={k}>{plain(b.audiences[k as Audience])}</option>)}
             </select>
           </label>
-          <label>Topic
+          <label><Ruby text={b.topic} />
             <input value={brief.topic} onChange={(e) => update('topic', e.target.value)} />
           </label>
         </div>
-        <label>Key points to cover <span className="builder-hint">One per line. General facts only.</span>
-          <textarea rows={4} value={brief.keyPoints} onChange={(e) => update('keyPoints', e.target.value)} placeholder="e.g. Why the tooth may need to come out; what happens on the day; how long recovery takes" />
+        <label><Ruby text={b.keyPoints} /> <span className="builder-hint"><Ruby text={b.keyPointsHint} /></span>
+          <textarea rows={4} value={brief.keyPoints} onChange={(e) => update('keyPoints', e.target.value)} placeholder={plain(b.keyPointsPlaceholder)} />
         </label>
-        <label>Risk numbers <span className="builder-hint">Only numbers you can source, with the source number. The AI is told not to invent any.</span>
-          <textarea rows={3} value={brief.riskNumbers} onChange={(e) => update('riskNumbers', e.target.value)} placeholder="e.g. Lasting lip or chin numbness: about 1 in 100 when the roots are close to the nerve [1]" />
+        <label><Ruby text={b.riskNumbers} /> <span className="builder-hint"><Ruby text={b.riskNumbersHint} /></span>
+          <textarea rows={3} value={brief.riskNumbers} onChange={(e) => update('riskNumbers', e.target.value)} placeholder={plain(b.riskNumbersPlaceholder)} />
         </label>
-        <label>Sources <span className="builder-hint">Numbered, as they should appear in the reference list.</span>
-          <textarea rows={3} value={brief.sources} onChange={(e) => update('sources', e.target.value)} placeholder="[1] Author, Title, Journal, Year. DOI" />
+        <label><Ruby text={b.sources} /> <span className="builder-hint"><Ruby text={b.sourcesHint} /></span>
+          <textarea rows={3} value={brief.sources} onChange={(e) => update('sources', e.target.value)} placeholder={plain(b.sourcesPlaceholder)} />
         </label>
-        {briefDetails.length ? <p className="builder-alert" role="alert">This may contain patient details ({briefDetails.join(', ')}). Remove them before continuing.</p> : null}
+        {briefDetails.length ? <p className="builder-alert" role="alert"><Ruby text={format(b.patientDetails, { details: briefDetails.join(', ') })} /></p> : null}
         <div className="builder-actions">
           {aiEnabled ? (
-            <button className="button" type="button" onClick={generate} disabled={Boolean(busy) || briefDetails.length > 0}>{busy === 'draft' ? 'Drafting…' : 'Draft with AI'}</button>
+            <button className="button" type="button" onClick={generate} disabled={Boolean(busy) || briefDetails.length > 0}><Ruby text={busy === 'draft' ? b.drafting : b.draftWithAi} /></button>
           ) : null}
-          <button className={aiEnabled ? 'button button-secondary' : 'button'} type="button" onClick={() => copy(draftPrompt, 'Prompt')} disabled={briefDetails.length > 0}>Copy prompt for your own AI chat</button>
+          <button className={aiEnabled ? 'button button-secondary' : 'button'} type="button" onClick={() => copy(draftPrompt, plain(b.status.prompt))} disabled={briefDetails.length > 0}><Ruby text={b.copyPrompt} /></button>
         </div>
-        {!aiEnabled ? <p className="builder-hint">One-click AI drafting is not switched on yet. Copy the prompt into any AI chat you already use (for example Claude or ChatGPT), then paste the answer into the draft below.</p> : null}
-        <details className="builder-prompt"><summary>Show the full prompt</summary><pre>{draftPrompt}</pre></details>
+        {!aiEnabled ? <p className="builder-hint"><Ruby text={b.aiOff} /></p> : null}
+        <details className="builder-prompt"><summary><Ruby text={b.showPrompt} /></summary><pre>{draftPrompt}</pre></details>
       </section>
 
       <section className="builder-panel" aria-labelledby="draft-title">
-        <h2 id="draft-title"><span className="builder-step">2</span> Draft and refine</h2>
+        <h2 id="draft-title"><span className="builder-step">2</span> <Ruby text={b.draftAndRefine} /></h2>
         <div className="builder-editor">
-          <label className="builder-draft">Draft (Markdown)
-            <textarea rows={22} value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Your draft appears here. You can also paste or write text yourself." />
+          <label className="builder-draft"><Ruby text={b.draftLabel} />
+            <textarea rows={22} value={draft} onChange={(e) => setDraft(e.target.value)} placeholder={plain(b.draftPlaceholder)} />
           </label>
           <aside className="builder-checks" aria-labelledby="checks-title" aria-live="polite">
-            <h3 id="checks-title">Checker</h3>
+            <h3 id="checks-title"><Ruby text={b.checker} /></h3>
+            {b.checkerEnglishOnly ? <p className="builder-hint"><Ruby text={b.checkerEnglishOnly} /></p> : null}
             <dl className="builder-scores">
-              <div><dt>Reading grade</dt><dd className={result.scores.fkgl !== null && result.scores.fkgl > limits.maxFkgl ? 'over' : ''}>{result.scores.fkgl ?? '–'} <small>target ≤ {limits.maxFkgl}</small></dd></div>
-              <div><dt>SMOG</dt><dd className={result.scores.smog !== null && result.scores.smog > limits.maxSmog ? 'over' : ''}>{result.scores.smog ?? '–'} <small>target ≤ {limits.maxSmog}</small></dd></div>
-              <div><dt>Reading ease</dt><dd className={result.scores.fre !== null && result.scores.fre < limits.minFre ? 'over' : ''}>{result.scores.fre ?? '–'} <small>target ≥ {limits.minFre}</small></dd></div>
-              <div><dt>Words</dt><dd>{result.scores.words}{brief.material === 'narration' ? <small> ≈ {spokenSeconds(draft)} s spoken</small> : null}</dd></div>
+              <div><dt><Ruby text={b.readingGrade} /></dt><dd className={result.scores.fkgl !== null && result.scores.fkgl > limits.maxFkgl ? 'over' : ''}>{result.scores.fkgl ?? '–'} <small><Ruby text={b.target} /> ≤ {limits.maxFkgl}</small></dd></div>
+              <div><dt><Ruby text={b.smog} /></dt><dd className={result.scores.smog !== null && result.scores.smog > limits.maxSmog ? 'over' : ''}>{result.scores.smog ?? '–'} <small><Ruby text={b.target} /> ≤ {limits.maxSmog}</small></dd></div>
+              <div><dt><Ruby text={b.readingEase} /></dt><dd className={result.scores.fre !== null && result.scores.fre < limits.minFre ? 'over' : ''}>{result.scores.fre ?? '–'} <small><Ruby text={b.target} /> ≥ {limits.minFre}</small></dd></div>
+              <div><dt><Ruby text={b.words} /></dt><dd>{result.scores.words}{brief.material === 'narration' ? <small> <Ruby text={format(b.spoken, { seconds: spokenSeconds(draft) })} /></small> : null}</dd></div>
             </dl>
-            <p className="builder-count"><strong>{errors.length}</strong> to fix · <strong>{warnings.length}</strong> to consider</p>
-            {draftDetails.length ? <p className="builder-alert" role="alert">Possible patient details: {draftDetails.join(', ')}.</p> : null}
+            <p className="builder-count"><strong>{errors.length}</strong> <Ruby text={b.toFix} /> · <strong>{warnings.length}</strong> <Ruby text={b.toConsider} /></p>
+            {draftDetails.length ? <p className="builder-alert" role="alert"><Ruby text={format(b.possibleDetails, { details: draftDetails.join(', ') })} /></p> : null}
             <ul className="builder-findings">
               {[...errors, ...warnings].slice(0, 60).map((f, i) => (
                 <li key={i} className={f.severity}>
@@ -327,35 +327,35 @@ ${markdownToHtml(stripClinicianNotes(draft))}
                 </li>
               ))}
             </ul>
-            <p className="builder-hint">Checks from the open-source patient-education-toolkit, based on the guidance listed below the builder (NHS, ISO 24495-1, CDC, PEMAT, IPDAS). Scores are estimates.</p>
+            <p className="builder-hint"><Ruby text={b.checksSource} /></p>
           </aside>
         </div>
         <div className="builder-actions">
           {aiEnabled ? (
             <>
-              <button className="button button-secondary" type="button" onClick={() => refine('simplify')} disabled={!draft || Boolean(busy) || draftDetails.length > 0}>{busy === 'simplify' ? 'Simplifying…' : 'Make it simpler (AI)'}</button>
-              <button className="button button-secondary" type="button" onClick={() => refine('review')} disabled={!draft || Boolean(busy) || draftDetails.length > 0}>{busy === 'review' ? 'Reviewing…' : 'PEMAT and CDC review (AI)'}</button>
+              <button className="button button-secondary" type="button" onClick={() => refine('simplify')} disabled={!draft || Boolean(busy) || draftDetails.length > 0}><Ruby text={busy === 'simplify' ? b.simplifying : b.simplify} /></button>
+              <button className="button button-secondary" type="button" onClick={() => refine('review')} disabled={!draft || Boolean(busy) || draftDetails.length > 0}><Ruby text={busy === 'review' ? b.reviewing : b.review} /></button>
             </>
           ) : (
-            <button className="button button-secondary" type="button" onClick={() => copy(simplifyPrompt, 'Simplify prompt')} disabled={!draft}>Copy a &ldquo;make it simpler&rdquo; prompt</button>
+            <button className="button button-secondary" type="button" onClick={() => copy(simplifyPrompt, plain(b.status.simplifyPrompt))} disabled={!draft}><Ruby text={b.copySimplify} /></button>
           )}
         </div>
         {review ? (
           <div className="builder-review">
-            <h3>AI review <span className="builder-hint">Unverified. Use as suggestions only.</span></h3>
+            <h3><Ruby text={b.aiReview} /> <span className="builder-hint"><Ruby text={b.aiReviewHint} /></span></h3>
             <div dangerouslySetInnerHTML={{ __html: markdownToHtml(review) }} />
           </div>
         ) : null}
       </section>
 
       <section className="builder-panel" aria-labelledby="export-title">
-        <h2 id="export-title"><span className="builder-step">3</span> Check and export</h2>
+        <h2 id="export-title"><span className="builder-step">3</span> <Ruby text={b.checkAndExport} /></h2>
         {model?.glb && viewerReady ? (
           <div className="builder-model">
             {React.createElement('model-viewer', {
               ref: viewerRef,
               src: model.glb,
-              alt: `3D model: ${model.name}`,
+              alt: plain(format(b.modelAlt, { name: b.models[model.id] ?? model.name })),
               'camera-controls': true,
               'touch-action': 'pan-y',
               'camera-orbit': '8deg 78deg 74%',
@@ -366,34 +366,34 @@ ${markdownToHtml(stripClinicianNotes(draft))}
               className: 'builder-viewer',
             })}
             <div>
-              <p>Turn the model to the view you want on the A4 sheet, then save it. The sheet also gets a QR code that opens the model.</p>
-              <button className="button button-secondary" type="button" onClick={captureView}>Use this view on the sheet</button>
-              {snapshot ? <img className="builder-snapshot" src={snapshot} alt="Saved model view for the sheet" /> : null}
+              <p><Ruby text={b.viewHelp} /></p>
+              <button className="button button-secondary" type="button" onClick={captureView}><Ruby text={b.useView} /></button>
+              {snapshot ? <img className="builder-snapshot" src={snapshot} alt={plain(b.savedView)} /> : null}
             </div>
           </div>
         ) : null}
         <fieldset className="builder-verify">
-          <legend>Clinician check</legend>
-          <p className="builder-hint">Until every box is ticked, exports carry the notice &ldquo;{DRAFT_NOTICE}&rdquo;. Editing the draft clears the ticks.</p>
+          <legend><Ruby text={b.clinicianCheck} /></legend>
+          <p className="builder-hint"><Ruby text={format(b.verifyHint, { notice: b.draftNotice })} /></p>
           {verificationItems.map((item, i) => (
             <label key={item} className="builder-check">
-              <input type="checkbox" checked={verified[i]} onChange={(e) => tick(i, e.target.checked)} /> {item}
+              <input type="checkbox" checked={verified[i]} onChange={(e) => tick(i, e.target.checked)} /> <Ruby text={item} />
             </label>
           ))}
-          <label>Checked by (name and role, optional)
-            <input value={signoff} onChange={(e) => setSignoff(e.target.value)} placeholder="e.g. Dr A Smith, Oral and Maxillofacial Surgeon" />
+          <label><Ruby text={b.checkedBy} />
+            <input value={signoff} onChange={(e) => setSignoff(e.target.value)} placeholder={plain(b.checkedByPlaceholder)} />
           </label>
         </fieldset>
         <div className="builder-actions">
-          <button className="button" type="button" disabled={!draft} onClick={printSheet}>Print or save A4 sheet as PDF</button>
-          <button className="button button-secondary" type="button" disabled={!draft} onClick={() => download(`${slug()}.html`, exportHtml(), 'text/html')}>Download HTML</button>
-          <button className="button button-secondary" type="button" disabled={!draft} onClick={() => download(`${slug()}.md`, markdownExport(), 'text/markdown')}>Download Markdown</button>
+          <button className="button" type="button" disabled={!draft} onClick={printSheet}><Ruby text={b.print} /></button>
+          <button className="button button-secondary" type="button" disabled={!draft} onClick={() => download(`${slug()}.html`, exportHtml(), 'text/html')}><Ruby text={b.downloadHtml} /></button>
+          <button className="button button-secondary" type="button" disabled={!draft} onClick={() => download(`${slug()}.md`, markdownExport(), 'text/markdown')}><Ruby text={b.downloadMarkdown} /></button>
         </div>
         {draft ? (
-          <div className="builder-preview" aria-label="Preview">
-            <p className="builder-hint">Preview. &ldquo;Notes for the clinician&rdquo; are left out of exports.</p>
+          <div className="builder-preview" aria-label={plain(b.preview)}>
+            <p className="builder-hint"><Ruby text={b.previewHint} /></p>
             <div dangerouslySetInnerHTML={{ __html: markdownToHtml(stripClinicianNotes(draft)) }} />
-            <p className={allVerified ? 'builder-footer' : 'builder-footer draft'}>{allVerified ? `Checked by ${signoff || 'the treating clinician'}.` : DRAFT_NOTICE}</p>
+            <p className={allVerified ? 'builder-footer' : 'builder-footer draft'}><Ruby text={allVerified ? format(b.checkedByFooter, { name: signoff || b.treatingClinician }) : b.draftNotice} /></p>
           </div>
         ) : null}
       </section>

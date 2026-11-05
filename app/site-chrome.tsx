@@ -1,41 +1,52 @@
 import Link from 'next/link';
 import { footerGroups } from './data';
-import { disclaimerHref, siteDisclaimer } from './disclaimer-text';
+import { disclaimerHref } from './disclaimer-text';
+import type { Dictionary } from './i18n/dictionaries';
+import { getI18n } from './i18n/server';
+import { plain, Ruby } from './i18n/ruby';
+import { LanguageSwitcher } from './i18n/switcher';
 import { ThemeToggle } from './ui';
 
-export const primaryLinks = [
-  { label: 'Models', href: '/models' },
-  { label: 'Create', href: '/create' },
-  { label: 'About', href: '/about' },
-  { label: 'Report an inaccuracy', href: '/report' },
-];
+export function primaryLinks(t: Dictionary) {
+  return [
+    { label: t.nav.models, href: '/models' },
+    { label: t.nav.create, href: '/create' },
+    { label: t.nav.about, href: '/about' },
+    { label: t.nav.report, href: '/report' },
+  ];
+}
 
-export function PageHeader({ current }: { current?: string }) {
+export async function PageHeader({ current }: { current?: string }) {
+  const { t, furigana } = await getI18n();
   return (
     <header className="site-header page-header">
-      <Link className="brand" href="/" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
-      <nav className="page-nav" aria-label="Primary navigation">
-        {primaryLinks.map((link) => <Link key={link.href} href={link.href} aria-current={current === link.href ? 'page' : undefined}>{link.label}</Link>)}
+      <Link className="brand" href="/" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
+      <nav className="page-nav" aria-label={plain(t.nav.primary)}>
+        {primaryLinks(t).map((link) => <Link key={link.href} href={link.href} aria-current={current === link.href ? 'page' : undefined}><Ruby text={link.label} /></Link>)}
       </nav>
-      <div className="page-header-actions"><ThemeToggle /></div>
+      <div className="page-header-actions">
+        <LanguageSwitcher furigana={furigana} className="always" />
+        <ThemeToggle />
+      </div>
     </header>
   );
 }
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const { t } = await getI18n();
   return (
     <footer className="site-footer">
       <div className="footer-main">
         <div className="footer-about">
-          <Link className="brand footer-brand" href="/" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="" width="181" height="136" /></Link>
-          <p>Free 3D models of dental and oral and maxillofacial conditions, each with a matched normal, for clinicians making patient education materials.</p>
-          <span className="footer-badge">Not-for-profit · Open licence</span>
+          <Link className="brand footer-brand" href="/" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="" width="181" height="136" /></Link>
+          <p><Ruby text={t.footer.about} /></p>
+          <span className="footer-badge"><Ruby text={t.footer.badge} /></span>
         </div>
         <div className="footer-links">
-          {footerGroups.map((group) => (
-            <nav key={group.label} aria-label={group.label} className="footer-nav">
-              <h2>{group.label}</h2>
-              <ul>{group.links.map((link) => <li key={link.label}><a href={link.href}>{link.label}</a></li>)}</ul>
+          {footerGroups(t).map((group) => (
+            <nav key={group.label} aria-label={plain(group.label)} className="footer-nav">
+              <h2><Ruby text={group.label} /></h2>
+              <ul>{group.links.map((link) => <li key={link.href}><a href={link.href}><Ruby text={link.label} /></a></li>)}</ul>
             </nav>
           ))}
         </div>
@@ -43,8 +54,8 @@ export function SiteFooter() {
 
       <div className="footer-legal">
         <p>© 2026 Vivatheca</p>
-        <p className="disclaimer">{siteDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
-        <nav aria-label="Legal and accessibility"><Link href={disclaimerHref}>Disclaimer</Link><Link href="/privacy">Privacy</Link><Link href="/report">Report an inaccuracy</Link><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback">Accessibility feedback</a></nav>
+        <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <Link href={disclaimerHref}><Ruby text={t.disclaimer.full} /></Link></p>
+        <nav aria-label={plain(t.footer.legal)}><Link href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></Link><Link href="/privacy"><Ruby text={t.footer.privacy} /></Link><Link href="/report"><Ruby text={t.footer.report} /></Link><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback"><Ruby text={t.footer.accessibility} /></a></nav>
       </div>
     </footer>
   );

@@ -1,27 +1,35 @@
 import type { Metadata } from 'next';
 import { PageHeader, SiteFooter } from '../site-chrome';
-import { disclaimerUpdated, fullDisclaimer, siteDisclaimer } from '../disclaimer-text';
+import { format } from '../i18n/dictionaries';
+import { getI18n } from '../i18n/server';
+import { plain, Ruby } from '../i18n/ruby';
 
-export const metadata: Metadata = {
-  title: 'Disclaimer — Vivatheca',
-  description: 'Vivatheca models and information are for general education only and are not medical advice.',
-  alternates: { canonical: '/disclaimer' },
-  openGraph: { url: '/disclaimer', images: ['/assets/og-image.jpg'] },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getI18n();
+  return {
+    title: plain(t.disclaimer.title),
+    description: plain(t.disclaimer.description),
+    alternates: { canonical: '/disclaimer' },
+    openGraph: { url: '/disclaimer', images: ['/assets/og-image.jpg'] },
+  };
+}
 
-export default function DisclaimerPage() {
+export default async function DisclaimerPage() {
+  const { t } = await getI18n();
+  const d = t.disclaimer;
   return (
     <>
-      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader />
       <main id="main-content" className="disclaimer-page">
-        <p className="eyebrow">Last updated {disclaimerUpdated}</p>
-        <h1>Disclaimer</h1>
-        <p className="disclaimer-lead">{siteDisclaimer}</p>
-        {fullDisclaimer.map((section) => (
+        <p className="eyebrow"><Ruby text={format(d.updated, { date: d.date })} /></p>
+        <h1><Ruby text={d.heading} /></h1>
+        <p className="disclaimer-lead"><Ruby text={d.site} /></p>
+        {d.reviewNote ? <p className="evidence-note"><Ruby text={d.reviewNote} /></p> : null}
+        {d.sections.map((section) => (
           <section key={section.heading}>
-            <h2>{section.heading}</h2>
-            {section.paragraphs.map((text) => <p key={text}>{text}</p>)}
+            <h2><Ruby text={section.heading} /></h2>
+            {section.paragraphs.map((text) => <p key={text}><Ruby text={text} /></p>)}
           </section>
         ))}
       </main>

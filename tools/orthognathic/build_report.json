@@ -1,0 +1,75 @@
+{
+ "states": [
+  {
+   "state": "normal",
+   "mouth_open_deg": 0.0,
+   "faces": {
+    "bone": 337470,
+    "teeth": 98430,
+    "moved": 0,
+    "cut": 0,
+    "plate": 0,
+    "screw": 0,
+    "before": 0
+   }
+  },
+  {
+   "state": "class2-before",
+   "mouth_open_deg": 0.0,
+   "faces": {
+    "bone": 337470,
+    "teeth": 98430,
+    "moved": 0,
+    "cut": 0,
+    "plate": 0,
+    "screw": 0,
+    "before": 0
+   }
+  },
+  {
+   "state": "class2-after",
+   "bsso_move_mm": -6.0,
+   "faces": {
+    "bone": 242574,
+    "teeth": 98430,
+    "moved": 91624,
+    "cut": 10776,
+    "plate": 1032,
+    "screw": 640,
+    "before": 145914
+   }
+  },
+  {
+   "state": "class3-before",
+   "mouth_open_deg": 2.75,
+   "faces": {
+    "bone": 337470,
+    "teeth": 98430,
+    "moved": 0,
+    "cut": 0,
+    "plate": 0,
+    "screw": 0,
+    "before": 0
+   }
+  },
+  {
+   "state": "class3-after",
+   "bsso_move_mm": 5.0,
+   "lefort_move_mm": -3.0,
+   "faces": {
+    "bone": 193849,
+    "teeth": 98430,
+    "moved": 146990,
+    "cut": 13987,
+    "plate": 2696,
+    "screw": 1920,
+    "before": 248454
+   }
+  }
+ ],
+ "moves_mm": {
+  "MAND_II": 6.0,
+  "MAX_III": 3.0,
+  "MAND_III": 5.0
+ }
+}

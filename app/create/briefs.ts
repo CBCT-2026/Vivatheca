@@ -111,13 +111,21 @@ Output format:
 - After the sources, add "## Notes for the clinician": a short list of every [CHECK] item and anything you were unsure about.
 - Do not add any other commentary before or after the Markdown.`;
 
-export function buildUserPrompt(brief: Brief): string {
+// Languages a draft can be written in; matches the site languages.
+export const draftLanguages = { en: 'English', ja: 'Japanese' } as const;
+export type DraftLanguage = keyof typeof draftLanguages;
+
+const languageNotes: Partial<Record<DraftLanguage, string>> = {
+  ja: 'Write in natural, polite Japanese (です・ます) for patients in Japan. Use everyday words first with the dental term in brackets, for example 親知らず（智歯）, 下あごの神経（下歯槽神経）. Give risks as "100人に約7人". Keep the headings "## Sources" and "## Notes for the clinician" in English so the builder can find them.',
+};
+
+export function buildUserPrompt(brief: Brief, language: DraftLanguage = 'en'): string {
   const model = modelBriefs.find((m) => m.id === brief.modelId);
   const material = materialTypes[brief.material];
   const lines = [
     `Material: ${material.label}.`,
     material.instructions,
-    `Audience: ${audiences[brief.audience]}. Language: English.`,
+    `Audience: ${audiences[brief.audience]}. Language: ${draftLanguages[language] ?? 'English'}.`,
     `Topic: ${brief.topic.trim() || model?.name || '[not given]'}.`,
   ];
   if (model && model.id !== 'none') {
@@ -128,6 +136,8 @@ export function buildUserPrompt(brief: Brief): string {
   lines.push(`Key points the clinician wants covered:\n${brief.keyPoints.trim() || '[none given]'}`);
   lines.push(`Risk numbers to use (only these):\n${brief.riskNumbers.trim() || '[none given: use [CHECK] placeholders for any risk]'}`);
   lines.push(`Sources:\n${brief.sources.trim() || '[none given]'}`);
+  const note = languageNotes[language];
+  if (note) lines.push(note);
   return lines.join('\n\n');
 }
 

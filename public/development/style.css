@@ -123,3 +123,14 @@ main ul, main ol, .refs li { text-align: justify; hyphens: auto; -webkit-hyphens
 /* Furigana (Japanese text): keep the base kanji together when the reading is wider, and keep line spacing even. */
 ruby { ruby-align: center; white-space: nowrap; }
 rt { font-size: 0.5em; font-weight: 400; letter-spacing: 0; }
+
+/* Language switcher (i18n.js) and furigana. */
+.langs { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.langs button { font: inherit; font-size: 14px; color: var(--accent); background: transparent; cursor: pointer;
+  padding: 6px 10px; min-height: 44px; border: 1px solid transparent; border-radius: 999px; }
+.langs button[aria-pressed="true"] { border-color: var(--line); background: var(--card); }
+ruby { ruby-position: over; }
+rt { font-size: .5em; font-weight: 500; line-height: 1; user-select: none; }
+:root[data-furigana="off"] rt, :root[data-furigana="off"] rp { display: none; }
+:lang(ja) body { line-break: strict; }
+:lang(ja) p, :lang(ja) li { line-height: 1.9; }
