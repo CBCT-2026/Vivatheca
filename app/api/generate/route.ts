@@ -2,7 +2,7 @@
 // stored as the ANTHROPIC_API_KEY Worker secret. Without the key, GET reports
 // { enabled: false } and the builder stays in free copy-prompt mode.
 import Anthropic from '@anthropic-ai/sdk';
-import { buildRefinePrompt, buildUserPrompt, refineActions, systemPrompt, type Brief, type RefineAction } from '../../create/briefs';
+import { buildRefinePrompt, buildUserPrompt, draftLanguages, refineActions, systemPrompt, type Brief, type DraftLanguage, type RefineAction } from '../../create/briefs';
 import { findPossiblePatientDetails } from '../../create/checker';
 
 const MODEL = 'claude-opus-5-5';
@@ -51,6 +51,7 @@ export async function GET(): Promise<Response> {
 interface RequestBody {
   action?: 'draft' | RefineAction;
   brief?: Brief;
+  language?: string;
   draft?: string;
   findings?: string[];
 }
@@ -68,7 +69,8 @@ export async function POST(request: Request): Promise<Response> {
 
   let prompt: string;
   if (body.action === 'draft' && body.brief) {
-    prompt = buildUserPrompt(body.brief);
+    const language = (body.language && body.language in draftLanguages ? body.language : 'en') as DraftLanguage;
+    prompt = buildUserPrompt(body.brief, language);
   } else if (body.action && body.action in refineActions && typeof body.draft === 'string') {
     prompt = buildRefinePrompt(body.action as RefineAction, body.draft, (body.findings ?? []).slice(0, 40).map(String));
   } else {

@@ -51,6 +51,12 @@ The current 24-language roadmap replaces Indonesian with Dutch (`Nederlands`) an
 
 Keep global-access data markers, legends and location labels as accessible HTML layered over the generated cartographic base. Social badges may use official platform symbols, but account links remain disabled until the organisation supplies or independently verifies the exact profile URLs.
 
+## Languages (English and Japanese)
+
+The platform is translated into English (default) and Japanese; the structure is ready for more languages. `app/i18n/config.ts` lists the locales and the cookies (`vivatheca-lang`, `vivatheca-furigana`); `app/i18n/dictionaries/en.ts` is the source text and every other dictionary must match its shape (TypeScript enforces this). Server components call `getI18n()` from `app/i18n/server.ts`; client components use `useI18n()`. Never hard-code visible text in components: add it to `en.ts` and `ja.ts`. `?lang=ja` on any URL sets the cookie and redirects (worker/index.ts).
+
+Japanese text carries furigana for every kanji word, written inline as `{漢字|かんじ}` and rendered by `<Ruby>` (`app/i18n/ruby.tsx`) as `<ruby>` with `aria-hidden` readings. Use `plain()` for attributes (alt, aria-label, placeholders, metadata). Visitors can hide furigana. Use standard Japanese dental terminology with dental readings (下顎 = かがく, 下歯槽神経 = かしそうしんけい, 智歯 = ちし) and everyday words first in plain-language text (親知らず). The static `/development` page reads the same cookie through `public/development/i18n.js` (`data-i18n` keys). Japanese translations need review by a native-speaking clinician before launch.
+
 ## Patient Information Builder
 
 `app/create/` holds the `/create` builder: `briefs.ts` (model briefs with label names, material types and the system prompt condensed from the patient-education-toolkit skills), `checker.ts` (TypeScript port of the toolkit's deterministic checks), `markdown.ts` (safe Markdown rendering) and `builder.tsx` (UI). `app/api/generate/route.ts` calls Claude (`claude-opus-5-5`) only when the `ANTHROPIC_API_KEY` secret is set; otherwise the builder runs in copy-prompt mode. Keep the AI-limits acknowledgement, the persistent warning banner, the patient-details check and the DRAFT export notice. Never store briefs or drafts on the server. When a new model ships, add its brief (label names exactly as on the model) to `modelBriefs`.

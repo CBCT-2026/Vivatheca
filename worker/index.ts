@@ -2,6 +2,7 @@
 // Set the SITE_PASSWORD secret in Cloudflare to turn the gate on.
 // Remove the secret to make the site public.
 import app from 'vinext/server/app-router-entry';
+import { LOCALE_COOKIE, locales } from '../app/i18n/config';
 
 interface Env {
   ASSETS?: { fetch: (request: Request) => Promise<Response> };
@@ -10,6 +11,8 @@ interface Env {
 }
 
 const REALM = 'Vivatheca preview';
+
+const LANGS = locales;
 
 function safeEqual(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
@@ -44,6 +47,22 @@ export default {
         status: 401,
         headers: {
           'WWW-Authenticate': `Basic realm="${REALM}", charset="UTF-8"`,
+          'Cache-Control': 'no-store',
+        },
+      });
+    }
+
+    // `?lang=en` or `?lang=ja` on any page sets the language cookie, then redirects to the
+    // clean URL. This makes language-specific links shareable (see app/i18n/config.ts).
+    const url = new URL(request.url);
+    const lang = url.searchParams.get('lang');
+    if (lang && (LANGS as readonly string[]).includes(lang) && request.method === 'GET') {
+      url.searchParams.delete('lang');
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: url.pathname + url.search + url.hash,
+          'Set-Cookie': `${LOCALE_COOKIE}=${lang}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`,
           'Cache-Control': 'no-store',
         },
       });
