@@ -1,0 +1,68 @@
+# Repository Guidelines
+
+## Project Structure & Module Organization
+
+The Vivatheca platform is a TypeScript/React application built with Next.js-compatible Vinext and packaged for Cloudflare Sites.
+
+- `app/page.tsx` defines the homepage.
+- `app/ui.tsx` contains interactive client components, including the 3D viewer and locally stored favourites.
+- `app/data.ts` contains reusable catalogue and navigation content.
+- `app/globals.css` contains the design tokens and shared styles.
+- [`assets/`](./assets/) stores generated landing-page illustrations and [`assets/manifest.json`](./assets/manifest.json) records their purpose, alternative text, and generation provenance.
+- `public/` stores deployable logos, favicon media, Material Symbols, and the supplied GLB.
+- `output/pdf/vivatheca-landing-page-full-view.pdf` is the current full-length desktop reference export of the landing page.
+- `.openai/hosting.json` identifies a Sites deployment when present. Never replace an existing `project_id`.
+- `docs/hosting/vivatheca-com-cutover.md` records the pending apex-domain DNS values, private-access policy and activation checks for `vivatheca.com`.
+- `Vivatheca PRD.docx` is the evolving product specification and must remain aligned with material homepage, content, governance, provenance, and sustainability changes.
+
+Do not edit generated directories: `dist/`, `.vinext/`, `.wrangler/`, `.next/`, or `node_modules/`.
+
+## Build, Test, and Development Commands
+
+Use pnpm with Node.js 22.13 or newer.
+
+- `pnpm dev` starts the local Vinext development server.
+- `pnpm lint` checks TypeScript and React code with ESLint.
+- `pnpm build` creates and validates the production bundle in `dist/`.
+- `pnpm test:e2e` runs Playwright's critical browser journeys.
+- `pnpm start` serves an existing production build locally.
+
+Run lint, the relevant Playwright tests, and the production build before submitting changes.
+
+After every material landing-page change, update `AGENTS.md`, `DESIGN.md`, `PRODUCT.md`, `Vivatheca PRD.docx`, and any affected asset or testing records. Then regenerate `output/pdf/vivatheca-landing-page-full-view.pdf` from the validated desktop experience and visually inspect the rendered PDF before delivery.
+
+## Coding Style & Naming Conventions
+
+Use two-space indentation, semicolons, and single-quoted imports. Write React function components in PascalCase, variables and hooks in camelCase, and route folders in lowercase kebab-case. Reuse the semantic colour and spacing tokens in `:root` rather than adding isolated values.
+
+Guard client-only APIs such as `localStorage`, Fullscreen, and Clipboard for server rendering. Keep interactive controls keyboard accessible and provide text alternatives for 3D content.
+
+## UI/UX Direction
+
+For interface work, use the installed `ui-ux-pro-max` and `impeccable` skills together with `DESIGN.md`. Base decisions on the Vivatheca platform's brand, content, existing tokens, and user needs. Avoid generic AI layouts, excessive cards, decorative gradients, glassmorphism, generic SaaS palettes, unverified proof, and placeholder stock imagery. Every design choice must serve a product-specific purpose.
+
+## Landing Page Assets
+
+Use [`assets/`](./assets/) as the source of truth for landing-page illustrations and related media. Replace stock imagery with original, content-specific illustrations generated with ImageGen, keep a consistent visual language, record prompt provenance in the manifest, and integrate every meaningful image with useful alternative text. Copy optimised shipping versions to `public/assets/`; do not reference files outside the repository. Every AI-generated image must carry the visible, subtle disclosure “AI-generated illustration.” Research illustrations are interpretive companions and must never be implied to be figures from a cited paper.
+
+The translation roadmap uses accurate, licensed vector flags from the MIT-licensed `flag-icons` collection, retained in `assets/flags/` with a shipping copy in `public/flags/` and its licence alongside both. Flags support recognition but never replace the centred English and native-language labels. Preserve correct `lang`, `dir` and bidirectional-isolation markup.
+
+The current 24-language roadmap replaces Indonesian with Dutch (`Nederlands`) and remains alphabetical by English name. Its responsive grid uses 8, 6, 4, 3 and 2 columns as the viewport narrows so labels remain readable while excess vertical space is avoided.
+
+Keep global-access data markers, legends and location labels as accessible HTML layered over the generated cartographic base. Social badges may use official platform symbols, but account links remain disabled until the organisation supplies or independently verifies the exact profile URLs.
+
+## Testing Guidelines
+
+Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.
+
+## Security & Clinical Content
+
+Never commit credentials, patient information, private form submissions, or `.env` files. Medical claims, reviewer records, licences, translations, and model limitations require verification before being presented as final. Clearly label prototype content and unavailable production workflows. Describe Vivatheca as a platform, not a site or service. Treat Australian operation as user-supplied organisational information; source official flag media from the Australian Government. Present recycling and recovery work as exploratory until a verified programme or partner exists.
+
+`https://vivatheca.com` is the canonical production origin. During the private-preview period, preserve the hosted project’s owner-only access policy and keep authentication at the edge. Never implement a client-side password gate or commit a shared password. Use explicit identity allowlists with Cloudflare Access or the existing Sites access policy; an unauthenticated visitor must not receive protected HTML, the GLB or generated assets.
+
+Contribution copy must distinguish model submissions, printed-model donations, 3D-printing resource donations, clinical review, and translation. Clinical-review records must expose approval state, ratings and review recommendations without exposing more than a verified reviewer’s title, initials, occupation and country of practice. Reviewers assess educational model fidelity only; condition and procedure information must point to appropriately licensed public government health-service sources.
+
+The impacted-molar review example is explicitly illustrative prototype data. Its generated anatomy shows no erupted tooth directly above the impaction and depicts the left inferior alveolar nerve below the tooth roots, emerging through the left mental foramen; clinical accuracy must still be independently verified. Keep the review example compact, cap it at 1280px on wide screens, and stack the image and review data below 900px.
+
+Illustrative review examples must be unmistakably labelled as prototype data and must not imply that a displayed clinician or approval record has been verified. The current impacted-molar example uses a generated anatomical interface base with accessible HTML for reviewer attribution and review totals.

@@ -1,0 +1,7 @@
+Use case: precise-object-edit
+Asset type: Vivatheca landing-page contributor illustration
+Primary request: Replace only the central teaching specimen on the dark display base with one anatomically credible human heart fully encased inside a clear rectangular resin block.
+Input image: edit target; preserve the existing people, their identities and poses, the round table, room, documents, surrounding objects, camera angle, lighting, crop, soft editorial medical-education style, and navy/cyan/coral palette.
+Subject detail: the heart should be the only anatomy inside the resin block, with recognizable ventricles, atria and major vessels; remove every jawbone, tooth and dental structure from inside the central resin display. The clear resin should have realistic thickness, polished edges, soft refraction and subtle highlights while keeping the heart easy to see.
+Composition: keep the heart centred at the same size and position on the same dark base so all collaborators continue looking toward it.
+Constraints: change only the central resin specimen as specified; no extra people; no logos; no text; no watermark; do not change the jaw model held by the maker on the right or other peripheral props.

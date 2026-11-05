@@ -1,0 +1,6 @@
+Asset type: official national flag source record
+Primary request: preserve the complete Australian National Flag raster without modification
+Source origin: Australian Government Department of the Prime Minister and Cabinet
+Source URL: https://www.pmc.gov.au/resources/flag-images-and-template-files-download
+Generation: not AI-generated
+Constraints: preserve the supplied proportions, colours and complete flag field; do not redraw, crop or reinterpret
