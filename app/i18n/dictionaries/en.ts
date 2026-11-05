@@ -159,6 +159,13 @@ const en = {
     privacy: 'Privacy questions',
     accessibility: 'Accessibility feedback',
   },
+  contact: {
+    heading: 'Contact us',
+    intro: 'Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.',
+    email: 'Email',
+    linkLabel: 'Contact Vivatheca by {name}',
+    comingSoon: 'Coming soon',
+  },
   model: {
     alt: 'Interactive 3D model of a lower left jaw with an impacted wisdom tooth whose roots lie close to the inferior alveolar nerve, shown in red',
     status: 'Interactive Example',
