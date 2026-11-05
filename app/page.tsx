@@ -4,6 +4,8 @@ import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
 import { disclaimerHref } from './disclaimer-text';
+import { mailto } from './contact';
+import { ContactSection } from './contact-section';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -17,7 +19,7 @@ export default async function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
         <nav className="desktop-nav" aria-label={plain(t.nav.primary)}>
-          <a href="#collection"><Ruby text={t.nav.browse} /></a><a href="#how-it-works"><Ruby text={t.nav.howItWorks} /></a><a href="#publications"><Ruby text={t.nav.publications} /></a><a href="#contribute"><Ruby text={t.nav.contribute} /></a><a href="/create"><Ruby text={t.nav.create} /></a>
+          <a href="#collection"><Ruby text={t.nav.browse} /></a><a href="#how-it-works"><Ruby text={t.nav.howItWorks} /></a><a href="#publications"><Ruby text={t.nav.publications} /></a><a href="#contribute"><Ruby text={t.nav.contribute} /></a><a href="/create"><Ruby text={t.nav.create} /></a><a href="/learn"><Ruby text={t.nav.students} /></a>
         </nav>
         <div className="header-actions">
           <LanguageSwitcher furigana={furigana} />
@@ -55,6 +57,30 @@ export default async function Home() {
         <section className="mission-band" aria-label={plain(t.mission.label)}>
           <p><Ruby text={t.mission.text} /></p>
           <div className="mission-links">{t.mission.links.map((item) => <span key={item}><Ruby text={item} /></span>)}</div>
+        </section>
+
+        <section className="audience-section" id="audiences" aria-label={plain(t.audiences.label)}>
+          <h2><Ruby text={t.audiences.heading} /></h2>
+          <div className="audience-paths">
+            <article>
+              <p className="eyebrow"><Ruby text={t.audiences.clinicians.eyebrow} /></p>
+              <h3><Ruby text={t.audiences.clinicians.title} /></h3>
+              <p><Ruby text={t.audiences.clinicians.text} /></p>
+              <div className="audience-actions">
+                <a className="button" href="#collection"><Ruby text={t.audiences.clinicians.primary} /></a>
+                <a className="button button-secondary" href="/create"><Ruby text={t.audiences.clinicians.secondary} /></a>
+              </div>
+            </article>
+            <article>
+              <p className="eyebrow"><Ruby text={t.audiences.students.eyebrow} /></p>
+              <h3><Ruby text={t.audiences.students.title} /></h3>
+              <p><Ruby text={t.audiences.students.text} /></p>
+              <div className="audience-actions">
+                <a className="button" href="/learn"><Ruby text={t.audiences.students.primary} /> <Icon name="arrow_forward" /></a>
+              </div>
+            </article>
+          </div>
+          <p className="audience-note"><Ruby text={t.audiences.note} /></p>
         </section>
 
         <section className="collection-section" id="collection">
@@ -115,7 +141,7 @@ export default async function Home() {
         </section>
 
         <section className="sponsor-section" id="sponsor">
-          <div className="sponsor-intro"><div><h2><Ruby text={t.sponsor.heading} /></h2><p><Ruby text={t.sponsor.text} /></p></div><a className="button button-light" href="mailto:hello@vivatheca.com?subject=Sponsor%20a%20Vivatheca%20model"><Ruby text={t.sponsor.cta} /> <Icon name="arrow_forward" /></a></div>
+          <div className="sponsor-intro"><div><h2><Ruby text={t.sponsor.heading} /></h2><p><Ruby text={t.sponsor.text} /></p></div><a className="button button-light" href={mailto('Sponsor a Vivatheca model')}><Ruby text={t.sponsor.cta} /> <Icon name="arrow_forward" /></a></div>
         </section>
       </main>
 
@@ -136,10 +162,12 @@ export default async function Home() {
           </div>
         </div>
 
+        <ContactSection t={t} />
+
         <div className="footer-legal">
           <p>© 2026 Vivatheca</p>
           <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
-          <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href="mailto:hello@vivatheca.com?subject=Privacy%20question"><Ruby text={t.footer.privacy} /></a><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback"><Ruby text={t.footer.accessibility} /></a></nav>
+          <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href={mailto('Privacy question')}><Ruby text={t.footer.privacy} /></a><a href={mailto('Accessibility feedback')}><Ruby text={t.footer.accessibility} /></a></nav>
         </div>
       </footer>
     </>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FURIGANA_COOKIE, LOCALE_COOKIE, localeNames, locales, localeTags, type Locale } from './config';
+import { FURIGANA_COOKIE, LOCALE_COOKIE, localeNames, localeShortNames, locales, localeTags, type Locale } from './config';
 import { useI18n } from './context';
 import { plain } from './ruby';
 
@@ -11,9 +11,10 @@ function setCookie(name: string, value: string) {
   document.cookie = `${name}=${value}; path=/; max-age=${YEAR}; samesite=lax`;
 }
 
-// Language choice plus, in Japanese, a furigana on/off switch. Changing language reloads the
+// Language choice plus, in Japanese, a furigana on/off switch. It stays in the header on
+// phones too (short labels there); the mobile menu repeats only the furigana switch. Changing language reloads the
 // page so every server-rendered string, the metadata and <html lang> change together.
-export function LanguageSwitcher({ furigana: initialFurigana, className = '' }: { furigana: boolean; className?: string }) {
+export function LanguageSwitcher({ furigana: initialFurigana, className = '', furiganaOnly = false }: { furigana: boolean; className?: string; furiganaOnly?: boolean }) {
   const { locale, t } = useI18n();
   const [furigana, setFurigana] = useState(initialFurigana);
 
@@ -34,15 +35,17 @@ export function LanguageSwitcher({ furigana: initialFurigana, className = '' }: 
   return (
     <div className={`language-switcher ${className}`.trim()} role="group" aria-label={plain(t.language.label)}>
       <img aria-hidden="true" className="ui-icon" src="/icons/language.svg" width={20} height={20} alt="" />
-      {locales.map((code) => (
+      {furiganaOnly ? null : locales.map((code) => (
         <button
           key={code}
           type="button"
           lang={localeTags[code].html}
           aria-pressed={code === locale}
+          aria-label={localeNames[code]}
           onClick={() => choose(code)}
         >
-          {localeNames[code]}
+          <span className="lang-full">{localeNames[code]}</span>
+          <span className="lang-short" aria-hidden="true">{localeShortNames[code]}</span>
         </button>
       ))}
       {locale === 'ja' ? (

@@ -12,6 +12,8 @@ export const FURIGANA_COOKIE = 'vivatheca-furigana';
 
 // Each language is named in its own script so visitors can find it.
 export const localeNames: Record<Locale, string> = { en: 'English', ja: '日本語' };
+// Shorter names for the phone header, where space is tight.
+export const localeShortNames: Record<Locale, string> = { en: 'EN', ja: '日本語' };
 // Used for <html lang>, Intl formatting and Open Graph.
 export const localeTags: Record<Locale, { html: string; intl: string; og: string }> = {
   en: { html: 'en', intl: 'en-AU', og: 'en_AU' },
