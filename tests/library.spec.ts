@@ -36,7 +36,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   await expect(page.locator('.source-list li')).toHaveCount(6);
   await expect(page.locator('.model-disclaimer')).toContainText('Not yet clinically reviewed.');
   await expect(page.locator('.model-disclaimer').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
-  await expect(page.getByRole('link', { name: 'Report an inaccuracy' }).first()).toHaveAttribute('href', '/report?model=impacted-wisdom-tooth');
+  await expect(page.locator('.report-band a')).toHaveAttribute('href', '/report?model=impacted-wisdom-tooth');
 });
 
 test('report form builds an email with the chosen model and requires a description', async ({ page }) => {
@@ -62,4 +62,10 @@ test('new pages have no horizontal scroll on a phone', async ({ page }) => {
     await page.goto(route);
     expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth), route).toBe(false);
   }
+});
+
+test('/collection opens the model library', async ({ page }) => {
+  await page.goto('/collection');
+  await expect(page).toHaveURL(/\/models$/);
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 });

@@ -50,4 +50,8 @@ export const trustItems = [
     title: 'Corrections in the open',
     text: 'Anyone can report an inaccuracy. Reports are checked against published sources, and fixes are recorded in the model’s change log.',
   },
+  {
+    title: 'Public information with a traceable source',
+    text: 'Condition and procedure information is drawn only from peer-reviewed research, specialty society guidelines and appropriately licensed public government health-service information. Every statement shows its source (author, year, organisation and link), and pages say where a model simplifies the evidence or where evidence is uncertain.',
+  },
 ];

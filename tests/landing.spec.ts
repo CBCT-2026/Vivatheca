@@ -75,6 +75,7 @@ test('trust section explains transparent and privacy-preserving clinical review'
   await expect(trust).toContainText('change log');
   await expect(trust).toContainText('Review status today');
   await expect(trust.getByRole('link', { name: 'Report an inaccuracy' })).toHaveAttribute('href', '/report');
+  await expect(trust).toContainText('peer-reviewed research, specialty society guidelines');
 });
 
 test('print section offers the STL download and sponsorship contact', async ({ page }) => {

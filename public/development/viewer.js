@@ -11,7 +11,7 @@ const STAGES = {
   },
   '8.5': {
     title: 'About 8 years old',
-    text: 'The upper side front adult teeth are coming in. Your child now has 8 adult front teeth and 4 first molars, with baby teeth in between. Gaps and crooked new front teeth are common at this age and often settle as more teeth come in.',
+    text: 'The upper side front adult teeth are coming in. Your child now has 8 adult front teeth and 4 first molars, with baby teeth in between.',
   },
   '9.5': {
     title: 'About 9 years old',
