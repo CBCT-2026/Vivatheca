@@ -77,6 +77,10 @@ This is a standing project rule. It applies to every page, model, download, text
 - If no good source can be found, remove the claim or label it clearly as unverified. Do not invent or guess references; check each one (for example on PubMed) before citing it.
 - Operational or organisational statements (what Vivatheca plans or offers) are not health claims, but must not imply evidence or verification that does not exist.
 
+## Clinical images (required for all conditions and cases)
+
+Follow [`docs/image-licensing.md`](docs/image-licensing.md) for every radiograph, scan, clinical photograph or third-party figure: accepted licences, the limits on non-commercial (NC) images, full visible attribution, patient consent, and the register entry in `assets/clinical-images/manifest.json`. Skip any image whose licence or consent is unclear. Not-for-profit status never overrides a licence, and Australian fair dealing does not cover publishing these images.
+
 ## Disclaimer (required everywhere)
 
 `app/disclaimer-text.ts` is the single source of the disclaimer wording; `/disclaimer` (`app/disclaimer/page.tsx`) shows the full version. Every page must show `siteDisclaimer` (the footer does this) or a link to `/disclaimer`. Every model viewer, model page and download must show its review status, `modelDisclaimer` and a link to `/disclaimer`. Static pages under `public/` copy the model wording verbatim. Generated or exported materials keep the AI and DRAFT notices. Never describe a model as suitable for diagnosis, treatment planning, surgical guides or use in or on the body. Translations of the disclaimer must be reviewed by a fluent speaker before release.
