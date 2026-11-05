@@ -73,7 +73,7 @@ test('trust section explains transparent and privacy-preserving clinical review'
   await expect(trust).toContainText('verified privately');
   await expect(trust).toContainText('title, initials, occupation and country of practice');
   await expect(trust).toContainText('not asked to provide medical or health advice');
-  await expect(trust).toContainText('appropriately licensed public government health-service information');
+  await expect(trust).toContainText('peer-reviewed research, specialty society guidelines');
   await expect(trust).toContainText('Prototype governance');
 });
 
@@ -126,5 +126,6 @@ test('footer gives visitors clear ways to explore, participate and connect', asy
   await expect(footer.getByRole('navigation', { name: 'Connect' })).toBeVisible();
   await expect(footer.getByRole('link', { name: 'Browse the featured model' })).toHaveAttribute('href', '#collection');
   await expect(footer.getByRole('link', { name: 'Contact Vivatheca' })).toHaveAttribute('href', 'mailto:hello@vivatheca.com');
-  await expect(footer).toContainText('Educational information only—not a substitute for professional medical advice.');
+  await expect(footer).toContainText('Vivatheca is for general education only. It is not medical advice');
+  await expect(footer.getByRole('link', { name: 'Disclaimer', exact: true })).toHaveAttribute('href', '/disclaimer');
 });

@@ -11,7 +11,7 @@ const STAGES = {
   },
   '8.5': {
     title: 'About 8 years old',
-    text: 'The upper side front adult teeth are coming in. Your child now has 8 adult front teeth and 4 first molars, with baby teeth in between. Gaps and crooked new front teeth are common at this age and often settle as more teeth come in.',
+    text: 'The upper side front adult teeth are coming in. Your child now has 8 adult front teeth and 4 first molars, with baby teeth in between.',
   },
   '9.5': {
     title: 'About 9 years old',
@@ -31,6 +31,10 @@ const STAGES = {
   },
 };
 
+// Japanese (or another language) from i18n.js, if the visitor chose one.
+const I18N = window.VIVA_I18N || { text: () => null, stages: null, ruby: (s) => s, plain: (s) => s };
+const stageText = (age) => (I18N.stages && I18N.stages[age]) || STAGES[age];
+
 mv.addEventListener('progress', e => {
   const bar = mv.querySelector('.progress');
   bar.classList.remove('done');
@@ -45,11 +49,15 @@ const download = document.getElementById('download');
 function showAge(age) {
   const tag = 'age-' + age.replace('.', '-');
   mv.src = 'models/' + tag + '.glb';
-  mv.alt = '3D model of the right side of a child\'s upper and lower jaw at ' + STAGES[age].title.toLowerCase() +
+  const stage = stageText(age);
+  const altJa = I18N.text('altAt', { age: I18N.plain(stage.title) });
+  mv.alt = altJa ? I18N.plain(altJa) : '3D model of the right side of a child\'s upper and lower jaw at ' + stage.title.toLowerCase() +
     ', with the cheek side of the bone cut away to show baby teeth and growing adult teeth.';
-  caption.innerHTML = '<h2>' + STAGES[age].title + '</h2><p>' + STAGES[age].text + '</p>';
+  caption.innerHTML = '<h2>' + I18N.ruby(stage.title) + '</h2><p>' + I18N.ruby(stage.text) + '</p>';
   download.href = 'downloads/vivatheca-dental-development-' + tag + '-1.5x.zip';
-  download.textContent = 'Download 3D print files: ' + STAGES[age].title.toLowerCase() + ' (STL, 1.5x life size)';
+  const downloadJa = I18N.text('download', { age: stage.title });
+  if (downloadJa) download.innerHTML = I18N.ruby(downloadJa);
+  else download.textContent = 'Download 3D print files: ' + stage.title.toLowerCase() + ' (STL, 1.5x life size)';
   ageButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.age === age));
   try { history.replaceState(null, '', '#age-' + age); } catch (e) {}
 }
@@ -93,12 +101,14 @@ mv.addEventListener('camera-change', e => {
 function showProblem(text) {
   let box = mv.querySelector('.problem');
   if (!box) { box = document.createElement('div'); box.className = 'problem'; mv.appendChild(box); }
-  box.textContent = text;
+  box.innerHTML = I18N.ruby(text);
 }
+const NO_WEBGL = I18N.text('noWebgl') || 'This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.';
+const LOAD_FAILED = I18N.text('loadFailed') || 'The 3D model could not load. Please reload the page.';
 const canvas = document.createElement('canvas');
-if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem('This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.');
-mv.addEventListener('error', () => showProblem('The 3D model could not load. Please reload the page.'));
-setTimeout(() => { if (!customElements.get('model-viewer')) showProblem('The 3D model could not load. Please reload the page.'); }, 10000);
+if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem(NO_WEBGL);
+mv.addEventListener('error', () => showProblem(LOAD_FAILED));
+setTimeout(() => { if (!customElements.get('model-viewer')) showProblem(LOAD_FAILED); }, 10000);
 
 // A tap on a source number opens the closed list of sources first.
 document.querySelectorAll('.cite a').forEach(a => a.addEventListener('click', () => {

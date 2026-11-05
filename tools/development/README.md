@@ -16,7 +16,7 @@ Needs Python 3.11 with `bpy` (Blender 5.0 as a module), `trimesh`, `manifold3d`,
 See the docstring at the top of `generate.py`. In short:
 - Timings: `timings.csv`, typical ages, checked 5 Nov 2026 against the ADA eruption charts, the AAPD chronology table and the AlQahtani 2010 London Atlas paper (see the CSV header). The QMUL atlas diagrams themselves were not viewed.
 - Baby teeth are permanent teeth resized to typical baby tooth widths and lengths (Wheeler averages), placed side by side along the arch.
-- Child jaw: the part behind the first molars is shorter (0.80 at 6.5 to 0.92 at 12.5) and the ramus lower (0.85 to 0.94). Values are estimates, to be checked against growth norms.
+- Child jaw: the part behind the first molars is shorter (0.80 at 6.5 to 0.92 at 12.5) and the ramus lower (0.85 to 0.94). Values are estimates; no published source gives them for these regions (searched PubMed 5 Nov 2026). Kelly et al. 2017 (Arch Oral Biol 77:27-38, doi 10.1016/j.archoralbio.2017.01.018) found ramus depth grows somatically (under 50% of adult size at age 5, pubertal spurt) while mandible length is neural (over 50% by age 5), so the ramus factor (kr) is probably too high at young ages. Revisit if a source with age-specific ramus height and retromolar length is found.
 - For printing, any baby tooth that did not touch bone was nudged up to 3 mm towards the tongue and up to 4 mm deeper; see `print-notes.txt`.
 
 ## Colours
