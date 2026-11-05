@@ -28,6 +28,7 @@ export function MobileNavigation({ furigana }: { furigana: boolean }) {
           <a href="#contribute" onClick={() => setOpen(false)}><Ruby text={t.nav.contribute} /></a>
           <a href="#sponsor" onClick={() => setOpen(false)}><Ruby text={t.nav.sponsor} /></a>
           <a href="/create"><Ruby text={t.nav.createInfo} /></a>
+          <a href="/learn"><Ruby text={t.nav.studentsMobile} /></a>
           <LanguageSwitcher furigana={furigana} className="in-menu" />
         </nav>
       ) : null}

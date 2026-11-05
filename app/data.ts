@@ -12,6 +12,7 @@ export function footerGroups(t: Dictionary) {
         { label: f.explore.how, href: '#how-it-works' },
         { label: f.explore.publications, href: '#publications' },
         { label: f.explore.trust, href: '#trust' },
+        { label: f.explore.students, href: '/learn' },
       ],
     },
     {
