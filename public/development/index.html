@@ -28,13 +28,14 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
 <body>
 <header class="bar">
   <div class="bar-left">
-    <a class="lang" href="/">Vivatheca home</a>
-    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
+    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>
   </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
 </header>
 
 <main>
-  <h1>How your child's teeth grow: ages 6 to 12</h1>
+  <h1 data-i18n="h1">How your child's teeth grow: ages 6 to 12</h1>
 
   <model-viewer id="mv"
     src="models/age-6-5.glb"
@@ -44,74 +45,74 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
     <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
   </model-viewer>
 
-  <div class="ages" role="group" aria-label="Choose an age">
-    <button type="button" data-age="6.5" aria-pressed="true">6<small>years</small></button>
-    <button type="button" data-age="7.5" aria-pressed="false">7<small>years</small></button>
-    <button type="button" data-age="8.5" aria-pressed="false">8<small>years</small></button>
-    <button type="button" data-age="9.5" aria-pressed="false">9<small>years</small></button>
-    <button type="button" data-age="10.5" aria-pressed="false">10<small>years</small></button>
-    <button type="button" data-age="11.5" aria-pressed="false">11<small>years</small></button>
-    <button type="button" data-age="12.5" aria-pressed="false">12<small>years</small></button>
+  <div class="ages" role="group" aria-label="Choose an age" data-i18n-aria="chooseAge">
+    <button type="button" data-age="6.5" aria-pressed="true">6<small data-i18n="years">years</small></button>
+    <button type="button" data-age="7.5" aria-pressed="false">7<small data-i18n="years">years</small></button>
+    <button type="button" data-age="8.5" aria-pressed="false">8<small data-i18n="years">years</small></button>
+    <button type="button" data-age="9.5" aria-pressed="false">9<small data-i18n="years">years</small></button>
+    <button type="button" data-age="10.5" aria-pressed="false">10<small data-i18n="years">years</small></button>
+    <button type="button" data-age="11.5" aria-pressed="false">11<small data-i18n="years">years</small></button>
+    <button type="button" data-age="12.5" aria-pressed="false">12<small data-i18n="years">years</small></button>
   </div>
-  <div class="controls" role="group" aria-label="Model controls">
-    <button type="button" data-orbit="-90deg 80deg auto" aria-pressed="true">Cheek side</button>
-    <button type="button" data-orbit="0deg 85deg auto" aria-pressed="false">Front</button>
-    <button type="button" data-orbit="-60deg 15deg auto" aria-pressed="false">Lower teeth from above</button>
-    <button type="button" data-orbit="-60deg 165deg auto" aria-pressed="false">Upper teeth from below</button>
-    <button type="button" id="xray" aria-pressed="false">See-through bone</button>
+  <div class="controls" role="group" aria-label="Model controls" data-i18n-aria="controls">
+    <button type="button" data-orbit="-90deg 80deg auto" aria-pressed="true" data-i18n="cheek">Cheek side</button>
+    <button type="button" data-orbit="0deg 85deg auto" aria-pressed="false" data-i18n="front">Front</button>
+    <button type="button" data-orbit="-60deg 15deg auto" aria-pressed="false" data-i18n="lowerAbove">Lower teeth from above</button>
+    <button type="button" data-orbit="-60deg 165deg auto" aria-pressed="false" data-i18n="upperBelow">Upper teeth from below</button>
+    <button type="button" id="xray" aria-pressed="false" data-i18n="xray">See-through bone</button>
   </div>
   <ul class="legend">
-    <li><span class="dot baby"></span>Baby teeth</li>
-    <li><span class="dot adult"></span>Adult teeth</li>
-    <li><span class="dot bone"></span>Bone</li>
+    <li><span class="dot baby"></span><span data-i18n="baby">Baby teeth</span></li>
+    <li><span class="dot adult"></span><span data-i18n="adult">Adult teeth</span></li>
+    <li><span class="dot bone"></span><span data-i18n="bone">Bone</span></li>
   </ul>
 
   <section class="stage" id="stage" aria-live="polite"></section>
-  <p class="small">Ages and order of eruption for each stage: London Atlas, ADA and AAPD charts.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup> Root formation: Moorrees et al.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+  <p class="small" data-i18n="stageSources">Ages and order of eruption for each stage: London Atlas, ADA and AAPD charts.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup> Root formation: Moorrees et al.<sup class="cite"><a href="#ref-3">3</a></sup></p>
 
   <section class="important">
-    <p><b>Every child is different. The normal age range for each tooth spans one to several years, so teeth often come through earlier or later than shown here. This is usually normal.</b><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    <p data-i18n="important"><b>Every child is different. The normal age range for each tooth spans one to several years, so teeth often come through earlier or later than shown here. This is usually normal.</b><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
   </section>
 
   <section>
-    <h2>What the model shows</h2>
-    <p>The model shows the right side of the upper and lower jaw. We cut away the bone on the cheek side, so you can see the adult teeth growing inside the jaw. Baby teeth are blue, adult teeth are yellow, and bone is cream. Tap <b>See-through bone</b> to see all the growing teeth at once.</p>
-    <p>Choose an age to see what usually happens at that age. The ages are averages from large studies of how teeth grow.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup></p>
+    <h2 data-i18n="showsH">What the model shows</h2>
+    <p data-i18n="shows1">The model shows the right side of the upper and lower jaw. We cut away the bone on the cheek side, so you can see the adult teeth growing inside the jaw. Baby teeth are blue, adult teeth are yellow, and bone is cream. Tap <b>See-through bone</b> to see all the growing teeth at once.</p>
+    <p data-i18n="shows2">Choose an age to see what usually happens at that age. The ages are averages from large studies of how teeth grow.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup></p>
   </section>
 
   <section>
-    <h2>How an adult tooth grows</h2>
-    <p>Each adult tooth starts as a crown (the top part you see in the mouth) deep in the jaw. The root grows down from the crown. As the root grows, the tooth moves toward the gum.<sup class="cite"><a href="#ref-3">3</a></sup></p>
-    <p>An adult front tooth or premolar grows under a baby tooth. As it moves up, the root of the baby tooth melts away. The baby tooth gets loose and falls out. The adult tooth then comes through in its place.<sup class="cite"><a href="#ref-6">6</a></sup></p>
-    <p>The adult molars are different. They come through behind the baby teeth and do not replace any baby tooth. The first molars come at about 6 and the second molars at about 12. Wisdom teeth (if they come) arrive in the late teens or later.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    <h2 data-i18n="growsH">How an adult tooth grows</h2>
+    <p data-i18n="grows1">Each adult tooth starts as a crown (the top part you see in the mouth) deep in the jaw. The root grows down from the crown. As the root grows, the tooth moves toward the gum.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    <p data-i18n="grows2">An adult front tooth or premolar grows under a baby tooth. As it moves up, the root of the baby tooth melts away. The baby tooth gets loose and falls out. The adult tooth then comes through in its place.<sup class="cite"><a href="#ref-6">6</a></sup></p>
+    <p data-i18n="grows3">The adult molars are different. They come through behind the baby teeth and do not replace any baby tooth. The first molars come at about 6 and the second molars at about 12. Wisdom teeth (if they come) arrive in the late teens or later.<sup class="cite"><a href="#ref-1">1</a></sup></p>
   </section>
 
   <section>
-    <h2>When to ask your dentist</h2>
+    <h2 data-i18n="askH">When to ask your dentist</h2>
     <ul>
-      <li>A tooth comes through on one side, but its partner on the other side is still missing 6 months later.<sup class="cite"><a href="#ref-7">7</a></sup></li>
-      <li>An adult tooth comes through but the baby tooth in front of it is still firm after a few months.</li>
-      <li>Your child has pain, swelling, or a tooth that looks dark or broken.</li>
+      <li data-i18n="ask1">A tooth comes through on one side, but its partner on the other side is still missing 6 months later.<sup class="cite"><a href="#ref-7">7</a></sup></li>
+      <li data-i18n="ask2">An adult tooth comes through but the baby tooth in front of it is still firm after a few months.</li>
+      <li data-i18n="ask3">Your child has pain, swelling, or a tooth that looks dark or broken.</li>
     </ul>
-    <p>The first point is a sign of late eruption described in a review of delayed tooth eruption.<sup class="cite"><a href="#ref-7">7</a></sup> The other points are general advice to see a dentist, not findings from a specific study. Your dentist can take an X-ray to see the growing teeth, as this model does.</p>
+    <p data-i18n="ask4">The first point is a sign of late eruption described in a review of delayed tooth eruption.<sup class="cite"><a href="#ref-7">7</a></sup> The other points are general advice to see a dentist, not findings from a specific study. Your dentist can take an X-ray to see the growing teeth, as this model does.</p>
   </section>
 
   <section>
-    <h2>3D printing</h2>
+    <h2 data-i18n="printH">3D printing</h2>
     <p><a class="download" id="download" href="downloads/vivatheca-dental-development-age-6-5-1.5x.zip">Download 3D print files</a></p>
-    <p class="small">Each download has the upper and lower jaw as separate STL parts: bone, adult teeth and baby teeth, so you can print them in different colours. Size: 1.5 times life size, because a child's teeth are small. The parts overlap; load them as one object in your slicer. Life-size (1.0x) files are available on request.</p>
+    <p class="small" data-i18n="print1">Each download has the upper and lower jaw as separate STL parts: bone, adult teeth and baby teeth, so you can print them in different colours. Size: 1.5 times life size, because a child's teeth are small. The parts overlap; load them as one object in your slicer. Life-size (1.0x) files are available on request.</p>
   </section>
 
   <section class="disclaimer">
-    <h2>About this model</h2>
-    <p><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. It does not replace advice from your dentist. <a href="/disclaimer">Full disclaimer</a></p>
-    <p class="small">Prototype. Tooth timings are typical ages, checked against the American Dental Association and AAPD eruption charts and the London Atlas.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-1">1</a></sup> The baby teeth are made by resizing adult tooth shapes to typical baby tooth widths and lengths.<sup class="cite"><a href="#ref-8">8</a></sup> Their crown and root shapes are therefore not true baby tooth shapes. A growing jaw is shown by shrinking the back of an adult jaw to the average child size for each age, from the University of Michigan growth study.<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup> The upright back part of the jaw (the ramus) is 76% of adult height in the 6-year model and 89% in the 12-year model; the jaw body is 80% and 94% of adult length (boys and girls averaged). The ramus grows later than the jaw body, with a growth spurt at puberty.<sup class="cite"><a href="#ref-9">9</a></sup> The missing length is taken from behind the first molar, where the space for the back molars keeps growing through childhood.<sup class="cite"><a href="#ref-12">12</a></sup> The upper jaw behind the first molar is shortened by the same amount, which is our estimate. This is a simplification: the rest of the jaw keeps its adult shape, and the averages come from 2D X-rays of American children from the 1950s to 1970s. Colours (baby teeth blue, adult teeth yellow) follow the Schour and Massler chart.<sup class="cite"><a href="#ref-2">2</a></sup> Adult and baby teeth are in their typical places; real teeth vary in position and angle.</p>
-    <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: teeth and jaw shapes extracted, resized, moved and cut away for each age. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <h2 data-i18n="aboutH">About this model</h2>
+    <p data-i18n="about1"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. It does not replace advice from your dentist. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small" data-i18n="about2">Prototype. Tooth timings are typical ages, checked against the American Dental Association and AAPD eruption charts and the London Atlas.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-1">1</a></sup> The baby teeth are made by resizing adult tooth shapes to typical baby tooth widths and lengths.<sup class="cite"><a href="#ref-8">8</a></sup> Their crown and root shapes are therefore not true baby tooth shapes. A growing jaw is shown by shrinking the back of an adult jaw to the average child size for each age, from the University of Michigan growth study.<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup> The upright back part of the jaw (the ramus) is 76% of adult height in the 6-year model and 89% in the 12-year model; the jaw body is 80% and 94% of adult length (boys and girls averaged). The ramus grows later than the jaw body, with a growth spurt at puberty.<sup class="cite"><a href="#ref-9">9</a></sup> The missing length is taken from behind the first molar, where the space for the back molars keeps growing through childhood.<sup class="cite"><a href="#ref-12">12</a></sup> The upper jaw behind the first molar is shortened by the same amount, which is our estimate. This is a simplification: the rest of the jaw keeps its adult shape, and the averages come from 2D X-rays of American children from the 1950s to 1970s. Colours (baby teeth blue, adult teeth yellow) follow the Schour and Massler chart.<sup class="cite"><a href="#ref-2">2</a></sup> Adult and baby teeth are in their typical places; real teeth vary in position and angle.</p>
+    <p class="small credit" data-i18n="credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: teeth and jaw shapes extracted, resized, moved and cut away for each age. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
   </section>
 
   <section class="refs">
   <details>
-    <summary><h2>Sources</h2></summary>
+    <summary><h2 data-i18n="sourcesH">Sources</h2></summary>
     <ol>
       <li id="ref-1">AlQahtani SJ, Hector MP, Liversidge HM. Brief communication: the London atlas of human tooth development and eruption. Am J Phys Anthropol. 2010;142(3):481-490. <a href="https://doi.org/10.1002/ajpa.21258">doi.org/10.1002/ajpa.21258</a></li>
       <li id="ref-2">Schour I, Massler M. The development of the human dentition. J Am Dent Assoc. 1941;28:1153-1160.</li>
@@ -129,8 +130,9 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('vendor/draco/', locat
   </details>
   </section>
 
-  <p class="small">Version 0.4, 5 November 2026.</p>
+  <p class="small" data-i18n="version">Version 0.4, 5 November 2026.</p>
 </main>
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="viewer.js"></script>
 </body>

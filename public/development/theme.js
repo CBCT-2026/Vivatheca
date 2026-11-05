@@ -5,9 +5,9 @@ const themeBtn = document.getElementById('theme');
 const isDark = () => document.documentElement.dataset.theme === 'dark';
 const showTheme = () => {
   const k = isDark() ? 'light' : 'dark';
-  const en = themeBtn.dataset[k], ja = themeBtn.dataset[k + 'Ja'];
-  themeBtn.textContent = en;
-  if (ja) { const s = document.createElement('span'); s.lang = 'ja'; s.textContent = ja; themeBtn.append(' / ', s); }
+  // In Japanese (i18n.js sets <html lang="ja">) the button shows the Japanese label.
+  const ja = themeBtn.dataset[k + 'Ja'];
+  themeBtn.textContent = document.documentElement.lang === 'ja' && ja ? ja : themeBtn.dataset[k];
 };
 themeBtn.addEventListener('click', () => {
   const t = isDark() ? 'light' : 'dark';

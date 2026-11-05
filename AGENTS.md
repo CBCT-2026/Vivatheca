@@ -9,6 +9,7 @@ The Vivatheca platform is a TypeScript/React application built with Next.js-comp
 - `app/data.ts` contains reusable catalogue and navigation content.
 - `app/globals.css` contains the design tokens and shared styles.
 - [`assets/`](./assets/) stores generated landing-page illustrations and [`assets/manifest.json`](./assets/manifest.json) records their purpose, alternative text, and generation provenance.
+- `public/development/` and `public/orthognathic/` are static model pages (model-viewer, Draco). Their build scripts and method notes are in `tools/development/` and `tools/orthognathic/`. The orthognathic page reuses the viewer, Draco decoder, `style.css` and `theme.js` from `public/development/`, so keep those paths stable.
 - `public/` stores deployable logos, favicon media, Material Symbols, and the supplied GLB.
 - `output/pdf/vivatheca-landing-page-full-view.pdf` is the current full-length desktop reference export of the landing page.
 - `.openai/hosting.json` identifies a Sites deployment when present. Never replace an existing `project_id`.
@@ -50,6 +51,12 @@ The translation roadmap uses accurate, licensed vector flags from the MIT-licens
 The current 24-language roadmap replaces Indonesian with Dutch (`Nederlands`) and remains alphabetical by English name. Its responsive grid uses 8, 6, 4, 3 and 2 columns as the viewport narrows so labels remain readable while excess vertical space is avoided.
 
 Keep global-access data markers, legends and location labels as accessible HTML layered over the generated cartographic base. Social badges may use official platform symbols, but account links remain disabled until the organisation supplies or independently verifies the exact profile URLs.
+
+## Languages (English and Japanese)
+
+The platform is translated into English (default) and Japanese; the structure is ready for more languages. `app/i18n/config.ts` lists the locales and the cookies (`vivatheca-lang`, `vivatheca-furigana`); `app/i18n/dictionaries/en.ts` is the source text and every other dictionary must match its shape (TypeScript enforces this). Server components call `getI18n()` from `app/i18n/server.ts`; client components use `useI18n()`. Never hard-code visible text in components: add it to `en.ts` and `ja.ts`. `?lang=ja` on any URL sets the cookie and redirects (worker/index.ts).
+
+Japanese text carries furigana for every kanji word, written inline as `{漢字|かんじ}` and rendered by `<Ruby>` (`app/i18n/ruby.tsx`) as `<ruby>` with `aria-hidden` readings. Use `plain()` for attributes (alt, aria-label, placeholders, metadata). Visitors can hide furigana. Use standard Japanese dental terminology with dental readings (下顎 = かがく, 下歯槽神経 = かしそうしんけい, 智歯 = ちし) and everyday words first in plain-language text (親知らず). The static `/development` page reads the same cookie through `public/development/i18n.js` (`data-i18n` keys). Japanese translations need review by a native-speaking clinician before launch.
 
 ## Patient Information Builder
 

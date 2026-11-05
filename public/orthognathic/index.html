@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jaw surgery to correct the bite (orthognathic surgery) | Vivatheca</title>
+<meta name="description" content="Interactive 3D models of a normal bite and Class II and Class III jaw differences, before and after orthognathic surgery (Le Fort I osteotomy and bilateral sagittal split osteotomy).">
+<meta name="robots" content="noindex">
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="../development/style.css">
+<style>
+  .choose { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .choose button, .phase button { min-height: 44px; padding: 6px 4px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, sans-serif; cursor: pointer; }
+  .choose button small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  .choose button[aria-pressed="true"], .phase button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  .phase { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0 0; }
+  .phase[hidden], .controls[hidden], .legend li[hidden] { display: none; }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .dot.bone { background: #d7cbbb; } .dot.teeth { background: #e3dcd3; } .dot.cut { background: #cf3b2c; }
+  .dot.plate { background: #b9bcc2; } .dot.before { background: #2f7fd9; opacity: .55; } .dot.moved { background: #d99a3a; }
+  .status { font-size: 14px; margin: 10px 0 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  footer { max-width: 640px; margin: 0 auto; padding: 16px 16px 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+<script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/">Vivatheca home</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
+  </div>
+</header>
+
+<main>
+  <h1>Jaw surgery to correct the bite (orthognathic surgery)</h1>
+
+  <model-viewer id="mv"
+    src="models/normal.glb"
+    alt="3D model of a skull with a normal bite."
+    camera-controls camera-orbit="40deg 88deg 0.19m" camera-target="0m -0.012m 0.02m" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="0.6" exposure="0.95" loading="eager">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <p class="status"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+
+  <div class="choose" role="group" aria-label="Choose a bite">
+    <button type="button" data-class="normal" aria-pressed="true">Normal<small>Class I</small></button>
+    <button type="button" data-class="class2" aria-pressed="false">Class II<small>lower jaw back</small></button>
+    <button type="button" data-class="class3" aria-pressed="false">Class III<small>lower jaw forward</small></button>
+  </div>
+  <div class="phase" id="phase" role="group" aria-label="Before or after surgery" hidden>
+    <button type="button" data-phase="before" aria-pressed="true">Before surgery</button>
+    <button type="button" data-phase="after" aria-pressed="false">After surgery</button>
+  </div>
+  <div class="controls" role="group" aria-label="Model views">
+    <button type="button" data-orbit="40deg 88deg 0.19m" aria-pressed="true">Angled</button>
+    <button type="button" data-orbit="90deg 90deg 0.19m" aria-pressed="false">Side</button>
+    <button type="button" data-orbit="0deg 90deg 0.19m" aria-pressed="false">Front</button>
+    <button type="button" data-orbit="60deg 125deg 0.19m" aria-pressed="false">From below</button>
+  </div>
+  <div class="controls" id="after-tools" role="group" aria-label="After surgery overlays" hidden>
+    <button type="button" id="ghost" aria-pressed="false">Show jaw before surgery</button>
+    <button type="button" id="moved" aria-pressed="false">Colour the moved bone</button>
+  </div>
+  <ul class="legend">
+    <li><span class="dot bone"></span>Bone</li>
+    <li><span class="dot teeth"></span>Teeth</li>
+    <li class="after-only" hidden><span class="dot cut"></span>Cut bone</li>
+    <li class="after-only" hidden><span class="dot plate"></span>Titanium plates and screws</li>
+    <li class="after-only" hidden><span class="dot before"></span>Before surgery (when shown)</li>
+    <li class="after-only" hidden><span class="dot moved"></span>Moved bone (when coloured)</li>
+  </ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <section>
+    <h2>What the models show</h2>
+    <p>Five models of the same adult skull: a normal bite, two common jaw differences, and each of those after jaw surgery. Choose a bite, then <b>Before surgery</b> or <b>After surgery</b>. In the after models, red shows where the bone was cut. <b>Show jaw before surgery</b> adds the old position in see-through blue, so you can see how far the bone moved.</p>
+  </section>
+
+  <section>
+    <h2>Class I, II and III</h2>
+    <p>Dentists describe how the teeth meet using Angle's classes, based on where the upper first molar sits against the lower first molar.<sup class="cite"><a href="#ref-1">1</a></sup> When the jaws themselves are out of balance, this is called a <b>skeletal</b> Class II or Class III. On a side X-ray (cephalogram), one common measure is the ANB angle; Steiner gave about 2 degrees as the average for a balanced face.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bite</th><th>Jaws</th><th>Front teeth</th></tr></thead>
+      <tbody>
+        <tr><td>Class I (normal)</td><td>In balance</td><td>Upper front teeth just in front of the lower ones</td></tr>
+        <tr><td>Class II</td><td>Lower jaw back, upper jaw forward, or both</td><td>Large gap: upper front teeth well in front</td></tr>
+        <tr><td>Class III</td><td>Lower jaw forward, upper jaw back, or both</td><td>Lower front teeth level with or in front of the upper ones</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Braces alone can move teeth but not the jaw bones. When the jaw difference is too large for braces alone, jaw surgery (orthognathic surgery) is combined with orthodontics.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></p>
+  </section>
+
+  <section>
+    <h2>The operations shown</h2>
+    <p><b>Bilateral sagittal split osteotomy (BSSO).</b> The surgeon works inside the mouth and splits each side of the lower jaw lengthwise, between the outer layer of bone and the inner layer that holds the teeth and the nerve to the lip and chin. The front part with the teeth can then slide forward (Class II) or back (Class III).<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    <p><b>Le Fort I osteotomy.</b> The upper jaw is cut in a line above the tooth roots, from the side of the nose back to behind the last molar, so the part carrying the upper teeth can be moved forward, back, up or down.<sup class="cite"><a href="#ref-6">6</a></sup></p>
+    <p>Small titanium plates and screws hold the bone in its new place while it heals.<sup class="cite"><a href="#ref-9">9</a></sup> Results are usually stable, but some change after surgery is common; how stable a movement is depends on its type and direction.<sup class="cite"><a href="#ref-7">7</a></sup></p>
+  </section>
+
+  <section>
+    <h2>What treatment usually involves</h2>
+    <ul>
+      <li>Surgery is usually done after the jaws have finished growing.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
+      <li>Most people wear braces before and after surgery. Orthodontics Australia says braces usually stay on about 6 to 9 months after surgery, and the whole treatment takes about 2 years.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+      <li>A Cambridge University Hospitals (NHS) consent leaflet says about 1 in 10 people have tingling or numbness that lasts several weeks, and fewer than 1 in 100 have changed feeling lasting more than a year, which may be permanent.<sup class="cite"><a href="#ref-11">11</a></sup></li>
+      <li>In the UK, need for NHS-funded treatment is often scored with the Index of Orthognathic Functional Treatment Need (IOFTN).<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+    </ul>
+    <p>Your orthodontist and oral and maxillofacial surgeon will explain the plan, risks and recovery for you.</p>
+  </section>
+
+  <section>
+    <h2>For clinicians: how the models were made</h2>
+    <ul>
+      <li>Base: one adult skull, mandible and permanent teeth (no third molars) from Z-Anatomy. Normal = this anatomy unchanged.</li>
+      <li>Class II: the tooth-bearing mandible is moved 6 mm back with a smooth warp that fades over the anterior ramus, so condyles and upper ramus stay in place. No vertical or chin change.</li>
+      <li>Class III: maxilla 3 mm back (fading out above the Le Fort I level and towards the pterygoid plates) and mandibular body 5 mm forward. Mouth opened 2.75 degrees about the condyles so the teeth do not intersect.</li>
+      <li>Surgery: Class II = BSSO advancement 6 mm. Class III = Le Fort I advancement 3 mm + BSSO setback 5 mm, with overlapping proximal bone trimmed. Movements reverse the deformity exactly, so the after models are back in the normal occlusion.</li>
+      <li>Cuts are planes: Le Fort I about 4 mm above the canine root tip; BSSO medial cut 5 mm above the occlusal plane, sagittal split lateral to the roots, buccal cut between first and second molar, lingual split running down to the lower border in front of the angle (short lingual split, as described by Hunsuck).<sup class="cite"><a href="#ref-5">5</a></sup> Real cuts are curved and differ by surgeon.</li>
+      <li>Movement sizes are example values chosen for teaching, not taken from one study. Not shown: soft tissue, the inferior alveolar nerve, condylar seating, rotation of the occlusal plane, genioplasty (the Z-Anatomy chin is too short to place a cut safely below the tooth roots).</li>
+    </ul>
+    <p class="small">Build scripts and measurements: <code>tools/orthognathic/</code> in the Vivatheca repository.</p>
+  </section>
+
+  <section class="disclaimer">
+    <h2>About these models</h2>
+    <p><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small">Prototype, version 0.1. Colours: bone and teeth as the Vivatheca wisdom tooth model (teeth slightly lighter), red for cut bone, grey for titanium.</p>
+    <p class="small credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: bones and teeth extracted, smoothed, remeshed, warped, cut and moved; plates and screws added. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2>Sources</h2></summary>
+    <ol>
+      <li id="ref-1">Angle EH. Classification of malocclusion. Dental Cosmos. 1899;41:248-264, 350-357. (Molar classes I, II, III.)</li>
+      <li id="ref-2">Steiner CC. Cephalometrics for you and me. Am J Orthod. 1953;39(10):729-755. <a href="https://doi.org/10.1016/0002-9416(53)90082-7">doi.org/10.1016/0002-9416(53)90082-7</a> (SNA, SNB and ANB norms.)</li>
+      <li id="ref-3">Trauner R, Obwegeser H. The surgical correction of mandibular prognathism and retrognathia with consideration of genioplasty. I. Oral Surg Oral Med Oral Pathol. 1957;10(7):677-689. <a href="https://doi.org/10.1016/s0030-4220(57)80063-2">doi.org/10.1016/s0030-4220(57)80063-2</a> (Original sagittal split.)</li>
+      <li id="ref-4">Dal Pont G. Retromolar osteotomy for the correction of prognathism. J Oral Surg Anesth Hosp Dent Serv. 1961;19:42-47. <a href="https://pubmed.ncbi.nlm.nih.gov/13719390/">PubMed 13719390</a> (Buccal vertical cut at the molars.)</li>
+      <li id="ref-5">Hunsuck EE. A modified intraoral sagittal splitting technic for correction of mandibular prognathism. J Oral Surg. 1968;26(4):250-253. <a href="https://pubmed.ncbi.nlm.nih.gov/5237786/">PubMed 5237786</a> (Short lingual split.)</li>
+      <li id="ref-6">Bell WH. Le Fort I osteotomy for correction of maxillary deformities. J Oral Surg. 1975;33(6):412-426. <a href="https://pubmed.ncbi.nlm.nih.gov/1055202/">PubMed 1055202</a></li>
+      <li id="ref-7">Proffit WR, Turvey TA, Phillips C. The hierarchy of stability and predictability in orthognathic surgery with rigid fixation: an update and extension. Head Face Med. 2007;3:21. <a href="https://doi.org/10.1186/1746-160X-3-21">doi.org/10.1186/1746-160X-3-21</a></li>
+      <li id="ref-8">NHS England (prepared by Public Health England). Interim clinical commissioning policy: orthognathic surgery (Armed Forces), N-SC/026. November 2013. <a href="https://www.england.nhs.uk/commissioning/wp-content/uploads/sites/12/2014/03/nsc026-orthognathic-surg.pdf">england.nhs.uk</a> (Government policy: skeletal maturity, orthodontics alone insufficient, orthodontics before and after surgery. Interim and dated; check for a newer version.)</li>
+      <li id="ref-9">Australian Society of Orthodontists (Orthodontics Australia). Jaw surgery and braces. <a href="https://orthodonticsaustralia.org.au/jaw-surgery-braces">orthodonticsaustralia.org.au</a> (Accessed 5 November 2026.)</li>
+      <li id="ref-10">Ireland AJ, Cunningham SJ, Petrie A, et al. An index of orthognathic functional treatment need (IOFTN). J Orthod. 2014;41(2):77-83. <a href="https://doi.org/10.1179/1465313314Y.0000000100">doi.org/10.1179/1465313314Y.0000000100</a></li>
+      <li id="ref-11">Cambridge University Hospitals NHS Foundation Trust. Jaw or chin corrective surgery (orthognathic surgery): patient information and consent. <a href="https://www.cuh.nhs.uk/patient-information/patient-information-and-consent-to-jaw-or-chin-corrective-surgery-orthognathic-surgery/">cuh.nhs.uk</a> (Accessed 5 November 2026.)</li>
+      <li id="ref-12">Ireland AJ, Atack NE, Cunningham SJ, et al. National British Orthodontic Society (BOS) Orthognathic Audit 2017-2018. J Orthod. 2019;46(4):287-296. <a href="https://doi.org/10.1177/1465312519879934">doi.org/10.1177/1465312519879934</a></li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small">Version 0.1, 5 November 2026.</p>
+</main>
+<footer>
+  <p>Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Disclaimer</a></p>
+</footer>
+<script src="../development/theme.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>

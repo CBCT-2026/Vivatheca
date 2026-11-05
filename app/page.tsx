@@ -1,141 +1,108 @@
-import { footerGroups, trustItems, understandingPaths } from './data';
+import { contributionPaths, footerGroups, publications, trustItems, understandingPaths } from './data';
+import { getI18n } from './i18n/server';
+import { plain, Ruby } from './i18n/ruby';
+import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
-import { disclaimerHref, siteDisclaimer } from './disclaimer-text';
+import { disclaimerHref } from './disclaimer-text';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
 }
 
-const publications = [
-  {
-    title: 'Impact of 3D-Printed Anatomical Models on Doctor-Patient Communication in Orthopedic Consultations',
-    authors: 'Sanchez AU, Dos Anjos GQ, de Oliveira DGC, et al.',
-    journal: 'Cureus · 2024;16(10):e70822 · Randomized clinical trial (46 patients)',
-    doi: '10.7759/cureus.70822',
-    finding: 'In consultations using 3D anatomical models, 76% of patients reported better knowledge of their condition, against 52% without models, and 14 of 15 communication measures were better. It was a small, single-centre trial.',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/39493008/',
-    image: '/assets/research-orthopedic-communication.webp',
-    alt: 'A clinician and patient use a three-dimensional knee model during an orthopedic consultation.',
-  },
-  {
-    title: 'The use of 3-dimensionally printed models to optimize patient education and alleviate perioperative anxiety in Mohs surgery',
-    authors: 'Biro M, Kim I, Huynh A, Fu P, Mann M, Popkin DL.',
-    journal: 'Journal of the American Academy of Dermatology · 2019;81(6):1339-1345 · Randomized controlled trial (82 patients)',
-    doi: '10.1016/j.jaad.2019.05.085',
-    finding: 'Adding a printed procedural model to standardized education gave slightly higher knowledge scores (93% against 86% correct). The larger fall in anxiety only approached statistical significance (P = .052), and the authors note the study was underpowered.',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/31163232/',
-    image: '/assets/research-mohs-education.webp',
-    alt: 'A dermatologist and patient discuss a layered, non-graphic three-dimensional skin model.',
-  },
-  {
-    title: 'Impact of a Virtual Three-Dimensional Thyroid Model on Patient Communication in Thyroid Surgery',
-    authors: 'Cao Z, Zhang Q, Yan S, Qian Z, Xu X, Liu Z.',
-    journal: 'Cancers · 2026;18(2):241 · Randomized controlled trial (94 patients)',
-    doi: '10.3390/cancers18020241',
-    finding: 'Patients counselled with a virtual 3D thyroid model identified the recurrent laryngeal nerve and the extent of lymph node dissection more accurately, and better understood the causes of major complications. Lesion localisation and parathyroid recognition did not differ significantly.',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/41595161/',
-    image: '/assets/research-virtual-thyroid.webp',
-    alt: 'A clinician and patient explore an interactive three-dimensional thyroid model on a tablet.',
-  },
-];
-
-const contributionPaths = [
-  { icon: '3d_rotation', title: 'Submit a model', text: 'Share browser-ready anatomy, documentation and source details for review.', href: 'mailto:hello@vivatheca.com?subject=Submit%20a%20model' },
-  { icon: 'health_and_safety', title: 'Review clinical accuracy', text: 'Clinicians can assess anatomy, limitations and usefulness for patient education.', href: 'mailto:hello@vivatheca.com?subject=Review%20clinical%20accuracy' },
-];
-
-export default function Home() {
+export default async function Home() {
+  const { t, furigana } = await getI18n();
   return (
     <>
-      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#collection">Browse</a><a href="#how-it-works">How it works</a><a href="#publications">Publications</a><a href="#contribute">Contribute</a><a href="/create">Create</a>
+        <a className="brand" href="#top" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
+        <nav className="desktop-nav" aria-label={plain(t.nav.primary)}>
+          <a href="#collection"><Ruby text={t.nav.browse} /></a><a href="#how-it-works"><Ruby text={t.nav.howItWorks} /></a><a href="#publications"><Ruby text={t.nav.publications} /></a><a href="#contribute"><Ruby text={t.nav.contribute} /></a><a href="/create"><Ruby text={t.nav.create} /></a>
         </nav>
         <div className="header-actions">
+          <LanguageSwitcher furigana={furigana} />
           <ThemeToggle />
-          <a className="button button-compact" href="#sponsor">Sponsor a model</a>
-          <MobileNavigation />
+          <a className="button button-compact" href="#sponsor"><Ruby text={t.nav.sponsor} /></a>
+          <MobileNavigation furigana={furigana} />
         </div>
       </header>
 
       <main id="main-content">
         <section className="hero" id="top">
           <div className="hero-copy">
-            <h1 className="hero-title"><span className="hero-line">Medical models</span><span className="hero-line">made clear.</span></h1>
-            <p className="hero-lede">The Vivatheca platform is a non-profit, open-source library for exploring, explaining, sharing and printing medical models. Browser-based access keeps the first step simple; transparent review and known limitations keep trust visible.</p>
+            <h1 className="hero-title"><span className="hero-line"><Ruby text={t.hero.line1} /></span><span className="hero-line"><Ruby text={t.hero.line2} /></span></h1>
+            <p className="hero-lede"><Ruby text={t.hero.lede} /></p>
             <div className="hero-actions">
-              <a className="button" href="#collection">Explore the collection <Icon name="arrow_forward" /></a>
-              <a className="button button-secondary" href="#how-it-works">See how it works</a>
+              <a className="button" href="#collection"><Ruby text={t.hero.explore} /> <Icon name="arrow_forward" /></a>
+              <a className="button button-secondary" href="#how-it-works"><Ruby text={t.hero.how} /></a>
             </div>
-            <ul className="access-list" aria-label="Access commitments"><li>Free to use</li><li>Open access</li><li>View digitally or print</li></ul>
+            <ul className="access-list" aria-label={plain(t.hero.accessLabel)}>{t.hero.access.map((item) => <li key={item}><Ruby text={item} /></li>)}</ul>
           </div>
           <figure className="hero-visual">
-            <img src="/assets/consultation-hero.webp" alt="A clinician and patient examine a three-dimensional lower jaw model showing an impacted wisdom tooth." width="1536" height="1024" fetchPriority="high" />
-            <figcaption>Visual explanation designed for the conversation, not just the classroom.</figcaption>
-            <p className="ai-disclaimer">AI-generated illustration.</p>
+            <img src="/assets/consultation-hero.webp" alt={plain(t.hero.imageAlt)} width="1536" height="1024" fetchPriority="high" />
+            <figcaption><Ruby text={t.hero.caption} /></figcaption>
+            <p className="ai-disclaimer"><Ruby text={t.common.aiIllustration} /></p>
           </figure>
         </section>
 
-        <aside className="origin-band" aria-label="Australian origin">
-          <a href="https://www.pmc.gov.au/resources/flag-images-and-template-files-download" target="_blank" rel="noreferrer" aria-label="Australian National Flag — official Australian Government image source">
-            <img src="/assets/australian-national-flag.jpg" alt="Australian National Flag" width="120" height="60" />
+        <aside className="origin-band" aria-label={plain(t.origin.label)}>
+          <a href="https://www.pmc.gov.au/resources/flag-images-and-template-files-download" target="_blank" rel="noreferrer" aria-label={plain(t.origin.flagLink)}>
+            <img src="/assets/australian-national-flag.jpg" alt={plain(t.origin.flagAlt)} width="120" height="60" />
           </a>
-          <p>Founded and operated in Australia.</p>
+          <p><Ruby text={t.origin.text} /></p>
         </aside>
 
-        <section className="mission-band" aria-label="Vivatheca mission">
-          <p>Open-source medical education for clearer conversations.</p>
-          <div className="mission-links"><span>View in 3D</span><span>Share by link</span><span>Print where possible</span></div>
+        <section className="mission-band" aria-label={plain(t.mission.label)}>
+          <p><Ruby text={t.mission.text} /></p>
+          <div className="mission-links">{t.mission.links.map((item) => <span key={item}><Ruby text={item} /></span>)}</div>
         </section>
 
         <section className="collection-section" id="collection">
           <div className="section-heading split-heading">
-            <div><h2>See the explanation from every angle.</h2><p>The impacted wisdom tooth is the Vivatheca platform’s working demonstration. Rotate it, follow a short tour and switch the level of detail.</p></div>
-            <div className="section-label"><Icon name="3d_rotation" size={24} />Interactive model</div>
+            <div><h2><Ruby text={t.collection.heading} /></h2><p><Ruby text={t.collection.text} /></p></div>
+            <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.collection.label} /></div>
           </div>
           <ModelExperience />
         </section>
 
         <section className="understanding-section" id="how-it-works">
-          <div className="section-heading compact-heading"><h2>One model. More ways to understand.</h2><p>The Vivatheca platform connects the moment of explanation with everything that may come after it.</p></div>
+          <div className="section-heading compact-heading"><h2><Ruby text={t.understanding.heading} /></h2><p><Ruby text={t.understanding.text} /></p></div>
           <div className="understanding-paths">
-            {understandingPaths.map((path, index) => (
-              <article key={path.title}><span className="path-number">{String(index + 1).padStart(2, '0')}</span><Icon name={path.icon} size={30} /><h3>{path.title}</h3><p>{path.text}</p></article>
+            {understandingPaths(t).map((path, index) => (
+              <article key={path.icon}><span className="path-number">{String(index + 1).padStart(2, '0')}</span><Icon name={path.icon} size={30} /><h3><Ruby text={path.title} /></h3><p><Ruby text={path.text} /></p></article>
             ))}
           </div>
         </section>
 
         <section className="print-section">
-          <figure><img src="/assets/screen-to-print.webp" alt="A jaw model moves from an interactive screen through a 3D printer to a physical teaching model held by a clinician." width="1536" height="1024" /><figcaption className="ai-disclaimer">AI-generated illustration.</figcaption></figure>
-          <div className="print-copy"><h2>From the screen to something you can hold.</h2><p>Every model comes with a free STL file, scaled in millimetres, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands.</p><a className="text-link" href="/models/impacted-molar.stl" download>Download the wisdom tooth STL <Icon name="download" /></a></div>
+          <figure><img src="/assets/screen-to-print.webp" alt={plain(t.print.imageAlt)} width="1536" height="1024" /><figcaption className="ai-disclaimer"><Ruby text={t.common.aiIllustration} /></figcaption></figure>
+          <div className="print-copy"><h2><Ruby text={t.print.heading} /></h2><p><Ruby text={t.print.text} /></p><a className="text-link" href="/models/impacted-molar.stl" download><Ruby text={t.print.download} /> <Icon name="download" /></a></div>
         </section>
 
         <section className="trust-section" id="trust">
-          <div className="trust-intro"><Icon name="health_and_safety" size={36} /><h2>Trust should be visible, not implied.</h2><p>The planned review record makes clinical approval, reviewer privacy and the source of supporting health information visible without asking clinicians to give medical advice.</p></div>
-          <ul>{trustItems.map((item) => <li key={item.title}><span aria-hidden="true">✓</span><div><h3>{item.title}</h3><p>{item.text}</p></div></li>)}</ul>
-          <p className="trust-warning"><strong>Prototype governance:</strong> these safeguards describe the intended review workflow. No reviewer record or approval is presented as verified until the process is operating and complete.</p>
+          <div className="trust-intro"><Icon name="health_and_safety" size={36} /><h2><Ruby text={t.trust.heading} /></h2><p><Ruby text={t.trust.text} /></p></div>
+          <ul>{trustItems(t).map((item) => <li key={item.title}><span aria-hidden="true">✓</span><div><h3><Ruby text={item.title} /></h3><p><Ruby text={item.text} /></p></div></li>)}</ul>
+          <p className="trust-warning"><strong><Ruby text={t.trust.warningLabel} /></strong> <Ruby text={t.trust.warning} /></p>
         </section>
 
         <section className="publications-section" id="publications">
           <div className="publications-intro">
-            <h2>Evidence for seeing and holding anatomy.</h2>
-            <p>Independent, peer-reviewed research has tested how physical and virtual 3D models can support patient knowledge, communication and understanding. Findings depend on the clinical setting and should not be treated as universal proof.</p>
-            <p className="evidence-note">These articles are independent evidence. Publication records connected to the Vivatheca platform will be added only after authorship and journal details are verified. The accompanying visuals are interpretive, not figures from the papers.</p>
+            <h2><Ruby text={t.publications.heading} /></h2>
+            <p><Ruby text={t.publications.text} /></p>
+            <p className="evidence-note"><Ruby text={t.publications.note} /></p>
           </div>
           <div className="publication-list">
-            {publications.map((publication) => (
+            {publications(t).map((publication) => (
               <article key={publication.href}>
                 <div className="publication-copy">
-                  <h3>{publication.title}</h3>
-                  <p className="publication-journal">{publication.authors} {publication.journal} · <a href={`https://doi.org/${publication.doi}`} target="_blank" rel="noreferrer">doi:{publication.doi}</a></p>
-                  <p>{publication.finding}</p>
-                  <a className="text-link" href={publication.href} target="_blank" rel="noreferrer">Read the peer-reviewed article <Icon name="arrow_forward" /></a>
+                  <h3 lang="en">{publication.title}</h3>
+                  <p className="publication-journal"><span lang="en">{publication.authors}</span> <Ruby text={publication.journal} /> · <a href={`https://doi.org/${publication.doi}`} target="_blank" rel="noreferrer">doi:{publication.doi}</a></p>
+                  <p><Ruby text={publication.finding} /></p>
+                  <a className="text-link" href={publication.href} target="_blank" rel="noreferrer"><Ruby text={t.publications.read} /> <Icon name="arrow_forward" /></a>
                 </div>
                 <figure className="publication-visual">
-                  <img src={publication.image} alt={publication.alt} width="1024" height="1024" />
-                  <figcaption className="ai-disclaimer">AI-generated illustration.</figcaption>
+                  <img src={publication.image} alt={plain(publication.alt)} width="1024" height="1024" />
+                  <figcaption className="ai-disclaimer"><Ruby text={t.common.aiIllustration} /></figcaption>
                 </figure>
               </article>
             ))}
@@ -143,28 +110,27 @@ export default function Home() {
         </section>
 
         <section className="contribute-section" id="contribute">
-          <div className="contribute-copy"><h2>Help build the collection.</h2><p>Contributions can add new models and check that existing ones are clinically accurate.</p><div className="contribution-paths">{contributionPaths.map((path) => <article key={path.title}><Icon name={path.icon} size={26} /><div><h3>{path.title}</h3><p>{path.text}</p><a className="text-link" href={path.href}>Learn how <Icon name="arrow_forward" /></a></div></article>)}</div></div>
-          <figure><img src="/assets/open-review-network-v2.webp" alt="Experienced clinicians, biomedical engineers, model creators and translators use digital anatomy tools around a heart encased in clear resin." width="1536" height="1024" /><figcaption className="ai-disclaimer">AI-generated illustration.</figcaption></figure>
+          <div className="contribute-copy"><h2><Ruby text={t.contribute.heading} /></h2><p><Ruby text={t.contribute.text} /></p><div className="contribution-paths">{contributionPaths(t).map((path) => <article key={path.icon}><Icon name={path.icon} size={26} /><div><h3><Ruby text={path.title} /></h3><p><Ruby text={path.text} /></p><a className="text-link" href={path.href}><Ruby text={t.contribute.learn} /> <Icon name="arrow_forward" /></a></div></article>)}</div></div>
+          <figure><img src="/assets/open-review-network-v2.webp" alt={plain(t.contribute.imageAlt)} width="1536" height="1024" /><figcaption className="ai-disclaimer"><Ruby text={t.common.aiIllustration} /></figcaption></figure>
         </section>
 
         <section className="sponsor-section" id="sponsor">
-          <div className="sponsor-intro"><div><h2>Help a model travel further.</h2><p>Sponsorship can support model development and future physical distribution to clinics that cannot print locally.</p></div><a className="button button-light" href="mailto:hello@vivatheca.com?subject=Sponsor%20a%20Vivatheca%20model">Start a sponsorship conversation <Icon name="arrow_forward" /></a></div>
+          <div className="sponsor-intro"><div><h2><Ruby text={t.sponsor.heading} /></h2><p><Ruby text={t.sponsor.text} /></p></div><a className="button button-light" href="mailto:hello@vivatheca.com?subject=Sponsor%20a%20Vivatheca%20model"><Ruby text={t.sponsor.cta} /> <Icon name="arrow_forward" /></a></div>
         </section>
       </main>
 
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-about">
-            <a className="brand footer-brand" href="#top" aria-label="Back to the top of Vivatheca"><img src="/brand/vivatheca-logo-primary.svg" alt="" width="181" height="136" /></a>
-            <p>The Vivatheca platform offers open 3D health information for clearer conversations. Free, browser-based and built for everyone.</p>
-            <span className="footer-badge">Non-profit · Open source</span>
+            <a className="brand footer-brand" href="#top" aria-label={plain(t.footer.backToTop)}><img src="/brand/vivatheca-logo-primary.svg" alt="" width="181" height="136" /></a>
+            <p><Ruby text={t.footer.about} /></p>
+            <span className="footer-badge"><Ruby text={t.footer.badge} /></span>
           </div>
           <div className="footer-links">
-            {footerGroups.map((group) => (
-              <nav key={group.label} aria-label={group.label} className="footer-nav">
-                <h2>{group.label}</h2>
-                <ul>{group.links.map((link) => <li key={link.label}><a href={link.href}>{link.label}</a></li>)}</ul>
-                
+            {footerGroups(t).map((group) => (
+              <nav key={group.label} aria-label={plain(group.label)} className="footer-nav">
+                <h2><Ruby text={group.label} /></h2>
+                <ul>{group.links.map((link) => <li key={link.href}><a href={link.href}><Ruby text={link.label} /></a></li>)}</ul>
               </nav>
             ))}
           </div>
@@ -172,8 +138,8 @@ export default function Home() {
 
         <div className="footer-legal">
           <p>© 2026 Vivatheca</p>
-          <p className="disclaimer">{siteDisclaimer} <a href={disclaimerHref}>Full disclaimer</a></p>
-          <nav aria-label="Legal and accessibility"><a href={disclaimerHref}>Disclaimer</a><a href="mailto:hello@vivatheca.com?subject=Privacy%20question">Privacy questions</a><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback">Accessibility feedback</a></nav>
+          <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
+          <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href="mailto:hello@vivatheca.com?subject=Privacy%20question"><Ruby text={t.footer.privacy} /></a><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback"><Ruby text={t.footer.accessibility} /></a></nav>
         </div>
       </footer>
     </>
