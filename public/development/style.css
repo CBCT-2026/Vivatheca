@@ -3,7 +3,7 @@
   --bg: #ffffff; --text: #06233f; --muted: #4d6378; --line: #cfe1e7; --heading: #00244d;
   --accent: #007f8b; --card: #effcfc; --ar: #00244d; --ar-text: #ffffff;
 }
-/* Pages open in light mode; the toggle switches to dark for this browser tab (sessionStorage). */
+/* Pages open in light mode; the toggle switches to dark and is remembered site-wide (localStorage 'vivatheca-theme'). */
 :root[data-theme="dark"] { --bg: #001a37; --text: #eaf3f7; --muted: #a7bccb; --line: #1f4266; --heading: #ffffff;
     --accent: #14c9d7; --card: #00244d; --ar: #14c9d7; --ar-text: #001a37; }
 :root { color-scheme: light; }
