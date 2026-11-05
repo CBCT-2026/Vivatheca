@@ -9,24 +9,30 @@ function Icon({ name, size = 20 }: { name: string; size?: number }) {
 const publications = [
   {
     title: 'Impact of 3D-Printed Anatomical Models on Doctor-Patient Communication in Orthopedic Consultations',
-    journal: 'Cureus · 2024 · Randomized clinical trial',
-    finding: 'The trial compared consultations with and without 3D anatomical models and reported stronger patient knowledge and communication measures in the model group.',
+    authors: 'Sanchez AU, Dos Anjos GQ, de Oliveira DGC, et al.',
+    journal: 'Cureus · 2024;16(10):e70822 · Randomized clinical trial (46 patients)',
+    doi: '10.7759/cureus.70822',
+    finding: 'In consultations using 3D anatomical models, 76% of patients reported better knowledge of their condition, against 52% without models, and 14 of 15 communication measures were better. It was a small, single-centre trial.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/39493008/',
     image: '/assets/research-orthopedic-communication.webp',
     alt: 'A clinician and patient use a three-dimensional knee model during an orthopedic consultation.',
   },
   {
     title: 'The use of 3-dimensionally printed models to optimize patient education and alleviate perioperative anxiety in Mohs surgery',
-    journal: 'Journal of the American Academy of Dermatology · 2019 · Randomized controlled trial',
-    finding: 'The study evaluated a printed procedural model alongside standardized education for patient understanding and perioperative anxiety.',
+    authors: 'Biro M, Kim I, Huynh A, Fu P, Mann M, Popkin DL.',
+    journal: 'Journal of the American Academy of Dermatology · 2019;81(6):1339-1345 · Randomized controlled trial (82 patients)',
+    doi: '10.1016/j.jaad.2019.05.085',
+    finding: 'Adding a printed procedural model to standardized education gave slightly higher knowledge scores (93% against 86% correct). The larger fall in anxiety only approached statistical significance (P = .052), and the authors note the study was underpowered.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/31163232/',
     image: '/assets/research-mohs-education.webp',
     alt: 'A dermatologist and patient discuss a layered, non-graphic three-dimensional skin model.',
   },
   {
     title: 'Impact of a Virtual Three-Dimensional Thyroid Model on Patient Communication in Thyroid Surgery',
-    journal: 'Cancers · 2026 · Randomized controlled trial',
-    finding: 'Patients using a virtual 3D thyroid model showed improved comprehension of selected anatomy, surgical procedures and complications.',
+    authors: 'Cao Z, Zhang Q, Yan S, Qian Z, Xu X, Liu Z.',
+    journal: 'Cancers · 2026;18(2):241 · Randomized controlled trial (94 patients)',
+    doi: '10.3390/cancers18020241',
+    finding: 'Patients counselled with a virtual 3D thyroid model identified the recurrent laryngeal nerve and the extent of lymph node dissection more accurately, and better understood the causes of major complications. Lesion localisation and parathyroid recognition did not differ significantly.',
     href: 'https://pubmed.ncbi.nlm.nih.gov/41595161/',
     image: '/assets/research-virtual-thyroid.webp',
     alt: 'A clinician and patient explore an interactive three-dimensional thyroid model on a tablet.',
@@ -123,7 +129,7 @@ export default function Home() {
               <article key={publication.href}>
                 <div className="publication-copy">
                   <h3>{publication.title}</h3>
-                  <p className="publication-journal">{publication.journal}</p>
+                  <p className="publication-journal">{publication.authors} {publication.journal} · <a href={`https://doi.org/${publication.doi}`} target="_blank" rel="noreferrer">doi:{publication.doi}</a></p>
                   <p>{publication.finding}</p>
                   <a className="text-link" href={publication.href} target="_blank" rel="noreferrer">Read the peer-reviewed article <Icon name="arrow_forward" /></a>
                 </div>

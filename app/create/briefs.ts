@@ -47,7 +47,7 @@ export const materialTypes = {
   },
   consent: {
     label: 'Risks and options section (consent aid)',
-    instructions: 'Write the risks and options section of a consent aid for a dental or oral surgery procedure. Cover, as headings: why it is offered, material risks with numbers (who they apply to and the time frame), what each risk feels like and what to do, alternatives including monitoring and no treatment, risks of waiting, factors that change the risk, and a next step (talk it through with the clinician). Follow RCS England 2020 and Australian Dental Association 2020 consent guidance.',
+    instructions: 'Write the risks and options section of a consent aid for a dental or oral surgery procedure. Cover, as headings: why it is offered, material risks with numbers (who they apply to and the time frame), what each risk feels like and what to do, alternatives including monitoring and no treatment, risks of waiting, factors that change the risk, and a next step (talk it through with the clinician). Follow the Royal College of Surgeons of England guide Consent: Supported Decision-Making and the Australian Dental Association consent guidance (Policy Statement 5.15, Consent to Treatment).',
   },
   narration: {
     label: 'Narration script for a 3D print or video',
