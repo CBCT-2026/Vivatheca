@@ -24,6 +24,17 @@ test.describe('cracked tooth models', () => {
     await expect(page.locator('.refs li')).toHaveCount(11);
   });
 
+  test('shows Japanese with furigana when chosen', async ({ page, context }) => {
+    await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
+    await page.goto('/cracked-tooth/index.html');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('亀裂歯');
+    await expect(page.locator('h1 ruby').first()).toBeVisible();
+    await expect(page.locator('#stage')).toContainText('健康');
+    await expect(page.getByText('Not yet clinically reviewed.').first()).toBeVisible();
+    await expect(page.locator('footer.contact')).toBeVisible();
+  });
+
   test('model and print files are served', async ({ request }) => {
     for (const s of ['healthy', 'cracked', 'composite', 'crown']) {
       for (const v of ['whole', 'cut']) {

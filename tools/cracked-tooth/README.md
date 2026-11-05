@@ -2,6 +2,9 @@
 
 Four 3D models of one lower right first molar (46): healthy (the matched normal), cracked (crack limited to the crown), the cracked tooth with a direct composite resin MOD filling, and the cracked tooth with a full-coverage crown. Each comes whole and cut in half buccolingually, and each has a looping "bite" animation (glTF morph target): the cracked and filled teeth tip apart about the bottom of the crack, the crowned and healthy teeth do not. Web page: `public/cracked-tooth/` (served at `/cracked-tooth/`). It reuses the model viewer, Draco decoder, style sheet and theme toggle from `public/development/`.
 
+## Page text
+Edit `page-src.html` (English and Japanese side by side; `{漢字|かな}` marks furigana), then `python3 gen.py page-src.html ../../public/cracked-tooth/index.html`. Stage captions are in `public/cracked-tooth/viewer.js`. The English patient text (page sections and stage captions, copied in `patient-text.md`) was checked with the patient-education-toolkit rules in `app/create/checker.ts`: reading grade 2.5, SMOG 4.9, no warnings. Clinician numbers and model methods sit in the folded "Notes for the clinician" block, which the checker skips. The Japanese has not yet been reviewed by a native-speaking clinician.
+
 ## Rebuild
 Needs Python 3.11+ with `trimesh`, `rtree`, `scipy`, `scikit-image`, `fast-simplification`, and `npx` for Draco.
 
