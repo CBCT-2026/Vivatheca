@@ -9,6 +9,7 @@ The Vivatheca platform is a TypeScript/React application built with Next.js-comp
 - `app/data.ts` contains reusable catalogue and navigation content.
 - `app/globals.css` contains the design tokens and shared styles.
 - [`assets/`](./assets/) stores generated landing-page illustrations and [`assets/manifest.json`](./assets/manifest.json) records their purpose, alternative text, and generation provenance.
+- `public/development/` and `public/orthognathic/` are static model pages (model-viewer, Draco). Their build scripts and method notes are in `tools/development/` and `tools/orthognathic/`. The orthognathic page reuses the viewer, Draco decoder, `style.css` and `theme.js` from `public/development/`, so keep those paths stable.
 - `public/` stores deployable logos, favicon media, Material Symbols, and the supplied GLB.
 - `output/pdf/vivatheca-landing-page-full-view.pdf` is the current full-length desktop reference export of the landing page.
 - `.openai/hosting.json` identifies a Sites deployment when present. Never replace an existing `project_id`.
