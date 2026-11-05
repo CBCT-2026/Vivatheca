@@ -42,3 +42,6 @@ next-env.d.ts
 /work/
 /.pnpm-store/
 tsconfig.tsbuildinfo
+
+# patient text snapshots for pitk (tools/patient-text)
+/.pitk/

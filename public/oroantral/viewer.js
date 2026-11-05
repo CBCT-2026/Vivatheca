@@ -18,9 +18,9 @@ const P = {
 const STAGES = {
   normal: {
     parts: ['bone', 'teeth', 'gum', 'sinus'],
-    en: ['Normal (for comparison)', 'This is a healthy upper jaw. The roots of the upper first molar (a back tooth) sit in bone. A layer of bone lies between the root tips and the <b>sinus</b> (an air space above the teeth). Here the layer is 3 mm. In real people it can be a few mm thick, or not there at all.' + cite(6, 8)],
-    ja: ['{正常|せいじょう}（{比較用|ひかくよう}）', '{健康|けんこう}な{上顎|じょうがく}です。{第一大臼歯|だいいちだいきゅうし}の{根|ね}は{骨|ほね}の{中|なか}にあり、{根|ね}の{先|さき}と<b>{上顎洞|じょうがくどう}</b>の{間|あいだ}には{骨|ほね}（ここでは3 mm）があります。{実際|じっさい}の{厚|あつ}さは{人|ひと}によって{数|すう}mmから0までさまざまです。' + cite(6, 8)],
-    labels: [['sinus', 'up', 'Sinus (air space)', '{上顎洞|じょうがくどう}'], ['floorN', 'right', 'Bone layer', '{骨|ほね}の{層|そう}'], ['rootN', 'left', 'Root tip', '{根|ね}の{先|さき}'], ['gum', 'left', 'Gum', '{歯肉|しにく}']],
+    en: ['Normal (for comparison)', 'This is a healthy upper jaw. The roots of the big upper back tooth (first molar) sit in bone. A layer of bone lies between the root tips and the <b>sinus</b> (an air space above the teeth). Here the layer is 3 mm. In real people it can be a few mm thick, or not there at all.' + cite(6, 8)],
+    ja: ['{正常|せいじょう}（{比較用|ひかくよう}）', '{健康|けんこう}な{上|うわ}あごです。{第一大臼歯|だいいちだいきゅうし}の{根|ね}は{骨|ほね}の{中|なか}にあり、{根|ね}の{先|さき}と<b>{上顎洞|じょうがくどう}</b>の{間|あいだ}には{骨|ほね}（ここでは3 mm）があります。{実際|じっさい}の{厚|あつ}さは{人|ひと}によって{数|すう}mmから0までさまざまです。' + cite(6, 8)],
+    labels: [['sinus', 'up', 'Sinus (air space)', '{上顎洞|じょうがくどう}'], ['floorN', 'right', 'Bone layer', '{骨|ほね}の{層|そう}'], ['rootN', 'left', 'Root tip', '{根|ね}の{先|さき}'], ['gum', 'left', 'Gum', '{歯|は}ぐき']],
   },
   risk: {
     parts: ['bone', 'teeth', 'gum', 'sinus'],
@@ -30,15 +30,15 @@ const STAGES = {
   },
   oac: {
     parts: ['bone', 'teeth', 'gum', 'sinus'],
-    en: ['Oroantral communication (OAC)', 'The dentist has taken out the first molar. The thin bone over its roots came away too. Now the empty socket opens straight into the sinus. This new, raw hole is an <b>OAC</b> (a hole between the mouth and the sinus). Germs from the mouth can get into the sinus through it. So it is best to close it soon, within 24 to 48 hours.' + cite(1)],
-    ja: ['{口腔上顎洞|こうくうじょうがくどう}{交通|こうつう}（OAC）', '{第一大臼歯|だいいちだいきゅうし}を{抜|ぬ}きました。{根|ね}の{上|うえ}の{薄|うす}い{骨|ほね}も{取|と}れたため、{抜|ぬ}いたあとの{穴|あな}が{上顎洞|じょうがくどう}に{直接|ちょくせつ}つながっています。この{新|あたら}しい{傷|きず}の{穴|あな}が<b>OAC</b>です。{口|くち}の{細菌|さいきん}が{洞|どう}に{入|はい}るのを{防|ふせ}ぐため、なるべく{早|はや}く（24〜48{時間|じかん}{以内|いない}）{閉|と}じるのがよいとされます。' + cite(1)],
-    labels: [['opening', 'up', 'Opening to sinus', '{洞|どう}への{穴|あな}'], ['socket', 'left', 'Empty socket', '{抜歯|ばっし}した{穴|あな}']],
+    en: ['A new hole into the sinus (OAC)', 'The dentist has taken out the big back tooth (first molar). The thin bone over its roots came away too. Now the empty socket opens straight into the sinus. This new, raw hole is an <b>OAC</b> (a hole between the mouth and the sinus). Germs from the mouth can get into the sinus through it. So it is best to close it soon, within 24 to 48 hours.' + cite(1)],
+    ja: ['{上顎洞|じょうがくどう}への{新|あたら}しい{穴|あな}（OAC）', '{第一大臼歯|だいいちだいきゅうし}を{抜|ぬ}きました。{根|ね}の{上|うえ}の{薄|うす}い{骨|ほね}も{取|と}れたため、{抜|ぬ}いたあとの{穴|あな}が{上顎洞|じょうがくどう}に{直接|ちょくせつ}つながっています。この{新|あたら}しい{傷|きず}の{穴|あな}が<b>OAC</b>です。{口|くち}の{細菌|さいきん}が{洞|どう}に{入|はい}るのを{防|ふせ}ぐため、なるべく{早|はや}く（24〜48{時間|じかん}{以内|いない}）{閉|と}じるのがよいとされます。' + cite(1)],
+    labels: [['opening', 'up', 'Opening to sinus', '{洞|どう}への{穴|あな}'], ['socket', 'left', 'Empty socket', '{歯|は}を{抜|ぬ}いた{穴|あな}']],
   },
   oaf: {
     parts: ['bone', 'teeth', 'gum', 'sinus', 'tract', 'lining'],
-    en: ['Oroantral fistula (OAF)', 'In this stage, nobody closed the hole. Weeks later, the socket has filled in around a narrow tunnel. Skin-like lining (epithelium) now covers the inside of the tunnel (dark red). This lined tunnel is an <b>OAF</b>. It will not close by itself. The sinus is often infected, and its lining swells (orange). To fix it, the surgeon treats the infection and cuts out the lined tunnel. Then they close the hole with a flap.' + cite(1)],
-    ja: ['{口腔上顎洞瘻|こうくうじょうがくどうろう}（OAF）', '{数週間後|すうしゅうかんご}、{穴|あな}は{閉|と}じられないままでした。{抜歯|ばっし}した{穴|あな}は{細|ほそ}いトンネルを{残|のこ}して{埋|う}まり、トンネルの{内側|うちがわ}は{皮膚|ひふ}のような{上皮|じょうひ}（{暗|くら}い{赤|あか}）でおおわれています。これが<b>OAF</b>で、{自然|しぜん}には{閉|と}じません。{上顎洞|じょうがくどう}は{感染|かんせん}し、{粘膜|ねんまく}が{腫|は}れていることが{多|おお}い（オレンジ）。{治療|ちりょう}では{感染|かんせん}を{治|なお}し、{上皮|じょうひ}のトンネルを{切|き}り{取|と}ってから{弁|べん}で{閉|と}じます。' + cite(1)],
-    labels: [['tract', 'right', 'Lined tunnel', '{瘻孔|ろうこう}'], ['lining', 'up', 'Swollen lining', '{腫|は}れた{粘膜|ねんまく}']],
+    en: ['A lasting, lined tunnel (OAF)', 'In this stage, nobody closed the hole. Weeks later, the socket has filled in around a narrow tunnel. Skin-like lining (epithelium) now covers the inside of the tunnel (dark red). This lined tunnel is an <b>OAF</b>. It will not close by itself. The sinus is often infected, and its lining swells (orange). To fix it, the surgeon treats the infection and cuts out the lined tunnel. Then they close the hole with a flap.' + cite(1)],
+    ja: ['{長|なが}く{続|つづ}くトンネル（OAF）', '{数週間後|すうしゅうかんご}、{穴|あな}は{閉|と}じられないままでした。{歯|は}を{抜|ぬ}いた{穴|あな}は{細|ほそ}いトンネルを{残|のこ}して{埋|う}まり、トンネルの{内側|うちがわ}は{皮膚|ひふ}のような{上皮|じょうひ}（{暗|くら}い{赤|あか}）でおおわれています。これが<b>OAF</b>で、{自然|しぜん}には{閉|と}じません。{上顎洞|じょうがくどう}は{感染|かんせん}し、{粘膜|ねんまく}が{腫|は}れていることが{多|おお}い（オレンジ）。{治療|ちりょう}では{感染|かんせん}を{治|なお}し、{上皮|じょうひ}のトンネルを{切|き}り{取|と}ってから{弁|べん}で{閉|と}じます。' + cite(1)],
+    labels: [['tract', 'right', 'Lined tunnel', 'トンネル'], ['lining', 'up', 'Swollen lining', '{腫|は}れた{粘膜|ねんまく}']],
   },
   clot: {
     parts: ['bone', 'teeth', 'gum', 'sinus', 'clot'],
@@ -49,14 +49,14 @@ const STAGES = {
   flap: {
     parts: ['bone', 'teeth', 'gum', 'sinus', 'clot', 'flap'],
     en: ['Repair: cheek-side gum flap (buccal advancement flap)', 'The surgeon frees the gum on the cheek side. They stretch it over the socket and stitch it to the gum on the palate side. The stitches should sit on firm bone, with no pulling. Surgeons often use this flap for small and medium holes. The downside: the groove between cheek and gum gets shallower. This can make a denture harder to wear later.' + cite(1, 9)],
-    ja: ['{閉鎖|へいさ}：{頬側|きょうそく}の{歯肉弁|しにくべん}（{頬側|きょうそく}{前進弁|ぜんしんべん}）', '{頬側|きょうそく}の{歯肉|しにく}をはがして{穴|あな}の{上|うえ}まで{伸|の}ばし、{口蓋側|こうがいそく}の{歯肉|しにく}に{縫|ぬ}いつけます。{縫|ぬ}い{目|め}は、ひっぱられずにしっかりした{骨|ほね}の{上|うえ}に{来|く}るようにします。{簡単|かんたん}で、{小|ちい}さい〜{中|ちゅう}くらいの{穴|あな}によく{使|つか}われます。{欠点|けってん}は{頬|ほお}と{歯肉|しにく}の{間|あいだ}の{溝|みぞ}が{浅|あさ}くなり、{将来|しょうらい}{入|い}れ{歯|ば}が{合|あ}いにくくなることです。' + cite(1, 9)],
-    labels: [['flap', 'right', 'Flap', '{弁|べん}'], ['flapB', 'left', 'From cheek', '{頬側|きょうそく}から']],
+    ja: ['{閉鎖|へいさ}：ほお{側|がわ}の{歯|は}ぐきの{弁|べん}（ほお{側|がわ}{前進弁|ぜんしんべん}）', 'ほお{側|がわ}の{歯|は}ぐきをはがして{穴|あな}の{上|うえ}まで{伸|の}ばし、{口蓋側|こうがいそく}の{歯|は}ぐきに{縫|ぬ}いつけます。{縫|ぬ}い{目|め}は、ひっぱられずにしっかりした{骨|ほね}の{上|うえ}に{来|く}るようにします。{簡単|かんたん}で、{小|ちい}さい〜{中|ちゅう}くらいの{穴|あな}によく{使|つか}われます。{欠点|けってん}はほおと{歯|は}ぐきの{間|あいだ}の{溝|みぞ}が{浅|あさ}くなり、{将来|しょうらい}{入|い}れ{歯|ば}が{合|あ}いにくくなることです。' + cite(1, 9)],
+    labels: [['flap', 'right', 'Flap', '{弁|べん}'], ['flapB', 'left', 'From cheek', 'ほお{側|がわ}から']],
   },
   bfp: {
     parts: ['bone', 'teeth', 'gum', 'sinus', 'clot', 'fat'],
-    en: ['Repair: buccal fat pad flap', 'There is a pad of fat (the buccal fat pad) in the cheek, behind the upper jaw. The surgeon gently draws it forward. It stays joined to its blood supply. They spread it over the socket and stitch it to the gum on the palate side. It suits holes at the back of the mouth. Surgeons can also add a cheek flap on top.' + cite(1, 5) + ' A review of 9 trials compared the main repairs. With the fat pad, holes closed more often and came back less often than with the cheek flap or a palate flap.' + cite(4)],
-    ja: ['{閉鎖|へいさ}：{頬脂肪体|きょうしぼうたい}{弁|べん}', '{頬|ほお}の{奥|おく}、{上顎|じょうがく}の{後|うし}ろにある{脂肪|しぼう}のかたまりを、{血流|けつりゅう}をつけたまま{前|まえ}に{引|ひ}き{出|だ}し、{穴|あな}の{上|うえ}に{広|ひろ}げて{口蓋|こうがい}の{歯肉|しにく}に{縫|ぬ}いつけます。{奥|おく}の{方|ほう}の{穴|あな}に{向|む}いており、{頬側|きょうそく}の{弁|べん}と{組|く}み{合|あ}わせることもあります。' + cite(1, 5) + 'ランダム{化|か}{試験|しけん}9{件|けん}のネットワークメタアナリシスでは、{頬脂肪体|きょうしぼうたい}は{頬側弁|きょうそくべん}や{口蓋弁|こうがいべん}より{確実|かくじつ}に{閉|と}じ、{再発|さいはつ}が{少|すく}なかったと{報告|ほうこく}されています。' + cite(4)],
-    labels: [['fat', 'up', 'Fat pad stalk', '{頬脂肪体|きょうしぼうたい}'], ['fatC', 'right', 'Fat pad', '{脂肪|しぼう}']],
+    en: ['Repair: cheek fat pad flap (buccal fat pad)', 'There is a pad of fat (the buccal fat pad) in the cheek, behind the upper jaw. The surgeon gently draws it forward. It stays joined to its blood supply. They spread it over the socket and stitch it to the gum on the palate side. It suits holes at the back of the mouth. Surgeons can also add a cheek flap on top.' + cite(1, 5) + ' A review of 9 trials compared the main repairs. Holes closed more often with the fat pad than with the cheek flap or a palate flap. They also came back less often.' + cite(4)],
+    ja: ['{閉鎖|へいさ}：ほおの{脂肪|しぼう}のかたまりでふさぐ', 'ほおの{奥|おく}、{上|うわ}あごの{後|うし}ろにある{脂肪|しぼう}のかたまりを、{血流|けつりゅう}をつけたまま{前|まえ}に{引|ひ}き{出|だ}し、{穴|あな}の{上|うえ}に{広|ひろ}げて{口蓋|こうがい}の{歯|は}ぐきに{縫|ぬ}いつけます。{奥|おく}の{方|ほう}の{穴|あな}に{向|む}いており、ほお{側|がわ}の{弁|べん}と{組|く}み{合|あ}わせることもあります。' + cite(1, 5) + 'ランダム{化|か}{試験|しけん}9{件|けん}のネットワークメタアナリシスでは、ほおの{脂肪|しぼう}のかたまりはほお{側|がわ}の{弁|べん}や{口蓋弁|こうがいべん}より{確実|かくじつ}に{閉|と}じ、{再発|さいはつ}が{少|すく}なかったと{報告|ほうこく}されています。' + cite(4)],
+    labels: [['fat', 'up', 'Fat pad stalk', 'ほおの{脂肪|しぼう}のかたまり'], ['fatC', 'right', 'Fat pad', '{脂肪|しぼう}']],
   },
 };
 const LANG = () => (html.lang === 'ja' ? 'ja' : 'en');
