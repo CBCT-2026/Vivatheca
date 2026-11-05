@@ -1,0 +1,11 @@
+Use case: precise-object-edit
+Asset type: landing-page contributor and clinical review illustration
+Primary request: make the contributor group visibly more mature and make their working equipment substantially more technology-related
+Input images: Image 1 is the edit target and composition reference
+Scene/backdrop: preserve the same bright collaborative medical makerspace and round-table composition
+Subject: replace the youthful group with a diverse group of experienced adult clinicians, biomedical engineers, model creators and translators, predominantly aged 40 to 65; preserve the anatomically realistic heart fully encased in clear resin at the exact centre of the table
+Style/medium: preserve the polished natural editorial-photography style, lighting, camera angle and Vivatheca palette of Image 1
+Composition/framing: preserve the wide landscape framing and central resin heart; position mature contributors around the table in active discussion
+Equipment: replace sketchbooks and craft-like stationery with a laptop showing a non-readable 3D mesh viewport, two tablets showing non-readable anatomical review interfaces, digital calipers, a compact handheld 3D scanner, a colour-calibrated monitor edge, and a small FDM printer visible in the background; keep only minimal paper notes
+Lighting/mood: calm daylight, expert, collaborative and credible
+Constraints: change the ages and equipment while preserving the resin-encased heart, group diversity, room layout, palette and photographic treatment; no readable text, no logos, no watermark, no patient data, no surgical scene, no extra anatomy inside the resin block

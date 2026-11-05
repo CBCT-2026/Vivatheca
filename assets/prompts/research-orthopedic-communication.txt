@@ -1,0 +1,10 @@
+Use case: scientific-educational
+Asset type: Vivatheca peer-reviewed research article illustration
+Primary request: Create an original editorial medical-education illustration representing a randomized clinical trial about 3D-printed anatomical models improving doctor-patient communication in an orthopedic consultation.
+Scene/backdrop: calm contemporary consultation room with a clinician and adult patient seated as equals at a table.
+Subject: both people are focused on one accurate, clean 3D-printed knee joint model that the clinician uses to explain anatomy; no diagnostic screens and no patient-identifying details.
+Style/medium: refined soft-3D editorial illustration with matte resin, tactile paper, subtle realistic anatomy, and humane public-interest design matching Vivatheca.
+Composition/framing: landscape 4:3, model clearly visible in the right-centre, generous uncluttered spacing, suitable for a website article panel.
+Lighting/mood: calm daylight, trustworthy and conversational.
+Color palette: deep navy #00244D, cyan #14C9D7, warm white #F7FAFB, pale aqua #DFF7F9, restrained coral #D55748.
+Constraints: no readable text, no logos, no watermark, no medical gore, no exaggerated outcome claim, no futuristic hologram clichés, no stock-photo appearance.
