@@ -12,7 +12,7 @@ Next.js-compatible Vinext with TypeScript and React, packaged for Cloudflare Sit
 
 ## Users
 
-Primary users are clinicians and medical educators explaining anatomy, conditions, and procedures during consultations or teaching. Patients, families, and carers revisit shared explanations afterward. Supporting audiences include students, model designers, researchers, clinical reviewers, translators, donors, clinics, printers, and institutional partners.
+Primary users are clinicians and medical educators explaining anatomy, conditions, and procedures during consultations or teaching. Patients, families, and carers revisit shared explanations afterward. Dental and medical students are a distinct second audience with their own section (`/learn`): the same models with technical terms, staging and classification systems and primary sources, kept separate from patient-facing pages. Supporting audiences include model designers, researchers, clinical reviewers, translators, donors, clinics, printers, and institutional partners.
 
 ## Product Purpose
 
