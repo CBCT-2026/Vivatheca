@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { ContactSection } from './contact-section';
+import { mailto } from './contact';
 import { footerGroups } from './data';
 import { disclaimerHref } from './disclaimer-text';
 import type { Dictionary } from './i18n/dictionaries';
@@ -52,10 +54,12 @@ export async function SiteFooter() {
         </div>
       </div>
 
+      <ContactSection t={t} />
+
       <div className="footer-legal">
         <p>© 2026 Vivatheca</p>
         <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <Link href={disclaimerHref}><Ruby text={t.disclaimer.full} /></Link></p>
-        <nav aria-label={plain(t.footer.legal)}><Link href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></Link><Link href="/privacy"><Ruby text={t.footer.privacy} /></Link><Link href="/report"><Ruby text={t.footer.report} /></Link><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback"><Ruby text={t.footer.accessibility} /></a></nav>
+        <nav aria-label={plain(t.footer.legal)}><Link href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></Link><Link href="/privacy"><Ruby text={t.footer.privacy} /></Link><Link href="/report"><Ruby text={t.footer.report} /></Link><a href={mailto('Accessibility feedback')}><Ruby text={t.footer.accessibility} /></a></nav>
       </div>
     </footer>
   );

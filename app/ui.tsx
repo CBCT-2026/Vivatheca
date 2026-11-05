@@ -13,7 +13,7 @@ function Icon({ name, size = 20 }: { name: string; size?: number }) {
 }
 
 export function MobileNavigation({ furigana }: { furigana: boolean }) {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const [open, setOpen] = useState(false);
   return (
     <div className="mobile-nav">
@@ -29,7 +29,9 @@ export function MobileNavigation({ furigana }: { furigana: boolean }) {
           <a href="/create"><Ruby text={t.nav.createInfo} /></a>
           <a href="/about"><Ruby text={t.nav.about} /></a>
           <a href="/report"><Ruby text={t.nav.report} /></a>
-          <LanguageSwitcher furigana={furigana} className="in-menu" />
+          <a href="/learn"><Ruby text={t.nav.studentsMobile} /></a>
+          <a href="#contact" onClick={() => setOpen(false)}><Ruby text={t.contact.heading} /></a>
+          {locale === 'ja' ? <LanguageSwitcher furigana={furigana} className="in-menu" furiganaOnly /> : null}
         </nav>
       ) : null}
     </div>

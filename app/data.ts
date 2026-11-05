@@ -1,4 +1,5 @@
 import type { Dictionary } from './i18n/dictionaries';
+import { mailto } from './contact';
 
 // Links and icons stay here; their words come from the dictionary for the visitor's language.
 
@@ -13,14 +14,15 @@ export function footerGroups(t: Dictionary) {
         { label: f.development, href: '/development/' },
         { label: f.orthognathic, href: '/orthognathic/' },
         { label: t.nav.createInfo, href: '/create' },
+        { label: f.explore.students, href: '/learn' },
       ],
     },
     {
       label: f.participate.label,
       links: [
         { label: f.report, href: '/report' },
-        { label: f.participate.review, href: 'mailto:hello@vivatheca.com?subject=Join%20clinical%20review' },
-        { label: f.participate.contribute, href: 'mailto:hello@vivatheca.com?subject=Contribute%20a%20model' },
+        { label: f.participate.review, href: mailto('Join clinical review') },
+        { label: f.participate.contribute, href: mailto('Contribute a model') },
         { label: f.participate.sponsor, href: '/#sponsor' },
       ],
     },
@@ -29,7 +31,7 @@ export function footerGroups(t: Dictionary) {
       links: [
         { label: f.aboutGroup.about, href: '/about' },
         { label: f.aboutGroup.privacy, href: '/privacy' },
-        { label: f.aboutGroup.contact, href: 'mailto:hello@vivatheca.com' },
+        { label: f.aboutGroup.contact, href: mailto() },
       ],
     },
   ];

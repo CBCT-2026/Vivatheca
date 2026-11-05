@@ -18,6 +18,8 @@ export const licence = {
 export const catalogue: CatalogueModel[] = [
   { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.1', updated: '2026-11-05' },
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '1.0', updated: '2026-11-05' },
+  { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '1.0', updated: '2026-11-05' },
+  { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'orthognathic', href: '/orthognathic/', image: '/assets/renders/orthognathic.webp', version: '1.0', updated: '2026-11-05' },
 ];
 
