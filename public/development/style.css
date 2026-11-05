@@ -134,3 +134,11 @@ rt { font-size: .5em; font-weight: 500; line-height: 1; user-select: none; }
 :root[data-furigana="off"] rt, :root[data-furigana="off"] rp { display: none; }
 :lang(ja) body { line-break: strict; }
 :lang(ja) p, :lang(ja) li { line-height: 1.9; }
+
+/* Contact footer (copy of app/contact.ts). */
+.contact { max-width: 640px; margin: 0 auto; padding: 24px 16px 40px; border-top: 1px solid var(--line); }
+.contact ul { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 8px; }
+.contact li > * { display: flex; gap: 8px; align-items: center; min-height: 48px; padding: 8px 14px;
+  border: 1px solid var(--line); border-radius: 12px; color: var(--accent); text-decoration: none; }
+.contact b { color: var(--heading); }
+.contact .pending { border-style: dashed; color: var(--muted); }

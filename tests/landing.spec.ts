@@ -125,7 +125,18 @@ test('footer gives visitors clear ways to explore, participate and connect', asy
   await expect(footer.getByRole('navigation', { name: 'Participate' })).toBeVisible();
   await expect(footer.getByRole('navigation', { name: 'Connect' })).toBeVisible();
   await expect(footer.getByRole('link', { name: 'Browse the featured model' })).toHaveAttribute('href', '#collection');
-  await expect(footer.getByRole('link', { name: 'Contact Vivatheca' })).toHaveAttribute('href', 'mailto:hello@vivatheca.com');
+  await expect(footer.getByRole('link', { name: 'Contact Vivatheca', exact: true })).toHaveAttribute('href', 'mailto:hello@vivatheca.com');
   await expect(footer).toContainText('Vivatheca is for general education only. It is not medical advice');
   await expect(footer.getByRole('link', { name: 'Disclaimer', exact: true })).toHaveAttribute('href', '/disclaimer');
+});
+
+test('every page ends with a contact section for Instagram, X and email', async ({ page }) => {
+  for (const path of ['/', '/create', '/disclaimer']) {
+    await page.goto(path);
+    const contact = page.getByRole('contentinfo').getByRole('region', { name: 'Contact us' });
+    await expect(contact).toBeVisible();
+    await expect(contact).toContainText('Instagram');
+    await expect(contact).toContainText('X');
+    await expect(contact.getByRole('link', { name: 'Contact Vivatheca by Email' })).toHaveAttribute('href', 'mailto:hello@vivatheca.com');
+  }
 });
