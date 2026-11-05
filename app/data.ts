@@ -92,16 +92,6 @@ export function contributionPaths(t: Dictionary) {
 // Credits stay in English, the language the sources were published in.
 export const clinicalImages = [
   {
-    key: 'opg16',
-    src: '/images/clinical/wisdom-tooth/opg-impacted-wisdom-teeth-16.jpg',
-    width: 1200,
-    height: 584,
-    credit: 'Coronation Dental Specialty Group. Wikimedia Commons: Basic panoramic radiograph.jpg.',
-    href: 'https://commons.wikimedia.org/wiki/File:Basic_panoramic_radiograph.jpg',
-    licence: { name: 'CC BY 3.0', href: 'https://creativecommons.org/licenses/by/3.0/' },
-    changes: 'Resized.',
-  },
-  {
     key: 'opgLow',
     src: '/images/clinical/wisdom-tooth/opg-low-impacted-lower-third-molar.jpg',
     width: 750,
@@ -116,7 +106,7 @@ export const clinicalImages = [
     src: '/images/clinical/wisdom-tooth/ct-third-molar-canal.jpg',
     width: 750,
     height: 428,
-    credit: 'Same article as Image 2, Figure 2.',
+    credit: 'Same article as Image 1, Figure 2.',
     href: 'https://doi.org/10.7759/cureus.84308',
     licence: { name: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
     changes: 'None.',

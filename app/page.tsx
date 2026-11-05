@@ -76,7 +76,7 @@ export default async function Home() {
                     <img src={image.src} width={image.width} height={image.height} loading="lazy" alt={plain(text.alt)} />
                     <figcaption>
                       <Ruby text={text.caption} />
-                      <span className="clinical-credit" lang="en">{plain(t.clinical.credit)}: {image.credit} <a href={image.href} target="_blank" rel="noreferrer">{image.href.replace('https://', '')}</a>. {plain(t.clinical.licence)}: <a href={image.licence.href} target="_blank" rel="noreferrer">{image.licence.name}</a>. {plain(t.clinical.changes)}: {image.changes}</span>
+                      <span className="clinical-credit">{plain(t.clinical.credit)}: <span lang="en">{image.credit} <a href={image.href} target="_blank" rel="noreferrer">{image.href.replace('https://', '')}</a>.</span> {plain(t.clinical.licence)}: <a href={image.licence.href} target="_blank" rel="noreferrer" lang="en">{image.licence.name}</a>. {plain(t.clinical.changes)}: <span lang="en">{image.changes}</span></span>
                     </figcaption>
                   </figure>
                 );

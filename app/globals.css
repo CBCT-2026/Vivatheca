@@ -677,7 +677,7 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .clinical-note { max-width: 62ch; margin: .6rem 0 0; color: var(--muted); line-height: 1.6; }
 .clinical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1.5rem; margin-top: 1.5rem; align-items: start; }
 .clinical-figure { margin: 0; }
-.clinical-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); background: #000; }
+.clinical-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); background: #000; border: 1px solid var(--line); box-sizing: border-box; }
 .clinical-figure figcaption { margin-top: .6rem; color: var(--text-strong); font-size: .95rem; line-height: 1.5; }
 .clinical-credit { display: block; margin-top: .35rem; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
 .clinical-credit a { color: inherit; }
