@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stainless steel crown on a baby molar | Vivatheca</title>
+<meta name="description" content="Interactive 3D model of a lower baby molar: healthy, with large decay, with a large filling, trimmed, and with a stainless steel crown. With the evidence for crowns, cited.">
+<meta name="robots" content="noindex">
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="/development/style.css">
+<style>
+  .stages { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .stages button { min-height: 52px; padding: 6px 2px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 14px/1.15 system-ui, -apple-system, sans-serif; cursor: pointer; }
+  .stages button small { display: block; font-weight: 500; font-size: 11px; color: var(--muted); }
+  .stages button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  @media (max-width: 420px) { .stages button { font-size: 13px; } }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .model-note { font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+  .model-note strong { color: var(--text); }
+  .dot.tooth { background: #e4dcd1; } .dot.decay { background: #61462b; } .dot.filling { background: #ad98dd; }
+  .dot.steel { background: linear-gradient(135deg, #f2f2f4, #9a9ca2); } .dot.cement { background: #f8f3e6; }
+  .dot.gum { background: #cf7c80; } .dot.bone { background: #d7cbbb; } .dot.pulp { background: #c9262e; }
+  .evidence { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+  .evidence th, .evidence td { border-bottom: 1px solid var(--line); padding: 6px 4px; text-align: left; vertical-align: top; }
+  .evidence th { color: var(--heading); font-weight: 700; }
+  .source-note { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; margin: 10px 0; font-size: 14px; color: var(--muted); }
+  .source-note p { margin: 4px 0; }
+  .download { display: inline-block; margin-top: 4px; }
+</style>
+<script type="module" src="/development/vendor/model-viewer/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/">Vivatheca home</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
+  </div>
+</header>
+
+<main>
+  <h1>Stainless steel crown on a baby molar</h1>
+
+  <model-viewer id="mv"
+    src="models/healthy.glb"
+    alt="3D model of a healthy lower baby back tooth in a block of gum and bone, with the adult tooth growing underneath."
+    camera-controls camera-orbit="-30deg 68deg 46mm" camera-target="0mm -1mm 0mm" min-camera-orbit="auto auto 20mm" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="1" exposure="1.05" environment-image="neutral" loading="eager">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <div class="stages" role="group" aria-label="Choose a stage">
+    <button type="button" data-stage="healthy" aria-pressed="true">Healthy<small>normal</small></button>
+    <button type="button" data-stage="decay" aria-pressed="false">Decay<small>large hole</small></button>
+    <button type="button" data-stage="filling" aria-pressed="false">Filling<small>large</small></button>
+    <button type="button" data-stage="prepared" aria-pressed="false">Trimmed<small>for crown</small></button>
+    <button type="button" data-stage="crown" aria-pressed="false">Crown<small>steel</small></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model controls">
+    <button type="button" data-orbit="-30deg 68deg 46mm" aria-pressed="true">Cheek side</button>
+    <button type="button" data-orbit="0deg 10deg 40mm" aria-pressed="false">Biting surface</button>
+    <button type="button" data-orbit="90deg 70deg 46mm" aria-pressed="false">Front side</button>
+    <button type="button" id="xray" aria-pressed="false">See-through</button>
+  </div>
+  <ul class="legend" id="legend"></ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <p class="model-note"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+
+  <section>
+    <h2>What the model shows</h2>
+    <p>The model shows one lower baby back tooth (the <b>second baby molar</b>) in a block of gum and bone, as on a teaching model. Under it, the adult tooth that will replace it (the <b>second premolar</b>) is growing in the jaw. Choose a stage to see the tooth healthy, with a large area of decay, with a large filling, trimmed for a crown, and with a stainless steel crown. Tap <b>See-through</b> to look inside: you can see the nerve (pulp, red), the trimmed tooth under the crown, and the growing adult tooth.</p>
+  </section>
+
+  <section>
+    <h2>What is a stainless steel crown?</h2>
+    <p>A stainless steel crown is a ready-made metal cap. It covers the whole of a baby back tooth, down to just under the gum. Dentists use it when a baby molar has decay on several surfaces, after treatment of the nerve inside the tooth (a pulpotomy or pulpectomy), when a tooth is broken or did not form properly, and for children at high risk of new decay.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+    <p>Usually the tooth is numbed, the decay is removed, and the top and the sides that touch the next teeth are trimmed a little so the crown fits. The crown is then pressed on and cemented.<sup class="cite"><a href="#ref-2">2</a></sup> The baby tooth, with its crown, falls out in the normal way when the adult tooth comes through.</p>
+  </section>
+
+  <section>
+    <h2>Why a crown instead of a large filling?</h2>
+    <p>A filling replaces only the part of the tooth that was lost. When decay is large and runs between the teeth, the walls of tooth left around a filling are thin. A crown covers every surface, so it holds the tooth together and leaves no edges between filling and tooth where new decay can start.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+    <table class="evidence">
+      <caption class="small" style="text-align:left">What studies found when crowns were compared with fillings in baby molars</caption>
+      <thead><tr><th scope="col">Source</th><th scope="col">Finding</th></tr></thead>
+      <tbody>
+        <tr><td>Cochrane systematic review, 2015<sup class="cite"><a href="#ref-2">2</a></sup></td><td>Crowns probably lower the risk of a major failure (such as an abscess or the tooth needing to come out) in the long term, compared with fillings: risk ratio 0.18 (3 trials, 346 teeth, moderate-quality evidence). Pain in the long term was also less likely with crowns: risk ratio 0.15 (2 trials, 312 teeth).</td></tr>
+        <tr><td>Systematic review, 2000<sup class="cite"><a href="#ref-5">5</a></sup></td><td>Across 10 studies, 1.9 to 30.3 % of steel crowns failed, compared with 11.6 to 88.7 % of amalgam (silver) fillings.</td></tr>
+        <tr><td>Split-mouth study, 2021 (988 baby molars)<sup class="cite"><a href="#ref-6">6</a></sup></td><td>After 2 years, 92.8 % of crowns were still working, compared with 80.0 % of fillings that covered several surfaces. The difference was largest in children treated at 4 years or younger.</td></tr>
+        <tr><td>Randomised trial, Hall Technique, 5 years<sup class="cite"><a href="#ref-3">3</a></sup></td><td>Major failures: 3 % of crowns and 16.5 % of fillings. Minor failures (such as a lost filling or new decay): 5 % of crowns and 42 % of fillings.</td></tr>
+      </tbody>
+    </table>
+    <p>The American Academy of Pediatric Dentistry guideline says steel crowns are indicated for children at high risk of decay with large or multi-surface decay in baby molars, especially when they need treatment under sedation or general anaesthesia.<sup class="cite"><a href="#ref-1">1</a></sup> It also notes that most of the evidence for crowns comes from non-randomised and retrospective studies, and that a small filling can still be the right choice for a small hole.<span><sup class="cite"><a href="#ref-1">1</a></sup></span></p>
+  </section>
+
+  <section>
+    <h2>The Hall Technique</h2>
+    <p>In the Hall Technique, the dentist cements a steel crown over the baby molar without numbing, without removing the decay and without trimming the tooth. The crown seals the decay in, which controls it instead of removing it.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup> The model's <b>Trimmed</b> stage shows the usual (conventional) method; with the Hall Technique, the crown would sit over the untrimmed tooth.</p>
+  </section>
+
+  <section class="source-note" aria-label="Where this information comes from">
+    <p><b>Where this information comes from.</b> Uses of steel crowns and the guideline recommendations are from the American Academy of Pediatric Dentistry's <i>Best Practices: Restorative Dentistry</i> (reference 1). Treatment outcomes are from the Cochrane systematic review (2), randomised and split-mouth studies (3, 6) and a systematic review (5). Tooth sizes are from <i>Wheeler's Dental Anatomy</i> (7). Each sentence above shows its source number.</p>
+  </section>
+
+  <section>
+    <h2>3D printing</h2>
+    <p><a class="download" href="downloads/vivatheca-stainless-steel-crown-2x.zip">Download 3D print files (STL, 2 times life size)</a></p>
+    <p class="small">Separate STL parts so you can print them in different colours: bone and gum base, the adult tooth, and one baby tooth for each stage (decay and filling are separate parts), the trimmed tooth, the cement and the crown. Print the crown in silver. Size: 2 times life size, because a baby molar is only about 10 mm across.</p>
+    <p class="small"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. Printed models are not sterile and must not be put in the mouth; small parts are a choking hazard. <a href="/disclaimer">Full disclaimer</a></p>
+  </section>
+
+  <section class="disclaimer">
+    <h2>About this model</h2>
+    <p>Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small">Prototype, version 0.1. The baby molar is made by resizing an adult first molar to typical lower second baby molar sizes (crown 9.9 mm front to back, 8.7 mm cheek to tongue, crown 5.5 mm tall, roots 9.8 mm),<sup class="cite"><a href="#ref-7">7</a></sup> and spreading the roots apart, as baby molar roots are. Gum and bone are simple blocks, as on a teaching model, and the neighbouring teeth are left out. The size and place of the decay, the amount of trimming and the crown thickness are illustrations, not measurements; the crown wall is shown thicker than a real crown so it can be 3D printed.</p>
+    <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: lower first molar, its pulp and the second premolar extracted, resized and reshaped; decay, filling, trimming, cement, crown, gum and bone added. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2>Sources</h2></summary>
+    <ol>
+      <li id="ref-1">American Academy of Pediatric Dentistry. Pediatric restorative dentistry (Best Practices: Restorative Dentistry). The Reference Manual of Pediatric Dentistry. Chicago, IL: American Academy of Pediatric Dentistry; 2025:473-86. <a href="https://www.aapd.org/media/policies_guidelines/bp_restorativedent.pdf">aapd.org</a></li>
+      <li id="ref-2">Innes NPT, Ricketts D, Chong LY, Keightley AJ, Lamont T, Santamaria RM. Preformed crowns for decayed primary molar teeth. Cochrane Database Syst Rev. 2015;(12):CD005512. <a href="https://doi.org/10.1002/14651858.CD005512.pub3">doi.org/10.1002/14651858.CD005512.pub3</a></li>
+      <li id="ref-3">Innes NPT, Evans DJP, Stirrups DR. Sealing caries in primary molars: randomized control trial, 5-year results. J Dent Res. 2011;90(12):1405-1410. <a href="https://doi.org/10.1177/0022034511422064">doi.org/10.1177/0022034511422064</a></li>
+      <li id="ref-4">Seale NS. The use of stainless steel crowns. Pediatr Dent. 2002;24(5):501-505. <a href="https://pubmed.ncbi.nlm.nih.gov/12412965/">PubMed 12412965</a></li>
+      <li id="ref-5">Randall RC, Vrijhoef MM, Wilson NH. Efficacy of preformed metal crowns vs. amalgam restorations in primary molars: a systematic review. J Am Dent Assoc. 2000;131(3):337-343. <a href="https://doi.org/10.14219/jada.archive.2000.0177">doi.org/10.14219/jada.archive.2000.0177</a></li>
+      <li id="ref-6">Wu E, Yang YJ, Munz SM, Hsiao CC, Boynton JR. Restorations versus stainless steel crowns in primary molars: a retrospective split-mouth study. Pediatr Dent. 2021;43(4):290-295. <a href="https://pubmed.ncbi.nlm.nih.gov/34467846/">PubMed 34467846</a></li>
+      <li id="ref-7">Nelson SJ. Wheeler's Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. Chapter on the primary dentition (table of primary tooth measurements, after G. V. Black).</li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small">Version 0.1, 5 November 2026.</p>
+</main>
+<script src="/development/theme.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>

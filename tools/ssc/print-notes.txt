@@ -1,0 +1,20 @@
+Vivatheca: stainless steel crown on a lower baby molar (prototype v0.1, 5 November 2026)
+Size: 2 times life size (STL units: mm). A real lower second baby molar crown is about 10 mm front to back.
+
+Parts (print each in its own colour; all parts share one coordinate system, so load them as one object in your slicer):
+  base-bone.stl              bone block with the tooth socket and the premolar crypt (cream)
+  base-gum.stl               gum over the bone (pink)
+  premolar-crown.stl         partly formed adult second premolar, sits in the crypt (tooth colour)
+  tooth-healthy.stl          healthy baby molar (tooth colour)
+  tooth-decay-sound-part / tooth-decay-decay-part         decayed tooth (tooth colour + dark brown)
+  tooth-filling-tooth-part / tooth-filling-filling-part   large filling (tooth colour + any contrasting colour)
+  tooth-prepared.stl + tooth-prepared-base.stl            tooth trimmed for a crown, with filling material where decay was
+  crown-cement.stl + crown-steel.stl                      cement and stainless steel crown (print the crown in silver)
+
+The gum and bone are a sectional teaching block; the neighbouring teeth are left out.
+The crown wall is 0.7 mm at this size (0.35 mm at life size), thicker than a real crown so it can be printed.
+
+Not yet clinically reviewed. Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body.
+Printed models are not sterile and must not be put in the mouth. Small parts are a choking hazard. Full disclaimer: https://vivatheca.com/disclaimer
+
+Licence: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Made by Vivatheca from Z-Anatomy (CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan).
