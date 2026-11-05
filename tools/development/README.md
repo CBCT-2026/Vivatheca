@@ -14,7 +14,7 @@ Needs Python 3.11 with `bpy` (Blender 5.0 as a module), `trimesh`, `manifold3d`,
 
 ## Method and limits
 See the docstring at the top of `generate.py`. In short:
-- Timings: `timings.csv`, typical textbook ages. **Not yet checked against the London Atlas tables** (AlQahtani 2010), which could not be downloaded from the build machine.
+- Timings: `timings.csv`, typical ages, checked 5 Nov 2026 against the ADA eruption charts, the AAPD chronology table and the AlQahtani 2010 London Atlas paper (see the CSV header). The QMUL atlas diagrams themselves were not viewed.
 - Baby teeth are permanent teeth resized to typical baby tooth widths and lengths (Wheeler averages), placed side by side along the arch.
 - Child jaw: the part behind the first molars is shorter (0.80 at 6.5 to 0.92 at 12.5) and the ramus lower (0.85 to 0.94). Values are estimates, to be checked against growth norms.
 - For printing, any baby tooth that did not touch bone was nudged up to 3 mm towards the tongue and up to 4 mm deeper; see `print-notes.txt`.
