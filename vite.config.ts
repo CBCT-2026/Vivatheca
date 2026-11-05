@@ -7,8 +7,10 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === 'seatbelt';
 
 const localBindingConfig = {
   name: 'vivatheca',
-  main: 'vinext/server/app-router-entry',
+  main: './worker/index.ts',
   compatibility_flags: ['nodejs_compat'],
+  // Run the Worker before static files so the optional password gate covers everything.
+  assets: { binding: 'ASSETS', run_worker_first: true },
 };
 
 export default defineConfig(async () => {
