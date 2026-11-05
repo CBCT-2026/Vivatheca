@@ -88,7 +88,8 @@ test('print section offers the STL download and sponsorship contact', async ({ p
 
 test('generated landing-page illustrations carry visible disclosure and platform terminology', async ({ page }) => {
   await page.goto('/');
-  const figures = page.locator('main figure');
+  // Real clinical images carry their own source and licence credit instead (see the clinical images test).
+  const figures = page.locator('main figure:not(.clinical-figure)');
   const count = await figures.count();
   expect(count).toBeGreaterThan(0);
   for (let i = 0; i < count; i += 1) {

@@ -670,3 +670,14 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
   .contact-links { display: grid; grid-template-columns: 1fr; }
   .contact-links a, .contact-pending { min-width: 0; }
 }
+
+/* Real radiographs and scans under the homepage model (sources: assets/clinical-images/manifest.json). */
+.clinical-images { margin-top: 3rem; }
+.clinical-images h3 { margin: 0; color: var(--heading); font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2; }
+.clinical-note { max-width: 62ch; margin: .6rem 0 0; color: var(--muted); line-height: 1.6; }
+.clinical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1.5rem; margin-top: 1.5rem; align-items: start; }
+.clinical-figure { margin: 0; }
+.clinical-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); background: #000; }
+.clinical-figure figcaption { margin-top: .6rem; color: var(--text-strong); font-size: .95rem; line-height: 1.5; }
+.clinical-credit { display: block; margin-top: .35rem; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
+.clinical-credit a { color: inherit; }

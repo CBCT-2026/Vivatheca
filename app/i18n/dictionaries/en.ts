@@ -211,6 +211,31 @@ const en = {
       },
     ],
   },
+  clinical: {
+    heading: 'Impacted wisdom teeth on real X-rays and scans',
+    note: 'These images are from real patients. Their authors published them under open licences; each licence is given under the image and is not the model licence.',
+    images: {
+      opg16: {
+        alt: 'Panoramic X-ray of a teenager. The wisdom teeth at the back of the jaws have not come through and lie tilted inside the bone.',
+        caption: 'Image 1. Impacted wisdom teeth in a 16-year-old, on a panoramic X-ray (OPG). They are stuck inside the jaw and have not come through.',
+      },
+      opgLow: {
+        alt: 'Panoramic X-ray. The lower left wisdom tooth lies deep in the jaw, low down behind the second molar.',
+        caption: 'Image 2. A lower wisdom tooth lying deep in the jaw, close to the roots of the tooth in front of it.',
+      },
+      ctCanal: {
+        alt: 'Four CT slices through the lower jaw. The wisdom tooth crown sits just above a dark round canal that carries the nerve.',
+        caption: 'Image 3. The same tooth on CT slices. It sits just above the nerve canal (inferior alveolar canal), as in the 3D model.',
+      },
+      cbctNerve: {
+        alt: 'A grid of CBCT slices through a lower wisdom tooth. In several slices the nerve canal passes between the tooth roots.',
+        caption: 'Image 4. 3D scan (CBCT) slices of another patient: here the nerve canal runs between the roots of the wisdom tooth.',
+      },
+    },
+    credit: 'Credit',
+    licence: 'Licence',
+    changes: 'Changes',
+  },
   // The English disclaimer wording lives in app/disclaimer-text.ts (single source of truth).
   disclaimer: {
     title: 'Disclaimer — Vivatheca',

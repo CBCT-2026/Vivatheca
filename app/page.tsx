@@ -1,4 +1,4 @@
-import { contributionPaths, footerGroups, publications, trustItems, understandingPaths } from './data';
+import { clinicalImages, contributionPaths, footerGroups, publications, trustItems, understandingPaths } from './data';
 import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
@@ -65,6 +65,24 @@ export default async function Home() {
             <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.collection.label} /></div>
           </div>
           <ModelExperience />
+          <div className="clinical-images" id="clinical-images">
+            <h3><Ruby text={t.clinical.heading} /></h3>
+            <p className="clinical-note"><Ruby text={t.clinical.note} /></p>
+            <div className="clinical-grid">
+              {clinicalImages.map((image, index) => {
+                const text = t.clinical.images[image.key];
+                return (
+                  <figure key={image.key} className="clinical-figure" id={`img-${index + 1}`}>
+                    <img src={image.src} width={image.width} height={image.height} loading="lazy" alt={plain(text.alt)} />
+                    <figcaption>
+                      <Ruby text={text.caption} />
+                      <span className="clinical-credit" lang="en">{plain(t.clinical.credit)}: {image.credit} <a href={image.href} target="_blank" rel="noreferrer">{image.href.replace('https://', '')}</a>. {plain(t.clinical.licence)}: <a href={image.licence.href} target="_blank" rel="noreferrer">{image.licence.name}</a>. {plain(t.clinical.changes)}: {image.changes}</span>
+                    </figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </div>
         </section>
 
         <section className="understanding-section" id="how-it-works">
