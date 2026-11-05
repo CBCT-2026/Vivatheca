@@ -28,9 +28,9 @@ SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('/home/claude/work/za')
 OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE / 'out'
 AGES = [6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5]
 
-# Colours: bone and adult teeth match the wisdom tooth model (linear RGB, roughness 0.7).
-# Baby teeth use a blue so they stand apart, as on the Schour-Massler chart.
-COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'adult': [0.6724, 0.5972, 0.4969, 1], 'baby': [0.1, 0.22, 0.62, 1]}
+# Colours: bone matches the wisdom tooth model (linear RGB, roughness 0.7). Adult teeth yellow and
+# baby teeth blue, as on the Schour-Massler chart (Luke, 5 November 2026).
+COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'adult': [0.768, 0.624, 0.102, 1], 'baby': [0.1, 0.22, 0.62, 1]}
 CROWN_FRAC = {'I1': .42, 'I2': .42, 'C': .38, 'PM1': .40, 'PM2': .40, 'M1': .38, 'M2': .38, 'M3': .38}
 
 def load_timings():
