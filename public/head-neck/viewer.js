@@ -30,13 +30,14 @@
     ['Ju WT, Zhao TC, Liu Y, et al. Computed tomographic features of adenoid cystic carcinoma in the palate. Cancer Imaging. 2019;19(1):3.', '10.1186/s40644-019-0190-z'],
     ['Bakst RL, Glastonbury CM, Parvathaneni U, et al. Perineural invasion and perineural tumor spread in head and neck cancer. Int J Radiat Oncol Biol Phys. 2019;103(5):1109-1124.', '10.1016/j.ijrobp.2018.12.009'],
     ['Wang F, Huang W, Zhang C, et al. Functional outcome and quality of life after a maxillectomy: a comparison between an implant supported obturator and implant supported fixed prostheses in a free vascularized flap. Clin Oral Implants Res. 2017;28(2):137-143.', '10.1111/clr.12771'],
+    ['Hidalgo DA. Fibula free flap: a new method of mandible reconstruction. Plast Reconstr Surg. 1989;84(1):71-79. PubMed 2734406.', 'https://pubmed.ncbi.nlm.nih.gov/2734406/'],
   ];
   document.getElementById('refs').innerHTML = REFS.map((r, i) =>
-    '<li id="ref-' + (i + 1) + '">' + r[0] + ' <a href="https://doi.org/' + r[1] + '">doi.org/' + r[1] + '</a></li>').join('');
+    '<li id="ref-' + (i + 1) + '">' + r[0] + ' ' + (r[1].startsWith('http') ? '<a href="' + r[1] + '">' + r[1].replace('https://', '') + '</a>' : '<a href="https://doi.org/' + r[1] + '">doi.org/' + r[1] + '</a>') + '</li>').join('');
 
   // Case text. Each field is [English, Japanese]; Japanese uses {漢字|かんじ} for furigana.
   const CASES = {
-    scc: { jaw: 'mandible', recon: false,
+    scc: { jaw: 'mandible', recon: true,
       title: ['Squamous cell carcinoma, right lower gum', '{扁平|へんぺい}{上皮|じょうひ}がん（{右|みぎ}の{下|した}の{歯|は}ぐき）'],
       sum: ['A mouth cancer on the gum beside the first molar that has grown into the jaw bone. Once cancer is inside the bone, a full-thickness block of jaw is removed (segmental mandibulectomy) rather than a rim.' + c(2, 3),
         '{第一|だいいち}{大臼歯|だいきゅうし}の{横|よこ}の{歯|は}ぐきにできて、あごの{骨|ほね}の{中|なか}まで{広|ひろ}がった{口|くち}のがんです。がんが{骨|ほね}の{中|なか}に{入|はい}っているときは、{骨|ほね}のふちだけでなく、あごの{骨|ほね}を{上|うえ}から{下|した}まで{切|き}り{取|と}ります（{下顎|かがく}{区域|くいき}{切除|せつじょ}）。' + c(2, 3)],
@@ -53,11 +54,11 @@
           'がんが{骨|ほね}の{中|なか}に{入|はい}っておらず、{十分|じゅうぶん}な{高|たか}さの{骨|ほね}が{残|のこ}るときは、{骨|ほね}のふちだけを{切|き}る{方法|ほうほう}もあります。ある{研究|けんきゅう}では、{区域|くいき}{切除|せつじょ}した{骨|ほね}の85%にがんが{入|はい}っていました。' + c(3)],
       ],
       stats: [['Bone removed', '8.6 cm³', '{取|と}る{骨|ほね}', '8.6 cm³'], ['Teeth', '44–47 with the bone; 43 at the cut', '{歯|は}', '44〜47は{骨|ほね}と{一緒|いっしょ}に、43は{切|き}り{口|くち}で{抜歯|ばっし}'], ['Gap', '43 mm, canine socket to behind 47', '{欠損|けっそん}', '43mm（{犬歯|けんし}の{穴|あな}から47の{後|うし}ろまで）']],
-      reconNote: ['Usually rebuilt with a fibula free flap, plate and screws. This stage is not modelled yet.',
-        'ふつうは{腓骨|ひこつ}{皮弁|ひべん}とプレート、ネジで{再建|さいけん}します。この{段階|だんかい}はまだ{模型|もけい}にしていません。'],
+      reconNote: ['Shown: a fibula free flap. A 47.5 mm piece of the lower-leg bone (fibula), with its blood supply, fills the gap and is held with a titanium plate and 8 screws. The fibula is shorter in height than the jaw it replaces, which is part of why the face and bite change afterwards.' + c(22, 1),
+        '{模型|もけい}では{腓骨|ひこつ}{皮弁|ひべん}を{示|しめ}しています。{血管|けっかん}ごと{移|うつ}した{下腿|かたい}の{骨|ほね}（{腓骨|ひこつ}）47.5mmで{欠損|けっそん}を{埋|う}め、チタンのプレートとネジ8{本|ほん}で{固定|こてい}します。{腓骨|ひこつ}はもとのあごより{高|たか}さが{低|ひく}いため、{手術|しゅじゅつ}{後|ご}に{顔|かお}の{形|かたち}やかみ{合|あ}わせが{変|か}わる{理由|りゆう}の1つになります。' + c(22, 1)],
       choice: ['Our modelling choices: tumour 18 × 15 × 16 mm; the back cut is angled up into the ramus so the angle of the jaw is kept.',
         '{当方|とうほう}の{設定|せってい}：がんの{大|おお}きさは18×15×16mm。{後|うし}ろの{切|き}り{口|くち}は{下顎枝|かがくし}に{向|む}けて{斜|なな}めにし、あごの{角|かど}を{残|のこ}しています。'] },
-    ameloblastoma: { jaw: 'mandible', recon: false,
+    ameloblastoma: { jaw: 'mandible', recon: true,
       title: ['Ameloblastoma, right body and angle of the jaw', 'エナメル{上皮腫|じょうひしゅ}（{右|みぎ}のあごの{体|からだ}と{角|かど}）'],
       sum: ['A benign but locally invasive tumour that grows from tooth-forming tissue. Solid and multicystic types often come back if they are only scooped out, so they are cut out with a wide bone margin.' + c(6, 7),
         '{歯|は}をつくる{組織|そしき}からできる{良性|りょうせい}の{腫瘍|しゅよう}ですが、まわりに{入|い}りこんで{広|ひろ}がります。{充実|じゅうじつ}{型|がた}や{多|た}のう{胞|ほう}{型|がた}はかき{出|だ}すだけでは{再発|さいはつ}しやすいため、{骨|ほね}を{広|ひろ}く{付|つ}けて{切|き}り{取|と}ります。' + c(6, 7)],
@@ -71,8 +72,8 @@
           'がんの{例|れい}と{同|おな}じく、{前|まえ}の{切|き}り{口|くち}は{手術|しゅじゅつ}で{抜|ぬ}く{犬歯|けんし}（43）の{穴|あな}を{通|とお}るので、42は{切|き}りません。'],
       ],
       stats: [['Bone removed', '15.7 cm³', '{取|と}る{骨|ほね}', '15.7 cm³'], ['Teeth', '44–47 with the bone; 43 at the cut', '{歯|は}', '44〜47は{骨|ほね}と{一緒|いっしょ}に、43は{切|き}り{口|くち}で{抜歯|ばっし}'], ['Gap', '68 mm, includes the angle of the jaw', '{欠損|けっそん}', '68mm（あごの{角|かど}を{含|ふく}む）']],
-      reconNote: ['Usually rebuilt with a fibula free flap; this stage is not modelled yet. The joint (condyle) and upper ramus are kept.',
-        'ふつうは{腓骨|ひこつ}{皮弁|ひべん}で{再建|さいけん}します。この{段階|だんかい}はまだ{模型|もけい}にしていません。{関節|かんせつ}（{下顎頭|かがくとう}）と{下顎枝|かがくし}の{上|うえ}の{部分|ぶぶん}は{残|のこ}します。'],
+      reconNote: ['Shown: a fibula free flap in two pieces (55.5 mm along the body and 13.5 mm up the ramus), joined at a new angle of the jaw and held with a titanium plate and 10 screws. Longer gaps that include a corner of the jaw need more bone cuts in the fibula. The joint (condyle) and upper ramus are kept.' + c(22, 1),
+        '{模型|もけい}では2つに{分|わ}けた{腓骨|ひこつ}{皮弁|ひべん}（あごの{体|からだ}に{沿|そ}って55.5mm、{下顎枝|かがくし}に{沿|そ}って13.5mm）を{示|しめ}しています。{新|あたら}しいあごの{角|かど}でつなぎ、チタンのプレートとネジ10{本|ほん}で{固定|こてい}します。あごの{角|かど}を{含|ふく}む{長|なが}い{欠損|けっそん}では、{腓骨|ひこつ}を{切|き}る{回数|かいすう}が{増|ふ}えます。{関節|かんせつ}（{下顎頭|かがくとう}）と{下顎枝|かがくし}の{上|うえ}の{部分|ぶぶん}は{残|のこ}します。' + c(22, 1)],
       choice: ['Our modelling choices: four joined lobes, 26 × 12 × 12 mm overall.', '{当方|とうほう}の{設定|せってい}：4つの{塊|かたまり}がつながった{形|かたち}で、{全体|ぜんたい}26×12×12mm。'] },
     okc: { jaw: 'mandible', recon: false,
       title: ['Odontogenic keratocyst, right angle of the jaw', '{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}（{右|みぎ}のあごの{角|かど}）'],
@@ -150,6 +151,7 @@
     [/^extracted/, 'Tooth taken out at the cut', '{切|き}り{口|くち}で{抜|ぬ}く{歯|は}'], [/^nerve/, 'Nerve canal', '{神経|しんけい}の{通|とお}り{道|みち}'],
     [/^excised/, 'Lining and periosteum removed', '{取|と}る{粘膜|ねんまく}と{骨膜|こつまく}'], [/^removed/, 'Bone removed', '{取|と}る{骨|ほね}'],
     [/^obturator$/, 'Obturator', '{顎|がく}{義歯|ぎし}'], [/^obturator_teeth/, 'Obturator teeth', '{顎|がく}{義歯|ぎし}の{歯|は}'], [/^free_flap/, 'Free flap', '{遊離|ゆうり}{皮弁|ひべん}'],
+    [/^fibula/, 'Fibula (leg bone)', '{腓骨|ひこつ}（{足|あし}の{骨|ほね}）'], [/^plate/, 'Titanium plate and screws', 'チタンのプレートとネジ'],
   ];
 
   const box = document.getElementById('viewer'), status = document.getElementById('status');
@@ -208,7 +210,7 @@
       const n = o.userData.n; let vis = true;
       if (/^margin/.test(n)) vis = state.margin && (s === 'pre' || s === 'op');
       else if (/^excised/.test(n)) vis = s === 'op';
-      else if (/^(obturator|free_flap)/.test(n)) vis = s === 'recon';
+      else if (/^(obturator|free_flap|fibula|plate|screws)/.test(n)) vis = s === 'recon';
       else if (MOVE.test(n) && (s === 'post' || s === 'recon')) vis = false;
       o.visible = vis;
       const xr = state.xray && /^(bone|sphenoid|specimen_bone|specimen_sph)/.test(n);
