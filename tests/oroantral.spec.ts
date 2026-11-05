@@ -15,7 +15,7 @@ test.describe('oroantral communication model page', () => {
     const src = () => page.locator('model-viewer').evaluate((el) => (el as HTMLElement & { src: string }).src);
     await page.getByRole('button', { name: /4 OAF/ }).click();
     await expect.poll(src).toContain('models/oaf.glb');
-    await expect(page.locator('#stage h2')).toHaveText('Oroantral fistula (OAF)');
+    await expect(page.locator('#stage h2')).toHaveText('A lasting, lined tunnel (OAF)');
     await page.getByRole('button', { name: /Fat pad/ }).click();
     await expect.poll(src).toContain('models/bfp.glb');
   });

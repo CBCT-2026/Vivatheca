@@ -1,0 +1,31 @@
+name: Patient text check
+
+# Runs the patient-education-toolkit (pitk) checker on the patient-facing text of every
+# page, as a visitor sees it, in English and Japanese. See tools/patient-text/README.md.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pitk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # textstat 0.7.3 needs pkg_resources, which setuptools 81 removed.
+      - run: pip install "setuptools<81" "patient-education-toolkit[ja] @ git+https://github.com/CBCT-2026/patient-education-toolkit@c1171efdfb88c4d9000547f2ce7dd1f17933cb1a"
+      - run: node tools/patient-text/snapshot.mjs
+      - run: pitk check --scores

@@ -1,0 +1,93 @@
+{
+ "healthy": {
+  "gum": 200.66,
+  "bone": 1811.79,
+  "premolar": 169.23,
+  "teeth": 571.51,
+  "pulp": 54.21
+ },
+ "decay": {
+  "gum": 200.66,
+  "bone": 1811.79,
+  "premolar": 169.23,
+  "teeth": 524.6,
+  "decay": 18.75,
+  "pulp": 54.21
+ },
+ "filling": {
+  "gum": 200.66,
+  "bone": 1811.79,
+  "premolar": 169.23,
+  "teeth": 524.6,
+  "filling": 46.92,
+  "pulp": 54.21
+ },
+ "prepared": {
+  "gum": 200.66,
+  "bone": 1811.79,
+  "premolar": 169.23,
+  "teeth": 468.24,
+  "filling": 11.36,
+  "pulp": 54.21
+ },
+ "crown": {
+  "gum": 200.66,
+  "bone": 1811.79,
+  "premolar": 169.23,
+  "teeth": 468.24,
+  "filling": 11.36,
+  "cement": 91.91,
+  "steel": 78.16,
+  "pulp": 54.21
+ },
+ "print": {
+  "base-bone": [
+   9816,
+   true
+  ],
+  "base-gum": [
+   14002,
+   true
+  ],
+  "premolar-crown": [
+   4176,
+   true
+  ],
+  "tooth-healthy": [
+   11016,
+   true
+  ],
+  "tooth-decay-sound-part": [
+   10650,
+   true
+  ],
+  "tooth-decay-decay-part": [
+   2598,
+   true
+  ],
+  "tooth-filling-tooth-part": [
+   10650,
+   true
+  ],
+  "tooth-filling-filling-part": [
+   2486,
+   true
+  ],
+  "tooth-prepared": [
+   12340,
+   true
+  ],
+  "tooth-prepared-base": [
+   1974,
+   true
+  ],
+  "crown-steel": [
+   45662,
+   true
+  ],
+  "crown-cement": [
+   8168,
+   false
+  ]
+ }
+}
