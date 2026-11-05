@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cracked tooth: why a crown protects it better than a filling | Vivatheca</title>
+<meta name="description" content="Interactive 3D models of a healthy back tooth, a cracked tooth, and the cracked tooth with a filling or a crown. Bite down to see why covering the cusps protects a cracked tooth.">
+<meta name="robots" content="noindex">
+<!-- Generated from tools/cracked-tooth/page-src.html by gen.py ({漢字|かな} marks furigana). Edit the source, not this file. -->
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// Language and furigana use the same cookies as the rest of the site (app/i18n/config.ts).
+(function () { const c = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
+  if (c('vivatheca-lang') === 'ja') document.documentElement.lang = 'ja';
+  document.documentElement.dataset.furigana = c('vivatheca-furigana') === 'off' ? 'off' : 'on'; })();
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="../development/style.css">
+<style>
+  /* Show only the visitor's language (the language switcher buttons always show). */
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button) { display: none !important; }
+  .choose { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .choose button { min-height: 48px; padding: 6px 4px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; cursor: pointer; }
+  .choose button small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  .choose button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  @media (max-width: 480px) { .choose { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .controls button[hidden], .legend li[hidden] { display: none; }
+  #bite[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .dot.tooth { background: #e3dcd3; } .dot.crack { background: #3b1f10; } .dot.filling { background: #4f90ec; }
+  .dot.crown { background: #a6b0c2; } .dot.pulp { background: #c6504b; } .dot.dentine { background: #dcc9a6; } .dot.enamel { background: #f0ece4; }
+  .dot.force { background: #f8a23a; } .dot.hold { background: #00a3ad; }
+  .status { font-weight: 700; color: var(--heading); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  .downloads { list-style: none; padding: 0; display: grid; gap: 6px; }
+  details.clin summary { cursor: pointer; font-weight: 600; color: var(--heading); }
+</style>
+<script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/"><span lang="en">Vivatheca home</span><span lang="ja">Vivatheca ホーム</span></a>
+    <button class="theme" id="theme" type="button">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+
+<main>
+  <h1><span lang="en">Cracked tooth: why a crown protects it better than a filling</span><span lang="ja">{歯|は}のひび（{亀裂歯|きれつし}）：なぜ{詰|つ}め{物|もの}よりクラウン（{被|かぶ}せ{物|もの}）のほうが{守|まも}れるのか</span></h1>
+
+  <model-viewer id="mv"
+    src="models/healthy-whole.glb"
+    alt="3D model of a healthy lower back tooth (first molar)."
+    camera-controls camera-orbit="25deg 65deg auto" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="0.8" exposure="0.9" loading="eager" animation-name="bite">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <p class="small"><span class="status">Not yet clinically reviewed.</span><span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></span><span lang="ja"><br><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+
+  <div class="choose" role="group" aria-label="Choose a tooth">
+    <button type="button" data-state="healthy" aria-pressed="true"><span lang="en">Healthy</span><span lang="ja">{健康|けんこう}な{歯|は}</span><small lang="en">no crack</small><small lang="ja">ひびなし</small></button>
+    <button type="button" data-state="cracked" aria-pressed="false"><span lang="en">Cracked</span><span lang="ja">ひび</span><small lang="en">not treated</small><small lang="ja">{治療|ちりょう}なし</small></button>
+    <button type="button" data-state="composite" aria-pressed="false"><span lang="en">Filling</span><span lang="ja">{詰|つ}め{物|もの}</span><small lang="en">composite resin</small><small lang="ja">コンポジットレジン</small></button>
+    <button type="button" data-state="crown" aria-pressed="false"><span lang="en">Crown</span><span lang="ja">クラウン</span><small lang="en">covers the cusps</small><small lang="ja">{咬頭|こうとう}をおおう</small></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model tools">
+    <button type="button" id="bite" aria-pressed="false"><span lang="en">Bite down</span><span lang="ja">かむ</span></button>
+    <button type="button" id="cut" aria-pressed="false"><span lang="en">Cut in half</span><span lang="ja">{半分|はんぶん}に{切|き}る</span></button>
+    <button type="button" id="seethrough" aria-pressed="false" hidden><span lang="en">See-through crown</span><span lang="ja">クラウンを{透|す}かす</span></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model views">
+    <button type="button" data-orbit="25deg 65deg auto" aria-pressed="true"><span lang="en">Angled</span><span lang="ja">{斜|なな}め</span></button>
+    <button type="button" data-orbit="0deg 85deg auto" aria-pressed="false"><span lang="en">Cheek side</span><span lang="ja">{頬側|きょうそく}</span></button>
+    <button type="button" data-orbit="0deg 8deg auto" aria-pressed="false"><span lang="en">Biting surface</span><span lang="ja">かむ{面|めん}</span></button>
+    <button type="button" data-orbit="90deg 80deg auto" aria-pressed="false" id="faceview"><span lang="en">Cut face</span><span lang="ja">{断面|だんめん}</span></button>
+  </div>
+  <ul class="legend">
+    <li><span class="dot tooth"></span><span lang="en">Tooth</span><span lang="ja">{歯|は}</span></li>
+    <li data-show="cracked composite crown" hidden><span class="dot crack"></span><span lang="en">Crack</span><span lang="ja">ひび</span></li>
+    <li data-show="composite" hidden><span class="dot filling"></span><span lang="en">Filling</span><span lang="ja">{詰|つ}め{物|もの}</span></li>
+    <li data-show="crown" hidden><span class="dot crown"></span><span lang="en">Crown</span><span lang="ja">クラウン</span></li>
+    <li data-cut hidden><span class="dot enamel"></span><span lang="en">Enamel</span><span lang="ja">エナメル{質|しつ}</span></li>
+    <li data-cut hidden><span class="dot dentine"></span><span lang="en">Dentine</span><span lang="ja">{象牙質|ぞうげしつ}</span></li>
+    <li data-cut hidden><span class="dot pulp"></span><span lang="en">Pulp (nerve)</span><span lang="ja">{歯髄|しずい}（{神経|しんけい}）</span></li>
+    <li data-bite hidden><span class="dot force"></span><span lang="en">Biting force</span><span lang="ja">かむ{力|ちから}</span></li>
+    <li data-bite data-show="crown" hidden><span class="dot hold"></span><span lang="en">Crown holds the cusps</span><span lang="ja">クラウンが{咬頭|こうとう}を{支|ささ}える</span></li>
+  </ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <section>
+    <div lang="en">
+      <h2>What the model shows</h2>
+      <p>These models show one back tooth from the lower jaw. You can see it healthy, cracked, with a filling and with a crown. Tap <b>Bite down</b> to see what happens when you chew. Tap <b>Cut in half</b> to see inside the tooth.</p>
+      <p>The hard outer layer is the enamel. Under it is the dentine (the main body of the tooth). In the middle is the pulp (the nerve and blood vessels).</p>
+      <p>We drew the crack wider than a real one. We also made the bending much bigger than in real life, so you can see it. The filling is blue and the crown is grey so they stand out. Real ones are most often the colour of your teeth.</p>
+    </div>
+    <div lang="ja">
+      <h2>このモデルについて</h2>
+      <p>{下|した}の{奥歯|おくば}1{本|ぽん}を、{健康|けんこう}な{歯|は}、ひびが{入|はい}った{歯|は}、{詰|つ}め{物|もの}をした{歯|は}、クラウンをかぶせた{歯|は}の4つで{見|み}られます。<b>かむ</b>を{押|お}すと、かんだときに{何|なに}が{起|お}こるかがわかります。<b>{半分|はんぶん}に{切|き}る</b>を{押|お}すと、{歯|は}の{中|なか}が{見|み}えます。</p>
+      <p>{外側|そとがわ}のかたい{層|そう}がエナメル{質|しつ}、その{下|した}が{象牙質|ぞうげしつ}（{歯|は}の{本体|ほんたい}）、{中心|ちゅうしん}が{歯髄|しずい}（{神経|しんけい}と{血管|けっかん}）です。</p>
+      <p>ひびは{実際|じっさい}より{太|ふと}く、かんだときの{動|うご}きは{実際|じっさい}よりずっと{大|おお}きく{描|えが}いています。{詰|つ}め{物|もの}は{青|あお}、クラウンは{灰色|はいいろ}で{示|しめ}していますが、{実際|じっさい}は{歯|は}と{同|おな}じ{色|いろ}のものが{多|おお}く{使|つか}われます。</p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>What is a cracked tooth?</h2>
+      <p>A cracked tooth has a crack that starts on the top of the tooth, where you chew. It runs down toward the root. The tooth has not split into pieces. But the crack can slowly grow.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>This is not the same as a split tooth, a broken-off cusp or a crack in the root. Tiny lines in the outer layer only (craze lines) are not the same either.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup> This model shows a crack that stays in the top part of the tooth, above the gum.</p>
+      <p>A cracked tooth does not always hurt. In a large US study of 2,858 cracked back teeth, about 46 in 100 caused pain. Most often it hurt with cold. The next most common was pain when biting.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{亀裂歯|きれつし}とは</h2>
+      <p>{亀裂歯|きれつし}とは、かむ{面|めん}から{根|ね}の{方|ほう}へ{向|む}かってひびが{入|はい}った{歯|は}です。{歯|は}はまだ{割|わ}れて{分|わ}かれてはいませんが、ひびは{少|すこ}しずつ{広|ひろ}がることがあります。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>{歯|は}が{割|わ}れて{分|わ}かれた{状態|じょうたい}（{歯|は}の{分割|ぶんかつ}）、{咬頭|こうとう}が{欠|か}けた{状態|じょうたい}、{根|ね}のひび（{垂直歯根破折|すいちょくしこんはせつ}）とは{区別|くべつ}されます。エナメル{質|しつ}だけの{細|ほそ}い{線|せん}（クレーズライン）も{別|べつ}のものです。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup>このモデルは、ひびが{歯|は}の{上|うえ}の{部分|ぶぶん}（{歯冠|しかん}）にとどまり、{歯肉|しにく}より{上|うえ}にある{例|れい}です。</p>
+      <p>{亀裂歯|きれつし}がいつも{痛|いた}むとは{限|かぎ}りません。アメリカで{奥歯|おくば}の{亀裂歯|きれつし}2,858{本|ほん}を{調|しら}べた{研究|けんきゅう}では、{痛|いた}みがあったのは100{本|ぽん}{中|ちゅう}{約|やく}46{本|ほん}でした。もっとも{多|おお}いのは{冷|つめ}たいものでの{痛|いた}み、{次|つぎ}がかんだときの{痛|いた}みでした。<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>Why a filling may not be enough</h2>
+      <p>A back tooth has bumps on top called cusps. Ridges along the front and back edges join the cusps, like the walls of a box. A large filling goes right across the tooth and through both ridges. Then the cusps are no longer joined.</p>
+      <p>In a lab test on pulled teeth, this kind of filling made the cusps much less stiff. On average they lost about 63 in 100 parts of their stiffness.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>A filling sits inside the tooth. When you bite, the cusps can still bend apart. The crack can open and grow.</p>
+      <p>A crown sits over the tooth. It wraps around all the cusps and holds them together. It also covers the crack.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-7">7</a></sup> Choose <b>Filling</b>, then <b>Crown</b>, and tap <b>Bite down</b> to compare.</p>
+    </div>
+    <div lang="ja">
+      <h2>{詰|つ}め{物|もの}だけでは{足|た}りないことがある{理由|りゆう}</h2>
+      <p>{奥歯|おくば}の{上|うえ}には{咬頭|こうとう}という{山|やま}があります。{前|まえ}と{後|うし}ろのふちにある{辺縁隆線|へんえんりゅうせん}が、{箱|はこ}の{壁|かべ}のように{咬頭|こうとう}どうしをつないでいます。{大|おお}きな{詰|つ}め{物|もの}が{歯|は}を{横切|よこぎ}って{両方|りょうほう}の{辺縁隆線|へんえんりゅうせん}を{通|とお}ると、{咬頭|こうとう}はつながっていない{状態|じょうたい}になります。</p>
+      <p>{抜|ぬ}いた{歯|は}を{使|つか}った{実験|じっけん}では、このような{窩洞|かどう}によって{咬頭|こうとう}の{硬|かた}さ（たわみにくさ）が{平均|へいきん}で{約|やく}63%{下|さ}がりました。<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>{詰|つ}め{物|もの}は{歯|は}の{内側|うちがわ}に{入|はい}っています。かむと{咬頭|こうとう}は{外|そと}へ{開|ひら}くようにたわみ、ひびが{開|ひら}いて{広|ひろ}がることがあります。</p>
+      <p>クラウンは{歯|は}の{外側|そとがわ}からかぶさり、すべての{咬頭|こうとう}を{包|つつ}んで{支|ささ}えます。ひびもおおいます。<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><b>{詰|つ}め{物|もの}</b>と<b>クラウン</b>を{選|えら}んで、<b>かむ</b>で{比|くら}べてみてください。</p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>What the studies show</h2>
+      <p>Studies found that cracked teeth with a crown had fewer nerve problems than teeth with a filling. Dentists also had to take them out less often.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>A crown gives the most protection. But it cannot promise to save the tooth.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Most of these studies watched what happened to people over time. They were not trials that chose the treatment by chance. So the numbers are not certain.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></p>
+      <p>Your dentist may only need to watch a crack that does not hurt. In the US study, dentists advised treatment for about 36 in 100 cracked teeth. In one review, 80 in 100 cracked teeth that dentists only watched were still fine after 3 years.<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>If the crack reaches the pulp, you may need root canal treatment and a crown.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup> Some dentists use an onlay instead. This is a filling made outside the mouth that covers the top of the tooth.<sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{研究|けんきゅう}からわかっていること</h2>
+      <p>{研究|けんきゅう}では、クラウンをかぶせた{亀裂歯|きれつし}は、{詰|つ}め{物|もの}だけの{歯|は}より{神経|しんけい}のトラブルが{少|すく}なく、{抜歯|ばっし}になることも{少|すく}なくなっていました。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>クラウンはもっとも{守|まも}りが{強|つよ}い{方法|ほうほう}ですが、{歯|は}が{残|のこ}せることを{約束|やくそく}するものではありません。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>これらの{研究|けんきゅう}の{多|おお}くは、{治療|ちりょう}を{無作為|むさくい}に{決|き}めた{試験|しけん}ではなく、{経過|けいか}を{追|お}った{観察|かんさつ}{研究|けんきゅう}です。そのため{数字|すうじ}には{不確|ふたし}かさがあります。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></p>
+      <p>{痛|いた}みのないひびは、{経過|けいか}を{見|み}るだけでよいこともあります。アメリカの{研究|けんきゅう}で{治療|ちりょう}がすすめられたのは100{本|ぽん}{中|ちゅう}{約|やく}36{本|ほん}でした。ある{総説|そうせつ}では、{経過|けいか}{観察|かんさつ}だけの{亀裂歯|きれつし}の100{本|ぽん}{中|ちゅう}80{本|ほん}が3{年後|ねんご}も{問題|もんだい}ありませんでした。<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>ひびが{歯髄|しずい}まで{届|とど}いている{場合|ばあい}は、{根管治療|こんかんちりょう}とクラウンが{必要|ひつよう}になることがあります。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup>クラウンの{代|か}わりに、{口|くち}の{外|そと}で{作|つく}って{歯|は}の{上|うえ}をおおうアンレーを{使|つか}う{歯科医師|しかいし}もいます。<sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>When to see your dentist</h2>
+      <p>See your dentist if you have:</p>
+      <ul>
+        <li>a back tooth that hurts when you bite</li>
+        <li>a tooth that hurts with cold food or drinks</li>
+        <li>a line you can see on a tooth.</li>
+      </ul>
+      <p>These were the signs people noticed most in the US study.<sup class="cite"><a href="#ref-3">3</a></sup> Your dentist will check the tooth. They will explain your choices, and if the tooth needs treatment now.</p>
+    </div>
+    <div lang="ja">
+      <h2>{歯科|しか}を{受診|じゅしん}する{目安|めやす}</h2>
+      <p>{次|つぎ}のようなときは{歯科医師|しかいし}に{相談|そうだん}してください。</p>
+      <ul>
+        <li>{奥歯|おくば}がかむと{痛|いた}む</li>
+        <li>{冷|つめ}たい{食|た}べ{物|もの}や{飲|の}み{物|もの}で{歯|は}がしみる</li>
+        <li>{歯|は}に{線|せん}が{見|み}える</li>
+      </ul>
+      <p>これらはアメリカの{研究|けんきゅう}で{多|おお}かったサインです。<sup class="cite"><a href="#ref-3">3</a></sup>{歯科医師|しかいし}が{歯|は}を{調|しら}べ、{今|いま}{治療|ちりょう}が{必要|ひつよう}かどうかも{含|ふく}めて、あなたに{合|あ}った{選択肢|せんたくし}を{説明|せつめい}します。</p>
+    </div>
+  </section>
+
+  <section>
+    <details class="clin">
+      <summary><span lang="en">Notes for the clinician: evidence and how the models were made</span><span lang="ja">{医療者向|いりょうしゃむ}け：{根拠|こんきょ}とモデルの{作|つく}り{方|かた}</span></summary>
+      <div lang="en">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Study</th><th>Finding</th></tr></thead>
+          <tbody>
+            <tr><td>Zhang 2024, systematic review and meta-analysis, 27 studies<sup class="cite"><a href="#ref-6">6</a></sup></td><td>Vital cracked teeth: direct restorations without cuspal coverage vs full crowns, RR 3.2 (95% CI 1.51 to 6.82) for pulpal complications and RR 8.1 (1.05 to 62.5) for extraction. Root-filled cracked teeth without a full crown: 11.3-fold higher risk of extraction. Monitoring without restoration: 80% success at 3 years.</td></tr>
+            <tr><td>Wu 2019, retrospective cohort, 199 teeth with reversible pulpitis<sup class="cite"><a href="#ref-7">7</a></sup></td><td>29.1% pulpal complications (irreversible pulpitis or necrosis) within 3 years; absence of a full-coverage crown OR 8.74. Teeth were banded at diagnosis and referred for crowns.</td></tr>
+            <tr><td>Krell and Rivera 2007, 127 teeth with reversible pulpitis<sup class="cite"><a href="#ref-8">8</a></sup></td><td>All planned for crowns; about 20% needed root canal treatment, mostly within 6 months.</td></tr>
+            <tr><td>Hilton 2020, National Dental PBRN, 2,858 teeth<sup class="cite"><a href="#ref-3">3</a></sup></td><td>46% painful (cold 1,055, biting 459, spontaneous 367). About one third recommended for treatment; caries, biting pain and a radiographic crack were the strongest predictors.</td></tr>
+            <tr><td>Reeh 1989, extracted maxillary premolars<sup class="cite"><a href="#ref-4">4</a></sup></td><td>MOD preparation: mean 63% loss of relative cuspal stiffness; loss of marginal ridge integrity gave the largest losses.</td></tr>
+            <tr><td>Olivieri 2020; Ruan 2026, reviews of root-filled cracked teeth<sup class="cite"><a href="#ref-9">9</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></td><td>1-year survival 88%; crack-associated deep probing is the main adverse marker; lack of definitive cuspal coverage a risk indicator. Certainty of evidence very low.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <ul>
+          <li>Base: the lower right first molar (46) and its pulp from Z-Anatomy, placed in a tooth frame. The CEJ is set 7.5 mm below the highest cusp tip (typical mandibular first molar crown length).<sup class="cite"><a href="#ref-10">10</a></sup> Enamel thickness is estimated (up to about 1.5 mm on the cusps, none below the CEJ).</li>
+          <li>Crack: mesiodistal, along the central groove, through both marginal ridges. Deepest point 2.6 mm above the CEJ mid-tooth and 0.8 mm above the CEJ at the marginal ridges, so it stays in the crown and clear of the pulp. Drawn 0.24 mm wide; real cracks are far narrower.</li>
+          <li>Filling: MOD composite. Isthmus 3.0 mm wide, pulpal floor 3.6 mm above the CEJ, proximal boxes 4.2 mm wide with gingival floors 1.4 mm above the CEJ.</li>
+          <li>Crown: full coverage, chamfer margin 0.5 mm above the CEJ, 0.7 mm at the margin, 1.2 mm axial and 1.6 mm occlusal reduction. The crack stays in the prepared tooth.</li>
+          <li>Biting: the buccal and lingual halves of the crown tip apart 6 degrees each about the bottom of the crack (cracked and filled teeth only). Exaggerated many times for teaching; real cusp deflection is far too small to see.</li>
+          <li>Cavity, crown preparation and enamel dimensions are typical teaching values chosen for this model, not taken from one source.</li>
+        </ul>
+        <p class="small">Build scripts: <code>tools/cracked-tooth/</code> in the Vivatheca repository.</p>
+      </div>
+      <div lang="ja">
+        <ul>
+          <li>Zhang 2024（{系統的|けいとうてき}レビュー・メタアナリシス、27{研究|けんきゅう}）：{生活歯|せいかつし}の{亀裂歯|きれつし}で、{咬頭|こうとう}を{被覆|ひふく}しない{直接修復|ちょくせつしゅうふく}は{全部被覆冠|ぜんぶひふくかん}に{比|くら}べ{歯髄|しずい}{合併症|がっぺいしょう} RR 3.2、{抜歯|ばっし} RR 8.1。{根管治療後|こんかんちりょうご}にクラウンがない{場合|ばあい}の{抜歯|ばっし}リスクは11.3{倍|ばい}。{無処置|むしょち}の{経過|けいか}{観察|かんさつ}は3{年|ねん}で{成功率|せいこうりつ}80%。<sup class="cite"><a href="#ref-6">6</a></sup></li>
+          <li>Wu 2019（199{歯|し}、{可逆性歯髄炎|かぎゃくせいしずいえん}）：3{年|ねん}{以内|いない}の{歯髄|しずい}{合併症|がっぺいしょう} 29.1%、{全部被覆冠|ぜんぶひふくかん}なしで OR 8.74。<sup class="cite"><a href="#ref-7">7</a></sup></li>
+          <li>Krell・Rivera 2007（127{歯|し}）：{全例|ぜんれい}クラウンの{計画|けいかく}で、{約|やく}20%が{主|おも}に6か{月|げつ}{以内|いない}に{根管治療|こんかんちりょう}を{要|よう}した。<sup class="cite"><a href="#ref-8">8</a></sup></li>
+          <li>Reeh 1989（{抜去|ばっきょ}した{上顎小臼歯|じょうがくしょうきゅうし}）：MOD{窩洞|かどう}で{咬頭|こうとう}の{相対的剛性|そうたいてきごうせい}が{平均|へいきん}63%{低下|ていか}。<sup class="cite"><a href="#ref-4">4</a></sup></li>
+          <li>{根管治療後|こんかんちりょうご}の{亀裂歯|きれつし}のレビュー：1{年|ねん}{生存率|せいぞんりつ}88%、ひびに{関連|かんれん}した{深|ふか}い{歯周|ししゅう}ポケットが{主|おも}な{不良|ふりょう}{因子|いんし}、{確定的|かくていてき}な{咬頭被覆|こうとうひふく}がないこともリスク{因子|いんし}。エビデンスの{確実性|かくじつせい}は{非常|ひじょう}に{低|ひく}い。<sup class="cite"><a href="#ref-9">9</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></li>
+          <li>モデル：Z-Anatomy の{右下顎第一大臼歯|みぎかがくだいいちだいきゅうし}（46）と{歯髄|しずい}。CEJは{最|もっと}も{高|たか}い{咬頭頂|こうとうちょう}から7.5 mm{下|した}。<sup class="cite"><a href="#ref-10">10</a></sup>ひびは{近遠心|きんえんしん}{方向|ほうこう}で{両|りょう}{辺縁隆線|へんえんりゅうせん}を{通|とお}り、CEJより{中央|ちゅうおう}で2.6 mm、{辺縁隆線部|へんえんりゅうせんぶ}で0.8 mm{上|うえ}で{止|と}まる（{幅|はば}0.24 mmで{表示|ひょうじ}）。MOD{窩洞|かどう}、クラウン{形成|けいせい}（{辺縁|へんえん}0.7 mm、{軸面|じくめん}1.2 mm、{咬合面|こうごうめん}1.6 mm）、エナメル{質|しつ}の{厚|あつ}さは{教育用|きょういくよう}の{代表値|だいひょうち}。かんだときの{咬頭|こうとう}の{傾|かたむ}き（6{度|ど}）は{大|おお}きく{誇張|こちょう}しています。</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>3D printing</h2>
+      <p>Each download is 3 times life size, in STL. The filling and the crown are separate parts, slightly smaller than their space, so you can lift them off to show the crack underneath. Print them in a different colour from the tooth.</p>
+    </div>
+    <div lang="ja">
+      <h2>3Dプリント</h2>
+      <p>{各|かく}ダウンロードは{実物|じつぶつ}の3{倍|ばい}の{大|おお}きさのSTLです。{詰|つ}め{物|もの}とクラウンは{別|べつ}パーツで、{少|すこ}し{小|ちい}さく{作|つく}ってあるので、{外|はず}して{下|した}のひびを{見|み}せられます。{歯|は}とは{別|べつ}の{色|いろ}で{印刷|いんさつ}してください。</p>
+    </div>
+    <ul class="downloads">
+      <li><a href="downloads/vivatheca-cracked-tooth-healthy-3x.zip"><span lang="en">Healthy tooth (STL, 3x)</span><span lang="ja">{健康|けんこう}な{歯|は}（STL、3{倍|ばい}）</span></a></li>
+      <li><a href="downloads/vivatheca-cracked-tooth-cracked-3x.zip"><span lang="en">Cracked tooth (STL, 3x)</span><span lang="ja">ひびの{入|はい}った{歯|は}（STL、3{倍|ばい}）</span></a></li>
+      <li><a href="downloads/vivatheca-cracked-tooth-composite-3x.zip"><span lang="en">Cracked tooth with filling (STL, 3x)</span><span lang="ja">{詰|つ}め{物|もの}をした{亀裂歯|きれつし}（STL、3{倍|ばい}）</span></a></li>
+      <li><a href="downloads/vivatheca-cracked-tooth-crown-3x.zip"><span lang="en">Cracked tooth with crown (STL, 3x)</span><span lang="ja">クラウンをかぶせた{亀裂歯|きれつし}（STL、3{倍|ばい}）</span></a></li>
+    </ul>
+    <p class="small"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+  </section>
+
+  <section class="disclaimer">
+    <h2><span lang="en">About these models</span><span lang="ja">このモデルについての{注意|ちゅうい}</span></h2>
+    <p><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
+    <p class="small"><span lang="en">Prototype, version 0.2. Colours: tooth as the Vivatheca wisdom tooth model (teeth colour), blue for the filling, grey for the crown, red for the pulp.</span><span lang="ja">プロトタイプ（{版|はん}0.2）。{歯|は}の{色|いろ}は Vivatheca の{親知|おやし}らずモデルと{同|おな}じです。{詰|つ}め{物|もの}は{青|あお}、クラウンは{灰色|はいいろ}、{歯髄|しずい}は{赤|あか}で{示|しめ}しています。</span></p>
+    <p class="small credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: tooth and pulp extracted and remeshed; crack, cavity, filling and crown added. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2><span lang="en">Sources</span><span lang="ja">{出典|しゅってん}</span></h2></summary>
+    <ol>
+      <li id="ref-1">American Association of Endodontists. Cracked teeth (patient information). <a href="https://www.aae.org/patients/dental-symptoms/cracked-teeth/">aae.org</a> (Accessed 5 November 2026.)</li>
+      <li id="ref-2">American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020. <a href="https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/">aae.org</a></li>
+      <li id="ref-3">Hilton TJ, Funkhouser E, Ferracane JL, et al. Recommended treatment of cracked teeth: results from the National Dental Practice-Based Research Network. J Prosthet Dent. 2020;123(1):71-78. <a href="https://doi.org/10.1016/j.prosdent.2018.12.005">doi.org/10.1016/j.prosdent.2018.12.005</a></li>
+      <li id="ref-4">Reeh ES, Messer HH, Douglas WH. Reduction in tooth stiffness as a result of endodontic and restorative procedures. J Endod. 1989;15(11):512-516. <a href="https://doi.org/10.1016/S0099-2399(89)80191-8">doi.org/10.1016/S0099-2399(89)80191-8</a> (Laboratory study on extracted upper premolars.)</li>
+      <li id="ref-5">Banerji S, Mehta SB, Millar BJ. Cracked tooth syndrome. Part 2: restorative options for the management of cracked tooth syndrome. Br Dent J. 2010;208(11):503-514. <a href="https://doi.org/10.1038/sj.bdj.2010.496">doi.org/10.1038/sj.bdj.2010.496</a></li>
+      <li id="ref-6">Zhang S, Xu Y, Ma Y, et al. The treatment outcomes of cracked teeth: a systematic review and meta-analysis. J Dent. 2024;142:104843. <a href="https://doi.org/10.1016/j.jdent.2024.104843">doi.org/10.1016/j.jdent.2024.104843</a></li>
+      <li id="ref-7">Wu S, Lew HP, Chen NN. Incidence of pulpal complications after diagnosis of vital cracked teeth. J Endod. 2019;45(5):521-525. <a href="https://doi.org/10.1016/j.joen.2019.02.003">doi.org/10.1016/j.joen.2019.02.003</a></li>
+      <li id="ref-8">Krell KV, Rivera EM. A six year evaluation of cracked teeth diagnosed with reversible pulpitis: treatment and prognosis. J Endod. 2007;33(12):1405-1407. <a href="https://doi.org/10.1016/j.joen.2007.08.015">doi.org/10.1016/j.joen.2007.08.015</a></li>
+      <li id="ref-9">Olivieri JG, Elmsmari F, Miró Q, et al. Outcome and survival of endodontically treated cracked posterior permanent teeth: a systematic review and meta-analysis. J Endod. 2020;46(4):455-463. <a href="https://doi.org/10.1016/j.joen.2020.01.006">doi.org/10.1016/j.joen.2020.01.006</a></li>
+      <li id="ref-10">Nelson SJ. Wheeler's Dental Anatomy, Physiology and Occlusion. 10th ed. St Louis: Elsevier; 2015. (Mandibular first molar crown length, 7.5 mm.)</li>
+      <li id="ref-11">Ruan C, Wang L. Long-term survival of endodontically treated cracked teeth: a systematic review and meta-analysis. J Endod. 2026. <a href="https://doi.org/10.1016/j.joen.2026.10.002">doi.org/10.1016/j.joen.2026.10.002</a> (Lack of definitive cuspal coverage was a risk indicator; certainty of evidence very low.)</li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small"><span lang="en">Version 0.2, 5 November 2026. Journal sources checked on PubMed. English patient text checked with the patient-education-toolkit rules (reading grade 2.5).</span><span lang="ja">{版|はん}0.2、2026{年|ねん}11{月|がつ}5{日|か}。{論文|ろんぶん}の{出典|しゅってん}は PubMed で{確認|かくにん}。</span></p>
+</main>
+<!-- CONTACT: copy of app/contact.ts. When the Instagram/X handles are known, turn the
+     "Coming soon" items into links like the email one. -->
+<footer class="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h"><span lang="en">Contact us</span><span lang="ja">お{問|と}い{合|あ}わせ</span></h2>
+  <p><span lang="en">Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.</span><span lang="ja">{模型|もけい}についてのご{質問|しつもん}、{誤|あやま}りのご{指摘|してき}、アイデアをお{待|ま}ちしています。Vivathecaをフォローするか、お{気軽|きがる}にご{連絡|れんらく}ください。</span></p>
+  <ul>
+    <li><span class="pending"><b>Instagram</b> <span lang="en">Coming soon</span><span lang="ja">{準備中|じゅんびちゅう}</span></span></li>
+    <li><span class="pending"><b>X</b> <span lang="en">Coming soon</span><span lang="ja">{準備中|じゅんびちゅう}</span></span></li>
+    <li><a href="mailto:hello@vivatheca.com"><b><span lang="en">Email</span><span lang="ja">メール</span></b> hello@vivatheca.com</a></li>
+  </ul>
+  <p class="small"><span lang="en">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Full disclaimer</a></span><span lang="ja">Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+</footer>
+<script src="viewer.js"></script>
+</body>
+</html>
