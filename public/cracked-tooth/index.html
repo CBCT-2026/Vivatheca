@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cracked tooth: why a crown protects it better than a filling | Vivatheca</title>
+<meta name="description" content="Interactive 3D models of a healthy back tooth, a cracked tooth, and the cracked tooth with a filling or a crown. Bite down to see why covering the cusps protects a cracked tooth.">
+<meta name="robots" content="noindex">
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="../development/style.css">
+<style>
+  .choose { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .choose button { min-height: 48px; padding: 6px 4px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, "Hiragino Sans", sans-serif; cursor: pointer; }
+  .choose button small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  .choose button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  @media (max-width: 480px) { .choose { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .controls button[hidden], .legend li[hidden] { display: none; }
+  #bite[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .dot.tooth { background: #e3dcd3; } .dot.crack { background: #3b1f10; } .dot.filling { background: #4f90ec; }
+  .dot.crown { background: #a6b0c2; } .dot.pulp { background: #c6504b; } .dot.dentine { background: #dcc9a6; } .dot.enamel { background: #f0ece4; }
+  .dot.force { background: #f8a23a; } .dot.hold { background: #00a3ad; }
+  .status { font-size: 14px; margin: 10px 0 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  .downloads { list-style: none; padding: 0; display: grid; gap: 6px; }
+  footer { max-width: 640px; margin: 0 auto; padding: 16px 16px 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+<script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/">Vivatheca home</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
+  </div>
+</header>
+
+<main>
+  <h1>Cracked tooth: why a crown protects it better than a filling</h1>
+
+  <model-viewer id="mv"
+    src="models/healthy-whole.glb"
+    alt="3D model of a healthy lower back tooth (first molar)."
+    camera-controls camera-orbit="25deg 65deg auto" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="0.8" exposure="0.9" loading="eager" animation-name="bite">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <p class="status"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+
+  <div class="choose" role="group" aria-label="Choose a tooth">
+    <button type="button" data-state="healthy" aria-pressed="true">Healthy<small>no crack</small></button>
+    <button type="button" data-state="cracked" aria-pressed="false">Cracked<small>not treated</small></button>
+    <button type="button" data-state="composite" aria-pressed="false">Filling<small>composite resin</small></button>
+    <button type="button" data-state="crown" aria-pressed="false">Crown<small>covers the cusps</small></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model tools">
+    <button type="button" id="bite" aria-pressed="false">Bite down</button>
+    <button type="button" id="cut" aria-pressed="false">Cut in half</button>
+    <button type="button" id="seethrough" aria-pressed="false" hidden>See-through crown</button>
+  </div>
+  <div class="controls" role="group" aria-label="Model views">
+    <button type="button" data-orbit="25deg 65deg auto" aria-pressed="true">Angled</button>
+    <button type="button" data-orbit="0deg 85deg auto" aria-pressed="false">Cheek side</button>
+    <button type="button" data-orbit="0deg 8deg auto" aria-pressed="false">Biting surface</button>
+    <button type="button" data-orbit="90deg 80deg auto" aria-pressed="false" id="faceview">Cut face</button>
+  </div>
+  <ul class="legend">
+    <li><span class="dot tooth"></span>Tooth</li>
+    <li data-show="cracked composite crown" hidden><span class="dot crack"></span>Crack</li>
+    <li data-show="composite" hidden><span class="dot filling"></span>Filling</li>
+    <li data-show="crown" hidden><span class="dot crown"></span>Crown</li>
+    <li data-cut hidden><span class="dot enamel"></span>Enamel</li>
+    <li data-cut hidden><span class="dot dentine"></span>Dentine</li>
+    <li data-cut hidden><span class="dot pulp"></span>Pulp (nerve)</li>
+    <li data-bite hidden><span class="dot force"></span>Biting force</li>
+    <li data-bite data-show="crown" hidden><span class="dot hold"></span>Crown holds the cusps</li>
+  </ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <section>
+    <h2>What the models show</h2>
+    <p>Four models of the same lower back tooth (a lower first molar): healthy, cracked, the cracked tooth with a filling, and the cracked tooth with a crown. Tap <b>Bite down</b> to see what happens when you chew. Tap <b>Cut in half</b> to see inside: the hard outer enamel, the dentine under it, and the pulp (the nerve and blood vessels) in the middle.</p>
+    <p>The crack is drawn wider than a real crack, and the movement when you bite is made much bigger than real life, so that you can see them. The filling is shown in blue and the crown in grey so they stand out. Real fillings and crowns are usually tooth-coloured.</p>
+  </section>
+
+  <section>
+    <h2>What is a cracked tooth?</h2>
+    <p>A cracked tooth has a crack that starts on the chewing surface and runs down toward the root. The tooth has not split into pieces, but the crack can slowly spread.<sup class="cite"><a href="#ref-1">1</a></sup> The American Association of Endodontists (AAE) separates it from craze lines (tiny cracks only in the enamel), a fractured cusp, a split tooth and a vertical root fracture.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup> These models show a crack that stays in the crown of the tooth, above the gum.</p>
+    <p>Cracked teeth do not always hurt. In a large study of 2,858 cracked back teeth in US dental practices, about half (46%) caused pain. The most common pain was to cold, then pain on biting.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+  </section>
+
+  <section>
+    <h2>Why a filling may not be enough</h2>
+    <p>A back tooth has pointed parts called <b>cusps</b>. Ridges of tooth along the front and back edges (the <b>marginal ridges</b>) join the cusps together like the walls of a box. A filling that goes across the tooth and through both of these ridges removes the joins. In a laboratory study on extracted teeth, a cavity like this made the cusps on average 63% less stiff.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+    <p>A filling sits <b>inside</b> the tooth. When you bite, the cusps can still bend away from each other, and the crack can open and spread. A crown sits <b>over</b> the tooth and wraps around the cusps, so it holds them together and covers the crack.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-7">7</a></sup> Choose <b>Filling</b>, then <b>Crown</b>, and tap <b>Bite down</b> to compare.</p>
+  </section>
+
+  <section>
+    <h2>What the studies show</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Study</th><th>What it found</th></tr></thead>
+      <tbody>
+        <tr><td>Review of 27 studies (2024)<sup class="cite"><a href="#ref-6">6</a></sup></td><td>For cracked teeth with a healthy nerve, a filling that did not cover the cusps had about 3 times the risk of nerve problems and about 8 times the risk of the tooth being taken out, compared with a full crown. For root-filled cracked teeth, no crown meant about 11 times the risk of the tooth being taken out.</td></tr>
+        <tr><td>Singapore, 199 cracked teeth (2019)<sup class="cite"><a href="#ref-7">7</a></sup></td><td>71% were still healthy after 3 years. Teeth without a full crown were more likely to develop nerve problems: lasting inflammation of the pulp or a dead nerve (odds ratio 8.7).</td></tr>
+        <tr><td>USA, 127 cracked teeth with mild nerve irritation (2007)<sup class="cite"><a href="#ref-8">8</a></sup></td><td>All were planned for crowns. About 1 in 5 later needed root canal treatment, usually within the first months.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>A crown gives the most protection but does not guarantee the tooth will be saved.<sup class="cite"><a href="#ref-1">1</a></sup> Most of this evidence comes from observational studies, not randomised trials, so the numbers are uncertain.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-11">11</a></sup> A crack that causes no symptoms may only need to be watched: in the US study, dentists recommended treatment for about one in three cracked teeth, and the 2024 review found that 80% of cracked teeth that were only watched were still fine after 3 years.<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-6">6</a></sup> If the crack reaches the pulp, root canal treatment and a crown may be needed.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup> Other restorations that cover the cusps, such as an onlay, are also used.<sup class="cite"><a href="#ref-5">5</a></sup></p>
+  </section>
+
+  <section>
+    <h2>When to see your dentist</h2>
+    <ul>
+      <li>A back tooth that hurts when you bite.</li>
+      <li>A tooth that hurts with cold food or drinks.</li>
+      <li>A line you can see on a tooth.</li>
+    </ul>
+    <p>These were the most common signs in the US study of cracked teeth.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    <p>Your dentist will check the tooth and explain the choices for you, including whether it needs treatment now.</p>
+  </section>
+
+  <section>
+    <h2>For clinicians: how the models were made</h2>
+    <ul>
+      <li>Base: the lower right first molar (46) and its pulp from Z-Anatomy, placed in a tooth frame. The CEJ is set 7.5 mm below the highest cusp tip (typical mandibular first molar crown length).<sup class="cite"><a href="#ref-10">10</a></sup> Enamel thickness is estimated (up to about 1.5 mm on the cusps, none below the CEJ).</li>
+      <li>Crack: mesiodistal, along the central groove, through both marginal ridges. Its deepest point is 2.6 mm above the CEJ in the middle and 0.8 mm above the CEJ at the marginal ridges, so it stays in the crown and clear of the pulp. Drawn 0.24 mm wide; real cracks are far narrower.</li>
+      <li>Filling: MOD composite. Isthmus 3.0 mm wide, pulpal floor 3.6 mm above the CEJ, proximal boxes 4.2 mm wide with gingival floors 1.4 mm above the CEJ.</li>
+      <li>Crown: full coverage, chamfer margin 0.5 mm above the CEJ, 0.7 mm at the margin, 1.2 mm axial and 1.6 mm occlusal reduction. The crack stays in the prepared tooth under the crown.</li>
+      <li>Biting: the buccal and lingual halves of the crown tip apart 6 degrees each about the bottom of the crack (cracked and filled teeth). This is exaggerated many times for teaching; real cusp movement is far too small to see. The crowned and healthy teeth do not move.</li>
+      <li>Cavity, crown and enamel dimensions are typical teaching values, not taken from one source.</li>
+    </ul>
+    <p class="small">Build scripts: <code>tools/cracked-tooth/</code> in the Vivatheca repository.</p>
+  </section>
+
+  <section>
+    <h2>3D printing</h2>
+    <p>Each download is 3 times life size, in STL. The filling and the crown are separate parts, slightly smaller than their space, so you can lift them off to show the crack underneath. Print them in a different colour from the tooth.</p>
+    <ul class="downloads">
+      <li><a href="downloads/vivatheca-cracked-tooth-healthy-3x.zip">Healthy tooth (STL, 3x)</a></li>
+      <li><a href="downloads/vivatheca-cracked-tooth-cracked-3x.zip">Cracked tooth (STL, 3x)</a></li>
+      <li><a href="downloads/vivatheca-cracked-tooth-composite-3x.zip">Cracked tooth with filling (STL, 3x)</a></li>
+      <li><a href="downloads/vivatheca-cracked-tooth-crown-3x.zip">Cracked tooth with crown (STL, 3x)</a></li>
+    </ul>
+    <p class="small"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+  </section>
+
+  <section class="disclaimer">
+    <h2>About these models</h2>
+    <p><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small">Prototype, version 0.1. Colours: tooth as the Vivatheca wisdom tooth model (teeth colour), blue for the filling, grey for the crown, red for the pulp.</p>
+    <p class="small credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: tooth and pulp extracted and remeshed; crack, cavity, filling and crown added. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2>Sources</h2></summary>
+    <ol>
+      <li id="ref-1">American Association of Endodontists. Cracked teeth (patient information). <a href="https://www.aae.org/patients/dental-symptoms/cracked-teeth/">aae.org</a> (Accessed 5 November 2026.)</li>
+      <li id="ref-2">American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020. <a href="https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/">aae.org</a></li>
+      <li id="ref-3">Hilton TJ, Funkhouser E, Ferracane JL, et al. Recommended treatment of cracked teeth: results from the National Dental Practice-Based Research Network. J Prosthet Dent. 2020;123(1):71-78. <a href="https://doi.org/10.1016/j.prosdent.2018.12.005">doi.org/10.1016/j.prosdent.2018.12.005</a></li>
+      <li id="ref-4">Reeh ES, Messer HH, Douglas WH. Reduction in tooth stiffness as a result of endodontic and restorative procedures. J Endod. 1989;15(11):512-516. <a href="https://doi.org/10.1016/S0099-2399(89)80191-8">doi.org/10.1016/S0099-2399(89)80191-8</a> (Laboratory study on extracted upper premolars.)</li>
+      <li id="ref-5">Banerji S, Mehta SB, Millar BJ. Cracked tooth syndrome. Part 2: restorative options for the management of cracked tooth syndrome. Br Dent J. 2010;208(11):503-514. <a href="https://doi.org/10.1038/sj.bdj.2010.496">doi.org/10.1038/sj.bdj.2010.496</a></li>
+      <li id="ref-6">Zhang S, Xu Y, Ma Y, et al. The treatment outcomes of cracked teeth: a systematic review and meta-analysis. J Dent. 2024;142:104843. <a href="https://doi.org/10.1016/j.jdent.2024.104843">doi.org/10.1016/j.jdent.2024.104843</a></li>
+      <li id="ref-7">Wu S, Lew HP, Chen NN. Incidence of pulpal complications after diagnosis of vital cracked teeth. J Endod. 2019;45(5):521-525. <a href="https://doi.org/10.1016/j.joen.2019.02.003">doi.org/10.1016/j.joen.2019.02.003</a></li>
+      <li id="ref-8">Krell KV, Rivera EM. A six year evaluation of cracked teeth diagnosed with reversible pulpitis: treatment and prognosis. J Endod. 2007;33(12):1405-1407. <a href="https://doi.org/10.1016/j.joen.2007.08.015">doi.org/10.1016/j.joen.2007.08.015</a></li>
+      <li id="ref-9">Olivieri JG, Elmsmari F, Miró Q, et al. Outcome and survival of endodontically treated cracked posterior permanent teeth: a systematic review and meta-analysis. J Endod. 2020;46(4):455-463. <a href="https://doi.org/10.1016/j.joen.2020.01.006">doi.org/10.1016/j.joen.2020.01.006</a></li>
+      <li id="ref-10">Nelson SJ. Wheeler's Dental Anatomy, Physiology and Occlusion. 10th ed. St Louis: Elsevier; 2015. (Mandibular first molar crown length, 7.5 mm.)</li>
+      <li id="ref-11">Ruan C, Wang L. Long-term survival of endodontically treated cracked teeth: a systematic review and meta-analysis. J Endod. 2026. <a href="https://doi.org/10.1016/j.joen.2026.10.002">doi.org/10.1016/j.joen.2026.10.002</a> (Lack of definitive cuspal coverage was a risk indicator; certainty of evidence very low.)</li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small">Version 0.1, 5 November 2026.</p>
+</main>
+<footer>
+  <p>Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Disclaimer</a></p>
+</footer>
+<script src="../development/theme.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>
