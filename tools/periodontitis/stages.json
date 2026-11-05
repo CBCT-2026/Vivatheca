@@ -1,0 +1,12 @@
+[
+ {"id": "healthy", "loss": {"default": 0.0}},
+ {"id": "stage-1", "loss": {"default": 0.10}},
+ {"id": "stage-2", "loss": {"default": 0.25}},
+ {"id": "stage-3", "loss": {"default": 0.40},
+  "defects": [{"tooth": "46", "toward": "45", "offset": 4.5, "radius": 2.0, "extra": 4.0},
+              {"tooth": "33", "toward": "34", "offset": 3.5, "radius": 1.6, "extra": 3.5}]},
+ {"id": "stage-4", "loss": {"default": 0.60}, "missing": ["36", "37", "46", "41"], "ridge_extra": 2.0,
+  "tilt": {"47": 15},
+  "defects": [{"tooth": "45", "toward": "44", "offset": 3.5, "radius": 1.6, "extra": 3.5},
+              {"tooth": "33", "toward": "32", "offset": 3.5, "radius": 1.6, "extra": 3.0}]}
+]

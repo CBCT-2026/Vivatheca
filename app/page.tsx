@@ -4,6 +4,8 @@ import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
 import { disclaimerHref } from './disclaimer-text';
+import { mailto } from './contact';
+import { ContactSection } from './contact-section';
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -119,7 +121,7 @@ export default async function Home() {
         </section>
 
         <section className="sponsor-section" id="sponsor">
-          <div className="sponsor-intro"><div><h2><Ruby text={t.sponsor.heading} /></h2><p><Ruby text={t.sponsor.text} /></p></div><a className="button button-light" href="mailto:hello@vivatheca.com?subject=Sponsor%20a%20Vivatheca%20model"><Ruby text={t.sponsor.cta} /> <Icon name="arrow_forward" /></a></div>
+          <div className="sponsor-intro"><div><h2><Ruby text={t.sponsor.heading} /></h2><p><Ruby text={t.sponsor.text} /></p></div><a className="button button-light" href={mailto('Sponsor a Vivatheca model')}><Ruby text={t.sponsor.cta} /> <Icon name="arrow_forward" /></a></div>
         </section>
       </main>
 
@@ -140,10 +142,12 @@ export default async function Home() {
           </div>
         </div>
 
+        <ContactSection t={t} />
+
         <div className="footer-legal">
           <p>© 2026 Vivatheca</p>
           <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
-          <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href="mailto:hello@vivatheca.com?subject=Privacy%20question"><Ruby text={t.footer.privacy} /></a><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback"><Ruby text={t.footer.accessibility} /></a></nav>
+          <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href={mailto('Privacy question')}><Ruby text={t.footer.privacy} /></a><a href={mailto('Accessibility feedback')}><Ruby text={t.footer.accessibility} /></a></nav>
         </div>
       </footer>
     </>
