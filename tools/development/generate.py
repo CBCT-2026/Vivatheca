@@ -3,7 +3,7 @@
 Inputs (made from Z-Anatomy, CC BY-SA 4.0, by extract.py and prep_bone.py):
   parts.npz    right-side permanent teeth 1-7, upper and lower (metres, Z-Anatomy world space)
   bone_mm.npz  mandible, right maxilla, right palatine bone (watertight, millimetres)
-Timing: timings.csv (typical ages; see its header).
+Timing: timings.csv (typical ages; see its header). Jaw size: jaw_growth.csv.
 
 Method, per stage age:
   - Permanent teeth: crown grows from the cusp tip down; then the root grows to full length.
@@ -13,8 +13,9 @@ Method, per stage age:
     baby molars from the permanent first molar), scaled to typical baby tooth widths and set side
     by side along the arch from the midline to the first permanent molar. Their roots shorten over
     the 3 years before they fall out.
-  - Child jaw: the part behind the first molar is shorter front-to-back and the ramus is lower.
-    Blended toward the adult shape with age. Second and third molars move with it.
+  - Child jaw: shrunk to average child/adult ratios of ramus height and body length for each age
+    (jaw_growth.csv: Riolo 1974 Michigan atlas, West and McNamara 1999 adults). The ramus is lowered and
+    the part behind the first molar shortened front-to-back. Second and third molars move with it.
   - Cutaway: the cheek-side half of the bone around the teeth is removed, as in the classic chart.
 Outputs per stage: GLB (web, metres, Y up, front +Z) and STL per print part (mm).
 """
@@ -92,10 +93,34 @@ for jaw in ('upper', 'lower'):
 OCC = {j: np.mean([base[(j, t)]['tip'][2] for t in PERM]) for j in ('upper', 'lower')}
 PIVOT_Y = max(base[('lower', 'M1')]['mesh'].bounds[1][1], base[('upper', 'M1')]['mesh'].bounds[1][1])  # distal edge of first molars
 
+def load_growth():
+    """Child/adult ratios of ramus height and body length at each stage age, boys and girls averaged."""
+    rows = list(csv.DictReader(l for l in open(HERE / 'jaw_growth.csv') if not l.startswith('#')))
+    adult = next(r for r in rows if r['age'] == 'adult'); kids = {float(r['age']): r for r in rows if r['age'] != 'adult'}
+    enl = 1.08 / 1.1292  # Riolo films (12.92% enlargement) -> West and McNamara adult values (8%)
+    def ratio(age, key):
+        lo, hi = kids[np.floor(age)], kids[np.ceil(age)]  # half-year stages: mean of the two neighbouring years
+        return np.mean([(float(lo[f'{key}_{s}']) + float(hi[f'{key}_{s}'])) / 2 * enl / float(adult[f'{key}_{s}'])
+                        for s in 'mf'])
+    return {a: (ratio(a, 'go_pg'), ratio(a, 'co_go')) for a in AGES}
+GROWTH = load_growth()
+
+# Landmarks on the adult (Z-Anatomy) mandible, measured side-on (y-z) like a cephalogram.
+_mv = B['mandible_v']; _r = _mv[_mv[:, 0] <= 0]
+_mid = _mv[np.abs(_mv[:, 0]) < 2]; POGONION = _mid[np.argmin(_mid[:, 1])]
+GONION = _r[np.argmax(_r[:, 1] - _r[:, 2])]                      # furthest back-and-down point of the angle
+_post = _r[_r[:, 1] > _r[:, 1].max() - 15]; CONDYLION = _post[np.argmax(_post[:, 2])]
+side = lambda a, b: float(np.linalg.norm(np.asarray(a)[1:] - np.asarray(b)[1:]))
+ADULT_GO_PG = side(GONION, POGONION)
+
 def grow(age):
-    """Child shape factors: front-to-back length behind the first molar (kp) and ramus height (kr)."""
-    t = (age - 6.5) / 6.0
-    return lerp(0.80, 0.92, t), lerp(0.85, 0.94, t)
+    """Child shape factors: front-to-back scale behind the first molar (kp) and ramus height scale (kr).
+    Body length: the whole shortfall from adult gonion-pogonion length is taken from behind the first molar,
+    where the mandible lengthens in childhood (the front of the ramus resorbs as the retromolar space grows).
+    Ramus height: scaled to the child/adult condylion-gonion ratio."""
+    rb, rr = GROWTH[age]
+    kp = 1 - (1 - rb) * ADULT_GO_PG / (GONION[1] - PIVOT_Y)
+    return kp, rr
 
 def deform_points(p, age, jaw):
     kp, kr = grow(age); p = np.array(p, float)
@@ -271,6 +296,10 @@ if __name__ == '__main__':
     centre = None
     summary = {}
     for age in AGES:
+        kp, kr = grow(age); rb, rr = GROWTH[age]
+        co, go, pg = (deform_points(x, age, 'lower') for x in (CONDYLION, GONION, POGONION))
+        LOG.append(f'{age}: target body {rb:.3f} ramus {rr:.3f}; kp {kp:.3f} kr {kr:.3f}; model gives body '
+                   f'{side(go, pg) / ADULT_GO_PG:.3f} ramus {side(co, go) / side(CONDYLION, GONION):.3f}')
         parts = stage(age)
         if centre is None:
             allv = np.vstack([p.vertices for p in parts.values()]); centre = (allv.min(0) + allv.max(0)) / 2
