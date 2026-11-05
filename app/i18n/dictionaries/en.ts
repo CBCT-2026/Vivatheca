@@ -61,6 +61,8 @@ const en = {
     heading: 'See the explanation from every angle.',
     text: 'The impacted wisdom tooth is the Vivatheca platform’s working demonstration. Rotate it, follow a short tour and switch the level of detail.',
     label: 'Interactive model',
+    moreHeading: 'Prototype models',
+    moreHeadNeck: 'Jaw and palate surgery: what is removed, and why it differs by disease (6 cases)',
   },
   understanding: {
     heading: 'One model. More ways to understand.',
