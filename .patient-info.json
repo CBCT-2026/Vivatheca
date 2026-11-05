@@ -1,0 +1,1 @@
+{ "files": [{ "glob": "public/development/index.html", "lang": "en" }], "ignore_selectors": ["sup.cite", ".credit", ".refs", ".small"], "address_reader": "you" }

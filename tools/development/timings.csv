@@ -1,0 +1,30 @@
+# Typical (average) ages in years. Permanent: crown starts (ci), crown complete (cc), emerges through gum (e), root complete (rc).
+# Primary: shed = age the baby tooth falls out (successor emerges about then). Primary roots resorb over the 3 years before shed.
+# Approximate textbook averages (Logan & Kronfeld as revised by Schour & Massler; AlQahtani 2010 London Atlas). Verify against the London Atlas before publishing as final.
+jaw,tooth,kind,ci,cc,e,rc,shed
+upper,I1,perm,0.3,4.5,7.5,10.0,
+upper,I2,perm,0.9,5.0,8.5,11.0,
+upper,C,perm,0.4,6.0,11.5,13.5,
+upper,PM1,perm,1.75,5.5,10.5,13.0,
+upper,PM2,perm,2.25,6.5,11.0,14.0,
+upper,M1,perm,0.0,3.0,6.25,9.5,
+upper,M2,perm,2.75,7.5,12.5,15.0,
+upper,M3,perm,8.0,14.0,18.5,21.0,
+lower,I1,perm,0.3,3.75,6.5,9.0,
+lower,I2,perm,0.3,4.0,7.5,10.0,
+lower,C,perm,0.4,5.5,10.0,13.0,
+lower,PM1,perm,1.9,6.0,11.0,13.5,
+lower,PM2,perm,2.4,7.0,11.5,14.5,
+lower,M1,perm,0.0,3.0,6.25,9.5,
+lower,M2,perm,2.75,7.5,12.0,14.5,
+lower,M3,perm,9.0,14.0,18.5,21.0,
+upper,i1,prim,,,,,7.0
+upper,i2,prim,,,,,8.0
+upper,c,prim,,,,,11.0
+upper,m1,prim,,,,,10.5
+upper,m2,prim,,,,,11.0
+lower,i1,prim,,,,,6.5
+lower,i2,prim,,,,,7.5
+lower,c,prim,,,,,10.0
+lower,m1,prim,,,,,11.0
+lower,m2,prim,,,,,11.5
