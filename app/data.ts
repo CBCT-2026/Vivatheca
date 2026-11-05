@@ -1,18 +1,8 @@
-export const disciplines = [
-  'Cardiology',
-  'Dentistry',
-  'Ear, Nose and Throat Surgery',
-  'Ophthalmology',
-  'Oral and Maxillofacial Surgery',
-  'Orthopaedics',
-];
-
 export const footerGroups = [
   {
     label: 'Explore',
     links: [
       { label: 'Browse the featured model', href: '#collection' },
-      { label: 'Clinical disciplines', href: '#disciplines' },
       { label: 'How it works', href: '#how-it-works' },
       { label: 'Publications', href: '#publications' },
       { label: 'Trust and review', href: '#trust' },
@@ -22,17 +12,13 @@ export const footerGroups = [
     label: 'Participate',
     links: [
       { label: 'Contribute a model', href: 'mailto:hello@vivatheca.com?subject=Contribute%20a%20model' },
-      { label: 'Donate a printed model', href: '#sponsor' },
-      { label: 'Donate 3D printing resources', href: 'mailto:hello@vivatheca.com?subject=Donate%203D%20printing%20resources' },
       { label: 'Join clinical review', href: 'mailto:hello@vivatheca.com?subject=Join%20clinical%20review' },
-      { label: 'Translate health content', href: 'mailto:hello@vivatheca.com?subject=Translate%20health%20content' },
       { label: 'Sponsor a model', href: '#sponsor' },
     ],
   },
   {
     label: 'Connect',
     links: [
-      { label: 'Request a local print', href: 'mailto:hello@vivatheca.com?subject=Request%20a%20local%20print' },
       { label: 'Institutional partnerships', href: 'mailto:hello@vivatheca.com?subject=Institutional%20partnership' },
       { label: 'Contact Vivatheca', href: 'mailto:hello@vivatheca.com' },
       { label: 'Accessibility feedback', href: 'mailto:hello@vivatheca.com?subject=Accessibility%20feedback' },
@@ -43,7 +29,7 @@ export const footerGroups = [
 export const understandingPaths = [
   { icon: '3d_rotation', title: 'Explore it in 3D', text: 'Rotate, zoom and follow a captioned tour with keyboard and touch controls.' },
   { icon: 'menu_book', title: 'Explain it clearly', text: 'Switch between plain-language guidance and deeper clinical detail.' },
-  { icon: 'print', title: 'Take it further', text: 'Share the model, view it in AR, or prepare a version for physical printing.' },
+  { icon: 'print', title: 'Take it further', text: 'Share the model, view it in AR on your phone, or download the STL to print it.' },
 ];
 
 export const trustItems = [

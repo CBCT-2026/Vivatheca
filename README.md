@@ -26,6 +26,14 @@ In the Cloudflare dashboard: **Workers & Pages → Create → Import a repositor
 
 Every push to `main` then redeploys automatically. Add `vivatheca.com` under the project's **Settings → Domains & Routes → Custom domain**.
 
+## Password protection
+
+The site can be locked behind one shared username and password (HTTP Basic Auth), handled in `worker/index.ts`.
+
+- **Turn on:** in Cloudflare, open the `vivatheca` Worker → **Settings → Variables and Secrets → Add**, type **Secret**, name `SITE_PASSWORD`, value = your password. Deploy.
+- **Username:** `vivatheca` (change it by adding a `SITE_USERNAME` variable).
+- **Turn off (make public):** delete the `SITE_PASSWORD` secret.
+
 ## Patient information builder (`/create`)
 
 Clinicians draft, check and export patient education materials that match a Vivatheca model. Code: `app/create/` (page, brief and prompt text, in-browser checker) and `app/api/generate/route.ts` (server call to Claude).
