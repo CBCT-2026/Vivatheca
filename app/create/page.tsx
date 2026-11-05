@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { getI18n } from '../i18n/server';
+import { plain, Ruby } from '../i18n/ruby';
+import { LanguageSwitcher } from '../i18n/switcher';
 import { ThemeToggle } from '../ui';
 import { Builder } from './builder';
-
-export const metadata: Metadata = {
-  title: 'Create patient information — Vivatheca',
-  description: 'Draft, check and refine patient education materials that match Vivatheca 3D models.',
-  alternates: { canonical: '/create' },
-  robots: { index: false },
-};
 
 // Visible sources for the builder's rules and checks (see briefs.ts and checker.ts).
 const guidanceSources = [
@@ -21,29 +17,41 @@ const guidanceSources = [
   { text: 'Australian Dental Association. Policy Statement 5.15: Consent to Treatment.', href: 'https://ada.org.au/policy-statement-5-15-consent-to-treatment' },
 ];
 
-export default function CreatePage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getI18n();
+  return {
+    title: t.meta.createTitle,
+    description: t.meta.createDescription,
+    alternates: { canonical: '/create' },
+    robots: { index: false },
+  };
+}
+
+export default async function CreatePage() {
+  const { t, furigana } = await getI18n();
   return (
     <>
-      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <header className="site-header builder-header">
-        <Link className="brand" href="/" aria-label="Vivatheca home"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
+        <Link className="brand" href="/" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
         <span />
         <div className="header-actions">
+          <LanguageSwitcher furigana={furigana} className="always" />
           <ThemeToggle />
-          <Link className="button button-secondary button-compact builder-back" href="/">Back to models</Link>
+          <Link className="button button-secondary button-compact builder-back" href="/"><Ruby text={t.create.back} /></Link>
         </div>
       </header>
       <main id="main-content" className="builder-page">
         <div className="builder-intro">
-          <p className="eyebrow">Prototype · For clinicians</p>
-          <h1>Create patient information</h1>
-          <p>Draft a leaflet, A4 sheet, consent section or narration script that matches a Vivatheca model. Check it against plain-language and risk-communication guidance, refine it, and export it for print.</p>
+          <p className="eyebrow"><Ruby text={t.create.eyebrow} /></p>
+          <h1><Ruby text={t.create.heading} /></h1>
+          <p><Ruby text={t.create.intro} /></p>
         </div>
         <Builder />
         <section className="builder-sources" aria-labelledby="builder-sources-title">
-          <h2 id="builder-sources-title">Guidance this builder follows</h2>
-          <p>The drafting rules and checks are based on these published sources. The reading-grade and sentence-length limits are common targets drawn from this guidance, not validated cut-offs, and readability formulas only estimate how easy a text is to read.</p>
-          <ol>
+          <h2 id="builder-sources-title"><Ruby text={t.create.guidanceHeading} /></h2>
+          <p><Ruby text={t.create.guidanceIntro} /></p>
+          <ol lang="en">
             {guidanceSources.map((source) => <li key={source.href}>{source.text} <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}
           </ol>
         </section>
