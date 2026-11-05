@@ -1,24 +1,19 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { catalogue } from '../models/catalogue';
 
 const issueTypes = ['Anatomy is wrong', 'Condition is not shown accurately', 'Label or text is wrong', 'Download or print problem', 'Other'];
 const roles = ['Dentist', 'Dental specialist', 'Oral health therapist or hygienist', 'Medical doctor', 'Student', 'Patient or carer', 'Other'];
 
-export function ReportForm() {
-  const [model, setModel] = useState(catalogue[0].slug);
+export function ReportForm({ initialModel }: { initialModel?: string }) {
+  const [model, setModel] = useState(initialModel && catalogue.some((item) => item.slug === initialModel) ? initialModel : catalogue[0].slug);
   const [issue, setIssue] = useState(issueTypes[0]);
   const [role, setRole] = useState('');
   const [details, setDetails] = useState('');
   const [source, setSource] = useState('');
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get('model');
-    if (requested && catalogue.some((item) => item.slug === requested)) setModel(requested);
-  }, []);
 
   const modelTitle = catalogue.find((item) => item.slug === model)?.title ?? model;
   const body = [

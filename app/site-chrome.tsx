@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { footerGroups } from './data';
+import { disclaimerHref, siteDisclaimer } from './disclaimer-text';
+import { ThemeToggle } from './ui';
 
 export const primaryLinks = [
   { label: 'Models', href: '/models' },
@@ -15,7 +17,7 @@ export function PageHeader() {
       <nav className="page-nav" aria-label="Primary navigation">
         {primaryLinks.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
       </nav>
-      <span />
+      <div className="page-header-actions"><ThemeToggle /></div>
     </header>
   );
 }
@@ -41,8 +43,8 @@ export function SiteFooter() {
 
       <div className="footer-legal">
         <p>© 2026 Vivatheca</p>
-        <p className="disclaimer">Educational information only—not a substitute for professional medical advice.</p>
-        <nav aria-label="Legal and accessibility"><Link href="/privacy">Privacy</Link><Link href="/report">Report an inaccuracy</Link><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback">Accessibility feedback</a></nav>
+        <p className="disclaimer">{siteDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
+        <nav aria-label="Legal and accessibility"><Link href={disclaimerHref}>Disclaimer</Link><Link href="/privacy">Privacy</Link><Link href="/report">Report an inaccuracy</Link><a href="mailto:hello@vivatheca.com?subject=Accessibility%20feedback">Accessibility feedback</a></nav>
       </div>
     </footer>
   );

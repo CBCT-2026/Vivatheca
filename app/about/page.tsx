@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader, SiteFooter } from '../site-chrome';
+import { disclaimerHref, modelDisclaimer } from '../disclaimer-text';
 
 export const metadata: Metadata = {
   title: 'About — Vivatheca',
@@ -38,6 +39,7 @@ export default function AboutPage() {
           <ul className="principle-list">
             {principles.map((item) => <li key={item.title}><h3>{item.title}</h3><p>{item.text}</p></li>)}
           </ul>
+          <p className="prototype-note"><strong>Review status:</strong> no model has been independently clinically reviewed yet. {modelDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
         </section>
 
         <section aria-labelledby="founder-title">

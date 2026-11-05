@@ -5,6 +5,8 @@
 The Vivatheca platform is a TypeScript/React application built with Next.js-compatible Vinext and packaged for Cloudflare Sites.
 
 - `app/page.tsx` defines the homepage.
+- `app/models/` holds the model library (`/models`), `catalogue.ts` (every model's card data, files, sources, simplifications, change log and citation) and one page per model (e.g. `/models/impacted-wisdom-tooth`, with `compare.tsx` showing the pathology beside its matched normal). Add each new model to `catalogue.ts`; every pathology model needs a matched normal.
+- `app/about/`, `app/privacy/` and `app/report/` (report-an-inaccuracy form that opens a pre-filled email) are plain info pages using `PageHeader` and `SiteFooter` from `app/site-chrome.tsx`.
 - `app/ui.tsx` contains interactive client components, including the 3D viewer and locally stored favourites.
 - `app/data.ts` contains reusable catalogue and navigation content.
 - `app/globals.css` contains the design tokens and shared styles.
@@ -43,6 +45,8 @@ For interface work, use the installed `ui-ux-pro-max` and `impeccable` skills to
 
 ## Landing Page Assets
 
+Since 5 November 2026 the site shows screenshots of its own 3D models (`public/assets/renders/`) instead of AI illustrations. The rules below apply only if AI illustrations are ever reintroduced.
+
 Use [`assets/`](./assets/) as the source of truth for landing-page illustrations and related media. Replace stock imagery with original, content-specific illustrations generated with ImageGen, keep a consistent visual language, record prompt provenance in the manifest, and integrate every meaningful image with useful alternative text. Copy optimised shipping versions to `public/assets/`; do not reference files outside the repository. Every AI-generated image must carry the visible, subtle disclosure “AI-generated illustration.” Research illustrations are interpretive companions and must never be implied to be figures from a cited paper.
 
 The translation roadmap uses accurate, licensed vector flags from the MIT-licensed `flag-icons` collection, retained in `assets/flags/` with a shipping copy in `public/flags/` and its licence alongside both. Flags support recognition but never replace the centred English and native-language labels. Preserve correct `lang`, `dir` and bidirectional-isolation markup.
@@ -58,6 +62,10 @@ Keep global-access data markers, legends and location labels as accessible HTML 
 ## Testing Guidelines
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.
+
+## Disclaimer (required everywhere)
+
+`app/disclaimer-text.ts` is the single source of the disclaimer wording; `/disclaimer` (`app/disclaimer/page.tsx`) shows the full version. Every page must show `siteDisclaimer` (the footer does this) or a link to `/disclaimer`. Every model viewer, model page and download must show its review status, `modelDisclaimer` and a link to `/disclaimer`. Static pages under `public/` copy the model wording verbatim. Generated or exported materials keep the AI and DRAFT notices. Never describe a model as suitable for diagnosis, treatment planning, surgical guides or use in or on the body. Translations of the disclaimer must be reviewed by a fluent speaker before release.
 
 ## Security & Clinical Content
 

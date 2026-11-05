@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type Side = { glb: string; alt: string };
 type Mode = 'both' | 'impacted' | 'normal';
@@ -11,8 +11,8 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
   const [ready, setReady] = useState(false);
   const [mode, setMode] = useState<Mode>('both');
   const [linked, setLinked] = useState(true);
-  const left = useRef<ModelViewerElement | null>(null);
-  const right = useRef<ModelViewerElement | null>(null);
+  const [left, setLeft] = useState<ModelViewerElement | null>(null);
+  const [right, setRight] = useState<ModelViewerElement | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -22,8 +22,8 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
 
   useEffect(() => {
     if (!ready || !linked) return;
-    const a = left.current;
-    const b = right.current;
+    const a = left;
+    const b = right;
     if (!a || !b) return;
     const follow = (from: ModelViewerElement, to: ModelViewerElement) => (event: Event) => {
       const detail = (event as CustomEvent<{ source: string }>).detail;
@@ -38,9 +38,9 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
       a.removeEventListener('camera-change', fromA);
       b.removeEventListener('camera-change', fromB);
     };
-  }, [ready, linked, mode]);
+  }, [ready, linked, left, right]);
 
-  const viewer = (side: Side, ref: React.RefObject<ModelViewerElement | null>) => React.createElement('model-viewer', {
+  const viewer = (side: Side, ref: (element: ModelViewerElement | null) => void) => React.createElement('model-viewer', {
     ref,
     src: side.glb,
     alt: side.alt,
@@ -75,7 +75,7 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
         {(['impacted', 'normal'] as const).map((key) => (
           <figure key={key} className="compare-pane" hidden={mode !== 'both' && mode !== key}>
             <figcaption><span className={`compare-dot ${key}`} aria-hidden="true" />{key === 'impacted' ? 'Impacted wisdom tooth' : 'Matched normal'}</figcaption>
-            {ready ? viewer(key === 'impacted' ? impacted : normal, key === 'impacted' ? left : right) : <div className="compare-model compare-loading" role="status">Loading 3D model…</div>}
+            {ready ? viewer(key === 'impacted' ? impacted : normal, key === 'impacted' ? setLeft : setRight) : <div className="compare-model compare-loading" role="status">Loading 3D model…</div>}
           </figure>
         ))}
       </div>

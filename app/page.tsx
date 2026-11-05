@@ -129,7 +129,7 @@ export default function Home() {
 
         <section className="contribute-section" id="contribute">
           <div className="contribute-copy"><h2>Help build the collection.</h2><p>Clinicians keep the library accurate and decide what gets built next.</p><div className="contribution-paths">{contributionPaths.map((path) => <article key={path.title}><Icon name={path.icon} size={26} /><div><h3>{path.title}</h3><p>{path.text}</p><a className="text-link" href={path.href}>{path.href.startsWith('/') ? 'Open the form' : 'Email us'} <Icon name="arrow_forward" /></a></div></article>)}</div></div>
-          <figure><img src="/assets/renders/dental-development.webp" alt="Dental development model at 9.5 years: right upper and lower jaw with blue baby teeth and yellow adult teeth forming beneath them." width="1200" height="800" /><figcaption className="ai-disclaimer">Screenshot of the dental development series, age 9.5. <Link href="/development/">Open the series</Link>.</figcaption></figure>
+          <figure><img src="/assets/renders/dental-development.webp" alt="Dental development model at 9.5 years: right upper and lower jaw with blue baby teeth and yellow adult teeth forming beneath them." width="1200" height="800" /><figcaption className="ai-disclaimer">Screenshot of the dental development series, age 9.5. <a href="/development/">Open the series</a>.</figcaption></figure>
         </section>
 
         <section className="sponsor-section" id="sponsor">

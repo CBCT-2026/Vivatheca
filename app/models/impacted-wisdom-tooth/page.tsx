@@ -4,6 +4,7 @@ import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, licence, wisdomTooth } from '../catalogue';
 import { CompareViewer } from '../compare';
 import { CopyCitation } from './copy-citation';
+import { disclaimerHref, modelDisclaimer } from '../../disclaimer-text';
 
 const model = catalogue.find((item) => item.slug === 'impacted-wisdom-tooth')!;
 
@@ -28,6 +29,7 @@ export default function WisdomToothPage() {
         </div>
 
         <CompareViewer impacted={wisdomTooth.impacted} normal={wisdomTooth.normal} />
+        <p className="prototype-note model-disclaimer"><strong>Not yet clinically reviewed.</strong> {modelDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
 
         <div className="model-details">
           <section aria-labelledby="downloads-title" className="detail-block detail-downloads">
@@ -37,6 +39,7 @@ export default function WisdomToothPage() {
                 <li key={file.href}><a href={file.href} download><img aria-hidden="true" src="/icons/download.svg" width="20" height="20" alt="" />{file.label}</a><span>{file.size}</span></li>
               ))}
             </ul>
+            <p className="prototype-note"><strong>Not yet clinically reviewed.</strong> {modelDisclaimer} <Link href={disclaimerHref}>Full disclaimer</Link></p>
             <p className="detail-note">Licence: <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. You may use, adapt and print these models, including in your own patient materials, if you credit Vivatheca and share any changed model under the same licence.</p>
             <Link className="button button-compact" href="/create">Make patient information for this model</Link>
           </section>
@@ -45,7 +48,7 @@ export default function WisdomToothPage() {
             <h2 id="details-title">Model details</h2>
             <dl className="fact-list">
               <div><dt>Version</dt><dd>{model.version}, updated {model.updated}</dd></div>
-              <div><dt>Review status</dt><dd>{model.status}. Not yet checked by an independent clinician.</dd></div>
+              <div><dt>Review status</dt><dd>{model.status}. No independent clinician has checked it yet.</dd></div>
               <div><dt>Pair</dt><dd>{model.pairing}</dd></div>
             </dl>
 
