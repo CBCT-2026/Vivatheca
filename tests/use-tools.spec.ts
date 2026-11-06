@@ -8,11 +8,15 @@ test('model pages offer a link to the view, a picture, a tour, the credit and an
   await page.goto('/periodontitis/index.html');
   const panel = page.locator('.vt-share');
   await expect(panel.getByRole('heading', { name: 'Use this model' })).toBeVisible({ timeout: 30_000 });
-  for (const name of ['Copy link to this view', 'QR code', 'Save picture (PNG)', 'Guided tour', 'Picture steps (no words)', 'Copy credit', 'Embed on a website']) {
+  for (const name of ['Copy link to this view', 'QR code', 'Save picture (PNG)', 'Guided tour', 'Picture steps (no words)', 'Credit and citation', 'Embed on a website']) {
     await expect(panel.getByRole('button', { name })).toBeVisible();
   }
-  await panel.getByRole('button', { name: 'Copy credit' }).click();
+  await panel.getByRole('button', { name: 'Credit and citation' }).click();
   await expect(panel.locator('textarea')).toHaveValue(/CC BY-SA 4\.0.*Not for diagnosis/);
+  await panel.getByRole('button', { name: 'Cite: Vancouver' }).click();
+  await expect(panel.locator('.vt-credit textarea')).toHaveValue(/^Vivatheca\. .+ \[3D model on the Internet\]\. Version 0\.\d+\. .*Available from: https:\/\/vivatheca\.com\/periodontitis\/$/);
+  await panel.getByRole('button', { name: 'RIS (EndNote, Zotero)' }).click();
+  await expect(panel.locator('.vt-credit textarea')).toHaveValue(/^TY {2}- DATA[\s\S]*ET {2}- 0\.\d+[\s\S]*ER {2}- $/);
   await panel.getByRole('button', { name: 'Embed on a website' }).click();
   await expect(panel.locator('.vt-embedbox textarea')).toHaveValue(/<iframe src="[^"]*embed=1/);
   await expect(panel.getByRole('link', { name: /3D print/ })).toHaveAttribute('href', '/print?model=periodontitis');
