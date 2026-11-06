@@ -48,7 +48,7 @@ const en = {
   // Homepage: the two uses of the site, kept apart.
   audiences: {
     label: 'Who Vivatheca is for',
-    heading: 'Two ways to use Vivatheca.',
+    heading: 'For clinicians and for students',
     clinicians: {
       eyebrow: 'For clinicians',
       title: 'Educate your patients',
@@ -653,7 +653,7 @@ const en = {
   },
   hero: {
     line1: 'Clinical models',
-    line2: 'made clear.',
+    line2: 'made clear',
     lede: 'A free, not-for-profit library of 3D dental and oral surgery models. Each condition comes with a matched normal, so clinicians can show patients what is different, on screen or as a 3D print.',
     explore: 'Browse the models',
     how: 'Try the 3D viewer',
@@ -668,13 +668,8 @@ const en = {
     flagAlt: 'Australian National Flag',
     text: 'Founded and operated in Australia.',
   },
-  mission: {
-    label: 'Vivatheca mission',
-    text: 'Open 3D models for clearer conversations.',
-    links: ['View in 3D', 'Share by link', 'Print where possible'],
-  },
   collection: {
-    heading: 'See the explanation from every angle.',
+    heading: 'Try an interactive model',
     text: 'Rotate a child’s upper jaw through the three stages of an alveolar bone graft for a cleft, take the gum off to see the bone, and switch between plain language and clinician detail.',
     label: 'Interactive model',
     moreHeading: 'Prototype models',
@@ -682,28 +677,28 @@ const en = {
     allModels: 'See every model in the library',
   },
   showcase: {
-    heading: 'More from the collection.',
+    heading: 'More models in the collection',
     text: 'A mix of the models you can open today, from children’s tooth development to jaw surgery. Each one is paired with normal anatomy or shown in stages.',
     label: 'Models in the collection',
     open: 'Open model',
   },
   understanding: {
-    heading: 'One model. More ways to understand.',
-    text: 'The Vivatheca platform connects the moment of explanation with everything that may come after it.',
+    heading: 'What a model page includes',
+    text: 'Model pages have a 3D viewer, two levels of explanation and, for most models, a file to 3D print.',
     explore: { title: 'Explore it in 3D', text: 'Rotate, zoom and follow a captioned tour with keyboard and touch controls.' },
     explain: { title: 'Explain it clearly', text: 'Switch between plain-language guidance and deeper clinical detail.' },
-    further: { title: 'Take it further', text: 'Share the model, view it in AR on your phone, or download the STL to print it.' },
+    further: { title: 'Share or print it', text: 'Share the model, view it in AR on your phone, or download the STL to print it.' },
   },
   print: {
     imageAlt: 'Cheek-side view of the impacted wisdom tooth model: on the left the digital model, on the right a photo of the same model 3D printed, with a ruler. Both show grey-beige bone and teeth and the nerve in red.',
     imageAltLingual: 'Tongue-side view of the same digital model and 3D print, with a ruler.',
     caption: 'Top: cheek side. Bottom: tongue side. Left: digital model, shown here in the print’s colours (grey-beige, nerve in red). Right: the same model 3D printed (version 10.1). Photos by Luke Seifert, Vivatheca.',
-    heading: 'From the screen to something you can hold.',
+    heading: 'Print a model on a desktop 3D printer',
     text: 'Most models come with a free STL file in millimetres, with its print scale stated on the model page, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands. Print files for the jaw and palate surgery models will follow once those models are finalised.',
     download: 'Download both STL files',
   },
   trust: {
-    heading: 'Trust should be visible, not implied.',
+    heading: 'How models are checked',
     text: 'Every model lists its published sources, what is simplified, its version and change log, and whether a clinician has reviewed it yet.',
     report: 'Report an inaccuracy',
     reportAfter: 'and the fix is recorded in the change log.',
@@ -735,7 +730,7 @@ const en = {
     warning: 'no model has been independently reviewed yet, and each model page says so. Reviewers are being invited now.',
   },
   publications: {
-    heading: 'Evidence for seeing and holding anatomy.',
+    heading: 'Research on 3D models in patient communication',
     text: 'Independent, peer-reviewed research has tested how physical and virtual 3D models can support patient knowledge, communication and understanding. Findings depend on the clinical setting and should not be treated as universal proof.',
     note: 'These articles are independent evidence and are not connected to Vivatheca.',
     read: 'Read the peer-reviewed article',
@@ -757,7 +752,7 @@ const en = {
     },
   },
   contribute: {
-    heading: 'Help build the collection.',
+    heading: 'Help build the collection',
     text: 'Clinicians keep the library accurate and decide what gets built next.',
     learn: 'Learn how',
     openForm: 'Open the form',
@@ -772,7 +767,7 @@ const en = {
     imageAlt: 'Dental development model at 9.5 years: right upper and lower jaw with blue baby teeth and yellow adult teeth forming beneath them.',
   },
   sponsor: {
-    heading: 'Help a model travel further.',
+    heading: 'Sponsor a model',
     text: 'Sponsorship can support model development and future physical distribution to clinics that cannot print locally. Vivatheca is not yet a registered charity, so sponsorship is not tax-deductible.',
     cta: 'Start a sponsorship conversation',
   },
@@ -836,7 +831,7 @@ const en = {
     sourceLabel: 'Source {n}',
   },
   abg: {
-    status: 'Interactive Example',
+    status: 'Interactive model',
     stagesLabel: 'Bone graft stage',
     gumOff: 'Take off the gum',
     gumOn: 'Put the gum back',
@@ -1085,7 +1080,7 @@ const en = {
     title: 'Model library — Vivatheca',
     description: 'Free 3D models of dental and oral and maxillofacial conditions, each paired with normal anatomy, with GLB and STL downloads.',
     eyebrow: 'Model library',
-    heading: 'Models with a normal to compare.',
+    heading: 'Models with a normal to compare',
     intro: 'Every condition comes with matching normal anatomy, so you can show a patient what is different and why it matters. All models are free to view, download, print and adapt under',
     licenceOther: 'Models built from BodyParts3D are CC BY 4.0 instead, which also lets you share what you make under any licence. Each card says which.',
     reviewLead: 'Review status is shown on each model.',
@@ -1320,7 +1315,7 @@ const en = {
     title: 'About — Vivatheca',
     description: 'Why Vivatheca exists, who runs it and how it is governed as a not-for-profit.',
     eyebrow: 'About',
-    heading: 'Clear 3D models for the conversation in the chair.',
+    heading: 'Clear 3D models for the conversation in the chair',
     intro: 'Vivatheca is a free library of 3D dental and oral and maxillofacial models. Clinicians use them to explain a condition, show what treatment involves, and build their own patient education materials, on screen or as a 3D print.',
     whyHeading: 'Why it exists',
     whyEvidence: 'See the trials, with links, in the Evidence section',
