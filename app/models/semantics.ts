@@ -40,6 +40,12 @@ const A = {
   minorSalivary: { id: 'UBERON:0001830', label: 'minor salivary gland' },
   lowerTeeth: { id: 'UBERON:0003268', label: 'tooth of lower jaw' },
   chin: { id: 'UBERON:0008199', label: 'chin' },
+  tmj: { id: 'UBERON:0003700', label: 'temporomandibular joint' },
+  tmjDisc: { id: 'UBERON:0011319', label: 'disk of temporomandibular joint' },
+  masseter: { id: 'UBERON:0001597', label: 'masseter muscle' },
+  temporalis: { id: 'UBERON:0001598', label: 'temporalis muscle' },
+  lateralPterygoid: { id: 'UBERON:0006719', label: 'lateral pterygoid muscle' },
+  medialPterygoid: { id: 'UBERON:0006718', label: 'medial pterygoid muscle' },
 } satisfies Record<string, Code>;
 
 const M = {
@@ -79,6 +85,11 @@ const M = {
   genioplasty: { id: 'D063172', label: 'Genioplasty' },
   bonePlates: { id: 'D001860', label: 'Bone Plates' },
   internalFixation: { id: 'D005593', label: 'Fracture Fixation, Internal' },
+  tmd: { id: 'D013705', label: 'Temporomandibular Joint Disorders' },
+  myalgia: { id: 'D063806', label: 'Myalgia' },
+  masticatoryMuscles: { id: 'D008410', label: 'Masticatory Muscles' },
+  exerciseTherapy: { id: 'D005081', label: 'Exercise Therapy' },
+  careTeam: { id: 'D010348', label: 'Patient Care Team' },
 } satisfies Record<string, Code>;
 
 export const modelCodes: Record<string, ModelCodes> = {
@@ -87,6 +98,7 @@ export const modelCodes: Record<string, ModelCodes> = {
   periodontitis: { subjects: [M.periodontitis], anatomy: [A.periodontium, A.gingiva, A.pdl, A.cementum] },
   oroantral: { subjects: [M.oroantral], anatomy: [A.maxillarySinus, A.maxilla, A.maxillaryAlveolus] },
   'cracked-tooth': { subjects: [M.cracked, M.crowns], anatomy: [A.molar, A.enamel, A.dentine, A.pulp] },
+  tmd: { subjects: [M.tmd, M.myalgia, M.masticatoryMuscles, M.exerciseTherapy, M.careTeam], anatomy: [A.tmj, A.tmjDisc, A.masseter, A.temporalis, A.lateralPterygoid, A.medialPterygoid, A.mandible] },
   endodontic: { subjects: [M.periapicalAbscess, M.pulpNecrosis, M.periapicalPeriodontitis], anatomy: [A.molar, A.pulp, A.molarRoot, A.mandible] },
   'stainless-steel-crown': { subjects: [M.caries, M.crowns, M.deciduous], anatomy: [A.deciduousTooth, A.pulp] },
   'head-neck': { subjects: [M.hnNeoplasms, M.mandibularRecon, M.freeFlaps], anatomy: [A.mandible, A.fibula, A.hardPalate] },
