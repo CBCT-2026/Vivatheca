@@ -138,9 +138,9 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .hero-lede { margin-bottom: 2rem; color: var(--muted); font-size: clamp(1.05rem,1.45vw,1.23rem); line-height: 1.65; }
 .access-list { display: flex; flex-wrap: wrap; gap: .7rem 1.4rem; margin: 1.75rem 0 0; padding: 0; color: var(--text-strong); font-size: .84rem; font-weight: 700; list-style: none; }
 .access-list li::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: .5rem; border-radius: 50%; background: var(--cyan-500); }
-.hero-visual { position: relative; margin: 0 -10vw 0 0; padding-bottom: 1.55rem; }
-.hero-visual img { width: 100%; min-height: 560px; border-radius: 48% 0 0 48%; object-fit: cover; object-position: center; box-shadow: var(--shadow-lg); }
-.hero-visual > figcaption { position: absolute; right: max(2rem,11vw); bottom: 3.1rem; max-width: 300px; border-radius: var(--radius-sm); background: rgba(0,36,77,.9); padding: .9rem 1.1rem; color: var(--white); font-size: .8rem; font-weight: 650; }
+.hero-visual { position: relative; margin: 0; padding-bottom: 1.55rem; }
+.hero-visual img { width: 100%; min-height: 480px; border: 1px solid var(--line); border-radius: var(--radius-md); object-fit: cover; object-position: center; }
+.hero-visual > figcaption { position: absolute; right: 1.5rem; bottom: 3.1rem; max-width: 300px; border-radius: var(--radius-sm); background: rgba(0,36,77,.9); padding: .9rem 1.1rem; color: var(--white); font-size: .8rem; font-weight: 650; }
 .ai-disclaimer, .figure-note { margin: 0; color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .01em; line-height: 1.4; }
 
 .origin-band { display: flex; min-height: 68px; align-items: center; justify-content: flex-start; gap: 1rem; border-top: 1px solid var(--line); background: var(--surface); padding: .5rem clamp(1.25rem,7vw,7rem); }
@@ -149,9 +149,6 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .origin-band img { width: 56px; height: 28px; object-fit: cover; }
 .origin-band p { margin: 0; color: var(--text-strong); font-size: 1rem; font-weight: 740; }
 
-.mission-band { display: flex; align-items: center; justify-content: space-between; gap: 2rem; background: var(--cyan-500); padding: 1.2rem clamp(1.25rem,7vw,7rem); color: var(--navy-950); }
-.mission-band p { margin: 0; font-size: 1.1rem; font-weight: 800; }
-.mission-links { display: flex; gap: 1.5rem; font-size: .95rem; font-weight: 700; }
 .collection-section, .understanding-section, .disciplines-section { padding: var(--space-section) clamp(1.25rem,7vw,7rem); }
 .collection-section { background: var(--surface); }
 .section-heading { max-width: 760px; margin-bottom: clamp(2.5rem,5vw,4.5rem); }
@@ -209,7 +206,6 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .understanding-paths article { position: relative; min-height: 300px; border-right: 1px solid var(--line); padding: 2rem clamp(1.5rem,3vw,3rem) 1.5rem 0; }
 .understanding-paths article + article { padding-left: clamp(1.5rem,3vw,3rem); }
 .understanding-paths article:last-child { border-right: 0; }
-.path-number { position: absolute; top: 2rem; right: 2rem; color: var(--muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
 .understanding-paths .ui-icon { width: 30px; margin-bottom: 3.5rem; }
 .understanding-paths p { max-width: 32ch; color: var(--muted); }
 
@@ -390,7 +386,7 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
   .site-header { grid-template-columns: auto 1fr; }
   .header-actions { justify-content: flex-end; }
   .mobile-nav { display: block; }
-  .hero { grid-template-columns: 1fr 1fr; padding-right: 0; }
+  .hero { grid-template-columns: 1fr 1fr; }
   .model-experience { grid-template-columns: 1fr; }
   .model-copy { min-height: 460px; }
   .print-section, .contribute-section { grid-template-columns: 1fr; }
@@ -435,11 +431,9 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
   .hero-line:first-child { white-space: normal; }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .hero-actions .button { width: 100%; }
-  .hero-visual { margin: 1rem -1.25rem 0; }
-  .hero-visual img { min-height: 420px; border-radius: 42% 0 0 0; object-position: 62% center; }
+  .hero-visual { margin: 1rem 0 0; }
+  .hero-visual img { min-height: 320px; object-position: 62% center; }
   .hero-visual > figcaption { right: 1rem; bottom: 3rem; left: 1rem; max-width: none; }
-  .mission-band, .mission-links { align-items: flex-start; flex-direction: column; }
-  .mission-links { gap: .4rem; }
   .split-heading { grid-template-columns: 1fr; }
   .section-label { padding: 0; }
   .model-stage, .model-viewer, .model-loading { min-height: 500px; }
@@ -676,7 +670,6 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 :root[data-theme='dark'] .tour-dots span { background: rgba(255,255,255,.28); }
 :root[data-theme='dark'] .model-links { border-top-color: var(--line); }
 :root[data-theme='dark'] .model-index { color: var(--accent); }
-:root[data-theme='dark'] .path-number { color: var(--muted); }
 :root[data-theme='dark'] .builder-banner { border-color: #8a6a2b; background: #2e2610; color: #f6e7c6; }
 :root[data-theme='dark'] .builder-alert { background: #3a1714; color: #ffc9c1; }
 :root[data-theme='dark'] .builder input:not([type=checkbox]), :root[data-theme='dark'] .builder select, :root[data-theme='dark'] .builder textarea { border-color: #3d6488; }
@@ -707,7 +700,7 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .info-intro .prototype-note { margin-top: 1rem; }
 .detail-downloads .button { margin-top: .5rem; }
 /* Model screenshots: show the whole model rather than cropping it. */
-.hero-visual img { object-fit: contain; background: var(--aqua-50); padding: 2rem 12vw 2rem 3rem; }
+.hero-visual img { object-fit: contain; background: var(--aqua-50); padding: 2rem 3rem; }
 .print-section figure img, .contribute-section figure img { object-fit: contain; background: var(--aqua-50); padding: clamp(1rem,4vw,3rem); }
 .hero-visual > figcaption { bottom: 1.5rem; }
 @media (max-width: 900px) { .hero-visual img { min-height: 0; padding: 1rem; } }

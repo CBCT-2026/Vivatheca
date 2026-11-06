@@ -236,7 +236,7 @@ export function ModelExperience() {
     <div className="model-experience">
       <div className="model-stage" ref={viewerFrame}>
         <div className="model-stage-topline">
-          <span className="status-chip"><span className="status-dot" /><Ruby text={a.status} /></span>
+          <span className="status-chip"><Ruby text={a.status} /></span>
           <div className="model-actions">
             <button type="button" className="rotation-button" onClick={() => setRotationEnabled((value) => !value)} aria-pressed={rotationEnabled}>
               <Ruby text={rotationEnabled ? m.pause : m.resume} />

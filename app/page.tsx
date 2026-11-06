@@ -63,10 +63,6 @@ export default async function Home() {
           <p><Ruby text={t.origin.text} /></p>
         </aside>
 
-        <section className="mission-band" aria-label={plain(t.mission.label)}>
-          <p><Ruby text={t.mission.text} /></p>
-          <div className="mission-links">{t.mission.links.map((item) => <span key={item}><Ruby text={item} /></span>)}</div>
-        </section>
 
         <section className="audience-section" id="audiences" aria-label={plain(t.audiences.label)}>
           <h2><Ruby text={t.audiences.heading} /></h2>
@@ -137,8 +133,8 @@ export default async function Home() {
         <section className="understanding-section" id="how-it-works">
           <div className="section-heading compact-heading"><h2><Ruby text={t.understanding.heading} /></h2><p><Ruby text={t.understanding.text} /></p></div>
           <div className="understanding-paths">
-            {understandingPaths(t).map((path, index) => (
-              <article key={path.icon}><span className="path-number">{String(index + 1).padStart(2, '0')}</span><Icon name={path.icon} size={30} /><h3><Ruby text={path.title} /></h3><p><Ruby text={path.text} /></p></article>
+            {understandingPaths(t).map((path) => (
+              <article key={path.icon}><Icon name={path.icon} size={30} /><h3><Ruby text={path.title} /></h3><p><Ruby text={path.text} /></p></article>
             ))}
           </div>
         </section>
