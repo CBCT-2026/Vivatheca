@@ -17,7 +17,8 @@
     '/head-neck/mec/': 'head-neck-mec',
   };
   // Pages with a student guide under /learn get a link to it if they do not have one yet.
-  const guides = { '/periodontitis/': '/learn/periodontitis', '/cracked-tooth/': '/learn/cracked-tooth', '/development/': '/learn/development', '/orthognathic/': '/learn/orthognathic', '/oroantral/': '/learn/oroantral', '/stainless-steel-crown/': '/learn/steel-crown' };
+  const guides = { '/periodontitis/': '/learn/periodontitis', '/cracked-tooth/': '/learn/cracked-tooth', '/development/': '/learn/development', '/orthognathic/': '/learn/orthognathic', '/oroantral/': '/learn/oroantral', '/stainless-steel-crown/': '/learn/steel-crown',
+    '/head-neck/': '/learn/head-neck', '/head-neck/scc/': '/learn/head-neck', '/head-neck/ameloblastoma/': '/learn/head-neck', '/head-neck/okc/': '/learn/head-neck', '/head-neck/mec/': '/learn/head-neck' };
   const text = {
     en: { student: 'Studying dentistry or medicine?', guide: 'Read the student guide', skip: 'Skip to main content', lead: 'Making patient information?', link: 'Draft a leaflet or A4 sheet that uses this model’s labels' },
     ja: { student: '{歯学|しがく}・{医学|いがく}を{学|まな}んでいますか？', guide: '{学生|がくせい}{向|む}けガイドを{読|よ}む', skip: '{本文|ほんぶん}へ{移動|いどう}', lead: '{患者|かんじゃ}さん{向|む}けの{資料|しりょう}を{作|つく}りますか？', link: 'この{模型|もけい}のラベルに{合|あ}わせたリーフレットやA4{資料|しりょう}を{作|つく}る' },

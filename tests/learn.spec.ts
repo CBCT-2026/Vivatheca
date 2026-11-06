@@ -78,6 +78,7 @@ test('orthognathic student guide cites its sources and is linked from the hub an
 for (const g of [
   { path: '/learn/oroantral', heading: 'Oroantral communication and fistula (OAC and OAF)', sources: 11, model: '/oroantral/' },
   { path: '/learn/steel-crown', heading: 'Preformed metal crowns on primary molars', sources: 7, model: '/stainless-steel-crown/' },
+  { path: '/learn/head-neck', heading: 'Head and neck: resection and reconstruction in four cases', sources: 11, model: '/head-neck/' },
 ]) {
   test(`${g.path} cites every source it numbers and links its model both ways`, async ({ page }) => {
     await page.goto(g.path);

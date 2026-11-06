@@ -103,3 +103,20 @@ export const steelCrownSources: Source[] = [
   { id: 6, text: 'Wu E, Yang YJ, Munz SM, Hsiao CC, Boynton JR. Restorations versus stainless steel crowns in primary molars: a retrospective split-mouth study. Pediatr Dent. 2021;43(4):290-295.', href: 'https://pubmed.ncbi.nlm.nih.gov/34467846/' },
   { id: 7, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Primary tooth measurements, after G. V. Black.)' },
 ];
+
+// Sources for the student guide to the head and neck cases (/learn/head-neck).
+// Numbers match the [n] markers in t.learnHn; all are cited on the /head-neck/ case pages.
+
+export const headNeckSources: Source[] = [
+  { id: 1, text: 'Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077.', href: 'https://doi.org/10.7759/cureus.56077' },
+  { id: 2, text: 'Hidalgo DA. Fibula free flap: a new method of mandible reconstruction. Plast Reconstr Surg. 1989;84(1):71-79.', href: 'https://pubmed.ncbi.nlm.nih.gov/2734406/' },
+  { id: 3, text: 'Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.', href: 'https://doi.org/10.1016/S1470-2045(15)00310-1' },
+  { id: 4, text: 'Soutar DS, Scheker LR, Tanner NS, McGregor IA. The radial forearm flap: a versatile method for intra-oral reconstruction. Br J Plast Surg. 1983;36(1):1-8.', href: 'https://doi.org/10.1016/0007-1226(83)90002-4' },
+  { id: 5, text: 'Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441.', href: 'https://doi.org/10.7759/cureus.104441' },
+  { id: 6, text: 'Almeida RAC, Andrade ESS, Barbalho JC, Vajgel A, Vasconcelos BCE. Recurrence rate following treatment for primary multicystic ameloblastoma: systematic review and meta-analysis. Int J Oral Maxillofac Surg. 2016;45(3):359-367.', href: 'https://doi.org/10.1016/j.ijom.2015.12.016' },
+  { id: 7, text: 'Abdelfadil E, Alsharif M, Alsharif AT, Mourad S. Management of a mandibular odontogenic keratocyst with enucleation, piezotome-assisted peripheral ostectomy, and platelet-rich fibrin: a case report. Dent J (Basel). 2025;13(11):536.', href: 'https://doi.org/10.3390/dj13110536' },
+  { id: 8, text: 'Al-Moraissi EA, Dahan AA, Alwadeai MS, et al. What surgical treatment has the lowest recurrence rate following the management of keratocystic odontogenic tumor?: A large systematic review and meta-analysis. J Craniomaxillofac Surg. 2017;45(1):131-144.', href: 'https://doi.org/10.1016/j.jcms.2016.10.013' },
+  { id: 9, text: 'Chrcanovic BR, Gomez RS. Recurrence probability for keratocystic odontogenic tumors: an analysis of 6427 cases. J Craniomaxillofac Surg. 2017;45(2):244-251.', href: 'https://doi.org/10.1016/j.jcms.2016.11.010' },
+  { id: 10, text: 'Jacobs D, et al. 5-Fluorouracil versus modified Carnoy’s solution for odontogenic keratocysts. J Oral Maxillofac Surg. 2024;82:1433-1440.', href: 'https://doi.org/10.1016/j.joms.2024.06.181' },
+  { id: 11, text: 'Ellam M, et al. Mucoepidermoid carcinoma of the hard palate: a case illustrating grading uncertainty and bone-sparing surgical management. Cureus. 2026;18(8):e115250.', href: 'https://doi.org/10.7759/cureus.115250' },
+];

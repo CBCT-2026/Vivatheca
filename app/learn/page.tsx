@@ -21,7 +21,7 @@ const guideLinks = {
   wisdom: { guide: null, model: '/models/impacted-wisdom-tooth' },
   oroantral: { guide: '/learn/oroantral', model: '/oroantral/' },
   steelCrown: { guide: '/learn/steel-crown', model: '/stainless-steel-crown/' },
-  headNeck: { guide: null, model: '/head-neck/' },
+  headNeck: { guide: '/learn/head-neck', model: '/head-neck/' },
 } as const;
 
 export default async function LearnPage() {
