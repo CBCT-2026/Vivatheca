@@ -3,6 +3,8 @@
 Each page follows one published, openly licensed case. English is written into index.html;
 Japanese goes into ja.js (window.VIVA_JA), which ../i18n-engine.js swaps in by data-i18n key.
 Japanese text uses {漢字|かんじ} for furigana and {cite:N} for a citation.
+Vietnamese (window.VIVA_VI, an unreviewed AI draft) is kept by hand in each page's vi.js, with the
+same keys as ja.js; when you add or change a key here, update vi.js too.
 Run: python3 tools/head-neck/pages.py   (after editing the text below)
 """
 import html
@@ -664,7 +666,7 @@ def build(slug, P):
         w(f'    <li id="ref-{i}">{txt} <a href="{href}">{shown}</a></li>')
     w('  </ol>\n</details>\n</section>')
     w(f'\n<p class="small" data-i18n="version">{VERSION_EN}</p>\n</main>')
-    w('<script src="ja.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
+    w('<script src="ja.js"></script>\n<script src="vi.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
     w('<script src="/head-neck/vendor/three/three.min.js"></script>\n<script src="/head-neck/vendor/three/GLTFLoader.js"></script>\n<script src="/head-neck/vendor/three/DRACOLoader.js"></script>\n<script src="/head-neck/vendor/three/OrbitControls.js"></script>')
     w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n<script src="/fullscreen.js"></script>\n<script src="/model-parts.js"></script>\n<script src="/clinical-zoom.js"></script>\n<script src="/share-tools.js"></script>\n</body>\n</html>\n')
     d = os.path.join(PUB, slug)

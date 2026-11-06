@@ -90,4 +90,8 @@ html[lang="ja"] .vt-video .vt-video-review span[lang="en"] { display: none; }
     `<details class="vt-video-refs"><summary><h3>${ruby(t.sources)}</h3></summary><ol>` +
       v.sources.map((s, i) => `<li id="vsrc-${i + 1}">${link(s)}</li>`).join('') +
     `</ol></details>`;
+  // No Vietnamese video yet: say so in Vietnamese above the English video.
+  if (cookie('vivatheca-lang') === 'vi') {
+    box.insertAdjacentHTML('afterbegin', '<p class="vt-video-meta" lang="vi"><b>Video</b> · Video này hiện chỉ có tiếng Anh (có phụ đề tiếng Anh).</p>');
+  }
 })();
