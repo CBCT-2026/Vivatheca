@@ -1,6 +1,6 @@
 {
  "dictionary": {
-  "total": 1677,
+  "total": 1681,
   "extraInJa": [
    "builder.models.oroantral",
    "builder.models.periodontitis",
@@ -26,7 +26,7 @@
   "byStatus": {
    "reviewed": 0,
    "changed": 0,
-   "unreviewed": 1687
+   "unreviewed": 1691
   },
   "changed": []
  },

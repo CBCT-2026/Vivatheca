@@ -38,6 +38,9 @@ export const showSpecs: Record<string, ShowSpec> = {
   'stainless-steel-crown': { orbit: '-30deg 68deg 46mm', target: '0mm -1mm 0mm', views: [
     ['healthy', 'healthy'], ['decay', 'decay'], ['filling', 'filling'], ['prepared', 'shaped'], ['crown', 'steelCrown'],
   ].map(([id, label]) => ({ id, glb: `/stainless-steel-crown/models/${id}.glb`, label })) },
+  prosthodontic: { orbit: '20deg 65deg auto', views: [
+    ['dentate', 'withTeeth'], ['edentulous', 'noTeeth'], ['denture', 'denture'], ['overdenture', 'implantDenture'],
+  ].map(([id, label]) => ({ id, glb: `/prosthodontic/models/${id}-whole.glb`, label })) },
   'alveolar-bone-graft': { views: [
     { id: 'before', glb: '/models/abg/abg-1-pre-op.glb', label: 'abgBefore' },
     { id: 'graft', glb: '/models/abg/abg-2-during-braces.glb', label: 'abgGraft' },
