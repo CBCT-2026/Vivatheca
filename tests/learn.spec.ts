@@ -62,3 +62,15 @@ test('periodontitis student guide cites its sources and is linked from the model
   await page.goto('/periodontitis/index.html');
   await expect(page.locator('main a[href="/learn/periodontitis"]')).toHaveCount(1);
 });
+
+test('orthognathic student guide cites its sources and is linked from the hub and model page', async ({ page }) => {
+  await page.goto('/learn/orthognathic');
+  await expect(page.getByRole('heading', { name: 'Orthognathic surgery: Class I, II and III', level: 1 })).toBeVisible();
+  const cited = await page.locator('main .cite a').evaluateAll((links) => [...new Set(links.map((a) => a.getAttribute('href')))]);
+  expect(cited.length).toBe(11);
+  for (const href of cited) await expect(page.locator(href!)).toHaveCount(1);
+  await page.goto('/learn');
+  await expect(page.locator('a[href="/learn/orthognathic"]')).toHaveCount(1);
+  await page.goto('/orthognathic/index.html');
+  await expect(page.locator('main a[href="/learn/orthognathic"]')).toHaveCount(1);
+});

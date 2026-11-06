@@ -55,3 +55,21 @@ export const perioSources: Source[] = [
   { id: 6, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Crown and root lengths and the cervical line of the mandibular teeth.)' },
   { id: 7, text: 'American Academy of Periodontology. Staging and grading periodontitis (chart of Tables 2 and 3 from source 1).', href: 'https://www.perio.org/wp-content/uploads/2019/08/Staging-and-Grading-Periodontitis.pdf' },
 ];
+
+// Sources for the student guide to orthognathic surgery (/learn/orthognathic).
+// Numbers match the [n] markers in t.learnOrtho and the sources on /orthognathic/.
+// Proffit 2007 and Ireland 2014 checked in full text (PubMed Central), 6 November 2026.
+
+export const orthoSources: Source[] = [
+  { id: 1, text: 'Angle EH. Classification of malocclusion. Dental Cosmos. 1899;41:248-264, 350-357.' },
+  { id: 2, text: 'Steiner CC. Cephalometrics for you and me. Am J Orthod. 1953;39(10):729-755.', href: 'https://doi.org/10.1016/0002-9416(53)90082-7' },
+  { id: 3, text: 'Trauner R, Obwegeser H. The surgical correction of mandibular prognathism and retrognathia with consideration of genioplasty. I. Oral Surg Oral Med Oral Pathol. 1957;10(7):677-689.', href: 'https://doi.org/10.1016/s0030-4220(57)80063-2' },
+  { id: 4, text: 'Dal Pont G. Retromolar osteotomy for the correction of prognathism. J Oral Surg Anesth Hosp Dent Serv. 1961;19:42-47.', href: 'https://pubmed.ncbi.nlm.nih.gov/13719390/' },
+  { id: 5, text: 'Hunsuck EE. A modified intraoral sagittal splitting technic for correction of mandibular prognathism. J Oral Surg. 1968;26(4):250-253.', href: 'https://pubmed.ncbi.nlm.nih.gov/5237786/' },
+  { id: 6, text: 'Bell WH. Le Fort I osteotomy for correction of maxillary deformities. J Oral Surg. 1975;33(6):412-426.', href: 'https://pubmed.ncbi.nlm.nih.gov/1055202/' },
+  { id: 7, text: 'Proffit WR, Turvey TA, Phillips C. The hierarchy of stability and predictability in orthognathic surgery with rigid fixation: an update and extension. Head Face Med. 2007;3:21.', href: 'https://doi.org/10.1186/1746-160X-3-21' },
+  { id: 8, text: 'NHS England (prepared by Public Health England). Interim clinical commissioning policy: orthognathic surgery (Armed Forces), N-SC/026. November 2013.', href: 'https://www.england.nhs.uk/commissioning/wp-content/uploads/sites/12/2014/03/nsc026-orthognathic-surg.pdf' },
+  { id: 9, text: 'Australian Society of Orthodontists (Orthodontics Australia). Jaw surgery and braces. (Accessed 5 November 2026.)', href: 'https://orthodonticsaustralia.org.au/jaw-surgery-braces' },
+  { id: 10, text: 'Ireland AJ, Cunningham SJ, Petrie A, et al. An index of orthognathic functional treatment need (IOFTN). J Orthod. 2014;41(2):77-83.', href: 'https://doi.org/10.1179/1465313314Y.0000000100' },
+  { id: 11, text: 'Cambridge University Hospitals NHS Foundation Trust. Jaw or chin corrective surgery (orthognathic surgery): patient information and consent. (Accessed 5 November 2026.)', href: 'https://www.cuh.nhs.uk/patient-information/patient-information-and-consent-to-jaw-or-chin-corrective-surgery-orthognathic-surgery/' },
+];
