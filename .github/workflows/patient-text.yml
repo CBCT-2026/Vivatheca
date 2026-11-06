@@ -7,12 +7,19 @@ on:
   push:
     branches: [main]
 
+# A newer push to the same branch or PR cancels the older run, so a stale run never
+# reports (and emails) a failure that a later commit already fixed.
+concurrency:
+  group: patient-text-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   pitk:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

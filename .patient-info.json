@@ -26,7 +26,7 @@
     "^Sources$",
     "^出典$",
     "^For clinicians",
-    "^医療者向け",
+    "^医療者\\s*向\\s*け",
     "^About th(is|ese) models?$",
     "^3D printing$",
     "^3Dプリント"
