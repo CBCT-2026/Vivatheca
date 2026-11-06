@@ -36,6 +36,9 @@ HEX = {
     'model.hardware': '#9AA3AD',
     'model.babyTeeth': '#5B8DEF',
     'model.adultTeeth': '#F2C94C',
+    'model.muscle': '#B5534A',
+    'model.muscleDeep': '#C47A6E',
+    'model.disc': '#7FB3D5',
     'model.printBase': '#00244D',
     'model.printLabel': '#FFFFFF',
 }
@@ -77,6 +80,9 @@ LINEAR = {
     'model.hardware': (0.3231, 0.3663, 0.4179),
     'model.babyTeeth': (0.1046, 0.2664, 0.8632),
     'model.adultTeeth': (0.8879, 0.5841, 0.0723),
+    'model.muscle': (0.4621, 0.0865, 0.0685),
+    'model.muscleDeep': (0.552, 0.1946, 0.1559),
+    'model.disc': (0.2122, 0.4508, 0.6654),
     'model.printBase': (0, 0.0176, 0.0742),
     'model.printLabel': (1, 1, 1),
 }
