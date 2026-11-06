@@ -55,5 +55,7 @@ export const showSpecs: Record<string, ShowSpec> = {
 export function quickHref(slug: string) {
   if (showSpecs[slug]) return `/show?model=${slug}`;
   const model = catalogue.find((m) => m.slug === slug);
-  return model ? `${model.href}#viewer` : '/models';
+  // The jaw exercises (tmd) are animations on one model, so they open on their own page's viewer (#mv).
+  const anchor = slug === 'tmd' ? '#mv' : '#viewer';
+  return model ? `${model.href}${anchor}` : '/models';
 }
