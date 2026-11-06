@@ -161,8 +161,8 @@ PAGES['scc'] = dict(
          '{症例|しょうれい}：{歯肉|しにく}の{増殖性|ぞうしょくせい}{疣贅性|ゆうぜいせい}{白板症|はくばんしょう}からのがん{化|か}。{右|みぎ}の{頬側|きょうそく}{歯肉|しにく}45〜47のSCCと、42〜43{舌側|ぜっそく}{歯肉|しにく}の{第|だい}2{病変|びょうへん}。PETで{下顎骨|かがくこつ}{浸潤|しんじゅん}、{右|みぎ}{顎下|がくか}リンパ{節|せつ}{腫大|しゅだい}。{右|みぎ}{下顎|かがく}{区域|くいき}{切除|せつじょ}、{左|ひだり}ひ{骨|こつ}{皮弁|ひべん}、{術後|じゅつご}{放射線|ほうしゃせん}{治療|ちりょう}。' + jcite(1)),
         ('Extent is taken from the one-month OPG (Image 2A), because the article gives no operative detail. The fibula runs from the right condylar region to the left incisor region in three segments: ramus, body and parasymphysis. There is no fixation at the upper end, which suggests disarticulation with the condyle removed; we modelled it that way. Brown class IIc.' + cite(1, 3),
          '{論文|ろんぶん}に{手術|しゅじゅつ}の{詳細|しょうさい}がないため、{範囲|はんい}は{術後|じゅつご}1か{月|げつ}のパノラマX{線|せん}（{画像|がぞう}2A）から{決|き}めました。ひ{骨|こつ}は{右|みぎ}の{関節|かんせつ}{突起|とっき}{部|ぶ}から{左|ひだり}{切歯|せっし}{部|ぶ}まで、{下顎枝|かがくし}・{体部|たいぶ}・{正中|せいちゅう}{付近|ふきん}の3{分節|ぶんせつ}です。{上端|じょうたん}に{固定|こてい}がないため、{関節|かんせつ}{突起|とっき}ごと{切除|せつじょ}したと{考|かんが}え、{模型|もけい}もそうしました。Brown{分類|ぶんるい}IIc。' + jcite(1, 3)),
-        ('Model: cut between 31 and 32; teeth removed 41–47 and 31. Specimen 21.7 cm³; 106 mm from condyle to the anterior cut. Fibula segments 21.7, 56.7 and 41.2 mm. Miniplates as on the OPG: two at the native bone junction, one between the anterior and body segments, an L-plate at the angle (25 screws).',
-         '{模型|もけい}：31と32の{間|あいだ}で{切断|せつだん}。{除去|じょきょ}{歯|し}は41〜47と31。{切除|せつじょ}{骨|こつ}21.7cm³、{関節|かんせつ}{突起|とっき}から{前方|ぜんぽう}{切断|せつだん}{面|めん}まで106mm。ひ{骨|こつ}{分節|ぶんせつ}21.7、56.7、41.2mm。パノラマX{線|せん}と{同|おな}じく、{残存|ざんぞん}{骨|こつ}との{接合|せつごう}{部|ぶ}に2{枚|まい}、{前方|ぜんぽう}と{体部|たいぶ}{分節|ぶんせつ}の{間|あいだ}に1{枚|まい}、{下顎角|かがくかく}にL{字|じ}プレート（ネジ25{本|ほん}）。'),
+        ('Model: cut between 31 and 32; teeth removed 41–47 and 31. Specimen 21.7 cm³; 106 mm from condyle to the anterior cut. Fibula in three segments (ramus 39 mm, body 62 mm, parasymphysis 30 mm, measured along the segment axes) joined by closing-wedge osteotomies: at each bend (54° at the angle, 40° at the parasymphysis) the cut faces meet on the plane that bisects the bend, the way the fibula is shaped in the standard technique and in open-source virtual planning software; the model keeps a 0.6 mm gap so the cuts stay visible.' + cite(2, 6) + ' Miniplates as on the OPG: two at the native bone junction, one between the anterior and body segments, an L-plate at the angle (25 screws).',
+         '{模型|もけい}：31と32の{間|あいだ}で{切断|せつだん}。{除去|じょきょ}{歯|し}は41〜47と31。{切除|せつじょ}{骨|こつ}21.7cm³、{関節|かんせつ}{突起|とっき}から{前方|ぜんぽう}{切断|せつだん}{面|めん}まで106mm。ひ{骨|こつ}は3{分節|ぶんせつ}（{下顎枝|かがくし}39mm、{体部|たいぶ}62mm、{正中|せいちゅう}{付近|ふきん}30mm、{分節|ぶんせつ}の{軸|じく}に{沿|そ}って{計測|けいそく}）で、{閉|と}じ{楔|くさび}{骨切|こつき}りでつないでいます。{曲|ま}がり{角|かど}（{下顎角|かがくかく}で54°、{正中|せいちゅう}{付近|ふきん}で40°）ごとに、{切断|せつだん}{面|めん}が{曲|ま}がりを2{等分|とうぶん}する{面|めん}で{合|あ}わさります。これは{標準的|ひょうじゅんてき}な{手技|しゅぎ}とオープンソースの{手術|しゅじゅつ}{計画|けいかく}ソフトと{同|おな}じ{方法|ほうほう}です。{模型|もけい}では{切断|せつだん}{面|めん}が{見|み}えるよう0.6mmの{隙間|すきま}を{残|のこ}しています。' + jcite(2, 6) + 'パノラマX{線|せん}と{同|おな}じく、{残存|ざんぞん}{骨|こつ}との{接合|せつごう}{部|ぶ}に2{枚|まい}、{前方|ぜんぽう}と{体部|たいぶ}{分節|ぶんせつ}の{間|あいだ}に1{枚|まい}、{下顎角|かがくかく}にL{字|じ}プレート（ネジ25{本|ほん}）。'),
         ('Our choices: tumour 24 × 14 × 18 mm at 45–47 and 10 × 6 × 8 mm at 42–43 (sizes not published). The model leaves 8.5 mm of bone between the 42–43 focus and the anterior cut. The case used a left fibula; the model uses a right fibula mesh.',
          '{当方|とうほう}の{設定|せってい}：{腫瘍|しゅよう}は45〜47で24×14×18mm、42〜43で10×6×8mm（{大|おお}きさは{未公表|みこうひょう}）。42〜43の{病変|びょうへん}から{前方|ぜんぽう}{切断|せつだん}{面|めん}までの{骨|ほね}は8.5mm。{症例|しょうれい}では{左|ひだり}のひ{骨|こつ}、{模型|もけい}では{右|みぎ}のひ{骨|こつ}のメッシュを{使用|しよう}。'),
     ],
@@ -172,6 +172,7 @@ PAGES['scc'] = dict(
         ('Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.', '10.1016/S1470-2045(15)00310-1'),
         ('Soutar DS, Scheker LR, Tanner NS, McGregor IA. The radial forearm flap: a versatile method for intra-oral reconstruction. Br J Plast Surg. 1983;36(1):1-8.', '10.1016/0007-1226(83)90002-4'),
         ('Soutar DS, McGregor IA. The radial forearm flap in intraoral reconstruction: the experience of 60 consecutive cases. Plast Reconstr Surg. 1986;78(1):1-8.', '10.1097/00006534-198607000-00001'),
+        ('Maisi S, Dominguez M, Gilong N, et al. In-house virtual surgical planning for mandibular reconstruction with fibula free flap: case series and literature review. Ann 3D Print Med. 2023;10:100109. Software: Slicer BoneReconstructionPlanner (open source, BSD-3).', '10.1016/j.stlm.2023.100109'),
     ],
 )
 
@@ -542,6 +543,7 @@ def build(slug, P):
     ja['description'] = P['description'][1]
     w('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">')
     w(f'<title>{esc(P["title"][0])}</title>')
+    w('<link rel="icon" href="/favicon.ico" sizes="48x48">\n<link rel="icon" href="/favicon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n<link rel="manifest" href="/site.webmanifest">')
     w(f'<meta name="description" content="{esc(P["description"][0])}">\n<meta name="robots" content="noindex">')
     w("<script>\ntry { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}\n</script>")
     w('<link rel="preload" href="/head-neck/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>')
@@ -633,7 +635,7 @@ def build(slug, P):
         body_en = ''.join(f'<tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td>{r[3]}</td></tr>' for r in T['rows'])
         body_ja = ''.join(f'<tr><td>{r[4]}</td><td>{r[1]}</td><td>{r[2]}</td><td>{r[5]}</td></tr>' for r in T['rows'])
         ja['tbody'] = body_ja
-        w(f'<div class="tablewrap"><table>\n  <thead data-i18n="thead">{T["head"][0]}</thead>\n  <tbody data-i18n="tbody">{body_en}</tbody>\n</table></div>')
+        w(f'<div class="tablewrap" tabindex="0"><table>\n  <thead data-i18n="thead">{T["head"][0]}</thead>\n  <tbody data-i18n="tbody">{body_en}</tbody>\n</table></div>')
         t('tableNote', T['note'][0], T['note'][1], 'p', ' class="small"')
         w('</section>')
         clin_h = P['clin2_h']
@@ -660,8 +662,8 @@ def build(slug, P):
     w('  </ol>\n</details>\n</section>')
     w(f'\n<p class="small" data-i18n="version">{VERSION_EN}</p>\n</main>')
     w('<script src="ja.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
-    w('<script src="/head-neck/vendor/three/three.min.js"></script>\n<script src="/head-neck/vendor/three/GLTFLoader.js"></script>\n<script src="/head-neck/vendor/three/OrbitControls.js"></script>')
-    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n</body>\n</html>\n')
+    w('<script src="/head-neck/vendor/three/three.min.js"></script>\n<script src="/head-neck/vendor/three/GLTFLoader.js"></script>\n<script src="/head-neck/vendor/three/DRACOLoader.js"></script>\n<script src="/head-neck/vendor/three/OrbitControls.js"></script>')
+    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n<script src="/fullscreen.js"></script>\n<script src="/model-parts.js"></script>\n</body>\n</html>\n')
     d = os.path.join(PUB, slug)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w').write('\n'.join(out))
