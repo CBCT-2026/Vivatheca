@@ -13,7 +13,9 @@ export default defineConfig({
   retries: 0,
   timeout: 120_000,
   reporter: [['list'], ['html', { open: 'never', outputFolder: 'model-pictures-report' }]],
-  expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.003, threshold: 0.2, animations: 'disabled' } },
+  // Software WebGL on CI takes about 3 s per screenshot of the large three.js canvases, and a stable
+  // screenshot needs two in a row, so the default 5 s expect timeout is too short.
+  expect: { timeout: 30_000, toHaveScreenshot: { maxDiffPixelRatio: 0.003, threshold: 0.2, animations: 'disabled' } },
   use: {
     baseURL: 'http://127.0.0.1:3000',
     launchOptions: process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : undefined,
