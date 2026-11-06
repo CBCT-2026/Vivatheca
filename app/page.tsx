@@ -140,7 +140,7 @@ export default async function Home() {
         </section>
 
         <section className="print-section">
-          <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt={plain(t.print.imageAlt)} width="1200" height="800" /><figcaption className="figure-note"><Ruby text={t.print.caption} /></figcaption></figure>
+          <figure className="print-compare"><div className="print-compare-images"><img src="/assets/renders/wisdom-tooth-print-buccal.webp" alt={plain(t.print.imageAlt)} width="1616" height="500" /><img src="/assets/renders/wisdom-tooth-print-lingual.webp" alt={plain(t.print.imageAltLingual)} width="1616" height="500" loading="lazy" /></div><figcaption className="figure-note"><Ruby text={t.print.caption} /></figcaption></figure>
           <div className="print-copy"><h2><Ruby text={t.print.heading} /></h2><p><Ruby text={t.print.text} /></p><a className="text-link" href="/models/impacted-wisdom-tooth"><Ruby text={t.print.download} /> <Icon name="download" /></a></div>
         </section>
 

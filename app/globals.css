@@ -212,6 +212,9 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .print-section figure, .contribute-section figure { display: grid; min-height: 620px; grid-template-rows: 1fr auto; margin: 0; overflow: hidden; }
 .print-section figure img, .contribute-section figure img { width: 100%; height: 100%; min-height: 0; object-fit: cover; }
 .print-section figure .figure-note, .contribute-section figure .figure-note { background: var(--surface-alt); padding: .42rem .75rem; }
+.print-section figure.print-compare { min-height: 0; background: #eefcfc; }
+.print-compare-images { display: grid; align-content: center; gap: .5rem; padding: .5rem 0; }
+.print-section figure.print-compare img { height: auto; object-fit: contain; }
 .print-copy, .contribute-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(3rem,8vw,8rem); }
 .print-copy { background: var(--navy-900); }
 .print-copy h2, .print-copy p, .print-copy .text-link { color: var(--white); }

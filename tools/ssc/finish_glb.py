@@ -3,7 +3,7 @@ Run: python3 finish_glb.py <in_dir> <out_dir>   (needs npx; @gltf-transform/cli 
 import json, struct, subprocess, sys, runpy
 from pathlib import Path
 MAT = {
-    'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.770, 0.718, 0.648, 1], 'premolar': [0.770, 0.718, 0.648, 1],
+    'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.8963, 0.855, 0.7758, 1], 'premolar': [0.8963, 0.855, 0.7758, 1],
     'pulp': [0.576, 0.031, 0.043, 1], 'gum': [0.62, 0.20, 0.22, 1], 'decay': [0.13, 0.065, 0.025, 1],
     'filling': [0.42, 0.32, 0.72, 1], 'cement': [0.93, 0.90, 0.80, 1], 'steel': [0.75, 0.75, 0.77, 1],
 }

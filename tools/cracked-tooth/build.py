@@ -46,7 +46,7 @@ PRINT_SCALE = 3.0
 PRINT_GAP = 0.08             # crown and filling fit clearance at model scale (0.24 mm at 3x)
 
 COL = {
-    'tooth': ([0.770, 0.718, 0.648, 1], 0.6, 0),
+    'tooth': ([0.8963, 0.855, 0.7758, 1], 0.6, 0),
     'enamel_cut': ([0.86, 0.84, 0.80, 1], 0.6, 0),
     'dentine_cut': ([0.74, 0.62, 0.42, 1], 0.7, 0),
     'pulp': ([0.60, 0.10, 0.10, 1], 0.6, 0),

@@ -4,7 +4,7 @@ import json, struct, subprocess, sys, zipfile
 from pathlib import Path
 import numpy as np, trimesh
 # Linear RGB. Bone: latest wisdom tooth model. Teeth: #E3DCD3, slightly lighter than bone (Luke, 5 Nov 2026).
-COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.768, 0.716, 0.651, 1], 'lost': [0.80, 0.16, 0.14, 0.35]}
+COL = {'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.8963, 0.855, 0.7758, 1], 'lost': [0.80, 0.16, 0.14, 0.35]}
 NAME = {'bone': 'bone', 'teeth': 'teeth', 'lost': 'lost-bone'}
 src, site = Path(sys.argv[1]), Path(sys.argv[2])
 models = site / 'models'; dl = site / 'downloads'; models.mkdir(parents=True, exist_ok=True); dl.mkdir(parents=True, exist_ok=True)
