@@ -1,0 +1,57 @@
+name: Report an error
+description: Something on a model or page is wrong, out of date or unclear.
+title: "Error: "
+labels: ["error report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping keep Vivatheca accurate. Issues here are **public**.
+        **Never include patient names, photos, scans or any detail that could identify a person.**
+  - type: input
+    id: page
+    attributes:
+      label: Page or model
+      description: Link to the page, or the model name.
+      placeholder: https://vivatheca.com/models/...
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - Anatomy or dimension in the 3D model
+        - Clinical fact in the text
+        - Citation (wrong, broken link, retracted)
+        - Image licence or credit
+        - Translation (Japanese or other language)
+        - Patient text hard to read
+        - Something does not work (viewer, download, page)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: What the page or model shows now, and what it should show.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: For clinical or anatomy errors, a peer-reviewed paper, guideline or official resource (author, year, title, DOI or link). Vivatheca changes clinical content only with a high-quality source.
+  - type: input
+    id: role
+    attributes:
+      label: Your role (optional)
+      placeholder: e.g. general dentist, OMFS registrar, dental student
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: This report contains no patient information.
+          required: true

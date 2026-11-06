@@ -1,0 +1,39 @@
+// Built from tokens/*.json by tools/tokens/build.mjs (pnpm tokens). Do not edit by hand.
+window.VT_COLOURS = {
+  "brand": {
+    "navy950": "#001A37",
+    "navy900": "#00244D",
+    "navy800": "#083965",
+    "cyan500": "#14C9D7",
+    "cyan600": "#007F8B",
+    "cyan700": "#006974",
+    "aqua100": "#DFF7F9",
+    "aqua50": "#EFFCFC",
+    "coral500": "#D55748",
+    "amber500": "#E4AA2B",
+    "paper": "#F7FAFB",
+    "ink": "#06233F",
+    "muted": "#4D6378",
+    "line": "#CFE1E7"
+  },
+  "model": {
+    "tooth": "#F3EEE4",
+    "nerve": "#F2C94C",
+    "bone": "#E3D3B5",
+    "gum": "#E89A9A",
+    "lining": "#D98C8C",
+    "clot": "#8B1E2D",
+    "fat": "#F2D16B",
+    "graft": "#C9A46B",
+    "decay": "#5A3A22",
+    "filling": "#7FA7C4",
+    "steel": "#B8BEC6",
+    "cement": "#7FB8A6",
+    "crown": "#D9D6CF",
+    "hardware": "#9AA3AD",
+    "babyTeeth": "#5B8DEF",
+    "adultTeeth": "#F2C94C",
+    "printBase": "#00244D",
+    "printLabel": "#FFFFFF"
+  }
+};

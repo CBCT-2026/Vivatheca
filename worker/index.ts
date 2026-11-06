@@ -8,8 +8,22 @@ import { handleStoreApi, type StoreEnv } from './store';
 // The Durable Object class must be exported from the Worker entry (binding STORE in vite.config.ts).
 export { VivathecaStore } from './store';
 
+// Minimal R2 types (the bucket binding is optional; see serveDownload).
+interface R2ObjectLike {
+  body: ReadableStream;
+  size: number;
+  httpEtag: string;
+  httpMetadata?: { contentType?: string };
+  range?: { offset?: number; length?: number };
+}
+interface R2BucketLike {
+  get(key: string, options?: { range?: Headers | { offset?: number; length?: number; suffix?: number } }): Promise<R2ObjectLike | null>;
+  head(key: string): Promise<Omit<R2ObjectLike, 'body'> | null>;
+}
+
 interface Env extends StoreEnv {
   ASSETS?: { fetch: (request: Request) => Promise<Response> };
+  DOWNLOADS?: R2BucketLike;
   SITE_USERNAME?: string;
   SITE_PASSWORD?: string;
 }
@@ -116,6 +130,36 @@ function withSecurityHeaders(response: Response, pathname: string, secure: boole
   return res;
 }
 
+// Large downloads (full-resolution models, big print sets) live in Cloudflare R2 because static files
+// are limited to 25 MiB each. /files/<name> streams them from the DOWNLOADS bucket, with range
+// requests for resumable downloads. Set-up: docs/hosting/r2-downloads.md.
+async function serveDownload(request: Request, env: Env, pathname: string): Promise<Response> {
+  let key = '';
+  try { key = decodeURIComponent(pathname.slice('/files/'.length)); } catch { key = ''; }
+  const notFound = () => new Response('File not found.', { status: 404, headers: { 'Cache-Control': 'no-store' } });
+  if (!env.DOWNLOADS || !key || key.includes('..')) return notFound();
+  const isHead = request.method === 'HEAD';
+  const rangeHeader = request.headers.get('Range');
+  const object = isHead ? await env.DOWNLOADS.head(key) : await env.DOWNLOADS.get(key, rangeHeader ? { range: request.headers } : undefined);
+  if (!object) return notFound();
+  const headers = new Headers({
+    'Content-Type': object.httpMetadata?.contentType || 'application/octet-stream',
+    'Content-Disposition': `attachment; filename="${(key.split('/').pop() ?? 'download').replace(/"/g, '')}"`,
+    'Cache-Control': 'public, max-age=86400',
+    'Accept-Ranges': 'bytes',
+    ETag: object.httpEtag,
+  });
+  const full = object as R2ObjectLike;
+  const range = full.range;
+  if (!isHead && rangeHeader && range && range.offset !== undefined && range.length !== undefined) {
+    headers.set('Content-Range', `bytes ${range.offset}-${range.offset + range.length - 1}/${object.size}`);
+    headers.set('Content-Length', String(range.length));
+    return new Response(full.body, { status: 206, headers });
+  }
+  headers.set('Content-Length', String(object.size));
+  return new Response(isHead ? null : full.body, { status: 200, headers });
+}
+
 const worker = {
   async fetch(request: Request, workerEnv: Env | undefined, ctx: unknown): Promise<Response> {
     const response = await handle(request, workerEnv, ctx);
@@ -162,6 +206,10 @@ async function handle(request: Request, workerEnv: Env | undefined, ctx: unknown
           'Cache-Control': 'no-store',
         },
       });
+    }
+
+    if (url.pathname.startsWith('/files/') && (request.method === 'GET' || request.method === 'HEAD')) {
+      return serveDownload(request, env, url.pathname);
     }
 
     // Counters, the model request board, the "used it" gallery and their moderation (worker/store.ts).
