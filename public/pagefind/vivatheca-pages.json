@@ -60,24 +60,24 @@
   "ja": "b381c6f819d7"
  },
  "/models/alveolar-bone-graft": {
-  "en": "d8a0bd84aa8c",
-  "ja": "db6abc1b4e8e"
+  "en": "397d960a9d44",
+  "ja": "e0f17e0cf5c1"
  },
  "/models/impacted-wisdom-tooth": {
-  "en": "5b0be1fdfbb7",
-  "ja": "934fbf87a4ae"
+  "en": "4e95674b28a4",
+  "ja": "6a45c5e229bd"
  },
  "/models": {
-  "en": "f65a0704dc3b",
-  "ja": "7f69c51be436"
+  "en": "eabed00ac2b1",
+  "ja": "f6dc4219254d"
  },
  "/": {
   "en": "2761f60cc155",
   "ja": "1f2aceb7eace"
  },
  "/print": {
-  "en": "d0908a3df967",
-  "ja": "44c5b763ab3c"
+  "en": "ebd0102e61b4",
+  "ja": "0b77c5e6571d"
  },
  "/privacy": {
   "en": "8a60389d57da",
@@ -92,51 +92,55 @@
   "ja": "f621a18471a8"
  },
  "/used": {
-  "en": "07d743c243f2",
-  "ja": "41aec2595772"
+  "en": "3de3fd9024df",
+  "ja": "0d73a695969d"
  },
  "/cracked-tooth/": {
-  "en": "a31b08083cc4",
-  "ja": "73b302f6586d"
+  "en": "e29934e20358",
+  "ja": "6539302d2614"
  },
  "/development/": {
-  "en": "a69641e815f9",
-  "ja": "19c131272541"
+  "en": "bb8830d55377",
+  "ja": "0e5cb87c6c56"
+ },
+ "/fixation/": {
+  "en": "37c6cecb6925",
+  "ja": "86cba911b743"
  },
  "/head-neck/": {
-  "en": "9c526232dc93",
-  "ja": "2f5f2ae8fdac"
+  "en": "5dae319fef1a",
+  "ja": "6f140dbcda28"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "bb590333b133",
-  "ja": "77101425ce69"
+  "en": "8f20f8c6cce4",
+  "ja": "6ceeb5d33430"
  },
  "/head-neck/mec/": {
-  "en": "aa07d75e7ae7",
-  "ja": "bf889ace4fe5"
+  "en": "369d6986c027",
+  "ja": "c2b872703128"
  },
  "/head-neck/okc/": {
-  "en": "f702468e1af4",
-  "ja": "c90853aa3c14"
+  "en": "c61e9eb1b59f",
+  "ja": "88ecab0eecb2"
  },
  "/head-neck/scc/": {
-  "en": "784b104f2894",
-  "ja": "68bc3a8d244d"
+  "en": "286661b210ab",
+  "ja": "5de54c1827b3"
  },
  "/oroantral/": {
-  "en": "c10ebc50652c",
-  "ja": "b8eacef548ae"
+  "en": "dc8cfc363bc8",
+  "ja": "99dfd7ecce9a"
  },
  "/orthognathic/": {
-  "en": "7c0338d95e9d",
-  "ja": "f2058ad51c57"
+  "en": "171a9fe14018",
+  "ja": "49104f4db82c"
  },
  "/periodontitis/": {
-  "en": "3fc6608baa48",
-  "ja": "509177f5e85e"
+  "en": "57d2de3df922",
+  "ja": "eeef7abab43a"
  },
  "/stainless-steel-crown/": {
-  "en": "51d50e120d16",
-  "ja": "b0c9260f346d"
+  "en": "504212fc53c1",
+  "ja": "1e0722269518"
  }
 }
