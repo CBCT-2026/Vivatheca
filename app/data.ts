@@ -26,6 +26,7 @@ export function footerGroups(t: Dictionary) {
         { label: f.report, href: '/report' },
         { label: f.participate.request, href: '/requests' },
         { label: f.participate.used, href: '/used' },
+        { label: f.participate.survey, href: '/survey' },
         { label: f.participate.review, href: mailto('Join clinical review') },
         { label: f.participate.contribute, href: '/contribute' },
         { label: f.participate.sponsor, href: '/#sponsor' },
