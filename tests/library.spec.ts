@@ -90,6 +90,22 @@ test('bone graft page is in the collection and shows the staged model with its d
   await expect(page.locator('header a[href="/"]').first()).toBeVisible();
   await expect(page.locator('a[href="/models"]:visible').first()).toBeVisible();
   await expect.poll(() => page.locator('model-viewer').evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/abg/abg-1-pre-op.glb');
-  await expect(page.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
-  await expect(page.locator('.prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
+  await expect(page.getByText('Not yet clinically reviewed.', { exact: true }).first()).toBeVisible();
+  await expect(page.locator('.prototype-note').getByRole('link', { name: 'Full disclaimer' }).first()).toHaveAttribute('href', '/disclaimer');
+});
+
+test('bone graft page offers CC BY-SA downloads with the review status and credit', async ({ page, request }) => {
+  await page.goto('/models/alveolar-bone-graft');
+  const downloads = page.getByRole('region', { name: 'Download' });
+  await expect(downloads.locator('a[download]')).toHaveCount(8);
+  await expect(downloads.getByRole('link', { name: /Stage 1 · Before the graft · STL/ })).toHaveAttribute('href', '/models/abg/vivatheca-abg-1-pre-op-stl.zip');
+  await expect(downloads.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
+  await expect(downloads.getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
+  await expect(downloads.getByRole('link', { name: 'CC BY-SA 4.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by-sa/4.0/');
+  await expect(downloads).toContainText('Modelled by Luke Seifert, Vivatheca.');
+  for (const href of await downloads.locator('a[download]').evaluateAll((links) => links.map((link) => link.getAttribute('href')!))) {
+    expect((await request.head(href)).status(), href).toBe(200);
+  }
+  await page.goto('/');
+  await expect(page.locator('.licence-note').getByRole('link', { name: 'Downloads and licence' })).toHaveAttribute('href', '/models/alveolar-bone-graft#downloads');
 });

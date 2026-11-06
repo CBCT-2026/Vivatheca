@@ -757,7 +757,17 @@ const en = {
       moved: ['Eye tooth', 'moved into the gap and reshaped'],
       next: ['Next tooth', 'moved forward to take its place'],
     } as Record<string, [string, string]>,
-    made: 'Made by Vivatheca for a patient education research study. The model keeps that study’s colours. Not available to download yet.',
+    made: 'Made by Vivatheca for a patient education research study. The model keeps that study’s colours. Free to download, print and adapt under CC BY-SA 4.0 if you credit Vivatheca.',
+    downloadsLink: 'Downloads and licence',
+    downloadsTitle: 'Download',
+    fileStages: ['Stage 1 · Before the graft', 'Stage 2 · After the graft, with braces', 'Stage 3 · Years later, ways to fill the gap', 'Stage 3 · Years later, eye tooth moved into the gap'],
+    glb: 'GLB (web and AR)',
+    stl: 'STL for printing, mm (ZIP with read-me)',
+    filesNote: 'The STL parts come from the web model. They have no print fittings, so repair them in your slicer before printing. In stage 3, print one way to fill the gap at a time, as those parts overlap.',
+    licence: 'Licence:',
+    licenceText: 'You may use, adapt and print these models, including in your own patient materials, if you credit Vivatheca. If you change the model, or images of it, share your changed version under CC BY-SA 4.0.',
+    credit: 'Modelled by Luke Seifert, Vivatheca.',
+    citeHeading: 'How to credit',
     simplified: 'One example: a cleft on the left side with no lateral incisor on that side. Real clefts vary in width and in which teeth are missing, and graft results vary. Tooth ages and positions follow the sources below; colours show the parts apart and are not real tissue colours.',
     stages: [
       {
