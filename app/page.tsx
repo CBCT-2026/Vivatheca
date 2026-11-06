@@ -1,4 +1,6 @@
 import { clinicalImages, contributionPaths, publications, trustItems, understandingPaths } from './data';
+import { JsonLd } from './models/json-ld';
+import { siteJsonLd } from './models/jsonld';
 import { SiteFooter } from './site-chrome';
 import { homeHref, primaryLinks } from './nav';
 import { mailto } from './contact';
@@ -21,6 +23,7 @@ export default async function Home() {
   const { t, furigana } = await getI18n();
   return (
     <>
+      <JsonLd data={siteJsonLd()} />
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <header className="site-header">
         <a className="brand" href={homeHref} aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>

@@ -26,6 +26,8 @@ jobs:
         with:
           node-version-file: .node-version
       - run: node tools/rules/check.mjs
+      # schema.org JSON-LD in static model pages must match the catalogue and codes (run `pnpm jsonld`).
+      - run: node tools/jsonld/build.mjs --check
   glb:
     runs-on: ubuntu-latest
     timeout-minutes: 10

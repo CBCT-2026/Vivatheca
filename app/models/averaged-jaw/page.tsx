@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '../json-ld';
+import { modelJsonLd } from '../jsonld';
 import { AfterHydration } from '../../script-mount';
 import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, formatDate, licence } from '../catalogue';
@@ -52,6 +54,7 @@ export default async function AveragedJawPage() {
   const usedCollections = Object.entries(collections).filter(([id]) => rows.some((r) => r.collection_id === id));
   return (
     <>
+      <JsonLd data={modelJsonLd('averaged-jaw')} />
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader current="/models" />
       <main id="main-content" className="info-page model-page averaged-jaw-page">
