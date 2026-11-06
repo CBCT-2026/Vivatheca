@@ -42,9 +42,25 @@ test('visitor can reach and use the featured model explanation', async ({ page }
 
   await page.getByRole('button', { name: 'After the graft' }).click();
   await expect.poll(src).toContain('/models/abg/abg-2-during-braces.glb');
+  // Braces come off as a removable part (as on the CBCT-2026/ABG stage 2 page).
+  await page.getByRole('button', { name: 'Take off the braces' }).click();
+  await expect(page.getByRole('button', { name: 'Put the braces back' })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Years later' }).click();
+  await expect.poll(src).toContain('/models/abg/abg-3-long-term.glb');
+  await expect(page.getByText(/^Late adolescence after secondary alveolar bone grafting and orthodontics/)).toBeVisible();
+  // Ways to fill the gap: implant, bridge and partial denture are parts of one model; moving the eye tooth is a second model.
+  const options = page.getByRole('group', { name: 'Ways to fill the gap' });
+  await options.getByRole('button', { name: 'Implant' }).click();
+  await expect(options.getByRole('button', { name: 'Implant' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.option-note')).toContainText('A small post in the new bone');
+  await options.getByRole('button', { name: 'Move the eye tooth' }).click();
   await expect.poll(src).toContain('/models/abg/abg-3b-substitution.glb');
-  await expect(page.getByText(/^Late adolescence after orthodontic space closure with canine substitution/)).toBeVisible();
+  // Other parts can be hidden and shown again.
+  const parts = page.locator('#collection').getByRole('group', { name: 'Parts of the model' });
+  await parts.getByRole('button', { name: 'Bone', exact: true }).click();
+  await expect(parts.getByRole('button', { name: 'Bone', exact: true })).toHaveAttribute('aria-pressed', 'false');
+  await parts.getByRole('button', { name: 'Show all parts' }).click();
+  await expect(parts.getByRole('button', { name: 'Bone', exact: true })).toHaveAttribute('aria-pressed', 'true');
 
   // The wisdom tooth stays the hero; a mix of other models, including dental development, follows.
   await expect(page.locator('.hero-visual img')).toHaveAttribute('src', '/assets/renders/wisdom-tooth-hero.webp');

@@ -3,11 +3,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useI18n } from '../i18n/context';
 import { plain, Ruby } from '../i18n/ruby';
+import { PartsPanel, type ModelViewerElement as PartsViewer } from '../model-parts';
 
 type Side = { glb: string; alt: string };
 type Mode = 'both' | 'impacted' | 'normal';
 
-type ModelViewerElement = HTMLElement & { cameraOrbit: string; getCameraOrbit: () => { toString: () => string } };
+type ModelViewerElement = PartsViewer;
+
+// Parts that can be hidden on both models at once (material names in the GLBs).
+const partNames = ['bone', 'nerve red', 'wisdom tooth', 'teeth'];
 
 export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Side }) {
   const { t } = useI18n();
@@ -24,6 +28,15 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
   const [linked, setLinked] = useState(true);
   const [left, setLeft] = useState<ModelViewerElement | null>(null);
   const [right, setRight] = useState<ModelViewerElement | null>(null);
+  const [loads, setLoads] = useState(0);
+
+  // Count model loads so the parts buttons can list and re-apply the parts of both models.
+  useEffect(() => {
+    const viewers = [left, right].filter(Boolean) as ModelViewerElement[];
+    const onLoad = () => setLoads((n) => n + 1);
+    viewers.forEach((v) => v.addEventListener('load', onLoad));
+    return () => viewers.forEach((v) => v.removeEventListener('load', onLoad));
+  }, [left, right]);
 
   useEffect(() => {
     let active = true;
@@ -96,6 +109,7 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
           </figure>
         ))}
       </div>
+      <div className="compare-parts"><PartsPanel getViewers={() => [left, right]} names={partNames} version={loads} /></div>
       <p className="model-help compare-help"><Ruby text={c.help} /></p>
     </div>
   );

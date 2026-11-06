@@ -1,14 +1,70 @@
 // Alveolar bone graft (ABG) models shown in the homepage interactive section.
-// Models from CBCT-2026/ABG (commit f3cb41e, models/), made by Vivatheca's founder for a patient
+// Models from CBCT-2026/ABG (commit f3cb41e, models/; abg-3-long-term.glb from the published ABG site, 6 November 2026), made by Vivatheca's founder for a patient
 // education study. They keep their own colours (project rule). Draco-compressed: the decoder is
 // served from /development/vendor/draco/.
 // Words for each stage live in the dictionaries (abg.stages), in the same order.
 
-export const abgStages = [
-  { src: '/models/abg/abg-1-pre-op.glb', poster: '/models/abg/abg-1-pre-op-poster.webp', cites: { plain: [1], clinical: [1, 2, 3, 4, 5] } },
-  { src: '/models/abg/abg-2-during-braces.glb', poster: '/models/abg/abg-2-during-braces-poster.webp', cites: { plain: [4, 6], clinical: [7, 8, 4, 6, 9] } },
-  { src: '/models/abg/abg-3b-substitution.glb', poster: '/models/abg/abg-3b-substitution-poster.webp', cites: { plain: [10, 11, 12], clinical: [13, 10, 11, 12, 14, 15] } },
+// Stage 3 is the long-term model with the ways to fill the gap as parts (materials option-none, option-implant,
+// option-bridge, option-denture; one shown at a time), plus a second model for canine substitution (3b).
+// Hotspot positions are copied from the CBCT-2026/ABG pages (same models, same coordinates).
+// show: 'gum' = only while the gum is on, 'bone' = only while the gum is off, 'braces' = only with braces on,
+// 'main' / 'sub' = only on the long-term model / only on the substitution model.
+export type AbgHotspot = { key: string; position: string; normal: string; side: 'up' | 'down' | 'left' | 'right'; len: number; show?: 'gum' | 'bone' | 'braces' | 'main' | 'sub' };
+
+export const abgStages: { src: string; poster: string; cites: { plain: number[]; clinical: number[] }; hotspots: AbgHotspot[] }[] = [
+  {
+    src: '/models/abg/abg-1-pre-op.glb', poster: '/models/abg/abg-1-pre-op-poster.webp', cites: { plain: [1], clinical: [1, 2, 3, 4, 5] },
+    hotspots: [
+      { key: 'gum', position: '0.034m 0.008m 0.0226m', normal: '0 0 1', side: 'up', len: 60, show: 'gum' },
+      { key: 'gap', position: '0.019m 0.004m 0.021m', normal: '0 0 1', side: 'left', len: 24, show: 'bone' },
+      { key: 'window', position: '0.036m 0.012m -0.004m', normal: '0.6 0 0.8', side: 'up', len: 50, show: 'bone' },
+      { key: 'front', position: '-0.002m -0.012m 0.0316m', normal: '0 0 1', side: 'down', len: 40 },
+      { key: 'missing', position: '0.021m -0.010m 0.024m', normal: '0 0 1', side: 'down', len: 18 },
+      { key: 'palate', position: '0.008m 0.0073m -0.01m', normal: '0 -1 0', side: 'left', len: 30, show: 'gum' },
+    ],
+  },
+  {
+    src: '/models/abg/abg-2-during-braces.glb', poster: '/models/abg/abg-2-during-braces-poster.webp', cites: { plain: [4, 6], clinical: [7, 8, 4, 6, 9] },
+    hotspots: [
+      { key: 'gum', position: '0.034m 0.008m 0.0226m', normal: '0 0 1', side: 'up', len: 60, show: 'gum' },
+      { key: 'graft', position: '0.021m 0.010m 0.027m', normal: '0 0 1', side: 'left', len: 44, show: 'bone' },
+      { key: 'canine', position: '0.030m -0.003m 0.027m', normal: '0 0 1', side: 'up', len: 76 },
+      { key: 'braces', position: '-0.014m -0.006m 0.033m', normal: '0 0 1', side: 'up', len: 50, show: 'braces' },
+      { key: 'front', position: '-0.002m -0.012m 0.0316m', normal: '0 0 1', side: 'down', len: 40 },
+      { key: 'palate', position: '0.008m 0.0073m -0.01m', normal: '0 -1 0', side: 'left', len: 30, show: 'gum' },
+    ],
+  },
+  {
+    src: '/models/abg/abg-3-long-term.glb', poster: '/models/abg/abg-3-long-term-poster.webp', cites: { plain: [15, 12], clinical: [15, 12, 14, 13, 10, 11] },
+    hotspots: [
+      { key: 'gum', position: '0.034m 0.008m 0.0226m', normal: '0 0 1', side: 'up', len: 60, show: 'gum' },
+      { key: 'healed', position: '0.021m 0.010m 0.027m', normal: '0 0 1', side: 'left', len: 44, show: 'bone' },
+      { key: 'canine', position: '0.030m -0.003m 0.027m', normal: '0 0 1', side: 'up', len: 76, show: 'main' },
+      { key: 'space', position: '0.021m -0.004m 0.030m', normal: '0 0 1', side: 'down', len: 18, show: 'main' },
+      { key: 'front', position: '-0.002m -0.012m 0.0316m', normal: '0 0 1', side: 'down', len: 40 },
+      { key: 'palate', position: '0.008m 0.0073m -0.01m', normal: '0 -1 0', side: 'left', len: 30, show: 'gum' },
+      { key: 'moved', position: '0.021m -0.004m 0.030m', normal: '0 0 1', side: 'down', len: 18, show: 'sub' },
+      { key: 'next', position: '0.030m -0.003m 0.027m', normal: '0 0 1', side: 'up', len: 56, show: 'sub' },
+    ],
+  },
 ];
+
+// Stage 3: ways to fill the gap (CBCT-2026/ABG long-term page). 'substitution' swaps to the second model.
+// Words in the dictionaries (abg.options), same order.
+export const abgOptions = [
+  { id: 'option-none', cites: [12] },
+  { id: 'option-implant', cites: [12, 14] },
+  { id: 'option-bridge', cites: [12] },
+  { id: 'option-denture', cites: [12] },
+  { id: 'substitution', cites: [13, 4, 10, 11], src: '/models/abg/abg-3b-substitution.glb', poster: '/models/abg/abg-3b-substitution-poster.webp' },
+];
+
+// Preset camera views (same as the CBCT-2026/ABG pages).
+export const abgViews = [
+  { key: 'whole', orbit: '0deg 75deg auto', target: 'auto auto auto' },
+  { key: 'below', orbit: '0deg 165deg auto', target: 'auto auto auto' },
+  { key: 'left', orbit: '40deg 75deg 0.11m', target: '0.028m 0.006m 0.01m' },
+] as const;
 
 // Checked against CBCT-2026/ABG content/references.json (the study's checked source list), 6 November 2026.
 // Citations stay in English, the language they were published in.
