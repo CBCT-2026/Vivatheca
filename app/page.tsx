@@ -2,10 +2,16 @@ import { clinicalImages, contributionPaths, publications, trustItems, understand
 import { SiteFooter } from './site-chrome';
 import { homeHref, primaryLinks } from './nav';
 import { mailto } from './contact';
+import { catalogue } from './models/catalogue';
+import { disclaimerHref } from './disclaimer-text';
 import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
+
+// A mix of other models (app/models/catalogue.ts). The wisdom tooth is the hero; the bone graft series is the interactive section.
+const showcaseSlugs = ['dental-development', 'orthognathic', 'periodontitis', 'head-neck', 'oroantral', 'cracked-tooth'];
+const showcase = showcaseSlugs.map((slug) => catalogue.find((model) => model.slug === slug)).filter((model) => model !== undefined);
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -84,28 +90,39 @@ export default async function Home() {
 
         <section className="collection-section" id="collection">
           <div className="section-heading split-heading">
-            <div><h2><Ruby text={t.collection.heading} /></h2><p><Ruby text={t.collection.text} /> <a href="/models/impacted-wisdom-tooth"><Ruby text={t.collection.compare} /></a></p></div>
+            <div><h2><Ruby text={t.collection.heading} /></h2><p><Ruby text={t.collection.text} /></p></div>
             <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.collection.label} /></div>
           </div>
           <ModelExperience />
-          <div className="clinical-images" id="clinical-images">
-            <h3><Ruby text={t.clinical.heading} /></h3>
-            <p className="clinical-note"><Ruby text={t.clinical.note} /></p>
-            <div className="clinical-grid">
-              {clinicalImages.map((image, index) => {
-                const text = t.clinical.images[image.key];
-                return (
-                  <figure key={image.key} className="clinical-figure" id={`img-${index + 1}`}>
-                    <img src={image.src} width={image.width} height={image.height} loading="lazy" alt={plain(text.alt)} />
-                    <figcaption>
-                      <Ruby text={text.caption} />
-                      <span className="clinical-credit">{plain(t.clinical.credit)}: <span lang="en">{image.credit} <a href={image.href} target="_blank" rel="noreferrer">{image.href.replace('https://', '')}</a>.</span> {plain(t.clinical.licence)}: <a href={image.licence.href} target="_blank" rel="noreferrer" lang="en">{image.licence.name}</a>. {plain(t.clinical.changes)}: <span lang="en">{image.changes}</span></span>
-                    </figcaption>
-                  </figure>
-                );
-              })}
-            </div>
+        </section>
+
+        <section className="showcase-section" id="showcase" aria-labelledby="showcase-title">
+          <div className="section-heading split-heading">
+            <div><h2 id="showcase-title"><Ruby text={t.showcase.heading} /></h2><p><Ruby text={t.showcase.text} /></p></div>
+            <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.showcase.label} /></div>
           </div>
+          <ul className="library-grid showcase-grid" aria-label={plain(t.showcase.label)}>
+            {showcase.map((model) => {
+              const item = t.library.items[model.slug];
+              return (
+                <li key={model.slug} className="library-card">
+                  <a href={model.href} className="library-card-link">
+                    <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
+                    <div className="library-card-body">
+                      <p className="library-meta"><Ruby text={item.specialty} /></p>
+                      <h3><Ruby text={item.title} /></h3>
+                      <p><Ruby text={item.summary} /></p>
+                      <ul className="library-tags" aria-label={plain(t.library.factsLabel)}>
+                        <li><Ruby text={item.pairing} /></li>
+                        <li><Ruby text={t.library.notReviewed} /></li>
+                      </ul>
+                    </div>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
           <div className="prototype-links">
             <h3><Ruby text={t.collection.moreHeading} /></h3>
             <a className="text-link" href="/head-neck/"><Ruby text={t.collection.moreHeadNeck} /> <Icon name="arrow_forward" /></a>
@@ -125,6 +142,27 @@ export default async function Home() {
         <section className="print-section">
           <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt={plain(t.print.imageAlt)} width="1200" height="800" /><figcaption className="figure-note"><Ruby text={t.print.caption} /></figcaption></figure>
           <div className="print-copy"><h2><Ruby text={t.print.heading} /></h2><p><Ruby text={t.print.text} /></p><a className="text-link" href="/models/impacted-wisdom-tooth"><Ruby text={t.print.download} /> <Icon name="download" /></a></div>
+        </section>
+
+        <section className="wisdom-cases">
+          <div className="clinical-images" id="clinical-images">
+            <h3><Ruby text={t.clinical.heading} /></h3>
+            <p className="clinical-note"><Ruby text={t.clinical.note} /></p>
+            <div className="clinical-grid">
+              {clinicalImages.map((image, index) => {
+                const text = t.clinical.images[image.key];
+                return (
+                  <figure key={image.key} className="clinical-figure" id={`img-${index + 1}`}>
+                    <img src={image.src} width={image.width} height={image.height} loading="lazy" alt={plain(text.alt)} />
+                    <figcaption>
+                      <Ruby text={text.caption} />
+                      <span className="clinical-credit">{plain(t.clinical.credit)}: <span lang="en">{image.credit} <a href={image.href} target="_blank" rel="noreferrer">{image.href.replace('https://', '')}</a>.</span> {plain(t.clinical.licence)}: <a href={image.licence.href} target="_blank" rel="noreferrer" lang="en">{image.licence.name}</a>. {plain(t.clinical.changes)}: <span lang="en">{image.changes}</span></span>
+                    </figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </div>
         </section>
 
         <section className="trust-section" id="trust">
