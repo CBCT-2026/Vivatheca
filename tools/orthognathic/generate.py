@@ -21,13 +21,19 @@ Method (all simplifications are listed on the web page and in README.md):
   BSSO (Obwegeser-Dal Pont type): medial horizontal cut above the lingula, sagittal split lateral to
   the tooth roots, vertical buccal cut between first and second molar. Plane-based approximation.
 - Teeth always move rigidly with their bone.
-- Chin: the Z-Anatomy chin is short (lower incisor edge to menton 33.3 mm; Class I adult mean 44.78 mm, Arruda
-  et al. 2012). All models get a taller chin: bone below the lowest anterior root tip is stretched down so that
-  Ii-Me = 44.78 mm at the midline, fading out sideways so the mental foramen ends 14.98 mm above the lower border
-  (Class I normal-face mean, Bagheri et al. 2023). Teeth are not changed.
-- Genioplasty (optional after models, '-genio'): sliding osteotomy of the chin along one plane below the
-  anterior root tips and more than 9.12 mm below the mental foramen (the 99.99% safe distance of Lin et al. 2020),
-  running down to the lower border at the premolars. Class II: chin
+- Chin: on the Z-Anatomy mandible the mental foramen sits 11.1 mm above the lower border, below the range of
+  Class I adults with a normal face height (14.98 +/- 0.63 mm, range 14.0-16.8; Bagheri et al. 2023, CBCT).
+  All models get a slightly taller chin: the lowest 3 mm band of bone (and all bone below the lowest anterior
+  root tip) is stretched down by one even amount D across the front of the mandible, so the chin keeps its
+  rounded shape; the drop fades out behind the first premolars. D is solved so the foramen ends 14.98 mm above
+  the lower border. Check: lower face height ANS-Me / N-Me then lies within the Class I normal-face range of
+  He et al. 2025 (CBCT controls 53.77 +/- 0.82 %; long faces 56.59 %). Teeth are not changed.
+  (Version 0.2 stretched the midline 12.5 mm to reach a lower incisor-menton height of 44.78 mm; on this skull
+  that made ANS-Me / N-Me 57.6 %, a long face, and a pointed chin.)
+- Genioplasty (optional after models, '-genio'): sliding osteotomy of the chin along one plane GENIO_BELOW_APEX mm
+  below the canine root tips (4-5 mm, Mohammad et al. 2010; 5 mm, Kim et al. 2014) and more than 9.12 mm below
+  the mental foramen (the 99.99% safe distance of Lin et al. 2020), sloping down to the lower border at the
+  premolars. Class II: chin
   advanced GENIO_II mm; Class III: chin set back GENIO_III mm (moved along the cut plane).
 - Plates and screws come from the shared fixation component (tools/fixation/fixation.py; sizes and
   placement sources in tools/fixation/README.md): 2.0 mm miniplates, 1.0 mm thick, countersunk holes,
@@ -59,7 +65,11 @@ Y_BUCCAL = -50.0          # BSSO buccal vertical cut, between lower first and se
 SPLIT = ((31.0, -50.0), (38.5, -25.0))  # (x, y) points of the sagittal split line on the x > 0 side
 Q_POST = ((-22.0, Z_MEDIAL), (-30.0, 1500.0))  # (y, z): medial split runs from behind the lingula down to the lower border, in front of the angle
 LEFORT = ((-85.0, 1562.0), (-40.0, 1565.0))  # (y, z) of the Le Fort I plane, ~4 mm above the canine apex
-GENIO = ((-80.0, 1496.0), (-62.0, 1493.0))  # (y, z) of the genioplasty plane: 6.4 mm below the canine root tip, ~16 mm below the mental foramen
+CANINE_APEX = (-69.2, 1501.7)  # (y, z) of the lower canine root tip (lowest anterior root tip; ray casting / vertex scan)
+GENIO_BELOW_APEX = 4.0    # genioplasty cut 4 mm below the canine root tips (4-5 mm: Mohammad et al. 2010)
+GENIO_SLOPE = 3.0 / 18.0  # the cut slopes down backwards (3 mm over 18 mm) to leave the lower border at the premolars
+def _genio_z(y): return CANINE_APEX[1] - GENIO_BELOW_APEX - (y - CANINE_APEX[0]) * GENIO_SLOPE
+GENIO = ((-80.0, _genio_z(-80.0)), (-62.0, _genio_z(-62.0)))  # (y, z) of the genioplasty plane
 GENIO_II = 5.0            # Class II: advancement genioplasty 5 mm
 GENIO_III = 4.0           # Class III: reduction (setback) genioplasty 4 mm
 
@@ -83,10 +93,15 @@ def shift(m, dy, dz=0.0):
     m = m.copy(); m.apply_translation([0, dy, dz]); return m
 
 # Chin height from published norms (see docstring and the page):
-II_ME = 44.78        # lower incisor edge (Ii) to menton (Me), mm: mean of 60 Class I adults (Arruda et al. 2012)
-MF_BORDER = 14.98    # mental foramen to the lower border, mm: Class I, normal face (Bagheri et al. 2023)
+MF_BORDER = 14.98    # mental foramen to the lower border, mm: Class I, normal face, CBCT (Bagheri et al. 2023)
 MF = np.array([21.0, -67.6, 1510.7])  # mental foramen centre on this mandible (x > 0 side; found by ray casting)
-Z_TOP = 1502.0       # stretching starts just below the lowest anterior root tip (canine 1501.7)
+Z_TOP = 1502.0       # stretching reaches up to just below the lowest anterior root tip (canine 1501.7) ...
+BAND = 3.0           # ... and always at least 3 mm above the local lower border
+X_FULL, X_ZERO = 24.0, 40.0  # even drop for |x| <= X_FULL (canine to first premolar, foramen included), none beyond X_ZERO
+# Midline landmarks on this skull (ray casting along +y at x = +/-1 mm): nasion = deepest point between glabella and
+# the nasal bones; ANS = tip of the maxilla at the nasal floor (the vomer is left out).
+NASION = np.array([0.0, -82.6, 1605.0]); ANS = np.array([0.0, -88.5, 1552.5])
+RATIO_NORM = (53.77, 0.82)  # ANS-Me / N-Me %, Class I normal-face controls, CBCT (He et al. 2025)
 
 def _border_map(v):
     """Lowest bone z per 2 mm column (x, y), smoothed: the local lower border."""
@@ -103,45 +118,37 @@ def _border_map(v):
     from scipy.interpolate import RegularGridInterpolator
     return RegularGridInterpolator((xs, ys), zb, bounds_error=False, fill_value=None)
 
-def _chin_warp(v, D, r1, zb):
-    """Lower the bone below Z_TOP by D at the midline, fading out sideways (|x| 4 -> r1 mm)."""
-    w = smooth((r1 - np.abs(v[:, 0])) / (r1 - 4.0))
-    base = zb(v[:, :2])
-    t = np.clip((Z_TOP - v[:, 2]) / np.maximum(Z_TOP - base, 0.5), 0, 1)
+def _chin_warp(v, D, zb):
+    """Lower the bottom of the mandible by D, evenly across the front, fading out between X_FULL and X_ZERO."""
+    w = smooth((X_ZERO - np.abs(v[:, 0])) / (X_ZERO - X_FULL)) * ramp(v[:, 1], -40.0, -20.0)
+    base = zb(v[:, :2]); top = np.maximum(Z_TOP, base + BAND)
+    t = np.clip((top - v[:, 2]) / np.maximum(top - base, 0.5), 0, 1)
     out = v.copy(); out[:, 2] -= D * w * t; return out
 
 def _fit_chin(m, teeth):
-    """Choose D (midline drop) and r1 (side fade) so Ii-Me = II_ME and foramen-border = MF_BORDER."""
+    """D so that foramen-to-border = MF_BORDER; reports Ii-Me and ANS-Me / N-Me before and after."""
     v = m.vertices; zb = _border_map(v)
     tv = teeth.vertices; inc = tv[(np.abs(tv[:, 0]) < 6.5) & (tv[:, 1] < -70)]; Ii = inc[inc[:, 2].argmax()]
     mf_border0 = MF[2] - float(zb([[MF[0] - 2.0, MF[1]]])[0])  # border under the foramen (2 mm medial: rounded edge)
-    need_mf = MF_BORDER - mf_border0
-    def ii_me(D, r1):
-        w = _chin_warp(v, D, r1, zb); mid = w[np.abs(w[:, 0]) < 2]; Me = mid[mid[:, 2].argmin()]
-        return float(np.linalg.norm(Ii - Me))
-    def r1_for(D):  # fade so the drop under the foramen is need_mf
-        lo, hi = MF[0] + 0.1, 60.0
-        for _ in range(40):
-            r1 = (lo + hi) / 2
-            if D * smooth((r1 - (MF[0] - 2.0)) / (r1 - 4.0)) > need_mf: hi = r1
-            else: lo = r1
-        return r1
-    lo, hi = 0.0, 25.0
-    for _ in range(30):
-        D = (lo + hi) / 2
-        if ii_me(D, r1_for(D)) > II_ME: hi = D
-        else: lo = D
-    return D, r1_for(D), zb, {'ii_me_before': round(ii_me(0, 30), 2), 'ii_me_after': round(ii_me(D, r1_for(D)), 2),
-                             'mf_border_before': round(mf_border0, 2), 'mf_border_after': round(mf_border0 + need_mf, 2),
-                             'midline_drop_mm': round(D, 2), 'fade_to_x_mm': round(r1_for(D), 2)}
+    D = MF_BORDER - mf_border0
+    def me(D):
+        w = _chin_warp(v, D, zb); mid = w[np.abs(w[:, 0]) < 2]; return mid[mid[:, 2].argmin()]
+    def ratio(D): Me = me(D); return 100 * np.linalg.norm(ANS - Me) / np.linalg.norm(NASION - Me)
+    r = ratio(D)
+    assert abs(r - RATIO_NORM[0]) <= RATIO_NORM[1], f'ANS-Me/N-Me {r:.2f} % outside the Class I normal range'
+    return D, zb, {'mf_border_before': round(mf_border0, 2), 'mf_border_after': MF_BORDER, 'drop_mm': round(D, 2),
+                   'even_to_x_mm': X_FULL, 'fade_to_x_mm': X_ZERO,
+                   'ii_me_before': round(float(np.linalg.norm(Ii - me(0))), 2), 'ii_me_after': round(float(np.linalg.norm(Ii - me(D))), 2),
+                   'ans_me_n_me_pct_before': round(ratio(0), 2), 'ans_me_n_me_pct_after': round(r, 2),
+                   'n_ans_mm': round(float(np.linalg.norm(NASION - ANS)), 2)}
 
 CHIN = None
 def lengthen_chin(m):
     """Make the chin as tall as the published norms (all models; see docstring). Teeth are not changed."""
     global CHIN
     if CHIN is None: CHIN = _fit_chin(m, part('lower_teeth'))
-    D, r1, zb, _ = CHIN
-    m = m.copy(); m.vertices = _chin_warp(m.vertices, D, r1, zb); return m
+    D, zb, _ = CHIN
+    m = m.copy(); m.vertices = _chin_warp(m.vertices, D, zb); return m
 
 # Hinge axis through the two condyle tops (for opening the mouth slightly in the before models).
 _mv = lengthen_chin(part('mandible')).vertices
@@ -294,7 +301,7 @@ def make(state):
         front = distal_m.vertices[np.abs(distal_m.vertices[:, 0]) < 2]
         yf = front[np.abs(front[:, 2] - gp[2]) < 2][:, 1].min()
         pl, sc = fx.make_plate([distal_m, genio], [0, yf, gp[2]], [0, 0.15, 1], [0, -1, 0],
-                               fx.chin_plate(width=9.0, up=4.2, down=4.8), fx.MINI_2_0, info=info)
+                               fx.chin_plate(width=9.0, up=4.2, down=3.0), fx.MINI_2_0, info=info)
         out['plate'].append(pl); out['screw'] += sc
     # BSSO plate on the outer surface, across the buccal step, each side
     for s in (1, -1):
@@ -358,6 +365,6 @@ for st in want:
     info['faces'] = {k: int(sum(len(m.faces) for m in v if m is not None)) for k, v in out.items()}
     export(out, OUT / f'{st}.glb', centre)
     print(json.dumps(info)); report.append(info)
-json.dump({'states': report, 'chin': CHIN[3], 'moves_mm': {'MAND_II': MAND_II, 'MAX_III': MAX_III, 'MAND_III': MAND_III,
+json.dump({'states': report, 'chin': CHIN[2], 'genio_plane_yz': GENIO, 'moves_mm': {'MAND_II': MAND_II, 'MAX_III': MAX_III, 'MAND_III': MAND_III,
                                           'GENIO_II': GENIO_II, 'GENIO_III': GENIO_III}},
           open(OUT / 'build_report.json', 'w'), indent=1)

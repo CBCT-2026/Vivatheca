@@ -64,13 +64,13 @@
     }
    ],
    "faces": {
-    "bone": 242573,
+    "bone": 242522,
     "teeth": 98430,
-    "moved": 91628,
-    "cut": 10781,
-    "plate": 16152,
+    "moved": 91616,
+    "cut": 10686,
+    "plate": 16944,
     "screw": 9344,
-    "before": 145916
+    "before": 145894
    }
   },
   {
@@ -80,7 +80,7 @@
     -4.93,
     0.82
    ],
-   "genio_segment_cm3": 1.92,
+   "genio_segment_cm3": 1.16,
    "bsso_move_mm": -6.0,
    "plates": [
     {
@@ -95,8 +95,8 @@
      ],
      "centre": [
       0.0,
-      -81.2,
-      1496.0
+      -81.39,
+      1499.5
      ]
     },
     {
@@ -133,13 +133,13 @@
     }
    ],
    "faces": {
-    "bone": 242622,
+    "bone": 242571,
     "teeth": 98430,
-    "moved": 91339,
-    "cut": 12297,
-    "plate": 25326,
+    "moved": 90947,
+    "cut": 12642,
+    "plate": 25902,
     "screw": 14016,
-    "before": 145916
+    "before": 145894
    }
   },
   {
@@ -258,13 +258,13 @@
     }
    ],
    "faces": {
-    "bone": 193853,
+    "bone": 193863,
     "teeth": 98430,
-    "moved": 147006,
-    "cut": 13957,
-    "plate": 48424,
+    "moved": 147003,
+    "cut": 14008,
+    "plate": 48432,
     "screw": 27712,
-    "before": 248472
+    "before": 248478
    }
   },
   {
@@ -274,7 +274,7 @@
     3.95,
     -0.66
    ],
-   "genio_segment_cm3": 1.92,
+   "genio_segment_cm3": 1.16,
    "bsso_move_mm": 5.0,
    "lefort_move_mm": -3.0,
    "plates": [
@@ -354,8 +354,8 @@
      ],
      "centre": [
       0.0,
-      -81.2,
-      1496.0
+      -81.39,
+      1499.5
      ]
     },
     {
@@ -392,30 +392,43 @@
     }
    ],
    "faces": {
-    "bone": 193853,
+    "bone": 193863,
     "teeth": 98430,
-    "moved": 146722,
-    "cut": 15525,
-    "plate": 57598,
+    "moved": 146335,
+    "cut": 16020,
+    "plate": 57390,
     "screw": 32384,
-    "before": 248472
+    "before": 248478
    }
   }
  ],
  "chin": {
-  "ii_me_before": 33.34,
-  "ii_me_after": 44.78,
   "mf_border_before": 11.08,
   "mf_border_after": 14.98,
-  "midline_drop_mm": 12.53,
-  "fade_to_x_mm": 27.86
+  "drop_mm": 3.9,
+  "even_to_x_mm": 24.0,
+  "fade_to_x_mm": 40.0,
+  "ii_me_before": 33.34,
+  "ii_me_after": 36.85,
+  "ans_me_n_me_pct_before": 52.73,
+  "ans_me_n_me_pct_after": 54.25,
+  "n_ans_mm": 52.83
  },
+ "genio_plane_yz": [
+  [
+   -80.0,
+   1499.5
+  ],
+  [
+   -62.0,
+   1496.5
+  ]
+ ],
  "moves_mm": {
   "MAND_II": 6.0,
   "MAX_III": 3.0,
   "MAND_III": 5.0,
   "GENIO_II": 5.0,
   "GENIO_III": 4.0
- },
- "fixation": "tools/fixation (shared component); plate details per state under \"plates\""
+ }
 }
