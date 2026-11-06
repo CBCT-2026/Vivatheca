@@ -757,20 +757,20 @@ const en = {
     ],
   },
   clinical: {
-    heading: 'Impacted wisdom teeth on real X-rays and scans',
-    note: 'These images are from real patients. Their authors published them under open licences; each licence is given under the image and is not the model licence.',
+    heading: 'Stuck (impacted) wisdom teeth on real X-rays and scans',
+    note: 'These pictures are from real people. The authors shared them under open licences. Each licence is given under its picture. It is not the model licence.',
     images: {
       opgLow: {
         alt: 'Panoramic X-ray. The lower left wisdom tooth lies deep in the jaw, low down behind the second molar.',
-        caption: 'Image 1. A lower wisdom tooth (right side of the picture, which is the patient’s left) lying deep in the jaw, close to the roots of the tooth in front of it.',
+        caption: 'Image 1. A lower wisdom tooth deep in the jaw, close to the roots of the tooth in front. It is on the right of the picture, which is the person’s left side.',
       },
       ctCanal: {
         alt: 'Four CT slices across the lower jaw, showing the wisdom tooth deep in the bone.',
-        caption: 'Image 2. The same tooth on CT slices. The authors report that it sits just above the nerve canal (inferior alveolar canal), as in the 3D model.',
+        caption: 'Image 2. The same tooth on a CT scan, a kind of 3D X-ray. The authors say it sits just above the nerve canal, as in the 3D model.',
       },
       cbctNerve: {
         alt: 'A grid of CBCT slices through a lower wisdom tooth. In several slices the nerve canal passes between the tooth roots.',
-        caption: 'Image 3. 3D scan (CBCT) slices of another patient: here the nerve canal runs between the roots of the wisdom tooth.',
+        caption: 'Image 3. A 3D scan (CBCT) of another person. Here the nerve canal runs between the roots of the wisdom tooth.',
       },
     },
     credit: 'Credit',
@@ -786,6 +786,8 @@ const en = {
     date: disclaimerUpdated,
     site: siteDisclaimer,
     model: modelDisclaimer,
+    // Shown only in translations, until a fluent clinician has reviewed them.
+    translationNote: '',
     notReviewed: 'Not yet clinically reviewed.',
     full: 'Full disclaimer',
     readFull: 'Read the full disclaimer.',
@@ -1034,21 +1036,22 @@ const en = {
     showsHeading: 'What it shows',
     shows: [
       'Left half of the lower jaw, with cheek-side bone cut away so the tooth roots and the nerve can be seen.',
-      'A mesioangular impacted lower left third molar (tooth 38) against the distal surface of the second molar.',
-      'The inferior alveolar nerve (red) in the mandibular canal, passing between the third molar roots. This is a less common, higher-risk arrangement; more often the canal lies below or beside the roots.',
-      'The nerve rising to enter the mandibular canal on the inner side of the ramus, near the lingula.',
+      'A mesioangular impacted lower left third molar (tooth 38) against the distal surface of the second molar.[1]',
+      'The inferior alveolar nerve (red) in the mandibular canal, passing between the third molar roots.[2][6] This is a less common, higher-risk arrangement; more often the canal lies below or beside the roots.[3][7][8] CBCT showed this relationship more accurately than a panoramic X-ray in a meta-analysis of three studies,[5] but a randomised trial found that CBCT before removal did not reduce nerve injury.[9]',
+      'The nerve rising to enter the mandibular canal on the inner side of the ramus, near the lingula.[2][4]',
     ],
     normalHeading: 'How the normal was made',
-    normalMethod: 'The matched normal is the same jaw, teeth and nerve. Only the wisdom tooth is changed: it is replaced by an upright third molar in line with the second molar, at the same biting level. Its shape is the second molar scaled to 92%, with roots 20% shorter, so the roots stay at least 1.5 mm from the nerve. This is an approximation: real third molars are usually smaller than second molars, with more variable crowns and often fused roots, and the front edge of the ramus still slightly overlaps the back of the crown. An erupted wisdom tooth can still have roots near the nerve; this normal shows one typical arrangement.',
+    normalMethod: 'The matched normal is the same jaw, teeth and nerve. Only the wisdom tooth is changed: it is replaced by an upright third molar in line with the second molar, at the same biting level. Its shape is the second molar scaled to 92%, with roots 20% shorter, so the roots stay at least 1.5 mm from the nerve. This is an approximation: real third molars are usually smaller than second molars, with more variable crowns and often fused roots,[10] and the front edge of the ramus still slightly overlaps the back of the crown. An erupted wisdom tooth can still have roots near the nerve; this normal shows one typical arrangement.',
     simplifiedHeading: 'What is simplified',
     simplifications: [
-      'One typical jaw, not a patient scan. Real jaws, roots and nerve paths vary a lot.',
+      'One typical jaw, not a patient scan. Real jaws, roots and nerve paths vary a lot.[2][7]',
       'Gum, lingual nerve, blood vessels and the upper jaw are not shown.',
       'Bone is solid. The mandibular canal and tooth sockets are not hollowed out.',
       'The nerve is a simplified tube. Its exit at the mental foramen is shown as a short separate piece, and the incisive branch is not shown.',
       'The STL is in millimetres at about 1.7 times life size (166 mm long), so the roots and nerve are easier to see. Scale it to about 60% in your slicer for life size. It is not checked as a closed solid, so repair it in your slicer before printing.',
     ],
     sourcesHeading: 'Published sources',
+    citeLabel: 'Source {n}',
     sourcesNote: 'Modelled by Luke Seifert, Vivatheca’s founder. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies.',
     changelogHeading: 'Change log',
     changelog: [

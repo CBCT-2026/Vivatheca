@@ -33,7 +33,8 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   for (const heading of ['What it shows', 'How the normal was made', 'What is simplified', 'Published sources', 'Change log', 'How to credit']) {
     await expect(page.getByRole('heading', { name: heading })).toBeVisible();
   }
-  await expect(page.locator('.source-list li')).toHaveCount(9);
+  await expect(page.locator('.source-list li')).toHaveCount(10);
+  await expect(page.locator('a[href="#src-6"]').first()).toBeVisible();
   await expect(page.locator('.model-disclaimer')).toContainText('Not yet clinically reviewed.');
   await expect(page.locator('.model-disclaimer').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
   await expect(page.locator('.report-band a')).toHaveAttribute('href', '/report?model=impacted-wisdom-tooth');

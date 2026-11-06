@@ -125,3 +125,18 @@ test('orthognathic and periodontitis pages switch to Japanese with furigana', as
     await expect(page.locator('#stage')).toContainText(/[ぁ-ん]/);
   }
 });
+
+test('Japanese pages say the translation is not yet reviewed; English pages do not', async ({ page, context }) => {
+  await page.goto('/models');
+  await expect(page.locator('.footer-legal')).not.toContainText('日本語');
+  await page.goto('/oroantral/index.html');
+  await expect(page.locator('.vt-translation-note')).toBeHidden();
+
+  await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
+  await page.goto('/models');
+  await expect(page.locator('.footer-legal .disclaimer')).toContainText('確認');
+  await page.goto('/oroantral/index.html');
+  await expect(page.locator('.vt-translation-note')).toBeVisible();
+  // The model disclaimer shows in Japanese only.
+  await expect(page.getByText('Educational model only.').first()).toBeHidden();
+});

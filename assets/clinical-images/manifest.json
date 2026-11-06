@@ -547,6 +547,26 @@
       "nc_limits": false,
       "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
       "checked": "2026-11-06"
+    },
+    {
+      "id": "ssc-bandeiralopes-fig1c-fig3c",
+      "file": "public/images/clinical/stainless-steel-crown/ssc-75-before-after.jpg",
+      "pages": [
+        "/stainless-steel-crown/"
+      ],
+      "type": "Clinical photo",
+      "description": "Tooth 75 (lower left second primary molar) before treatment (Figure 1C: hypomineralised, post-eruptive breakdown) and after a stainless steel crown (Figure 3C), side by side.",
+      "source_url": "https://doi.org/10.3390/children8100923",
+      "figure_source": "https://europepmc.org/article/PMC/PMC8534783",
+      "author": "Bandeira Lopes L, Machado V, Botelho J, Baghdadi ZD",
+      "article": "Bandeira Lopes L, Machado V, Botelho J, Baghdadi ZD. A Four-Year Follow-Up Case Report of Hypomineralized Primary Second Molars Rehabilitated with Stainless Steel Crowns. Children (Basel). 2021;8(10):923. doi:10.3390/children8100923",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Panel C cropped from Figures 1 and 3 (panel letters removed), placed side by side and resized to 902 x 300 px JPEG.",
+      "consent": "Article: 'consent was obtained from her parents so that case records could be made available for teaching purposes, including scientific publication.' Intraoral close-ups of one tooth only; no face or identifiers.",
+      "nc_limits": false,
+      "reasoning": "MDPI article under CC BY 4.0 (licence statement in the article; copyright held by the authors). Figures are the authors' own case. Same tooth and side as the model (75). The cause differs (hypomineralisation, not decay), and the page says so; AAPD lists developmental defects as an SSC indication.",
+      "checked": "2026-11-06"
     }
   ]
 }

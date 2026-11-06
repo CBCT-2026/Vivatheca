@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, formatDate, licence, wisdomTooth } from '../catalogue';
+import { Cited } from '../../learn/chrome';
 import { CompareViewer } from '../compare';
 import { CopyCitation } from './copy-citation';
 import { disclaimerHref } from '../../disclaimer-text';
@@ -64,17 +65,17 @@ export default async function WisdomToothPage() {
             </dl>
 
             <h3><Ruby text={w.showsHeading} /></h3>
-            <ul className="plain-list">{w.shows.map((text) => <li key={text}><Ruby text={text} /></li>)}</ul>
+            <ul className="plain-list">{w.shows.map((text) => <li key={text}><Cited text={text} label={w.citeLabel} /></li>)}</ul>
 
             <h3><Ruby text={w.normalHeading} /></h3>
-            <p><Ruby text={w.normalMethod} /></p>
+            <p><Cited text={w.normalMethod} label={w.citeLabel} /></p>
 
             <h3><Ruby text={w.simplifiedHeading} /></h3>
-            <ul className="plain-list">{w.simplifications.map((text) => <li key={text}><Ruby text={text} /></li>)}</ul>
+            <ul className="plain-list">{w.simplifications.map((text) => <li key={text}><Cited text={text} label={w.citeLabel} /></li>)}</ul>
 
             <h3><Ruby text={w.sourcesHeading} /></h3>
             {w.sourcesNote ? <p className="detail-note"><Ruby text={w.sourcesNote} /></p> : null}
-            <ol className="source-list" lang="en">{wisdomTooth.sources.map((source) => <li key={source.href}>{source.text} <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}</ol>
+            <ol className="source-list" lang="en">{wisdomTooth.sources.map((source, index) => <li key={source.text} id={`src-${index + 1}`}>{source.text}{source.href ? <> <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></> : null}</li>)}</ol>
 
             <h3><Ruby text={w.changelogHeading} /></h3>
             <ul className="plain-list">{w.changelog.map((entry) => <li key={entry.version}><strong>{entry.version}</strong> ({date(wisdomTooth.changelogDates[entry.version])}): <Ruby text={entry.text} /></li>)}</ul>

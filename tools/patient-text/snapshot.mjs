@@ -4,7 +4,8 @@
 // - Static model pages (public/*/index.html): rendered in Chromium once in English and once in
 //   Japanese (cookie vivatheca-lang=ja). Only visible text is kept, and the caption of every
 //   stage or age button is added, because viewer.js writes those captions at runtime.
-// - App routes: the plain-language stage text of the homepage bone graft model, from app/i18n/dictionaries.
+// - App routes: the plain-language stage text of the homepage bone graft model and the homepage
+//   clinical image heading, note and captions, from app/i18n/dictionaries.
 //
 // Usage: node tools/patient-text/snapshot.mjs   (then: pitk check)
 
@@ -131,6 +132,10 @@ async function appText() {
     const d = (await import(url)).default;
     const steps = d.abg.stages.map((s) => `<h2>${ruby(s.title)}</h2>\n<p>${ruby(s.text)}</p>`).join('\n');
     files[`app-bone-graft-stages.${lang}.html`] = doc(lang, 'Alveolar bone graft model stages (homepage, plain language)', steps);
+    // Homepage clinical image section: patient-facing heading, note and captions.
+    const c = d.clinical;
+    const captions = Object.values(c.images).map((img) => `<p>${ruby(img.caption)}</p>`).join('\n');
+    files[`app-wisdom-tooth-images.${lang}.html`] = doc(lang, 'Wisdom tooth X-rays and scans (homepage)', `<h2>${ruby(c.heading)}</h2>\n<p>${ruby(c.note)}</p>\n${captions}`);
   }
   return files;
 }
