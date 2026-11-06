@@ -62,7 +62,7 @@ export default async function ModelsPage() {
         <section className="library-next" aria-labelledby="next-title">
           <h2 id="next-title"><Ruby text={l.nextHeading} /></h2>
           <p><Ruby text={l.nextText} /></p>
-          <p><Ruby text={l.askText} /> <a href="/report"><Ruby text={l.askLink} /></a>.</p>
+          <p><Ruby text={l.askText} />{l.askGap}<a href="/report"><Ruby text={l.askLink} /></a>{l.askEnd}</p>
         </section>
       </main>
       <SiteFooter />

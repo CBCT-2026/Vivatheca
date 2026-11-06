@@ -1,4 +1,4 @@
-Vivatheca: stainless steel crown on a lower baby molar (prototype v0.1, 5 November 2026)
+Vivatheca: stainless steel crown on a lower baby molar (prototype v0.2, 5 November 2026)
 Size: 2 times life size (STL units: mm). A real lower second baby molar crown is about 10 mm front to back.
 
 Parts (print each in its own colour; all parts share one coordinate system, so load them as one object in your slicer):
