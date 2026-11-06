@@ -7,6 +7,7 @@ The Vivatheca platform is a TypeScript/React application built with Next.js-comp
 - `app/page.tsx` defines the homepage.
 - `app/models/` holds the model library (`/models`), `catalogue.ts` (every model's card data, files, sources, simplifications, change log and citation) and one page per model (e.g. `/models/impacted-wisdom-tooth`, with `compare.tsx` showing the pathology beside its matched normal). Add each new model to `catalogue.ts`; every pathology model needs a matched normal.
 - `app/about/`, `app/privacy/` and `app/report/` (report-an-inaccuracy form that opens a pre-filled email) are plain info pages using `PageHeader` and `SiteFooter` from `app/site-chrome.tsx`.
+- `app/contribute/` is the submit-or-request-a-model page (`/contribute`, `?kind=request` for requests): what Vivatheca accepts, what it cannot (anything from a real patient's scan or record), review steps, the CC BY-SA licence grant and a form that opens a pre-filled email (words in `t.submitModel`). The homepage "Request or submit a model" card, the footer "Contribute a model" link and the `/models` page link to it. Review checklist: `docs/model-submissions.md`.
 - `app/ui.tsx` contains interactive client components, including the homepage 3D viewer (`ModelExperience`).
 - Homepage model layout (Luke, 2026-11-06): the impacted wisdom tooth is the hero image at the top; the interactive section (`#collection`) shows the alveolar bone graft series in three stages (models from CBCT-2026/ABG in `public/models/abg/`, own colours kept; collection page `/models/alveolar-bone-graft` reuses the same viewer, Draco decoder from `public/development/vendor/draco/`; stage words in `t.abg`, sources in `app/abg.ts`); `#showcase` shows a mix of other models from `catalogue.ts` (list in `app/page.tsx`, includes dental development); the wisdom tooth X-rays and scans sit under the print section so they stay next to the matching model.
 - `app/data.ts` contains reusable catalogue and navigation content.
@@ -39,6 +40,8 @@ After every material landing-page change, update `AGENTS.md`, `DESIGN.md`, `PROD
 ## Coding Style & Naming Conventions
 
 Use two-space indentation, semicolons, and single-quoted imports. Write React function components in PascalCase, variables and hooks in camelCase, and route folders in lowercase kebab-case. Reuse the semantic colour and spacing tokens in `:root` rather than adding isolated values. Use the theme-aware tokens (`--surface`, `--heading`, `--accent` and the rest listed in `DESIGN.md`) for light surfaces and text so new pages work in both light and dark mode; light is the default.
+
+Paragraph text is justified on every page in every language (the Justified-Paragraph Rule in `DESIGN.md`); the global `p` rule lives in `app/globals.css` and `public/site-header.css`, so never left-align paragraphs per page.
 
 Guard client-only APIs such as `localStorage`, Fullscreen, and Clipboard for server rendering. Keep interactive controls keyboard accessible and provide text alternatives for 3D content.
 

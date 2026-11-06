@@ -110,7 +110,7 @@ export function RequestBoard() {
           {message ? <p className="form-ok" role="status">{message}</p> : null}
           <div className="form-actions"><button className="button" type="submit" disabled={sending || state === 'off'}><Ruby text={sending ? r.sending : r.submit} /></button></div>
         </form>
-        <p className="detail-note"><Ruby text={r.makeIt} /></p>
+        <p className="detail-note"><Ruby text={r.makeIt} /> <a href="/contribute"><Ruby text={r.makeItLink} /> →</a></p>
       </section>
     </>
   );
