@@ -791,14 +791,6 @@ const en = {
     helpRequest: 'Request a model',
     helpRequestAfter: 'you would use with patients.',
   },
-  notFound: {
-    title: 'Page not found — Vivatheca',
-    eyebrow: 'Error 404',
-    heading: 'We could not find that page',
-    intro: 'The link may be old, or the page may have moved. All models are listed in the model collection.',
-    models: 'Browse all models',
-    home: 'Go to the Vivatheca home page',
-  },
   privacy: {
     title: 'Privacy — Vivatheca',
     description: 'What Vivatheca collects when you use the site, and what it does not.',
