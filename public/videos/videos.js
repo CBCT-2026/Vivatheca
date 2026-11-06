@@ -1655,6 +1655,90 @@ window.VT_VIDEOS = {
    ]
   }
  },
+ "prosthodontic": {
+  "sources": [
+   "The Glossary of Prosthodontic Terms 2023: Tenth Edition. J Prosthet Dent. 2023;130(4 Suppl 1):e7-e126. https://doi.org/10.1016/j.prosdent.2023.03.002",
+   "Cawood JI, Howell RA. A classification of the edentulous jaws. Int J Oral Maxillofac Surg. 1988;17(4):232-236. https://doi.org/10.1016/s0901-5027(88)80047-x",
+   "Atwood DA. Reduction of residual ridges: a major oral disease entity. J Prosthet Dent. 1971;26(3):266-279. https://doi.org/10.1016/0022-3913(71)90069-2",
+   "Feine JS, Carlsson GE, Awad MA, et al. The McGill consensus statement on overdentures. Gerodontology. 2002;19(1):3-4. https://pubmed.ncbi.nlm.nih.gov/12164236/"
+  ],
+  "en": {
+   "title": "When a jaw has no teeth",
+   "seconds": 26,
+   "lines": [
+    {
+     "text": "This is a lower jaw with its teeth. The bone that holds them is called the ridge.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "After the teeth are lost, the ridge slowly shrinks, over many years.",
+     "cite": [
+      2,
+      3
+     ]
+    },
+    {
+     "text": "In the end, only the base of the jaw is left, low and flat at the back.",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "A complete denture rests on the gum. On a flat ridge, it can move.",
+     "cite": [
+      1,
+      3
+     ]
+    },
+    {
+     "text": "Two implants in the front can hold the denture still. Experts agree this is a good first choice.",
+     "cite": [
+      4
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "{歯|は}のないあご",
+   "seconds": 31,
+   "lines": [
+    {
+     "text": "{歯|は}のある{下|した}あごです。{歯|は}を{支|ささ}える{骨|ほね}を{土手|どて}といいます。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{歯|は}を{失|うしな}うと、{土手|どて}は{何年|なんねん}もかけて{少|すこ}しずつやせていきます。",
+     "cite": [
+      2,
+      3
+     ]
+    },
+    {
+     "text": "やがてあごの{土台|どだい}だけが{残|のこ}り、{奥|おく}は{低|ひく}く{平|たい}らになります。",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "{総入れ歯|そういれば}は{歯|は}ぐきにのります。{土手|どて}が{平|たい}らだと{動|うご}くことがあります。",
+     "cite": [
+      1,
+      3
+     ]
+    },
+    {
+     "text": "{前|まえ}に2{本|ほん}のインプラントを{入|い}れると、{入|い}れ{歯|ば}が{動|うご}きにくくなります。{専門家|せんもんか}も{勧|すす}める{方法|ほうほう}です。",
+     "cite": [
+      4
+     ]
+    }
+   ]
+  }
+ },
  "stainless-steel-crown": {
   "sources": [
    "American Academy of Pediatric Dentistry. Pediatric restorative dentistry. The Reference Manual of Pediatric Dentistry. Chicago, IL: AAPD; 2025:473-86. https://www.aapd.org/research/oral-health-policies--recommendations/pediatric-restorative-dentistry/",

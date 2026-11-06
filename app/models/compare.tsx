@@ -77,6 +77,8 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
     'shadow-intensity': '0.6',
     'environment-image': 'neutral',
     'interaction-prompt': 'none',
+    // The viewer is the page's main content: load it at once, even when the title area pushes it below the fold.
+    loading: 'eager',
     ar: true,
     'ar-modes': 'webxr scene-viewer quick-look',
     className: 'compare-model',

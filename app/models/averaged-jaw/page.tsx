@@ -10,6 +10,7 @@ import { disclaimerHref } from '../../disclaimer-text';
 import { localeTags } from '../../i18n/config';
 import { VideoSection } from '../../video-section';
 import { format } from '../../i18n/dictionaries';
+import { ShowActions } from '../../show/quick';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { averagedJawSources, collections } from './sources';
@@ -64,6 +65,7 @@ export default async function AveragedJawPage() {
           <p className="eyebrow"><Ruby text={item.specialty} /></p>
           <h1><Ruby text={item.title} /></h1>
           <TermSources label={t.library.termsLabel} terms={model.terms} />
+          <ShowActions slug="averaged-jaw" />
           <p><Cited text={d.lead} label={cite} /></p>
         </div>
 
