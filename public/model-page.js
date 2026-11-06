@@ -22,12 +22,13 @@
   const text = {
     en: { student: 'Studying dentistry or medicine?', guide: 'Read the student guide', skip: 'Skip to main content', lead: 'Making patient information?', link: 'Draft a leaflet or A4 sheet that uses this model’s labels' },
     ja: { student: '{歯学|しがく}・{医学|いがく}を{学|まな}んでいますか？', guide: '{学生|がくせい}{向|む}けガイドを{読|よ}む', skip: '{本文|ほんぶん}へ{移動|いどう}', lead: '{患者|かんじゃ}さん{向|む}けの{資料|しりょう}を{作|つく}りますか？', link: 'この{模型|もけい}のラベルに{合|あ}わせたリーフレットやA4{資料|しりょう}を{作|つく}る' },
+    vi: { student: 'Bạn đang học nha khoa hoặc y khoa?', guide: 'Đọc hướng dẫn cho sinh viên', skip: 'Chuyển đến nội dung chính', lead: 'Bạn đang soạn thông tin cho bệnh nhân?', link: 'Soạn tờ thông tin hoặc tờ A4 dùng nhãn của mô hình này' },
   };
   const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g, '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
   const plain = (s) => s.replace(/\{([^{}|]+)\|[^{}]+\}/g, '$1');
 
   function render() {
-    const t = text[document.documentElement.lang.startsWith('ja') ? 'ja' : 'en'];
+    const t = text[document.documentElement.lang.slice(0, 2)] || text.en;
     const main = document.querySelector('main');
     const style = document.createElement('style');
     style.textContent =
