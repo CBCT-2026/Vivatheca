@@ -86,3 +86,14 @@ export const abgSources = [
   { id: 15, text: 'Jahanbin A, et al. Long-term stability of alveolar bone graft in cleft lip and palate: a systematic review and meta-analysis. J Craniofac Surg. 2022;33:e194-e200.', href: 'https://doi.org/10.1097/SCS.0000000000008254' },
 ];
 
+
+// Downloads (CC BY-SA 4.0, approved by Luke 6 November 2026). For each stage: the web GLB (Draco-compressed) and a
+// zip of STL parts in mm with a read-me (tools/abg/make_print_zips.py). Labels: abg.files in the dictionaries, same order.
+export const abgFiles = [
+  { glb: { href: '/models/abg/abg-1-pre-op.glb', size: '0.4 MB' }, stl: { href: '/models/abg/vivatheca-abg-1-pre-op-stl.zip', size: '3.2 MB' } },
+  { glb: { href: '/models/abg/abg-2-during-braces.glb', size: '0.4 MB' }, stl: { href: '/models/abg/vivatheca-abg-2-during-braces-stl.zip', size: '3.5 MB' } },
+  { glb: { href: '/models/abg/abg-3-long-term.glb', size: '0.5 MB' }, stl: { href: '/models/abg/vivatheca-abg-3-long-term-stl.zip', size: '3.6 MB' } },
+  { glb: { href: '/models/abg/abg-3b-substitution.glb', size: '0.4 MB' }, stl: { href: '/models/abg/vivatheca-abg-3b-substitution-stl.zip', size: '3.2 MB' } },
+];
+
+export const abgCitation = 'Seifert L. Vivatheca: Alveolar bone graft in cleft lip and palate, version 0.1. 2026. https://vivatheca.com/models/alveolar-bone-graft. Licensed under CC BY-SA 4.0. Accessed [date].';

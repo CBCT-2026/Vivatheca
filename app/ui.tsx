@@ -286,7 +286,7 @@ export function ModelExperience() {
         {stage === 2 ? (
           <p className="option-note" aria-live="polite"><strong><Ruby text={a.options[optionIndex].label} />:</strong> <Ruby text={a.options[optionIndex].text} /><Cites ids={abgOptions[optionIndex].cites} label={m.sourceLabel} /></p>
         ) : null}
-        <p className="licence-note"><Ruby text={a.made} /></p>
+        <p className="licence-note"><Ruby text={a.made} /> <a href="/models/alveolar-bone-graft#downloads"><Ruby text={a.downloadsLink} /></a></p>
         <details className="model-sources">
           <summary><Ruby text={m.sources} /></summary>
           <p><Ruby text={a.simplified} /></p>
