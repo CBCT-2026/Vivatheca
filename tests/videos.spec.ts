@@ -26,7 +26,8 @@ test('the collection marks each model with a video and links to it', async ({ pa
 
 for (const model of catalogue) {
   test(`${model.slug} page shows its video with disclaimer and sources`, async ({ page }) => {
-    await page.goto(`${model.href}#video`);
+    // Local `vinext start` does not serve a folder's index.html; Cloudflare does.
+    await page.goto(`${model.href.endsWith('/') ? model.href + 'index.html' : model.href}#video`);
     const box = page.locator('#video');
     await expect(box).toBeVisible();
     const video = box.locator('video');
