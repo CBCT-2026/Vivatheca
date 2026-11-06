@@ -29,13 +29,47 @@
   {
    "state": "class2-after",
    "bsso_move_mm": -6.0,
+   "plates": [
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      34.0,
+      -49.0,
+      1520.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -34.0,
+      -49.0,
+      1520.0
+     ]
+    }
+   ],
    "faces": {
     "bone": 242573,
     "teeth": 98430,
     "moved": 91628,
     "cut": 10781,
-    "plate": 17608,
-    "screw": 768,
+    "plate": 16152,
+    "screw": 9344,
     "before": 145916
    }
   },
@@ -48,13 +82,63 @@
    ],
    "genio_segment_cm3": 1.92,
    "bsso_move_mm": -6.0,
+   "plates": [
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      0.0,
+      -81.2,
+      1496.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      34.0,
+      -49.0,
+      1520.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -34.0,
+      -49.0,
+      1520.0
+     ]
+    }
+   ],
    "faces": {
     "bone": 242622,
     "teeth": 98430,
     "moved": 91339,
     "cut": 12297,
-    "plate": 28328,
-    "screw": 1152,
+    "plate": 25326,
+    "screw": 14016,
     "before": 145916
    }
   },
@@ -75,13 +159,111 @@
    "state": "class3-after",
    "bsso_move_mm": 5.0,
    "lefort_move_mm": -3.0,
+   "plates": [
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      4.0,
+      4.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      16.0,
+      -79.8,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      43.0,
+      -60.0,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      4.0,
+      4.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -16.0,
+      -79.8,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -43.0,
+      -60.0,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      34.0,
+      -49.0,
+      1520.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -34.0,
+      -49.0,
+      1520.0
+     ]
+    }
+   ],
    "faces": {
     "bone": 193853,
     "teeth": 98430,
     "moved": 147006,
     "cut": 13957,
-    "plate": 45976,
-    "screw": 2304,
+    "plate": 48424,
+    "screw": 27712,
     "before": 248472
    }
   },
@@ -95,13 +277,127 @@
    "genio_segment_cm3": 1.92,
    "bsso_move_mm": 5.0,
    "lefort_move_mm": -3.0,
+   "plates": [
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      4.0,
+      4.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      16.0,
+      -79.8,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      43.0,
+      -60.0,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      4.0,
+      4.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -16.0,
+      -79.8,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -43.0,
+      -60.0,
+      1562.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      0.0,
+      -81.2,
+      1496.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      34.0,
+      -49.0,
+      1520.0
+     ]
+    },
+    {
+     "system": "mini-2.0",
+     "holes": 4,
+     "screws": 4,
+     "screw_len_mm": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+     ],
+     "centre": [
+      -34.0,
+      -49.0,
+      1520.0
+     ]
+    }
+   ],
    "faces": {
     "bone": 193853,
     "teeth": 98430,
     "moved": 146722,
     "cut": 15525,
-    "plate": 56696,
-    "screw": 2688,
+    "plate": 57598,
+    "screw": 32384,
     "before": 248472
    }
   }
@@ -120,5 +416,6 @@
   "MAND_III": 5.0,
   "GENIO_II": 5.0,
   "GENIO_III": 4.0
- }
+ },
+ "fixation": "tools/fixation (shared component); plate details per state under \"plates\""
 }

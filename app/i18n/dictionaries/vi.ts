@@ -1551,6 +1551,9 @@ const vi = withFallback(en, {
     "videoBadge": "Video",
     "watchVideo": "Xem video {s} giây",
     "items": {
+      "fixation": {
+        "title": "Cố định trong xương hàm dưới: kết hợp xương bằng nẹp nhỏ và nẹp tái tạo"
+      },
       "impacted-wisdom-tooth": {
         "title": "Răng cối lớn thứ ba hàm dưới mọc ngầm nghiêng gần",
         "specialty": "Phẫu thuật miệng và hàm mặt",
