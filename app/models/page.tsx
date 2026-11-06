@@ -49,7 +49,7 @@ export default async function ModelsPage() {
                     {video ? <span className="library-video-badge"><Ruby text={l.videoBadge} /> · {video.seconds}s</span> : null}
                   </span>
                   <div className="library-card-body">
-                    <p className="library-meta"><Ruby text={item.specialty} /></p>
+                    <p className="library-meta"><span className="spec-icon" aria-hidden="true" style={{ ['--icon' as string]: `url(/icons/health/${model.icon}.svg)` }} /><Ruby text={item.specialty} /></p>
                     <h2><Ruby text={item.title} /></h2>
                     <p><Ruby text={item.summary} /></p>
                     <ul className="library-tags" aria-label={plain(l.factsLabel)}>

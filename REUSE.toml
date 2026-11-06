@@ -60,3 +60,9 @@ path = ["public/vendor/niivue/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "NiiVue contributors (@niivue/niivue 0.69.0)"
 SPDX-License-Identifier = "BSD-2-Clause"
+
+[[annotations]]
+path = ["public/icons/health/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Health Icons contributors (healthicons.org, @healthicons/core 2.0.0)"
+SPDX-License-Identifier = "CC0-1.0"

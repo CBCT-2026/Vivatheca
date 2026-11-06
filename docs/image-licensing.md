@@ -146,6 +146,25 @@ In order of preference:
 If nothing suitable exists, say so on the page and use a Vivatheca diagram or
 model render instead.
 
+## 7a. Medical illustrations and icons
+
+Drawn illustrations (not photos or scans of a person) can help on handouts, slide
+templates, `/learn` diagrams and picture steps. They need no patient consent, but
+every other rule above still applies. Approved sources:
+
+| Source | Licence (checked 6 Nov 2026) | What to do |
+|---|---|---|
+| [Health Icons](https://healthicons.org) | CC0 1.0 (icons); site code MIT | No credit required. Copy SVGs into `public/icons/health/` (REUSE entry already covers it). Collection cards use them for specialties. |
+| [Servier Medical Art](https://smart.servier.com) | CC BY 4.0 | Visible credit beside the image: "Servier Medical Art (smart.servier.com), CC BY 4.0", the licence link, and "modified" if changed. |
+| [Bioicons](https://bioicons.com) | Set per icon (CC0, CC BY, CC BY-SA or MIT) | Read the licence and author on each icon's page. Credit CC BY and CC BY-SA icons like Servier; a CC BY-SA icon makes the combined image CC BY-SA. Skip icons with no licence shown. |
+| [NIH BioArt](https://bioart.niaid.nih.gov) | Public domain unless the file says otherwise | Check each file's page. Credit "NIAID NIH BioArt" as a courtesy. |
+
+Record every illustration used (except Health Icons) in
+`assets/illustrations/manifest.json` with the same fields as clinical images:
+file, pages, source URL, author, licence and link, changes made, and date checked.
+An illustration shows typical anatomy only; the model disclaimer still applies
+wherever it sits next to a model.
+
 ## 8. Review
 
 - Each image needs a second check of the register entry before merge.
