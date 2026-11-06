@@ -1,7 +1,8 @@
 // Small shared store for the features that need to remember things between visitors:
 // - usage counters per model (views, downloads, shared links, pictures, embeds, tours, prints);
 // - the model request board (suggestions and votes);
-// - the "used it" gallery (how clinicians and teachers used a model).
+// - the "used it" gallery (how clinicians and teachers used a model);
+// - the clinician survey (/survey): anonymous ratings, read only at /admin as a summary and CSV.
 // It is one SQLite-backed Durable Object (no account set-up needed: Cloudflare creates it from the
 // migration in vite.config.ts). New suggestions and gallery posts wait for approval at /admin.
 // No IP addresses, names of patients or e-mail addresses are stored. Voters are told apart by a
@@ -19,6 +20,9 @@ type CountKind = (typeof COUNT_KINDS)[number];
 const MODELS = new Set(catalogue.map((m) => m.slug));
 const SEEDS = new Set<string>(seededRequests.map((r) => r.id));
 
+export const SURVEY_ITEMS = ['accurate', 'normal', 'use', 'sources', 'easy'] as const;
+type SurveyAnswer = { role: string; country: string; model: string; accurate: number; normal: number; use: number; sources: number; easy: number; better: string; next: string; lang: string };
+
 type Pending = { kind: 'request' | 'used'; id: string; created: string; fields: Record<string, string> };
 
 // A plain class with fetch() (not `extends DurableObject`), so this file has no static import of
@@ -30,7 +34,8 @@ export class VivathecaStore {
     this.sql.exec(`CREATE TABLE IF NOT EXISTS counts (model TEXT, kind TEXT, day TEXT, n INTEGER, PRIMARY KEY (model, kind, day));
       CREATE TABLE IF NOT EXISTS requests (id TEXT PRIMARY KEY, title TEXT, detail TEXT, specialty TEXT, role TEXT, lang TEXT, status TEXT, created TEXT);
       CREATE TABLE IF NOT EXISTS votes (request TEXT, voter TEXT, PRIMARY KEY (request, voter));
-      CREATE TABLE IF NOT EXISTS used (id TEXT PRIMARY KEY, model TEXT, role TEXT, how TEXT, link TEXT, name TEXT, country TEXT, lang TEXT, status TEXT, created TEXT);`);
+      CREATE TABLE IF NOT EXISTS used (id TEXT PRIMARY KEY, model TEXT, role TEXT, how TEXT, link TEXT, name TEXT, country TEXT, lang TEXT, status TEXT, created TEXT);
+      CREATE TABLE IF NOT EXISTS survey (id TEXT PRIMARY KEY, role TEXT, country TEXT, model TEXT, accurate INTEGER, normal INTEGER, use INTEGER, sources INTEGER, easy INTEGER, better TEXT, next TEXT, lang TEXT, created TEXT);`);
   }
 
   hit(model: string, kind: CountKind) {
@@ -83,6 +88,22 @@ export class VivathecaStore {
     return id;
   }
 
+  answer(f: SurveyAnswer) {
+    const id = 's-' + crypto.randomUUID().slice(0, 8);
+    this.sql.exec('INSERT INTO survey (id, role, country, model, accurate, normal, use, sources, easy, better, next, lang, created) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      id, f.role, f.country, f.model, f.accurate, f.normal, f.use, f.sources, f.easy, f.better, f.next, f.lang, new Date().toISOString());
+    return id;
+  }
+
+  survey() {
+    return { rows: this.sql.exec<Record<string, string | number>>('SELECT * FROM survey ORDER BY created').toArray() };
+  }
+
+  removeAnswer(id: string) {
+    this.sql.exec('DELETE FROM survey WHERE id = ?', id);
+    return true;
+  }
+
   pending(): Pending[] {
     const req = this.sql.exec<Record<string, string>>("SELECT * FROM requests WHERE status = 'pending' ORDER BY created").toArray();
     const use = this.sql.exec<Record<string, string>>("SELECT * FROM used WHERE status = 'pending' ORDER BY created").toArray();
@@ -107,6 +128,7 @@ export class VivathecaStore {
     const ops: Record<string, (...a: never[]) => unknown> = {
       hit: this.hit, stats: this.stats, requests: this.requests, vote: this.vote, suggest: this.suggest,
       used: this.used, share: this.share, pending: this.pending, moderate: this.moderate,
+      answer: this.answer, survey: this.survey, removeAnswer: this.removeAnswer,
     };
     const fn = ops[op];
     if (!fn) return new Response('not found', { status: 404 });
@@ -124,6 +146,9 @@ type StoreCall = {
   share(f: Parameters<VivathecaStore['share']>[0]): Promise<string>;
   pending(): Promise<Pending[]>;
   moderate(kind: 'request' | 'used', id: string, approve: boolean): Promise<boolean>;
+  answer(f: SurveyAnswer): Promise<string>;
+  survey(): Promise<ReturnType<VivathecaStore['survey']>>;
+  removeAnswer(id: string): Promise<boolean>;
 };
 
 function client(ns: DurableObjectNamespace): StoreCall {
@@ -194,7 +219,7 @@ function safeLink(v: string) {
 export async function handleStoreApi(request: Request, env: StoreEnv): Promise<Response | null> {
   const url = new URL(request.url);
   const path = url.pathname;
-  if (!path.startsWith('/api/stats') && !path.startsWith('/api/requests') && !path.startsWith('/api/used') && !path.startsWith('/api/admin')) return null;
+  if (!path.startsWith('/api/stats') && !path.startsWith('/api/requests') && !path.startsWith('/api/used') && !path.startsWith('/api/admin') && !path.startsWith('/api/survey')) return null;
   if (!env.STORE) return json({ error: 'unavailable' }, 503);
   const store = client(env.STORE);
   const method = request.method;
@@ -251,6 +276,24 @@ export async function handleStoreApi(request: Request, env: StoreEnv): Promise<R
     return json({ ok: true, id: await store.share(f) });
   }
 
+  if (path === '/api/survey' && method === 'POST') {
+    if (!allowed(request, 5)) return json({ ok: false }, 429);
+    const b = await body(request);
+    if (clip(b.website, 10)) return json({ ok: true }); // honeypot
+    if (b.noPatient !== true || b.consent !== true) return json({ error: 'consent' }, 400);
+    const score = (v: unknown) => (Number.isInteger(v) && (v as number) >= 1 && (v as number) <= 5 ? (v as number) : 0);
+    const model = clip(b.model, 60);
+    const f: SurveyAnswer = {
+      role: clip(b.role, 80), country: clip(b.country, 60), model: MODELS.has(model) ? model : '',
+      accurate: score(b.accurate), normal: score(b.normal), use: score(b.use), sources: score(b.sources), easy: score(b.easy),
+      better: clip(b.better, 1000), next: clip(b.next, 300), lang: clip(b.lang, 8),
+    };
+    if (!f.role) return json({ error: 'role' }, 400);
+    if (SURVEY_ITEMS.some((k) => !f[k])) return json({ error: 'items' }, 400);
+    if (PATIENT_HINT.test(f.better + ' ' + f.next)) return json({ error: 'patient' }, 400);
+    return json({ ok: true, id: await store.answer(f) });
+  }
+
   if (path.startsWith('/api/admin')) {
     if (!env.ADMIN_TOKEN) return json({ error: 'admin-off' }, 503);
     // The token comes in X-Admin-Token, because the site password gate (worker/index.ts) uses the
@@ -259,6 +302,12 @@ export async function handleStoreApi(request: Request, env: StoreEnv): Promise<R
     const token = request.headers.get('X-Admin-Token') ?? (bearer.startsWith('Bearer ') ? bearer.slice(7) : '');
     if (!allowed(request, 30) || !sameSecret(token, env.ADMIN_TOKEN)) return json({ error: 'auth' }, 401);
     if (path === '/api/admin/pending' && method === 'GET') return json({ items: await store.pending() });
+    if (path === '/api/admin/survey' && method === 'GET') return json(await store.survey());
+    if (path === '/api/admin/survey/remove' && method === 'POST') {
+      const b = await body(request);
+      await store.removeAnswer(clip(b.id, 40));
+      return json({ ok: true });
+    }
     if (path === '/api/admin/moderate' && method === 'POST') {
       const b = await body(request);
       const kind = b.kind === 'request' ? 'request' : b.kind === 'used' ? 'used' : null;

@@ -1125,6 +1125,7 @@ const vi = withFallback(en, {
       "label": "Tham gia",
       "request": "Đề xuất mô hình mới",
       "used": "Chia sẻ cách bạn đã dùng mô hình",
+      "survey": "Khảo sát nhân viên y tế",
       "contribute": "Đóng góp mô hình",
       "review": "Tham gia thẩm định lâm sàng",
       "sponsor": "Tài trợ mô hình"
@@ -1845,6 +1846,11 @@ const vi = withFallback(en, {
         "text": "Nếu bạn đề xuất một mô hình, ủng hộ một mô hình, hoặc chia sẻ cách bạn đã dùng, nội dung bạn nhập được lưu trên máy chủ của Vivatheca (Cloudflare) và chỉ hiện trên trang sau khi một người kiểm tra. Để mỗi trình duyệt chỉ được tính một lượt ủng hộ, trang đề xuất đặt một cookie chứa một số ngẫu nhiên (vt-voter); chỉ dạng đã mã hóa của nó được lưu. Không ghi thông tin bệnh nhân. Bạn có thể yêu cầu chúng tôi xóa bài đăng của mình bất cứ lúc nào."
       },
       {
+        "id": "survey",
+        "heading": "Khảo sát nhân viên y tế",
+        "text": "Nếu bạn trả lời khảo sát dành cho nhân viên y tế, câu trả lời được lưu trên máy chủ của Vivatheca (Cloudflare) kèm ngày giờ, nhưng không kèm tên, email hay địa chỉ IP. Chỉ Vivatheca đọc chúng, dưới dạng tổng hợp số lượng và trung bình. Bạn có thể yêu cầu xóa câu trả lời bất cứ lúc nào."
+      },
+      {
         "id": "email",
         "heading": "Khi bạn gửi email cho chúng tôi",
         "text": "Báo cáo và tin nhắn đến qua email. Chúng tôi chỉ giữ chúng để trả lời bạn và sửa mô hình, và không bao giờ chia sẻ. Bạn có thể yêu cầu xóa tin nhắn của mình bất cứ lúc nào."
@@ -1965,6 +1971,44 @@ const vi = withFallback(en, {
     "busy": "Bạn đã thử quá nhiều lần. Vui lòng đợi một phút rồi thử lại.",
     "privacy": "Bài đăng được lưu trên máy chủ của Vivatheca (Cloudflare). Bạn có thể yêu cầu xóa bài của mình bất cứ lúc nào."
   },
+  "survey": {
+    "title": "Khảo sát dành cho nhân viên y tế — Vivatheca",
+    "description": "Khảo sát hai phút cho bác sĩ và giảng viên: mô hình Vivatheca có đủ chính xác và hữu ích để dùng với bệnh nhân không?",
+    "eyebrow": "Khảo sát nhân viên y tế",
+    "heading": "Bạn có dùng các mô hình này với bệnh nhân không?",
+    "intro": "Vivatheca miễn phí và do một người làm, nên ý kiến thẳng thắn của nhân viên y tế quyết định điều gì được sửa và làm tiếp. Khảo sát mất khoảng hai phút. Không hỏi tên hay email.",
+    "method": "Cách dùng câu trả lời: được tổng hợp (số lượng và trung bình) để cải thiện mô hình và hỗ trợ hồ sơ xin tài trợ. Không công bố riêng câu trả lời nào. Các câu hỏi do Vivatheca soạn, không phải bảng câu hỏi đã được thẩm định.",
+    "role": "Vai trò của bạn",
+    "rolePick": "Chọn một",
+    "country": "Quốc gia nơi bạn làm việc (không bắt buộc)",
+    "model": "Bạn xem mô hình nào nhiều nhất?",
+    "modelAny": "Nhiều mô hình hoặc không cụ thể",
+    "scaleLegend": "Bạn đồng ý đến mức nào?",
+    "scale": ["Hoàn toàn không đồng ý", "Không đồng ý", "Trung lập", "Đồng ý", "Hoàn toàn đồng ý"],
+    "items": {
+      "accurate": "Mô hình trông đủ chính xác để giải thích bệnh cho bệnh nhân.",
+      "normal": "Xem mô hình bình thường bên cạnh mô hình bệnh giúp giải thích dễ hơn.",
+      "use": "Tôi sẽ dùng các mô hình này với bệnh nhân của mình.",
+      "sources": "Nguồn tham khảo và các điểm đơn giản hóa đủ rõ để tôi tin tưởng mô hình.",
+      "easy": "Trang web dễ sử dụng."
+    },
+    "better": "Điều gì sẽ làm mô hình hữu ích hơn cho bạn? (không bắt buộc)",
+    "next": "Vivatheca nên làm mô hình nào tiếp theo? (không bắt buộc)",
+    "noPatient": "Câu trả lời của tôi không có tên, ngày sinh, ảnh hay thông tin nào có thể nhận ra bệnh nhân.",
+    "consent": "Tôi đồng ý để câu trả lời của tôi, không kèm tên, được tổng hợp trong báo cáo và hồ sơ xin tài trợ.",
+    "submit": "Gửi câu trả lời",
+    "sending": "Đang gửi…",
+    "thanks": "Cảm ơn bạn. Câu trả lời đã được lưu.",
+    "needRole": "Vui lòng chọn vai trò của bạn.",
+    "needAll": "Vui lòng trả lời cả năm câu.",
+    "needConsent": "Vui lòng đánh dấu cả hai ô trước khi gửi.",
+    "patient": "Nội dung có thể chứa thông tin bệnh nhân, ví dụ một ngày tháng. Vui lòng xóa đi.",
+    "failed": "Chưa gửi được. Vui lòng thử lại hoặc email tới vivatheca@gmail.com.",
+    "busy": "Thử quá nhiều lần. Vui lòng đợi một phút rồi thử lại.",
+    "unavailable": "Khảo sát chưa được bật. Bạn có thể gửi ý kiến tới vivatheca@gmail.com.",
+    "privacy": "Câu trả lời được lưu trên máy chủ của Vivatheca (Cloudflare), không kèm tên, email hay địa chỉ IP. Bạn có thể yêu cầu xóa bất cứ lúc nào: chúng tôi tìm theo ngày giờ bạn gửi.",
+    "link": "Dành cho nhân viên y tế: đánh giá mô hình (2 phút)"
+  },
   "impact": {
     "title": "Lượt sử dụng mô hình — Vivatheca",
     "description": "Mỗi mô hình Vivatheca được xem, tải, chia sẻ và sử dụng bao nhiêu lần.",
@@ -1993,7 +2037,7 @@ const vi = withFallback(en, {
     "title": "Kiểm duyệt — Vivatheca",
     "description": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng mới.",
     "heading": "Kiểm duyệt",
-    "intro": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng “đã sử dụng” mới trước khi chúng hiện trên trang.",
+    "intro": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng “đã sử dụng” mới trước khi chúng hiện trên trang, và đọc câu trả lời khảo sát nhân viên y tế.",
     "off": "Chức năng kiểm duyệt đang tắt. Để bật, hãy thêm secret ADMIN_TOKEN cho Worker vivatheca trong Cloudflare.",
     "key": "Khóa quản trị",
     "signIn": "Hiện bài đăng đang chờ",
@@ -2005,7 +2049,20 @@ const vi = withFallback(en, {
     "used": "Bài đăng “đã sử dụng”",
     "approve": "Duyệt",
     "remove": "Xóa",
-    "check": "Trước khi duyệt: không có thông tin bệnh nhân, không quảng cáo, và đường dẫn (nếu có) dẫn đúng nơi đã nêu."
+    "check": "Trước khi duyệt: không có thông tin bệnh nhân, không quảng cáo, và đường dẫn (nếu có) dẫn đúng nơi đã nêu.",
+    "survey": {
+      "heading": "Câu trả lời khảo sát nhân viên y tế",
+      "none": "Chưa có câu trả lời nào.",
+      "count": "Số câu trả lời: {n}",
+      "item": "Nhận định",
+      "mean": "Trung bình (1–5)",
+      "agree": "Đồng ý hoặc rất đồng ý",
+      "roles": "Số câu trả lời theo vai trò",
+      "comments": "Câu trả lời viết",
+      "csv": "Tải tất cả câu trả lời (CSV)",
+      "remove": "Xóa câu trả lời này",
+      "note": "Khi còn ít câu trả lời, số trung bình chỉ mang tính tham khảo."
+    }
   },
   "templates": {
     "title": "Mẫu tờ hướng dẫn và trang chiếu — Vivatheca",

@@ -1131,3 +1131,16 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .averaged-jaw-page .detail-block { margin-top: 2rem; }
 .averaged-jaw-page .detail-block h2 { margin-bottom: .75rem; }
 .averaged-jaw-table td, .averaged-jaw-table th { white-space: nowrap; }
+
+/* Clinician survey (/survey): five-point scales that wrap on phones. */
+.survey-legend { margin: 0; }
+.survey-item { border: 0; margin: 0; padding: 0; display: grid; gap: .5rem; min-width: 0; }
+.survey-item legend { color: var(--heading); font-weight: 700; padding: 0; margin-bottom: .4rem; }
+.survey-scale { display: flex; flex-wrap: wrap; gap: .5rem; }
+.report-form .survey-scale label { display: flex; align-items: center; gap: .4rem; font-weight: 400; color: var(--text-strong); border: 1px solid var(--line); border-radius: 999px; padding: .45rem .8rem; min-height: 44px; cursor: pointer; }
+.report-form .survey-scale input { min-height: 0; width: 18px; height: 18px; margin: 0; padding: 0; }
+.report-form .survey-scale label:has(input:checked) { border-color: var(--accent); color: var(--accent); }
+.survey-summary { margin-top: 2.5rem; }
+.survey-table { width: 100%; border-collapse: collapse; }
+.survey-table th, .survey-table td { padding: .5rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.survey-table td { white-space: nowrap; text-align: right; }

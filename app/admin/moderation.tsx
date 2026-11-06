@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useI18n } from '../i18n/context';
 import { plain, Ruby } from '../i18n/ruby';
+import { SurveySummary } from './survey-summary';
 
 type Pending = { kind: 'request' | 'used'; id: string; created: string; fields: Record<string, string> };
 const SHOW = ['title', 'detail', 'specialty', 'model', 'how', 'link', 'name', 'role', 'country', 'lang'];
@@ -58,6 +59,7 @@ export function Moderation() {
           )}
         </section>
       ) : null}
+      {items ? <SurveySummary adminKey={key} /> : null}
     </>
   );
 }
