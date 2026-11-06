@@ -13,4 +13,4 @@ ol.options li { margin: 0 0 10px; }
 .cards img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--bg); }
 .cards .card-body { padding: 10px 14px 14px; }
 .cards h3 { margin: 0 0 4px; font-size: 17px; color: var(--heading); }
-.cards p { margin: 0; font-size: 15px; color: var(--muted); text-align: left; }
+.cards p { margin: 0; font-size: 15px; color: var(--muted); }

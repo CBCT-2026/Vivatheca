@@ -147,6 +147,8 @@ The site opens in light mode for every visitor, whatever their system setting. T
 
 **The Plain-Voice Rule.** Headings state the benefit directly; do not add a kicker, eyebrow or medical-jargon preface above them.
 
+**The Justified-Paragraph Rule (Luke, 2026-11-06).** Every paragraph (`<p>` and long body copy) is justified, never left-aligned, on every page and in English and Japanese. The rule is global: `p` in `app/globals.css` for app pages and in `public/site-header.css`, which every static page loads. English uses `hyphens: auto` so gaps stay small; Japanese (`:lang(ja)`) uses `text-justify: inter-character`. Do not add per-page `text-align: left` on paragraphs, including on phones. Headings, buttons, navigation, labels, table cells, figure captions and deliberately centred callouts keep their own alignment.
+
 ## Layout
 
 Desktop compositions use broad asymmetric splits, with content padded by responsive 5–7vw gutters. Sections alternate spacious editorial reading fields with immersive image or model fields. Repeated content is expressed as ruled lists and columns rather than a grid of floating cards.

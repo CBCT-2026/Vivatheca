@@ -3,8 +3,12 @@
 // Remove the secret to make the site public.
 import app from 'vinext/server/app-router-entry';
 import { LOCALE_COOKIE, locales } from '../app/i18n/config';
+import { handleStoreApi, type StoreEnv } from './store';
 
-interface Env {
+// The Durable Object class must be exported from the Worker entry (binding STORE in vite.config.ts).
+export { VivathecaStore } from './store';
+
+interface Env extends StoreEnv {
   ASSETS?: { fetch: (request: Request) => Promise<Response> };
   SITE_USERNAME?: string;
   SITE_PASSWORD?: string;
@@ -79,6 +83,10 @@ export default {
         },
       });
     }
+
+    // Counters, the model request board, the "used it" gallery and their moderation (worker/store.ts).
+    const api = await handleStoreApi(request, env);
+    if (api) return api;
 
     // Static files (images, 3D models) are served from the assets binding.
     if (env.ASSETS && (request.method === 'GET' || request.method === 'HEAD')) {

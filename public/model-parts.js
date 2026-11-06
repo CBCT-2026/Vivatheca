@@ -144,6 +144,16 @@
     }
     // What should be hidden right now (used after the page swaps or changes the model).
     adapter.isHidden = (n) => (softOff && !!softKind(n)) || [...hidden].some((k) => new RegExp(k).test(n));
+    // For links to a view (/share-tools.js): read and rebuild which parts are off.
+    viewer.vtPartsState = {
+      get: () => ({ h: [...hidden], s: softOff }),
+      set: async (st) => {
+        const want = new Set(st.h || []);
+        for (const key of [...hidden]) if (!want.has(key)) { const b = panel.querySelector('.vt-part[data-key="' + CSS.escape(key) + '"]'); if (b) { b.click(); await new Promise((r) => setTimeout(r, 40)); } }
+        for (const key of want) if (!hidden.has(key)) { const b = panel.querySelector('.vt-part[data-key="' + CSS.escape(key) + '"]'); if (b) { b.click(); await new Promise((r) => setTimeout(r, 40)); } }
+        if (!!st.s !== softOff) { const b = panel.querySelector('.vt-soft'); if (b) { b.click(); await new Promise((r) => setTimeout(r, 600)); } }
+      },
+    };
     return { render };
   }
 
