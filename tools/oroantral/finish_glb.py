@@ -2,6 +2,7 @@
 Run: python3 finish_glb.py <in_dir> <out_dir>   (needs npx; uses @gltf-transform/cli 4.1.1 as the other model pages do)"""
 import json, struct, subprocess, sys
 from pathlib import Path
+FINISH = Path(__file__).resolve().parents[2] / 'tools' / 'glb' / 'finish.mjs'  # shared tidy + Draco step
 COL = {
     'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.8963, 0.855, 0.7758, 1], 'gum': [0.70, 0.25, 0.28, 1],
     'sinus': [0.18, 0.48, 0.86, 0.38], 'lining': [0.80, 0.22, 0.16, 0.85], 'tract': [0.62, 0.05, 0.10, 1],
@@ -16,5 +17,5 @@ for f in sorted(src.glob('*.glb')):
     js = json.dumps(j, separators=(',', ':')).encode(); js += b' ' * (-len(js) % 4)
     out = b'glTF' + struct.pack('<II', 2, 12 + 8 + len(js) + len(rest)) + struct.pack('<I', len(js)) + b'JSON' + js + rest
     tmp = dst / ('raw-' + f.name); tmp.write_bytes(out)
-    subprocess.run(['npx', '-y', '@gltf-transform/cli@4.1.1', 'draco', str(tmp), str(dst / f.name)], check=True, capture_output=True)
+    subprocess.run(['node', str(FINISH), str(tmp), '--out', str(dst / f.name)], check=True)
     tmp.unlink(); print(f.name, (dst / f.name).stat().st_size)

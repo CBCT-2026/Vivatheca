@@ -10,7 +10,8 @@ src, site = Path(sys.argv[1]), Path(sys.argv[2])
 models = site / 'models'; dl = site / 'downloads'; models.mkdir(parents=True, exist_ok=True); dl.mkdir(parents=True, exist_ok=True)
 tmp = src / 'tmp'; tmp.mkdir(exist_ok=True)
 README = (Path(__file__).with_name('print-readme.txt')).read_text()
-GT = ['npx', '-y', '@gltf-transform/cli@4.1.1']
+GT = ['pnpm', 'exec', 'gltf-transform']  # pinned in package.json
+FINISH = Path(__file__).resolve().parents[2] / 'tools' / 'glb' / 'finish.mjs'  # shared tidy + Draco step
 def glb_json(b):
     n = struct.unpack('<I', b[12:16])[0]; return json.loads(b[20:20 + n]), b[20 + n:]
 def glb_pack(j, rest):
@@ -25,7 +26,7 @@ for f in sorted(src.glob('*.glb')):
         pm['baseColorFactor'] = COL[k]; pm['roughnessFactor'] = 0.7; pm['metallicFactor'] = 0.0; m['name'] = NAME[k]
         if k == 'lost': m['alphaMode'] = 'BLEND'; m['doubleSided'] = True
     c = tmp / ('c-' + f.name); c.write_bytes(glb_pack(j, rest))
-    subprocess.run(GT + ['draco', str(c), str(models / f.name)], check=True, capture_output=True)
+    subprocess.run(['node', str(FINISH), str(c), '--out', str(models / f.name)], check=True)
     # print parts from the simplified mesh: back to millimetres, Z up
     sc = trimesh.load(s); z = zipfile.ZipFile(dl / f'vivatheca-periodontitis-{f.stem}-1.0x.zip', 'w', zipfile.ZIP_DEFLATED)
     for name, g in sc.geometry.items():

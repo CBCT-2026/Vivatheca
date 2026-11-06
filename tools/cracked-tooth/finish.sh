@@ -5,6 +5,6 @@ set -e
 src=$1; dst=$2
 mkdir -p "$dst/models" "$dst/downloads"
 for f in "$src"/*-whole.glb "$src"/*-cut.glb; do
-  npx -y @gltf-transform/cli@4.1.1 draco "$f" "$dst/models/$(basename "$f")"
+  node "$(dirname "$0")/../glb/finish.mjs" "$f" --out "$dst/models/$(basename "$f")"
 done
 cp "$src"/vivatheca-cracked-tooth-*-3x.zip "$dst/downloads/"
