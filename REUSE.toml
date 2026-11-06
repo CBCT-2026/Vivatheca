@@ -38,6 +38,18 @@ SPDX-FileCopyrightText = "Commonwealth of Australia"
 SPDX-License-Identifier = "LicenseRef-Australian-Flag"
 
 [[annotations]]
+path = ["public/vendor/openseadragon/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "OpenSeadragon contributors (openseadragon 6.1.1)"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
+path = ["public/vendor/annotorious/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Rainer Simon and Annotorious contributors (@annotorious/openseadragon 3.9.5)"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
 path = ["public/development/vendor/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "Google LLC and the Draco authors"
