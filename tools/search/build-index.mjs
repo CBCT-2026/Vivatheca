@@ -68,7 +68,8 @@ try {
     const page = await context.newPage();
     for (const url of pages) {
       // Static pages are fetched as /name/index.html (the local server has no directory index) but indexed as /name/.
-      await page.goto(BASE + (url.endsWith('/') && url !== '/' ? url + 'index.html' : url), { waitUntil: 'networkidle' });
+      await page.goto(BASE + (url.endsWith('/') && url !== '/' ? url + 'index.html' : url), { waitUntil: 'load' });
+      await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {}); // pages that keep polling never go idle
       const { html, text } = await page.evaluate((lang) => {
         document.querySelectorAll('script, style, noscript, header, footer, nav, model-viewer, canvas, dialog, [aria-hidden="true"], [aria-live], [role="status"], .skip-link, .cite, sup.cite').forEach((el) => el.remove());
         document.documentElement.lang = lang;
