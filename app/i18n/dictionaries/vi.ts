@@ -1607,6 +1607,12 @@ const vi = withFallback(en, {
         "summary": "Một răng cối lớn thứ nhất hàm dưới có tủy đã chết do sâu răng sâu, nhiễm trùng ở cả hai chóp chân răng và đường rò ra lợi, đặt cạnh chính răng đó khi lành. Cắt mở để so sánh. Trong ảnh: răng lành (trái) và áp xe (phải), đã cắt mở.",
         "pairing": "Bệnh lý + răng bình thường lành mạnh"
       },
+      "tmd": {
+        "title": "Rối loạn thái dương hàm (TMD) và đau cơ hàm: khớp hàm, cơ nhai và bài tập hàm",
+        "specialty": "Đau vùng miệng mặt (chăm sóc đa chuyên ngành)",
+        "summary": "Hai khớp hàm, đĩa khớp và bốn cơ nhai ở mỗi bên, với năm bài tập hàm có hoạt hình được các hướng dẫn ủng hộ, bằng chứng cho từng bài, nhóm chăm sóc và tờ thông tin in được cho bệnh nhân. Trong ảnh: hàm ngậm (trái) và há rộng (phải).",
+        "pairing": "Giải phẫu bình thường + bài tập + tờ thông tin cho bệnh nhân"
+      },
       "stainless-steel-crown": {
         "title": "Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới",
         "specialty": "Răng trẻ em",

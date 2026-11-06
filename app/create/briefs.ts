@@ -146,6 +146,23 @@ export const modelBriefs: ModelBrief[] = [
     normalComparison: 'The same lower first molar, sound, with a living pulp and whole bone around the root tips.',
   },
   {
+    id: 'tmd',
+    page: '/tmd/',
+    name: 'Temporomandibular disorders (TMD) and jaw muscle pain: jaw joints, chewing muscles and jaw exercises',
+    glb: '/tmd/models/tmd.glb',
+    condition: 'Pain in the jaw joints (temporomandibular joints) and chewing muscles, often with clicking or a jaw that is hard to open. Muscle pain (myalgia) shows no visible change in the muscles, so the model shows normal anatomy with animated jaw exercises. First-line care is education, self-care and jaw exercises, with a team that can include a dentist, a physiotherapist and a psychologist (cognitive behavioural therapy).',
+    labels: [
+      { plain: 'Jaw bone', medical: 'mandible' },
+      { plain: 'Jaw joint', medical: 'temporomandibular joint' },
+      { plain: 'Joint disc', medical: 'articular disc' },
+      { plain: 'Cheek chewing muscle', medical: 'masseter' },
+      { plain: 'Temple chewing muscle', medical: 'temporalis' },
+      { plain: 'Muscle that pulls the jaw forward', medical: 'lateral pterygoid' },
+      { plain: 'Inner chewing muscle', medical: 'medial pterygoid' },
+    ],
+    normalComparison: 'TMD muscle pain is diagnosed from symptoms and examination, not from a visible change, so the model is normal anatomy; the exercises are shown on it.',
+  },
+  {
     id: 'stainless-steel-crown',
     page: '/stainless-steel-crown/',
     name: 'Preformed metal (stainless steel) crown on a mandibular second primary molar',

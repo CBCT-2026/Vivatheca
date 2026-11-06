@@ -5,7 +5,7 @@
 #   - Website code, build tools and docs: MIT (see LICENSE)
 #   - Vivatheca 3D models, print files, renders and videos: CC BY-SA 4.0 (base meshes from
 #     Z-Anatomy are CC BY-SA 4.0, so everything made from them stays CC BY-SA)
-#     Exception: models built from BodyParts3D (CC BY 4.0), e.g. public/endodontic/, are CC BY 4.0
+#     Exception: models built from BodyParts3D (CC BY 4.0), e.g. public/endodontic/ and public/tmd/, are CC BY 4.0
 #   - Clinical images: each keeps its own licence, recorded with the image on its page
 #     (see LICENSES/LicenseRef-Clinical-Image.txt and docs/image-licensing.md)
 #   - Vendored third-party files keep their upstream licence
@@ -95,6 +95,13 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 # Endodontic pair: built from BodyParts3D (DBCLS, CC BY 4.0), so these files are CC BY 4.0, not CC BY-SA.
 [[annotations]]
 path = ["public/endodontic/models/**", "public/endodontic/downloads/**", "public/assets/renders/endodontic.webp", "public/videos/endodontic/**", "public/prosthodontic/models/**", "public/prosthodontic/downloads/**", "public/assets/renders/prosthodontic.webp", "public/videos/prosthodontic/**"]
+precedence = "override"
+SPDX-FileCopyrightText = ["2026 Vivatheca", "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# TMD jaw joints and chewing muscles: built from BodyParts3D (DBCLS, CC BY 4.0) with muscles and discs made by Vivatheca, so CC BY 4.0.
+[[annotations]]
+path = ["public/tmd/models/**", "public/tmd/sheet/img/**", "public/assets/renders/tmd.webp"]
 precedence = "override"
 SPDX-FileCopyrightText = ["2026 Vivatheca", "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"]
 SPDX-License-Identifier = "CC-BY-4.0"

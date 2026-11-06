@@ -39,6 +39,9 @@ window.VT_COLOURS = {
     "dentureBase": "#D46A7E",
     "babyTeeth": "#5B8DEF",
     "adultTeeth": "#F2C94C",
+    "muscle": "#B5534A",
+    "muscleDeep": "#C47A6E",
+    "disc": "#7FB3D5",
     "printBase": "#00244D",
     "printLabel": "#FFFFFF"
   }

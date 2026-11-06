@@ -60,8 +60,8 @@
   "ja": "d2002058d807"
  },
  "/models/alveolar-bone-graft": {
-  "en": "911d0c0e7238",
-  "ja": "8f2d9a8ab37a"
+  "en": "82c7fde04234",
+  "ja": "2dcf3460909c"
  },
  "/models/averaged-jaw": {
   "en": "91e842215b05",
@@ -72,40 +72,40 @@
   "ja": "59849bd127c5"
  },
  "/models": {
-  "en": "a2851c45c6b7",
-  "ja": "d65e73921a3b"
+  "en": "a7a3bb04c89e",
+  "ja": "92cd9134546e"
  },
  "/": {
   "en": "2bb2ae2d980a",
   "ja": "77098a4a05a0"
  },
  "/print": {
-  "en": "f7f3f47e882d",
-  "ja": "916ba7a0b288"
+  "en": "2ce97658b8de",
+  "ja": "267f835dbe3f"
  },
  "/privacy": {
   "en": "08eaca6dc653",
   "ja": "5dd475060360"
  },
  "/requests": {
-  "en": "9574dcb07722",
-  "ja": "8c541ac715d9"
+  "en": "f2bfcd985f76",
+  "ja": "68aa64ab9385"
  },
  "/review": {
-  "en": "4be1aac3ff82",
-  "ja": "b38bfe3b849b"
+  "en": "d84f49339374",
+  "ja": "3c89b8cdc076"
  },
  "/survey": {
-  "en": "911aae86533a",
-  "ja": "ea7e53d35aa1"
+  "en": "3ee61d25954f",
+  "ja": "dc24e486f71f"
  },
  "/templates": {
   "en": "18a38c4cc4a1",
   "ja": "a3c5c6083ba7"
  },
  "/used": {
-  "en": "5639894cd412",
-  "ja": "dfba0ff60d4f"
+  "en": "ac9d9257eaa3",
+  "ja": "770f827af223"
  },
  "/cracked-tooth/": {
   "en": "db104cf199d3",
@@ -128,20 +128,20 @@
   "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "360a6ef2ed7d",
+  "en": "318aad8d66a8",
   "ja": "6accb00aaf01"
  },
  "/head-neck/mec/": {
   "en": "697396964f77",
-  "ja": "710cd16c7993"
+  "ja": "6f768b507056"
  },
  "/head-neck/okc/": {
-  "en": "084e36d2623f",
+  "en": "94c42054dc9a",
   "ja": "16e0a0e68ff4"
  },
  "/head-neck/scc/": {
-  "en": "30d0ae69d74d",
-  "ja": "afe15ae50f1c"
+  "en": "400c290d784d",
+  "ja": "9a75900248be"
  },
  "/oroantral/": {
   "en": "34b1de268598",
@@ -155,12 +155,16 @@
   "en": "49046a92a0f7",
   "ja": "d665c022e531"
  },
- "/prosthodontic/": {
-  "en": "56f2809d1295",
-  "ja": "ee7f7fcc9726"
- },
  "/stainless-steel-crown/": {
   "en": "f6d16e393b19",
   "ja": "6e286fd0f5da"
+ },
+ "/tmd/": {
+  "en": "9778ecbf0cd6",
+  "ja": "bbc8ea4bab14"
+ },
+ "/tmd/sheet/": {
+  "en": "eeb44ea26ecc",
+  "ja": "eeb44ea26ecc"
  }
 }
