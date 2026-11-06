@@ -6,7 +6,7 @@ Visitors send models and requests from `/contribute` (`app/contribute/`). The fo
 
 Work through every item before a submitted model goes on the site. Record the outcome in the model's change log.
 
-1. **Rights and licence.** The contributor ticked all three boxes. The model and every part it uses can be shared under CC BY-SA 4.0 (Z-Anatomy-based work must be). Note any third-party source and its licence.
+1. **Rights and licence.** The contributor ticked all three boxes. The model and every part it uses can be shared under CC BY 4.0 or CC BY-SA 4.0. Work built only on BodyParts3D (CC BY 4.0) and the contributor's own parts can be CC BY; anything with a Z-Anatomy part must be CC BY-SA (see AGENTS.md, Base meshes and model licences). Note any third-party source and its licence.
 2. **No patient data.** The model is not made from a real patient's scan, photo or record. If there is any doubt, decline it. Do not keep files that turn out to contain patient data: delete them and tell the contributor.
 3. **Evidence.** Every design decision (size, position, stage, colour meaning) has a high-quality source (see AGENTS.md, Evidence and transparency). Check each reference exists (PubMed or DOI). Write down what the model simplifies.
 4. **Matched normal.** A pathology model needs a matched normal. Build one if the contributor could not.
