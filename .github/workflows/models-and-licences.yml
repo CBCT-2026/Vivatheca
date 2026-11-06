@@ -15,6 +15,17 @@ permissions:
   contents: read
 
 jobs:
+  rules:
+    # Free scripted check of project rules that need no judgement: disclaimer, review status,
+    # collection entries, Z-Anatomy licence label, justified paragraphs, neutral wording.
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - run: node tools/rules/check.mjs
   glb:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -68,3 +79,5 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm i18n:status
+      # Furigana markup and readings (JMdict/KANJIDIC). A correct reading the dictionaries lack goes in extraReadings with a reason.
+      - run: pnpm i18n:furigana --strict

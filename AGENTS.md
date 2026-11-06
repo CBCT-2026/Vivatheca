@@ -114,6 +114,10 @@ This is a standing project rule for every new model and every rebuild.
 
 Model picture checks: `tests/pictures/model-pictures.spec.ts` (own config `playwright.pictures.config.ts`, ignored by `pnpm test:e2e`) takes one fixed picture of every collection model. The `Model pictures` workflow takes them on the base branch and then on the PR on the same machine and fails on any visible model change. Add new models to its `SHOTS` list. Locally: on main `pnpm test:pictures --update-snapshots=all`, then on your branch (after `pnpm build`) `pnpm test:pictures`.
 
+## Free rules check (`pnpm check:rules`)
+
+`tools/rules/check.mjs` checks, on every pull request and with no AI or API cost: every static page links to `/disclaimer`; every static model page has the model disclaimer word for word, a review status and a `catalogue.ts` entry; every catalogue model has a render and `library.items` in `en.ts` and `ja.ts`; a page that uses Z-Anatomy says CC BY-SA; no stylesheet left-aligns plain `<p>` text; and English site text has no gendered pronouns. Exceptions go in `tools/rules/allow.json` with a reason. `pnpm i18n:furigana` checks Japanese furigana: `{漢字|かんじ}` markup, and each reading against JMdict/KANJIDIC; a correct reading they lack goes in `extraReadings` in `tools/i18n/furigana.mjs` with a reason. `pnpm check:dois` checks every cited DOI against Crossref (exists, not retracted or withdrawn, first author and year near the DOI); it runs weekly with the link check (`.github/workflows/links.yml`), which opens one issue when something needs fixing. Whole-repo reviews by Claude happen only when Luke asks (no paid per-PR AI checks).
+
 ## Evidence and transparency (required for everything)
 
 This is a standing project rule. It applies to every page, model, download, text and generated material, whether or not a task restates it.
