@@ -7,7 +7,8 @@
 // - Picture steps (IKEA's wordless instructions): every stage as a numbered picture, no words on the pictures.
 // - Guided tour (Smithsonian Voyager tours, Sketchfab annotation autopilot): steps through the page's own
 //   stages with Back and Next. It shows the page's own captions, so it adds no new health text.
-// - Copy credit (Wikimedia Commons attribution generator): CC BY-SA 4.0 credit in plain text, HTML or short form.
+// - Credit and citation (Wikimedia Commons attribution generator; Zenodo/Figshare "Cite as"): CC BY-SA 4.0 credit in
+//   plain text, HTML or short form, and a citation of the exact version in Vancouver, APA, BibTeX or RIS.
 // - Embed (Sketchfab / BioDigital embeds): ?embed=1 shows only the viewer, with the review status,
 //   model disclaimer, licence and a link back. Works once the site has no password.
 // - Counts views, downloads and uses per model for /impact (no cookies, nothing about the visitor).
@@ -46,12 +47,17 @@
     back: ['Back', '{戻|もど}る', 'Quay lại'],
     next: ['Next', '{次|つぎ}へ', 'Tiếp'],
     stop: ['End tour', 'ツアーを{終|お}える', 'Kết thúc hướng dẫn'],
-    credit: ['Copy credit', 'クレジットをコピー', 'Sao chép ghi công'],
+    credit: ['Credit and citation', 'クレジット・{引用|いんよう}', 'Ghi công và trích dẫn'],
     creditHeading: ['Credit for reuse (CC BY-SA 4.0)', '{再利用|さいりよう}{時|じ}のクレジット（CC BY-SA 4.0）', 'Ghi công khi sử dụng lại (CC BY-SA 4.0)'],
     creditHelp: ['Paste this wherever you use the model or a picture of it. If you change the model, say what you changed. Things you make from it must use the same licence.', '{模型|もけい}やその{画像|がぞう}を{使|つか}う{場所|ばしょ}に{貼|は}り{付|つ}けてください。{模型|もけい}を{変|か}えたときは、{何|なに}を{変|か}えたかを{書|か}いてください。これをもとに{作|つく}ったものは、{同|おな}じライセンスにしてください。', 'Dán nội dung này ở bất cứ đâu bạn dùng mô hình hoặc ảnh của nó. Nếu bạn thay đổi mô hình, hãy ghi rõ bạn đã thay đổi gì. Những gì bạn làm từ nó phải dùng cùng giấy phép.'],
     fmtPlain: ['Plain text', 'テキスト', 'Văn bản thường'],
     fmtHtml: ['HTML (web page)', 'HTML（ウェブページ）', 'HTML (trang web)'],
     fmtShort: ['Short (slides, posters)', '{短|みじか}い{形|かたち}（スライド・ポスター）', 'Ngắn (trang chiếu, áp phích)'],
+    fmtVancouver: ['Cite: Vancouver', '{引用|いんよう}：バンクーバー', 'Trích dẫn: Vancouver'],
+    fmtApa: ['Cite: APA', '{引用|いんよう}：APA', 'Trích dẫn: APA'],
+    fmtBibtex: ['BibTeX', 'BibTeX', 'BibTeX'],
+    fmtRis: ['RIS (EndNote, Zotero)', 'RIS（EndNote・Zotero）', 'RIS (EndNote, Zotero)'],
+    citeHelp: ['For papers, theses and course notes: cite the version you used.', '{論文|ろんぶん}・{授業|じゅぎょう}{資料|しりょう}では、{使|つか}ったバージョンを{引用|いんよう}してください。', 'Cho bài báo, luận văn và tài liệu học tập: hãy trích dẫn phiên bản bạn đã dùng.'],
     copy: ['Copy', 'コピー', 'Sao chép'],
     copied: ['Copied.', 'コピーしました。', 'Đã sao chép.'],
     embed: ['Embed on a website', 'ウェブサイトに{埋|う}め{込|こ}む', 'Nhúng vào trang web'],
@@ -384,6 +390,25 @@
       plain: (JA ? sayPlain('model') + '：「' + title + '」' : sayPlain('model') + ': "' + title + '"') + ' (' + sayPlain('version') + ' ' + v + '), Vivatheca, ' + url + '. ' + sayPlain('licensed') + ' ' + l.name + ' (' + l.href + '). ' + sayPlain('changes') + ' ' + plain(m.modelDisclaimer[lang]),
       html: '<p>' + esc(sayPlain('model')) + (JA ? '：「' : ': “') + '<a href="' + url + '">' + esc(title) + '</a>' + (JA ? '」' : '”') + ' (' + esc(sayPlain('version')) + ' ' + esc(v) + '), <a href="https://vivatheca.com">Vivatheca</a>. ' + esc(sayPlain('licensed')) + ' <a href="' + l.href + '">' + esc(l.name) + '</a>. ' + esc(sayPlain('changes')) + '</p>\n<p><small>' + esc(plain(m.reviewStatus[lang])) + ' ' + esc(plain(m.modelDisclaimer[lang])) + ' <a href="https://vivatheca.com' + m.disclaimerHref + '">vivatheca.com' + m.disclaimerHref + '</a></small></p>',
       short: '3D model: Vivatheca, vivatheca.com' + m.model.href + ' · ' + l.name,
+      ...citations(m, title, url),
+    };
+  }
+
+  // "Cite this model": one record, four styles. The author is Vivatheca (organisation); the version and
+  // date make the citation point at a fixed model. Accessed date is today, as Vancouver and APA ask.
+  function citations(m, title, url) {
+    const v = m.model.version;
+    const [y, mo, d] = (m.model.updated || '').split('-').map(Number);
+    const now = new Date();
+    const mon = (i) => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i - 1];
+    const monthLong = (i) => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][i - 1];
+    const iso = (dt) => dt.toISOString().slice(0, 10);
+    const key = 'vivatheca_' + m.model.slug.replace(/[^a-z0-9]+/gi, '_') + '_' + y;
+    return {
+      vancouver: 'Vivatheca. ' + title + ' [3D model on the Internet]. Version ' + v + '. Australia: Vivatheca; ' + y + ' [updated ' + y + ' ' + mon(mo) + ' ' + d + '; cited ' + now.getUTCFullYear() + ' ' + mon(now.getUTCMonth() + 1) + ' ' + now.getUTCDate() + ']. Available from: ' + url,
+      apa: 'Vivatheca. (' + y + ', ' + monthLong(mo) + ' ' + d + '). ' + title + ' (Version ' + v + ') [3D model]. ' + url,
+      bibtex: '@misc{' + key + ',\n  author = {{Vivatheca}},\n  title = {' + title.replace(/[{}]/g, '') + '},\n  year = {' + y + '},\n  version = {' + v + '},\n  howpublished = {3D model},\n  url = {' + url + '},\n  note = {Licence ' + m.licence.name + '. Accessed ' + iso(now) + '}\n}',
+      ris: ['TY  - DATA', 'AU  - Vivatheca', 'TI  - ' + title, 'PY  - ' + y, 'DA  - ' + (m.model.updated || '').replace(/-/g, '/'), 'ET  - ' + v, 'M3  - 3D model', 'PB  - Vivatheca', 'UR  - ' + url, 'Y2  - ' + iso(now).replace(/-/g, '/'), 'N1  - Licence ' + m.licence.name, 'ER  - '].join('\n'),
     };
   }
 
@@ -499,8 +524,8 @@
         const c = credits(m);
         let fmt = 'plain';
         const draw = () => {
-          cBox.innerHTML = '<p><strong>' + say('creditHeading') + '</strong><br>' + say('creditHelp') + '</p>' +
-            '<div class="vt-tabs" role="group">' + [['plain', 'fmtPlain'], ['html', 'fmtHtml'], ['short', 'fmtShort']].map(([k, w]) => '<button type="button" data-fmt="' + k + '" aria-pressed="' + (fmt === k) + '">' + say(w) + '</button>').join('') + '</div>' +
+          cBox.innerHTML = '<p><strong>' + say('creditHeading') + '</strong><br>' + say('creditHelp') + ' ' + say('citeHelp') + '</p>' +
+            '<div class="vt-tabs" role="group">' + [['plain', 'fmtPlain'], ['html', 'fmtHtml'], ['short', 'fmtShort'], ['vancouver', 'fmtVancouver'], ['apa', 'fmtApa'], ['bibtex', 'fmtBibtex'], ['ris', 'fmtRis']].map(([k, w]) => '<button type="button" data-fmt="' + k + '" aria-pressed="' + (fmt === k) + '">' + say(w) + '</button>').join('') + '</div>' +
             '<textarea readonly aria-label="' + esc(sayPlain('creditHeading')) + '">' + esc(c[fmt]) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>';
           cBox.querySelectorAll('[data-fmt]').forEach((x) => { x.onclick = () => { fmt = x.dataset.fmt; draw(); cBox.querySelector('[data-fmt="' + fmt + '"]').focus(); }; });
           cBox.querySelector('.vt-copy').onclick = async () => { const ok = await copyText(c[fmt]); if (!ok) cBox.querySelector('textarea').select(); tell(ok ? 'copied' : 'linkShown'); count('credit'); };
