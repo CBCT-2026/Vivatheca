@@ -12,7 +12,7 @@ test('the site opens in English and switches to Japanese with furigana', async (
   await expect(page).toHaveTitle(/臨床模型をわかりやすく/);
   // Kanji carry readings as ruby; the readings are hidden from assistive technology.
   const ruby = page.locator('.hero-title ruby').first();
-  await expect(ruby.locator('rt')).toHaveText('いりょう');
+  await expect(ruby.locator('rt')).toHaveText('りんしょう');
   await expect(ruby.locator('rt')).toHaveAttribute('aria-hidden', 'true');
   await expect(ruby.locator('rt')).toBeVisible();
 

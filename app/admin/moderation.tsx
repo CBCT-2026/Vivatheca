@@ -16,14 +16,14 @@ export function Moderation() {
 
   async function load(k: string) {
     setState('loading');
-    const res = await fetch('/api/admin/pending', { headers: { Authorization: 'Bearer ' + k } }).catch(() => null);
+    const res = await fetch('/api/admin/pending', { headers: { 'X-Admin-Token': k } }).catch(() => null);
     if (!res || res.status === 503) { setState('off'); return; }
     if (!res.ok) { setState('wrong'); setItems(null); return; }
     setItems(((await res.json()) as { items: Pending[] }).items); setState('idle');
   }
 
   async function act(item: Pending, action: 'approve' | 'remove') {
-    await fetch('/api/admin/moderate', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + key }, body: JSON.stringify({ kind: item.kind, id: item.id, action }) });
+    await fetch('/api/admin/moderate', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Admin-Token': key }, body: JSON.stringify({ kind: item.kind, id: item.id, action }) });
     setItems((list) => (list ?? []).filter((x) => x.id !== item.id));
   }
 
