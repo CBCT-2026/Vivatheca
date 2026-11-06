@@ -1,0 +1,47 @@
+name: Link and DOI check
+
+# Free weekly check that cited sources and other links still work (lychee), and that every cited DOI
+# exists and is not retracted (Crossref, tools/rules/dois.mjs).
+# Not run on every PR, because outside sites fail now and then; a broken link opens or updates an issue.
+on:
+  schedule:
+    - cron: '0 21 * * 0' # Monday morning, Adelaide time
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          args: >-
+            --no-progress --max-concurrency 8 --timeout 30 --max-retries 3
+            --accept 200..=299,403,429
+            --exclude '^https?://(localhost|127\.0\.0\.1)' --exclude 'vivatheca\.com'
+            --exclude 'fonts\.(googleapis|gstatic)\.com' --exclude-path public/pagefind --exclude-path public/vendor
+            'public/**/*.html' 'app/**/*.ts' 'app/**/*.tsx' 'docs/**/*.md' README.md AGENTS.md
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Check DOIs (exists, not retracted, citation matches)
+        id: dois
+        continue-on-error: true
+        run: node tools/rules/dois.mjs --out doi-report.md
+      - name: Open or update one issue when links or DOIs need fixing
+        if: steps.lychee.outputs.exit_code != 0 || steps.dois.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Broken links or citations found by the weekly check"
+          { cat doi-report.md 2>/dev/null; echo; cat lychee/out.md 2>/dev/null; } > body.md
+          n=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ -n "$n" ]; then gh issue edit "$n" --body-file body.md; else gh issue create --title "$title" --body-file body.md; fi

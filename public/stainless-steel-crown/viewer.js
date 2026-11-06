@@ -2,7 +2,8 @@
 // language (English / Japanese with furigana) and theme.
 const mv = document.getElementById('mv');
 const html = document.documentElement;
-const LANG = () => (html.lang === 'ja' ? 'ja' : 'en');
+const LANG = () => (html.lang === 'ja' || html.lang === 'vi' ? html.lang : 'en');
+const VI_PAGE = window.VT_VI_PAGE || {}; // Vietnamese from vi.js (unreviewed AI draft)
 // {漢字|かな} -> furigana
 const ruby = s => s.replace(/\{([^{}|]+)\|([^{}|]+)\}/g,
   '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
@@ -87,6 +88,10 @@ const STAGES = {
   },
 };
 
+const VI_X = VI_PAGE.extra || {};
+for (const k in STAGES) STAGES[k].vi = (VI_PAGE.states || {})[k] || STAGES[k].en;
+for (const k in LEGEND) LEGEND[k].vi = (VI_X.legend || {})[k] || LEGEND[k].en;
+
 const stageButtons = document.querySelectorAll('[data-stage]');
 const caption = document.getElementById('stage');
 const legend = document.getElementById('legend');
@@ -106,7 +111,8 @@ function render() {
 }
 function STATES_TEXT() {
   const s = STAGES[stage][LANG()];
-  const altText = LANG() === 'ja'
+  const altText = LANG() === 'vi' && VI_X.altPrefix ? VI_X.altPrefix + s.alt + VI_X.altSuffix
+    : LANG() === 'ja'
     ? s.alt + 'の3Dモデル。{歯|は}ぐきと{骨|ほね}のブロックの{中|なか}にあり、{下|した}で{大人|おとな}の{歯|は}が{育|そだ}っています。'
     : '3D model of ' + s.alt + ', in a block of gum and bone, with the adult tooth growing under it.';
   return { ...s, altText };
@@ -155,7 +161,7 @@ mv.addEventListener('progress', e => {
 });
 
 // Light/dark toggle, remembered site-wide (localStorage 'vivatheca-theme'). The label names the mode it switches to.
-const THEME = { en: { dark: 'Dark mode', light: 'Light mode' }, ja: { dark: 'ダークモード', light: 'ライトモード' } };
+const THEME = { en: { dark: 'Dark mode', light: 'Light mode' }, ja: { dark: 'ダークモード', light: 'ライトモード' }, vi: { dark: 'Chế độ tối', light: 'Chế độ sáng' } };
 const themeBtn = document.getElementById('theme');
 const isDark = () => html.dataset.theme === 'dark';
 const showTheme = () => { themeBtn.textContent = THEME[LANG()][isDark() ? 'light' : 'dark']; };
@@ -173,14 +179,17 @@ const langs = document.getElementById('langs');
 function buildLangs() {
   const l = LANG();
   langs.replaceChildren();
-  langs.setAttribute('aria-label', l === 'ja' ? '言語' : 'Language');
-  [['en', 'English'], ['ja', '日本語']].forEach(([code, name]) => {
+  langs.setAttribute('aria-label', { ja: '言語', vi: 'Ngôn ngữ' }[l] || 'Language');
+  [['en', 'English'], ['ja', '日本語'], ['vi', 'Tiếng Việt']].forEach(([code, name]) => {
     const b = document.createElement('button');
     b.type = 'button'; b.lang = code; b.textContent = name;
     b.setAttribute('aria-pressed', String(code === l));
     b.addEventListener('click', () => {
       if (code === LANG()) return;
-      setCookie('vivatheca-lang', code); html.lang = code;
+      setCookie('vivatheca-lang', code);
+      // Vietnamese replaces the English in the page, so switching to or from it reloads.
+      if (code === 'vi' || LANG() === 'vi') { location.reload(); return; }
+      html.lang = code;
       buildLangs(); showTheme(); render();
     });
     langs.append(b);
@@ -205,9 +214,9 @@ function showProblem(text) {
   box.textContent = text;
 }
 const canvas = document.createElement('canvas');
-if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem('This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.');
-mv.addEventListener('error', () => showProblem('The 3D model could not load. Please reload the page.'));
-setTimeout(() => { if (!customElements.get('model-viewer')) showProblem('The 3D model could not load. Please reload the page.'); }, 10000);
+if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem(LANG() === 'vi' ? 'Trình duyệt này không hiển thị được 3D (WebGL đang tắt). Hãy bật tăng tốc phần cứng trong cài đặt trình duyệt, hoặc mở trang bằng trình duyệt khác.' : 'This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.');
+mv.addEventListener('error', () => showProblem(LANG() === 'vi' ? 'Không tải được mô hình 3D. Vui lòng tải lại trang.' : 'The 3D model could not load. Please reload the page.'));
+setTimeout(() => { if (!customElements.get('model-viewer')) showProblem(LANG() === 'vi' ? 'Không tải được mô hình 3D. Vui lòng tải lại trang.' : 'The 3D model could not load. Please reload the page.'); }, 10000);
 
 // A tap on a source number opens the closed list of sources first.
 document.addEventListener('click', e => {

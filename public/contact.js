@@ -9,6 +9,8 @@
       site: 'Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health.', full: 'Full disclaimer' },
     ja: { h: 'お{問|と}い{合|あ}わせ', intro: '{模型|もけい}についてのご{質問|しつもん}、{誤|あやま}りのご{指摘|してき}、アイデアをお{待|ま}ちしています。Vivathecaをフォローするか、お{気軽|きがる}にご{連絡|れんらく}ください。', email: 'メール',
       site: 'Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。', full: '{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}' },
+    vi: { h: 'Liên hệ', intro: 'Bạn có câu hỏi, góp ý sửa lỗi hoặc ý tưởng cho một mô hình? Hãy theo dõi Vivatheca hoặc liên hệ với chúng tôi.', email: 'Email',
+      site: 'Vivatheca chỉ nhằm mục đích giáo dục chung. Đây không phải lời khuyên y khoa và không được dùng để chẩn đoán, lập kế hoạch điều trị hoặc hướng dẫn phẫu thuật. Hãy trao đổi với nhân viên y tế có chuyên môn về sức khỏe của chính bạn.', full: 'Toàn văn tuyên bố miễn trừ trách nhiệm' },
   };
   // Icons: copy of app/contact-icons.ts (official Instagram glyph, official X logo in black/white only,
   // generic envelope for email because Google does not allow the Gmail logo without permission).
@@ -41,7 +43,7 @@
       return;
     }
     if (document.querySelector('footer.vt-contact')) return;
-    const t = text[document.documentElement.lang.startsWith('ja') ? 'ja' : 'en'];
+    const t = text[document.documentElement.lang.slice(0, 2)] || text.en;
     const item = (id, name, handle, href) => href
       ? '<li><a href="' + href + '"' + (href.startsWith('mailto:') ? '' : ' target="_blank" rel="noreferrer"') + '>' + icon(id) + '<b>' + name + '</b> <span>' + handle + '</span></a></li>'
       : '<li><a class="vt-pending" role="link" aria-disabled="true">' + icon(id) + '<b>' + name + '</b></a></li>';
@@ -64,19 +66,29 @@
       '.vt-contact .vt-site{font-size:14px;color:var(--muted,#4d6378)}.vt-contact .vt-site a{color:var(--accent,#007f8b)}';
     document.body.appendChild(footer);
   }
-  // Japanese pages: say the translation is not yet reviewed (shown only while the page is in Japanese).
+  // Japanese and Vietnamese pages: say the translation is not yet reviewed (shown only in that language).
+  const viNote = 'Bản tiếng Việt này là bản nháp do AI soạn và chưa được nhân viên y tế nói tiếng Việt thẩm định. Nếu có khác biệt, bản tiếng Anh là bản chính thức.';
   const jaNote = 'この{日本語|にほんご}{訳|やく}は、まだ{日本語|にほんご}を{話|はな}す{歯科|しか}{医師|いし}の{確認|かくにん}を{受|う}けていません。{内容|ないよう}が{違|ちが}うときは、{英語|えいご}{版|ばん}が{正|ただ}しいものとします。';
-  function translationNote() {
+  function translationNote(lang, note) {
     const p = document.createElement('p');
     p.className = 'vt-translation-note';
-    p.lang = 'ja';
-    p.innerHTML = ruby(jaNote);
+    p.lang = lang;
+    p.innerHTML = ruby(note);
     p.style.cssText = 'max-width:720px;margin:0 auto;padding:0 16px 32px;font-size:14px;color:var(--muted,#4d6378)';
-    const sync = () => { p.hidden = !document.documentElement.lang.startsWith('ja'); };
+    const sync = () => { p.hidden = !document.documentElement.lang.startsWith(lang); };
     sync();
     new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     document.body.appendChild(p);
   }
-  function start() { render(); translationNote(); }
+  function start() { render(); translationNote('ja', jaNote); translationNote('vi', viNote); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+
+// Free full-text notes beside cited DOIs (public/oa-links.js, data from tools/citations/oa-links.mjs).
+(function () {
+  if (document.querySelector('script[src="/oa-links.js"]')) return;
+  const s = document.createElement('script');
+  s.src = '/oa-links.js';
+  s.defer = true;
+  document.head.appendChild(s);
 })();

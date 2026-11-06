@@ -15,6 +15,7 @@ const en = {
     label: 'Language',
     furigana: 'Furigana',
     furiganaHint: 'Show or hide readings above kanji',
+    comingSoon: 'Coming soon',
   },
   common: {
     skip: 'Skip to main content',
@@ -1183,6 +1184,12 @@ const en = {
         summary: 'Class II and Class III jaw relationships before and after orthognathic surgery, beside a Class I normal. Optional chin surgery (genioplasty) on the after models. Pictured: Class II before surgery (left) and after surgery with genioplasty (right).',
         pairing: 'Conditions + normal',
       },
+      fixation: {
+        title: 'How surgeons hold bone with plates and screws',
+        specialty: 'Oral and maxillofacial surgery',
+        summary: 'A step-by-step 3D demonstration of a titanium plate and screws going onto a cut lower jaw, with diagrams of where surgeons place plates in jaw surgery and jaw reconstruction.',
+        pairing: 'Seven steps, from the cut to the last screw',
+      },
     } as Record<string, { title: string; specialty: string; summary: string; pairing: string }>,
   },
   wisdom: {
@@ -1328,7 +1335,7 @@ const en = {
       { id: 'no-accounts', heading: 'No accounts, no tracking cookies', text: 'You do not need an account to view or download models. The site does not use advertising or tracking cookies. It only sets small preference cookies to remember your language and furigana choice, and keeps your light or dark mode choice in your browser.' },
       { id: 'analytics', heading: 'Visitor counts', text: 'We may use Cloudflare Web Analytics to count page visits. It does not use cookies, does not collect personal information and does not follow you across other sites. We use it only to see which models are useful.' },
       { id: 'hosting', heading: 'Hosting', text: 'The site is hosted by Cloudflare. Like any web server, Cloudflare processes your IP address and browser details to deliver pages and protect the site from abuse.' },
-      { id: 'on-device', heading: 'Stored on your device only', text: 'Saved favourites and drafts in the patient information builder are kept in your own browser and never sent to us. Clearing your browser data removes them.' },
+      { id: 'on-device', heading: 'Stored on your device only', text: 'Saved favourites and drafts in the patient information builder are kept in your own browser and never sent to us. Clearing your browser data removes them. “Save for offline” on a model page keeps a copy of that page and its model on your device. It then opens without internet. Clear your browser’s site data to remove it.' },
       { id: 'builder', heading: 'Patient information builder', text: 'If you use the AI drafting option, the brief you type is sent to Anthropic (United States) to write the draft. Anthropic may keep it for a limited time under its own terms; Vivatheca does not store it. Never enter a patient’s name, date of birth or other identifying details.' },
       { id: 'counts', heading: 'Model use counts', text: 'Model pages count views, downloads, shared links and similar uses of each model, to show which models are useful (see the impact page). Each count stores only the model, the kind of use and the day. It uses no cookies and keeps nothing about you.' },
       { id: 'posts', heading: 'Suggestions, support and posts', text: 'If you suggest a model, support one, or share how you used one, what you type is stored on Vivatheca’s server (Cloudflare) and shown on the site only after a person checks it. To count support once per browser, the request page sets a cookie with a random number (vt-voter); only a scrambled form of it is stored. Do not include patient details. Ask us to remove your post at any time.' },
@@ -1471,6 +1478,7 @@ const en = {
       'Write for patients: short sentences, everyday words first, and risks as “X in 100”. The builder checks this for you.',
       'Cite where your facts come from, and say where the model is simplified.',
       'Never add a patient’s photo or details without their documented consent.',
+      'The templates use two free, easy-to-read fonts: Atkinson Hyperlegible and BIZ UDPGothic (for Japanese). Get them free from Google Fonts. Without them, your computer uses its own font.',
     ],
     handout: 'A4 handout (portrait)',
     slide: 'Slide (16:9)',

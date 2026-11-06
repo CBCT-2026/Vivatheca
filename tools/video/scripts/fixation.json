@@ -1,0 +1,333 @@
+{
+ "slug": "fixation",
+ "models": {
+  "1-cut": "/fixation/models/1-cut.glb",
+  "3-plate": "/fixation/models/3-plate.glb",
+  "4-drill": "/fixation/models/4-drill.glb",
+  "6-all-screws": "/fixation/models/6-all-screws.glb",
+  "7-see-through": "/fixation/models/7-see-through.glb"
+ },
+ "style": {},
+ "anchors": {
+  "cut": {
+   "model": "1-cut",
+   "node": "^cut$",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  "plate": {
+   "model": "3-plate",
+   "node": "^plate$",
+   "at": [
+    0.9,
+    0.5,
+    0.5
+   ]
+  },
+  "drill": {
+   "model": "4-drill",
+   "node": "^drill$",
+   "at": [
+    0.9,
+    0.5,
+    0.5
+   ]
+  },
+  "screw": {
+   "model": "6-all-screws",
+   "node": "^screw$",
+   "at": [
+    0.15,
+    0.5,
+    0.5
+   ]
+  }
+ },
+ "scenes": {
+  "cut": {
+   "model": "1-cut",
+   "from": [
+    80,
+    10,
+    2.6
+   ],
+   "to": [
+    65,
+    10,
+    2.5
+   ],
+   "chip": "cut",
+   "labels": [
+    [
+     "cut",
+     "r",
+     300
+    ]
+   ]
+  },
+  "plate": {
+   "model": "3-plate",
+   "from": [
+    80,
+    8,
+    2.4
+   ],
+   "to": [
+    95,
+    5,
+    2.2
+   ],
+   "chip": "plate",
+   "labels": [
+    [
+     "plate",
+     "r",
+     560
+    ]
+   ]
+  },
+  "drill": {
+   "model": "4-drill",
+   "from": [
+    65,
+    12,
+    2.6
+   ],
+   "to": [
+    75,
+    12,
+    2.6
+   ],
+   "chip": "drill",
+   "labels": [
+    [
+     "drill",
+     "l",
+     260
+    ]
+   ]
+  },
+  "screws": {
+   "model": "6-all-screws",
+   "from": [
+    95,
+    5,
+    2.2
+   ],
+   "to": [
+    85,
+    5,
+    2.2
+   ],
+   "chip": "screws",
+   "labels": [
+    [
+     "screw",
+     "l",
+     560
+    ]
+   ]
+  },
+  "inside": {
+   "model": "7-see-through",
+   "from": [
+    75,
+    30,
+    2.3
+   ],
+   "to": [
+    50,
+    40,
+    2.3
+   ],
+   "chip": "inside"
+  }
+ },
+ "sources": [
+  "Champy M, Loddé JP, Schmitt R, Jaeger JH, Muster D. Mandibular osteosynthesis by miniature screwed plates via a buccal approach. J Maxillofac Surg. 1978;6(1):14-21. https://doi.org/10.1016/s0301-0503(78)80062-9",
+  "DePuy Synthes. MatrixMANDIBLE Preformed Reconstruction Plates: instructions for use. SE_530350 AE, 10/2015. https://ifu.depuysynthes.com/binary/org/DPY_SYN_EMEA/ifu_documents/CMF/MatrixMANDIBLE_Preformed_Reconstruction_Plates%20se_530350_AE_eng.pdf",
+  "AO Foundation Technical Commission. Locking Reconstruction Plate 2.4 and Mini Plate 2.0 System. 2014. https://www.aofoundation.org/approved/approvedsolutionsfolder/2014/locking-reconstruction-plate-24-and-mini-plate-20-system"
+ ],
+ "en": {
+  "title": "How surgeons hold bone with plates and screws",
+  "chips": {
+   "cut": "1 · The cut bone",
+   "plate": "2 · Plate bent to fit",
+   "drill": "3 · Drilling",
+   "screws": "4 · Screws in",
+   "inside": "5 · Inside the bone"
+  },
+  "labels": {
+   "cut": [
+    "Cut bone",
+    ""
+   ],
+   "plate": [
+    "Titanium plate",
+    "about 1 mm thick"
+   ],
+   "drill": [
+    "Drill",
+    ""
+   ],
+   "screw": [
+    "Screws",
+    "about 2 mm wide"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "cut",
+    "sentences": [
+     {
+      "text": "After a jaw is cut in surgery, the pieces must stay still while the bone heals.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "plate",
+    "sentences": [
+     {
+      "text": "The surgeon lines up the pieces. Then they bend a thin titanium plate to fit the bone.",
+      "cite": [
+       2,
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "drill",
+    "sentences": [
+     {
+      "text": "A drill makes a hole straight through the plate, with cool water running over it.",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "screws",
+    "sentences": [
+     {
+      "text": "Short screws hold the plate, two on each side of the cut.",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "inside",
+    "sentences": [
+     {
+      "text": "They go only into the hard outer layer of bone, away from the tooth roots and the nerve.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "プレートとスクリューで{骨|ほね}を{固定|こてい}する",
+  "chips": {
+   "cut": "1・{切|き}った{骨|ほね}",
+   "plate": "2・{曲|ま}げたプレート",
+   "drill": "3・{穴|あな}を{開|あ}ける",
+   "screws": "4・スクリュー",
+   "inside": "5・{骨|ほね}の{中|なか}"
+  },
+  "labels": {
+   "cut": [
+    "{骨|ほね}の{切|き}り{口|くち}",
+    ""
+   ],
+   "plate": [
+    "チタンプレート",
+    "{厚|あつ}さ{約|やく}1 mm"
+   ],
+   "drill": [
+    "ドリル",
+    ""
+   ],
+   "screw": [
+    "スクリュー",
+    "{太|ふと}さ{約|やく}2 mm"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "cut",
+    "sentences": [
+     {
+      "text": "{手術|しゅじゅつ}で{切|き}った{顎|あご}の{骨|ほね}は、{治|なお}るまで{動|うご}かないようにします。",
+      "cite": [
+       1
+      ],
+      "tts": "しゅじゅつで、きった、あごのほねは、なおるまで、うごかないようにします。"
+     }
+    ]
+   },
+   {
+    "scene": "plate",
+    "sentences": [
+     {
+      "text": "{骨|ほね}を{合|あ}わせ、{薄|うす}いチタンのプレートを{骨|ほね}の{形|かたち}に{曲|ま}げます。",
+      "cite": [
+       2,
+       3
+      ],
+      "tts": "ほねを、あわせ、うすい、チタンのプレートを、ほねの、かたちに、まげます。"
+     }
+    ]
+   },
+   {
+    "scene": "drill",
+    "sentences": [
+     {
+      "text": "{水|みず}で{冷|ひ}やしながら、プレートの{穴|あな}からまっすぐ{穴|あな}を{開|あ}けます。",
+      "cite": [
+       2
+      ],
+      "tts": "みずで、ひやしながら、プレートの、あなから、まっすぐ、あなを、あけます。"
+     }
+    ]
+   },
+   {
+    "scene": "screws",
+    "sentences": [
+     {
+      "text": "{切|き}り{口|くち}の{両側|りょうがわ}に2{本|ほん}ずつ、{短|みじか}いスクリューで{留|と}めます。",
+      "cite": [
+       1,
+       2
+      ],
+      "tts": "きりくちの、りょうがわに、にほんずつ、みじかい、スクリューで、とめます。"
+     }
+    ]
+   },
+   {
+    "scene": "inside",
+    "sentences": [
+     {
+      "text": "スクリューは{骨|ほね}の{硬|かた}い{外側|そとがわ}だけに{入|はい}り、{歯|は}の{根|ね}や{神経|しんけい}を{避|さ}けます。",
+      "cite": [
+       1
+      ],
+      "tts": "スクリューは、ほねの、かたい、そとがわだけに、はいり、はのねや、しんけいを、さけます。"
+     }
+    ]
+   }
+  ]
+ }
+}

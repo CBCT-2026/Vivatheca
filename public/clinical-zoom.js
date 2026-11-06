@@ -8,7 +8,7 @@
 // Every label must come from the source figure's legend or the cited article, never from guesswork.
 (function () {
   const cookie = (name) => (document.cookie.match('(?:^|; )' + name + '=([^;]*)') || [])[1];
-  const lang = cookie('vivatheca-lang') === 'ja' ? 'ja' : 'en';
+  const lang = ['ja', 'vi'].includes(cookie('vivatheca-lang')) ? cookie('vivatheca-lang') : 'en';
   const furigana = cookie('vivatheca-furigana') !== 'off';
   const ruby = (s) => furigana
     ? s.replace(/\{([^{}|]+)\|([^{}]+)\}/g, '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>')
@@ -16,6 +16,7 @@
   const UI = {
     en: { open: 'Explore with labels', close: 'Close', labels: 'Labels', show: 'Show labels', zoomIn: 'Zoom in', zoomOut: 'Zoom out', reset: 'Fit to screen', hint: 'Drag to move, scroll or pinch to zoom. Click a label to go to it.', source: 'Label source' },
     ja: { open: '{拡大|かくだい}して{説明|せつめい}を{見|み}る', close: '{閉|と}じる', labels: '{説明|せつめい}', show: '{説明|せつめい}を{表示|ひょうじ}', zoomIn: '{拡大|かくだい}', zoomOut: '{縮小|しゅくしょう}', reset: '{全体|ぜんたい}を{表示|ひょうじ}', hint: 'ドラッグで{移動|いどう}、スクロールやピンチで{拡大|かくだい}。{説明|せつめい}をクリックするとその{場所|ばしょ}に{移動|いどう}します。', source: '{説明|せつめい}の{出典|しゅってん}' },
+    vi: { open: 'Phóng to và xem nhãn', close: 'Đóng', labels: 'Nhãn', show: 'Hiện nhãn', zoomIn: 'Phóng to', zoomOut: 'Thu nhỏ', reset: 'Vừa màn hình', hint: 'Kéo để di chuyển, cuộn hoặc chụm để phóng to. Bấm vào một nhãn để đến vị trí đó.', source: 'Nguồn của nhãn' },
   }[lang];
   const t = (k) => ruby(UI[k]);
 

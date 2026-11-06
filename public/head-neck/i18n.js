@@ -5,7 +5,8 @@
 (function () {
   const YEAR = 60 * 60 * 24 * 365;
   const cookie = (name) => (document.cookie.match('(?:^|; )' + name + '=([^;]*)') || [])[1];
-  const lang = cookie('vivatheca-lang') === 'ja' ? 'ja' : 'en';
+  const chosen = cookie('vivatheca-lang');
+  const lang = chosen === 'ja' || chosen === 'vi' ? chosen : 'en';
   const furigana = cookie('vivatheca-furigana') !== 'off';
   const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g,
     '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
@@ -64,15 +65,17 @@
     noWebgl: 'このブラウザでは3Dを{表示|ひょうじ}できません（WebGLがオフです）。ブラウザの{設定|せってい}でハードウェアアクセラレーションをオンにするか、{別|べつ}のブラウザで{開|ひら}いてください。',
     loadFailed: '3D{模型|もけい}を{読|よ}み{込|こ}めませんでした。ページを{再読|さいよ}み{込|こ}みしてください。',
   };
+  // Vietnamese (unreviewed AI draft; English prevails) comes from vi.js (window.VIVA_VI), with the same keys.
+  const tr = lang === 'vi' ? (window.VIVA_VI || {}) : ja; // active translation (Japanese above, or Vietnamese from vi.js)
 
-  const ui = { en: { label: 'Language', furigana: 'Furigana' }, ja: { label: '言語', furigana: 'ふりがな' } };
+  const ui = { en: { label: 'Language', furigana: 'Furigana' }, ja: { label: '言語', furigana: 'ふりがな' }, vi: { label: 'Ngôn ngữ' } };
 
   window.VIVA_I18N = {
     lang,
     // Text for a key in the visitor's language, or null to keep the English in the page.
     text: (key, values) => {
-      if (lang !== 'ja' || !(key in ja)) return null;
-      let s = ja[key];
+      if (lang === 'en' || !(key in tr)) return null;
+      let s = tr[key];
       for (const k in values || {}) s = s.replace('{' + k + '}', values[k]);
       return s;
     },
@@ -80,21 +83,21 @@
     plain,
   };
 
-  if (lang === 'ja') {
-    document.documentElement.lang = 'ja';
-    document.title = plain(ja.title);
+  if (lang !== 'en') {
+    document.documentElement.lang = lang;
+    document.title = plain(tr.title);
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = plain(ja.description);
+    if (meta) meta.content = plain(tr.description);
     document.querySelectorAll('[data-i18n]').forEach((el) => {
-      const s = ja[el.dataset.i18n];
+      const s = tr[el.dataset.i18n];
       if (s) el.innerHTML = ruby(s);
     });
     document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
-      const s = ja[el.dataset.i18nAlt];
+      const s = tr[el.dataset.i18nAlt];
       if (s) el.alt = plain(s);
     });
     document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
-      const s = ja[el.dataset.i18nAria];
+      const s = tr[el.dataset.i18nAria];
       if (s) el.setAttribute('aria-label', plain(s));
     });
   }
@@ -105,7 +108,7 @@
   if (!box) return;
   box.setAttribute('aria-label', ui[lang].label);
   const set = (name, value) => { document.cookie = name + '=' + value + '; path=/; max-age=' + YEAR + '; samesite=lax'; };
-  [['en', 'English'], ['ja', '日本語']].forEach(([code, name]) => {
+  [['en', 'English'], ['ja', '日本語'], ['vi', 'Tiếng Việt']].forEach(([code, name]) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.lang = code;

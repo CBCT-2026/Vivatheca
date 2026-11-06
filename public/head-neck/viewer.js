@@ -4,7 +4,7 @@
 // removed_bone, excised_mucoperiosteum, nerve_path, obturator, obturator_teeth, free_flap.
 (function () {
   const I = window.VIVA_I18N || { lang: 'en', text: () => null, ruby: (s) => s, plain: (s) => s };
-  const JA = I.lang === 'ja';
+  const JA = I.lang === 'ja', VI = I.lang === 'vi';
   const T = (key, en) => { const s = I.text(key); return s ? I.ruby(s) : en; };
   const c = (...n) => n.map((i) => '<sup class="cite"><a href="#ref-' + i + '">' + i + '</a></sup>').join('');
 
@@ -12,8 +12,8 @@
     ['Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.', '10.1016/S1470-2045(15)00310-1'],
     ['Sauerbier S, Gutwald R, Schmelzeisen R, et al. Resection of oral cancer involving the mandible. In: Advanced Craniomaxillofacial Surgery. Thieme.', '10.1055/b-0040-178440'],
     ['Mücke T, Hölzle F, Wagenpfeil S, Wolff KD, Kesting M. The role of tumor invasion into the mandible of oral squamous cell carcinoma. J Cancer Res Clin Oncol. 2011;137(1):165-171.', '10.1007/s00432-010-0870-3'],
-    ['Key strategies for determining surgical resection margins in oral squamous cell carcinoma (letter). Int J Surg. 2025.', '10.1097/JS9.0000000000002704'],
-    ['Lajolo C, et al. Pulp vitality of teeth adjacent to jaw osteotomies. BMC Oral Health. 2023.', '10.1186/s12903-023-03050-7'],
+    ['Shi Y, Ren X, Zhi K. Key strategies for determining surgical resection margins in OSCC (letter). Int J Surg. 2025.', '10.1097/JS9.0000000000002704'],
+    ['Castagnola R, Rupe C, Gioco G, et al. Clinical outcomes of teeth adjacent to the site of mandibulotomy or mandibulectomy in patients with head and neck cancer. BMC Oral Health. 2023;23:357.', '10.1186/s12903-023-03050-7'],
     ['Neagu D, Escuder-de la Torre O, Vázquez-Mahía I, et al. Surgical management of ameloblastoma. Review of literature. J Clin Exp Dent. 2019;11(1):e70-e75.', '10.4317/jced.55452'],
     ['Kalaiselvan S, et al. Ameloblastoma: surgical margins. J Pharm Bioallied Sci. 2016.', '10.4103/0975-7406.191940'],
     ['Kaczmarzyk T, Mojsa I, Stypulkowska J. A systematic review of the recurrence rate for keratocystic odontogenic tumour in relation to treatment modalities. Int J Oral Maxillofac Surg. 2012.', '10.1016/j.ijom.2012.02.008'],
@@ -74,11 +74,11 @@
   };
   const L = (pair) => (JA ? I.ruby(pair[1]) : pair[0]);
   const LEGEND = [
-    [/^bone$/, 'Bone', '{骨|ほね}'], [/^teeth$/, 'Teeth', '{歯|は}'], [/^lesion/, 'Disease', '{病変|びょうへん}'], [/^margin/, 'Safety margin', '{安全|あんぜん}{域|いき}'],
-    [/^extracted/, 'Tooth taken out at the cut', '{切|き}り{口|くち}で{抜|ぬ}く{歯|は}'], [/^nerve/, 'Nerve canal', '{神経|しんけい}の{通|とお}り{道|みち}'],
-    [/^excised/, 'Lining and periosteum removed', '{取|と}る{粘膜|ねんまく}と{骨膜|こつまく}'], [/^removed/, 'Bone removed', '{取|と}る{骨|ほね}'],
-    [/^obturator$/, 'Obturator', '{顎|がく}{義歯|ぎし}'], [/^obturator_teeth/, 'Obturator teeth', '{顎|がく}{義歯|ぎし}の{歯|は}'], [/^free_flap$/, 'Free flap', '{遊離|ゆうり}{皮弁|ひべん}'], [/^free_flap_artery/, 'Flap artery', '{皮弁|ひべん}の{動脈|どうみゃく}'], [/^free_flap_vein/, 'Flap vein', '{皮弁|ひべん}の{静脈|じょうみゃく}'],
-    [/^fibula/, 'Fibula (leg bone)', 'ひ{骨|こつ}（{足|あし}の{骨|ほね}）'], [/^plate/, 'Titanium plate and screws', 'チタンのプレートとネジ'],
+    [/^bone$/, 'Bone', '{骨|ほね}', 'Xương'], [/^teeth$/, 'Teeth', '{歯|は}', 'Răng'], [/^lesion/, 'Disease', '{病変|びょうへん}', 'Tổn thương'], [/^margin/, 'Safety margin', '{安全|あんぜん}{域|いき}', 'Viền an toàn'],
+    [/^extracted/, 'Tooth taken out at the cut', '{切|き}り{口|くち}で{抜|ぬ}く{歯|は}', 'Răng nhổ ở đường cắt'], [/^nerve/, 'Nerve canal', '{神経|しんけい}の{通|とお}り{道|みち}', 'Ống thần kinh'],
+    [/^excised/, 'Lining and periosteum removed', '{取|と}る{粘膜|ねんまく}と{骨膜|こつまく}', 'Niêm mạc và màng xương được cắt bỏ'], [/^removed/, 'Bone removed', '{取|と}る{骨|ほね}', 'Xương được cắt bỏ'],
+    [/^obturator$/, 'Obturator', '{顎|がく}{義歯|ぎし}', 'Hàm bịt'], [/^obturator_teeth/, 'Obturator teeth', '{顎|がく}{義歯|ぎし}の{歯|は}', 'Răng của hàm bịt'], [/^free_flap$/, 'Free flap', '{遊離|ゆうり}{皮弁|ひべん}', 'Vạt tự do'], [/^free_flap_artery/, 'Flap artery', '{皮弁|ひべん}の{動脈|どうみゃく}', 'Động mạch của vạt'], [/^free_flap_vein/, 'Flap vein', '{皮弁|ひべん}の{静脈|じょうみゃく}', 'Tĩnh mạch của vạt'],
+    [/^fibula/, 'Fibula (leg bone)', 'ひ{骨|こつ}（{足|あし}の{骨|ほね}）', 'Xương mác (xương cẳng chân)'], [/^plate/, 'Titanium plate and screws', 'チタンのプレートとネジ', 'Nẹp và vít titan'],
   ];
 
   const box = document.getElementById('viewer'), status = document.getElementById('status');
@@ -95,7 +95,7 @@
     const h = document.querySelector('h1'); if (!h) return;
     const c = h.cloneNode(true); c.querySelectorAll('rt, rp').forEach((r) => r.remove());
     renderer.domElement.setAttribute('role', 'img');
-    renderer.domElement.setAttribute('aria-label', (document.documentElement.lang === 'ja' ? '3Dモデル: ' : '3D model: ') + c.textContent.trim());
+    renderer.domElement.setAttribute('aria-label', ({ ja: '3Dモデル: ', vi: 'Mô hình 3D: ' }[document.documentElement.lang] || '3D model: ') + c.textContent.trim());
   })();
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 4 / 3, 0.005, 5);
@@ -175,17 +175,83 @@
     document.getElementById('btn-margin').setAttribute('aria-pressed', String(state.margin));
     document.getElementById('btn-xray').setAttribute('aria-pressed', String(state.xray));
     const vis = cur.parts.filter((o) => o.visible);
-    document.getElementById('legend').innerHTML = LEGEND.map(([re, en, ja]) => {
+    document.getElementById('legend').innerHTML = LEGEND.map(([re, en, ja, vi]) => {
       const o = vis.find((p) => re.test(p.userData.n));
       if (!o) return '';
       const col = '#' + o.material.color.clone().convertLinearToSRGB().getHexString();
-      return '<li><span class="dot" style="background:' + col + '"></span>' + (JA ? I.ruby(ja) : en) + '</li>';
+      return '<li><span class="dot" style="background:' + col + '"></span>' + (JA ? I.ruby(ja) : VI ? vi : en) + '</li>';
     }).join('');
     announceParts();
   }
 
+  // Vietnamese case text (unreviewed AI draft; English prevails), same fields as CASES.
+  const CASES_VI = {
+    "pa": {
+      "title": "U tuyến đa hình, vòm miệng cứng bên phải",
+      "sum": "Khối u tuyến nước bọt không phải ung thư thường gặp nhất ở vòm miệng. Phẫu thuật viên lấy bỏ khối u cùng lớp niêm mạc phủ bên trên và lớp mỏng phủ xương (màng xương) bên dưới; răng và xương thường được giữ lại.<sup class=\"cite\"><a href=\"#ref-11\">11</a></sup><sup class=\"cite\"><a href=\"#ref-12\">12</a></sup><sup class=\"cite\"><a href=\"#ref-13\">13</a></sup>",
+      "why": [
+        "Lớp mỏng phủ xương được lấy ra cùng khối u. Không có bằng chứng cho thấy việc luôn cắt xương, hoặc cắt xuyên qua vòm miệng, mang lại lợi ích.<sup class=\"cite\"><a href=\"#ref-11\">11</a></sup>",
+        "Chỉ cắt xương ở chỗ khối u đã bào mòn xương. Làm vỡ khối u trong phẫu thuật làm tăng khả năng tái phát.<sup class=\"cite\"><a href=\"#ref-12\">12</a></sup>",
+        "Không nhổ răng nào."
+      ],
+      "stats": [
+        [
+          "Phần được cắt bỏ",
+          "Khối u, niêm mạc và lớp mỏng phủ xương"
+        ],
+        [
+          "Răng",
+          "Không"
+        ],
+        [
+          "Xương",
+          "Giữ lại"
+        ]
+      ],
+      "reconNote": "Vòm miệng bị lộ xương lành lại trong vài tuần dưới một tấm che bảo vệ, hoặc được phủ bằng một vạt mô lân cận, như vạt FAMM.<sup class=\"cite\"><a href=\"#ref-13\">13</a></sup>",
+      "choice": "Lựa chọn của chúng tôi cho mô hình: khối u 19 × 21 × 14 mm, theo kích thước trong báo cáo ca bệnh được trích dẫn; viền 5 mm niêm mạc bình thường xung quanh."
+    },
+    "acc": {
+      "title": "Ung thư biểu mô tuyến dạng nang, phía sau vòm miệng bên phải",
+      "sum": "Một loại ung thư tiến triển chậm, lan dọc theo dây thần kinh. Ở vòm miệng, nó đi theo dây thần kinh khẩu cái lớn lên phía nền sọ, nên phẫu thuật phải lấy xa hơn về phía sau và cao hơn so với các ung thư vòm miệng khác.<sup class=\"cite\"><a href=\"#ref-19\">19</a></sup><sup class=\"cite\"><a href=\"#ref-20\">20</a></sup>",
+      "why": [
+        "Trên phim X-quang 3D chi tiết, ống thần kinh ở vòm miệng (ống khẩu cái lớn) bị giãn rộng gợi ý khối u này.<sup class=\"cite\"><a href=\"#ref-19\">19</a></sup>",
+        "Sự lan dọc theo dây thần kinh được điều trị bằng phẫu thuật kèm xạ trị bao phủ đường đi của dây thần kinh.<sup class=\"cite\"><a href=\"#ref-20\">20</a></sup><sup class=\"cite\"><a href=\"#ref-14\">14</a></sup>",
+        "Trong mô hình: diện cắt 11,0 mm phía trước, 10,0 mm phía trong và 20,0 mm phía trên, và các mỏm chân bướm phía sau vòm miệng cũng được cắt bỏ. Đường màu vàng đánh dấu ống thần kinh (khoảng 29 mm).",
+        "Răng 16–17 được lấy ra cùng khối xương; răng 15 được nhổ ở đường cắt nên răng 14 được giữ lại."
+      ],
+      "stats": [
+        [
+          "Xương được cắt bỏ",
+          "15,4 cm³, gồm cả các mỏm chân bướm"
+        ],
+        [
+          "Răng",
+          "16–17 cùng xương; 15 nhổ ở đường cắt"
+        ],
+        [
+          "Đường giữa",
+          "Cắt vượt qua 5,5 mm"
+        ]
+      ],
+      "reconNote": "Trong mô hình: một vạt tự do mô mềm được chuyển từ nơi khác trên cơ thể và khâu vào lỗ thông. Hàm bịt là lựa chọn còn lại; việc chọn phụ thuộc vào kích thước khuyết hổng, xạ trị và mong muốn của bệnh nhân.<sup class=\"cite\"><a href=\"#ref-15\">15</a></sup><sup class=\"cite\"><a href=\"#ref-16\">16</a></sup><sup class=\"cite\"><a href=\"#ref-17\">17</a></sup><sup class=\"cite\"><a href=\"#ref-21\">21</a></sup>",
+      "choice": "Lựa chọn của chúng tôi cho mô hình: khối u 17 × 19 × 12 mm; đường đi của dây thần kinh được vẽ theo giải phẫu điển hình, không dò theo phim chụp. Hình dạng của vạt và đường đi của động mạch, tĩnh mạch của vạt được đơn giản hóa. Xương bướm, nơi có các mỏm chân bướm, không được thể hiện: hình 3D đơn giản hóa của nó bị vỡ thành các mảnh vụn."
+    }
+  };
   function info(key) {
     const C = CASES[key];
+    if (VI && CASES_VI[key]) {
+      const V = CASES_VI[key];
+      document.getElementById('info').innerHTML =
+        '<h2>' + V.title + '</h2><p>' + V.sum + '</p>' +
+        '<h3>Vì sao mô hình được cắt như vậy</h3><ul>' + V.why.map((w) => '<li>' + w + '</li>').join('') + '</ul>' +
+        '<dl>' + V.stats.map((s) => '<dt>' + s[0] + '</dt><dd>' + s[1] + '</dd>').join('') + '</dl>' +
+        '<h3>Đóng khuyết hổng</h3><p>' + V.reconNote + '</p><p class="choice">' + V.choice + '</p>';
+      const rb = document.getElementById('btn-recon');
+      rb.disabled = !C.recon;
+      rb.title = C.recon ? '' : 'Chưa dựng cho ca này';
+      return;
+    }
     const lab = JA ? ['この{模型|もけい}の{切|き}り{方|かた}の{理由|りゆう}', '{欠損|けっそん}を{閉|と}じる'] : ['Why the model is cut this way', 'Closing the gap'];
     document.getElementById('info').innerHTML =
       '<h2>' + L(C.title) + '</h2><p>' + L(C.sum) + '</p>' +

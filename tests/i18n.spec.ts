@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { chooseLanguage, languageButton } from './language';
 
 
 // textContent includes each reading as 漢字(かんじ), from the <rp> fallback brackets.
@@ -7,7 +8,7 @@ test('the site opens in English and switches to Japanese with furigana', async (
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 
-  await page.getByRole('button', { name: '日本語' }).click();
+  await chooseLanguage(page, '日本語');
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
   await expect(page).toHaveTitle(/臨床模型をわかりやすく/);
   // Kanji carry readings as ruby; the readings are hidden from assistive technology.
@@ -31,9 +32,25 @@ test('the site opens in English and switches to Japanese with furigana', async (
   }).toPass();
   await expect(page.locator('.model-copy')).toContainText('左側(ひだりがわ)片側性(へんそくせい)顎裂(がくれつ)');
 
-  await page.getByRole('button', { name: 'English' }).click();
+  await chooseLanguage(page, 'English');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('heading', { name: 'Clinical models made clear.' })).toBeVisible();
+});
+
+test('the language switch lists four languages with flags; Chinese and Vietnamese are coming soon', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/about');
+  await expect(languageButton(page)).toHaveAccessibleName('Language: English');
+  await languageButton(page).click();
+  const langs = page.locator('header .lang-panel button');
+  await expect(langs.locator('.lang-name')).toHaveText(['中文', 'English', '日本語', 'Tiếng Việt']);
+  await expect(langs.locator('img.lang-flag')).toHaveCount(4);
+  const vi = page.getByRole('button', { name: 'Tiếng Việt Coming soon' });
+  await expect(vi).toHaveAttribute('aria-disabled', 'true');
+  await vi.click({ force: true }); // does nothing: not translated yet
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('header .lang-panel')).toBeHidden();
 });
 
 test('?lang=ja makes a shareable Japanese link', async ({ page }) => {
@@ -48,14 +65,14 @@ test('language and theme switches stay in the top bar on phones', async ({ page,
     await page.setViewportSize({ width: 360, height: 780 });
     await page.goto(path);
     const header = page.locator('header.site-header');
-    await expect(header.getByRole('button', { name: '日本語' })).toBeVisible();
+    await expect(languageButton(page)).toBeVisible();
     await expect(header.locator('.theme-toggle')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
   }
   await page.goto('/');
-  await page.locator('header.site-header').getByRole('button', { name: '日本語' }).click();
+  await chooseLanguage(page, '日本語');
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
-  await expect(page.locator('header.site-header').getByRole('button', { name: 'English' })).toBeVisible();
+  await expect(languageButton(page)).toHaveAccessibleName('言語: 日本語');
   expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
   // The furigana switch moves into the menu on phones.
   await page.locator('.mobile-nav .icon-button').click();
@@ -121,7 +138,7 @@ test('orthognathic and periodontitis pages switch to Japanese with furigana', as
     await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
     await expect(page.locator('h1')).toContainText(h1);
     await expect(page.locator('h1 rt').first()).toBeAttached();
-    await expect(page.locator('#langs').getByRole('button', { name: 'English' })).toBeVisible();
+    await expect(languageButton(page)).toBeVisible();
     await expect(page.locator('#stage')).toContainText(/[ぁ-ん]/);
   }
 });
