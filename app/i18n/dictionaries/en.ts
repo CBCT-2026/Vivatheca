@@ -248,7 +248,7 @@ const en = {
     simplify: [
       'All seven models use one adult skull and mandible from Z-Anatomy, with no third molars. The deformities are made by warping this one skull, not from patient scans.',
       'Movement sizes (Class II: mandible 6 mm back; Class III: maxilla 3 mm back and mandible 5 mm forward) are teaching values chosen for the models, not taken from one study. The operations reverse them exactly, so every after model returns to the normal occlusion.',
-      'Osteotomies are flat planes; real cuts are curved and vary by surgeon. Soft tissue, the inferior alveolar nerve, condylar seating and occlusal plane rotation are not shown. The Z-Anatomy chin was made 8 mm taller in every model so that the optional genioplasty (5 mm advancement in Class II, 4 mm setback in Class III) can be cut below the tooth roots.',
+      'Osteotomies are flat planes; real cuts are curved and vary by surgeon. Soft tissue, the inferior alveolar nerve, condylar seating and occlusal plane rotation are not shown. The Z-Anatomy chin was made taller in every model to published norms (incisor edge to menton 44.78 mm; mental foramen 14.98 mm above the lower border), which also lets the optional genioplasty (5 mm advancement in Class II, 4 mm setback in Class III) be cut below the tooth roots and well below the mental foramen.',
     ],
     questionsHeading: 'Check your understanding',
     questions: [
