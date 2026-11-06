@@ -58,6 +58,12 @@
     [/^air$/, 'Air arrows', '{空気|くうき}の{矢印|やじるし}', 'Mũi tên không khí'],
     [/^leak$/, 'Air escaping through the nose', '{鼻|はな}からもれる{空気|くうき}', 'Không khí thoát ra mũi'],
     [/^lesion$/, 'Disease', '{病変|びょうへん}', 'Tổn thương'],
+    [/^masseter$/, 'Masseter (cheek chewing muscle)', '{咬筋|こうきん}（ほおのかむ{筋肉|きんにく}）', 'Cơ cắn (cơ nhai ở má)'],
+    [/^temporalis$/, 'Temporalis (temple chewing muscle)', '{側頭筋|そくとうきん}（こめかみの{筋肉|きんにく}）', 'Cơ thái dương'],
+    [/^lateral_pterygoid$/, 'Lateral pterygoid (pulls the jaw forward)', '{外側翼突筋|がいそくよくとつきん}（あごを{前|まえ}に{引|ひ}く）', 'Cơ chân bướm ngoài (kéo hàm ra trước)'],
+    [/^medial_pterygoid$/, 'Medial pterygoid (inner chewing muscle)', '{内側翼突筋|ないそくよくとつきん}（{内側|うちがわ}のかむ{筋肉|きんにく}）', 'Cơ chân bướm trong (cơ nhai phía trong)'],
+    [/^disc$/, 'Jaw joint disc', '{関節円板|かんせつえんばん}', 'Đĩa khớp hàm'],
+    [/^skull$/, 'Skull', '{頭|ず}{蓋|がい}{骨|こつ}', 'Hộp sọ'],
     [/^bone$/, 'Bone', '{骨|ほね}', 'Xương'],
   ];
   const base = (n) => (n || '').replace(/[._]\d+$/, '');

@@ -8,12 +8,12 @@
   "ja": "803e803c19a3"
  },
  "/contribute": {
-  "en": "3078fc6336e1",
-  "ja": "9222770e5e96"
+  "en": "f06cc9226580",
+  "ja": "104607b20aef"
  },
  "/create": {
-  "en": "3418f6cfbe73",
-  "ja": "311b713bb3e9"
+  "en": "8292c19c56fd",
+  "ja": "7acd26c13af4"
  },
  "/disclaimer": {
   "en": "b700144b3bd2",
@@ -24,64 +24,64 @@
   "ja": "bf9b38b28835"
  },
  "/learn/cracked-tooth": {
-  "en": "17bb01922ac9",
-  "ja": "199094c9f25a"
+  "en": "5270c4f8ac28",
+  "ja": "8e112fcc8dee"
  },
  "/learn/development": {
-  "en": "c7c7eb80397e",
-  "ja": "9d96ae3c4034"
+  "en": "850c794ba4ec",
+  "ja": "97128dc096dc"
  },
  "/learn/head-neck": {
-  "en": "7041edc44b93",
-  "ja": "8a0d41a88108"
+  "en": "346e44aaa7b7",
+  "ja": "9b46e126f79f"
  },
  "/learn/oroantral": {
-  "en": "4dee10f2bee9",
-  "ja": "3c036e5264d6"
+  "en": "b0fb38e213ca",
+  "ja": "aebc6cfbdfc2"
  },
  "/learn/orthognathic": {
-  "en": "1d69e3fb43d4",
-  "ja": "9976045aeb2c"
+  "en": "0cfeb1ff02dc",
+  "ja": "fc85f3ae52ba"
  },
  "/learn": {
   "en": "e12c7b712201",
   "ja": "c17cd9338d02"
  },
  "/learn/periodontitis": {
-  "en": "ecaa46c946a0",
-  "ja": "bb4fb534a8d9"
+  "en": "dea779ea3c62",
+  "ja": "14ff93afa230"
  },
  "/learn/slices": {
-  "en": "9cc73fe02e19",
-  "ja": "af22e0cff13e"
+  "en": "34a183cd5d11",
+  "ja": "ebeef52cd205"
  },
  "/learn/steel-crown": {
-  "en": "b6acf685877f",
-  "ja": "b381c6f819d7"
+  "en": "65d84e675d51",
+  "ja": "d2002058d807"
  },
  "/models/alveolar-bone-graft": {
-  "en": "2b4c4282cfcb",
-  "ja": "c7012c1f103d"
+  "en": "82c7fde04234",
+  "ja": "8f2d9a8ab37a"
  },
  "/models/averaged-jaw": {
-  "en": "2434df2f1058",
-  "ja": "315caaf67398"
+  "en": "7468010a9534",
+  "ja": "1f6bf78c5dae"
  },
  "/models/impacted-wisdom-tooth": {
-  "en": "0e19c839c239",
-  "ja": "ac2854fc01d3"
+  "en": "fb7dd9b7cadd",
+  "ja": "59849bd127c5"
  },
  "/models": {
-  "en": "c7ea6863b836",
-  "ja": "0cf445f4aa95"
+  "en": "6d2d8202a28a",
+  "ja": "756e74a1f323"
  },
  "/": {
-  "en": "d89f3afff2eb",
-  "ja": "26f49fab8265"
+  "en": "2bb2ae2d980a",
+  "ja": "77098a4a05a0"
  },
  "/print": {
-  "en": "ebd0102e61b4",
-  "ja": "0b77c5e6571d"
+  "en": "2ce97658b8de",
+  "ja": "267f835dbe3f"
  },
  "/privacy": {
   "en": "08eaca6dc653",
@@ -92,20 +92,20 @@
   "ja": "68aa64ab9385"
  },
  "/review": {
-  "en": "983e5d021f20",
-  "ja": "c8a4d3d48963"
+  "en": "8f30f7ee94da",
+  "ja": "ce62d5537b39"
  },
  "/survey": {
-  "en": "38b6cd817169",
-  "ja": "6cdfeece116f"
+  "en": "e37de7705dab",
+  "ja": "125cceb4a6f6"
  },
  "/templates": {
   "en": "18a38c4cc4a1",
   "ja": "a3c5c6083ba7"
  },
  "/used": {
-  "en": "baae47e3360e",
-  "ja": "6357beb853cd"
+  "en": "fa5dcfaeddf1",
+  "ja": "92c823be2c87"
  },
  "/cracked-tooth/": {
   "en": "db104cf199d3",
@@ -125,23 +125,23 @@
  },
  "/head-neck/": {
   "en": "ad3f0ba17511",
-  "ja": "0c6284af79e2"
+  "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "2e8f44a6b10e",
-  "ja": "2356600561e1"
+  "en": "4aee1cebcd12",
+  "ja": "ce5ba09747ea"
  },
  "/head-neck/mec/": {
   "en": "4838a76d17c1",
   "ja": "55b6b31c54a3"
  },
  "/head-neck/okc/": {
-  "en": "010c2329a151",
-  "ja": "e8f8c47c7c9b"
+  "en": "5c8d948fbb9d",
+  "ja": "cc7b29182595"
  },
  "/head-neck/scc/": {
-  "en": "83885786ec5b",
-  "ja": "c5155abfab7b"
+  "en": "c36995fca575",
+  "ja": "2837ee82412f"
  },
  "/oroantral/": {
   "en": "34b1de268598",
@@ -158,6 +158,14 @@
  "/stainless-steel-crown/": {
   "en": "f6d16e393b19",
   "ja": "6e286fd0f5da"
+ },
+ "/tmd/": {
+  "en": "9778ecbf0cd6",
+  "ja": "bbc8ea4bab14"
+ },
+ "/tmd/sheet/": {
+  "en": "eeb44ea26ecc",
+  "ja": "eeb44ea26ecc"
  },
  "/vpi/": {
   "en": "6be30c34753d",

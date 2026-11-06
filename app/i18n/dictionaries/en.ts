@@ -1151,6 +1151,12 @@ const en = {
         summary: 'A lower first molar whose pulp has died from deep decay, with infection at both root tips and a drainage channel to the gum, beside the same tooth when sound. Cut open to compare. Pictured: sound (left) and abscess (right), cut open.',
         pairing: 'Condition + healthy normal',
       },
+      tmd: {
+        title: 'Temporomandibular disorders (TMD) and jaw muscle pain: jaw joints, chewing muscles and jaw exercises',
+        specialty: 'Orofacial pain (multidisciplinary care)',
+        summary: 'The jaw joints, their discs and the four chewing muscles on each side, with five animated jaw exercises that guidelines support, the evidence for each, the care team and a printable patient sheet. Pictured: jaw closed (left) and opened wide (right).',
+        pairing: 'Normal anatomy + exercises + patient sheet',
+      },
       'stainless-steel-crown': {
         title: 'Preformed metal (stainless steel) crown on a mandibular second primary molar',
         specialty: 'Paediatric dentistry',

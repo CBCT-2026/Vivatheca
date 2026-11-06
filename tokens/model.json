@@ -15,7 +15,6 @@
     "abscess":      { "$value": "#CDBB6E", "$description": "Pus and inflamed tissue of an abscess or periapical lesion" },
     "dentineCut":   { "$value": "#E2CFA8", "$description": "Cut face of a tooth in sectioned views" },
     "boneCut":      { "$value": "#C9B48E", "$description": "Cut face of bone in sectioned views" },
-    "muscle":       { "$value": "#B5523B", "$description": "Muscle (e.g. levator veli palatini sling)" },
     "airflow":      { "$value": "#3E8FD1", "$description": "Airflow arrows: air going the normal way" },
     "airLeak":      { "$value": "#E4772B", "$description": "Airflow arrows: air escaping the wrong way (e.g. through the nose)" },
     "filling":      { "$value": "#7FA7C4", "$description": "Fillings and prepared tooth base" },
@@ -25,6 +24,9 @@
     "hardware":     { "$value": "#9AA3AD", "$description": "Braces, implants, bridges, dentures, plates and screws" },
     "babyTeeth":    { "$value": "#5B8DEF", "$description": "Development and orthodontic models only: baby teeth blue" },
     "adultTeeth":   { "$value": "#F2C94C", "$description": "Development and orthodontic models only: adult teeth yellow" },
+    "muscle":       { "$value": "#B5534A", "$description": "Muscle (masseter, temporalis, levator veli palatini sling): muscle red" },
+    "muscleDeep":   { "$value": "#C47A6E", "$description": "Deep muscle (pterygoids): lighter muscle red so it reads apart from masseter and temporalis" },
+    "disc":         { "$value": "#7FB3D5", "$description": "Joint disc and cartilage (TMJ disc): light blue" },
     "printBase":    { "$value": "#00244D", "$description": "Printed base plate (brand navy)" },
     "printLabel":   { "$value": "#FFFFFF", "$description": "Raised label on the base plate" }
   }
