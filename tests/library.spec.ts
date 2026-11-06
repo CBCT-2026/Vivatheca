@@ -4,10 +4,10 @@ test('model library lists each model with its pairing and review status', async 
   await page.goto('/models');
   await expect(page.getByRole('heading', { name: 'Models with a normal to compare.', level: 1 })).toBeVisible();
   const cards = page.getByRole('list', { name: 'Models' }).getByRole('listitem').filter({ has: page.getByRole('heading', { level: 2 }) });
-  await expect(cards).toHaveCount(8);
+  await expect(cards).toHaveCount(12);
   await expect(page.locator('.library-grid').getByRole('link', { name: /Impacted lower wisdom tooth/ })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
   await expect(page.locator('.library-grid').getByRole('link', { name: /Dental development, ages 6 to 12/ })).toHaveAttribute('href', '/development/');
-  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(8);
+  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(12);
   await expect(page.locator('.info-intro .prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
 });
 
@@ -71,7 +71,7 @@ test('/collection opens the model library', async ({ page }) => {
 });
 
 test('every static model page links home and back to the library', async ({ page }) => {
-  for (const route of ['/development/', '/periodontitis/', '/oroantral/', '/orthognathic/', '/head-neck/', '/cracked-tooth/', '/stainless-steel-crown/']) {
+  for (const route of ['/development/', '/periodontitis/', '/oroantral/', '/orthognathic/', '/head-neck/', '/head-neck/scc/', '/head-neck/ameloblastoma/', '/head-neck/okc/', '/head-neck/mec/', '/cracked-tooth/', '/stainless-steel-crown/']) {
     // vinext start does not serve a folder's index.html by its trailing-slash URL; Cloudflare does.
     await page.goto(`${route}index.html`);
     await expect(page.locator('header a[href="/"]').first(), route).toBeVisible();

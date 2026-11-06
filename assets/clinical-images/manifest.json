@@ -289,61 +289,264 @@
       "checked": "2026-11-05"
     },
     {
-      "id": "hn-ameloblastoma-opg-before",
-      "file": "public/images/clinical/head-neck/opg-ameloblastoma-before.jpg",
+      "id": "hn-scc-vergier-fig2",
+      "file": "public/images/clinical/head-neck/scc/scc-before-surgery.jpg",
       "pages": [
-        "/head-neck/"
+        "/head-neck/scc/"
       ],
-      "type": "Panoramic radiograph (OPG)",
-      "description": "Pre-operative OPG: ill-defined multilocular radiolucency between lower left canine and first premolar (arrow), 32-year-old man, intraosseous ameloblastoma.",
-      "source_url": "https://doi.org/10.7759/cureus.104441",
-      "author": "Sikri N, Eid S, Mohamed S, Ghosh A",
-      "article": "Sikri N, Eid S, Mohamed S, Ghosh A. Management of Mandibular Ameloblastoma: A Case Report From a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. Figure 1.",
+      "type": "Clinical photos + histology + PET-CT",
+      "description": "Figure 2. (A) Swelling of buccal gingiva at lower right second premolar to second molar; (B) second site, lingual gingiva 42-43; (C) biopsy 45/46: SCC in situ; (D) Ki-67 at 42-43; (E) PET-CT axial showing SCC invading right mandible.",
+      "source_url": "https://doi.org/10.7759/cureus.56077",
+      "figure_source": "https://europepmc.org/article/PMC/PMC11009891",
+      "author": "Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I",
+      "article": "Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative Verrucous Leukoplakia Presenting as a Ring Around the Collar and Cancer: A Case Report. Cureus. 2024;16(3):e56077. doi:10.7759/cureus.56077",
       "licence": "CC BY 4.0",
       "licence_url": "https://creativecommons.org/licenses/by/4.0/",
-      "changes": "Unchanged (re-saved as JPEG).",
-      "consent": "Article: informed consent obtained; journal statement 'consent for treatment and open access publication was obtained or waived'. Radiograph only.",
+      "changes": "Unchanged (publisher's 750 px JPEG).",
+      "consent": "Journal statement (Human Ethics): 'Consent was obtained or waived by all participants in this study.' Intraoral photos only, no face; radiograph shows only R/L markers; PET slice has no burned-in identifiers.",
       "nc_limits": false,
-      "reasoning": "Article states CC-BY 4.0. Radiograph only, no identifiers.",
-      "checked": "2026-11-05"
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
     },
     {
-      "id": "hn-ameloblastoma-opg-after",
-      "file": "public/images/clinical/head-neck/opg-ameloblastoma-after-resection.jpg",
+      "id": "hn-scc-vergier-fig3",
+      "file": "public/images/clinical/head-neck/scc/scc-after-fibula.jpg",
       "pages": [
-        "/head-neck/"
+        "/head-neck/scc/"
       ],
-      "type": "Panoramic radiograph (OPG)",
-      "description": "OPG 3 months after marginal mandibulectomy with reconstruction plate reinforcement (residual bone height under 1 cm).",
-      "source_url": "https://doi.org/10.7759/cureus.104441",
-      "author": "Sikri N, Eid S, Mohamed S, Ghosh A",
-      "article": "Sikri N, Eid S, Mohamed S, Ghosh A. Management of Mandibular Ameloblastoma: A Case Report From a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. Figure 5.",
+      "type": "Panoramic radiograph (OPG) + intraoral photos",
+      "description": "Figure 3. (A) OPG one month after right segmental mandibulectomy reconstructed with a LEFT fibula free flap and plates; (B, C) intraoral views nine months after surgery and radiotherapy.",
+      "source_url": "https://doi.org/10.7759/cureus.56077",
+      "figure_source": "https://europepmc.org/article/PMC/PMC11009891",
+      "author": "Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I",
+      "article": "Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative Verrucous Leukoplakia Presenting as a Ring Around the Collar and Cancer: A Case Report. Cureus. 2024;16(3):e56077. doi:10.7759/cureus.56077",
       "licence": "CC BY 4.0",
       "licence_url": "https://creativecommons.org/licenses/by/4.0/",
-      "changes": "Unchanged (re-saved as JPEG).",
-      "consent": "As hn-ameloblastoma-opg-before.",
+      "changes": "Unchanged (publisher's 750 px JPEG).",
+      "consent": "Journal statement (Human Ethics): 'Consent was obtained or waived by all participants in this study.' Intraoral photos only, no face; radiograph shows only R/L markers; PET slice has no burned-in identifiers.",
       "nc_limits": false,
-      "reasoning": "As hn-ameloblastoma-opg-before. Note: marginal resection with plate, not a fibula flap; caption must say so.",
-      "checked": "2026-11-05"
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
     },
     {
-      "id": "hn-okc-cbct",
-      "file": "public/images/clinical/head-neck/cbct-okc.jpg",
+      "id": "hn-amelo-sikri-fig1",
+      "file": "public/images/clinical/head-neck/ameloblastoma/amelo-before-xray.jpg",
       "pages": [
-        "/head-neck/"
+        "/head-neck/ameloblastoma/"
       ],
-      "type": "CBCT (sagittal, cross-sectional, axial)",
-      "description": "Preoperative CBCT of a well-defined radiolucent odontogenic keratocyst related to lower left teeth 35 and 36.",
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 1. Pre-op OPG: ill-defined multilocular radiolucency between 33 and 34, displacing roots, no root resorption (arrow).",
+      "source_url": "https://doi.org/10.7759/cureus.104441",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13035004",
+      "author": "Sikri N, Eid S, Mohamed S, Ghosh A",
+      "article": "Sikri N, Eid S, Mohamed S, Ghosh A. Management of Mandibular Ameloblastoma: A Case Report From a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. doi:10.7759/cureus.104441",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Unchanged (publisher's 750 px JPEG).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Fig 3 (a, e) shows chin/submandibular skin with incision, and Fig 4 shows lips and beard: lower face only, no eyes. Radiographs show only R/L markers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-amelo-sikri-fig2",
+      "file": "public/images/clinical/head-neck/ameloblastoma/amelo-3d-xray.jpg",
+      "pages": [
+        "/head-neck/ameloblastoma/"
+      ],
+      "type": "CBCT cross-section",
+      "description": "Figure 2. CBCT section: intact lingual plate, expanded buccal cortex with dehiscence (arrow).",
+      "source_url": "https://doi.org/10.7759/cureus.104441",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13035004",
+      "author": "Sikri N, Eid S, Mohamed S, Ghosh A",
+      "article": "Sikri N, Eid S, Mohamed S, Ghosh A. Management of Mandibular Ameloblastoma: A Case Report From a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. doi:10.7759/cureus.104441",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Unchanged (publisher's 750 px JPEG).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Fig 3 (a, e) shows chin/submandibular skin with incision, and Fig 4 shows lips and beard: lower face only, no eyes. Radiographs show only R/L markers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-amelo-sikri-fig3",
+      "file": "public/images/clinical/head-neck/ameloblastoma/amelo-surgery.jpg",
+      "pages": [
+        "/head-neck/ameloblastoma/"
+      ],
+      "type": "Intra-operative photos",
+      "description": "Figure 3. (a) submandibular incision; (b) mucosal incision; (c) marginal mandibulectomy 32-35, residual height 6 mm, reinforced with 2 mm 9-hole titanium reconstruction plate; (d) intraoral closure; (e) skin closure; (f) specimen.",
+      "source_url": "https://doi.org/10.7759/cureus.104441",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13035004",
+      "author": "Sikri N, Eid S, Mohamed S, Ghosh A",
+      "article": "Sikri N, Eid S, Mohamed S, Ghosh A. Management of Mandibular Ameloblastoma: A Case Report From a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. doi:10.7759/cureus.104441",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Unchanged (publisher's 750 px JPEG).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Fig 3 (a, e) shows chin/submandibular skin with incision, and Fig 4 shows lips and beard: lower face only, no eyes. Radiographs show only R/L markers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-amelo-sikri-fig5",
+      "file": "public/images/clinical/head-neck/ameloblastoma/amelo-after-xray.jpg",
+      "pages": [
+        "/head-neck/ameloblastoma/"
+      ],
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 5. OPG three months after surgery: marginal defect left anterior mandible with reconstruction plate along the lower border.",
+      "source_url": "https://doi.org/10.7759/cureus.104441",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13035004",
+      "author": "Sikri N, Eid S, Mohamed S, Ghosh A",
+      "article": "Sikri N, Eid S, Mohamed S, Ghosh A. Management of Mandibular Ameloblastoma: A Case Report From a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. doi:10.7759/cureus.104441",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Unchanged (publisher's 750 px JPEG).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Fig 3 (a, e) shows chin/submandibular skin with incision, and Fig 4 shows lips and beard: lower face only, no eyes. Radiographs show only R/L markers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-okc-abdelfadil-fig1",
+      "file": "public/images/clinical/head-neck/okc/okc-before.jpg",
+      "pages": [
+        "/head-neck/okc/"
+      ],
+      "type": "Clinical photos + CBCT",
+      "description": "Figure 1. (a, b) Mild swelling between 35 and 36 (arrow), normal mucosa; (c-e) pre-op CBCT: well-defined radiolucency related to 35 and 36.",
       "source_url": "https://doi.org/10.3390/dj13110536",
-      "author": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S",
-      "article": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S. Management of a Mandibular Odontogenic Keratocyst with Enucleation, Piezotome-Assisted Peripheral Ostectomy, and Platelet-Rich Fibrin: A Case Report. Dent J (Basel). 2025;13(11):536. Figure 1(c-e).",
+      "figure_source": "https://www.mdpi.com/2304-6767/13/11/536",
+      "author": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S, Mardas N, Romanos G",
+      "article": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S, Mardas N, Romanos G. Management of a Mandibular Odontogenic Keratocyst with Enucleation, Piezotome-Assisted Peripheral Ostectomy, and Platelet-Rich Fibrin: A Case Report. Dentistry Journal. 2025;13(11):536. doi:10.3390/dj13110536",
       "licence": "CC BY 4.0",
       "licence_url": "https://creativecommons.org/licenses/by/4.0/",
-      "changes": "Cropped to panels (c) to (e); clinical photo panels (a, b) left out.",
-      "consent": "Article Informed Consent Statement: written informed consent obtained for publishing clinical details and images.",
+      "changes": "Resized to 900 px wide and saved as JPEG (from the publisher's figure).",
+      "consent": "Article states: 'Written informed consent has been obtained from the patient for publishing the clinical details and images in this article.' Intraoral photos only; OPG has a short 'EX D' label, no names, dates or record numbers.",
       "nc_limits": false,
-      "reasoning": "MDPI CC BY 4.0 with explicit written consent.",
-      "checked": "2026-11-05"
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-okc-abdelfadil-fig2",
+      "file": "public/images/clinical/head-neck/okc/okc-surgery.jpg",
+      "pages": [
+        "/head-neck/okc/"
+      ],
+      "type": "Intra-operative photos",
+      "description": "Figure 2. (a) Flap raised: bone fenestration between 34 and 35; (b) cavity after cyst removal; (c) curettage and specimen; (d, e) PRF preparation; (f) cavity packed with PRF; (g) closure.",
+      "source_url": "https://doi.org/10.3390/dj13110536",
+      "figure_source": "https://www.mdpi.com/2304-6767/13/11/536",
+      "author": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S, Mardas N, Romanos G",
+      "article": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S, Mardas N, Romanos G. Management of a Mandibular Odontogenic Keratocyst with Enucleation, Piezotome-Assisted Peripheral Ostectomy, and Platelet-Rich Fibrin: A Case Report. Dentistry Journal. 2025;13(11):536. doi:10.3390/dj13110536",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 900 px wide and saved as JPEG (from the publisher's figure).",
+      "consent": "Article states: 'Written informed consent has been obtained from the patient for publishing the clinical details and images in this article.' Intraoral photos only; OPG has a short 'EX D' label, no names, dates or record numbers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-okc-abdelfadil-fig4",
+      "file": "public/images/clinical/head-neck/okc/okc-healed.jpg",
+      "pages": [
+        "/head-neck/okc/"
+      ],
+      "type": "OPG + CBCT",
+      "description": "Figure 4. (a) OPG 18 months after surgery: bone regeneration; (b, c) CBCT 36 months: healed, no recurrence.",
+      "source_url": "https://doi.org/10.3390/dj13110536",
+      "figure_source": "https://www.mdpi.com/2304-6767/13/11/536",
+      "author": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S, Mardas N, Romanos G",
+      "article": "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S, Mardas N, Romanos G. Management of a Mandibular Odontogenic Keratocyst with Enucleation, Piezotome-Assisted Peripheral Ostectomy, and Platelet-Rich Fibrin: A Case Report. Dentistry Journal. 2025;13(11):536. doi:10.3390/dj13110536",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 900 px wide and saved as JPEG (from the publisher's figure).",
+      "consent": "Article states: 'Written informed consent has been obtained from the patient for publishing the clinical details and images in this article.' Intraoral photos only; OPG has a short 'EX D' label, no names, dates or record numbers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-mec-ellam-fig1",
+      "file": "public/images/clinical/head-neck/mec/mec-before.jpg",
+      "pages": [
+        "/head-neck/mec/"
+      ],
+      "type": "Clinical photo",
+      "description": "Figure 1. Initial presentation: right paramedian hard palate swelling ~10-12 mm, erythematous, sessile, intact mucosa (arrow).",
+      "source_url": "https://doi.org/10.7759/cureus.115250",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13614761",
+      "author": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N",
+      "article": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N. Mucoepidermoid Carcinoma of the Hard Palate: A Case Illustrating Grading Uncertainty and Bone-Sparing Surgical Management. Cureus. 2026;18(8):e115250. doi:10.7759/cureus.115250",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 640 px wide and saved as JPEG (from the publisher's figure).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Photos show open mouth with lips and some facial hair only; no eyes or full face. MRI shows no burned-in identifiers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-mec-ellam-fig3",
+      "file": "public/images/clinical/head-neck/mec/mec-mri.jpg",
+      "pages": [
+        "/head-neck/mec/"
+      ],
+      "type": "MRI (T1 contrast, sagittal)",
+      "description": "Figure 3. T1 contrast-enhanced sagittal MRI showing the right hard palate lesion (arrow).",
+      "source_url": "https://doi.org/10.7759/cureus.115250",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13614761",
+      "author": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N",
+      "article": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N. Mucoepidermoid Carcinoma of the Hard Palate: A Case Illustrating Grading Uncertainty and Bone-Sparing Surgical Management. Cureus. 2026;18(8):e115250. doi:10.7759/cureus.115250",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 640 px wide and saved as JPEG (from the publisher's figure).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Photos show open mouth with lips and some facial hair only; no eyes or full face. MRI shows no burned-in identifiers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-mec-ellam-fig4",
+      "file": "public/images/clinical/head-neck/mec/mec-after-surgery.jpg",
+      "pages": [
+        "/head-neck/mec/"
+      ],
+      "type": "Clinical photo",
+      "description": "Figure 4. Immediately after wide local excision with preservation of the palatal bone (arrow).",
+      "source_url": "https://doi.org/10.7759/cureus.115250",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13614761",
+      "author": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N",
+      "article": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N. Mucoepidermoid Carcinoma of the Hard Palate: A Case Illustrating Grading Uncertainty and Bone-Sparing Surgical Management. Cureus. 2026;18(8):e115250. doi:10.7759/cureus.115250",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 640 px wide and saved as JPEG (from the publisher's figure).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Photos show open mouth with lips and some facial hair only; no eyes or full face. MRI shows no burned-in identifiers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
+    },
+    {
+      "id": "hn-mec-ellam-fig6",
+      "file": "public/images/clinical/head-neck/mec/mec-healed.jpg",
+      "pages": [
+        "/head-neck/mec/"
+      ],
+      "type": "Clinical photo",
+      "description": "Figure 6. Four months after bone-sparing wide local excision: well healed, palatal contour preserved (arrow).",
+      "source_url": "https://doi.org/10.7759/cureus.115250",
+      "figure_source": "https://europepmc.org/article/PMC/PMC13614761",
+      "author": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N",
+      "article": "Ellam M, Barraclough J, Suresh A, Adam D, Sahasrabudhe N. Mucoepidermoid Carcinoma of the Hard Palate: A Case Illustrating Grading Uncertainty and Bone-Sparing Surgical Management. Cureus. 2026;18(8):e115250. doi:10.7759/cureus.115250",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 640 px wide and saved as JPEG (from the publisher's figure).",
+      "consent": "Journal statement: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Photos show open mouth with lips and some facial hair only; no eyes or full face. MRI shows no burned-in identifiers.",
+      "nc_limits": false,
+      "reasoning": "Article published under CC BY 4.0 (licence statement in the article itself; copyright held by the authors, so they could license it). Figure is the authors' own case, not reproduced from another source. Case matches the Vivatheca model for this page (see README).",
+      "checked": "2026-11-06"
     }
   ]
 }

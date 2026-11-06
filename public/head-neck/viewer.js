@@ -1,4 +1,4 @@
-// Head and neck resection cases: three.js viewer, case text (English and Japanese) and sources.
+// Head and neck hub: the two typical palate cases (pleomorphic adenoma, adenoid cystic carcinoma). three.js viewer, case text (English and Japanese) and sources.
 // Models: models/<case>.glb, built from Z-Anatomy (see the build scripts in the project files).
 // Node names in each GLB: bone, teeth, sphenoid, lesion, margin, specimen_*, extracted_teeth,
 // removed_bone, excised_mucoperiosteum, nerve_path, obturator, obturator_teeth, free_flap.
@@ -37,62 +37,6 @@
 
   // Case text. Each field is [English, Japanese]; Japanese uses {漢字|かんじ} for furigana.
   const CASES = {
-    scc: { jaw: 'mandible', recon: true,
-      title: ['Squamous cell carcinoma, right lower gum', 'へんぺい{上皮|じょうひ}がん（{右|みぎ}の{下|した}の{歯|は}ぐき）'],
-      sum: ['A mouth cancer on the gum beside the first big back tooth (46) that has grown into the jaw bone. Once cancer is inside the bone, a full-thickness block of jaw is removed (segmental mandibulectomy) rather than a rim.' + c(2, 3),
-        '{第一|だいいち}{大臼歯|だいきゅうし}の{横|よこ}の{歯|は}ぐきにできて、あごの{骨|ほね}の{中|なか}まで{広|ひろ}がった{口|くち}のがんです。がんが{骨|ほね}の{中|なか}に{入|はい}っているときは、{骨|ほね}のふちだけでなく、あごの{骨|ほね}を{上|うえ}から{下|した}まで{切|き}り{取|と}ります（{下|した}あごの{区域|くいき}{切除|せつじょ}）。' + c(2, 3)],
-      why: [
-        ['Bone margin of at least 10 mm beyond the tumour at both cuts.' + c(2, 4) + ' In the model: 12.6 mm at the front cut and 10.4 mm at the back cut.',
-          '{両方|りょうほう}の{切|き}り{口|くち}で、がんから10mm{以上|いじょう}{離|はな}して{骨|ほね}を{切|き}ります。' + c(2, 4) + '{模型|もけい}では{前|まえ}12.6mm、{後|うし}ろ10.4mmです。'],
-        ['Teeth standing in the removed block (44–47) come out with the bone.' + c(2),
-          '{切|き}り{取|と}る{骨|ほね}の{中|なか}の{歯|は}（44〜47）は、{別|べつ}に{抜|ぬ}かずに{骨|ほね}と{一緒|いっしょ}に{取|と}り{除|のぞ}きます。' + c(2)],
-        ['The front cut runs through the socket of the canine (43), which is taken out during surgery, so the next tooth (42) is not cut.' + c(5),
-          '{前|まえ}の{切|き}り{口|くち}は、{手術|しゅじゅつ}のときに{抜|ぬ}く{犬歯|けんし}（43）の{穴|あな}を{通|とお}るので、となりの{歯|は}（42）は{切|き}りません。' + c(5)],
-        ['The gum and lining are cut 1–1.5 cm around the tumour you can see.' + c(2),
-          '{歯|は}ぐきと{口|くち}の{粘膜|ねんまく}は、{見|み}えているがんの{周|まわ}り1〜1.5cmで{切|き}ります。' + c(2)],
-        ['Taking only a rim of bone is an option when the cancer has not got into the bone and enough height is left. In one study, the cancer had got into the bone in 85 of 100 jaws taken out this way.' + c(3),
-          'がんが{骨|ほね}の{中|なか}に{入|はい}っておらず、{十分|じゅうぶん}な{高|たか}さの{骨|ほね}が{残|のこ}るときは、{骨|ほね}のふちだけを{切|き}る{方法|ほうほう}もあります。ある{研究|けんきゅう}では、{区域|くいき}{切除|せつじょ}した{骨|ほね}の85%にがんが{入|はい}っていました。' + c(3)],
-      ],
-      stats: [['Bone removed', '8.6 cm³', '{取|と}る{骨|ほね}', '8.6 cm³'], ['Teeth', '44–47 with the bone; 43 at the cut', '{歯|は}', '44〜47は{骨|ほね}と{一緒|いっしょ}に、43は{切|き}り{口|くち}で{抜|ぬ}く'], ['Gap', '43 mm, canine socket to behind 47', '{欠損|けっそん}', '43mm（{犬歯|けんし}の{穴|あな}から47の{後|うし}ろまで）']],
-      reconNote: ['Shown: a fibula free flap. A 47.5 mm piece of the lower-leg bone (fibula), with its blood supply, fills the gap and is held with a titanium plate and 8 screws. The fibula is shorter in height than the jaw it replaces, which is part of why the face and bite change later.' + c(22, 1),
-        '{模型|もけい}ではひ{骨|こつ}{皮弁|ひべん}を{示|しめ}しています。{血管|けっかん}ごと{移|うつ}したすねの{骨|ほね}（ひ{骨|こつ}）47.5mmで{欠損|けっそん}を{埋|う}め、チタンのプレートとネジ8{本|ほん}で{固定|こてい}します。ひ{骨|こつ}はもとのあごより{高|たか}さが{低|ひく}いため、{手術|しゅじゅつ}{後|ご}に{顔|かお}の{形|かたち}やかみ{合|あ}わせが{変|か}わる{理由|りゆう}の1つになります。' + c(22, 1)],
-      choice: ['Our choices for the model: tumour 18 × 15 × 16 mm; the back cut is angled up into the ramus so the angle of the jaw is kept.',
-        '{当方|とうほう}の{設定|せってい}：がんの{大|おお}きさは18×15×16mm。{後|うし}ろの{切|き}り{口|くち}はあごの{後|うし}ろの{縦|たて}の{部分|ぶぶん}に{向|む}けて{斜|なな}めにし、あごの{角|かど}を{残|のこ}しています。'] },
-    ameloblastoma: { jaw: 'mandible', recon: true,
-      title: ['Ameloblastoma, right body and angle of the jaw', 'エナメル{上皮腫|じょうひしゅ}（{右|みぎ}のあごの{体|からだ}と{角|かど}）'],
-      sum: ['A growth that is not cancer but spreads into nearby bone. It grows from tooth-forming tissue. Solid and multicystic types often come back if they are only scooped out, so they are cut out with a wide bone margin.' + c(6, 7),
-        '{歯|は}をつくる{組織|そしき}からできる{良性|りょうせい}の{腫瘍|しゅよう}ですが、まわりに{入|い}りこんで{広|ひろ}がります。{充実|じゅうじつ}{型|がた}や{多|た}のう{胞|ほう}{型|がた}はかき{出|だ}すだけでは{再発|さいはつ}しやすいため、{骨|ほね}を{広|ひろ}く{付|つ}けて{切|き}り{取|と}ります。' + c(6, 7)],
-      why: [
-        ['Bone margin of 1–1.5 cm, because tumour cells can lie about 8 mm beyond what the X-ray shows.' + c(6, 7) + ' In the model: 16.0 mm front and 15.2 mm back.',
-          'レントゲンで{見|み}える{範囲|はんい}より8mmほど{外|そと}にも{腫瘍|しゅよう}{細胞|さいぼう}があるため、{骨|ほね}を1〜1.5cm{離|はな}して{切|き}ります。' + c(6, 7) + '{模型|もけい}では{前|まえ}16.0mm、{後|うし}ろ15.2mmです。'],
-        ['In a review it came back in 60–80% after scooping out alone, against 0–10% after resection.' + c(6),
-          'ある{総説|そうせつ}では、かき{出|だ}すだけだと60〜80%、{切除|せつじょ}すると0〜10%で{再発|さいはつ}しました。' + c(6)],
-        ['The gum over the tumour is removed with the bone.' + c(6), '{腫瘍|しゅよう}の{上|うえ}の{歯|は}ぐきも{骨|ほね}と{一緒|いっしょ}に{取|と}ります。' + c(6)],
-        ['As in the cancer case, the front cut goes through the socket of the canine (43), taken out during surgery, so 42 is not cut.',
-          'がんの{例|れい}と{同|おな}じく、{前|まえ}の{切|き}り{口|くち}は{手術|しゅじゅつ}で{抜|ぬ}く{犬歯|けんし}（43）の{穴|あな}を{通|とお}るので、42は{切|き}りません。'],
-      ],
-      stats: [['Bone removed', '15.7 cm³', '{取|と}る{骨|ほね}', '15.7 cm³'], ['Teeth', '44–47 with the bone; 43 at the cut', '{歯|は}', '44〜47は{骨|ほね}と{一緒|いっしょ}に、43は{切|き}り{口|くち}で{抜|ぬ}く'], ['Gap', '68 mm, includes the angle of the jaw', '{欠損|けっそん}', '68mm（あごの{角|かど}を{含|ふく}む）']],
-      reconNote: ['Shown: a fibula free flap in two pieces (55.5 mm along the body and 13.5 mm up the ramus), joined at a new angle of the jaw and held with a titanium plate and 10 screws. Longer gaps that include a corner of the jaw need more bone cuts in the fibula. The joint (condyle) and upper ramus are kept.' + c(22, 1),
-        '{模型|もけい}では2つに{分|わ}けたひ{骨|こつ}{皮弁|ひべん}（あごの{体|からだ}に{沿|そ}って55.5mm、あごの{後|うし}ろの{縦|たて}の{部分|ぶぶん}に{沿|そ}って13.5mm）を{示|しめ}しています。{新|あたら}しいあごの{角|かど}でつなぎ、チタンのプレートとネジ10{本|ほん}で{固定|こてい}します。あごの{角|かど}を{含|ふく}む{長|なが}い{欠損|けっそん}では、ひ{骨|こつ}を{切|き}る{回数|かいすう}が{増|ふ}えます。{関節|かんせつ}とあごの{後|うし}ろの{縦|たて}の{部分|ぶぶん}の{上|うえ}の{部分|ぶぶん}は{残|のこ}します。' + c(22, 1)],
-      choice: ['Our choices for the model: four joined lobes, 26 × 12 × 12 mm overall.', '{当方|とうほう}の{設定|せってい}：4つの{塊|かたまり}がつながった{形|かたち}で、{全体|ぜんたい}26×12×12mm。'] },
-    okc: { jaw: 'mandible', recon: false,
-      title: ['Odontogenic keratocyst, right angle of the jaw', '{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}（{右|みぎ}のあごの{角|かど}）'],
-      sum: ['A fluid-filled cyst with a lining that tends to come back. The surgeon takes it out through a small window in the bone and shaves the wall of the hollow; the jaw stays in one piece.' + c(9, 10),
-        '{中|なか}に{液体|えきたい}がたまる「のう{胞|ほう}」で、{内側|うちがわ}の{膜|まく}が{再発|さいはつ}しやすいものです。{骨|ほね}に{小|ちい}さな{窓|まど}をあけて{取|と}り{出|だ}し、{空洞|くうどう}の{壁|かべ}を{薄|うす}く{削|けず}ります。あごの{骨|ほね}はつながったままです。' + c(9, 10)],
-      why: [
-        ['Shaving the wall (peripheral ostectomy) takes off 1–2 mm of bone around the hollow.' + c(9) + ' In the model: 1.5 mm.',
-          '{空洞|くうどう}のまわりの{骨|ほね}を1〜2mm{削|けず}ります（{辺縁|へんえん}{骨|こつ}{切除|せつじょ}）。' + c(9) + '{模型|もけい}では1.5mmです。'],
-        ['How often it came back, from a review of many studies: 26% after removal alone, 18% with shaving, 0% with shaving plus Carnoy’s liquid, and 0% after cutting out a block of jaw.' + c(8),
-          'システマティックレビューでの{再発|さいはつ}{率|りつ}：{摘出|てきしゅつ}だけで26%、{骨|ほね}を{削|けず}ると18%、{削|けず}ってカルノア{液|えき}を{使|つか}うと0%、{切除|せつじょ}で0%。' + c(8)],
-        ['Cutting out a block of jaw is kept for cysts that come back or rare cancer change, because it causes more harm.' + c(9, 10),
-          'あごの{骨|ほね}ごと{切|き}り{取|と}る{方法|ほうほう}は{体|からだ}への{負担|ふたん}が{大|おお}きいので、{再発|さいはつ}したときやまれながん{化|か}のときに{限|かぎ}ります。' + c(9, 10)],
-        ['Teeth are often pushed aside but most stay alive. The dentist keeps 47, which borders the hollow, and checks it.' + c(9),
-          '{歯|は}は{押|お}されて{動|うご}くことが{多|おお}いですが、たいていは{生|い}きたままです。{空洞|くうどう}に{接|せっ}する47は{残|のこ}して{経過|けいか}を{見|み}ます。' + c(9)],
-      ],
-      stats: [['Bone removed', '2.65 cm³ (window and shaved wall)', '{取|と}る{骨|ほね}', '2.65 cm³（{窓|まど}と{削|けず}った{壁|かべ}）'], ['Teeth', 'None', '{歯|は}', 'なし'], ['Jaw', 'Stays in one piece', 'あご', 'つながったまま']],
-      reconNote: ['No repair is needed: the hollow heals by itself, with X-ray checks for years.' + c(9),
-        '{再建|さいけん}は{必要|ひつよう}ありません。{空洞|くうどう}は{自然|しぜん}に{治|なお}るのを{待|ま}ち、{何年|なんねん}もレントゲンで{確認|かくにん}します。' + c(9)],
-      choice: ['Our choices for the model: cyst 22 × 7 × 18 mm, sized to fit the jaw at this level.', '{当方|とうほう}の{設定|せってい}：のう{胞|ほう}は22×7×18mm。この{位置|いち}のあごの{幅|はば}に{合|あ}わせました。'] },
     pa: { jaw: 'maxilla', recon: false,
       title: ['Pleomorphic adenoma, right hard palate', '{多形|たけい}{腺腫|せんしゅ}（{右|みぎ}の{硬口蓋|こうこうがい}）'],
       sum: ['The most common salivary gland growth on the palate that is not cancer. The surgeon takes it out with the lining over it and the thin layer on the bone (periosteum) under it; teeth and bone most often stay.' + c(11, 12, 13),
@@ -109,23 +53,6 @@
         '{骨|ほね}が{出|で}た{口蓋|こうがい}は、{保護|ほご}{床|しょう}の{下|した}で{数週間|すうしゅうかん}かけて{治|なお}るか、FAMM{皮弁|ひべん}など{近|ちか}くの{組織|そしき}でおおいます。' + c(13)],
       choice: ['Our choices for the model: tumour 19 × 21 × 14 mm, sized from the cited case report; a 5 mm cuff of normal lining around it.',
         '{当方|とうほう}の{設定|せってい}：{腫瘍|しゅよう}は19×21×14mm（{引用|いんよう}した{症例|しょうれい}{報告|ほうこく}にもとづく）。まわりに5mmの{正常|せいじょう}な{粘膜|ねんまく}を{付|つ}けています。'] },
-    mec: { jaw: 'maxilla', recon: true,
-      title: ['Mucoepidermoid carcinoma, right palate', '{粘表皮|ねんひょうひ}がん（{右|みぎ}の{口蓋|こうがい}）'],
-      sum: ['The most common salivary gland cancer of the palate. When it reaches the bone, the surgeon takes out the low part of the upper jaw with the teeth in it (low maxillectomy). This opens the mouth into the sinus and nose.' + c(14, 18),
-        '{口蓋|こうがい}にできる{唾液腺|だえきせん}がんで、もっとも{多|おお}いものです。{骨|ほね}まで{広|ひろ}がっているときは、{上|うわ}あごの{下|した}の{部分|ぶぶん}を{歯|は}ごと{取|と}ります（{上顎|じょうがく}{部分|ぶぶん}{切除|せつじょ}）。そのため、{口|くち}と{上顎洞|じょうがくどう}・{鼻|はな}がつながります。' + c(14, 18)],
-      why: [
-        ['Removal with wide margins; neck treatment and radiotherapy for high-grade cancers.' + c(14, 18) + ' In the model: 10.3 mm front, 10.0 mm on the middle side and 10.0 mm upwards.',
-          '{広|ひろ}い{範囲|はんい}をつけて{取|と}ります。{悪性度|あくせいど}が{高|たか}いときは{首|くび}の{治療|ちりょう}と{放射線|ほうしゃせん}{治療|ちりょう}も{行|おこな}います。' + c(14, 18) + '{模型|もけい}では{前|まえ}10.3mm、{内側|うちがわ}10.0mm、{上|うえ}10.0mmです。'],
-        ['Teeth 15–17 come out in the block; the front cut goes through the socket of 14, taken out during surgery, so 13 is not cut.',
-          '15〜17は{骨|ほね}と{一緒|いっしょ}に{取|と}ります。{前|まえ}の{切|き}り{口|くち}は{手術|しゅじゅつ}で{抜|ぬ}く14の{穴|あな}を{通|とお}るので、13は{切|き}りません。'],
-        ['The gap is a Brown class 2b defect: the low part of the upper jaw, up to half of the palate on one side.' + c(15, 16),
-          'この{欠損|けっそん}はBrown{分類|ぶんるい}の2bです（{上|うわ}あごの{下|した}の{部分|ぶぶん}で、{片側|かたがわ}の{口蓋|こうがい}の{半分|はんぶん}まで）。' + c(15, 16)],
-      ],
-      stats: [['Bone removed', '11.4 cm³', '{取|と}る{骨|ほね}', '11.4 cm³'], ['Teeth', '15–17 with the bone; 14 at the cut', '{歯|は}', '15〜17は{骨|ほね}と{一緒|いっしょ}に、14は{切|き}り{口|くち}で{抜|ぬ}く'], ['Midline', 'Cut 2.5 mm past it', '{正中|せいちゅう}', '2.5mm{越|こ}えて{切|き}る']],
-      reconNote: ['Shown: an obturator. This is a plate with teeth that you can take out, with a bulb that plugs the hole. Low gaps often do well with one. In one study, people rated their daily life about the same as with a flap.' + c(15, 17) + ' The other choice is a flap of nearby tissue or tissue moved from elsewhere.' + c(18),
-        '{模型|もけい}では{顎|がく}{義歯|ぎし}（オブチュレーター）を{示|しめ}しています。{歯|は}の{付|つ}いた{取|と}り{外|はず}せる{入|い}れ{歯|ば}で、{出|で}っぱった{部分|ぶぶん}が{穴|あな}をふさぎます。{低|ひく}い{位置|いち}の{欠損|けっそん}ではうまくいくことが{多|おお}く、ある{研究|けんきゅう}では{皮弁|ひべん}で{閉|と}じた{場合|ばあい}と{生活|せいかつ}の{質|しつ}は{同|おな}じくらいでした。' + c(15, 17) + '{近|ちか}くや{体|からだ}の{別|べつ}の{場所|ばしょ}の{組織|そしき}で{閉|と}じる{方法|ほうほう}もあります。' + c(18)],
-      choice: ['Our choices for the model: tumour 17 × 20 × 13 mm. We used a 10 mm margin, the usual standard for mouth cancer, because salivary cancer guidance gives no number.',
-        '{当方|とうほう}の{設定|せってい}：がんは17×20×13mm。{唾液腺|だえきせん}がんの{指針|ししん}には{数字|すうじ}がないため、{口|くち}のがんで{一般的|いっぱんてき}な10mmを{使|つか}いました。'] },
     acc: { jaw: 'maxilla', recon: true,
       title: ['Adenoid cystic carcinoma, back of the right palate', '{腺様|せんよう}のう{胞|ほう}がん（{右|みぎ}の{口蓋|こうがい}の{奥|おく}）'],
       sum: ['A slow cancer that creeps along nerves. On the palate it follows the greater palatine nerve up towards the base of the skull, so the surgery goes further back and higher than for other palate cancers.' + c(19, 20),
@@ -271,5 +198,7 @@
     controls.update(); renderer.render(scene, camera);
   })();
   const first = new URLSearchParams(location.search).get('case');
-  pick(CASES[first] ? first : 'scc');
+  // The lower jaw cases and the mucoepidermoid carcinoma moved to their own pages.
+  if (['scc', 'ameloblastoma', 'okc', 'mec'].includes(first)) { location.replace('/head-neck/' + first + '/'); return; }
+  pick(CASES[first] ? first : 'pa');
 })();

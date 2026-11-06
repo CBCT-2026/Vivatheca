@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mouth cancer in the lower jaw: part of the jaw rebuilt with leg bone | Vivatheca</title>
+<meta name="description" content="A 3D model that follows one published case of mouth cancer on the right lower gum: what was removed and how the jaw was rebuilt with a fibula flap.">
+<meta name="robots" content="noindex">
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+</script>
+<link rel="preload" href="/head-neck/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/head-neck/style.css">
+<link rel="stylesheet" href="/head-neck/condition.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>
+    <a class="lang" href="/models" data-i18n="allModels">All models</a>
+    <a class="lang" href="/head-neck/" data-i18n="hub">Head and neck</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+
+<main>
+<h1 data-i18n="h1">Mouth cancer in the lower jaw <span class="pitk-skip">(squamous cell carcinoma)</span></h1>
+<p class="lede" data-i18n="lede">This 3D model follows one real, published case. A woman aged 72 had a cancer on the gum of her right lower jaw, and it had grown into the bone. Surgeons took out the right side of her lower jaw and rebuilt it with bone from her leg.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+<div class="note"><p data-i18n="viewOnly"><b>3D viewing only for now.</b> Print files are not available yet.</p></div>
+<div class="viewer" id="viewer" data-model="/head-neck/models/scc-case.glb" data-jaw="mandible" data-side="right">
+  <div class="problem" id="status" data-i18n="loading">Loading model…</div>
+  <ul class="vlegend" id="legend" aria-live="polite"></ul>
+  <span class="hint" data-i18n="hint">Drag to rotate · pinch or scroll to zoom</span>
+</div>
+<div class="row stages" role="group" aria-label="Stage" data-i18n-aria="stage">
+  <button type="button" data-stage="pre" aria-pressed="true" data-i18n="s_pre">1 · Before surgery</button>
+  <button type="button" data-stage="op" aria-pressed="false" data-i18n="s_op">2 · What is removed</button>
+  <button type="button" data-stage="post" aria-pressed="false" data-i18n="s_post">3 · The gap</button>
+  <button type="button" data-stage="recon" aria-pressed="false" data-i18n="s_recon">4 · Rebuilding the jaw</button>
+</div>
+<div class="row toggles">
+  <button type="button" id="btn-margin" aria-pressed="false" data-i18n="t_margin">Safety margin</button>
+  <button type="button" id="btn-xray" aria-pressed="false" data-i18n="t_xray">See-through bone</button>
+</div>
+<div class="row views" role="group" aria-label="View" data-i18n-aria="view">
+  <button type="button" data-view="front" data-i18n="v_front">Front</button>
+  <button type="button" data-view="right" data-i18n="v_right">Right side</button>
+  <button type="button" data-view="left" data-i18n="v_left">Left side</button>
+  <button type="button" data-view="under" data-i18n="v_under">From below</button>
+  <button type="button" data-view="above" data-i18n="v_above">From above</button>
+</div>
+<div class="stage-text" id="stage" aria-live="polite">
+  <p data-for="pre" data-i18n="st_pre"><b>Before surgery.</b> The cancer (dark red) sits on the gum beside the right back teeth and has grown into the bone. A second, small patch sits on the inner side of the gum near the right front teeth.</p>
+  <p data-for="op" hidden data-i18n="st_op"><b>What is removed.</b> The right side of the lower jaw, from the jaw joint to the front teeth, comes out in one piece with its 8 teeth. The front cut is about 1 cm from the cancer.</p>
+  <p data-for="post" hidden data-i18n="st_post"><b>The gap.</b> Without its right side, the jaw cannot keep its shape. The chin would move to the right, and eating and speaking would be hard.</p>
+  <p data-for="recon" hidden data-i18n="st_recon"><b>Rebuilding the jaw.</b> A piece of bone from the lower leg (fibula) is cut into three parts and shaped like the missing jaw. Small titanium plates hold the parts. Its blood vessels are joined to vessels in the neck, so the bone stays alive.</p>
+</div>
+
+<section id="case">
+<h2 data-i18n="caseH">The real case</h2>
+<p data-i18n="case1">In 2019 a woman aged 72 saw a surgeon about white patches on her gums. Over 18 months the patches spread, and part of them turned into cancer. In 2020 the gum beside her right back teeth was swollen. A small piece of tissue (biopsy) showed cancer, and a scan showed it had grown into the jaw bone.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+<p data-i18n="case2">The team took out the right side of her lower jaw. They rebuilt it with bone from her left leg, and she had radiotherapy after surgery. Nine months later the new bone had taken well, and she could drink by mouth.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+<p data-i18n="case3">Two years later a new cancer grew on the left side of her gum, and she needed another operation. This is why people who have had mouth cancer need regular checks for many years.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+</section>
+
+<section id="clinical-images">
+<h2 data-i18n="clinH">Real photos, X-rays and scans from this case</h2>
+<p class="clinical-note" data-i18n="clinNote">These images are from the real patient. The authors published them openly. Each image keeps its own licence, given under it; it is not covered by the model licence.</p>
+<figure class="clin-fig" id="img-1">
+  <img src="/images/clinical/head-neck/scc/scc-before-surgery.jpg" width="750" height="510" loading="lazy" alt="Five panels: two photos inside the mouth showing swollen gum beside the right lower back teeth and a patch inside the right front gum, two microscope pictures, and a scan slice with a bright spot in the right side of the jaw." data-i18n-alt="img1Alt">
+  <figcaption><span data-i18n="img1"><b>Image 1. The cancer before surgery.</b> (A) Swollen gum beside the right lower back teeth (45 to 47). (B) A second patch on the inner side of the gum between 42 and 43. (C, D) Tissue samples under a microscope. (E) A scan (PET) shows the cancer in the right side of the jaw bone.</span>
+    <span class="credit">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077, Figure 2. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The journal states that consent was obtained or waived.</span></figcaption>
+</figure>
+<figure class="clin-fig" id="img-2">
+  <img src="/images/clinical/head-neck/scc/scc-after-fibula.jpg" width="750" height="650" loading="lazy" alt="An X-ray of the whole mouth after surgery: a straight strip of leg bone runs up the right side of the jaw and along to the front teeth, held by small metal plates. Below, two photos inside the mouth nine months later." data-i18n-alt="img2Alt">
+  <figcaption><span data-i18n="img2"><b>Image 2. After surgery.</b> (A) An X-ray of the whole mouth one month after surgery. The leg bone runs from the right jaw joint along the jaw to the front teeth, in three pieces held by small metal plates. The 3D model copies this. (B, C) Inside the mouth nine months later.</span>
+    <span class="credit">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077, Figure 3. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The journal states that consent was obtained or waived.</span></figcaption>
+</figure>
+</section>
+
+<section id="treatment">
+<h2 data-i18n="reconH">How the jaw is rebuilt</h2>
+<p data-i18n="recon1">When part of the jaw bone is removed, it is best replaced with living bone. Bone from the lower leg with its own blood supply (a fibula free flap) is the most common choice.<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-3">3</a></sup> The fibula is the thin bone on the outer side of the lower leg. People can walk without its middle part, because the big leg bone (tibia) carries the weight.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+<figure class="diagram">
+  <img src="/head-neck/diagrams/fibula-flap.svg" width="800" height="420" loading="lazy" alt="Diagram. Left: a lower leg with the middle of the fibula marked for removal with its artery and vein and an oval of skin. Right: the lower jaw drawn like an X-ray, with three pieces of fibula replacing the right side, held by small plates, and vessels running to the neck." data-i18n-alt="dg1Alt">
+  <figcaption data-i18n="dg1"><b>Diagram 1. Fibula free flap.</b> (A) The leg. 1 The middle part of the fibula is taken. 2 Its artery and veins come with it. 3 The top of the fibula stays, near the knee. 4 The bottom stays, near the ankle. 5 Skin over the bone can come too. (B) The jaw after rebuilding, drawn like the X-ray in Image 2 (patient’s right on the left). 1 Three pieces of fibula. 2 Small titanium plates and screws. 3 The vessels are joined to vessels in the neck. 4 The left teeth stay. 5 The skin lines the inside of the mouth. 6 The dashed line shows the jaw that was removed.</figcaption>
+</figure>
+<p data-i18n="reconB1">When the jaw bone stays and only soft tissue is removed (gum, cheek lining, floor of the mouth or tongue), a thin flap of skin from the forearm (radial forearm free flap) is often used instead.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+<figure class="diagram">
+  <img src="/head-neck/diagrams/radial-forearm-flap.svg" width="800" height="420" loading="lazy" alt="Diagram. Left: a forearm, palm up, with an oval of skin marked near the wrist over an artery and veins. Right: the roof of the mouth seen from below, with a skin flap stitched into a gap and its vessels running back towards the neck." data-i18n-alt="dgb1Alt">
+  <figcaption data-i18n="dgb1"><b>Diagram 2. Radial forearm free flap (soft tissue only).</b> (A) The forearm, palm up. 1 An oval of thin skin is taken from the wrist side. 2 The artery and veins that feed it come with it. 3 A skin vein can also be used. (B) One example: the flap stitched into a gap in the roof of the mouth, seen from below with the front teeth at the bottom. 4 The flap. 5 Its vessels run back to the neck.</figcaption>
+</figure>
+</section>
+
+<section class="clin">
+<h2 data-i18n="clinicH">For clinicians: how this model was built</h2>
+<ul>
+  <li data-i18n="cl1">Case: gingival proliferative verrucous leukoplakia with malignant transformation. SCC of the right buccal gingiva 45–47 with a second focus on the lingual gingiva 42–43; PET showed mandibular invasion; right submandibular node. Right segmental mandibulectomy, left fibula free flap, adjuvant radiotherapy.<sup class="cite"><a href="#ref-1">1</a></sup></li>
+  <li data-i18n="cl2">Extent is taken from the one-month OPG (Image 2A), because the article gives no operative detail. The fibula runs from the right condylar region to the left incisor region in three segments: ramus, body and parasymphysis. There is no fixation at the upper end, which suggests disarticulation with the condyle removed; we modelled it that way. Brown class IIc.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></li>
+  <li data-i18n="cl3">Model: cut between 31 and 32; teeth removed 41–47 and 31. Specimen 21.7 cm³; 106 mm from condyle to the anterior cut. Fibula segments 21.7, 56.7 and 41.2 mm. Miniplates as on the OPG: two at the native bone junction, one between the anterior and body segments, an L-plate at the angle (25 screws).</li>
+  <li data-i18n="cl4">Our choices: tumour 24 × 14 × 18 mm at 45–47 and 10 × 6 × 8 mm at 42–43 (sizes not published). The model leaves 8.5 mm of bone between the 42–43 focus and the anterior cut. The case used a left fibula; the model uses a right fibula mesh.</li>
+</ul>
+</section>
+
+<section class="disclaimer">
+  <h2 data-i18n="aboutH">About this model</h2>
+  <p data-i18n="about1"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+  <p class="small" data-i18n="about2">Prototype. The model was made to match one published case, but it is not that person’s jaw. The disease is a simple shape. Where the article gives no number, our modelling choice is stated under “For clinicians”.</p>
+  <p class="small credit" data-i18n="credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: remeshed, cut, disease and metalwork added, recoloured. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Diagrams: made by Vivatheca, same licence. 3D viewer: three.js (MIT licence). Font: Manrope (SIL Open Font Licence).</p>
+</section>
+
+<section class="refs">
+<details>
+  <summary><h2 data-i18n="sourcesH">Sources</h2></summary>
+  <ol id="refs">
+    <li id="ref-1">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a></li>
+    <li id="ref-2">Hidalgo DA. Fibula free flap: a new method of mandible reconstruction. Plast Reconstr Surg. 1989;84(1):71-79. <a href="https://pubmed.ncbi.nlm.nih.gov/2734406/">pubmed.ncbi.nlm.nih.gov/2734406/</a></li>
+    <li id="ref-3">Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30. <a href="https://doi.org/10.1016/S1470-2045(15)00310-1">doi.org/10.1016/S1470-2045(15)00310-1</a></li>
+    <li id="ref-4">Soutar DS, Scheker LR, Tanner NS, McGregor IA. The radial forearm flap: a versatile method for intra-oral reconstruction. Br J Plast Surg. 1983;36(1):1-8. <a href="https://doi.org/10.1016/0007-1226(83)90002-4">doi.org/10.1016/0007-1226(83)90002-4</a></li>
+    <li id="ref-5">Soutar DS, McGregor IA. The radial forearm flap in intraoral reconstruction: the experience of 60 consecutive cases. Plast Reconstr Surg. 1986;78(1):1-8. <a href="https://doi.org/10.1097/00006534-198607000-00001">doi.org/10.1097/00006534-198607000-00001</a></li>
+  </ol>
+</details>
+</section>
+
+<p class="small" data-i18n="version">Version 1.0, 6 November 2026.</p>
+</main>
+<script src="ja.js"></script>
+<script src="/head-neck/i18n-engine.js"></script>
+<script src="/head-neck/theme.js"></script>
+<script src="/head-neck/vendor/three/three.min.js"></script>
+<script src="/head-neck/vendor/three/GLTFLoader.js"></script>
+<script src="/head-neck/vendor/three/OrbitControls.js"></script>
+<script src="/head-neck/case-viewer.js"></script>
+<script src="/contact.js"></script>
+</body>
+</html>

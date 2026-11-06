@@ -41,12 +41,23 @@ function serve() {
   return new Promise((ok) => server.listen(0, '127.0.0.1', () => ok(server)));
 }
 
+// Static pages: public/<name>/index.html, plus one level of sub-pages (public/<name>/<sub>/index.html).
 async function staticPages() {
   const pages = [];
-  for (const name of (await readdir(pub)).sort()) {
+  const isPage = async (dir) => {
     try {
-      if ((await stat(join(pub, name, 'index.html'))).isFile()) pages.push(name);
-    } catch { /* not a page */ }
+      return (await stat(join(pub, dir, 'index.html'))).isFile();
+    } catch {
+      return false;
+    }
+  };
+  for (const name of (await readdir(pub)).sort()) {
+    if (await isPage(name)) pages.push(name);
+    let subs = [];
+    try {
+      if ((await stat(join(pub, name))).isDirectory()) subs = (await readdir(join(pub, name))).sort();
+    } catch { /* not a folder */ }
+    for (const sub of subs) if (await isPage(`${name}/${sub}`)) pages.push(`${name}/${sub}`);
   }
   return pages;
 }
@@ -135,7 +146,7 @@ try {
       const t0 = Date.now();
       const html = await snapshotStatic(browser, base, page, lang);
       console.log(`${page} ${lang}: ${((Date.now() - t0) / 1000).toFixed(1)} s`);
-      if (html) files[`${page}.${lang}.html`] = html;
+      if (html) files[`${page.replace('/', '-')}.${lang}.html`] = html;
       else console.log(`${page}: no ${lang} version`);
     }
   }

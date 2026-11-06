@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jaw and palate surgery: what is removed and why | Vivatheca</title>
-<meta name="description" content="Interactive 3D cases showing how much bone, teeth and lining are removed for six jaw and palate diseases, and how the gap is closed. Every cut is based on published guidance.">
+<title>Head and neck: real cases in 3D | Vivatheca</title>
+<meta name="description" content="Head and neck models: four published cases rebuilt in 3D (mouth cancer, ameloblastoma, keratocyst and a palate gland cancer), each with its real X-rays and photos, plus two typical palate models.">
 <meta name="robots" content="noindex">
 <script>
 try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
 </script>
 <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="condition.css">
 </head>
 <body>
 <header class="bar">
@@ -23,20 +24,26 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 </header>
 
 <main>
-  <h1 data-i18n="h1">Jaw and palate surgery: what is removed, and why it differs by disease</h1>
-  <p class="lede" data-i18n="lede">Six life-size cases on the same adult jaw: three in the lower jaw and three on the palate. Each one shows the disease, the safety margin, what the surgeon removes (bone, teeth and lining), the gap left behind and how the gap is closed.</p>
+  <h1 data-i18n="h1">Head and neck</h1>
+  <p class="lede" data-i18n="lede">Jaw and mouth diseases in 3D. Each of the four case pages follows one real, published patient: the 3D model matches their X-rays and photos, shows what the surgeon removed and how the gap was closed, and explains why.</p>
   <div class="note"><p data-i18n="viewOnly"><b>3D viewing only for now.</b> Print files are planned once the models are finalised, but they are not available yet.</p></div>
 
-  <p class="group-label" data-i18n="groupLower">Lower jaw</p>
-  <div class="cases" role="group" aria-label="Lower jaw cases" data-i18n-aria="groupLower">
-    <button type="button" data-case="scc" aria-pressed="true" data-i18n="c_scc">Squamous cell carcinoma</button>
-    <button type="button" data-case="ameloblastoma" aria-pressed="false" data-i18n="c_ameloblastoma">Ameloblastoma</button>
-    <button type="button" data-case="okc" aria-pressed="false" data-i18n="c_okc">Odontogenic keratocyst</button>
-  </div>
+  <section id="cases">
+    <h2 data-i18n="casesH">Four real cases</h2>
+    <div class="cards">
+      <a href="/head-neck/scc/"><img src="/assets/renders/head-neck-scc.webp" width="800" height="600" loading="lazy" alt="" ><div class="card-body"><h3 data-i18n="card_scc">Mouth cancer in the lower jaw</h3><p data-i18n="card_scc_d">Right lower jaw removed and rebuilt with leg bone (fibula), as in a woman aged 72.</p></div></a>
+      <a href="/head-neck/ameloblastoma/"><img src="/assets/renders/head-neck-ameloblastoma.webp" width="800" height="600" loading="lazy" alt="" ><div class="card-body"><h3 data-i18n="card_ameloblastoma">Ameloblastoma</h3><p data-i18n="card_ameloblastoma_d">Top of the left lower jaw removed with four teeth; a plate keeps the thin edge strong.</p></div></a>
+      <a href="/head-neck/okc/"><img src="/assets/renders/head-neck-okc.webp" width="800" height="600" loading="lazy" alt="" ><div class="card-body"><h3 data-i18n="card_okc">Keratocyst</h3><p data-i18n="card_okc_d">Sac at two root tips removed and the bone wall shaved; eight ways to treat it, with how often each comes back.</p></div></a>
+      <a href="/head-neck/mec/"><img src="/assets/renders/head-neck-mec.webp" width="800" height="600" loading="lazy" alt="" ><div class="card-body"><h3 data-i18n="card_mec">Cancer of a small spit gland in the roof of the mouth</h3><p data-i18n="card_mec_d">Lump removed with a cuff of lining; bone kept; healed under a cover plate.</p></div></a>
+    </div>
+  </section>
+
+  <section id="typical">
+  <h2 data-i18n="typicalH">Two more palate models</h2>
+  <p data-i18n="typicalP">These two show a typical case built from published guidance, not one patient.</p>
   <p class="group-label" data-i18n="groupPalate">Palate</p>
   <div class="cases" role="group" aria-label="Palate cases" data-i18n-aria="groupPalate">
-    <button type="button" data-case="pa" aria-pressed="false" data-i18n="c_pa">Pleomorphic adenoma</button>
-    <button type="button" data-case="mec" aria-pressed="false" data-i18n="c_mec">Mucoepidermoid carcinoma</button>
+    <button type="button" data-case="pa" aria-pressed="true" data-i18n="c_pa">Pleomorphic adenoma</button>
     <button type="button" data-case="acc" aria-pressed="false" data-i18n="c_acc">Adenoid cystic carcinoma</button>
   </div>
 
@@ -64,6 +71,7 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
   </div>
 
   <section class="case-info" id="info" aria-live="polite"></section>
+  </section>
 
   <section>
     <h2 data-i18n="rulesH">Rules used for every case</h2>
@@ -75,39 +83,20 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
   </section>
 
   <section>
-    <h2 data-i18n="compareH">For clinicians: the six cases side by side</h2>
+    <h2 data-i18n="compareH">For clinicians: the six models side by side</h2>
     <div class="tablewrap"><table>
       <thead data-i18n="thead"><tr><th>Disease</th><th>Operation shown</th><th>Margin in the model</th><th>Teeth removed</th><th>Lining removed</th><th>Gap closed by</th></tr></thead>
       <tbody data-i18n="tbody">
-        <tr><td>Squamous cell carcinoma (cancer)</td><td>Segmental mandibulectomy</td><td>At least 10 mm of bone</td><td>44–47 with the bone; 43 at the cut</td><td>Gum and lining 1–1.5 cm around the tumour</td><td>Fibula flap (shown)</td></tr>
-        <tr><td>Ameloblastoma (benign but invasive)</td><td>Segmental resection</td><td>At least 15 mm of bone</td><td>44–47 with the bone; 43 at the cut</td><td>Gum over the tumour</td><td>Fibula flap (shown)</td></tr>
-        <tr><td>Odontogenic keratocyst (cyst)</td><td>Enucleation and peripheral ostectomy</td><td>1.5 mm of bone shaved</td><td>None (47 kept and checked)</td><td>Only where the cyst breaks through</td><td>Heals on its own</td></tr>
+        <tr><td>Squamous cell carcinoma (cancer)</td><td>Segmental mandibulectomy, right condyle to 31/32 (from the case X-ray)</td><td>About 1 cm at the front cut (8.5 mm in the model)</td><td>41–47 and 31</td><td>Gum and lining around the tumour</td><td>Fibula flap in 3 pieces (shown)</td></tr>
+        <tr><td>Ameloblastoma (not cancer, but invasive)</td><td>Rim (marginal) resection 32–35</td><td>Not reported; lower edge kept, about 6 mm high</td><td>32–35</td><td>Gum over the growth</td><td>Plate along the lower edge (shown)</td></tr>
+        <tr><td>Odontogenic keratocyst (cyst)</td><td>Enucleation, peripheral ostectomy, apicectomy of 34 and 35</td><td>1.5 mm of bone shaved</td><td>None (root tips of 34 and 35 cut)</td><td>Only at the window</td><td>PRF; heals on its own</td></tr>
+        <tr><td>Mucoepidermoid carcinoma, low grade</td><td>Wide local excision, bone kept</td><td>5 mm cuff of lining; deep margin is the periosteum</td><td>None</td><td>Palate lining and periosteum</td><td>Cover plate and dressing; heals on its own (shown)</td></tr>
         <tr><td>Pleomorphic adenoma (benign)</td><td>Wide local excision</td><td>Cuff of normal lining plus periosteum</td><td>None</td><td>Palate lining and periosteum</td><td>Heals, or a local flap</td></tr>
-        <tr><td>Mucoepidermoid carcinoma</td><td>Low (infrastructure) maxillectomy</td><td>At least 10 mm</td><td>15–17 with the bone; 14 at the cut</td><td>Palate, gum and sinus floor</td><td>Obturator (shown) or flap</td></tr>
         <tr><td>Adenoid cystic carcinoma</td><td>Maxillectomy with the pterygoid plates</td><td>At least 10 mm; 20 mm upwards along the nerve</td><td>16–17 with the bone; 15 at the cut</td><td>Palate, gum and sinus floor</td><td>Free flap (shown) or obturator</td></tr>
       </tbody>
     </table></div>
   </section>
 
-  <section id="clinical-images">
-    <h2 data-i18n="clinH">Real X-rays and scans</h2>
-    <p class="clinical-note" data-i18n="clinNote">These images are from real patients. Their authors published them openly, with the patient's consent where shown. Each image keeps its own licence, given under it; it is not covered by the model licence. The models show one typical case; real cases vary in size and place.</p>
-    <figure class="clin-fig" id="img-1">
-      <img src="/images/clinical/head-neck/opg-ameloblastoma-before.jpg" width="750" height="355" loading="lazy" alt="Large X-ray of all the teeth. An arrow points to a dark area with several bubbles in the lower jaw, between the left canine and the first premolar." data-i18n-alt="clin1Alt">
-      <figcaption><span data-i18n="clin1"><b>Image 1. Ameloblastoma before surgery.</b> A large X-ray of all the teeth (OPG) of a man aged 32. The arrow shows a dark, bubbly patch in the lower jaw. It sits between the left canine and the first premolar. The model shows one further back on the right. Real ones vary in size and place.</span>
-        <span class="credit">Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441, Figure 1. <a href="https://doi.org/10.7759/cureus.104441">doi.org/10.7759/cureus.104441</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none.</span></figcaption>
-    </figure>
-    <figure class="clin-fig" id="img-2">
-      <img src="/images/clinical/head-neck/opg-ameloblastoma-after-resection.jpg" width="750" height="399" loading="lazy" alt="Large X-ray of the same man after surgery. A metal plate held by screws runs along the lower edge of the left lower jaw." data-i18n-alt="clin2Alt">
-      <figcaption><span data-i18n="clin2"><b>Image 2. The same man 3 months after surgery.</b> The surgeons took out the growth but kept the lower edge of the jaw. Less than 1 cm of bone was left, so they added a metal plate to make it strong. This is smaller surgery than in the model. In the model, a full piece of jaw comes out and a leg bone (fibula) fills the gap.</span>
-        <span class="credit">Same article as Image 1, Figure 5. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none.</span></figcaption>
-    </figure>
-    <figure class="clin-fig" id="img-3">
-      <img src="/images/clinical/head-neck/cbct-okc.jpg" width="769" height="347" loading="lazy" alt="Three views from a 3D X-ray scan of the lower jaw showing a dark, smooth-edged area under the left premolar and first molar." data-i18n-alt="clin3Alt">
-      <figcaption><span data-i18n="clin3"><b>Image 3. Odontogenic keratocyst on a 3D X-ray.</b> Three views from a 3D X-ray scan (cone beam CT) before surgery. The dark patch with a smooth edge is the cyst. It lies next to the lower left back teeth (35 and 36). The surgeons took out the cyst and shaved a thin layer of bone around it. The model shows the same method.</span>
-        <span class="credit">Abdelfadil E, Alsharif M, Alsharif AT, Mourad S. Management of a mandibular odontogenic keratocyst with enucleation, piezotome-assisted peripheral ostectomy, and platelet-rich fibrin: a case report. Dent J (Basel). 2025;13(11):536, Figure 1(c–e). <a href="https://doi.org/10.3390/dj13110536">doi.org/10.3390/dj13110536</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: cropped to the scan panels (c–e); clinical photos left out. The article records the patient's written consent.</span></figcaption>
-    </figure>
-  </section>
 
   <section class="disclaimer">
     <h2 data-i18n="aboutH">About these models</h2>
@@ -123,7 +112,7 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
   </details>
   </section>
 
-  <p class="small" data-i18n="version">Version 0.3, 5 November 2026.</p>
+  <p class="small" data-i18n="version">Version 1.0, 6 November 2026.</p>
 </main>
 <script src="i18n.js"></script>
 <script src="theme.js"></script>
