@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 
 // Model picture checks: one fixed view of every model in the collection. CI takes these pictures on
@@ -42,9 +43,12 @@ async function steadyModelViewer(page: Page) {
 }
 
 for (const shot of SHOTS) {
-  test(shot.name, async ({ page }) => {
+  test(shot.name, async ({ page }, testInfo) => {
     await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' });
-    await page.goto(shot.path, { waitUntil: 'load' });
+    const res = await page.goto(shot.path, { waitUntil: 'load' });
+    // A model added by this PR has no page on the base branch, so there is no "before" picture.
+    test.skip(!res?.ok(), `${shot.path} is not on this branch (new model)`);
+    test.skip(testInfo.config.updateSnapshots !== 'all' && !existsSync(testInfo.snapshotPath(`${shot.name}.png`)), 'no base-branch picture to compare (new model)');
     let target;
     if (shot.kind === 'model-viewer') {
       await steadyModelViewer(page);
