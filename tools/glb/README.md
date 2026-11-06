@@ -6,6 +6,8 @@ Shared steps for every web model on the site.
 | --- | --- | --- |
 | `finish.mjs` | Last step of a model build: dedup, prune, weld, Draco-compress, then validate. Used by every `tools/*/finish*.py` and `finish.sh`. | `node tools/glb/finish.mjs build/*.glb --out public/<model>/models` |
 | `drop-fragments.mjs` | Removes tiny loose components (1 to 8 triangle slivers left by decimation and booleans) from every mesh, keeping materials and nodes, then re-finishes. Used on the head and neck case models on 6 Nov 2026 (546 slivers across 6 files). | `node tools/glb/drop-fragments.mjs in.glb --out out.glb [--min-faces 16] [--dry-run]` |
+| `decode.mjs` | Writes an uncompressed copy of a Draco GLB, for Python tools (trimesh cannot read Draco). | `node tools/glb/decode.mjs in.glb out.glb` |
+| `replace-meshes.mjs` | Swaps named meshes in a finished GLB for meshes from other GLBs (and can drop nodes), keeping every other node, material and animation, then re-finishes. Used by `tools/head-neck/replate.py`. | `node tools/glb/replace-meshes.mjs target.glb --set plate=plate.glb --set screws=screws.glb [--drop node] --out out.glb` |
 | `validate.mjs` | Khronos glTF-Validator on every GLB under `public/`, with a 6 MB limit. Runs in CI (`models-and-licences.yml`). | `pnpm check:glb` |
 
 Both use the glTF-Transform and validator versions pinned in `package.json`, so a build no longer fetches `@gltf-transform/cli` through `npx` at run time.

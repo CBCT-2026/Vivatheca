@@ -349,6 +349,89 @@ export const videos: Record<string, ModelVideo> = {
    ]
   }
  },
+ "fixation": {
+  "sources": [
+   "Champy M, Loddé JP, Schmitt R, Jaeger JH, Muster D. Mandibular osteosynthesis by miniature screwed plates via a buccal approach. J Maxillofac Surg. 1978;6(1):14-21. https://doi.org/10.1016/s0301-0503(78)80062-9",
+   "DePuy Synthes. MatrixMANDIBLE Preformed Reconstruction Plates: instructions for use. SE_530350 AE, 10/2015. https://ifu.depuysynthes.com/binary/org/DPY_SYN_EMEA/ifu_documents/CMF/MatrixMANDIBLE_Preformed_Reconstruction_Plates%20se_530350_AE_eng.pdf",
+   "AO Foundation Technical Commission. Locking Reconstruction Plate 2.4 and Mini Plate 2.0 System. 2014. https://www.aofoundation.org/approved/approvedsolutionsfolder/2014/locking-reconstruction-plate-24-and-mini-plate-20-system"
+  ],
+  "en": {
+   "title": "How surgeons hold bone with plates and screws",
+   "seconds": 26,
+   "lines": [
+    {
+     "text": "After a jaw is cut in surgery, the pieces must stay still while the bone heals.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "The surgeon lines up the pieces. Then they bend a thin titanium plate to fit the bone.",
+     "cite": [
+      2,
+      3
+     ]
+    },
+    {
+     "text": "A drill makes a hole straight through the plate, with cool water running over it.",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "Short screws hold the plate, two on each side of the cut.",
+     "cite": [
+      1,
+      2
+     ]
+    },
+    {
+     "text": "They go only into the hard outer layer of bone, away from the tooth roots and the nerve.",
+     "cite": [
+      1
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "プレートとスクリューで{骨|ほね}を{固定|こてい}する",
+   "seconds": 29,
+   "lines": [
+    {
+     "text": "{手術|しゅじゅつ}で{切|き}った{顎|あご}の{骨|ほね}は、{治|なお}るまで{動|うご}かないようにします。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{骨|ほね}を{合|あ}わせ、{薄|うす}いチタンのプレートを{骨|ほね}の{形|かたち}に{曲|ま}げます。",
+     "cite": [
+      2,
+      3
+     ]
+    },
+    {
+     "text": "{水|みず}で{冷|ひ}やしながら、プレートの{穴|あな}からまっすぐ{穴|あな}を{開|あ}けます。",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "{切|き}り{口|くち}の{両側|りょうがわ}に2{本|ほん}ずつ、{短|みじか}いスクリューで{留|と}めます。",
+     "cite": [
+      1,
+      2
+     ]
+    },
+    {
+     "text": "スクリューは{骨|ほね}の{硬|かた}い{外側|そとがわ}だけに{入|はい}り、{歯|は}の{根|ね}や{神経|しんけい}を{避|さ}けます。",
+     "cite": [
+      1
+     ]
+    }
+   ]
+  }
+ },
  "head-neck-ameloblastoma": {
   "sources": [
    "Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. https://doi.org/10.7759/cureus.104441",
