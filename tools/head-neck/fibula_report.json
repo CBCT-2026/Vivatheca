@@ -1,0 +1,48 @@
+{
+ "corners_mm": {
+  "condyle_end": [
+   -46.93,
+   1578.23,
+   16.08
+  ],
+  "angle": [
+   -41.53,
+   1539.69,
+   15.9
+  ],
+  "parasymphysis": [
+   -19.65,
+   1505.95,
+   63.46
+  ],
+  "anterior_cut": [
+   5.04,
+   1503.25,
+   80.8
+  ]
+ },
+ "segment_lengths_mm": [
+  38.9,
+  62.3,
+  30.3
+ ],
+ "bend_angles_deg": [
+  54.4,
+  39.5
+ ],
+ "gap_mm": 0.6,
+ "pieces_faces": [
+  4304,
+  7320,
+  3372
+ ],
+ "pieces_watertight": [
+  true,
+  false,
+  true
+ ],
+ "fit_radius_mm_mean_std": [
+  6.84,
+  2.08
+ ]
+}

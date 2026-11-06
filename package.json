@@ -26,6 +26,7 @@
     "react-dom": "19.2.6"
   },
   "devDependencies": {
+    "@annotorious/openseadragon": "^3.9.5",
     "@axe-core/playwright": "^4.14.0",
     "@cloudflare/vite-plugin": "1.37.1",
     "@cloudflare/workers-types": "4.20260515.1",
@@ -44,6 +45,7 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
     "gltf-validator": "2.0.0-dev.3.10",
+    "openseadragon": "^6.1.1",
     "react-server-dom-webpack": "19.2.6",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",

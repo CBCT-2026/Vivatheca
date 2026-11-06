@@ -17,6 +17,7 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 <link rel="stylesheet" href="/head-neck/style.css">
 <link rel="stylesheet" href="/head-neck/condition.css">
 <link rel="stylesheet" href="/site-header.css">
+<link rel="stylesheet" href="/clinical-zoom.css">
 </head>
 <body>
 <header class="bar">
@@ -75,12 +76,12 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 <h2 data-i18n="clinH">Real photos, X-rays and scans from this case</h2>
 <p class="clinical-note" data-i18n="clinNote">These images are from the real patient. The authors published them openly. Each image keeps its own licence, given under it; it is not covered by the model licence.</p>
 <figure class="clin-fig" id="img-1">
-  <img src="/images/clinical/head-neck/scc/scc-before-surgery.jpg" width="750" height="510" loading="lazy" alt="Five panels: two photos inside the mouth showing swollen gum beside the right lower back teeth and a patch inside the right front gum, two microscope pictures, and a scan slice with a bright spot in the right side of the jaw." data-i18n-alt="img1Alt">
+  <img src="/images/clinical/head-neck/scc/scc-before-surgery.jpg" width="750" height="510" loading="lazy" alt="Five panels: two photos inside the mouth showing swollen gum beside the right lower back teeth and a patch inside the right front gum, two microscope pictures, and a scan slice with a bright spot in the right side of the jaw." data-i18n-alt="img1Alt" data-labels="/images/clinical/head-neck/scc/scc-before-surgery.labels.json">
   <figcaption><span data-i18n="img1"><b>Image 1. The cancer before surgery.</b> (A) Swollen gum beside the right lower back teeth (45 to 47). (B) A second patch on the inner side of the gum between 42 and 43. (C, D) Tissue samples under a microscope. (E) A scan (PET) shows the cancer in the right side of the jaw bone.</span>
     <span class="credit">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077, Figure 2. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The journal states that consent was obtained or waived.</span></figcaption>
 </figure>
 <figure class="clin-fig" id="img-2">
-  <img src="/images/clinical/head-neck/scc/scc-after-fibula.jpg" width="750" height="650" loading="lazy" alt="An X-ray of the whole mouth after surgery: a straight strip of leg bone runs up the right side of the jaw and along to the front teeth, held by small metal plates. Below, two photos inside the mouth nine months later." data-i18n-alt="img2Alt">
+  <img src="/images/clinical/head-neck/scc/scc-after-fibula.jpg" width="750" height="650" loading="lazy" alt="An X-ray of the whole mouth after surgery: a straight strip of leg bone runs up the right side of the jaw and along to the front teeth, held by small metal plates. Below, two photos inside the mouth nine months later." data-i18n-alt="img2Alt" data-labels="/images/clinical/head-neck/scc/scc-after-fibula.labels.json">
   <figcaption><span data-i18n="img2"><b>Image 2. After surgery.</b> (A) An X-ray of the whole mouth one month after surgery. The leg bone runs from the right jaw joint along the jaw to the front teeth, in three pieces held by small metal plates. The 3D model copies this. (B, C) Inside the mouth nine months later.</span>
     <span class="credit">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077, Figure 3. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The journal states that consent was obtained or waived.</span></figcaption>
 </figure>
@@ -105,7 +106,7 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 <ul>
   <li data-i18n="cl1">Case: gingival proliferative verrucous leukoplakia with malignant transformation. SCC of the right buccal gingiva 45–47 with a second focus on the lingual gingiva 42–43; PET showed mandibular invasion; right submandibular node. Right segmental mandibulectomy, left fibula free flap, adjuvant radiotherapy.<sup class="cite"><a href="#ref-1">1</a></sup></li>
   <li data-i18n="cl2">Extent is taken from the one-month OPG (Image 2A), because the article gives no operative detail. The fibula runs from the right condylar region to the left incisor region in three segments: ramus, body and parasymphysis. There is no fixation at the upper end, which suggests disarticulation with the condyle removed; we modelled it that way. Brown class IIc.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></li>
-  <li data-i18n="cl3">Model: cut between 31 and 32; teeth removed 41–47 and 31. Specimen 21.7 cm³; 106 mm from condyle to the anterior cut. Fibula segments 21.7, 56.7 and 41.2 mm. Miniplates as on the OPG: two at the native bone junction, one between the anterior and body segments, an L-plate at the angle (25 screws).</li>
+  <li data-i18n="cl3">Model: cut between 31 and 32; teeth removed 41–47 and 31. Specimen 21.7 cm³; 106 mm from condyle to the anterior cut. Fibula in three segments (ramus 39 mm, body 62 mm, parasymphysis 30 mm, measured along the segment axes) joined by closing-wedge osteotomies: at each bend (54° at the angle, 40° at the parasymphysis) the cut faces meet on the plane that bisects the bend, the way the fibula is shaped in the standard technique and in open-source virtual planning software; the model keeps a 0.6 mm gap so the cuts stay visible.<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-6">6</a></sup> Miniplates as on the OPG: two at the native bone junction, one between the anterior and body segments, an L-plate at the angle (25 screws).</li>
   <li data-i18n="cl4">Our choices: tumour 24 × 14 × 18 mm at 45–47 and 10 × 6 × 8 mm at 42–43 (sizes not published). The model leaves 8.5 mm of bone between the 42–43 focus and the anterior cut. The case used a left fibula; the model uses a right fibula mesh.</li>
 </ul>
 </section>
@@ -126,6 +127,7 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
     <li id="ref-3">Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30. <a href="https://doi.org/10.1016/S1470-2045(15)00310-1">doi.org/10.1016/S1470-2045(15)00310-1</a></li>
     <li id="ref-4">Soutar DS, Scheker LR, Tanner NS, McGregor IA. The radial forearm flap: a versatile method for intra-oral reconstruction. Br J Plast Surg. 1983;36(1):1-8. <a href="https://doi.org/10.1016/0007-1226(83)90002-4">doi.org/10.1016/0007-1226(83)90002-4</a></li>
     <li id="ref-5">Soutar DS, McGregor IA. The radial forearm flap in intraoral reconstruction: the experience of 60 consecutive cases. Plast Reconstr Surg. 1986;78(1):1-8. <a href="https://doi.org/10.1097/00006534-198607000-00001">doi.org/10.1097/00006534-198607000-00001</a></li>
+    <li id="ref-6">Maisi S, Dominguez M, Gilong N, et al. In-house virtual surgical planning for mandibular reconstruction with fibula free flap: case series and literature review. Ann 3D Print Med. 2023;10:100109. Software: Slicer BoneReconstructionPlanner (open source, BSD-3). <a href="https://doi.org/10.1016/j.stlm.2023.100109">doi.org/10.1016/j.stlm.2023.100109</a></li>
   </ol>
 </details>
 </section>
@@ -144,5 +146,6 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 <script src="/model-page.js"></script>
 <script src="/fullscreen.js"></script>
 <script src="/model-parts.js"></script>
+<script src="/clinical-zoom.js"></script>
 </body>
 </html>

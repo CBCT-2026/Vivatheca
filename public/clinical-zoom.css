@@ -1,0 +1,31 @@
+/* Zoomable clinical images with labels (clinical-zoom.js). Uses the site's theme tokens. */
+.cz-open { display: inline-flex; align-items: center; gap: .4rem; margin-top: .5rem; min-height: 40px; padding: .35rem .9rem; border: 1px solid var(--line, #cfe1e7); border-radius: 999px; background: var(--surface, #fff); color: var(--heading, #00244d); font: inherit; font-size: .9rem; font-weight: 700; cursor: pointer; }
+.cz-open::before { content: ''; width: 16px; height: 16px; background: currentColor; -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14zm2.5-4H10v2H9v-2H7V9h2V7h1v2h2z'/></svg>") center / contain no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14zm2.5-4H10v2H9v-2H7V9h2V7h1v2h2z'/></svg>") center / contain no-repeat; }
+.cz-open:hover { border-color: var(--accent, #007f8b); }
+
+dialog.clinical-zoom { width: min(96vw, 1200px); height: min(94vh, 820px); padding: 0; border: 0; border-radius: 14px; background: var(--surface, #fff); color: var(--ink, #06233f); box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
+dialog.clinical-zoom::backdrop { background: rgba(0, 20, 40, .6); }
+.cz-head { display: flex; align-items: center; gap: 1rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line, #cfe1e7); }
+.cz-title { flex: 1; font-size: 1rem; }
+.cz-toggle { display: inline-flex; align-items: center; gap: .4rem; font-size: .9rem; cursor: pointer; }
+.cz-toggle input { width: 18px; height: 18px; accent-color: var(--accent, #007f8b); }
+.cz-close, .cz-zoom button { min-height: 40px; min-width: 40px; padding: .3rem .8rem; border: 1px solid var(--line, #cfe1e7); border-radius: 8px; background: var(--surface, #fff); color: var(--heading, #00244d); font: inherit; font-weight: 700; cursor: pointer; }
+.cz-body { display: grid; grid-template-columns: 1fr 300px; height: calc(100% - 58px); }
+.cz-viewer { background: #000; position: relative; }
+.cz-side { overflow: auto; padding: .9rem 1rem; border-left: 1px solid var(--line, #cfe1e7); font-size: .92rem; }
+.cz-side h3 { margin: 0 0 .5rem; font-size: 1rem; }
+.cz-list { margin: 0; padding: 0; list-style: none; }
+.cz-list li { margin-bottom: .55rem; }
+.cz-list button { display: flex; gap: .5rem; align-items: flex-start; width: 100%; padding: .4rem .5rem; border: 1px solid transparent; border-radius: 8px; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.cz-list button:hover, .cz-list li.active button { border-color: var(--accent, #007f8b); background: var(--surface-alt, #eefcfc); }
+.cz-list small { display: block; margin: .1rem 0 0 2.3rem; color: var(--muted, #4d6378); font-size: .78rem; }
+.cz-badge { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 22px; height: 22px; border-radius: 50%; background: #14c9d7; color: #001a37; font-size: .78rem; font-weight: 800; }
+.cz-viewer .cz-badge { box-shadow: 0 0 0 2px #001a37; pointer-events: none; }
+.cz-hint { margin: .8rem 0; color: var(--muted, #4d6378); font-size: .82rem; }
+.cz-zoom { display: flex; gap: .4rem; }
+@media (max-width: 760px) {
+  dialog.clinical-zoom { width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; border-radius: 0; }
+  .cz-body { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+  .cz-side { max-height: 38vh; border-left: 0; border-top: 1px solid var(--line, #cfe1e7); }
+  .cz-head { flex-wrap: wrap; }
+}
