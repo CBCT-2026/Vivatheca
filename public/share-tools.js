@@ -57,6 +57,8 @@
     fmtApa: ['Cite: APA', '{引用|いんよう}：APA', 'Trích dẫn: APA'],
     fmtBibtex: ['BibTeX', 'BibTeX', 'BibTeX'],
     fmtRis: ['RIS (EndNote, Zotero)', 'RIS（EndNote・Zotero）', 'RIS (EndNote, Zotero)'],
+    codesHeading: ['Subject headings and anatomy codes', '{件名|けんめい}{標目|ひょうもく}と{解剖|かいぼう}コード', 'Tiêu đề chủ đề và mã giải phẫu'],
+    codesHelp: ['For literature searches and catalogues: MeSH (US National Library of Medicine) and UBERON anatomy IDs.', '{文献|ぶんけん}{検索|けんさく}や{目録|もくろく}に{使|つか}えます。MeSH（{米国|べいこく}{国立|こくりつ}{医学|いがく}{図書館|としょかん}）とUBERONの{解剖|かいぼう}IDです。', 'Dùng cho tìm kiếm tài liệu và danh mục: MeSH (Thư viện Y khoa Quốc gia Hoa Kỳ) và mã giải phẫu UBERON.'],
     citeHelp: ['For papers, theses and course notes: cite the version you used.', '{論文|ろんぶん}・{授業|じゅぎょう}{資料|しりょう}では、{使|つか}ったバージョンを{引用|いんよう}してください。', 'Cho bài báo, luận văn và tài liệu học tập: hãy trích dẫn phiên bản bạn đã dùng.'],
     copy: ['Copy', 'コピー', 'Sao chép'],
     copied: ['Copied.', 'コピーしました。', 'Đã sao chép.'],
@@ -394,6 +396,15 @@
     };
   }
 
+  // MeSH subject headings and UBERON anatomy IDs (app/models/semantics.ts), linked to their records.
+  function codesHtml(codes) {
+    if (!codes || !(codes.subjects.length + codes.anatomy.length)) return '';
+    const link = (href, text) => '<a href="' + href + '" target="_blank" rel="noreferrer">' + esc(text) + '</a>';
+    const mesh = codes.subjects.map((c) => link('https://meshb.nlm.nih.gov/record/ui?ui=' + c.id, c.label + ' (' + c.id + ')')).join('; ');
+    const anat = codes.anatomy.map((c) => link('http://purl.obolibrary.org/obo/' + c.id.replace(':', '_'), c.label + ' (' + c.id + ')')).join('; ');
+    return '<p class="vt-codes"><strong>' + say('codesHeading') + '</strong><br>' + say('codesHelp') + '<br><span lang="en">MeSH: ' + mesh + '<br>UBERON: ' + anat + '</span></p>';
+  }
+
   // "Cite this model": one record, four styles. The author is Vivatheca (organisation); the version and
   // date make the citation point at a fixed model. Accessed date is today, as Vancouver and APA ask.
   function citations(m, title, url) {
@@ -526,7 +537,7 @@
         const draw = () => {
           cBox.innerHTML = '<p><strong>' + say('creditHeading') + '</strong><br>' + say('creditHelp') + ' ' + say('citeHelp') + '</p>' +
             '<div class="vt-tabs" role="group">' + [['plain', 'fmtPlain'], ['html', 'fmtHtml'], ['short', 'fmtShort'], ['vancouver', 'fmtVancouver'], ['apa', 'fmtApa'], ['bibtex', 'fmtBibtex'], ['ris', 'fmtRis']].map(([k, w]) => '<button type="button" data-fmt="' + k + '" aria-pressed="' + (fmt === k) + '">' + say(w) + '</button>').join('') + '</div>' +
-            '<textarea readonly aria-label="' + esc(sayPlain('creditHeading')) + '">' + esc(c[fmt]) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>';
+            '<textarea readonly aria-label="' + esc(sayPlain('creditHeading')) + '">' + esc(c[fmt]) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>' + codesHtml(m.model.codes);
           cBox.querySelectorAll('[data-fmt]').forEach((x) => { x.onclick = () => { fmt = x.dataset.fmt; draw(); cBox.querySelector('[data-fmt="' + fmt + '"]').focus(); }; });
           cBox.querySelector('.vt-copy').onclick = async () => { const ok = await copyText(c[fmt]); if (!ok) cBox.querySelector('textarea').select(); tell(ok ? 'copied' : 'linkShown'); count('credit'); };
         };

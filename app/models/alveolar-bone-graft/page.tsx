@@ -1,4 +1,6 @@
 import { AfterHydration } from '../../script-mount';
+import { JsonLd } from '../json-ld';
+import { modelJsonLd } from '../jsonld';
 import type { Metadata } from 'next';
 import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, licence } from '../catalogue';
@@ -31,6 +33,7 @@ export default async function AlveolarBoneGraftPage() {
   const a = t.abg;
   return (
     <>
+      <JsonLd data={modelJsonLd('alveolar-bone-graft')} />
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader current="/models" />
       <main id="main-content" className="info-page model-page">

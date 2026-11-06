@@ -1,7 +1,8 @@
 name: Link and DOI check
 
 # Free weekly check that cited sources and other links still work (lychee), and that every cited DOI
-# exists and is not retracted (Crossref, tools/rules/dois.mjs).
+# exists and is not retracted (Crossref, tools/rules/dois.mjs), and that the MeSH and UBERON codes in
+# app/models/semantics.ts still match (tools/jsonld/build.mjs --verify).
 # Not run on every PR, because outside sites fail now and then; a broken link opens or updates an issue.
 on:
   schedule:
@@ -36,12 +37,16 @@ jobs:
         id: dois
         continue-on-error: true
         run: node tools/rules/dois.mjs --out doi-report.md
+      - name: Check MeSH and UBERON codes (still exist, labels unchanged)
+        id: codes
+        continue-on-error: true
+        run: node tools/jsonld/build.mjs --verify > codes-report.txt
       - name: Open or update one issue when links or DOIs need fixing
-        if: steps.lychee.outputs.exit_code != 0 || steps.dois.outcome == 'failure'
+        if: steps.lychee.outputs.exit_code != 0 || steps.dois.outcome == 'failure' || steps.codes.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           title="Broken links or citations found by the weekly check"
-          { cat doi-report.md 2>/dev/null; echo; cat lychee/out.md 2>/dev/null; } > body.md
+          { cat doi-report.md 2>/dev/null; echo; grep FAIL codes-report.txt 2>/dev/null; echo; cat lychee/out.md 2>/dev/null; } > body.md
           n=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
           if [ -n "$n" ]; then gh issue edit "$n" --body-file body.md; else gh issue create --title "$title" --body-file body.md; fi

@@ -1,4 +1,6 @@
 import { AfterHydration } from '../../script-mount';
+import { JsonLd } from '../json-ld';
+import { modelJsonLd } from '../jsonld';
 import type { Metadata } from 'next';
 import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, formatDate, licence, wisdomTooth } from '../catalogue';
@@ -33,6 +35,7 @@ export default async function WisdomToothPage() {
   const reviewNote = <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>;
   return (
     <>
+      <JsonLd data={modelJsonLd('impacted-wisdom-tooth')} />
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader current="/models" />
       <main id="main-content" className="info-page model-page">

@@ -2,6 +2,7 @@
 // title, version, page address, licence, review status and the model disclaimer, in each language.
 // One source: app/models/catalogue.ts, the dictionaries and app/disclaimer-text.ts.
 import { catalogue, licence } from '../../models/catalogue';
+import { modelCodes } from '../../models/semantics';
 import { dictionaries } from '../../i18n/dictionaries';
 import { disclaimerHref } from '../../disclaimer-text';
 import { listedLocales as locales } from '../../i18n/config';
@@ -13,6 +14,7 @@ export function GET() {
     image: m.image,
     version: m.version,
     updated: m.updated,
+    codes: modelCodes[m.slug] ?? { subjects: [], anatomy: [] },
     title: Object.fromEntries(locales.map((l) => [l, (dictionaries[l].library.items as Record<string, { title: string }>)[m.slug]?.title ?? m.slug])),
   }));
   const body = {

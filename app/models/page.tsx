@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { JsonLd } from './json-ld';
+import { collectionJsonLd } from './jsonld';
 import { PageHeader, SiteFooter } from '../site-chrome';
 import { catalogue, licence } from './catalogue';
 import { disclaimerHref } from '../disclaimer-text';
@@ -28,6 +30,7 @@ export default async function ModelsPage() {
   const l = t.library;
   return (
     <>
+      <JsonLd data={collectionJsonLd()} />
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader current="/models" />
       <main id="main-content" className="info-page">
