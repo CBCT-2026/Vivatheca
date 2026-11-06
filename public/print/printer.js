@@ -19,15 +19,22 @@
   const xml = (s) => esc(s);
 
   // ---- colours by part name (shared colour standard: white teeth, yellow nerve; development: blue baby, yellow adult teeth) ----
-  const COLOURS = [
-    [/baby-teeth/, '#5B8DEF'], [/adult-teeth/, '#F2C94C'],
-    [/decay-part|decay$/, '#5A3A22'], [/filling|prepared-base/, '#7FA7C4'], [/crown-steel|steel/, '#B8BEC6'], [/cement/, '#7FB8A6'],
-    [/crown-crown/, '#D9D6CF'], [/braces|implant|option-(bridge|denture)/, '#9AA3AD'], [/option-none/, '#E89A9A'],
-    [/nerve/, '#F2C94C'], [/clot|tract/, '#8B1E2D'], [/fat/, '#F2D16B'], [/lining/, '#D98C8C'], [/flap|gum|soft-tissue/, '#E89A9A'],
-    [/graft/, '#C9A46B'], [/bone/, '#E3D3B5'], [/teeth|tooth|molar|canine|crown/, '#F3EEE4'],
+  // Values come from the shared colour tokens (tokens/model.json, built to /tokens/colours.js by `pnpm tokens`).
+  let M = {};
+  const loadTokens = () => new Promise((res) => {
+    if (window.VT_COLOURS) return res();
+    const sc = document.createElement('script'); sc.src = '/tokens/colours.js';
+    sc.onload = sc.onerror = () => res(); document.head.appendChild(sc);
+  }).then(() => { M = (window.VT_COLOURS && window.VT_COLOURS.model) || {}; });
+  const COLOURS = () => [
+    [/baby-teeth/, M.babyTeeth], [/adult-teeth/, M.adultTeeth],
+    [/decay-part|decay$/, M.decay], [/filling|prepared-base/, M.filling], [/crown-steel|steel/, M.steel], [/cement/, M.cement],
+    [/crown-crown/, M.crown], [/braces|implant|option-(bridge|denture)/, M.hardware], [/option-none/, M.gum],
+    [/nerve/, M.nerve], [/clot|tract/, M.clot], [/fat/, M.fat], [/lining/, M.lining], [/flap|gum|soft-tissue/, M.gum],
+    [/graft/, M.graft], [/bone/, M.bone], [/teeth|tooth|molar|canine|crown/, M.tooth],
   ];
-  const colourOf = (name) => { const n = name.replace(/\.stl$/i, ''); const c = COLOURS.find(([re]) => re.test(n)); return c ? c[1] : '#E3D3B5'; };
-  const BASE_COLOUR = '#00244D', LABEL_COLOUR = '#FFFFFF';
+  const colourOf = (name) => { const n = name.replace(/\.stl$/i, ''); const c = COLOURS().find(([re]) => re.test(n)); return (c && c[1]) || M.bone || '#E3D3B5'; };
+  const baseColour = () => M.printBase || '#00244D', labelColour = () => M.printLabel || '#FFFFFF';
 
   // ---- zip reading (stored or deflated entries) ----
   async function inflate(bytes) {
@@ -198,10 +205,10 @@
         const lower = roundedRect(x0, y0, x1, y1, r), rad = md / 2 + 0.15, cyH = (y0 + y1) / 2 + strip / 2;
         const xs = (x1 - x0) > 4 * rad + 16 ? [x0 + m + rad + 3, x1 - m - rad - 3] : [0];
         xs.forEach((x) => { const h = new THREE.Path(); h.absarc(x, cyH, rad, 0, Math.PI * 2, true); lower.holes.push(h); });
-        parts.push({ name: 'base (magnet layer)', colour: BASE_COLOUR, pos: extrude(lower, bottom, 0) });
-        parts.push({ name: 'base', colour: BASE_COLOUR, pos: extrude(roundedRect(x0, y0, x1, y1, r), T0 - bottom, bottom) });
+        parts.push({ name: 'base (magnet layer)', colour: baseColour(), pos: extrude(lower, bottom, 0) });
+        parts.push({ name: 'base', colour: baseColour(), pos: extrude(roundedRect(x0, y0, x1, y1, r), T0 - bottom, bottom) });
       } else {
-        parts.push({ name: 'base', colour: BASE_COLOUR, pos: extrude(roundedRect(x0, y0, x1, y1, r), T0, 0) });
+        parts.push({ name: 'base', colour: baseColour(), pos: extrude(roundedRect(x0, y0, x1, y1, r), T0, 0) });
       }
       const text = opts.label.replace(/[^\x20-\x7e]/g, '').trim().slice(0, 32);
       if (text) {
@@ -213,7 +220,7 @@
         if (w > (x1 - x0) - 8) { size *= ((x1 - x0) - 8) / w; g = new THREE.TextGeometry(text, { font: f, size, height: 1, curveSegments: 4, bevelEnabled: false }); g.computeBoundingBox(); }
         const bb = g.boundingBox;
         g.translate(-(bb.min.x + bb.max.x) / 2, y0 + strip / 2 - (bb.min.y + bb.max.y) / 2, T0 - 0.2);
-        parts.push({ name: 'label', colour: LABEL_COLOUR, pos: flat(g) });
+        parts.push({ name: 'label', colour: labelColour(), pos: flat(g) });
       }
     }
     return parts;
@@ -238,7 +245,7 @@
   }
 
   function renderLegend() {
-    const cols = [...new Set(current.parts.filter((p) => !opts.off.has(p.name)).map((p) => p.colour).concat(opts.base ? [BASE_COLOUR] : []).concat(opts.base && opts.label.trim() ? [LABEL_COLOUR] : []))];
+    const cols = [...new Set(current.parts.filter((p) => !opts.off.has(p.name)).map((p) => p.colour).concat(opts.base ? [baseColour()] : []).concat(opts.base && opts.label.trim() ? [labelColour()] : []))];
     root.querySelector('.pr-parts').innerHTML = current.parts.map((p) => '<label class="pr-check"><input type="checkbox" data-part="' + esc(p.name) + '"' + (opts.off.has(p.name) ? '' : ' checked') + '> <span class="pr-dot" style="background:' + p.colour + '" aria-hidden="true"></span>' + esc(p.name.replace(/\.stl$/i, '')) + (opts.off.has(p.name) ? '' : ' <small>(' + esc(fill(plain(T.slot), { n: cols.indexOf(p.colour) + 1 })) + ')</small>') + '</label>').join('');
     root.querySelectorAll('[data-part]').forEach((c) => c.addEventListener('change', () => { if (c.checked) opts.off.delete(c.dataset.part); else opts.off.add(c.dataset.part); refresh(); }));
     const life = (current.scale * opts.pct / 100);
@@ -282,6 +289,7 @@
   }
 
   async function start() {
+    await loadTokens();
     root.innerHTML = '';
     root.appendChild(el('<div class="pr-grid">' +
       '<div class="pr-view" aria-busy="false"></div>' +

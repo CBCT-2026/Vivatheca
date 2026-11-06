@@ -1415,6 +1415,7 @@ const en = {
       'Write for patients: short sentences, everyday words first, and risks as “X in 100”. The builder checks this for you.',
       'Cite where your facts come from, and say where the model is simplified.',
       'Never add a patient’s photo or details without their documented consent.',
+      'The templates use two free, easy-to-read fonts: Atkinson Hyperlegible and BIZ UDPGothic (for Japanese). Get them free from Google Fonts. Without them, your computer uses its own font.',
     ],
     handout: 'A4 handout (portrait)',
     slide: 'Slide (16:9)',

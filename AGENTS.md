@@ -87,6 +87,12 @@ Ideas borrowed from other services (write-up: `audits/ideas-from-other-industrie
 
 `app/create/` holds the `/create` builder: `briefs.ts` (model briefs with label names, material types and the system prompt condensed from the patient-education-toolkit skills), `checker.ts` (TypeScript port of the toolkit's deterministic checks), `markdown.ts` (safe Markdown rendering) and `builder.tsx` (UI). `app/api/generate/route.ts` calls Claude (`claude-opus-5-5`) only when the `ANTHROPIC_API_KEY` secret is set; otherwise the builder runs in copy-prompt mode. Keep the AI-limits acknowledgement, the persistent warning banner, the patient-details check and the DRAFT export notice. Never store briefs or drafts on the server. When a new model ships, add its brief (label names exactly as on the model) to `modelBriefs`.
 
+## Colours, fonts and icons (6 Nov 2026)
+
+- **Colour tokens:** `tokens/model.json` (model colour standard: white teeth, yellow nerve, blue baby / yellow adult teeth on development models, hardware grey and the rest) and `tokens/brand.json` (core brand colours) are the single source. `pnpm tokens` (Style Dictionary, `tools/tokens/build.mjs`) builds `public/tokens/colours.js` (`window.VT_COLOURS`, used by `/print`), `app/tokens.generated.ts` and `tools/tokens/colours.py` (hex and linear RGB, used by `tools/recolour_teeth.py`). Change colours in the JSON, never in the built files; CI fails if they are out of date. `app/globals.css` keeps its theme-aware CSS tokens; keep its brand values in step with `tokens/brand.json`.
+- **Readable fonts:** `public/fonts/readable/` holds Atkinson Hyperlegible and BIZ UDPGothic (SIL OFL 1.1, from fontsource). "Save picture" in `public/share-tools.js` draws its credit and disclaimer text with them, and the PPTX templates (`tools/templates/build.py`) name them (falling back to the viewer's own font). Site text stays Manrope.
+- **Icons:** specialty icons on `/models` cards come from Health Icons (CC0) in `public/icons/health/`; set each model's `icon` in `catalogue.ts`. Third-party medical illustrations (Servier Medical Art, Bioicons, NIH BioArt) follow `docs/image-licensing.md` section 7a and go in `assets/illustrations/manifest.json`.
+
 ## Testing Guidelines
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.

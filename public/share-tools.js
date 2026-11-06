@@ -242,6 +242,23 @@
       status: plain(m.reviewStatus[lang]) + ' ' + plain(m.modelDisclaimer[lang]) + ' vivatheca.com' + m.disclaimerHref,
     };
   }
+  // Readable fonts for saved pictures (public/fonts/readable/readable.css, SIL OFL 1.1): Atkinson
+  // Hyperlegible for Latin text and BIZ UDPGothic (universal-design) for Japanese. Loaded on first use.
+  let readableReady = null;
+  function readableFonts(sample) {
+    if (!readableReady) {
+      readableReady = new Promise((res) => {
+        if (doc.querySelector('link[href="/fonts/readable/readable.css"]')) return res();
+        const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/fonts/readable/readable.css';
+        l.onload = l.onerror = () => res(); doc.head.appendChild(l);
+      });
+    }
+    return readableReady.then(() => Promise.all(['400', '700'].flatMap((w) => [
+      doc.fonts.load(w + ' 20px "Atkinson Hyperlegible"', sample),
+      doc.fonts.load(w + ' 20px "BIZ UDPGothic"', sample),
+    ])).catch(() => {}));
+  }
+
   // Draws pictures in a grid (numbered when there are several) with the credit and disclaimer underneath.
   function compose(images, m, numbered) {
     const cols = images.length <= 1 ? 1 : images.length <= 4 ? Math.min(images.length, 2) : 3;
@@ -251,7 +268,7 @@
     const W = Math.round(cell * cols), pad = Math.round(W / 60) + 8;
     const c = doc.createElement('canvas');
     const ctx = c.getContext('2d');
-    const font = (px, bold) => (bold ? '600 ' : '') + px + 'px system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif';
+    const font = (px, bold) => (bold ? '700 ' : '') + px + 'px "Atkinson Hyperlegible", "BIZ UDPGothic", system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif';
     const fs = Math.max(14, Math.round(W / 70));
     ctx.font = font(fs);
     const L = creditLines(m);
@@ -408,7 +425,7 @@
       };
       panel.querySelector('.vt-pic').onclick = async (e) => {
         const b = e.currentTarget; b.disabled = true;
-        try { const img = await captureVisible(group); await download(compose([img], m, false), 'vivatheca-' + slug + '.png'); tell('pictureDone'); count('image'); } catch (err) { tell('failed'); }
+        try { const img = await captureVisible(group); await readableFonts(Object.values(creditLines(m)).join(' ')); await download(compose([img], m, false), 'vivatheca-' + slug + '.png'); tell('pictureDone'); count('image'); } catch (err) { tell('failed'); }
         b.disabled = false;
       };
       if (hasTour) {
@@ -426,6 +443,7 @@
               await sleep(250);
               imgs.push(await captureVisible(group));
             }
+            await readableFonts(Object.values(creditLines(m)).join(' '));
             await download(compose(imgs, m, true), 'vivatheca-' + slug + '-steps.png');
             tell('stepsDone'); count('steps');
           } catch (err) { tell('failed'); }
