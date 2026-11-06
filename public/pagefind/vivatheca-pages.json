@@ -60,20 +60,20 @@
   "ja": "d2002058d807"
  },
  "/models/alveolar-bone-graft": {
-  "en": "911d0c0e7238",
-  "ja": "8f2d9a8ab37a"
+  "en": "82c7fde04234",
+  "ja": "2dcf3460909c"
  },
  "/models/averaged-jaw": {
-  "en": "91e842215b05",
-  "ja": "c49a6a549215"
+  "en": "7468010a9534",
+  "ja": "1f6bf78c5dae"
  },
  "/models/impacted-wisdom-tooth": {
   "en": "372f329480b1",
   "ja": "59849bd127c5"
  },
  "/models": {
-  "en": "b4a8f4280173",
-  "ja": "108f9b2bea04"
+  "en": "b934c103144b",
+  "ja": "c7f87a3b712c"
  },
  "/": {
   "en": "2bb2ae2d980a",
@@ -92,64 +92,64 @@
   "ja": "68aa64ab9385"
  },
  "/review": {
-  "en": "49bfd30042a6",
-  "ja": "44eacc605a5d"
+  "en": "983e5d021f20",
+  "ja": "c8a4d3d48963"
  },
  "/survey": {
-  "en": "920bca5b2728",
-  "ja": "ccdc9d0c41b3"
+  "en": "38b6cd817169",
+  "ja": "6cdfeece116f"
  },
  "/templates": {
   "en": "18a38c4cc4a1",
   "ja": "a3c5c6083ba7"
  },
  "/used": {
-  "en": "35b77a6b658e",
-  "ja": "e9a98434feb3"
+  "en": "baae47e3360e",
+  "ja": "6357beb853cd"
  },
  "/cracked-tooth/": {
   "en": "db104cf199d3",
   "ja": "9ec78225f748"
  },
  "/development/": {
-  "en": "517180c1529d",
-  "ja": "538fe8ae6eef"
+  "en": "11203573707c",
+  "ja": "bbc3f7042518"
  },
  "/endodontic/": {
-  "en": "5672a9c74cd2",
-  "ja": "4fd534d80394"
+  "en": "3d2718da71d8",
+  "ja": "f2afdbb0ee35"
  },
  "/fixation/": {
-  "en": "fb6610ad50a6",
-  "ja": "aa3f68bf55ab"
+  "en": "859570c81e2d",
+  "ja": "f87925857d9b"
  },
  "/head-neck/": {
   "en": "5a4cc4c192e9",
-  "ja": "e20810ed666f"
+  "ja": "ea9786f7e721"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "318aad8d66a8",
-  "ja": "6accb00aaf01"
+  "en": "2e8f44a6b10e",
+  "ja": "ce5ba09747ea"
  },
  "/head-neck/mec/": {
-  "en": "9adeea47bd22",
-  "ja": "710cd16c7993"
+  "en": "4838a76d17c1",
+  "ja": "55b6b31c54a3"
  },
  "/head-neck/okc/": {
-  "en": "111f934d5211",
-  "ja": "16e0a0e68ff4"
+  "en": "010c2329a151",
+  "ja": "cc7b29182595"
  },
  "/head-neck/scc/": {
-  "en": "30d0ae69d74d",
-  "ja": "ae8c3f6ce10c"
+  "en": "c36995fca575",
+  "ja": "c5155abfab7b"
  },
  "/oroantral/": {
   "en": "34b1de268598",
   "ja": "1c84dfb6c86c"
  },
  "/orthognathic/": {
-  "en": "acdf5b748c69",
-  "ja": "276c4ba22dfe"
+  "en": "d880fd9320c6",
+  "ja": "9674cc621335"
  },
  "/periodontitis/": {
   "en": "49046a92a0f7",
@@ -158,5 +158,9 @@
  "/stainless-steel-crown/": {
   "en": "f6d16e393b19",
   "ja": "6e286fd0f5da"
+ },
+ "/vpi/": {
+  "en": "6be30c34753d",
+  "ja": "d62fdd84acd5"
  }
 }

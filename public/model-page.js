@@ -12,6 +12,7 @@
     '/cracked-tooth/': 'cracked-tooth',
     '/stainless-steel-crown/': 'stainless-steel-crown',
     '/endodontic/': 'endodontic',
+    '/vpi/': 'vpi',
     '/head-neck/scc/': 'head-neck-scc',
     '/head-neck/ameloblastoma/': 'head-neck-ameloblastoma',
     '/head-neck/okc/': 'head-neck-okc',

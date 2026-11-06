@@ -130,6 +130,21 @@ export const modelBriefs: ModelBrief[] = [
     normalComparison: 'The same lower first molar, sound, with a living pulp and whole bone around the root tips.',
   },
   {
+    id: 'vpi',
+    page: '/vpi/',
+    name: 'Velopharyngeal insufficiency after cleft palate repair, with normal velopharyngeal closure',
+    glb: '/vpi/models/vpi-cut.glb',
+    condition: 'The nose, mouth and throat cut down the middle. During speech the soft palate is too short to reach the back of the throat after cleft palate repair, so air and sound leak into the nose (hypernasal speech, nasal air escape). Shown beside normal closure, where the soft palate lifts and seals against the back wall. Main treatments: surgery (palate re-repair such as Furlow, pharyngeal flap or sphincter pharyngoplasty) or a speech appliance, with speech therapy before and after for learned compensatory sounds.',
+    labels: [
+      { plain: 'Soft palate', medical: 'velum' },
+      { plain: 'Back of the throat', medical: 'posterior pharyngeal wall' },
+      { plain: 'Lifting muscle', medical: 'levator veli palatini' },
+      { plain: 'Gap', medical: 'velopharyngeal gap' },
+      { plain: 'Air leaking through the nose', medical: 'nasal air emission' },
+    ],
+    normalComparison: 'The same throat with normal velopharyngeal closure: the soft palate lifts and touches the back wall, and air goes out through the mouth only.',
+  },
+  {
     id: 'stainless-steel-crown',
     page: '/stainless-steel-crown/',
     name: 'Preformed metal (stainless steel) crown on a mandibular second primary molar',

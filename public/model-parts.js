@@ -53,6 +53,10 @@
     [/^pulp$/, 'Nerve (pulp)', '{歯|は}の{神経|しんけい}', 'Tủy răng (dây thần kinh)'],
     [/^sinus$/, 'Sinus', '{上顎洞|じょうがくどう}', 'Xoang'],
     [/^tract$/, 'Drainage channel (sinus tract)', 'うみの{出口|でぐち}', 'Đường rò'],
+    [/^muscle$/, 'Lifting muscle (levator)', '{上|うわ}あごを{上|あ}げる{筋肉|きんにく}', 'Cơ nâng vòm'],
+    [/^tongue$/, 'Tongue', '{舌|した}', 'Lưỡi'],
+    [/^air$/, 'Air arrows', '{空気|くうき}の{矢印|やじるし}', 'Mũi tên không khí'],
+    [/^leak$/, 'Air escaping through the nose', '{鼻|はな}からもれる{空気|くうき}', 'Không khí thoát ra mũi'],
     [/^lesion$/, 'Disease', '{病変|びょうへん}', 'Tổn thương'],
     [/^bone$/, 'Bone', '{骨|ほね}', 'Xương'],
   ];

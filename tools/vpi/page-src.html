@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velopharyngeal insufficiency after cleft palate repair, with normal velopharyngeal closure | Vivatheca</title>
+<meta name="description" content="Interactive 3D models of how the soft palate closes off the nose for speech, what happens when it cannot (velopharyngeal insufficiency), three operations that fix the gap, and what a speech pathologist does before and after surgery.">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="robots" content="noindex">
+<!-- Generated from tools/vpi/page-src.html by tools/vpi/gen.py (kanji|kana pairs in braces mark furigana; lang="vi" twins go to vi.js). Edit the source, not this file. -->
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// Language and furigana use the same cookies as the rest of the site (app/i18n/config.ts).
+(function () { const c = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
+  if (c('vivatheca-lang') === 'ja' || c('vivatheca-lang') === 'vi') document.documentElement.lang = c('vivatheca-lang');
+  document.documentElement.dataset.furigana = c('vivatheca-furigana') === 'off' ? 'off' : 'on'; })();
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="../development/style.css">
+<style>
+  /* Show only the visitor's language (the language switcher buttons always show). */
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button), html[lang="vi"] [lang="ja"]:not(#langs button) { display: none !important; }
+  .choose { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .choose-label { margin: 12px 0 0; font-weight: 700; color: var(--heading); font-size: 14px; }
+  .choose button { min-height: 48px; padding: 6px 4px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; cursor: pointer; }
+  .choose button small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  .choose button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  @media (max-width: 520px) { .choose { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .legend li[hidden] { display: none; }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .dot.bone { background: #e3d3b5; } .dot.soft { background: #e89a9a; } .dot.wall { background: #d98c8c; } .dot.muscle { background: #b5523b; }
+  .dot.flap { background: #8b1e2d; } .dot.air { background: #3e8fd1; } .dot.leak { background: #e4772b; }
+  .status { font-weight: 700; color: var(--heading); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  .team { display: grid; gap: 8px; padding: 0; list-style: none; }
+  .team li { background: var(--card); border-radius: 10px; padding: 10px 12px; }
+  details.clin summary { cursor: pointer; font-weight: 600; color: var(--heading); }
+</style>
+<script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
+<link rel="stylesheet" href="/site-header.css">
+<!-- vt:jsonld -->
+<!-- /vt:jsonld -->
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="brand-home" href="/" style="display:inline-flex;align-items:center;line-height:0"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="53" height="40" style="height:40px;width:auto;background:#fff;border-radius:6px"></a>
+    <a class="lang" href="/"><span lang="en">Vivatheca home</span><span lang="vi">Trang chủ Vivatheca</span><span lang="ja">Vivatheca ホーム</span></a>
+    <a class="lang" href="/models"><span lang="en">All models</span><span lang="vi">Tất cả mô hình</span><span lang="ja">{模型|もけい}{一覧|いちらん}</span></a>
+    <button class="theme" id="theme" type="button">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+<script src="/site-header.js"></script>
+
+<main>
+  <h1><span lang="en"><span class="pitk-skip">Velopharyngeal insufficiency after cleft palate repair, with normal velopharyngeal closure</span></span><span lang="vi"><span class="pitk-skip">Thiểu năng vòm hầu sau phẫu thuật khe hở vòm miệng, so với đóng vòm hầu bình thường</span></span><span lang="ja"><span class="pitk-skip">{口蓋裂|こうがいれつ}{術後|じゅつご}の{鼻咽|びいん}くう{閉鎖|へいさ}{不全|ふぜん}（{正常|せいじょう}な{閉鎖|へいさ}との{比較|ひかく}）</span></span></h1>
+  <p class="small term-sources"><span lang="en">Name and classification:</span><span lang="vi">Tên gọi và phân loại:</span><span lang="ja">{名称|めいしょう}と{分類|ぶんるい}：</span> <a href="https://pubmed.ncbi.nlm.nih.gov/2645070/">Trost-Cardamone JE. Coming to terms with VPI: a response to Loney and Bloem. Cleft Palate J. 1989;26(1):68-70.</a> · <a href="https://doi.org/10.1177/1055665617739564">American Cleft Palate-Craniofacial Association. Parameters for evaluation and treatment of patients with cleft lip/palate or other craniofacial differences. Cleft Palate Craniofac J. 2018;55(1):137-156.</a></p>
+
+  <model-viewer id="mv"
+    src="models/speech-cut.glb"
+    alt="Side view of the nose, mouth and throat cut down the middle. The soft palate is lifted and touches the back of the throat. The blue arrow of air goes out through the mouth only."
+    camera-controls camera-orbit="-90deg 85deg auto" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="0.8" exposure="0.9" loading="eager">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <p class="small"><span lang="en"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></span><span lang="vi"><span class="status">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></span><span lang="ja"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+
+  <p class="choose-label"><span lang="en">Normal</span><span lang="vi">Bình thường</span><span lang="ja">{正常|せいじょう}</span></p>
+  <div class="choose" role="group" aria-label="Normal">
+    <button type="button" data-state="rest" aria-pressed="false"><span lang="en">Breathing</span><span lang="vi">Khi thở</span><span lang="ja">{息|いき}をするとき</span><small lang="en">palate down</small><small lang="vi">vòm miệng buông xuống</small><small lang="ja">{上|うわ}あごが{下|さ}がる</small></button>
+    <button type="button" data-state="speech" aria-pressed="true"><span lang="en">Speaking</span><span lang="vi">Khi nói</span><span lang="ja">{話|はな}すとき</span><small lang="en">palate closes</small><small lang="vi">vòm miệng đóng lại</small><small lang="ja">{上|うわ}あごが{閉|と}じる</small></button>
+  </div>
+  <p class="choose-label"><span lang="en">With VPI</span><span lang="vi">Khi có VPI</span><span lang="ja">{鼻咽|びいん}くう{閉鎖|へいさ}{不全|ふぜん}</span></p>
+  <div class="choose" role="group" aria-label="VPI">
+    <button type="button" data-state="vpi" aria-pressed="false"><span lang="en">Speaking with VPI</span><span lang="vi">Nói khi có VPI</span><span lang="ja">{話|はな}すとき</span><small lang="en">gap, air leaks</small><small lang="vi">khe hở, khí thoát</small><small lang="ja">すき{間|ま}から{空気|くうき}がもれる</small></button>
+  </div>
+  <p class="choose-label"><span lang="en">After surgery for VPI</span><span lang="vi">Sau phẫu thuật VPI</span><span lang="ja">{手術|しゅじゅつ}の{後|あと}</span></p>
+  <div class="choose" role="group" aria-label="After surgery">
+    <button type="button" data-state="furlow" aria-pressed="false"><span lang="en">Palate re-repair</span><span lang="vi">Tạo hình lại vòm</span><span lang="ja">{口蓋|こうがい}の{再|さい}{形成|けいせい}</span><small lang="en">Furlow</small><small lang="vi">Furlow</small><small lang="ja">ファーロー{法|ほう}</small></button>
+    <button type="button" data-state="flap" aria-pressed="false"><span lang="en">Pharyngeal flap</span><span lang="vi">Vạt hầu</span><span lang="ja">{咽頭弁|いんとうべん}</span><small lang="en">bridge in the middle</small><small lang="vi">cầu ở giữa</small><small lang="ja">{真|ま}ん{中|なか}の{橋|はし}</small></button>
+    <button type="button" data-state="sphincter" aria-pressed="false"><span lang="en">Sphincter pharyngoplasty</span><span lang="vi">Tạo hình cơ thắt hầu</span><span lang="ja">{咽頭|いんとう}{形成|けいせい}</span><small lang="en">smaller opening</small><small lang="vi">lỗ mở nhỏ hơn</small><small lang="ja">{通|とお}り{道|みち}を{狭|せま}くする</small></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model tools">
+    <button type="button" id="above" aria-pressed="false"><span lang="en">View from above</span><span lang="vi">Nhìn từ trên xuống</span><span lang="ja">{上|うえ}から{見|み}る</span></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model views">
+    <button type="button" data-orbit="-90deg 85deg auto" aria-pressed="true"><span lang="en">Side</span><span lang="vi">Nhìn ngang</span><span lang="ja">{横|よこ}から</span></button>
+    <button type="button" data-orbit="-50deg 70deg auto" aria-pressed="false"><span lang="en">Angled</span><span lang="vi">Nhìn chéo</span><span lang="ja">{斜|なな}め</span></button>
+    <button type="button" data-orbit="0deg 0.1deg auto" aria-pressed="false"><span lang="en">From above</span><span lang="vi">Từ trên</span><span lang="ja">{上|うえ}から</span></button>
+  </div>
+  <ul class="legend">
+    <li><span class="dot soft"></span><span lang="en">Soft palate</span><span lang="vi">Vòm miệng mềm</span><span lang="ja">やわらかい{上|うわ}あご</span></li>
+    <li><span class="dot wall"></span><span lang="en">Throat walls</span><span lang="vi">Thành họng</span><span lang="ja">のどの{壁|かべ}</span></li>
+    <li><span class="dot muscle"></span><span lang="en">Lifting muscle</span><span lang="vi">Cơ nâng vòm (cơ nâng màn hầu)</span><span lang="ja">{上|うわ}あごを{上|あ}げる{筋肉|きんにく}</span></li>
+    <li><span class="dot bone"></span><span lang="en">Bone</span><span lang="vi">Xương</span><span lang="ja">{骨|ほね}</span></li>
+    <li><span class="dot air"></span><span lang="en">Air: the right way</span><span lang="vi">Không khí: đi đúng đường</span><span lang="ja">{空気|くうき}：{正|ただ}しい{通|とお}り{道|みち}</span></li>
+    <li data-show="vpi" hidden><span class="dot leak"></span><span lang="en">Air escaping through the nose</span><span lang="vi">Không khí thoát ra mũi</span><span lang="ja">{鼻|はな}からもれる{空気|くうき}</span></li>
+    <li data-show="flap sphincter" hidden><span class="dot flap"></span><span lang="en">Tissue moved in surgery (flap)</span><span lang="vi">Mô được chuyển khi phẫu thuật (vạt)</span><span lang="ja">{手術|しゅじゅつ}で{動|うご}かした{組織|そしき}</span></li>
+  </ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <section class="vt-video" id="video" data-video="vpi"></section>
+
+  <section>
+    <div lang="en">
+      <h2>What the model shows</h2>
+      <p>We cut the model down the middle, so you see the nose, mouth and throat from the side. Tap <b>View from above</b> to look down on the opening, as a small camera in the nose would.</p>
+      <p>The soft palate is the soft back part of the roof of your mouth. Behind it is the back wall of the throat. Together they work like a valve between the nose and the mouth.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>Mô hình thể hiện gì</h2>
+      <p>Mô hình được cắt dọc ở giữa, nên bạn thấy mũi, miệng và họng từ bên cạnh. Chạm <b>Nhìn từ trên xuống</b> để nhìn xuống lỗ mở, như một camera nhỏ đưa qua mũi.</p>
+      <p>Vòm miệng mềm là phần mềm phía sau của vòm miệng. Phía sau nó là thành sau họng. Chúng cùng hoạt động như một van giữa mũi và miệng.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>このモデルについて</h2>
+      <p>モデルは{真|ま}ん{中|なか}で{切|き}ってあり、{鼻|はな}・{口|くち}・のどを{横|よこ}から{見|み}られます。<b>{上|うえ}から{見|み}る</b>を{押|お}すと、{鼻|はな}から{入|い}れたカメラのように{上|うえ}から{見|み}られます。</p>
+      <p>やわらかい{上|うわ}あごは、{上|うわ}あごの{奥|おく}のやわらかい{部分|ぶぶん}です。その{後|うし}ろにのどの{奥|おく}の{壁|かべ}があります。この2つが、{鼻|はな}と{口|くち}の{間|あいだ}の{弁|べん}のように{働|はたら}きます。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>How the palate closes for speech</h2>
+      <p>When you breathe through your nose, the soft palate hangs down. Air passes behind it.</p>
+      <p>When you speak, a sling of muscle (the levator) lifts the soft palate up and back. It presses on the back wall of the throat. The side walls of the throat also move in. This closes off the nose.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Air and sound then go out through your mouth. Only "m", "n" and "ng" go through the nose.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>Vòm miệng đóng lại khi nói như thế nào</h2>
+      <p>Khi bạn thở bằng mũi, vòm miệng mềm buông xuống. Không khí đi qua phía sau nó.</p>
+      <p>Khi bạn nói, một dải cơ (cơ nâng màn hầu) nâng vòm miệng mềm lên và ra sau. Nó ép vào thành sau họng. Thành bên của họng cũng khép vào. Đường lên mũi được đóng lại.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Khi đó không khí và âm thanh đi ra miệng. Chỉ các âm "m", "n" và "ng" đi qua mũi.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{話|はな}すときに{上|うわ}あごが{閉|と}じるしくみ</h2>
+      <p>{鼻|はな}で{息|いき}をするとき、やわらかい{上|うわ}あごは{下|さ}がっていて、{空気|くうき}はその{後|うし}ろを{通|とお}ります。</p>
+      <p>{話|はな}すときは、{輪|わ}のような{筋肉|きんにく}がやわらかい{上|うわ}あごを{後|うし}ろ{上|うえ}へ{持|も}ち{上|あ}げ、のどの{奥|おく}の{壁|かべ}につけます。のどの{横|よこ}の{壁|かべ}も{内側|うちがわ}へ{動|うご}き、{鼻|はな}への{道|みち}が{閉|と}じます。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>すると{空気|くうき}と{声|こえ}は{口|くち}から{出|で}ます。{鼻|はな}を{通|とお}るのは「ま」「な」「ん」などの{音|おと}だけです。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>What VPI is</h2>
+      <p>VPI is short for velopharyngeal insufficiency. In VPI, the soft palate cannot close the gap to the back of the throat. The cause is the shape or size of the parts.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+      <p>Air and sound leak into the nose. Speech can sound very nasal. You may hear air puff out of the nose. Sounds like "p", "b", "s" and "k" can sound weak.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>VPI happens most often after a cleft palate repair. The soft palate can be too short, or its muscles may not join up in a sling. In most cleft teams, about 10 to 20 in 100 children still have VPI after this repair.<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-14">14</a></sup></p>
+      <p>Some people have a palate that cannot move well because of a nerve or muscle problem. Others close it well but have learned to let air out through the nose on some sounds. These need a different kind of care.<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>VPI là gì</h2>
+      <p>Trong thiểu năng vòm hầu (VPI), vòm miệng mềm không thể đóng kín khe hở tới thành sau họng. Nguyên nhân là hình dạng hoặc kích thước của các bộ phận.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+      <p>Không khí và âm thanh thoát lên mũi. Giọng nói có thể nghe rất giọng mũi. Bạn có thể nghe thấy hơi thoát ra từ mũi. Các âm như "p", "b", "s" và "k" có thể nghe yếu.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>VPI hay gặp nhất sau phẫu thuật khe hở vòm miệng. Vòm miệng mềm có thể quá ngắn, hoặc các cơ không được nối thành dải. Ở hầu hết các trung tâm, khoảng 10 đến 20 trên 100 trẻ vẫn còn VPI sau phẫu thuật vòm miệng.<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-14">14</a></sup></p>
+      <p>Một số người có vòm miệng không cử động tốt do vấn đề thần kinh hoặc cơ. Một số khác đóng vòm tốt nhưng đã quen để hơi thoát ra mũi ở một số âm. Mỗi trường hợp cần cách chăm sóc khác nhau.<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{鼻咽|びいん}くう{閉鎖|へいさ}{不全|ふぜん}とは</h2>
+      <p>やわらかい{上|うわ}あごが、のどの{奥|おく}の{壁|かべ}とのすき{間|ま}を{閉|と}じられない{状態|じょうたい}です。{原因|げんいん}は、{上|うわ}あごやのどの{形|かたち}や{大|おお}きさです。<sup class="cite"><a href="#ref-2">2</a></sup></p>
+      <p>{空気|くうき}と{声|こえ}が{鼻|はな}へもれます。{声|こえ}が{鼻|はな}にかかったり、{鼻|はな}から{息|いき}がもれる{音|おと}が{聞|き}こえたりします。「ぱ」「ば」「さ」「か」などの{音|おと}が{弱|よわ}くなることもあります。<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>{口蓋裂|こうがいれつ}の{手術|しゅじゅつ}の{後|あと}に{多|おお}くみられます。やわらかい{上|うわ}あごが{短|みじか}かったり、{筋肉|きんにく}が{輪|わ}のようにつながっていなかったりします。{多|おお}くの{施設|しせつ}で、{手術|しゅじゅつ}の{後|あと}も100{人|にん}に10～20{人|にん}ほどに{残|のこ}ります。<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-14">14</a></sup></p>
+      <p>{神経|しんけい}や{筋肉|きんにく}の{病気|びょうき}で{上|うわ}あごがよく{動|うご}かない{人|ひと}もいます。{閉|と}じる{力|ちから}はあるのに、{一部|いちぶ}の{音|おと}で{鼻|はな}から{息|いき}を{出|だ}すくせがついた{人|ひと}もいます。それぞれ{治療|ちりょう}が{違|ちが}います。<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>Why speech therapy alone cannot close the gap</h2>
+      <p>When the shape of the palate and throat leaves a gap, the nasal sound comes from the gap itself. Practice cannot make a short palate longer.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>This kind of VPI needs surgery or a device made to fit the mouth. Blowing and sucking drills do not help the palate close when you talk.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>Speech therapy still matters. To make up for the leak, many children with VPI make some sounds in the throat, not the mouth. These habits do not go away on their own after surgery. Therapy fixes them. It works best once the gap is closed.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>Vì sao chỉ trị liệu ngôn ngữ thì không đóng được khe hở</h2>
+      <p>Khi khe hở là do hình dạng của vòm miệng và họng, giọng mũi đến từ chính khe hở đó. Luyện tập không thể làm một vòm miệng ngắn dài ra.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>Loại VPI này cần phẫu thuật hoặc một khí cụ đeo trong miệng. Các bài tập thổi và mút không giúp vòm miệng đóng lại khi nói.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>Trị liệu ngôn ngữ vẫn rất quan trọng. Nhiều trẻ có VPI học cách phát một số âm ở họng thay vì ở miệng, để bù cho chỗ thoát hơi. Những thói quen này không tự hết sau phẫu thuật. Trị liệu sửa chúng, và hiệu quả nhất khi khe hở đã được đóng.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{言語|げんご}{訓練|くんれん}だけではすき{間|ま}を{閉|と}じられない{理由|りゆう}</h2>
+      <p>すき{間|ま}の{原因|げんいん}が{上|うわ}あごやのどの{形|かたち}にあるとき、{鼻|はな}にかかる{声|こえ}はそのすき{間|ま}から{生|う}まれます。{練習|れんしゅう}しても、{短|みじか}い{上|うわ}あごは{長|なが}くなりません。<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>このタイプには、{手術|しゅじゅつ}か{口|くち}の{中|なか}につける{装置|そうち}が{必要|ひつよう}です。{吹|ふ}く{練習|れんしゅう}や{吸|す}う{練習|れんしゅう}では、{話|はな}すときに{上|うわ}あごは{閉|と}じません。<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>それでも{言語|げんご}{訓練|くんれん}は{大切|たいせつ}です。もれを{補|おぎな}うため、{口|くち}ではなくのどで{音|おと}を{作|つく}るくせがつく{子|こ}どもが{多|おお}くいます。このくせは{手術|しゅじゅつ}だけでは{直|なお}りません。{訓練|くんれん}で{直|なお}し、すき{間|ま}が{閉|と}じた{後|あと}のほうが{効果|こうか}が{出|で}やすいです。<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>What the speech pathologist does</h2>
+      <p>A speech pathologist (speech and language therapist) works in the cleft team with the surgeon and others. They help at each step.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+      <ul class="team">
+        <li><b>Before surgery:</b> they listen closely to how you speak, often from recordings. This is the main test for VPI. They can tell a leak from the gap apart from sounds you learned the wrong way.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></li>
+        <li><b>Looking at the gap:</b> with the surgeon, they may watch the palate move as you talk. They use a thin camera put in through the nose, or an X-ray that films the palate as it moves. This helps the team choose the right surgery.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></li>
+        <li><b>After surgery:</b> they check your speech again. They help you fix sounds you learned the wrong way. They tell the team if a leak is still there.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></li>
+      </ul>
+      <p>We do not yet know which type of speech therapy works best. The studies so far are small.<sup class="cite"><a href="#ref-9">9</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>Chuyên viên âm ngữ trị liệu làm gì</h2>
+      <p>Chuyên viên âm ngữ trị liệu làm việc trong nhóm điều trị khe hở môi vòm miệng, cùng bác sĩ phẫu thuật và những người khác. Họ tham gia ở mỗi bước.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+      <ul class="team">
+        <li><b>Trước phẫu thuật:</b> họ lắng nghe kỹ cách bạn nói, thường qua bản ghi âm. Đây là cách đánh giá chính cho VPI. Họ phân biệt hơi thoát qua khe hở với các âm đã học sai cách.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></li>
+        <li><b>Xem khe hở:</b> cùng bác sĩ phẫu thuật, họ có thể quan sát vòm miệng cử động khi nói. Việc này dùng một camera nhỏ qua mũi (nội soi mũi hầu) hoặc X-quang động (chụp huỳnh quang video). Điều này giúp nhóm chọn cách phẫu thuật.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></li>
+        <li><b>Sau phẫu thuật:</b> họ đánh giá lại giọng nói của bạn. Họ trị liệu các âm đã học sai cách. Họ báo cho nhóm nếu vẫn còn thoát hơi.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></li>
+      </ul>
+      <p>Hiện chưa rõ loại trị liệu ngôn ngữ nào hiệu quả nhất. Các nghiên cứu đến nay còn nhỏ.<sup class="cite"><a href="#ref-9">9</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{言語|げんご}{聴覚|ちょうかく}{士|し}の{役割|やくわり}</h2>
+      <p>{言語|げんご}{聴覚|ちょうかく}{士|し}は、{外科医|げかい}などと{一緒|いっしょ}に{口唇|こうしん}{口蓋裂|こうがいれつ}のチームで{働|はたら}き、どの{段階|だんかい}にも{関|かか}わります。<sup class="cite"><a href="#ref-3">3</a></sup></p>
+      <ul class="team">
+        <li><b>{手術|しゅじゅつ}の{前|まえ}：</b>{録音|ろくおん}などで{話|はな}し{方|かた}をよく{聞|き}きます。これが{一番|いちばん}{大切|たいせつ}な{検査|けんさ}です。すき{間|ま}からのもれと、{間違|まちが}って{覚|おぼ}えた{音|おと}を{聞|き}き{分|わ}けます。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></li>
+        <li><b>すき{間|ま}を{見|み}る：</b>{外科医|げかい}と{一緒|いっしょ}に、{話|はな}しているときの{上|うわ}あごの{動|うご}きを{見|み}ることがあります。{鼻|はな}から{入|い}れる{細|ほそ}いカメラや、{動|うご}くX{線|せん}{検査|けんさ}を{使|つか}います。{手術|しゅじゅつ}の{方法|ほうほう}を{選|えら}ぶ{助|たす}けになります。<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></li>
+        <li><b>{手術|しゅじゅつ}の{後|あと}：</b>もう{一度|いちど}{話|はな}し{方|かた}を{調|しら}べ、{間違|まちが}って{覚|おぼ}えた{音|おと}の{訓練|くんれん}をします。もれが{残|のこ}っていればチームに{伝|つた}えます。<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></li>
+      </ul>
+      <p>どの{訓練|くんれん}{方法|ほうほう}が{一番|いちばん}よいかは、まだはっきりしていません。これまでの{研究|けんきゅう}は{小|ちい}さいものです。<sup class="cite"><a href="#ref-9">9</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>Surgery for VPI</h2>
+      <p>The model shows three types of surgery. Each one closes the gap in a different way.</p>
+      <ul>
+        <li><b>Palate re-repair (Furlow):</b> the surgeon opens the soft palate, joins its muscles into a sling, and makes it longer.<sup class="cite"><a href="#ref-10">10</a></sup></li>
+        <li><b>Pharyngeal flap:</b> the surgeon sews a strip of tissue from the back of the throat to the soft palate.<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+        <li><b>Sphincter pharyngoplasty:</b> the surgeon moves tissue from the side walls to the back wall. This makes the opening smaller.<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+      </ul>
+      <p>A review of 83 studies looked at speech after surgery. In about 71 in 100 people, it no longer sounded nasal. No one type was clearly better. The studies used different tests, so we cannot be sure.<sup class="cite"><a href="#ref-12">12</a></sup></p>
+      <p>One trial had 50 children. VPI was still there in 12 in 100 after a flap and 16 in 100 after the other surgery. This was not a real difference.<sup class="cite"><a href="#ref-11">11</a></sup></p>
+      <p>Surgery can make the airway narrow. After it, some people snore or stop breathing for short times in their sleep (sleep apnoea). Tell your team if this happens.<sup class="cite"><a href="#ref-12">12</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>Phẫu thuật cho VPI</h2>
+      <p>Mô hình thể hiện ba phẫu thuật thường gặp. Mỗi cách đóng khe hở theo một cách khác nhau.</p>
+      <ul>
+        <li><b>Tạo hình lại vòm miệng (Furlow):</b> vòm miệng mềm được mở ra, các cơ được nối thành dải và vòm được làm dài hơn.<sup class="cite"><a href="#ref-10">10</a></sup></li>
+        <li><b>Vạt hầu:</b> một dải mô từ thành sau họng được khâu vào vòm miệng mềm.<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+        <li><b>Tạo hình cơ thắt hầu:</b> mô từ thành bên được chuyển ra thành sau, để làm lỗ mở nhỏ hơn.<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+      </ul>
+      <p>Một tổng quan 83 nghiên cứu cho thấy khoảng 71 trên 100 người có độ vang giọng bình thường sau phẫu thuật. Không có phẫu thuật nào rõ ràng tốt hơn. Các nghiên cứu dùng cách đo khác nhau, nên điều này chưa chắc chắn.<sup class="cite"><a href="#ref-12">12</a></sup></p>
+      <p>Trong một thử nghiệm với 50 trẻ, VPI vẫn còn sau phẫu thuật ở 12 trên 100 trẻ làm vạt hầu và 16 trên 100 trẻ làm tạo hình cơ thắt hầu. Đây không phải là khác biệt thật sự.<sup class="cite"><a href="#ref-11">11</a></sup></p>
+      <p>Phẫu thuật có thể làm hẹp đường thở. Một số người ngáy hoặc ngừng thở ngắn khi ngủ sau đó (ngưng thở khi ngủ). Hãy báo cho nhóm điều trị nếu điều này xảy ra.<sup class="cite"><a href="#ref-12">12</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{鼻咽|びいん}くう{閉鎖|へいさ}{不全|ふぜん}の{手術|しゅじゅつ}</h2>
+      <p>モデルでは、よく{行|おこな}われる3つの{手術|しゅじゅつ}を{示|しめ}しています。すき{間|ま}の{閉|と}じ{方|かた}がそれぞれ{違|ちが}います。</p>
+      <ul>
+        <li><b>{口蓋|こうがい}の{再|さい}{形成|けいせい}（ファーロー{法|ほう}）：</b>やわらかい{上|うわ}あごを{開|ひら}き、{筋肉|きんにく}を{輪|わ}のようにつなぎ、{長|なが}くします。<sup class="cite"><a href="#ref-10">10</a></sup></li>
+        <li><b>{咽頭弁|いんとうべん}：</b>のどの{奥|おく}の{壁|かべ}の{組織|そしき}を、やわらかい{上|うわ}あごに{縫|ぬ}いつけます。<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+        <li><b>{咽頭|いんとう}{形成|けいせい}（スフィンクター{法|ほう}）：</b>{横|よこ}の{壁|かべ}の{組織|そしき}を{奥|おく}の{壁|かべ}へ{移|うつ}し、{通|とお}り{道|みち}を{狭|せま}くします。<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+      </ul>
+      <p>83の{研究|けんきゅう}をまとめた{報告|ほうこく}では、{手術|しゅじゅつ}の{後|あと}、100{人|にん}に{約|やく}71{人|にん}で{声|こえ}の{響|ひび}きが{正常|せいじょう}になりました。どの{手術|しゅじゅつ}がよいかははっきりしません。{研究|けんきゅう}ごとに{調|しら}べ{方|かた}が{違|ちが}うため、{確|たし}かではありません。<sup class="cite"><a href="#ref-12">12</a></sup></p>
+      <p>50{人|にん}の{子|こ}どもの{試験|しけん}がありました。{手術|しゅじゅつ}の{後|あと}も{閉鎖|へいさ}{不全|ふぜん}が{残|のこ}ったのは、{咽頭弁|いんとうべん}で100{人|にん}に12{人|にん}、{咽頭|いんとう}{形成|けいせい}で100{人|にん}に16{人|にん}でした。はっきりした{差|さ}ではありません。<sup class="cite"><a href="#ref-11">11</a></sup></p>
+      <p>{手術|しゅじゅつ}で{空気|くうき}の{通|とお}り{道|みち}が{狭|せま}くなることがあります。{手術|しゅじゅつ}の{後|あと}、いびきをかいたり、{寝|ね}ている{間|あいだ}に{息|いき}が{短|みじか}く{止|と}まったりする{人|ひと}もいます。そのときはチームに{伝|つた}えてください。<sup class="cite"><a href="#ref-12">12</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>Pictures of real cases</h2>
+      <p>We have not yet found camera or X-ray pictures of VPI that match this model and are free to share. We will add them only when the licence allows it and the people in them agreed.</p>
+    </div>
+    <div lang="vi">
+      <h2>Hình ảnh ca bệnh thật</h2>
+      <p>Chúng tôi chưa tìm được hình nội soi, X-quang hoặc MRI về VPI phù hợp với mô hình này và có giấy phép mở. Chúng tôi chỉ thêm khi giấy phép và sự đồng ý của bệnh nhân cho phép.</p>
+    </div>
+    <div lang="ja">
+      <h2>{実際|じっさい}の{症例|しょうれい}の{画像|がぞう}</h2>
+      <p>このモデルに{合|あ}い、{自由|じゆう}に{使|つか}えるライセンスの{内視鏡|ないしきょう}・X{線|せん}・MRIの{画像|がぞう}は、まだ{見|み}つかっていません。ライセンスと{患者|かんじゃ}さんの{同意|どうい}が{確|たし}かなものだけを{追加|ついか}します。</p>
+    </div>
+  </section>
+
+  <section>
+    <details class="clin">
+      <summary><span lang="en">Notes for the clinician: evidence and how the models were made</span><span lang="vi">Ghi chú cho nhân viên y tế: bằng chứng và cách làm các mô hình</span><span lang="ja">{医療者向|いりょうしゃむ}け：{根拠|こんきょ}とモデルの{作|つく}り{方|かた}</span></summary>
+      <div lang="en">
+        <p>Terminology: velopharyngeal inadequacy is the umbrella term; insufficiency is structural, incompetence neurogenic and mislearning functional (Trost-Cardamone).<sup class="cite"><a href="#ref-2">2</a></sup> The model shows insufficiency after primary palatoplasty. The matched normal is the same adult anatomy at rest and in speech.</p>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Value in the model</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Bones, tongue, levator origins</td><td>BodyParts3D 4.0: maxillae, palatine bones, vomer, sphenoid, occipital, atlas, axis, C3, mandible, hyoid, inferior conchae, tongue; levator veli palatini (only the skull-base origin of each muscle used). ANS to PNS 52.7 mm.</td><td>BodyParts3D<sup class="cite"><a href="#ref-18">18</a></sup></td></tr>
+            <tr><td>Velar length</td><td>34.85 mm, PNS to uvula tip (adults, n = 81)</td><td>Haenssler et al. 2020, MRI<sup class="cite"><a href="#ref-15">15</a></sup></td></tr>
+            <tr><td>Pharyngeal depth</td><td>20.92 mm, PNS to posterior pharyngeal wall along the palatal plane (VP ratio in the model 1.67; adult mean 1.73)</td><td>Haenssler et al. 2020<sup class="cite"><a href="#ref-15">15</a></sup></td></tr>
+            <tr><td>Levator sling</td><td>At rest, inserted 13.72 mm behind the PNS (effective velar length). In speech the sling sits at the knee of the velum, which meets the wall at the palatal plane.</td><td>Haenssler et al. 2020<sup class="cite"><a href="#ref-15">15</a></sup>; Perry 2011<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+            <tr><td>Velar thickness</td><td>8.78 mm. This is the mean for boys aged 9 to 10 (n = 1,670); no adult value with an open table was found.</td><td>Perry et al. 2023<sup class="cite"><a href="#ref-16">16</a></sup></td></tr>
+            <tr><td>Posterior pharyngeal wall below the palatal plane</td><td>Drawn 6, 4 and 5 mm in front of C1, C2 and C3, inside the adult upper limits of normal (8.5, 6 and 7 mm). Above the palatal plane the wall curves into the roof (drawn, 3 mm under the sphenoid).</td><td>Rojas et al. 2009<sup class="cite"><a href="#ref-17">17</a></sup></td></tr>
+            <tr><td>Port width</td><td>Lateral walls 10.4 mm from the midline: the medial pterygoid plates of the BodyParts3D sphenoid at PNS level. Wall thickness 4 mm, drawn.</td><td>BodyParts3D<sup class="cite"><a href="#ref-18">18</a></sup></td></tr>
+            <tr><td>Closure pattern</td><td>Velar closure with little lateral wall movement (coronal-type). Patterns vary: 53% coronal and 47% circular in 38 adults.</td><td>Skolnick et al. 1973<sup class="cite"><a href="#ref-19">19</a></sup>; Jordan et al. 2017<sup class="cite"><a href="#ref-20">20</a></sup></td></tr>
+            <tr><td>VPI after cleft palate repair</td><td>Velum 27 mm long, bending 9 mm behind the PNS; levator fibres run forward to the back of the hard palate with no midline sling. Gap 7.5 mm. These values are drawn: velum and effective velar length are shorter and levator discontinuity more common in VPI after repair, but the published values were not openly available.</td><td>Sitzman et al. 2024<sup class="cite"><a href="#ref-14">14</a></sup> (direction only)</td></tr>
+            <tr><td>Furlow re-repair</td><td>Shown with the normal velum and an overlapping levator sling. How much length a Furlow adds varies; drawn.</td><td>Furlow 1986<sup class="cite"><a href="#ref-10">10</a></sup></td></tr>
+            <tr><td>Pharyngeal flap</td><td>Superiorly based, inset to the nasal surface of the velum; base 4 mm above the palatal plane (a base below it was common in persistent VPI); 12 mm wide, 4 mm thick (drawn). Lateral walls drawn moving in to close the ports.</td><td>Sitzman et al. 2024<sup class="cite"><a href="#ref-14">14</a></sup>; de Blacam et al. 2018<sup class="cite"><a href="#ref-12">12</a></sup></td></tr>
+            <tr><td>Sphincter pharyngoplasty</td><td>Transverse ridge on the posterior wall at the palatal plane, sized to meet the short velum; lateral walls narrowed (drawn).</td><td>Ysunza et al. 2002<sup class="cite"><a href="#ref-11">11</a></sup>; de Blacam et al. 2018<sup class="cite"><a href="#ref-12">12</a></sup></td></tr>
+            <tr><td>Airflow arrows</td><td>Symbols only: oral airflow blue, nasal air escape orange.</td><td>None (illustrative)</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <ul>
+          <li>Outcomes: residual VPI after primary palatoplasty 10 to 20% in most centres (Ysunza 2002, quoting the literature); Furlow repair had less VPI than Bardach two-flap repair in a meta-analysis (RR 0.41).<sup class="cite"><a href="#ref-11">11</a></sup><sup class="cite"><a href="#ref-13">13</a></sup> Secondary surgery: 83 studies, 4,011 patients, 70.7% normal resonance and 65.3% normal nasal emission, no notable difference between pharyngeal flap, sphincter pharyngoplasty, palatoplasty and posterior wall augmentation, no consensus on choice; OSA reported after all four.<sup class="cite"><a href="#ref-12">12</a></sup> RCT (n = 50, procedures tailored to nasendoscopy and multiview videofluoroscopy): residual VPI 12% (flap) vs 16% (sphincter), not significant.<sup class="cite"><a href="#ref-11">11</a></sup></li>
+          <li>Speech pathology: perceptual assessment by specialist listeners is the reference standard; report hypernasality, hyponasality, nasal air emission or turbulence, consonant production errors and voice (universal parameters).<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup> Obligatory distortions from VPI need physical management; compensatory articulation needs therapy, ideally after the structure is corrected; non-speech oral-motor exercises are not indicated.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup> Evidence for specific therapy approaches is weak.<sup class="cite"><a href="#ref-9">9</a></sup> Imaging reporting: Golding-Kushner et al.<sup class="cite"><a href="#ref-8">8</a></sup> Team care: ACPA Parameters.<sup class="cite"><a href="#ref-3">3</a></sup></li>
+          <li>Base mesh check: BodyParts3D's own soft palate muscles (uvular muscle, levator and tensor) lie 25 to 30 mm behind its PNS, behind where the cited pharyngeal depth puts the posterior wall. So they were not used as they are; the velum and sling were built from the cited values, keeping the BodyParts3D levator origins.</li>
+          <li>Simplifications: one adult anatomy (no adenoids, tonsils, Eustachian tube or tensor veli palatini); no palatopharyngeus, salpingopharyngeus or superior constrictor as separate muscles; mucosa and muscle are one soft tissue; no hard palate fistula; no palatal prosthesis option shown; no Passavant's ridge.</li>
+          <li>Case images: PubMed Central was searched on 6 November 2026; no openly licensed nasendoscopy, videofluoroscopy or MRI image matched this model (structural VPI after cleft repair, midsagittal or nasendoscopic view).</li>
+        </ul>
+        <p class="small">Build script with every value and its source: <code>tools/vpi/build.py</code> in the Vivatheca repository.</p>
+      </div>
+      <div lang="vi">
+        <p>Thuật ngữ: thiểu năng vòm hầu (velopharyngeal insufficiency) là nguyên nhân cấu trúc (Trost-Cardamone).<sup class="cite"><a href="#ref-2">2</a></sup> Số đo và nguồn: xem bảng tiếng Anh (chuyển sang English). Mô hình nền từ BodyParts3D 4.0 (CC BY 4.0); chiều dài vòm mềm 34,85 mm và độ sâu họng 20,92 mm từ MRI người lớn;<sup class="cite"><a href="#ref-15">15</a></sup> các kích thước của VPI và các vạt là hình vẽ minh họa.</p>
+      </div>
+      <div lang="ja">
+        <ul>
+          <li>{用語|ようご}：velopharyngeal insufficiency（{構造的|こうぞうてき}{原因|げんいん}）。<sup class="cite"><a href="#ref-2">2</a></sup>{一次|いちじ}{口蓋|こうがい}{形成|けいせい}{術後|じゅつご}の{閉鎖|へいさ}{不全|ふぜん}を{示|しめ}す。</li>
+          <li>{骨|ほね}・{舌|した}・{口蓋帆|こうがいはん}{挙筋|きょきん}の{起始|きし}：BodyParts3D 4.0。<sup class="cite"><a href="#ref-18">18</a></sup></li>
+          <li>{軟口蓋|なんこうがい}{長|ちょう}34.85 mm、{咽頭|いんとう}{深|ふか}さ20.92 mm、{有効|ゆうこう}{軟口蓋|なんこうがい}{長|ちょう}13.72 mm（{成人|せいじん}MRI）。<sup class="cite"><a href="#ref-15">15</a></sup>{軟口蓋|なんこうがい}の{厚|あつ}さ8.78 mm（9～10{歳|さい}{男児|だんじ}）。<sup class="cite"><a href="#ref-16">16</a></sup></li>
+          <li>{椎体|ついたい}{前|まえ}の{軟部|なんぶ}{組織|そしき}：{正常|せいじょう}{上限|じょうげん}{内|ない}で{描画|びょうが}。<sup class="cite"><a href="#ref-17">17</a></sup></li>
+          <li>{閉鎖|へいさ}{不全|ふぜん}{側|がわ}：{軟口蓋|なんこうがい}27 mm、すき{間|ま}7.5 mmは{描画|びょうが}による{値|あたい}（{方向|ほうこう}のみ{文献|ぶんけん}に{基|もと}づく）。<sup class="cite"><a href="#ref-14">14</a></sup>{咽頭弁|いんとうべん}の{基部|きぶ}は{口蓋|こうがい}{平面|へいめん}より{上|うえ}。<sup class="cite"><a href="#ref-14">14</a></sup></li>
+          <li>{成績|せいせき}：{二次|にじ}{手術|しゅじゅつ}83{研究|けんきゅう}4,011{人|にん}で{共鳴|きょうめい}{正常|せいじょう}70.7%、{術式|じゅつしき}{間|かん}に{明|あき}らかな{差|さ}なし。<sup class="cite"><a href="#ref-12">12</a></sup></li>
+          <li>{言語|げんご}{聴覚|ちょうかく}{士|し}：{聴覚|ちょうかく}{的|てき}{評価|ひょうか}が{基準|きじゅん}。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup>{構造|こうぞう}による{歪|ゆが}みは{手術|しゅじゅつ}など、{代償|だいしょう}{構音|こうおん}は{訓練|くんれん}で{対応|たいおう}。<sup class="cite"><a href="#ref-4">4</a></sup></li>
+          <li>BodyParts3Dの{軟口蓋|なんこうがい}{筋|きん}はPNSの25～30 mm{後方|こうほう}にあり、{文献|ぶんけん}の{咽頭|いんとう}{後壁|こうへき}より{後|うし}ろのため、そのままは{使用|しよう}していない。</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section class="disclaimer">
+    <h2><span lang="en">About these models</span><span lang="vi">Về các mô hình này</span><span lang="ja">このモデルについての{注意|ちゅうい}</span></h2>
+    <p lang="en"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p lang="vi"><span class="status">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></p>
+    <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
+    <p class="small"><span lang="en">Prototype, version 0.1. Colours: soft palate pink, throat walls darker pink, muscle red-brown, flaps dark red, air blue, air escaping through the nose orange. No print files yet.</span><span lang="vi">Bản thử nghiệm, phiên bản 0.1. Màu sắc: vòm miệng mềm màu hồng, thành họng hồng sẫm, cơ màu nâu đỏ, vạt màu đỏ sẫm, không khí màu xanh, không khí thoát ra mũi màu cam. Chưa có tệp in. Bản tiếng Việt là bản nháp chưa được thẩm định; bản tiếng Anh được ưu tiên.</span><span lang="ja">プロトタイプ（{版|はん}0.1）。やわらかい{上|うわ}あごはピンク、のどの{壁|かべ}は{濃|こ}いピンク、{筋肉|きんにく}は{赤茶色|あかちゃいろ}、{組織|そしき}の{弁|べん}は{濃|こ}い{赤|あか}、{空気|くうき}は{青|あお}、{鼻|はな}からもれる{空気|くうき}はオレンジです。{印刷用|いんさつよう}ファイルはまだありません。</span></p>
+    <p class="small credit">3D models: made by Vivatheca from BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International. Changed: skull, neck and jaw bones and the tongue combined, trimmed and cut down the middle; levator veli palatini origins kept; soft palate, pharyngeal walls, levator sling, flaps and airflow arrows added. These models are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2><span lang="en">Sources</span><span lang="vi">Nguồn</span><span lang="ja">{出典|しゅってん}</span></h2></summary>
+    <ol>
+      <li id="ref-1">Perry JL. Anatomy and physiology of the velopharyngeal mechanism. Semin Speech Lang. 2011;32(2):83-92. <a href="https://doi.org/10.1055/s-0031-1277712">doi.org/10.1055/s-0031-1277712</a></li>
+      <li id="ref-2">Trost-Cardamone JE. Coming to terms with VPI: a response to Loney and Bloem. Cleft Palate J. 1989;26(1):68-70. <a href="https://pubmed.ncbi.nlm.nih.gov/2645070/">pubmed.ncbi.nlm.nih.gov/2645070</a></li>
+      <li id="ref-3">American Cleft Palate-Craniofacial Association. Parameters for evaluation and treatment of patients with cleft lip/palate or other craniofacial differences. Cleft Palate Craniofac J. 2018;55(1):137-156. <a href="https://doi.org/10.1177/1055665617739564">doi.org/10.1177/1055665617739564</a></li>
+      <li id="ref-4">Kummer AW. Speech therapy for errors secondary to cleft palate and velopharyngeal dysfunction. Semin Speech Lang. 2011;32(2):191-198. <a href="https://doi.org/10.1055/s-0031-1277721">doi.org/10.1055/s-0031-1277721</a></li>
+      <li id="ref-5">American Speech-Language-Hearing Association. Practice Portal: Resonance Disorders. (Velopharyngeal insufficiency, incompetence and mislearning; obligatory and compensatory errors.) <a href="https://www.asha.org/practice-portal/clinical-topics/resonance-disorders/">asha.org/practice-portal/clinical-topics/resonance-disorders</a> (Accessed 6 November 2026.)</li>
+      <li id="ref-6">Henningsson G, Kuehn DP, Sell D, Sweeney T, Trost-Cardamone JE, Whitehill TL; Speech Parameters Group. Universal parameters for reporting speech outcomes in individuals with cleft palate. Cleft Palate Craniofac J. 2008;45(1):1-17. <a href="https://doi.org/10.1597/06-086.1">doi.org/10.1597/06-086.1</a></li>
+      <li id="ref-7">Sell D. Issues in perceptual speech analysis in cleft palate and related disorders: a review. Int J Lang Commun Disord. 2005;40(2):103-121. <a href="https://doi.org/10.1080/13682820400016522">doi.org/10.1080/13682820400016522</a></li>
+      <li id="ref-8">Golding-Kushner KJ, Argamaso RV, Cotton RT, et al. Standardization for the reporting of nasopharyngoscopy and multiview videofluoroscopy: a report from an International Working Group. Cleft Palate J. 1990;27(4):337-348. <a href="https://pubmed.ncbi.nlm.nih.gov/2253379/">pubmed.ncbi.nlm.nih.gov/2253379</a></li>
+      <li id="ref-9">Bessell A, Sell D, Whiting P, et al. Speech and language therapy interventions for children with cleft palate: a systematic review. Cleft Palate Craniofac J. 2013;50(1):e1-e17. <a href="https://doi.org/10.1597/11-202">doi.org/10.1597/11-202</a></li>
+      <li id="ref-10">Furlow LT. Cleft palate repair by double opposing Z-plasty. Plast Reconstr Surg. 1986;78(6):724-738. <a href="https://doi.org/10.1097/00006534-198678060-00002">doi.org/10.1097/00006534-198678060-00002</a></li>
+      <li id="ref-11">Ysunza A, Pamplona C, Ramírez E, Molina F, Mendoza M, Silva A. Velopharyngeal surgery: a prospective randomized study of pharyngeal flaps and sphincter pharyngoplasties. Plast Reconstr Surg. 2002;110(6):1401-1407. <a href="https://doi.org/10.1097/01.PRS.0000029349.16221.FB">doi.org/10.1097/01.PRS.0000029349.16221.FB</a></li>
+      <li id="ref-12">de Blacam C, Smith S, Orr D. Surgery for velopharyngeal dysfunction: a systematic review of interventions and outcomes. Cleft Palate Craniofac J. 2018;55(3):405-422. <a href="https://doi.org/10.1177/1055665617735102">doi.org/10.1177/1055665617735102</a></li>
+      <li id="ref-13">Stein MJ, Zhang Z, Fell M, Mercer N, Malic C. Determining postoperative outcomes after cleft palate repair: a systematic review and meta-analysis. J Plast Reconstr Aesthet Surg. 2019;72(1):85-91. <a href="https://doi.org/10.1016/j.bjps.2018.08.019">doi.org/10.1016/j.bjps.2018.08.019</a></li>
+      <li id="ref-14">Sitzman TJ, Williams JL, Singh DJ, Temkit M, Snodgrass TD, Perry JL. Magnetic resonance imaging of the velopharynx: clinical findings in patients with velopharyngeal insufficiency. Plast Reconstr Surg. 2024;153(6):1155e-1168e. <a href="https://doi.org/10.1097/PRS.0000000000010798">doi.org/10.1097/PRS.0000000000010798</a></li>
+      <li id="ref-15">Haenssler AE, Fang X, Perry JL. Effective velopharyngeal ratio: a more clinically relevant measure of velopharyngeal function. J Speech Lang Hear Res. 2020;63(11):3586-3593. <a href="https://doi.org/10.1044/2020_JSLHR-20-00305">doi.org/10.1044/2020_JSLHR-20-00305</a></li>
+      <li id="ref-16">Perry JL, Lee MK, Tahmasebifard N, et al. Sex differences in velopharyngeal anatomy of 9- and 10-year-old children. J Speech Lang Hear Res. 2023;66(12):4828-4837. <a href="https://doi.org/10.1044/2023_JSLHR-23-00279">doi.org/10.1044/2023_JSLHR-23-00279</a></li>
+      <li id="ref-17">Rojas CA, Vermess D, Bertozzi JC, Whitlow J, Guidi C, Martinez CR. Normal thickness and appearance of the prevertebral soft tissues on multidetector CT. AJNR Am J Neuroradiol. 2009;30(1):136-141. <a href="https://doi.org/10.3174/ajnr.A1307">doi.org/10.3174/ajnr.A1307</a></li>
+      <li id="ref-18">BodyParts3D, © The Database Center for Life Science, version 4.0. Licence: CC Attribution 4.0 International. <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html</a> (Accessed 6 November 2026.)</li>
+      <li id="ref-19">Skolnick ML, McCall GN, Barnes M. The sphincteric mechanism of velopharyngeal closure. Cleft Palate J. 1973;10:286-305. <a href="https://pubmed.ncbi.nlm.nih.gov/4513919/">pubmed.ncbi.nlm.nih.gov/4513919</a></li>
+      <li id="ref-20">Jordan HN, Schenck GC, Ellis C, Rangarathnam B, Fang X, Perry JL. Examining velopharyngeal closure patterns based on anatomic variables. J Craniofac Surg. 2017;28(1):270-274. <a href="https://doi.org/10.1097/SCS.0000000000003284">doi.org/10.1097/SCS.0000000000003284</a></li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small"><span lang="en">Version 0.1, 6 November 2026. Journal sources checked on PubMed. English patient text checked with the patient-education-toolkit rules.</span><span lang="vi">Phiên bản 0.1, ngày 6 tháng 11 năm 2026. Các nguồn tạp chí đã được kiểm tra trên PubMed.</span><span lang="ja">{版|はん}0.1、2026{年|ねん}11{月|がつ}6{日|か}。{論文|ろんぶん}の{出典|しゅってん}は PubMed で{確認|かくにん}。</span></p>
+</main>
+<!-- CONTACT: copy of app/contact.ts. When the Instagram/X handles are known, turn the
+     Instagram / X buttons (no destination yet) into links: add href. -->
+<footer class="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h"><span lang="en">Contact us</span><span lang="vi">Liên hệ</span><span lang="ja">お{問|と}い{合|あ}わせ</span></h2>
+  <p><span lang="en">Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.</span><span lang="vi">Bạn có câu hỏi, góp ý sửa lỗi hay ý tưởng cho một mô hình? Hãy theo dõi Vivatheca hoặc liên hệ với chúng tôi.</span><span lang="ja">{模型|もけい}についてのご{質問|しつもん}、{誤|あやま}りのご{指摘|してき}、アイデアをお{待|ま}ちしています。Vivathecaをフォローするか、お{気軽|きがる}にご{連絡|れんらく}ください。</span></p>
+  <ul>
+    <li><a class="pending" role="link" aria-disabled="true"><b>Instagram</b></a></li>
+    <li><a class="pending" role="link" aria-disabled="true"><b>X</b></a></li>
+    <li><a href="mailto:vivatheca@gmail.com"><b><span lang="en">Email</span><span lang="ja">メール</span></b> vivatheca@gmail.com</a></li>
+  </ul>
+  <p class="small"><span lang="en">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Full disclaimer</a></span><span lang="vi">Vivatheca chỉ nhằm mục đích giáo dục chung. Đây không phải lời khuyên y khoa và không được dùng để chẩn đoán, lập kế hoạch điều trị hoặc hướng dẫn phẫu thuật. Hãy trao đổi với nhân viên y tế có chuyên môn về sức khỏe của chính bạn. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></span><span lang="ja">Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+</footer>
+<script src="vi.js"></script>
+<script src="/inline-vi.js"></script>
+<script src="viewer.js"></script>
+<script src="/contact.js"></script>
+<script src="/model-page.js"></script>
+<script src="/fullscreen.js"></script>
+<script src="/videos/videos.js"></script>
+<script src="/video-embed.js"></script>
+<script src="/model-parts.js"></script>
+<script src="/share-tools.js"></script>
+</body>
+</html>
