@@ -273,7 +273,7 @@ export function ModelExperience() {
       <div className="model-copy">
         <div className="segmented segmented-stages" role="group" aria-label={plain(a.stagesLabel)}>
           {a.stages.map((item, index) => (
-            <button key={item.label} type="button" aria-pressed={stage === index} onClick={() => chooseStage(index)}><Ruby text={item.label} /></button>
+            <button key={item.label} type="button" data-stage-index={index} aria-pressed={stage === index} onClick={() => chooseStage(index)}><Ruby text={item.label} /></button>
           ))}
         </div>
         <div className="segmented" role="group" aria-label={plain(m.level)}>

@@ -1,0 +1,541 @@
+// "Use this model" panel for every model viewer (ideas borrowed from other services, 6 Nov 2026:
+// audits/ideas-from-other-industries-2026-11-06.md in the project files).
+// - Link to this view (BioDigital share links): the camera, the stage and the hidden parts go in ?view=,
+//   with a QR code to print on a handout.
+// - Save picture (BioDigital / Sketchfab screenshots): a PNG with the credit, licence, review status and
+//   model disclaimer drawn under the model, so reuse carries them along.
+// - Picture steps (IKEA's wordless instructions): every stage as a numbered picture, no words on the pictures.
+// - Guided tour (Smithsonian Voyager tours, Sketchfab annotation autopilot): steps through the page's own
+//   stages with Back and Next. It shows the page's own captions, so it adds no new health text.
+// - Copy credit (Wikimedia Commons attribution generator): CC BY-SA 4.0 credit in plain text, HTML or short form.
+// - Embed (Sketchfab / BioDigital embeds): ?embed=1 shows only the viewer, with the review status,
+//   model disclaimer, licence and a link back. Works once the site has no password.
+// - Counts views, downloads and uses per model for /impact (no cookies, nothing about the visitor).
+// Static pages load this after /model-parts.js. React pages add <div data-vt-share data-vt-scope="selector">.
+(function () {
+  if (window.vtShareTools) return;
+  window.vtShareTools = true;
+  const doc = document;
+  const cookie = (name) => (doc.cookie.match('(?:^|; )' + name + '=([^;]*)') || [])[1];
+  const JA = (doc.documentElement.lang || '').startsWith('ja') || cookie('vivatheca-lang') === 'ja';
+  const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g, '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
+  const plain = (s) => (s || '').replace(/\{([^{}|]+)\|[^{}]+\}/g, '$1');
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const T = {
+    heading: ['Use this model', 'この{模型|もけい}を{使|つか}う'],
+    lead: ['Share this exact view, save a picture for a handout, or show it step by step. The credit and disclaimer go with it.', 'この{見|み}え{方|かた}を{共有|きょうゆう}したり、{資料|しりょう}{用|よう}の{画像|がぞう}を{保存|ほぞん}したり、{順番|じゅんばん}に{見|み}せたりできます。クレジットと{免責|めんせき}{事項|じこう}も{一緒|いっしょ}に{付|つ}きます。'],
+    link: ['Copy link to this view', 'この{表示|ひょうじ}へのリンクをコピー'],
+    linked: ['Link copied. It opens the same stage, angle and hidden parts.', 'リンクをコピーしました。{同|おな}じ{段階|だんかい}・{角度|かくど}・{隠|かく}した{部分|ぶぶん}で{開|ひら}きます。'],
+    linkShown: ['Copy this link:', 'このリンクをコピーしてください：'],
+    qr: ['QR code', 'QRコード'],
+    qrHide: ['Hide QR code', 'QRコードを{隠|かく}す'],
+    qrSave: ['Save QR code (SVG)', 'QRコードを{保存|ほぞん}（SVG）'],
+    qrAlt: ['QR code that opens this view of the model', 'この{模型|もけい}の{表示|ひょうじ}を{開|ひら}くQRコード'],
+    picture: ['Save picture (PNG)', '{画像|がぞう}を{保存|ほぞん}（PNG）'],
+    pictureDone: ['Picture saved. The credit and disclaimer are printed under the model.', '{画像|がぞう}を{保存|ほぞん}しました。{模型|もけい}の{下|した}にクレジットと{免責|めんせき}{事項|じこう}が{入|はい}っています。'],
+    steps: ['Picture steps (no words)', '{絵|え}だけの{手順|てじゅん}{図|ず}'],
+    stepsBusy: ['Making the picture steps: {n} of {total}…', '{手順|てじゅん}{図|ず}を{作成中|さくせいちゅう}：{total}{枚|まい}{中|ちゅう}{n}{枚目|まいめ}…'],
+    stepsDone: ['Picture steps saved. Each stage is a numbered picture with no words, so it works in any language.', '{手順|てじゅん}{図|ず}を{保存|ほぞん}しました。{各|かく}{段階|だんかい}が{番号|ばんごう}{付|つ}きの{絵|え}で、{文字|もじ}がないので、どの{言語|げんご}でも{使|つか}えます。'],
+    tour: ['Guided tour', 'ガイド{付|つ}きツアー'],
+    tourStep: ['Step {n} of {total}', '{total}{中|ちゅう}{n}'],
+    back: ['Back', '{戻|もど}る'],
+    next: ['Next', '{次|つぎ}へ'],
+    stop: ['End tour', 'ツアーを{終|お}える'],
+    credit: ['Copy credit', 'クレジットをコピー'],
+    creditHeading: ['Credit for reuse (CC BY-SA 4.0)', '{再利用|さいりよう}{時|じ}のクレジット（CC BY-SA 4.0）'],
+    creditHelp: ['Paste this wherever you use the model or a picture of it. If you change the model, say what you changed. Things you make from it must use the same licence.', '{模型|もけい}やその{画像|がぞう}を{使|つか}う{場所|ばしょ}に{貼|は}り{付|つ}けてください。{模型|もけい}を{変|か}えたときは、{何|なに}を{変|か}えたかを{書|か}いてください。これをもとに{作|つく}ったものは、{同|おな}じライセンスにしてください。'],
+    fmtPlain: ['Plain text', 'テキスト'],
+    fmtHtml: ['HTML (web page)', 'HTML（ウェブページ）'],
+    fmtShort: ['Short (slides, posters)', '{短|みじか}い{形|かたち}（スライド・ポスター）'],
+    copy: ['Copy', 'コピー'],
+    copied: ['Copied.', 'コピーしました。'],
+    embed: ['Embed on a website', 'ウェブサイトに{埋|う}め{込|こ}む'],
+    embedHelp: ['Paste this code into a clinic website, blog or course page. The viewer keeps the review status, disclaimer and credit. Embeds work once Vivatheca leaves its private preview.', 'このコードを{医院|いいん}のサイトや{授業|じゅぎょう}ページに{貼|は}り{付|つ}けてください。{審査|しんさ}の{状況|じょうきょう}・{免責|めんせき}{事項|じこう}・クレジットも{表示|ひょうじ}されます。Vivathecaの{限定|げんてい}{公開|こうかい}が{終|お}わると{使|つか}えます。'],
+    more: ['More ways to use it', 'ほかの{使|つか}い{方|かた}'],
+    print: ['3D print: 3MF file or custom print', '3D{印刷|いんさつ}：3MFファイル・カスタム{印刷|いんさつ}'],
+    templates: ['Handout and slide templates', '{配布|はいふ}{資料|しりょう}とスライドのテンプレート'],
+    used: ['Tell us how you used it', '{使|つか}い{方|かた}を{教|おし}えてください'],
+    request: ['Ask for a new model', '{新|あたら}しい{模型|もけい}をリクエスト'],
+    embedOpen: ['Open on Vivatheca', 'Vivathecaで{開|ひら}く'],
+    embedTitle: ['3D model from Vivatheca', 'Vivathecaの3D{模型|もけい}'],
+    failed: ['Sorry, that did not work in this browser.', 'このブラウザではうまくいきませんでした。'],
+    version: ['version', 'バージョン'],
+    licensed: ['Licensed under', 'ライセンス：'],
+    changes: ['Changes: none (or describe your changes).', '{変更|へんこう}：なし（{変更|へんこう}した{場合|ばあい}はその{内容|ないよう}）。'],
+    model: ['Model', '{模型|もけい}'],
+  };
+  const say = (k) => ruby(JA ? T[k][1] : T[k][0]);
+  const sayPlain = (k) => plain(JA ? T[k][1] : T[k][0]);
+  const fill = (s, v) => s.replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const norm = (p) => p.replace(/index\.html$/, '').replace(/\/?$/, '/');
+  const PATH = norm(location.pathname);
+  const params = new URLSearchParams(location.search);
+  const EMBED = params.get('embed') === '1';
+
+  // ---- model facts (title, version, licence, review status, disclaimer) ----
+  let metaPromise = null;
+  const meta = () => (metaPromise ||= fetch('/api/models').then((r) => r.json()).then((m) => ({ ...m, model: m.models.find((x) => norm(x.href) === PATH) || null })).catch(() => null));
+  const lang = JA ? 'ja' : 'en';
+
+  // ---- usage counts (/impact) ----
+  function count(kind) {
+    meta().then((m) => {
+      if (!m || !m.model) return;
+      try { fetch('/api/stats/hit', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: m.model.slug, kind }) }).catch(() => {}); } catch (e) { /* counting is optional */ }
+    });
+  }
+  window.vtCount = count;
+
+  // ---- what the page shows right now (stage, toggles, parts, camera) ----
+  // Choice buttons in the order they must be pressed to rebuild a view.
+  const CHOICE = ['data-case', 'data-class', 'data-phase', 'data-stage', 'data-state', 'data-age', 'data-stage-index'];
+  const TOGGLES = ['xray', 'lost', 'labels', 'bite', 'cut', 'seethrough', 'ghost', 'moved', 'btn-margin', 'btn-xray', 'btn-recon'];
+  const outside = (el) => !el.closest('.vt-share, .vt-parts, .vt-tourbar, header, nav, footer');
+  const choiceButtons = (scope, attr) => [...(scope || doc).querySelectorAll('button[' + attr + ']')].filter((b) => outside(b) && !b.hidden && !b.disabled && b.offsetParent !== null);
+
+  function readState(group) {
+    const s = [];
+    CHOICE.forEach((attr) => { const b = choiceButtons(group.scope, attr).find((x) => x.getAttribute('aria-pressed') === 'true'); if (b) s.push([attr, b.getAttribute(attr)]); });
+    const g = TOGGLES.filter((id) => { const b = doc.getElementById(id); return b && outside(b) && b.getAttribute('aria-pressed') === 'true'; });
+    const p = group.parts() ? group.parts().get() : null;
+    return { s, g, p, c: group.views().map((v) => v.get()) };
+  }
+
+  async function applyState(group, st, keepCamera) {
+    for (const [attr, val] of st.s || []) {
+      const b = choiceButtons(group.scope, attr).find((x) => x.getAttribute(attr) === val);
+      if (b && b.getAttribute('aria-pressed') !== 'true') { b.click(); await group.settled(); }
+    }
+    for (const id of TOGGLES) {
+      const b = doc.getElementById(id);
+      if (!b || !outside(b) || b.disabled) continue;
+      const want = (st.g || []).includes(id);
+      if ((b.getAttribute('aria-pressed') === 'true') !== want) { b.click(); await sleep(60); }
+    }
+    if (st.p && group.parts()) await group.parts().set(st.p);
+    if (!keepCamera && st.c) group.views().forEach((v, i) => { if (st.c[i]) v.set(st.c[i]); });
+  }
+
+  const enc = (o) => btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const dec = (s) => { try { return JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g, '+').replace(/_/g, '/'))))); } catch (e) { return null; } };
+
+  // ---- viewers: <model-viewer> or the three.js head and neck viewer (#viewer with vtView) ----
+  function mvView(mv) {
+    return {
+      el: mv,
+      get: () => {
+        const o = mv.getCameraOrbit(), t = mv.getCameraTarget(), d = (r) => (r * 180 / Math.PI).toFixed(1) + 'deg', m = (n) => +n.toFixed(4) + 'm';
+        return { o: d(o.theta) + ' ' + d(o.phi) + ' ' + m(o.radius), t: m(t.x) + ' ' + m(t.y) + ' ' + m(t.z), f: mv.getFieldOfView().toFixed(1) + 'deg' };
+      },
+      set: (v) => { mv.cameraOrbit = v.o; mv.cameraTarget = v.t; if (v.f) mv.fieldOfView = v.f; if (mv.jumpCameraToGoal) mv.jumpCameraToGoal(); },
+      visible: () => mv.offsetParent !== null && !mv.closest('[hidden]'),
+      capture: async () => {
+        const blob = await mv.toBlob({ mimeType: 'image/png', idealAspect: false });
+        return await createImageBitmap(blob);
+      },
+    };
+  }
+  function threeView(box) {
+    const a = () => box.vtView;
+    return {
+      el: box,
+      get: () => (a() ? a().get() : null),
+      set: (v) => { if (a() && v) a().set(v); },
+      visible: () => true,
+      capture: async () => createImageBitmap(await new Promise((r) => a().capture().toBlob(r, 'image/png'))),
+    };
+  }
+
+  function makeGroup(scope, mount) {
+    const group = {
+      scope, mount,
+      views() {
+        const mvs = [...scope.querySelectorAll('model-viewer')];
+        if (mvs.length) return mvs.map(mvView);
+        const box = scope.querySelector('#viewer');
+        return box ? [threeView(box)] : [];
+      },
+      parts() { const v = group.views()[0]; return v && v.el.vtPartsState ? v.el.vtPartsState : null; },
+      // Wait for a model swap after a button press (model-viewer fires load; three.js swaps are quick).
+      async settled() {
+        const mvs = [...scope.querySelectorAll('model-viewer')];
+        await sleep(80);
+        await Promise.all(mvs.map((mv) => (mv.loaded ? Promise.resolve() : new Promise((r) => { const done = () => { mv.removeEventListener('load', done); r(); }; mv.addEventListener('load', done); setTimeout(done, 6000); }))));
+        await sleep(mvs.length ? 250 : 500);
+      },
+    };
+    return group;
+  }
+
+  // ---- tours: step through the page's own stages ----
+  // Overrides for pages whose stages need two buttons; otherwise the first choice group with 2+ buttons is used.
+  const TOURS = {
+    '/orthognathic/': [[['data-class', 'normal']], [['data-class', 'class2'], ['data-phase', 'before']], [['data-class', 'class2'], ['data-phase', 'after']], [['data-class', 'class3'], ['data-phase', 'before']], [['data-class', 'class3'], ['data-phase', 'after']]],
+  };
+  function tourSteps(group) {
+    if (TOURS[PATH]) return TOURS[PATH].map((s) => ({ press: s }));
+    for (const attr of ['data-stage', 'data-state', 'data-age', 'data-stage-index']) {
+      const bs = choiceButtons(group.scope, attr);
+      if (bs.length >= 2) return bs.map((b) => ({ press: [[attr, b.getAttribute(attr)]] }));
+    }
+    return [];
+  }
+  async function goStep(group, step) {
+    for (const [attr, val] of step.press) {
+      const b = choiceButtons(group.scope, attr).find((x) => x.getAttribute(attr) === val) || [...group.scope.querySelectorAll('button[' + attr + '="' + val + '"]')][0];
+      if (b && b.getAttribute('aria-pressed') !== 'true') { b.click(); await group.settled(); }
+    }
+  }
+  function stepTitle(group, step) {
+    const last = step.press[step.press.length - 1];
+    const b = [...group.scope.querySelectorAll('button[' + last[0] + '="' + last[1] + '"]')][0];
+    const cap = doc.querySelector('#stage h2, #stage h3, .model-copy h3');
+    const text = (el) => { if (!el) return ''; const c = el.cloneNode(true); c.querySelectorAll('rt, rp').forEach((r) => r.remove()); return c.textContent.replace(/\s+/g, ' ').trim(); };
+    return text(cap) || text(b);
+  }
+
+  function startTour(group, panel) {
+    const steps = tourSteps(group);
+    if (!steps.length) return;
+    const view = group.views()[0];
+    if (!view) return;
+    const host = view.el;
+    const old = host.querySelector('.vt-tourbar'); if (old) old.remove();
+    const bar = doc.createElement('div');
+    bar.className = 'vt-tourbar';
+    bar.setAttribute('role', 'group');
+    bar.setAttribute('aria-label', sayPlain('tour'));
+    host.appendChild(bar);
+    let i = 0;
+    count('tour');
+    async function show() {
+      bar.innerHTML = '<p class="vt-tour-count" aria-live="polite"></p><div class="vt-tour-buttons">' +
+        '<button type="button" class="vt-tour-back"' + (i === 0 ? ' disabled' : '') + '>' + say('back') + '</button>' +
+        '<button type="button" class="vt-tour-next"' + (i === steps.length - 1 ? ' disabled' : '') + '>' + say('next') + '</button>' +
+        '<button type="button" class="vt-tour-stop">' + say('stop') + '</button></div>';
+      bar.querySelector('.vt-tour-back').onclick = () => { i = Math.max(0, i - 1); show(); };
+      bar.querySelector('.vt-tour-next').onclick = () => { i = Math.min(steps.length - 1, i + 1); show(); };
+      bar.querySelector('.vt-tour-stop').onclick = () => { bar.remove(); const t = panel.querySelector('.vt-tour'); if (t) t.focus(); };
+      await goStep(group, steps[i]);
+      bar.querySelector('.vt-tour-count').innerHTML = esc(fill(sayPlain('tourStep'), { n: i + 1, total: steps.length })) + ': <b>' + esc(stepTitle(group, steps[i])) + '</b>';
+      const focus = bar.querySelector(i === steps.length - 1 ? '.vt-tour-stop' : '.vt-tour-next'); if (focus) focus.focus({ preventScroll: true });
+    }
+    host.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    show();
+  }
+
+  // ---- pictures ----
+  function wrapLines(ctx, text, width) {
+    const out = []; let line = '';
+    const words = JA ? [...text] : text.split(' ');
+    words.forEach((w) => { const t = line ? line + (JA ? '' : ' ') + w : w; if (ctx.measureText(t).width > width && line) { out.push(line); line = w; } else line = t; });
+    if (line) out.push(line);
+    return out;
+  }
+  function creditLines(m) {
+    const title = plain(m.model.title[lang]);
+    const url = 'https://vivatheca.com' + m.model.href;
+    return {
+      title: title + ' · ' + sayPlain('version') + ' ' + m.model.version,
+      credit: '© Vivatheca · ' + url + ' · ' + m.licence.name,
+      status: plain(m.reviewStatus[lang]) + ' ' + plain(m.modelDisclaimer[lang]) + ' vivatheca.com' + m.disclaimerHref,
+    };
+  }
+  // Draws pictures in a grid (numbered when there are several) with the credit and disclaimer underneath.
+  function compose(images, m, numbered) {
+    const cols = images.length <= 1 ? 1 : images.length <= 4 ? Math.min(images.length, 2) : 3;
+    const rows = Math.ceil(images.length / cols);
+    const cell = Math.min(1600 / cols, images[0].width);
+    const ch = cell * images[0].height / images[0].width;
+    const W = Math.round(cell * cols), pad = Math.round(W / 60) + 8;
+    const c = doc.createElement('canvas');
+    const ctx = c.getContext('2d');
+    const font = (px, bold) => (bold ? '600 ' : '') + px + 'px system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif';
+    const fs = Math.max(14, Math.round(W / 70));
+    ctx.font = font(fs);
+    const L = creditLines(m);
+    const lines = [[L.title, true], [L.credit, false], ...wrapLines(ctx, L.status, W - 2 * pad).map((l) => [l, false])];
+    const footer = pad * 2 + lines.length * fs * 1.45;
+    c.width = W; c.height = Math.round(rows * ch + footer);
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, c.width, c.height);
+    images.forEach((img, k) => {
+      const x = (k % cols) * cell, y = Math.floor(k / cols) * ch;
+      ctx.drawImage(img, x, y, cell, ch);
+      if (numbered) {
+        const r = Math.max(18, cell / 14);
+        ctx.fillStyle = '#00244d'; ctx.beginPath(); ctx.arc(x + r + 10, y + r + 10, r, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#ffffff'; ctx.font = font(Math.round(r * 1.1), true); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(String(k + 1), x + r + 10, y + r + 11);
+        ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+        if (k < images.length - 1 && (k % cols) < cols - 1) { ctx.fillStyle = '#007f8b'; ctx.font = font(Math.round(r * 1.4), true); ctx.fillText('→', x + cell - r * 1.6, y + ch / 2); }
+      }
+    });
+    ctx.fillStyle = '#e5eef1'; ctx.fillRect(0, rows * ch, W, 2);
+    let y = rows * ch + pad + fs;
+    lines.forEach(([text, bold]) => { ctx.fillStyle = bold ? '#00244d' : '#33475b'; ctx.font = font(fs, bold); ctx.fillText(text, pad, y); y += fs * 1.45; });
+    return c;
+  }
+  function download(canvas, name) {
+    return new Promise((res) => canvas.toBlob((b) => {
+      const a = doc.createElement('a'); a.href = URL.createObjectURL(b); a.download = name; doc.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000); res();
+    }, 'image/png'));
+  }
+  async function captureVisible(group) {
+    const imgs = [];
+    for (const v of group.views().filter((x) => x.visible())) imgs.push(await v.capture());
+    if (imgs.length < 2) return imgs[0];
+    // Side by side (the wisdom tooth comparison): one picture.
+    const h = Math.max(...imgs.map((i) => i.height));
+    const c = doc.createElement('canvas'); c.width = imgs.reduce((s, i) => s + i.width, 0); c.height = h;
+    let x = 0; const ctx = c.getContext('2d'); imgs.forEach((i) => { ctx.drawImage(i, x, 0); x += i.width; });
+    return c;
+  }
+
+  // ---- the panel ----
+  const style = doc.createElement('style');
+  style.textContent = [
+    '.vt-share{margin:14px 0 0;padding:12px 14px;border:1px solid var(--line,#cfe1e7);border-radius:14px;text-align:left}',
+    '.vt-share h2{margin:0 0 4px;font-size:16px;color:var(--heading,#00244d)}',
+    '.vt-share p{margin:0 0 8px;font-size:14px;color:var(--muted,var(--text,#4b5d6b))}',
+    '.vt-share .vt-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}',
+    '.vt-share button,.vt-tourbar button{min-height:44px;padding:8px 14px;border-radius:999px;border:1px solid var(--line,#cfe1e7);background:var(--bg,var(--surface,#fff));color:var(--text,var(--text-strong,#06233f));font:inherit;font-size:15px;cursor:pointer}',
+    '.vt-share button[aria-expanded="true"]{border-color:var(--accent,#007f8b);color:var(--accent,#007f8b);font-weight:600}',
+    '.vt-share button:focus-visible,.vt-tourbar button:focus-visible,.vt-share a:focus-visible{outline:3px solid var(--accent,#007f8b);outline-offset:2px}',
+    '.vt-share button:disabled,.vt-tourbar button:disabled{opacity:.5;cursor:default}',
+    '.vt-share .vt-box{margin:10px 0 0;padding:10px 12px;border-radius:10px;background:var(--surface-alt,rgba(0,127,139,.06))}',
+    '.vt-share textarea{width:100%;box-sizing:border-box;min-height:84px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;padding:8px;border-radius:8px;border:1px solid var(--line,#cfe1e7);background:var(--bg,var(--surface,#fff));color:var(--text,var(--text-strong,#06233f))}',
+    '.vt-share .vt-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}',
+    '.vt-share .vt-tabs button{min-height:36px;padding:4px 12px;font-size:14px}',
+    '.vt-share .vt-tabs button[aria-pressed="true"]{border-color:var(--accent,#007f8b);color:var(--accent,#007f8b);font-weight:600}',
+    '.vt-share .vt-qr svg{width:180px;height:180px;background:#fff;border-radius:8px;display:block;margin:8px 0}',
+    '.vt-share .vt-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0 0;padding:0;list-style:none;font-size:15px}',
+    '.vt-share .vt-links a{color:var(--accent,#007f8b);font-weight:600;display:inline-block;min-height:24px}',
+    '.vt-share .vt-status{min-height:1.2em;margin:8px 0 0;font-size:14px;color:var(--accent,#007f8b)}',
+    '.vt-tourbar{position:absolute;left:8px;right:8px;bottom:8px;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px 10px;border-radius:12px;background:rgba(0,36,77,.92);color:#fff;text-align:left}',
+    '.vt-tourbar p{margin:0;flex:1 1 200px;font-size:14px;color:#fff}',
+    '.vt-tourbar .vt-tour-buttons{display:flex;gap:6px;flex-wrap:wrap}',
+    '.vt-tourbar button{min-height:40px;padding:6px 12px;background:#fff;color:#00244d;border-color:#fff}',
+    // Embedded view (?embed=1): only the viewer, its controls and a bar with the credit and disclaimer.
+    'html.vt-embed [data-vt-embed="hide"]{display:none!important}',
+    'html.vt-embed body{padding-bottom:0;margin:0}',
+    'html.vt-embed main{padding-top:8px!important;margin-top:0!important}',
+    '.vt-embedbar{position:sticky;bottom:0;z-index:20;padding:8px 12px;background:var(--surface,#fff);border-top:1px solid var(--line,#cfe1e7);font-size:13px;line-height:1.45;color:var(--text,#06233f);text-align:left}',
+    '.vt-embedbar a{color:var(--accent,#007f8b);font-weight:600}',
+    '.vt-embedbar strong{color:var(--heading,#00244d)}',
+  ].join('');
+  doc.head.appendChild(style);
+
+  function placePanel(group, panel) {
+    if (group.mount) { group.mount.appendChild(panel); return; }
+    const view = group.views()[0];
+    const parts = doc.querySelector('.vt-parts');
+    let after = parts && parts.isConnected ? parts : view.el;
+    if (after === view.el) {
+      let next = after.nextElementSibling;
+      while (next && (next.matches('.controls, .stages, .choose, .ages, .phase, .stages-head, p.small, p.status, .legend, #legend, .hint') || next.getAttribute('role') === 'group')) { after = next; next = next.nextElementSibling; }
+    }
+    after.insertAdjacentElement('afterend', panel);
+  }
+
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) { return false; }
+  }
+
+  function credits(m) {
+    const title = plain(m.model.title[lang]);
+    const url = 'https://vivatheca.com' + m.model.href;
+    const v = m.model.version;
+    const l = m.licence;
+    return {
+      plain: (JA ? sayPlain('model') + '：「' + title + '」' : sayPlain('model') + ': "' + title + '"') + ' (' + sayPlain('version') + ' ' + v + '), Vivatheca, ' + url + '. ' + sayPlain('licensed') + ' ' + l.name + ' (' + l.href + '). ' + sayPlain('changes') + ' ' + plain(m.modelDisclaimer[lang]),
+      html: '<p>' + esc(sayPlain('model')) + (JA ? '：「' : ': “') + '<a href="' + url + '">' + esc(title) + '</a>' + (JA ? '」' : '”') + ' (' + esc(sayPlain('version')) + ' ' + esc(v) + '), <a href="https://vivatheca.com">Vivatheca</a>. ' + esc(sayPlain('licensed')) + ' <a href="' + l.href + '">' + esc(l.name) + '</a>. ' + esc(sayPlain('changes')) + '</p>\n<p><small>' + esc(plain(m.reviewStatus[lang])) + ' ' + esc(plain(m.modelDisclaimer[lang])) + ' <a href="https://vivatheca.com' + m.disclaimerHref + '">vivatheca.com' + m.disclaimerHref + '</a></small></p>',
+      short: '3D model: Vivatheca, vivatheca.com' + m.model.href + ' · ' + l.name,
+    };
+  }
+
+  function buildPanel(group) {
+    const panel = doc.createElement('section');
+    panel.className = 'vt-share';
+    panel.setAttribute('aria-label', sayPlain('heading'));
+    placePanel(group, panel);
+    meta().then((m) => {
+      if (!m || !m.model) { panel.remove(); return; }
+      const slug = m.model.slug;
+      const hasTour = tourSteps(group).length >= 2;
+      panel.innerHTML = '<h2>' + say('heading') + '</h2><p>' + say('lead') + '</p>' +
+        '<div class="vt-row">' +
+        '<button type="button" class="vt-link">' + say('link') + '</button>' +
+        '<button type="button" class="vt-qr-btn" aria-expanded="false">' + say('qr') + '</button>' +
+        '<button type="button" class="vt-pic">' + say('picture') + '</button>' +
+        (hasTour ? '<button type="button" class="vt-tour">' + say('tour') + '</button><button type="button" class="vt-steps">' + say('steps') + '</button>' : '') +
+        '<button type="button" class="vt-credit-btn" aria-expanded="false">' + say('credit') + '</button>' +
+        '<button type="button" class="vt-embed-btn" aria-expanded="false">' + say('embed') + '</button>' +
+        '</div><div class="vt-box vt-qr" hidden></div><div class="vt-box vt-credit" hidden></div><div class="vt-box vt-embedbox" hidden></div>' +
+        '<p class="vt-status" role="status" aria-live="polite"></p>' +
+        '<ul class="vt-links" aria-label="' + esc(sayPlain('more')) + '">' +
+        '<li><a href="/print?model=' + slug + '">' + say('print') + ' →</a></li>' +
+        '<li><a href="/templates#' + slug + '">' + say('templates') + ' →</a></li>' +
+        '<li><a href="/used?model=' + slug + '">' + say('used') + ' →</a></li>' +
+        '<li><a href="/requests">' + say('request') + ' →</a></li></ul>';
+      const status = panel.querySelector('.vt-status');
+      const tell = (k, v) => { status.innerHTML = v ? esc(fill(sayPlain(k), v)) : say(k); };
+      const viewUrl = () => { const u = new URL(location.href); u.hash = ''; u.searchParams.delete('embed'); u.searchParams.set('view', enc(readState(group))); return u.toString(); };
+
+      panel.querySelector('.vt-link').onclick = async () => {
+        const url = viewUrl();
+        count('share');
+        if (await copyText(url)) tell('linked');
+        else status.innerHTML = say('linkShown') + ' <input readonly size="40" value="' + esc(url) + '" aria-label="' + esc(sayPlain('link')) + '">';
+      };
+      const qrBox = panel.querySelector('.vt-qr');
+      const qrBtn = panel.querySelector('.vt-qr-btn');
+      qrBtn.onclick = async () => {
+        const open = qrBtn.getAttribute('aria-expanded') !== 'true';
+        qrBtn.setAttribute('aria-expanded', String(open)); qrBtn.innerHTML = say(open ? 'qrHide' : 'qr');
+        qrBox.hidden = !open;
+        if (!open) return;
+        await loadScript('/vendor/qrcode-generator/qrcode.js');
+        const url = viewUrl();
+        const qr = window.qrcode(0, 'M'); qr.addData(url); qr.make();
+        const svg = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true, alt: sayPlain('qrAlt') });
+        qrBox.innerHTML = svg + '<button type="button" class="vt-qr-save">' + say('qrSave') + '</button>';
+        count('share');
+        qrBox.querySelector('.vt-qr-save').onclick = () => {
+          const a = doc.createElement('a'); a.href = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })); a.download = 'vivatheca-' + slug + '-qr.svg'; doc.body.appendChild(a); a.click(); a.remove();
+        };
+      };
+      panel.querySelector('.vt-pic').onclick = async (e) => {
+        const b = e.currentTarget; b.disabled = true;
+        try { const img = await captureVisible(group); await download(compose([img], m, false), 'vivatheca-' + slug + '.png'); tell('pictureDone'); count('image'); } catch (err) { tell('failed'); }
+        b.disabled = false;
+      };
+      if (hasTour) {
+        panel.querySelector('.vt-tour').onclick = () => startTour(group, panel);
+        panel.querySelector('.vt-steps').onclick = async (e) => {
+          const b = e.currentTarget; b.disabled = true;
+          const before = readState(group);
+          const steps = tourSteps(group);
+          const imgs = [];
+          try {
+            for (let k = 0; k < steps.length; k++) {
+              tell('stepsBusy', { n: k + 1, total: steps.length });
+              await goStep(group, steps[k]);
+              group.views().forEach((v, i) => { if (before.c[i]) v.set(before.c[i]); });
+              await sleep(250);
+              imgs.push(await captureVisible(group));
+            }
+            await download(compose(imgs, m, true), 'vivatheca-' + slug + '-steps.png');
+            tell('stepsDone'); count('steps');
+          } catch (err) { tell('failed'); }
+          await applyState(group, before);
+          b.disabled = false;
+        };
+      }
+      // Credit in three formats.
+      const cBtn = panel.querySelector('.vt-credit-btn'), cBox = panel.querySelector('.vt-credit');
+      cBtn.onclick = () => {
+        const open = cBtn.getAttribute('aria-expanded') !== 'true';
+        cBtn.setAttribute('aria-expanded', String(open)); cBox.hidden = !open;
+        if (!open) return;
+        const c = credits(m);
+        let fmt = 'plain';
+        const draw = () => {
+          cBox.innerHTML = '<p><strong>' + say('creditHeading') + '</strong><br>' + say('creditHelp') + '</p>' +
+            '<div class="vt-tabs" role="group">' + [['plain', 'fmtPlain'], ['html', 'fmtHtml'], ['short', 'fmtShort']].map(([k, w]) => '<button type="button" data-fmt="' + k + '" aria-pressed="' + (fmt === k) + '">' + say(w) + '</button>').join('') + '</div>' +
+            '<textarea readonly aria-label="' + esc(sayPlain('creditHeading')) + '">' + esc(c[fmt]) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>';
+          cBox.querySelectorAll('[data-fmt]').forEach((x) => { x.onclick = () => { fmt = x.dataset.fmt; draw(); cBox.querySelector('[data-fmt="' + fmt + '"]').focus(); }; });
+          cBox.querySelector('.vt-copy').onclick = async () => { const ok = await copyText(c[fmt]); if (!ok) cBox.querySelector('textarea').select(); tell(ok ? 'copied' : 'linkShown'); count('credit'); };
+        };
+        draw();
+      };
+      // Embed code.
+      const eBtn = panel.querySelector('.vt-embed-btn'), eBox = panel.querySelector('.vt-embedbox');
+      eBtn.onclick = () => {
+        const open = eBtn.getAttribute('aria-expanded') !== 'true';
+        eBtn.setAttribute('aria-expanded', String(open)); eBox.hidden = !open;
+        if (!open) return;
+        const u = new URL(viewUrl()); u.searchParams.set('embed', '1'); if (JA) u.searchParams.set('lang', 'ja');
+        const code = '<iframe src="' + esc(u.toString()) + '" title="' + esc(plain(m.model.title[lang]) + ' – Vivatheca') + '" width="100%" height="640" style="border:0;max-width:960px" loading="lazy" allow="fullscreen; xr-spatial-tracking" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+        eBox.innerHTML = '<p>' + say('embedHelp') + '</p><textarea readonly aria-label="' + esc(sayPlain('embed')) + '">' + esc(code) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>';
+        eBox.querySelector('.vt-copy').onclick = async () => { const ok = await copyText(code); if (!ok) eBox.querySelector('textarea').select(); tell(ok ? 'copied' : 'linkShown'); };
+      };
+    });
+    return panel;
+  }
+
+  function loadScript(src) {
+    return new Promise((res, rej) => { if (doc.querySelector('script[src="' + src + '"]')) return res(); const s = doc.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; doc.head.appendChild(s); });
+  }
+
+  // ---- embed mode: hide everything but the viewer, its controls and the stage caption ----
+  function embed(group) {
+    doc.documentElement.classList.add('vt-embed');
+    const view = group.views()[0];
+    const keep = new Set();
+    const wrap = group.mount ? group.scope : view.el;
+    keep.add(wrap);
+    const add = (el) => { if (el && !wrap.contains(el) && !el.closest('header, footer')) keep.add(el); };
+    add(doc.querySelector('.vt-parts'));
+    add(doc.getElementById('stage'));
+    add(doc.getElementById('legend') || doc.querySelector('.legend'));
+    // Page controls that sit beside the viewer (stage buttons, views and toggles).
+    const controls = [...CHOICE, 'data-orbit', 'data-view'].map((a) => 'button[' + a + ']').concat(TOGGLES.map((id) => '#' + id)).join(',');
+    doc.querySelectorAll(controls).forEach((b) => add(b.closest('[role="group"], .controls, .stages, .ages, .choose, .phase, .views') || b.parentElement));
+    const path = new Set();
+    keep.forEach((el) => { for (let p = el; p && p !== doc.body; p = p.parentElement) path.add(p); });
+    path.forEach((p) => {
+      if (keep.has(p)) return;
+      [...p.children].forEach((c) => { if (!path.has(c) && !/^(SCRIPT|STYLE|LINK)$/.test(c.tagName)) c.setAttribute('data-vt-embed', 'hide'); });
+    });
+    [...doc.body.children].forEach((c) => { if (!path.has(c) && !/^(SCRIPT|STYLE|LINK)$/.test(c.tagName)) c.setAttribute('data-vt-embed', 'hide'); });
+    count('embed');
+    meta().then((m) => {
+      const bar = doc.createElement('div');
+      bar.className = 'vt-embedbar';
+      const back = new URL(location.href); back.searchParams.delete('embed');
+      bar.innerHTML = m && m.model
+        ? '<strong>' + ruby(m.model.title[lang]) + '</strong> · ' + say('embedTitle') + ' · <a href="' + esc(back.toString()) + '" target="_blank" rel="noopener">' + say('embedOpen') + ' ↗</a><br>' +
+          '<strong>' + ruby(m.reviewStatus[lang]) + '</strong> ' + ruby(m.modelDisclaimer[lang]) + ' <a href="' + m.disclaimerHref + '" target="_blank" rel="noopener">vivatheca.com' + m.disclaimerHref + '</a> · © Vivatheca · <a href="' + m.licence.href + '" target="_blank" rel="noopener">' + m.licence.name + '</a>'
+        : '<a href="' + esc(back.toString()) + '" target="_blank" rel="noopener">' + say('embedOpen') + '</a>';
+      doc.body.appendChild(bar);
+    });
+  }
+
+  // ---- start ----
+  function groups() {
+    const mounts = [...doc.querySelectorAll('[data-vt-share]')];
+    if (mounts.length) return mounts.map((mt) => makeGroup(doc.querySelector(mt.dataset.vtScope) || mt.parentElement, mt));
+    const main = doc.querySelector('main') || doc.body;
+    return main.querySelector('model-viewer, #viewer') ? [makeGroup(main, null)] : [];
+  }
+
+  async function start() {
+    // React pages render their viewers after loading model-viewer: wait for them.
+    let gs = groups();
+    for (let k = 0; k < 40 && gs.length && gs.some((g) => !g.views().length); k++) { await sleep(150); gs = groups(); }
+    gs = gs.filter((g) => g.views().length);
+    if (!gs.length) return;
+    if (!sessionStorage.getItem('vt-view:' + PATH)) { try { sessionStorage.setItem('vt-view:' + PATH, '1'); } catch (e) { /* private mode */ } count('view'); }
+    gs.forEach((g, i) => {
+      if (EMBED && i === 0) embed(g);
+      else if (!EMBED) buildPanel(g);
+    });
+    // Count file downloads (3D print files, models, templates).
+    doc.addEventListener('click', (e) => {
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (a && /\.(zip|stl|glb|3mf|pptx|obj)(\?|$)/i.test(a.getAttribute('href'))) count('download');
+    });
+    // A shared link (?view=...) rebuilds the view once the first model has loaded.
+    const v = params.get('view');
+    const st = v && dec(v);
+    if (st) {
+      const g = gs[0];
+      for (let k = 0; k < 60 && !g.views().every((x) => (x.el.tagName === 'MODEL-VIEWER' ? x.el.loaded : x.el.vtView)); k++) await sleep(200);
+      await sleep(300);
+      try { await applyState(g, st); } catch (e) { /* an old or broken link: keep the default view */ }
+    }
+  }
+  if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', start); else start();
+})();

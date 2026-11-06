@@ -62,6 +62,12 @@
   const VIEWS = { front: [0, 0.01, 0.27], right: [-0.27, 0.02, 0.02], left: [0.27, 0.02, 0.02], under: [0, -0.27, 0.06], above: [0, 0.27, 0.05] };
   const START = { mandible: (box.dataset.side === 'left' ? [0.19, 0.08, 0.17] : [-0.19, 0.08, 0.17]), maxilla: [-0.05, -0.2, 0.12] };
   const setView = (v) => { camera.position.set(...v); controls.target.set(0, 0, 0); controls.update(); };
+  // For links to a view and saved pictures (/share-tools.js): camera position and target, and a fresh frame.
+  box.vtView = {
+    get: () => ({ p: camera.position.toArray().map((n) => +n.toFixed(4)), t: controls.target.toArray().map((n) => +n.toFixed(4)) }),
+    set: (v) => { if (!v || !v.p) return; camera.position.fromArray(v.p); controls.target.fromArray(v.t || [0, 0, 0]); controls.update(); },
+    capture: () => { controls.update(); renderer.render(scene, camera); return renderer.domElement; },
+  };
   document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => setView(VIEWS[b.dataset.view])));
 
   let parts = [], offset = 0, target = 0;

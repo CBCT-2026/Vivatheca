@@ -68,6 +68,7 @@ export default async function ContributePage({ searchParams }: { searchParams?: 
 
         <section aria-labelledby="form-title">
           <h2 id="form-title"><Ruby text={c.formHeading} /></h2>
+          <p><Ruby text={c.board} /> <a href="/requests"><Ruby text={c.boardLink} /> →</a></p>
           <ContributeForm initialKind={initialKind} />
           <p className="detail-note"><Ruby text={c.emailNote} /></p>
         </section>
