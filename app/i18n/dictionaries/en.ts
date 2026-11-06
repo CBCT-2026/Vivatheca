@@ -1093,7 +1093,7 @@ const en = {
     factsLabel: 'Model facts',
     version: 'Version {v}',
     nextHeading: 'Coming next',
-    nextText: 'The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: a cyst around an unerupted tooth.',
+    nextText: 'The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: an upper canine growing towards the palate.',
     askText: 'Want a particular model, or have one to share?',
     askLink: 'Tell us',
     askGap: ' ',

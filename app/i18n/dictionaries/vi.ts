@@ -1543,7 +1543,7 @@ const vi = withFallback(en, {
     "factsLabel": "Thông tin mô hình",
     "version": "Phiên bản {v}",
     "nextHeading": "Sắp ra mắt",
-    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: nang quanh một răng chưa mọc.",
+    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: răng nanh hàm trên mọc lệch về phía vòm miệng.",
     "askText": "Bạn muốn có một mô hình cụ thể, hoặc có mô hình muốn chia sẻ?",
     "askLink": "Hãy cho chúng tôi biết",
     "askGap": " ",
