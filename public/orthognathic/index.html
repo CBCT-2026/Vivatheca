@@ -36,14 +36,15 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 <body>
 <header class="bar">
   <div class="bar-left">
-    <a class="lang" href="/">Vivatheca home</a>
-    <a class="lang" href="/models">All models</a>
-    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
+    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>
+    <a class="lang" href="/models" data-i18n="allModels">All models</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>
   </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
 </header>
 
 <main>
-  <h1>Jaw surgery to correct the bite (orthognathic surgery)</h1>
+  <h1 data-i18n="h1">Jaw surgery to correct the bite (orthognathic surgery)</h1>
 
   <model-viewer id="mv"
     src="models/normal.glb"
@@ -53,117 +54,117 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
   </model-viewer>
 
-  <p class="status"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+  <p class="status" data-i18n="review"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
 
-  <div class="choose" role="group" aria-label="Choose a bite">
-    <button type="button" data-class="normal" aria-pressed="true">Normal<small>Class I</small></button>
-    <button type="button" data-class="class2" aria-pressed="false">Class II<small>lower jaw back</small></button>
-    <button type="button" data-class="class3" aria-pressed="false">Class III<small>lower jaw forward</small></button>
+  <div class="choose" role="group" aria-label="Choose a bite" data-i18n-aria="chooseBite">
+    <button type="button" data-class="normal" aria-pressed="true" data-i18n="bNormal">Normal<small>Class I</small></button>
+    <button type="button" data-class="class2" aria-pressed="false" data-i18n="bClass2">Class II<small>lower jaw back</small></button>
+    <button type="button" data-class="class3" aria-pressed="false" data-i18n="bClass3">Class III<small>lower jaw forward</small></button>
   </div>
-  <div class="phase" id="phase" role="group" aria-label="Before or after surgery" hidden>
-    <button type="button" data-phase="before" aria-pressed="true">Before surgery</button>
-    <button type="button" data-phase="after" aria-pressed="false">After surgery</button>
+  <div class="phase" id="phase" role="group" aria-label="Before or after surgery" data-i18n-aria="phase" hidden>
+    <button type="button" data-phase="before" aria-pressed="true" data-i18n="before">Before surgery</button>
+    <button type="button" data-phase="after" aria-pressed="false" data-i18n="after">After surgery</button>
   </div>
-  <div class="controls" role="group" aria-label="Model views">
-    <button type="button" data-orbit="40deg 88deg 0.19m" aria-pressed="true">Angled</button>
-    <button type="button" data-orbit="90deg 90deg 0.19m" aria-pressed="false">Side</button>
-    <button type="button" data-orbit="0deg 90deg 0.19m" aria-pressed="false">Front</button>
-    <button type="button" data-orbit="60deg 125deg 0.19m" aria-pressed="false">From below</button>
+  <div class="controls" role="group" aria-label="Model views" data-i18n-aria="views">
+    <button type="button" data-orbit="40deg 88deg 0.19m" aria-pressed="true" data-i18n="vAngled">Angled</button>
+    <button type="button" data-orbit="90deg 90deg 0.19m" aria-pressed="false" data-i18n="vSide">Side</button>
+    <button type="button" data-orbit="0deg 90deg 0.19m" aria-pressed="false" data-i18n="vFront">Front</button>
+    <button type="button" data-orbit="60deg 125deg 0.19m" aria-pressed="false" data-i18n="vBelow">From below</button>
   </div>
-  <div class="controls" id="after-tools" role="group" aria-label="After surgery overlays" hidden>
-    <button type="button" id="ghost" aria-pressed="false">Show jaw before surgery</button>
-    <button type="button" id="moved" aria-pressed="false">Colour the moved bone</button>
+  <div class="controls" id="after-tools" role="group" aria-label="After surgery overlays" data-i18n-aria="overlays" hidden>
+    <button type="button" id="ghost" aria-pressed="false" data-i18n="ghost">Show jaw before surgery</button>
+    <button type="button" id="moved" aria-pressed="false" data-i18n="moved">Colour the moved bone</button>
   </div>
   <ul class="legend">
-    <li><span class="dot bone"></span>Bone</li>
-    <li><span class="dot teeth"></span>Teeth</li>
-    <li class="after-only" hidden><span class="dot cut"></span>Cut bone</li>
-    <li class="after-only" hidden><span class="dot plate"></span>Titanium plates and screws</li>
-    <li class="after-only" hidden><span class="dot before"></span>Before surgery (when shown)</li>
-    <li class="after-only" hidden><span class="dot moved"></span>Moved bone (when coloured)</li>
+    <li><span class="dot bone"></span><span data-i18n="lBone">Bone</span></li>
+    <li><span class="dot teeth"></span><span data-i18n="lTeeth">Teeth</span></li>
+    <li class="after-only" hidden><span class="dot cut"></span><span data-i18n="lCut">Cut bone</span></li>
+    <li class="after-only" hidden><span class="dot plate"></span><span data-i18n="lPlate">Titanium plates and screws</span></li>
+    <li class="after-only" hidden><span class="dot before"></span><span data-i18n="lBefore">Before surgery (when shown)</span></li>
+    <li class="after-only" hidden><span class="dot moved"></span><span data-i18n="lMoved">Moved bone (when coloured)</span></li>
   </ul>
 
   <section class="stage" id="stage" aria-live="polite"></section>
 
   <section>
-    <h2>What the models show</h2>
-    <p>There are five models of the same adult skull. One has a normal bite. Two show a jaw problem, before and after jaw surgery. Choose a bite, then <b>Before surgery</b> or <b>After surgery</b>. In the after models, red shows where the surgeon cut the bone. <b>Show jaw before surgery</b> adds the old position in see-through blue, so you can see how far the bone moved.</p>
+    <h2 data-i18n="showsH">What the models show</h2>
+    <p data-i18n="shows1">There are five models of the same adult skull. One has a normal bite. Two show a jaw problem, before and after jaw surgery. Choose a bite, then <b>Before surgery</b> or <b>After surgery</b>. In the after models, red shows where the surgeon cut the bone. <b>Show jaw before surgery</b> adds the old position in see-through blue, so you can see how far the bone moved.</p>
   </section>
 
   <section>
-    <h2>Class I, II and III</h2>
-    <p>Dentists sort bites into three groups, called Angle's classes. They look at where the big upper back tooth (first molar) meets the big lower back tooth.<sup class="cite"><a href="#ref-1">1</a></sup> If the jaw bones themselves are out of line, dentists call it a <b>skeletal</b> Class II or Class III.</p>
+    <h2 data-i18n="classH">Class I, II and III</h2>
+    <p data-i18n="class1">Dentists sort bites into three groups, called Angle's classes. They look at where the big upper back tooth (first molar) meets the big lower back tooth.<sup class="cite"><a href="#ref-1">1</a></sup> If the jaw bones themselves are out of line, dentists call it a <b>skeletal</b> Class II or Class III.</p>
     <div class="table-wrap">
     <table>
-      <thead><tr><th>Bite</th><th>Jaws</th><th>Front teeth</th></tr></thead>
+      <thead><tr><th data-i18n="thBite">Bite</th><th data-i18n="thJaws">Jaws</th><th data-i18n="thFront">Front teeth</th></tr></thead>
       <tbody>
-        <tr><td>Class I (normal)</td><td>In balance</td><td>Upper front teeth just in front of the lower ones</td></tr>
-        <tr><td>Class II</td><td>Lower jaw back, upper jaw forward, or both</td><td>Large gap: upper front teeth well in front</td></tr>
-        <tr><td>Class III</td><td>Lower jaw forward, upper jaw back, or both</td><td>Lower front teeth level with or in front of the upper ones</td></tr>
+        <tr><td data-i18n="r1a">Class I (normal)</td><td data-i18n="r1b">In balance</td><td data-i18n="r1c">Upper front teeth just in front of the lower ones</td></tr>
+        <tr><td data-i18n="r2a">Class II</td><td data-i18n="r2b">Lower jaw back, upper jaw forward, or both</td><td data-i18n="r2c">Large gap: upper front teeth well in front</td></tr>
+        <tr><td data-i18n="r3a">Class III</td><td data-i18n="r3b">Lower jaw forward, upper jaw back, or both</td><td data-i18n="r3c">Lower front teeth level with or in front of the upper ones</td></tr>
       </tbody>
     </table>
     </div>
-    <p>Braces can move teeth, but not the jaw bones. If your jaws are too far out of line, you may need jaw surgery as well as braces.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></p>
+    <p data-i18n="class2p">Braces can move teeth, but not the jaw bones. If your jaws are too far out of line, you may need jaw surgery as well as braces.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></p>
   </section>
 
   <section>
-    <h2>What the surgeon does</h2>
-    <p><b>Lower jaw split (BSSO, short for bilateral sagittal split osteotomy).</b> The surgeon works inside your mouth. They split each side of the lower jaw along its length. The outer layer of bone comes apart from the inner layer. The inner layer holds the teeth and the nerve to your lip and chin. The front part, with the teeth, can then slide forward (Class II) or back (Class III).<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
-    <p><b>Upper jaw cut (called a Le Fort I osteotomy).</b> The surgeon cuts the upper jaw in a line above the tooth roots. The cut runs from the side of the nose to behind the last back tooth. The part with the upper teeth can then move forward, back, up or down.<sup class="cite"><a href="#ref-6">6</a></sup></p>
-    <p>Small titanium plates and screws hold the bone in place while it heals.<sup class="cite"><a href="#ref-9">9</a></sup> In most cases the result lasts. But the jaw can slip back a little after surgery. How much depends on which way the surgeon moved the jaw.<sup class="cite"><a href="#ref-7">7</a></sup></p>
+    <h2 data-i18n="surgH">What the surgeon does</h2>
+    <p data-i18n="surg1"><b>Lower jaw split (BSSO, short for bilateral sagittal split osteotomy).</b> The surgeon works inside your mouth. They split each side of the lower jaw along its length. The outer layer of bone comes apart from the inner layer. The inner layer holds the teeth and the nerve to your lip and chin. The front part, with the teeth, can then slide forward (Class II) or back (Class III).<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
+    <p data-i18n="surg2"><b>Upper jaw cut (called a Le Fort I osteotomy).</b> The surgeon cuts the upper jaw in a line above the tooth roots. The cut runs from the side of the nose to behind the last back tooth. The part with the upper teeth can then move forward, back, up or down.<sup class="cite"><a href="#ref-6">6</a></sup></p>
+    <p data-i18n="surg3">Small titanium plates and screws hold the bone in place while it heals.<sup class="cite"><a href="#ref-9">9</a></sup> In most cases the result lasts. But the jaw can slip back a little after surgery. How much depends on which way the surgeon moved the jaw.<sup class="cite"><a href="#ref-7">7</a></sup></p>
   </section>
 
   <section id="clinical-images">
-    <h2>Real side X-rays before and after surgery</h2>
-    <p class="clinical-note">These are side X-rays of the skull (lateral cephalograms) from two published patients. Their authors released them under open licences; each licence is given under the image and is not covered by the model licence. We do not show the patients' face photos.</p>
+    <h2 data-i18n="xrH">Real side X-rays before and after surgery</h2>
+    <p class="clinical-note" data-i18n="xrNote">These are side X-rays of the skull (lateral cephalograms) from two published patients. Their authors released them under open licences; each licence is given under the image and is not covered by the model licence. We do not show the patients' face photos.</p>
     <figure class="clin-fig" id="img-1">
-      <img src="/images/clinical/orthognathic/ceph-class2-before-after.jpg" width="1200" height="757" loading="lazy" alt="Two side X-rays of the same person's skull. Left, before treatment: the lower jaw and chin sit far back. Right, after treatment: the lower jaw is further forward, with metal plates visible.">
-      <figcaption><b>Image 1. Skeletal Class II, before (left) and after (right).</b> Before treatment the lower jaw sits well behind the upper jaw. After jaw surgery (braces still on), the lower jaw and chin sit further forward. Metal plates hold the cut bone; some can be seen in the upper jaw and at the chin.
+      <img data-i18n-alt="img1Alt" src="/images/clinical/orthognathic/ceph-class2-before-after.jpg" width="1200" height="757" loading="lazy" alt="Two side X-rays of the same person's skull. Left, before treatment: the lower jaw and chin sit far back. Right, after treatment: the lower jaw is further forward, with metal plates visible.">
+      <figcaption><span data-i18n="img1Cap"><b>Image 1. Skeletal Class II, before (left) and after (right).</b> Before treatment the lower jaw sits well behind the upper jaw. After jaw surgery (braces still on), the lower jaw and chin sit further forward. Metal plates hold the cut bone; some can be seen in the upper jaw and at the chin.</span>
         <span class="credit">Alsulaimani FF, Al-Sebaei MO, Afify AR. Surgical orthodontic treatment of severe skeletal Class II. Case Rep Dent. 2013;2013:397809, Figure 5 (a) and (c). <a href="https://doi.org/10.1155/2013/397809">doi.org/10.1155/2013/397809</a>. Licence: <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Changes: panels (a) and (c) cropped, placed side by side, film labels cropped out; panel (b) left out.</span></figcaption>
     </figure>
     <figure class="clin-fig" id="img-2">
-      <img src="/images/clinical/orthognathic/ceph-class3-before-after.jpg" width="892" height="373" loading="lazy" alt="Two side X-rays of the same person's skull. Left, before: the lower front teeth and chin sit well in front of the upper teeth. Right, after: the upper front teeth sit in front of the lower ones and plates are visible in both jaws.">
-      <figcaption><b>Image 2. Skeletal Class III, before (left) and after (right).</b> Before treatment the lower front teeth sit in front of the upper front teeth. After braces and surgery on both jaws, the upper front teeth sit in front of the lower ones again. Plates are visible in the upper and lower jaw.
+      <img data-i18n-alt="img2Alt" src="/images/clinical/orthognathic/ceph-class3-before-after.jpg" width="892" height="373" loading="lazy" alt="Two side X-rays of the same person's skull. Left, before: the lower front teeth and chin sit well in front of the upper teeth. Right, after: the upper front teeth sit in front of the lower ones and plates are visible in both jaws.">
+      <figcaption><span data-i18n="img2Cap"><b>Image 2. Skeletal Class III, before (left) and after (right).</b> Before treatment the lower front teeth sit in front of the upper front teeth. After braces and surgery on both jaws, the upper front teeth sit in front of the lower ones again. Plates are visible in the upper and lower jaw.</span>
         <span class="credit">Martino F, Peña M, Joubert R. Surgical-orthodontic retreatment of a severe skeletal Class III malocclusion following an orthodontic camouflage. Dental Press J Orthod. 2021;26(4):e2119247, Figures 3 and 11. <a href="https://doi.org/10.1590/2177-6709.26.4.e2119247.oar">doi.org/10.1590/2177-6709.26.4.e2119247.oar</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: the two figures placed side by side.</span></figcaption>
     </figure>
-    <p class="small">Each patient's exact operation is described in the article; it may differ from the operations shown in the models.</p>
+    <p class="small" data-i18n="xrNote2">Each patient's exact operation is described in the article; it may differ from the operations shown in the models.</p>
   </section>
 
   <section>
-    <h2>What treatment involves</h2>
+    <h2 data-i18n="treatH">What treatment involves</h2>
     <ul>
-      <li>In most cases, surgeons wait until your jaws have stopped growing.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
-      <li>Most people wear braces before and after surgery. Orthodontics Australia says braces most often stay on for about 6 to 9 months after surgery. The whole treatment takes about 2 years.<sup class="cite"><a href="#ref-9">9</a></sup></li>
-      <li>A leaflet from Cambridge University Hospitals (NHS) gives these numbers. About 10 in 100 people have tingling or numbness in the lip or chin for several weeks. Fewer than 1 in 100 have changed feeling for more than a year, and it may not go away.<sup class="cite"><a href="#ref-11">11</a></sup></li>
+      <li data-i18n="treat1">In most cases, surgeons wait until your jaws have stopped growing.<sup class="cite"><a href="#ref-8">8</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></li>
+      <li data-i18n="treat2">Most people wear braces before and after surgery. Orthodontics Australia says braces most often stay on for about 6 to 9 months after surgery. The whole treatment takes about 2 years.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+      <li data-i18n="treat3">A leaflet from Cambridge University Hospitals (NHS) gives these numbers. About 10 in 100 people have tingling or numbness in the lip or chin for several weeks. Fewer than 1 in 100 have changed feeling for more than a year, and it may not go away.<sup class="cite"><a href="#ref-11">11</a></sup></li>
       </ul>
-    <p>Your orthodontist and jaw surgeon will explain your own plan, risks and healing time.</p>
+    <p data-i18n="treat4">Your orthodontist and jaw surgeon will explain your own plan, risks and healing time.</p>
   </section>
 
   <section>
-    <h2>For clinicians: how the models were made</h2>
+    <h2 data-i18n="clinH">For clinicians: how the models were made</h2>
     <ul>
-      <li>Skeletal class: one common cephalometric measure is the ANB angle; Steiner gave about 2 degrees as the mean for a balanced face.<sup class="cite"><a href="#ref-2">2</a></sup></li>
-      <li>In the UK, need for NHS-funded treatment is often scored with the Index of Orthognathic Functional Treatment Need (IOFTN).<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
-      <li>Base: one adult skull, mandible and permanent teeth (no third molars) from Z-Anatomy. Normal = this anatomy unchanged.</li>
-      <li>Class II: the tooth-bearing mandible is moved 6 mm back with a smooth warp that fades over the anterior ramus, so condyles and upper ramus stay in place. No vertical or chin change.</li>
-      <li>Class III: maxilla 3 mm back (fading out above the Le Fort I level and towards the pterygoid plates) and mandibular body 5 mm forward. Mouth opened 2.75 degrees about the condyles so the teeth do not intersect.</li>
-      <li>Surgery: Class II = BSSO advancement 6 mm. Class III = Le Fort I advancement 3 mm + BSSO setback 5 mm, with overlapping proximal bone trimmed. Movements reverse the deformity exactly, so the after models are back in the normal occlusion.</li>
-      <li>Cuts are planes: Le Fort I about 4 mm above the canine root tip; BSSO medial cut 5 mm above the occlusal plane, sagittal split lateral to the roots, buccal cut between first and second molar, lingual split running down to the lower border in front of the angle (short lingual split, as described by Hunsuck).<sup class="cite"><a href="#ref-5">5</a></sup> Real cuts are curved and differ by surgeon.</li>
-      <li>Movement sizes are example values chosen for teaching, not taken from one study. Not shown: soft tissue, the inferior alveolar nerve, condylar seating, rotation of the occlusal plane, genioplasty (the Z-Anatomy chin is too short to place a cut safely below the tooth roots).</li>
+      <li data-i18n="clin1">Skeletal class: one common cephalometric measure is the ANB angle; Steiner gave about 2 degrees as the mean for a balanced face.<sup class="cite"><a href="#ref-2">2</a></sup></li>
+      <li data-i18n="clin2">In the UK, need for NHS-funded treatment is often scored with the Index of Orthognathic Functional Treatment Need (IOFTN).<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-12">12</a></sup></li>
+      <li data-i18n="clin3">Base: one adult skull, mandible and permanent teeth (no third molars) from Z-Anatomy. Normal = this anatomy unchanged.</li>
+      <li data-i18n="clin4">Class II: the tooth-bearing mandible is moved 6 mm back with a smooth warp that fades over the anterior ramus, so condyles and upper ramus stay in place. No vertical or chin change.</li>
+      <li data-i18n="clin5">Class III: maxilla 3 mm back (fading out above the Le Fort I level and towards the pterygoid plates) and mandibular body 5 mm forward. Mouth opened 2.75 degrees about the condyles so the teeth do not intersect.</li>
+      <li data-i18n="clin6">Surgery: Class II = BSSO advancement 6 mm. Class III = Le Fort I advancement 3 mm + BSSO setback 5 mm, with overlapping proximal bone trimmed. Movements reverse the deformity exactly, so the after models are back in the normal occlusion.</li>
+      <li data-i18n="clin7">Cuts are planes: Le Fort I about 4 mm above the canine root tip; BSSO medial cut 5 mm above the occlusal plane, sagittal split lateral to the roots, buccal cut between first and second molar, lingual split running down to the lower border in front of the angle (short lingual split, as described by Hunsuck).<sup class="cite"><a href="#ref-5">5</a></sup> Real cuts are curved and differ by surgeon.</li>
+      <li data-i18n="clin8">Movement sizes are example values chosen for teaching, not taken from one study. Not shown: soft tissue, the inferior alveolar nerve, condylar seating, rotation of the occlusal plane, genioplasty (the Z-Anatomy chin is too short to place a cut safely below the tooth roots).</li>
     </ul>
-    <p class="small">Build scripts and measurements: <code>tools/orthognathic/</code> in the Vivatheca repository.</p>
+    <p class="small" data-i18n="clin9">Build scripts and measurements: <code>tools/orthognathic/</code> in the Vivatheca repository.</p>
   </section>
 
   <section class="disclaimer">
-    <h2>About these models</h2>
-    <p><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
-    <p class="small">Prototype, version 0.1. Colours: bone and teeth as the Vivatheca wisdom tooth model (teeth slightly lighter), red for cut bone, grey for titanium.</p>
-    <p class="small credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: bones and teeth extracted, smoothed, remeshed, warped, cut and moved; plates and screws added. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <h2 data-i18n="aboutH">About these models</h2>
+    <p data-i18n="review"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small" data-i18n="proto">Prototype, version 0.1. Colours: bone and teeth as the Vivatheca wisdom tooth model (teeth slightly lighter), red for cut bone, grey for titanium.</p>
+    <p class="small credit" data-i18n="credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: bones and teeth extracted, smoothed, remeshed, warped, cut and moved; plates and screws added. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
   </section>
 
   <section class="refs">
   <details>
-    <summary><h2>Sources</h2></summary>
+    <summary><h2 data-i18n="sourcesH">Sources</h2></summary>
     <ol>
       <li id="ref-1">Angle EH. Classification of malocclusion. Dental Cosmos. 1899;41:248-264, 350-357. (Molar classes I, II, III.)</li>
       <li id="ref-2">Steiner CC. Cephalometrics for you and me. Am J Orthod. 1953;39(10):729-755. <a href="https://doi.org/10.1016/0002-9416(53)90082-7">doi.org/10.1016/0002-9416(53)90082-7</a> (SNA, SNB and ANB norms.)</li>
@@ -181,11 +182,13 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   </details>
   </section>
 
-  <p class="small">Version 0.1, 5 November 2026.</p>
+  <p class="small" data-i18n="version">Version 0.1, 5 November 2026.</p>
 </main>
 <footer>
-  <p>Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Disclaimer</a></p>
+  <p data-i18n="site">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Disclaimer</a></p>
 </footer>
+<script src="ja.js"></script>
+<script src="/static-i18n.js"></script>
 <script src="../development/theme.js"></script>
 <script src="viewer.js"></script>
 <script src="/contact.js"></script>
