@@ -1,0 +1,331 @@
+{
+  "slug": "prosthodontic",
+  "models": {
+    "dentate": "/prosthodontic/models/dentate-whole.glb",
+    "edentulous": "/prosthodontic/models/edentulous-whole.glb",
+    "denture": "/prosthodontic/models/denture-whole.glb",
+    "overdenture": "/prosthodontic/models/overdenture-whole.glb"
+  },
+  "anchors": {
+    "ridge": {
+      "model": "dentate",
+      "node": "^gum$",
+      "at": [
+        0.75,
+        0.9,
+        0.75
+      ]
+    },
+    "flat": {
+      "model": "edentulous",
+      "node": "^gum$",
+      "at": [
+        0.8,
+        0.8,
+        0.5
+      ]
+    },
+    "denture": {
+      "model": "denture",
+      "node": "^denture$",
+      "at": [
+        0.5,
+        0.6,
+        1.0
+      ]
+    },
+    "implant": {
+      "model": "overdenture",
+      "node": "^implant$",
+      "at": [
+        0.5,
+        1.0,
+        0.5
+      ]
+    }
+  },
+  "scenes": {
+    "dentate": {
+      "model": "dentate",
+      "from": [
+        -25,
+        25,
+        3.1
+      ],
+      "to": [
+        0,
+        30,
+        3.0
+      ],
+      "chip": "dentate",
+      "labels": [
+        [
+          "ridge",
+          "r",
+          300
+        ]
+      ]
+    },
+    "shrink": {
+      "model": "edentulous",
+      "from": [
+        0,
+        30,
+        3.0
+      ],
+      "to": [
+        25,
+        25,
+        3.0
+      ],
+      "chip": "edentulous",
+      "labels": [
+        [
+          "flat",
+          "r",
+          300
+        ]
+      ]
+    },
+    "low": {
+      "model": "edentulous",
+      "from": [
+        70,
+        10,
+        3.0
+      ],
+      "to": [
+        100,
+        12,
+        3.0
+      ],
+      "chip": "edentulous",
+      "labels": []
+    },
+    "denture": {
+      "model": "denture",
+      "from": [
+        20,
+        25,
+        3.0
+      ],
+      "to": [
+        -10,
+        25,
+        3.0
+      ],
+      "chip": "denture",
+      "labels": [
+        [
+          "denture",
+          "l",
+          320
+        ]
+      ]
+    },
+    "implants": {
+      "model": "overdenture",
+      "from": [
+        -10,
+        40,
+        3.0
+      ],
+      "to": [
+        10,
+        45,
+        2.9
+      ],
+      "chip": "overdenture",
+      "labels": [
+        [
+          "implant",
+          "r",
+          300
+        ]
+      ]
+    }
+  },
+  "sources": [
+    "The Glossary of Prosthodontic Terms 2023: Tenth Edition. J Prosthet Dent. 2023;130(4 Suppl 1):e7-e126. https://doi.org/10.1016/j.prosdent.2023.03.002",
+    "Cawood JI, Howell RA. A classification of the edentulous jaws. Int J Oral Maxillofac Surg. 1988;17(4):232-236. https://doi.org/10.1016/s0901-5027(88)80047-x",
+    "Atwood DA. Reduction of residual ridges: a major oral disease entity. J Prosthet Dent. 1971;26(3):266-279. https://doi.org/10.1016/0022-3913(71)90069-2",
+    "Feine JS, Carlsson GE, Awad MA, et al. The McGill consensus statement on overdentures. Gerodontology. 2002;19(1):3-4. https://pubmed.ncbi.nlm.nih.gov/12164236/"
+  ],
+  "en": {
+    "title": "When a jaw has no teeth",
+    "chips": {
+      "dentate": "With teeth",
+      "edentulous": "No teeth",
+      "denture": "Denture",
+      "overdenture": "Implant denture"
+    },
+    "labels": {
+      "ridge": [
+        "Ridge",
+        "bone that holds the teeth"
+      ],
+      "flat": [
+        "Flat ridge",
+        "only the base is left"
+      ],
+      "denture": [
+        "Complete denture",
+        ""
+      ],
+      "implant": [
+        "Implant",
+        "under the denture"
+      ]
+    },
+    "paragraphs": [
+      {
+        "scene": "dentate",
+        "sentences": [
+          {
+            "text": "This is a lower jaw with its teeth. The bone that holds them is called the ridge.",
+            "cite": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "shrink",
+        "sentences": [
+          {
+            "text": "After the teeth are lost, the ridge slowly shrinks, over many years.",
+            "cite": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "low",
+        "sentences": [
+          {
+            "text": "In the end, only the base of the jaw is left, low and flat at the back.",
+            "cite": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "denture",
+        "sentences": [
+          {
+            "text": "A complete denture rests on the gum. On a flat ridge, it can move.",
+            "cite": [
+              1,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "implants",
+        "sentences": [
+          {
+            "text": "Two implants in the front can hold the denture still. Experts agree this is a good first choice.",
+            "cite": [
+              4
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ja": {
+    "title": "{歯|は}のないあご",
+    "chips": {
+      "dentate": "{歯|は}あり",
+      "edentulous": "{歯|は}なし",
+      "denture": "{入|い}れ{歯|ば}",
+      "overdenture": "インプラント{入|い}れ{歯|ば}"
+    },
+    "labels": {
+      "ridge": [
+        "{土手|どて}",
+        "{歯|は}を{支|ささ}える{骨|ほね}"
+      ],
+      "flat": [
+        "{平|たい}らな{土手|どて}",
+        "{土台|どだい}だけが{残|のこ}る"
+      ],
+      "denture": [
+        "{総入れ歯|そういれば}",
+        ""
+      ],
+      "implant": [
+        "インプラント",
+        "{入|い}れ{歯|ば}の{下|した}"
+      ]
+    },
+    "paragraphs": [
+      {
+        "scene": "dentate",
+        "sentences": [
+          {
+            "text": "{歯|は}のある{下|した}あごです。{歯|は}を{支|ささ}える{骨|ほね}を{土手|どて}といいます。",
+            "tts": "はのあるしたあごです。はをささえるほねを、どてといいます。",
+            "cite": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "shrink",
+        "sentences": [
+          {
+            "text": "{歯|は}を{失|うしな}うと、{土手|どて}は{何年|なんねん}もかけて{少|すこ}しずつやせていきます。",
+            "tts": "はをうしなうと、どては、なんねんもかけて、すこしずつやせていきます。",
+            "cite": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "low",
+        "sentences": [
+          {
+            "text": "やがてあごの{土台|どだい}だけが{残|のこ}り、{奥|おく}は{低|ひく}く{平|たい}らになります。",
+            "tts": "やがてあごのどだいだけがのこり、おくはひくくたいらになります。",
+            "cite": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "denture",
+        "sentences": [
+          {
+            "text": "{総入れ歯|そういれば}は{歯|は}ぐきにのります。{土手|どて}が{平|たい}らだと{動|うご}くことがあります。",
+            "tts": "そういればは、はぐきにのります。どてがたいらだと、うごくことがあります。",
+            "cite": [
+              1,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "implants",
+        "sentences": [
+          {
+            "text": "{前|まえ}に2{本|ほん}のインプラントを{入|い}れると、{入|い}れ{歯|ば}が{動|うご}きにくくなります。{専門家|せんもんか}も{勧|すす}める{方法|ほうほう}です。",
+            "tts": "まえににほんのインプラントをいれると、いればがうごきにくくなります。せんもんかもすすめるほうほうです。",
+            "cite": [
+              4
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

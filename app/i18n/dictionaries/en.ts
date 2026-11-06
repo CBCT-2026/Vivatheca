@@ -1093,7 +1093,7 @@ const en = {
     factsLabel: 'Model facts',
     version: 'Version {v}',
     nextHeading: 'Coming next',
-    nextText: 'The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: an atrophic jaw without teeth.',
+    nextText: 'The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: a cyst around an unerupted tooth.',
     askText: 'Want a particular model, or have one to share?',
     askLink: 'Tell us',
     askGap: ' ',
@@ -1138,6 +1138,12 @@ const en = {
         specialty: 'Cleft care: oral and maxillofacial surgery and orthodontics',
         summary: 'A child’s upper jaw with a left alveolar cleft, in three stages: before the bone graft, after it with braces, and years later with the eye tooth moved into the gap. Pictured: before (left) and years later (right).',
         pairing: 'Treatment stages',
+      },
+      prosthodontic: {
+        title: 'Atrophic edentulous mandible (Cawood and Howell class V) with a dentate mandible, and complete denture or two-implant overdenture',
+        specialty: 'Prosthodontics',
+        summary: 'A lower jaw with its teeth beside the same jaw years after all the teeth were lost, when the ridge has shrunk to a low, flat base. Add a complete denture, or a denture held by two implants. Pictured: with teeth (left) and without teeth (right).',
+        pairing: 'Condition + healthy normal',
       },
       endodontic: {
         title: 'Pulp necrosis with chronic apical abscess in a mandibular first molar, with a sound tooth',
@@ -1384,7 +1390,6 @@ const en = {
     loading: 'Loading support counts…',
     unavailable: 'Support counts are not switched on yet. You can still email your idea to vivatheca@gmail.com.',
     seeds: {
-      'prosth-edentulous': { title: 'Shrunken jaw without teeth (atrophic edentulous mandible) beside a jaw with teeth, with denture and implant options', specialty: 'Prosthodontics' },
       'dentigerous-cyst': { title: 'Cyst around an unerupted tooth (dentigerous cyst) beside a normal unerupted tooth', specialty: 'Oral and maxillofacial pathology' },
       'ectopic-canine': { title: 'Upper canine growing in the wrong place (ectopic canine) beside normal eruption', specialty: 'Orthodontics' },
       'development-extended': { title: 'Tooth development from before birth to adulthood (beyond ages 6 to 12)', specialty: 'Orthodontics and paediatric dentistry' },

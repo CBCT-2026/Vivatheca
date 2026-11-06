@@ -76,7 +76,7 @@ test('a model page link preselects its model, and every model page links to the 
   await page.getByRole('button', { name: 'Continue to the builder' }).click();
   const select = page.getByLabel('Vivatheca model');
   await expect(select).toHaveValue('periodontitis');
-  await expect(select.locator('option')).toHaveCount(13);
+  await expect(select.locator('option')).toHaveCount(15);
 
   await page.goto('/periodontitis/index.html');
   await expect(page.locator('.vt-create a')).toHaveAttribute('href', '/create?model=periodontitis');
