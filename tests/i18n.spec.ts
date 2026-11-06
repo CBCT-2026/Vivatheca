@@ -37,7 +37,7 @@ test('the site opens in English and switches to Japanese with furigana', async (
   await expect(page.getByRole('heading', { name: 'Clinical models made clear.' })).toBeVisible();
 });
 
-test('the language switch lists four languages with flags; Chinese and Vietnamese are coming soon', async ({ page }) => {
+test('the language switch lists four languages with flags; Chinese is coming soon', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto('/about');
   await expect(languageButton(page)).toHaveAccessibleName('Language: English');
@@ -45,9 +45,10 @@ test('the language switch lists four languages with flags; Chinese and Vietnames
   const langs = page.locator('header .lang-panel button');
   await expect(langs.locator('.lang-name')).toHaveText(['中文', 'English', '日本語', 'Tiếng Việt']);
   await expect(langs.locator('img.lang-flag')).toHaveCount(4);
-  const vi = page.getByRole('button', { name: 'Tiếng Việt Coming soon' });
-  await expect(vi).toHaveAttribute('aria-disabled', 'true');
-  await vi.click({ force: true }); // does nothing: not translated yet
+  await expect(page.getByRole('button', { name: 'Tiếng Việt', exact: true })).not.toHaveAttribute('aria-disabled', 'true');
+  const zh = page.getByRole('button', { name: '中文 Coming soon' });
+  await expect(zh).toHaveAttribute('aria-disabled', 'true');
+  await zh.click({ force: true }); // does nothing: not translated yet
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await page.keyboard.press('Escape');
   await expect(page.locator('header .lang-panel')).toBeHidden();
@@ -147,13 +148,13 @@ test('Japanese pages say the translation is not yet reviewed; English pages do n
   await page.goto('/models');
   await expect(page.locator('.footer-legal')).not.toContainText('日本語');
   await page.goto('/oroantral/index.html');
-  await expect(page.locator('.vt-translation-note')).toBeHidden();
+  await expect(page.locator('.vt-translation-note[lang="ja"]')).toBeHidden();
 
   await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
   await page.goto('/models');
   await expect(page.locator('.footer-legal .disclaimer')).toContainText('確認');
   await page.goto('/oroantral/index.html');
-  await expect(page.locator('.vt-translation-note')).toBeVisible();
+  await expect(page.locator('.vt-translation-note[lang="ja"]')).toBeVisible();
   // The model disclaimer shows in Japanese only.
   await expect(page.getByText('Educational model only.').first()).toBeHidden();
 });
