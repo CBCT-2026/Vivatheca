@@ -40,7 +40,7 @@ export function ReportForm({ initialModel }: { initialModel?: string }) {
     }
     setError('');
     const subject = `Inaccuracy report: ${modelTitle}`;
-    const url = `mailto:hello@vivatheca.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.replace(/\n/g, '\r\n'))}`;
+    const url = `mailto:vivatheca@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.replace(/\n/g, '\r\n'))}`;
     if (url.length > 1900) {
       setError(plain(r.tooLong));
       return;
@@ -50,7 +50,7 @@ export function ReportForm({ initialModel }: { initialModel?: string }) {
 
   async function copy() {
     try {
-      await navigator.clipboard.writeText(`To: hello@vivatheca.com\nSubject: Inaccuracy report: ${modelTitle}\n\n${body}`);
+      await navigator.clipboard.writeText(`To: vivatheca@gmail.com\nSubject: Inaccuracy report: ${modelTitle}\n\n${body}`);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {

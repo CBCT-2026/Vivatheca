@@ -58,8 +58,8 @@ export default async function AboutPage() {
           <h2 id="help-title"><Ruby text={a.helpHeading} /></h2>
           <ul className="plain-list">
             <li><a href="/report"><Ruby text={a.helpReport} /></a> <Ruby text={a.helpReportAfter} /></li>
-            <li><a href="mailto:hello@vivatheca.com?subject=Join%20clinical%20review"><Ruby text={a.helpReview} /></a> <Ruby text={a.helpReviewAfter} /></li>
-            <li><a href="mailto:hello@vivatheca.com?subject=Model%20request"><Ruby text={a.helpRequest} /></a> <Ruby text={a.helpRequestAfter} /></li>
+            <li><a href="mailto:vivatheca@gmail.com?subject=Join%20clinical%20review"><Ruby text={a.helpReview} /></a> <Ruby text={a.helpReviewAfter} /></li>
+            <li><a href="mailto:vivatheca@gmail.com?subject=Model%20request"><Ruby text={a.helpRequest} /></a> <Ruby text={a.helpRequestAfter} /></li>
           </ul>
         </section>
       </main>

@@ -141,7 +141,7 @@ rt { font-size: .5em; font-weight: 500; line-height: 1; user-select: none; }
 .contact li > * { display: flex; gap: 8px; align-items: center; min-height: 48px; padding: 8px 14px;
   border: 1px solid var(--line); border-radius: 12px; color: var(--accent); text-decoration: none; }
 .contact b { color: var(--heading); }
-.contact .pending { border-style: dashed; color: var(--muted); }
+.contact .pending { cursor: default; } /* Instagram / X: no destination yet */
 
 /* Clinical images (real X-rays, scans and photos from openly licensed sources; see docs/image-licensing.md). */
 .clinical-note { font-size: 14px; color: var(--muted); }
