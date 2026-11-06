@@ -69,15 +69,15 @@
       stats: [['Bone removed', '15.4 cm³, with the pterygoid plates', '{取|と}る{骨|ほね}', '15.4 cm³（{翼状|よくじょう}{突起|とっき}を{含|ふく}む）'], ['Teeth', '16–17 with the bone; 15 at the cut', '{歯|は}', '16〜17は{骨|ほね}と{一緒|いっしょ}に、15は{切|き}り{口|くち}で{抜|ぬ}く'], ['Midline', 'Cut 5.5 mm past it', '{正中|せいちゅう}', '5.5mm{越|こ}えて{切|き}る']],
       reconNote: ['Shown: a free flap of soft tissue moved from elsewhere in the body and sewn into the opening. An obturator is the other option; the choice depends on the size of the gap, radiotherapy and what the patient prefers.' + c(15, 16, 17, 21),
         '{模型|もけい}では、{体|からだ}の{別|べつ}の{場所|ばしょ}から{移|うつ}した{柔|やわ}らかい{組織|そしき}（{遊離|ゆうり}{皮弁|ひべん}）で{穴|あな}を{閉|と}じています。{顎|がく}{義歯|ぎし}を{使|つか}う{方法|ほうほう}もあり、{欠損|けっそん}の{大|おお}きさ、{放射線|ほうしゃせん}{治療|ちりょう}、{患者|かんじゃ}さんの{希望|きぼう}で{選|えら}びます。' + c(15, 16, 17, 21)],
-      choice: ['Our choices for the model: tumour 17 × 19 × 12 mm; the nerve path is drawn from typical anatomy, not traced from a scan.',
-        '{当方|とうほう}の{設定|せってい}：がんは17×19×12mm。{神経|しんけい}の{通|とお}り{道|みち}は{一般的|いっぱんてき}な{解剖|かいぼう}から{描|えが}いたもので、{画像|がぞう}からたどったものではありません。'] },
+      choice: ['Our choices for the model: tumour 17 × 19 × 12 mm; the nerve path is drawn from typical anatomy, not traced from a scan. The flap’s shape and the path of its artery and vein are simplified. The sphenoid bone, which carries the pterygoid plates, is not shown: its simplified 3D shape broke into specks.',
+        '{当方|とうほう}の{設定|せってい}：がんは17×19×12mm。{神経|しんけい}の{通|とお}り{道|みち}は{一般的|いっぱんてき}な{解剖|かいぼう}から{描|えが}いたもので、{画像|がぞう}からたどったものではありません。{皮弁|ひべん}の{形|かたち}と、その{動脈|どうみゃく}・{静脈|じょうみゃく}の{通|とお}り{道|みち}は{簡略化|かんりゃくか}しています。{翼状|よくじょう}{突起|とっき}がある{蝶形骨|ちょうけいこつ}は{表示|ひょうじ}していません（{簡略化|かんりゃくか}した3Dの{形|かたち}が{細|こま}かく{割|わ}れたため）。'] },
   };
   const L = (pair) => (JA ? I.ruby(pair[1]) : pair[0]);
   const LEGEND = [
     [/^bone$/, 'Bone', '{骨|ほね}'], [/^teeth$/, 'Teeth', '{歯|は}'], [/^lesion/, 'Disease', '{病変|びょうへん}'], [/^margin/, 'Safety margin', '{安全|あんぜん}{域|いき}'],
     [/^extracted/, 'Tooth taken out at the cut', '{切|き}り{口|くち}で{抜|ぬ}く{歯|は}'], [/^nerve/, 'Nerve canal', '{神経|しんけい}の{通|とお}り{道|みち}'],
     [/^excised/, 'Lining and periosteum removed', '{取|と}る{粘膜|ねんまく}と{骨膜|こつまく}'], [/^removed/, 'Bone removed', '{取|と}る{骨|ほね}'],
-    [/^obturator$/, 'Obturator', '{顎|がく}{義歯|ぎし}'], [/^obturator_teeth/, 'Obturator teeth', '{顎|がく}{義歯|ぎし}の{歯|は}'], [/^free_flap/, 'Free flap', '{遊離|ゆうり}{皮弁|ひべん}'],
+    [/^obturator$/, 'Obturator', '{顎|がく}{義歯|ぎし}'], [/^obturator_teeth/, 'Obturator teeth', '{顎|がく}{義歯|ぎし}の{歯|は}'], [/^free_flap$/, 'Free flap', '{遊離|ゆうり}{皮弁|ひべん}'], [/^free_flap_artery/, 'Flap artery', '{皮弁|ひべん}の{動脈|どうみゃく}'], [/^free_flap_vein/, 'Flap vein', '{皮弁|ひべん}の{静脈|じょうみゃく}'],
     [/^fibula/, 'Fibula (leg bone)', 'ひ{骨|こつ}（{足|あし}の{骨|ほね}）'], [/^plate/, 'Titanium plate and screws', 'チタンのプレートとネジ'],
   ];
 
@@ -115,6 +115,7 @@
   const cache = {}; let cur = null, root = null, offset = 0, target = 0, token = 0;
   const state = { stage: 'pre', margin: false, xray: false };
   const loader = new THREE.GLTFLoader();
+  if (THREE.DRACOLoader) loader.setDRACOLoader(new THREE.DRACOLoader().setDecoderPath('/head-neck/vendor/draco/'));
   const MOVE = /^(specimen|extracted|lesion|nerve|removed|excised|margin)/;
   const baseName = (n) => n.replace(/[._]\d+$/, '');
 

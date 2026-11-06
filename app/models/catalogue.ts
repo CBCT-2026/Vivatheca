@@ -16,7 +16,7 @@ export const licence = {
 };
 
 export const catalogue: CatalogueModel[] = [
-  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.1', updated: '2026-11-05' },
+  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.2', updated: '2026-11-06' },
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '0.4', updated: '2026-11-05' },
   { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '0.1', updated: '2026-11-05' },
   { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '0.2', updated: '2026-11-06' },
@@ -46,9 +46,9 @@ export const wisdomTooth = {
   // Labels for these files are wisdom.files in the dictionaries, in the same order.
   files: [
     { href: '/models/impacted-molar.glb', size: '0.6 MB' },
-    { href: '/models/impacted-molar.stl', size: '1.5 MB' },
+    { href: '/models/vivatheca-wisdom-tooth-impacted-stl.zip', size: '0.6 MB' },
     { href: '/models/wisdom-tooth-normal.glb', size: '0.6 MB' },
-    { href: '/models/wisdom-tooth-normal.stl', size: '1.5 MB' },
+    { href: '/models/vivatheca-wisdom-tooth-normal-stl.zip', size: '0.6 MB' },
   ] satisfies ModelFile[],
   sources: [
     { text: 'Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1.', href: 'https://doi.org/10.5037/jomr.2013.4201' },
@@ -61,6 +61,6 @@ export const wisdomTooth = {
     { text: 'Jun SH, Kim CH, Ahn JS, Padwa BL, Kwon JJ. Anatomical differences in lower third molars visualized by 2D and 3D X-ray imaging: clinical outcomes after extraction. Int J Oral Maxillofac Surg. 2013;42(4):489-496. (Complications were mostly in roots inside or touching the canal; basis for "higher-risk".)', href: 'https://doi.org/10.1016/j.ijom.2012.12.005' },
     { text: 'Ghaeminia H, Gerlach NL, Hoppenreijs TJM, et al. Clinical relevance of cone beam computed tomography in mandibular third molar removal: a multicentre, randomised, controlled trial. J Craniomaxillofac Surg. 2015;43(10):2158-2167. (Conflicting evidence: CBCT before removal did not reduce nerve injury compared with panoramic radiography.)', href: 'https://doi.org/10.1016/j.jcms.2015.10.009' },
   ] satisfies Source[],
-  changelogDates: { '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
-  citation: 'Seifert L. Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.1. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
+  changelogDates: { '1.2': '2026-11-06', '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
+  citation: 'Seifert L. Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.2. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
 };

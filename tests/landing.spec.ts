@@ -34,7 +34,7 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   await expect(page.getByRole('button', { name: /Remove impacted wisdom tooth/ })).toHaveAttribute('aria-pressed', 'true');
 
   await expect(page.getByRole('link', { name: 'Download GLB' })).toHaveAttribute('href', '/models/impacted-molar.glb');
-  await expect(page.getByRole('link', { name: /Download STL/ }).first()).toHaveAttribute('href', '/models/impacted-molar.stl');
+  await expect(page.getByRole('link', { name: /Download STL/ }).first()).toHaveAttribute('href', '/models/vivatheca-wisdom-tooth-impacted-stl.zip');
   await expect(page.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
 });
 

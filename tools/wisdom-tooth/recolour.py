@@ -5,7 +5,7 @@ wisdom tooth in the bone colour. Every other Vivatheca model uses bone linear
 (0.6724, 0.5972, 0.4969) and teeth linear (0.768, 0.716, 0.651), and the colour standard
 asks for teeth and bone in slightly different colours. Only material colours change.
 
-Usage: python3 tools/wisdom-tooth-recolour.py public/models/impacted-molar.glb public/models/wisdom-tooth-normal.glb
+Usage: python3 tools/wisdom-tooth/recolour.py public/models/impacted-molar.glb public/models/wisdom-tooth-normal.glb
 """
 import json
 import struct

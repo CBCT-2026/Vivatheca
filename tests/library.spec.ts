@@ -24,7 +24,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   await page.getByRole('button', { name: 'Side by side' }).click();
   await expect(page.getByRole('checkbox', { name: 'Turn both together' })).toBeChecked();
 
-  for (const href of ['/models/impacted-molar.glb', '/models/impacted-molar.stl', '/models/wisdom-tooth-normal.glb', '/models/wisdom-tooth-normal.stl']) {
+  for (const href of ['/models/impacted-molar.glb', '/models/vivatheca-wisdom-tooth-impacted-stl.zip', '/models/wisdom-tooth-normal.glb', '/models/vivatheca-wisdom-tooth-normal-stl.zip']) {
     await expect(page.locator(`a[href="${href}"][download]`)).toHaveCount(1);
     const response = await page.request.get(href);
     expect(response.status()).toBe(200);

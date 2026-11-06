@@ -94,7 +94,9 @@
   if (x) x.addEventListener('click', () => { state.xray = !state.xray; pressed(); apply(); });
 
   say('loading', 'Loading model…');
-  new THREE.GLTFLoader().load(box.dataset.model, (gltf) => {
+  const loader = new THREE.GLTFLoader();
+  if (THREE.DRACOLoader) loader.setDRACOLoader(new THREE.DRACOLoader().setDecoderPath('/head-neck/vendor/draco/'));
+  loader.load(box.dataset.model, (gltf) => {
     const g = gltf.scene;
     g.traverse((o) => {
       if (!o.isMesh) return;
