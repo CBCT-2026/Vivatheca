@@ -1146,3 +1146,8 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .survey-table td { white-space: nowrap; text-align: right; }
 .review-table { width: 100%; border-collapse: collapse; }
 .review-table th, .review-table td { padding: .5rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+
+/* Readable line length (design audit 6 Nov 2026, P2): body text stops at about 70 characters per line.
+   :where() keeps this at zero specificity, so any class rule (wider tables, centred notes) wins. */
+:where(main, section, article, aside, details, footer) :where(p, li, dd, figcaption, blockquote) { max-width: 70ch; }
+.model-help, .compare-help, .slices-status { max-width: none; }
