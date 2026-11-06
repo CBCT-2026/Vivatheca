@@ -11,6 +11,10 @@ const localBindingConfig = {
   compatibility_flags: ['nodejs_compat'],
   // Run the Worker before static files so the optional password gate covers everything.
   assets: { binding: 'ASSETS', run_worker_first: true },
+  // Shared store for usage counters, the model request board and the "used it" gallery
+  // (worker/store.ts). SQLite-backed Durable Objects need no set-up in the Cloudflare account.
+  durable_objects: { bindings: [{ name: 'STORE', class_name: 'VivathecaStore' }] },
+  migrations: [{ tag: 'v1', new_sqlite_classes: ['VivathecaStore'] }],
 };
 
 export default defineConfig(async () => {

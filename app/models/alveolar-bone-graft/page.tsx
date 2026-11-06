@@ -1,3 +1,4 @@
+import { AfterHydration } from '../../script-mount';
 import type { Metadata } from 'next';
 import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, licence } from '../catalogue';
@@ -38,6 +39,9 @@ export default async function AlveolarBoneGraftPage() {
           <p><Ruby text={item.summary} /></p>
         </div>
         <ModelExperience />
+        {/* "Use this model" panel: links to a view, pictures, tour, credit, embed (public/share-tools.js). */}
+        <div data-vt-share="" data-vt-scope=".model-experience" />
+        <AfterHydration src="/share-tools.js" />
 
         <div className="model-details model-details-single">
           <section id="downloads" aria-labelledby="downloads-title" className="detail-block detail-downloads">

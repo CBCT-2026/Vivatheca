@@ -1,0 +1,301 @@
+{
+ "impacted-wisdom-tooth": {
+  "image": "/assets/renders/wisdom-tooth-compare.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/impacted-wisdom-tooth-handout-en.pptx",
+    "size": "57 KB"
+   },
+   "ja": {
+    "href": "/templates/impacted-wisdom-tooth-handout-ja.pptx",
+    "size": "57 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/impacted-wisdom-tooth-slide-en.pptx",
+    "size": "57 KB"
+   },
+   "ja": {
+    "href": "/templates/impacted-wisdom-tooth-slide-ja.pptx",
+    "size": "57 KB"
+   }
+  }
+ },
+ "dental-development": {
+  "image": "/assets/renders/dental-development.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/dental-development-handout-en.pptx",
+    "size": "61 KB"
+   },
+   "ja": {
+    "href": "/templates/dental-development-handout-ja.pptx",
+    "size": "61 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/dental-development-slide-en.pptx",
+    "size": "60 KB"
+   },
+   "ja": {
+    "href": "/templates/dental-development-slide-ja.pptx",
+    "size": "61 KB"
+   }
+  }
+ },
+ "periodontitis": {
+  "image": "/assets/renders/periodontitis.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/periodontitis-handout-en.pptx",
+    "size": "56 KB"
+   },
+   "ja": {
+    "href": "/templates/periodontitis-handout-ja.pptx",
+    "size": "56 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/periodontitis-slide-en.pptx",
+    "size": "55 KB"
+   },
+   "ja": {
+    "href": "/templates/periodontitis-slide-ja.pptx",
+    "size": "56 KB"
+   }
+  }
+ },
+ "oroantral": {
+  "image": "/assets/renders/oroantral.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/oroantral-handout-en.pptx",
+    "size": "75 KB"
+   },
+   "ja": {
+    "href": "/templates/oroantral-handout-ja.pptx",
+    "size": "75 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/oroantral-slide-en.pptx",
+    "size": "75 KB"
+   },
+   "ja": {
+    "href": "/templates/oroantral-slide-ja.pptx",
+    "size": "75 KB"
+   }
+  }
+ },
+ "cracked-tooth": {
+  "image": "/assets/renders/cracked-tooth.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/cracked-tooth-handout-en.pptx",
+    "size": "53 KB"
+   },
+   "ja": {
+    "href": "/templates/cracked-tooth-handout-ja.pptx",
+    "size": "53 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/cracked-tooth-slide-en.pptx",
+    "size": "53 KB"
+   },
+   "ja": {
+    "href": "/templates/cracked-tooth-slide-ja.pptx",
+    "size": "53 KB"
+   }
+  }
+ },
+ "stainless-steel-crown": {
+  "image": "/assets/renders/stainless-steel-crown.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/stainless-steel-crown-handout-en.pptx",
+    "size": "69 KB"
+   },
+   "ja": {
+    "href": "/templates/stainless-steel-crown-handout-ja.pptx",
+    "size": "69 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/stainless-steel-crown-slide-en.pptx",
+    "size": "68 KB"
+   },
+   "ja": {
+    "href": "/templates/stainless-steel-crown-slide-ja.pptx",
+    "size": "69 KB"
+   }
+  }
+ },
+ "head-neck": {
+  "image": "/assets/renders/head-neck.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/head-neck-handout-en.pptx",
+    "size": "51 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-handout-ja.pptx",
+    "size": "52 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/head-neck-slide-en.pptx",
+    "size": "51 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-slide-ja.pptx",
+    "size": "51 KB"
+   }
+  }
+ },
+ "head-neck-scc": {
+  "image": "/assets/renders/head-neck-scc.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/head-neck-scc-handout-en.pptx",
+    "size": "44 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-scc-handout-ja.pptx",
+    "size": "45 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/head-neck-scc-slide-en.pptx",
+    "size": "44 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-scc-slide-ja.pptx",
+    "size": "44 KB"
+   }
+  }
+ },
+ "head-neck-ameloblastoma": {
+  "image": "/assets/renders/head-neck-ameloblastoma.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/head-neck-ameloblastoma-handout-en.pptx",
+    "size": "43 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-ameloblastoma-handout-ja.pptx",
+    "size": "44 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/head-neck-ameloblastoma-slide-en.pptx",
+    "size": "43 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-ameloblastoma-slide-ja.pptx",
+    "size": "43 KB"
+   }
+  }
+ },
+ "head-neck-okc": {
+  "image": "/assets/renders/head-neck-okc.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/head-neck-okc-handout-en.pptx",
+    "size": "43 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-okc-handout-ja.pptx",
+    "size": "43 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/head-neck-okc-slide-en.pptx",
+    "size": "43 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-okc-slide-ja.pptx",
+    "size": "43 KB"
+   }
+  }
+ },
+ "head-neck-mec": {
+  "image": "/assets/renders/head-neck-mec.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/head-neck-mec-handout-en.pptx",
+    "size": "46 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-mec-handout-ja.pptx",
+    "size": "47 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/head-neck-mec-slide-en.pptx",
+    "size": "46 KB"
+   },
+   "ja": {
+    "href": "/templates/head-neck-mec-slide-ja.pptx",
+    "size": "46 KB"
+   }
+  }
+ },
+ "alveolar-bone-graft": {
+  "image": "/assets/renders/alveolar-bone-graft.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/alveolar-bone-graft-handout-en.pptx",
+    "size": "65 KB"
+   },
+   "ja": {
+    "href": "/templates/alveolar-bone-graft-handout-ja.pptx",
+    "size": "65 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/alveolar-bone-graft-slide-en.pptx",
+    "size": "65 KB"
+   },
+   "ja": {
+    "href": "/templates/alveolar-bone-graft-slide-ja.pptx",
+    "size": "65 KB"
+   }
+  }
+ },
+ "orthognathic": {
+  "image": "/assets/renders/orthognathic.webp",
+  "handout": {
+   "en": {
+    "href": "/templates/orthognathic-handout-en.pptx",
+    "size": "84 KB"
+   },
+   "ja": {
+    "href": "/templates/orthognathic-handout-ja.pptx",
+    "size": "84 KB"
+   }
+  },
+  "slide": {
+   "en": {
+    "href": "/templates/orthognathic-slide-en.pptx",
+    "size": "84 KB"
+   },
+   "ja": {
+    "href": "/templates/orthognathic-slide-ja.pptx",
+    "size": "84 KB"
+   }
+  }
+ }
+}
