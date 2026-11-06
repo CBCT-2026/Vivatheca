@@ -83,6 +83,9 @@
     target = s === 'op' ? (JAW === 'mandible' ? 0.03 : -0.025) : 0;
     const vis = parts.filter((o) => o.visible);
     document.getElementById('legend').innerHTML = LEGEND.map(([re, en, ja]) => {
+      // Before surgery the parts that will be removed still look like normal bone, teeth or lining,
+      // so their legend entries would show near-identical colours: list them from stage 2 on.
+      if (s === 'pre' && /specimen|removed|root_tips|excised/.test(re.source)) return '';
       const o = vis.find((p) => re.test(p.userData.n));
       if (!o) return '';
       const col = '#' + o.material.color.clone().convertLinearToSRGB().getHexString();

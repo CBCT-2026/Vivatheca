@@ -216,8 +216,9 @@ export function checkMarkdown(markdown: string, options: CheckOptions = { addres
           add('passive-voice', 'warn', s.title, `Possible passive voice "${m[0]}": say who does what.`, cut(u, m.index!, m.index! + m[0].length));
         }
       }
+      // Word-only risk phrases ("rare", "a proportion of patients"): IPDAS asks for a number with a stated denominator.
       if (!/\d/.test(u)) {
-        const m = /\b(rare|rarely|uncommon|very common|common|small risk|low risk|high risk|frequently|infrequently|occasionally)\b/i.exec(u);
+        const m = /\b(rare|rarely|very rare|uncommon|very common|common|small risk|low risk|high risk|frequently|infrequently|occasionally|seldom|a (?:small )?proportion of|a small number of|a minority of|a small chance|in some cases|a few people|some people|some patients)\b/i.exec(u);
         if (m) add('verbal-risk', 'warn', s.title, `"${m[0]}" without a number: if this is a risk, add "about X in 100".`, cut(u, m.index, m.index + m[0].length));
       }
       const rel = /\b(times (more|less) likely|twice as likely|half as likely|(increases|reduces|lowers|raises|halves|doubles) (the |your )?(risk|chance)( by)?)\b/i.exec(u);

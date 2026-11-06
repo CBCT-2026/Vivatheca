@@ -10,6 +10,9 @@ test('production metadata uses the vivatheca.com canonical origin', async ({ pag
 });
 
 test('visitor can reach and use the featured model explanation', async ({ page }) => {
+  // Three Draco models render in software WebGL here, which is slow on CI machines.
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Medical models made clear.' })).toBeVisible();
   await expect(page.locator('.hero-title .hero-line')).toHaveText(['Medical models', 'made clear.']);
@@ -20,22 +23,34 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   await expect(page.getByRole('heading', { name: 'See the explanation from every angle.' })).toBeVisible();
   await expect(page.getByText('Interactive Example', { exact: true })).toBeVisible();
   const viewer = page.locator('model-viewer');
-  // React sets src as a property on the custom element, not as an attribute.
-  await expect.poll(() => viewer.evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/impacted-molar.glb');
-  await expect(viewer).toHaveAttribute('auto-rotate', '');
-  await expect(viewer).toHaveAttribute('camera-orbit', '90deg 80deg auto');
-
-  await page.getByRole('button', { name: 'Pause rotation' }).click();
+  // The interactive section shows the alveolar bone graft series; React sets src as a property, not an attribute.
+  const src = () => viewer.evaluate((element) => (element as HTMLElement & { src: string }).src);
+  await expect.poll(src).toContain('/models/abg/abg-1-pre-op.glb');
+  // Reduced motion (set below) keeps the model still: continuous rotation in software WebGL starves the page on CI.
   await expect(viewer).not.toHaveAttribute('auto-rotate');
   await expect(page.getByRole('button', { name: 'Resume rotation' })).toBeVisible();
-  await page.getByRole('button', { name: 'Clinician detail' }).click();
-  await expect(page.getByText(/mesioangularly impacted left mandibular third molar/)).toBeVisible();
-  await page.getByRole('button', { name: /Save impacted wisdom tooth/ }).click();
-  await expect(page.getByRole('button', { name: /Remove impacted wisdom tooth/ })).toHaveAttribute('aria-pressed', 'true');
 
-  await expect(page.getByRole('link', { name: 'Download GLB' })).toHaveAttribute('href', '/models/impacted-molar.glb');
-  await expect(page.getByRole('link', { name: /Download STL/ }).first()).toHaveAttribute('href', '/models/vivatheca-wisdom-tooth-impacted-stl.zip');
-  await expect(page.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
+  // The gum part comes off once the Draco model has loaded from this site.
+  await page.getByRole('button', { name: 'Take off the gum' }).click();
+  await expect(page.getByRole('button', { name: 'Put the gum back' })).toHaveAttribute('aria-pressed', 'true');
+
+  await page.getByRole('button', { name: 'Clinician detail' }).click();
+  await expect(page.getByText(/^Left unilateral alveolar cleft in the mixed dentition/)).toBeVisible();
+  await page.getByText('Sources and how this model was made').click();
+  await expect(page.locator('#model-ref-10')).toContainText('Kokich');
+  await expect(page.locator('#collection').getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
+
+  await page.getByRole('button', { name: 'After the graft' }).click();
+  await expect.poll(src).toContain('/models/abg/abg-2-during-braces.glb');
+  await page.getByRole('button', { name: 'Years later' }).click();
+  await expect.poll(src).toContain('/models/abg/abg-3b-substitution.glb');
+  await expect(page.getByText(/^Late adolescence after orthodontic space closure with canine substitution/)).toBeVisible();
+
+  // The wisdom tooth stays the hero; a mix of other models, including dental development, follows.
+  await expect(page.locator('.hero-visual img')).toHaveAttribute('src', '/assets/renders/wisdom-tooth-hero.webp');
+  const showcase = page.locator('#showcase');
+  await expect(showcase.getByRole('link', { name: /Dental development, ages 6 to 12/ })).toHaveAttribute('href', '/development/');
+  await expect(showcase.locator('.library-card')).toHaveCount(6);
 });
 
 test('homepage navigation, evidence and contribution paths', async ({ page }) => {
