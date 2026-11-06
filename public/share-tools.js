@@ -79,10 +79,20 @@
   const lang = JA ? 'ja' : 'en';
 
   // ---- usage counts (/impact) ----
+  // sendBeacon is made for fire-and-forget counts: the browser sends it in the background and drops
+  // the reply. A fetch whose reply is never read stays "in flight" in Chromium, which stops pages
+  // from ever reaching network idle (it hung the local Playwright tests), so the fallback cancels it.
+  function sendHit(model, kind) {
+    const data = JSON.stringify({ model, kind });
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon('/api/stats/hit', new Blob([data], { type: 'text/plain' }))) return;
+    } catch (e) { /* fall back to fetch */ }
+    try { fetch('/api/stats/hit', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain' }, body: data }).then((r) => r.body && r.body.cancel()).catch(() => {}); } catch (e) { /* counting is optional */ }
+  }
   function count(kind) {
     meta().then((m) => {
       if (!m || !m.model) return;
-      try { fetch('/api/stats/hit', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: m.model.slug, kind }) }).catch(() => {}); } catch (e) { /* counting is optional */ }
+      sendHit(m.model.slug, kind);
     });
   }
   window.vtCount = count;
