@@ -56,6 +56,12 @@ for (const shot of SHOTS) {
       target = page.locator('.viewer canvas').first();
     }
     await target.scrollIntoViewIfNeeded();
+    // Snap the model to whole pixels. Text above it (a longer title, an extra line) can leave it at a
+    // fractional offset, which shifts every edge by part of a pixel and reads as a model change.
+    await target.evaluate((el: HTMLElement) => {
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translate(${Math.round(r.left) - r.left}px, ${Math.round(r.top) - r.top}px)`;
+    });
     await page.waitForTimeout(1500);
     await expect(target).toHaveScreenshot(`${shot.name}.png`);
   });
