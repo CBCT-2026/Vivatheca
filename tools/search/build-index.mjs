@@ -20,7 +20,7 @@ const root = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const BASE = process.env.BASE || 'http://127.0.0.1:3000';
 const OUT = join(root, 'public', 'pagefind');
 const LANGS = ['en', 'ja'];
-const SKIP = new Set(['/search', '/api', '/report', '/collection']); // the search page, the API, the error form, and the /models alias
+const SKIP = new Set(['/search', '/api', '/report', '/collection', '/show']); // the search page, the API, the error form, the /models alias, and the show-a-patient picker (same models as /models)
 
 async function appRoutes() {
   const routes = [];

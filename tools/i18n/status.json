@@ -1,6 +1,6 @@
 {
  "dictionary": {
-  "total": 1610,
+  "total": 1681,
   "extraInJa": [
    "builder.models.oroantral",
    "builder.models.periodontitis",
@@ -26,7 +26,7 @@
   "byStatus": {
    "reviewed": 0,
    "changed": 0,
-   "unreviewed": 1620
+   "unreviewed": 1691
   },
   "changed": []
  },
@@ -153,6 +153,11 @@
     "changed": 0,
     "unreviewed": 92
    }
+  },
+  {
+   "page": "prosthodontic",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
   },
   {
    "page": "stainless-steel-crown",
