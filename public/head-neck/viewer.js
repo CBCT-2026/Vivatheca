@@ -106,6 +106,7 @@
   const k2 = new THREE.DirectionalLight(0xffffff, 0.4); k2.position.set(0.4, -0.4, 0.3); scene.add(k2);
   const resize = () => { const w = box.clientWidth, h = box.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); };
   new ResizeObserver(resize).observe(box); resize();
+  if (window.VTSection) window.VTSection({ box, renderer, scene }); // cross-section tool (section.js)
 
   // glTF axes: +Z is the front of the face, -X is the patient's right, +Y is up.
   const VIEWS = { front: [0, 0.01, 0.27], side: [-0.27, 0.02, 0.02], under: [-0.02, -0.27, 0.06], above: [-0.02, 0.27, 0.05] };
