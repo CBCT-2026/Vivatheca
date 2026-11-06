@@ -14,6 +14,17 @@ const REALM = 'Vivatheca preview';
 
 const LANGS = locales;
 
+// Browser tab icons stay public so the tab shows the Vivatheca logo even on the password prompt.
+const PUBLIC_ICON_PATHS = new Set([
+  '/favicon.ico',
+  '/favicon.svg',
+  '/apple-touch-icon.png',
+  '/apple-touch-icon-precomposed.png',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/site.webmanifest',
+]);
+
 function safeEqual(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
   let diff = 0;
@@ -42,7 +53,8 @@ export default {
   async fetch(request: Request, workerEnv: Env | undefined, ctx: unknown): Promise<Response> {
     // `vinext start` (Node, used by the Playwright tests) calls this without bindings.
     const env: Env = workerEnv ?? {};
-    if (env.SITE_PASSWORD && !isAuthorised(request, env)) {
+    const isPublicIcon = PUBLIC_ICON_PATHS.has(new URL(request.url).pathname);
+    if (env.SITE_PASSWORD && !isPublicIcon && !isAuthorised(request, env)) {
       return new Response('This preview of Vivatheca is password protected.', {
         status: 401,
         headers: {
