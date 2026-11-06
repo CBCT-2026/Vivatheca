@@ -1125,6 +1125,7 @@ const vi = withFallback(en, {
       "label": "Tham gia",
       "request": "Đề xuất mô hình mới",
       "used": "Chia sẻ cách bạn đã dùng mô hình",
+      "survey": "Khảo sát nhân viên y tế",
       "contribute": "Đóng góp mô hình",
       "review": "Tham gia thẩm định lâm sàng",
       "sponsor": "Tài trợ mô hình"
@@ -1851,6 +1852,11 @@ const vi = withFallback(en, {
         "text": "Nếu bạn đề xuất một mô hình, ủng hộ một mô hình, hoặc chia sẻ cách bạn đã dùng, nội dung bạn nhập được lưu trên máy chủ của Vivatheca (Cloudflare) và chỉ hiện trên trang sau khi một người kiểm tra. Để mỗi trình duyệt chỉ được tính một lượt ủng hộ, trang đề xuất đặt một cookie chứa một số ngẫu nhiên (vt-voter); chỉ dạng đã mã hóa của nó được lưu. Không ghi thông tin bệnh nhân. Bạn có thể yêu cầu chúng tôi xóa bài đăng của mình bất cứ lúc nào."
       },
       {
+        "id": "survey",
+        "heading": "Khảo sát nhân viên y tế",
+        "text": "Nếu bạn trả lời khảo sát dành cho nhân viên y tế, câu trả lời được lưu trên máy chủ của Vivatheca (Cloudflare) kèm ngày giờ, nhưng không kèm tên, email hay địa chỉ IP. Chỉ Vivatheca đọc chúng, dưới dạng tổng hợp số lượng và trung bình. Bạn có thể yêu cầu xóa câu trả lời bất cứ lúc nào."
+      },
+      {
         "id": "email",
         "heading": "Khi bạn gửi email cho chúng tôi",
         "text": "Báo cáo và tin nhắn đến qua email. Chúng tôi chỉ giữ chúng để trả lời bạn và sửa mô hình, và không bao giờ chia sẻ. Bạn có thể yêu cầu xóa tin nhắn của mình bất cứ lúc nào."
@@ -1967,6 +1973,81 @@ const vi = withFallback(en, {
     "busy": "Bạn đã thử quá nhiều lần. Vui lòng đợi một phút rồi thử lại.",
     "privacy": "Bài đăng được lưu trên máy chủ của Vivatheca (Cloudflare). Bạn có thể yêu cầu xóa bài của mình bất cứ lúc nào."
   },
+  "review": {
+    "title": "Thẩm định lâm sàng — Vivatheca",
+    "description": "Cách bác sĩ có chuyên môn kiểm tra các mô hình Vivatheca, và hồ sơ xác nhận cho từng phiên bản mô hình.",
+    "eyebrow": "Thẩm định lâm sàng",
+    "heading": "Thẩm định lâm sàng các mô hình",
+    "intro": "Mỗi mô hình đều được đối chiếu với nghiên cứu đã công bố trước khi đưa lên trang. Thẩm định lâm sàng là bước kiểm tra thứ hai do một bác sĩ có chuyên môn phù hợp thực hiện. Trang này trình bày cách thẩm định và hồ sơ xác nhận của từng mô hình.",
+    "howHeading": "Cách thẩm định",
+    "steps": [
+      "Một bác sĩ có đăng ký hành nghề trong chuyên khoa của mô hình đề nghị thẩm định qua email.",
+      "Họ xem phiên bản hiện tại của mô hình, nội dung trang và các nguồn, theo danh sách kiểm tra bên dưới.",
+      "Họ gửi lại những gì đã phát hiện. Lỗi được sửa và mô hình có số phiên bản mới.",
+      "Khi đã hài lòng, họ xác nhận phiên bản đó: tên, chuyên môn, ngày và những gì đã kiểm tra. Hồ sơ được thêm vào trang này.",
+      "Phiên bản mới của mô hình cần được thẩm định lại. Trước đó, mô hình lại hiện “Chưa được thẩm định lâm sàng”."
+    ],
+    "checksHeading": "Người thẩm định kiểm tra những gì",
+    "checks": {
+      "anatomy": "Giải phẫu: hình dạng, kích thước và vị trí khớp với giải phẫu bình thường và các nguồn đã dẫn.",
+      "condition": "Bệnh lý: bệnh hoặc vấn đề trông giống biểu hiện điển hình.",
+      "treatment": "Điều trị: phương pháp điều trị được thể hiện phù hợp với thực hành hiện nay.",
+      "text": "Nội dung cho bệnh nhân: chính xác, dễ hiểu và không gây hoang mang.",
+      "sources": "Nguồn: mỗi số liệu trên trang có nguồn phù hợp, chất lượng cao.",
+      "translation": "Bản dịch (chỉ người thẩm định thông thạo): bản tiếng Nhật hoặc tiếng Việt có cùng nội dung với bản tiếng Anh."
+    },
+    "recordHeading": "Hồ sơ xác nhận",
+    "model": "Mô hình",
+    "version": "Phiên bản hiện tại",
+    "statusCol": "Tình trạng thẩm định",
+    "none": "Chưa được thẩm định lâm sàng",
+    "reviewed": "Thẩm định bởi {name} ({credentials}), {date}",
+    "older": "Lần thẩm định trước của phiên bản {v} ({date})",
+    "changes": "Yêu cầu chỉnh sửa",
+    "status": "Đã được {name} ({credentials}) thẩm định lâm sàng ngày {date}, phiên bản {v}.",
+    "limitHeading": "Thẩm định không có nghĩa là gì",
+    "joinHeading": "Trở thành người thẩm định",
+    "joinText": "Nếu bạn là nha sĩ, bác sĩ phẫu thuật hàm mặt hoặc bác sĩ có đăng ký hành nghề trong lĩnh vực liên quan và muốn thẩm định một mô hình, vui lòng gửi email cho chúng tôi. Tên người thẩm định chỉ được ghi trên trang này nếu họ đồng ý.",
+    "joinLink": "Gửi email để tham gia thẩm định lâm sàng"
+  },
+  "survey": {
+    "title": "Khảo sát dành cho nhân viên y tế — Vivatheca",
+    "description": "Khảo sát hai phút cho bác sĩ và giảng viên: mô hình Vivatheca có đủ chính xác và hữu ích để dùng với bệnh nhân không?",
+    "eyebrow": "Khảo sát nhân viên y tế",
+    "heading": "Bạn có dùng các mô hình này với bệnh nhân không?",
+    "intro": "Vivatheca miễn phí và do một người làm, nên ý kiến thẳng thắn của nhân viên y tế quyết định điều gì được sửa và làm tiếp. Khảo sát mất khoảng hai phút. Không hỏi tên hay email.",
+    "method": "Cách dùng câu trả lời: được tổng hợp (số lượng và trung bình) để cải thiện mô hình và hỗ trợ hồ sơ xin tài trợ. Không công bố riêng câu trả lời nào. Các câu hỏi do Vivatheca soạn, không phải bảng câu hỏi đã được thẩm định.",
+    "role": "Vai trò của bạn",
+    "rolePick": "Chọn một",
+    "country": "Quốc gia nơi bạn làm việc (không bắt buộc)",
+    "model": "Bạn xem mô hình nào nhiều nhất?",
+    "modelAny": "Nhiều mô hình hoặc không cụ thể",
+    "scaleLegend": "Bạn đồng ý đến mức nào?",
+    "scale": ["Hoàn toàn không đồng ý", "Không đồng ý", "Trung lập", "Đồng ý", "Hoàn toàn đồng ý"],
+    "items": {
+      "accurate": "Mô hình trông đủ chính xác để giải thích bệnh cho bệnh nhân.",
+      "normal": "Xem mô hình bình thường bên cạnh mô hình bệnh giúp giải thích dễ hơn.",
+      "use": "Tôi sẽ dùng các mô hình này với bệnh nhân của mình.",
+      "sources": "Nguồn tham khảo và các điểm đơn giản hóa đủ rõ để tôi tin tưởng mô hình.",
+      "easy": "Trang web dễ sử dụng."
+    },
+    "better": "Điều gì sẽ làm mô hình hữu ích hơn cho bạn? (không bắt buộc)",
+    "next": "Vivatheca nên làm mô hình nào tiếp theo? (không bắt buộc)",
+    "noPatient": "Câu trả lời của tôi không có tên, ngày sinh, ảnh hay thông tin nào có thể nhận ra bệnh nhân.",
+    "consent": "Tôi đồng ý để câu trả lời của tôi, không kèm tên, được tổng hợp trong báo cáo và hồ sơ xin tài trợ.",
+    "submit": "Gửi câu trả lời",
+    "sending": "Đang gửi…",
+    "thanks": "Cảm ơn bạn. Câu trả lời đã được lưu.",
+    "needRole": "Vui lòng chọn vai trò của bạn.",
+    "needAll": "Vui lòng trả lời cả năm câu.",
+    "needConsent": "Vui lòng đánh dấu cả hai ô trước khi gửi.",
+    "patient": "Nội dung có thể chứa thông tin bệnh nhân, ví dụ một ngày tháng. Vui lòng xóa đi.",
+    "failed": "Chưa gửi được. Vui lòng thử lại hoặc email tới vivatheca@gmail.com.",
+    "busy": "Thử quá nhiều lần. Vui lòng đợi một phút rồi thử lại.",
+    "unavailable": "Khảo sát chưa được bật. Bạn có thể gửi ý kiến tới vivatheca@gmail.com.",
+    "privacy": "Câu trả lời được lưu trên máy chủ của Vivatheca (Cloudflare), không kèm tên, email hay địa chỉ IP. Bạn có thể yêu cầu xóa bất cứ lúc nào: chúng tôi tìm theo ngày giờ bạn gửi.",
+    "link": "Dành cho nhân viên y tế: đánh giá mô hình (2 phút)"
+  },
   "impact": {
     "title": "Lượt sử dụng mô hình — Vivatheca",
     "description": "Mỗi mô hình Vivatheca được xem, tải, chia sẻ và sử dụng bao nhiêu lần.",
@@ -1995,7 +2076,7 @@ const vi = withFallback(en, {
     "title": "Kiểm duyệt — Vivatheca",
     "description": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng mới.",
     "heading": "Kiểm duyệt",
-    "intro": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng “đã sử dụng” mới trước khi chúng hiện trên trang.",
+    "intro": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng “đã sử dụng” mới trước khi chúng hiện trên trang, và đọc câu trả lời khảo sát nhân viên y tế.",
     "off": "Chức năng kiểm duyệt đang tắt. Để bật, hãy thêm secret ADMIN_TOKEN cho Worker vivatheca trong Cloudflare.",
     "key": "Khóa quản trị",
     "signIn": "Hiện bài đăng đang chờ",
@@ -2007,7 +2088,20 @@ const vi = withFallback(en, {
     "used": "Bài đăng “đã sử dụng”",
     "approve": "Duyệt",
     "remove": "Xóa",
-    "check": "Trước khi duyệt: không có thông tin bệnh nhân, không quảng cáo, và đường dẫn (nếu có) dẫn đúng nơi đã nêu."
+    "check": "Trước khi duyệt: không có thông tin bệnh nhân, không quảng cáo, và đường dẫn (nếu có) dẫn đúng nơi đã nêu.",
+    "survey": {
+      "heading": "Câu trả lời khảo sát nhân viên y tế",
+      "none": "Chưa có câu trả lời nào.",
+      "count": "Số câu trả lời: {n}",
+      "item": "Nhận định",
+      "mean": "Trung bình (1–5)",
+      "agree": "Đồng ý hoặc rất đồng ý",
+      "roles": "Số câu trả lời theo vai trò",
+      "comments": "Câu trả lời viết",
+      "csv": "Tải tất cả câu trả lời (CSV)",
+      "remove": "Xóa câu trả lời này",
+      "note": "Khi còn ít câu trả lời, số trung bình chỉ mang tính tham khảo."
+    }
   },
   "templates": {
     "title": "Mẫu tờ hướng dẫn và trang chiếu — Vivatheca",

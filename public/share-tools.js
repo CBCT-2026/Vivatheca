@@ -69,6 +69,7 @@
     print: ['3D print: 3MF file or custom print', '3D{印刷|いんさつ}：3MFファイル・カスタム{印刷|いんさつ}', 'In 3D: tệp 3MF hoặc bản in tùy chỉnh'],
     templates: ['Handout and slide templates', '{配布|はいふ}{資料|しりょう}とスライドのテンプレート', 'Mẫu tờ hướng dẫn và trang chiếu'],
     used: ['Tell us how you used it', '{使|つか}い{方|かた}を{教|おし}えてください', 'Cho chúng tôi biết bạn đã dùng thế nào'],
+    survey: ['Clinicians: rate the models (2 minutes)', '{臨床|りんしょう}{医|い}の{方|かた}へ：{模型|もけい}を{評価|ひょうか}する（2{分|ふん}）', 'Dành cho nhân viên y tế: đánh giá mô hình (2 phút)'],
     request: ['Ask for a new model', '{新|あたら}しい{模型|もけい}をリクエスト', 'Đề xuất mô hình mới'],
     embedOpen: ['Open on Vivatheca', 'Vivathecaで{開|ひら}く', 'Mở trên Vivatheca'],
     embedTitle: ['3D model from Vivatheca', 'Vivathecaの3D{模型|もけい}', 'Mô hình 3D từ Vivatheca'],
@@ -258,13 +259,20 @@
     if (line) out.push(line);
     return out;
   }
+  // Review status for this model: a signed-off review of the current version (app/models/reviews.ts)
+  // replaces "Not yet clinically reviewed". m.reviewedStatus has {name}, {credentials}, {date}, {v}.
+  function reviewText(m) {
+    const r = m.model && m.model.review;
+    if (!r || !m.reviewedStatus) return m.reviewStatus[lang];
+    return m.reviewedStatus[lang].replace('{name}', r.reviewer).replace('{credentials}', r.credentials).replace('{date}', r.date).replace('{v}', r.version);
+  }
   function creditLines(m) {
     const title = plain(m.model.title[lang]);
     const url = 'https://vivatheca.com' + m.model.href;
     return {
       title: title + ' · ' + sayPlain('version') + ' ' + m.model.version,
       credit: '© Vivatheca · ' + url + ' · ' + m.licence.name,
-      status: plain(m.reviewStatus[lang]) + ' ' + plain(m.modelDisclaimer[lang]) + ' vivatheca.com' + m.disclaimerHref,
+      status: plain(reviewText(m)) + ' ' + plain(m.modelDisclaimer[lang]) + ' vivatheca.com' + m.disclaimerHref,
     };
   }
   // Readable fonts for saved pictures (public/fonts/readable/readable.css, SIL OFL 1.1): Atkinson
@@ -392,7 +400,7 @@
     const l = m.licence;
     return {
       plain: (JA ? sayPlain('model') + '：「' + title + '」' : sayPlain('model') + ': "' + title + '"') + ' (' + sayPlain('version') + ' ' + v + '), Vivatheca, ' + url + '. ' + sayPlain('licensed') + ' ' + l.name + ' (' + l.href + '). ' + sayPlain('changes') + ' ' + plain(m.modelDisclaimer[lang]),
-      html: '<p>' + esc(sayPlain('model')) + (JA ? '：「' : ': “') + '<a href="' + url + '">' + esc(title) + '</a>' + (JA ? '」' : '”') + ' (' + esc(sayPlain('version')) + ' ' + esc(v) + '), <a href="https://vivatheca.com">Vivatheca</a>. ' + esc(sayPlain('licensed')) + ' <a href="' + l.href + '">' + esc(l.name) + '</a>. ' + esc(sayPlain('changes')) + '</p>\n<p><small>' + esc(plain(m.reviewStatus[lang])) + ' ' + esc(plain(m.modelDisclaimer[lang])) + ' <a href="https://vivatheca.com' + m.disclaimerHref + '">vivatheca.com' + m.disclaimerHref + '</a></small></p>',
+      html: '<p>' + esc(sayPlain('model')) + (JA ? '：「' : ': “') + '<a href="' + url + '">' + esc(title) + '</a>' + (JA ? '」' : '”') + ' (' + esc(sayPlain('version')) + ' ' + esc(v) + '), <a href="https://vivatheca.com">Vivatheca</a>. ' + esc(sayPlain('licensed')) + ' <a href="' + l.href + '">' + esc(l.name) + '</a>. ' + esc(sayPlain('changes')) + '</p>\n<p><small>' + esc(plain(reviewText(m))) + ' ' + esc(plain(m.modelDisclaimer[lang])) + ' <a href="https://vivatheca.com' + m.disclaimerHref + '">vivatheca.com' + m.disclaimerHref + '</a></small></p>',
       short: '3D model: Vivatheca, vivatheca.com' + m.model.href + ' · ' + l.name,
       ...citations(m, title, url),
     };
@@ -449,7 +457,8 @@
         '<li><a href="/print?model=' + slug + '">' + say('print') + ' →</a></li>' +
         '<li><a href="/templates#' + slug + '">' + say('templates') + ' →</a></li>' +
         '<li><a href="/used?model=' + slug + '">' + say('used') + ' →</a></li>' +
-        '<li><a href="/requests">' + say('request') + ' →</a></li></ul>';
+        '<li><a href="/requests">' + say('request') + ' →</a></li>' +
+        '<li><a href="/survey?model=' + slug + '">' + say('survey') + ' →</a></li></ul>';
       const status = panel.querySelector('.vt-status');
       const tell = (k, v) => { status.innerHTML = v ? esc(fill(sayPlain(k), v)) : say(k); };
       const viewUrl = () => { const u = new URL(location.href); u.hash = ''; u.searchParams.delete('embed'); u.searchParams.set('view', enc(readState(group))); return u.toString(); };
@@ -592,7 +601,7 @@
       const back = new URL(location.href); back.searchParams.delete('embed');
       bar.innerHTML = m && m.model
         ? '<strong>' + ruby(m.model.title[lang]) + '</strong> · ' + say('embedTitle') + ' · <a href="' + esc(back.toString()) + '" target="_blank" rel="noopener">' + say('embedOpen') + ' ↗</a><br>' +
-          '<strong>' + ruby(m.reviewStatus[lang]) + '</strong> ' + ruby(m.modelDisclaimer[lang]) + ' <a href="' + m.disclaimerHref + '" target="_blank" rel="noopener">vivatheca.com' + m.disclaimerHref + '</a> · © Vivatheca · <a href="' + m.licence.href + '" target="_blank" rel="noopener">' + m.licence.name + '</a>'
+          '<strong>' + ruby(reviewText(m)) + '</strong> ' + ruby(m.modelDisclaimer[lang]) + ' <a href="' + m.disclaimerHref + '" target="_blank" rel="noopener">vivatheca.com' + m.disclaimerHref + '</a> · © Vivatheca · <a href="' + m.licence.href + '" target="_blank" rel="noopener">' + m.licence.name + '</a>'
         : '<a href="' + esc(back.toString()) + '" target="_blank" rel="noopener">' + say('embedOpen') + '</a>';
       doc.body.appendChild(bar);
     });
