@@ -1,6 +1,18 @@
 {
  "dictionary": {
   "total": 1211,
+  "extraInJa": [
+   "builder.models.oroantral",
+   "builder.models.periodontitis",
+   "builder.models.development",
+   "builder.models.orthognathic",
+   "builder.models.cracked-tooth",
+   "builder.models.stainless-steel-crown",
+   "builder.models.head-neck-scc",
+   "builder.models.head-neck-ameloblastoma",
+   "builder.models.head-neck-okc",
+   "builder.models.head-neck-mec"
+  ],
   "missing": [],
   "untranslated": [
    "learnOac.evidence.3.study",
@@ -117,21 +129,12 @@
    "page": "periodontitis",
    "tracked": true,
    "file": "ja.js",
-   "needed": 101,
-   "missing": [
-    "t1_6",
-    "t1_7",
-    "t1_8",
-    "t1_9",
-    "t2_6",
-    "t2_7",
-    "t2_9",
-    "t2_11"
-   ],
+   "needed": 92,
+   "missing": [],
    "byStatus": {
     "reviewed": 0,
     "changed": 0,
-    "unreviewed": 93
+    "unreviewed": 92
    }
   },
   {
