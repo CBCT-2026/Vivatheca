@@ -87,7 +87,7 @@ test('bone graft page is in the collection and shows the staged model with its d
   await page.goto('/models/alveolar-bone-graft');
   await expect(page.getByRole('heading', { name: 'Bone graft for a cleft in the gum', level: 1 })).toBeVisible();
   await expect(page.locator('header a[href="/"]').first()).toBeVisible();
-  await expect(page.locator('a[href="/models"]').first()).toBeVisible();
+  await expect(page.locator('a[href="/models"]:visible').first()).toBeVisible();
   await expect.poll(() => page.locator('model-viewer').evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/abg/abg-1-pre-op.glb');
   await expect(page.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
   await expect(page.locator('.prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
