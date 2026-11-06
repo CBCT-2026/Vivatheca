@@ -104,7 +104,7 @@ This is a standing project rule for every new model and every rebuild.
 
 ## Free rules check (`pnpm check:rules`)
 
-`tools/rules/check.mjs` checks, on every pull request and with no AI or API cost: every static page links to `/disclaimer`; every static model page has the model disclaimer word for word, a review status and a `catalogue.ts` entry; every catalogue model has a render and `library.items` in `en.ts` and `ja.ts`; a page that uses Z-Anatomy says CC BY-SA; no stylesheet left-aligns plain `<p>` text; and English site text has no gendered pronouns. Exceptions go in `tools/rules/allow.json` with a reason. Whole-repo reviews by Claude happen only when Luke asks (no paid per-PR AI checks).
+`tools/rules/check.mjs` checks, on every pull request and with no AI or API cost: every static page links to `/disclaimer`; every static model page has the model disclaimer word for word, a review status and a `catalogue.ts` entry; every catalogue model has a render and `library.items` in `en.ts` and `ja.ts`; a page that uses Z-Anatomy says CC BY-SA; no stylesheet left-aligns plain `<p>` text; and English site text has no gendered pronouns. Exceptions go in `tools/rules/allow.json` with a reason. `pnpm i18n:furigana` checks Japanese furigana: `{漢字|かんじ}` markup, and each reading against JMdict/KANJIDIC; a correct reading they lack goes in `extraReadings` in `tools/i18n/furigana.mjs` with a reason. Whole-repo reviews by Claude happen only when Luke asks (no paid per-PR AI checks).
 
 ## Evidence and transparency (required for everything)
 

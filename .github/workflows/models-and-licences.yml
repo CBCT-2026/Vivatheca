@@ -77,3 +77,5 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm i18n:status
+      # Furigana markup and readings (JMdict/KANJIDIC). A correct reading the dictionaries lack goes in extraReadings with a reason.
+      - run: pnpm i18n:furigana --strict
