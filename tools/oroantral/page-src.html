@@ -33,6 +33,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
   .dot.sinus { background: #9cc9ee; } .dot.clot { background: #8b2026; } .dot.flap { background: #f9bfae; }
   .dot.fat { background: #f6dc76; } .dot.tract { background: #cf3e4a; } .dot.lining { background: #ea8e6e; }
   .legend li[hidden] { display: none; }
+  .download { display: inline-block; margin-top: 4px; font-weight: 600; }
   table.compare { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0; }
   table.compare th, table.compare td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; text-align: left; }
   table.compare thead th { background: var(--card); color: var(--heading); }
@@ -46,6 +47,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 <header class="bar">
   <div class="bar-left">
     <a class="lang" href="/"><span lang="en">Vivatheca home</span><span lang="ja">Vivatheca ホーム</span></a>
+    <a class="lang" href="/models"><span lang="en">All models</span><span lang="ja">{模型|もけい}{一覧|いちらん}</span></a>
     <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode">Dark mode</button>
   </div>
   <div class="langs" id="langs" role="group" aria-label="Language"></div>
@@ -74,6 +76,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <button type="button" data-stage="clot" aria-pressed="false"><span lang="en">Blood clot</span><span lang="ja">{血餅|けっぺい}</span><small lang="en">small opening</small><small lang="ja">{小|ちい}さい{穴|あな}</small></button>
     <button type="button" data-stage="flap" aria-pressed="false"><span lang="en">Cheek flap</span><span lang="ja">ほお{側|がわ}の{弁|べん}</span><small lang="en">buccal flap</small><small lang="ja">{歯|は}ぐきを{移動|いどう}</small></button>
     <button type="button" data-stage="bfp" aria-pressed="false"><span lang="en">Fat pad</span><span lang="ja">ほおの{脂肪|しぼう}のかたまり</span><small lang="en">buccal fat pad</small><small lang="ja">ほおの{脂肪|しぼう}</small></button>
+    <button type="button" data-stage="palatal" aria-pressed="false"><span lang="en">Palate flap</span><span lang="ja">{口蓋|こうがい}の{弁|べん}</span><small lang="en">palatal rotation flap</small><small lang="ja">{口蓋回転弁|こうがいかいてんべん}</small></button>
   </div>
 
   <div class="controls" role="group" aria-label="Model controls">
@@ -173,6 +176,29 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     </div>
   </section>
 
+  <section id="clinical-images">
+    <h2><span lang="en">Real X-rays, scans and photos</span><span lang="ja">{実際|じっさい}のX{線|せん}・CT・{写真|しゃしん}</span></h2>
+    <p class="clinical-note"><span lang="en">These images are from real patients. Their authors published them openly with the patient's consent where shown. Each image keeps its own licence, given under it; it is not covered by the model licence.</span><span lang="ja">これらは{実際|じっさい}の{患者|かんじゃ}さんの{画像|がぞう}で、{著者|ちょしゃ}がオープンなライセンスで{公開|こうかい}したものです（{同意|どうい}の{記録|きろく}がある{場合|ばあい}はその{旨|むね}を{記載|きさい}）。{各画像|かくがぞう}のライセンスは{下|した}に{示|しめ}すとおりで、{模型|もけい}のライセンスとは{別|べつ}です。{出典|しゅってん}の{表記|ひょうき}は{英語|えいご}のままです。</span></p>
+    <figure class="clin-fig" id="img-1">
+      <img src="/images/clinical/oroantral/opg-upper-third-molar-sinus.jpg" width="750" height="385" loading="lazy" alt="Panoramic X-ray. An upper left wisdom tooth sits high up, with its roots appearing to reach the floor of the sinus.">
+      <figcaption><span lang="en"><b>Image 1. Roots close to the sinus.</b> An X-ray of all the teeth, taken before a tooth was removed. The upper left wisdom tooth (arrow) lies right under the sinus. After it was taken out, this person got an infected hole between the mouth and the sinus that stayed open (OAF). This kind of X-ray can make roots look closer to the sinus than they are; a 3D scan shows this better.<sup class="cite"><a href="#ref-11">11</a></sup></span><span lang="ja"><b>{画像|がぞう}1. {上顎洞|じょうがくどう}に{近|ちか}い{根|ね}。</b>{歯|は}を{抜|ぬ}く{前|まえ}に{撮|と}った、すべての{歯|は}が{写|うつ}るX{線|せん}。{左上|ひだりうえ}の{親知|おやし}らず（{矢印|やじるし}）が{上顎洞|じょうがくどう}のすぐ{下|した}にあります。この{人|ひと}は{歯|は}を{抜|ぬ}いたあと、{口|くち}と{上顎洞|じょうがくどう}の{間|あいだ}の{穴|あな}が{閉|と}じずに{残|のこ}り、{感染|かんせん}も{起|お}こしました（OAF）。このX{線|せん}では{根|ね}が{実際|じっさい}より{洞|どう}に{近|ちか}く{見|み}えることがあり、3D{撮影|さつえい}のほうが{正確|せいかく}です。<sup class="cite"><a href="#ref-11">11</a></sup></span>
+        <span class="credit">Chinnaiah R, Stephen SR, Veeramuthu M, et al. The management of infected oroantral fistula after maxillary third molar removal: a case report. Cureus. 2023;15(7):e42633, Figure 1. <a href="https://doi.org/10.7759/cureus.42633">doi.org/10.7759/cureus.42633</a>. Licence: <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Changes: thin strip cropped from the bottom edge.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-2">
+      <img src="/images/clinical/oroantral/cbct-oac.jpg" width="750" height="230" loading="lazy" alt="Three CBCT slices through the upper jaw, showing a gap in the thin bone between the mouth and the sinus.">
+      <figcaption><span lang="en"><b>Image 2. The opening on a 3D scan (CBCT).</b> Slices through the upper left jaw where a back tooth had been taken out 4 to 5 years earlier. The yellow marker in the first slice measures the gap in the sinus floor (2.1 mm); this gap is the opening between mouth and sinus. The numbers 12 to 14 label the slices.</span><span lang="ja"><b>{画像|がぞう}2. 3D{撮影|さつえい}（CBCT）で{見|み}た{穴|あな}。</b>4〜5{年前|ねんまえ}に{奥歯|おくば}を{抜|ぬ}いた{左上|ひだりうえ}のあごの{断面|だんめん}。1{枚目|まいめ}の{黄色|きいろ}の{印|しるし}が{洞|どう}の{底|そこ}のすき{間|ま}（2.1 mm）を{測|はか}っています。このすき{間|ま}が、{口|くち}と{上顎洞|じょうがくどう}をつなぐ{穴|あな}です。12〜14は{断面|だんめん}の{番号|ばんごう}です。</span>
+        <span class="credit">Pal S, Rao K, Sanjenbam N, et al. A double barrier technique in surgical closure of oroantral communication. Cureus. 2022;14(11):e31671, Figure 1. <a href="https://doi.org/10.7759/cureus.31671">doi.org/10.7759/cureus.31671</a>. Licence: Creative Commons Attribution License (CC BY; version not stated by the publisher, see the <a href="https://doi.org/10.7759/cureus.31671">article</a>; all CC BY versions allow this use with credit, <a href="https://creativecommons.org/licenses/by/4.0/">e.g. CC BY 4.0</a>). Changes: none. The article records the patient's informed consent.</span></figcaption>
+    </figure>
+    <details class="surgical">
+      <summary><span lang="en">Show surgery photo (shows blood)</span><span lang="ja">{手術中|しゅじゅつちゅう}の{写真|しゃしん}を{見|み}る（{血|ち}が{写|うつ}っています）</span></summary>
+      <figure class="clin-fig" id="img-3">
+        <img src="/images/clinical/oroantral/surgery-fistula-excised.jpg" width="750" height="400" loading="lazy" alt="Photo looking up at the roof of the mouth during surgery. In the gap between a premolar and a back molar the gum has been opened and is bleeding where the fistula was cut out. An instrument and a gloved finger hold the cheek back.">
+        <figcaption><span lang="en"><b>Image 3. Closing a lasting hole.</b> Same patient as Image 2, during surgery. The lined tunnel has been cut out before the opening is closed, the usual first step for a hole that stayed open.<sup class="cite"><a href="#ref-1">1</a></sup></span><span lang="ja"><b>{画像|がぞう}3. {穴|あな}を{閉|と}じる{手術|しゅじゅつ}。</b>{画像|がぞう}2と{同|おな}じ{患者|かんじゃ}さんの{手術中|しゅじゅつちゅう}の{写真|しゃしん}。{穴|あな}を{閉|と}じる{前|まえ}に、{上皮|じょうひ}でおおわれたトンネルを{切|き}り{取|と}っています。</span>
+          <span class="credit">Same article as Image 2 (<a href="https://doi.org/10.7759/cureus.31671">doi.org/10.7759/cureus.31671</a>), Figure 2. Licence: Creative Commons Attribution License (CC BY; version not stated by the publisher, see the <a href="https://doi.org/10.7759/cureus.31671">article</a>; all CC BY versions allow this use with credit, <a href="https://creativecommons.org/licenses/by/4.0/">e.g. CC BY 4.0</a>). Changes: cropped to the mouth (lower face removed).</span></figcaption>
+      </figure>
+    </details>
+  </section>
+
   <section>
     <div lang="en">
       <h2>Signs of a hole</h2>
@@ -214,6 +240,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
         <li>OAF: excise the epithelial tract, debride to well-perfused tissue and curette infected bone; close in a disease-free sinus, with irrigation and antibiotics first if infected.<sup class="cite"><a href="#ref-1">1</a></sup></li>
         <li>Flap margins should rest on intact bone at least 5 mm from the defect, without tension.<sup class="cite"><a href="#ref-1">1</a></sup></li>
         <li>Buccal advancement (Rehrmann) flap: small to moderate defects; reduces vestibular depth, which may affect later prostheses. Palatal rotation flap suits premolar sites; buccal fat pad suits posterior sites and can be combined with a buccal flap.<sup class="cite"><a href="#ref-1">1</a></sup></li>
+        <li>Palatal rotation flap: posteriorly based on the greater palatine artery; well vascularised and thick. Feasible mainly in the premolar region: at molar sites, tension may cause ischaemia, and excessive rotation can cause flap necrosis. Leaves exposed palatal bone that heals by secondary epithelialisation, with pain and possible surface irregularity.<sup class="cite"><a href="#ref-2">2</a></sup></li>
         <li>A network meta-analysis of 9 RCTs favoured the buccal fat pad over buccal advancement and palatal rotation flaps for closure and recurrence.<sup class="cite"><a href="#ref-4">4</a></sup> A 2025 systematic review reports conservative management for defects under 5 mm and surgical closure above 5 mm.<sup class="cite"><a href="#ref-3">3</a></sup></li>
       </ul>
       <ul lang="ja">
@@ -222,9 +249,19 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
         <li>OAF：{上皮|じょうひ}の{瘻管|ろうかん}を{切除|せつじょ}し、{血流|けつりゅう}のよい{組織|そしき}まで{掻爬|そうは}する。{洞|どう}の{感染|かんせん}がない{状態|じょうたい}で{閉鎖|へいさ}する（{感染|かんせん}があれば{洗浄|せんじょう}と{抗菌薬|こうきんやく}を{先|さき}に）。<sup class="cite"><a href="#ref-1">1</a></sup></li>
         <li>{弁|べん}の{縫合線|ほうごうせん}は{欠損|けっそん}から5 mm{以上|いじょう}{離|はな}れた{健全|けんぜん}な{骨|ほね}の{上|うえ}に、{緊張|きんちょう}なく{置|お}く。<sup class="cite"><a href="#ref-1">1</a></sup></li>
         <li>ほお{側|がわ}{前進弁|ぜんしんべん}（Rehrmann{法|ほう}）は{小|しょう}〜{中|ちゅう}{程度|ていど}の{欠損|けっそん}に{用|もち}いるが、{口腔前庭|こうくうぜんてい}が{浅|あさ}くなる。{口蓋|こうがい}{回転弁|かいてんべん}は{小臼歯部|しょうきゅうしぶ}、ほおの{脂肪|しぼう}のかたまりは{後方|こうほう}の{欠損|けっそん}に{適|てき}し、ほお{側|がわ}の{弁|べん}と{併用|へいよう}できる。<sup class="cite"><a href="#ref-1">1</a></sup></li>
+        <li>{口蓋回転弁|こうがいかいてんべん}：{大口蓋動脈|だいこうがいどうみゃく}を{含|ふく}む{後方|こうほう}{基部|きぶ}の{弁|べん}で、{血流|けつりゅう}が{豊富|ほうふ}で{厚|あつ}みがある。{主|おも}に{小臼歯部|しょうきゅうしぶ}で{適用|てきよう}{可能|かのう}。{大臼歯部|だいきゅうしぶ}では{緊張|きんちょう}による{虚血|きょけつ}、{過度|かど}の{回転|かいてん}による{弁|べん}の{壊死|えし}が{起|お}こりうる。{露出|ろしゅつ}した{口蓋骨|こうがいこつ}は{二次|にじ}{上皮化|じょうひか}で{治癒|ちゆ}し、{疼痛|とうつう}や{表面|ひょうめん}の{不整|ふせい}が{生|しょう}じうる。<sup class="cite"><a href="#ref-2">2</a></sup></li>
         <li>RCT 9{件|けん}のネットワークメタアナリシスでは、{閉鎖|へいさ}と{再発|さいはつ}についてほおの{脂肪|しぼう}のかたまりがほお{側|がわ}{前進弁|ぜんしんべん}・{口蓋|こうがい}{回転弁|かいてんべん}より{優|すぐ}れていた。<sup class="cite"><a href="#ref-4">4</a></sup></li>
       </ul>
     </details>
+  </section>
+
+  <section id="print">
+    <h2><span lang="en">3D printing</span><span lang="ja">3D{印刷|いんさつ}</span></h2>
+    <p><a class="download" id="download" href="downloads/vivatheca-oroantral-normal-1.0x.zip"><span lang="en">Download 3D print files for this stage</span><span lang="ja">この{段階|だんかい}の3D{印刷用|いんさつよう}ファイル</span></a></p>
+    <p class="small" lang="en">Each stage has its own download. The link changes when you pick a stage. Each part, such as bone, teeth or gum, is its own 3D print file (STL). So you can print each part in its own colour. Load the parts together as one object in your slicer. They are life size, in mm. We left out the air in the sinus. Some layers are thin. The bone over the root tips in stage 2 is 0.5 mm. The tunnel lining in stage 4 is 0.6 mm. If they do not print well, print the model larger or use a fine nozzle. Each download has the disclaimer below.</p>
+    <p class="small" lang="ja">{段階|だんかい}ごとにファイルがあり、{段階|だんかい}を{選|えら}ぶとリンクが{変|か}わります。{骨|ほね}・{歯|は}・{歯|は}ぐき・{血餅|けっぺい}・{弁|べん}などは{別々|べつべつ}のSTLファイルなので、{色|いろ}を{分|わ}けて{印刷|いんさつ}できます。{実物大|じつぶつだい}（mm）です。{上顎洞|じょうがくどう}の{空気|くうき}は{含|ふく}みません。{根|ね}の{先|さき}の{上|うえ}の{骨|ほね}（0.5 mm、{段階|だんかい}2）とトンネルの{上皮|じょうひ}（0.6 mm、{段階|だんかい}4）は{薄|うす}いので、{拡大|かくだい}するか{細|ほそ}いノズルで{印刷|いんさつ}してください。</p>
+    <p class="small"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small" lang="ja"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></p>
   </section>
 
   <section class="disclaimer">
@@ -233,7 +270,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
     <p class="small" lang="en">Prototype, version 0.1. How the model was made: the bone and the two molars come from the Z-Anatomy skull. That maxilla has only a small sinus space, so the sinus was carved inside it, keeping a 1.5 mm wall. Sinus floor heights were set by hand to match published ranges: 3 mm of bone over the root tips in the normal stage, and root tips 4 mm inside the sinus (covered by 0.5 mm of bone) in the other stages.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-8">8</a></sup> The gum is drawn as a 2.25 mm layer on the mouth side (an estimate, not from a source). The opening, the fistula (3.2 mm across), the clot, the flap and the fat pad are drawn to show the idea, not measured from patients. The sinus lining is shown only where it is swollen. Real sizes, shapes and techniques vary. Sources also differ on which openings can be left to heal: Parvini and colleagues give under 2 mm, while a 2025 review reports conservative care for openings under 5 mm.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></p>
     <p class="small" lang="ja">プロトタイプ（{版|はん}0.1）。{骨|ほね}と2{本|ほん}の{大臼歯|だいきゅうし}は Z-Anatomy の{頭蓋骨|ずがいこつ}から{作|つく}りました。{上顎洞|じょうがくどう}の{形|かたち}、{洞|どう}の{底|そこ}の{高|たか}さ（{正常|せいじょう}：{根|ね}の{先|さき}から3 mm{上|うえ}、ほかの{段階|だんかい}：{根|ね}の{先|さき}が4 mm{洞内|どうない}に{入|はい}る）、{歯|は}ぐき（2.25 mm、{推定|すいてい}）、{穴|あな}、トンネル、{血餅|けっぺい}、{弁|べん}、ほおの{脂肪|しぼう}のかたまりは、{文献|ぶんけん}の{範囲|はんい}に{合|あ}わせて{手|て}で{作|つく}った{説明用|せつめいよう}の{形|かたち}です。</p>
-    <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: right maxilla, palatine and zygomatic bones and the right upper first and second molars extracted, cut, voxel-remeshed; sinus, gum, clot, flap, fat pad and fistula added. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: right maxilla, palatine and zygomatic bones and the right upper first and second molars extracted, cut, voxel-remeshed; sinus, gum, clot, flaps, fat pad and fistula added. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
     <p class="small">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health.</p>
   </section>
 

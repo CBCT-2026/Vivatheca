@@ -32,7 +32,7 @@ export const modelBriefs: ModelBrief[] = [
     id: 'oroantral',
     name: 'Opening into the sinus after upper molar removal (OAC and OAF)',
     glb: '/oroantral/models/oac.glb',
-    condition: 'Upper first molar roots reaching into the maxillary sinus; removal leaves an oroantral communication (OAC, a fresh opening). If it stays open it becomes an oroantral fistula (OAF, an epithelium-lined tunnel). Repairs shown: blood clot (small openings), buccal advancement flap, buccal fat pad flap.',
+    condition: 'Upper first molar roots reaching into the maxillary sinus; removal leaves an oroantral communication (OAC, a fresh opening). If it stays open it becomes an oroantral fistula (OAF, an epithelium-lined tunnel). Repairs shown: blood clot (small openings), buccal advancement flap, buccal fat pad flap, palatal rotation flap.',
     labels: [
       { plain: 'Sinus', medical: 'maxillary sinus' },
       { plain: 'Bone layer' },
@@ -46,6 +46,8 @@ export const modelBriefs: ModelBrief[] = [
       { plain: 'Blood clot' },
       { plain: 'Flap', medical: 'buccal advancement flap' },
       { plain: 'Fat pad', medical: 'buccal fat pad' },
+      { plain: 'Palate flap', medical: 'palatal rotation flap' },
+      { plain: 'Bare bone', medical: 'exposed palatal bone (donor site)' },
     ],
     normalComparison: 'Stage 1 of the same model: a healthy upper jaw with 3 mm of bone between the first molar root tips and the sinus.',
   },
