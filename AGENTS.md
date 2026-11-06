@@ -18,6 +18,7 @@ The Vivatheca platform is a TypeScript/React application built with Next.js-comp
 - `public/` stores deployable logos, favicon media, Material Symbols, and the supplied GLB.
 - `output/pdf/vivatheca-landing-page-full-view.pdf` is the current full-length desktop reference export of the landing page.
 - `.openai/hosting.json` identifies a Sites deployment when present. Never replace an existing `project_id`.
+- `docs/hosting/r2-downloads.md`: files over 25 MiB (full-resolution models) are served from the R2 bucket `vivatheca-downloads` at `/files/<name>` (`serveDownload` in `worker/index.ts`). The binding in `vite.config.ts` stays commented out until the bucket exists.
 - `docs/hosting/vivatheca-com-cutover.md` records the pending apex-domain DNS values, private-access policy and activation checks for `vivatheca.com`.
 - `Vivatheca PRD.docx` is the evolving product specification and must remain aligned with material homepage, content, governance, provenance, and sustainability changes.
 

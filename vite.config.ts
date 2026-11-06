@@ -15,6 +15,10 @@ const localBindingConfig = {
   // (worker/store.ts). SQLite-backed Durable Objects need no set-up in the Cloudflare account.
   durable_objects: { bindings: [{ name: 'STORE', class_name: 'VivathecaStore' }] },
   migrations: [{ tag: 'v1', new_sqlite_classes: ['VivathecaStore'] }],
+  // Large downloads (over the 25 MiB static-file limit) are served from Cloudflare R2 at /files/<name>
+  // (worker/index.ts). Create the bucket first (docs/hosting/r2-downloads.md), then uncomment this:
+  // deploying with the binding but no bucket fails.
+  // r2_buckets: [{ binding: 'DOWNLOADS', bucket_name: 'vivatheca-downloads' }],
 };
 
 export default defineConfig(async () => {
