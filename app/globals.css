@@ -988,3 +988,12 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .contribute-form .contribute-choice input { flex: none; width: 1.2rem; height: 1.2rem; min-height: 0; margin: .15rem 0 0; accent-color: var(--accent); }
 .contribute-form .field-help { color: var(--muted); font-size: .9rem; font-weight: 400; }
 .contribute-page section > ul, .contribute-page section > ol { display: grid; gap: .45rem; padding-left: 1.4rem; list-style: revert; }
+
+/* Site search (app/search, Pagefind UI) */
+.search-link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; }
+.search-link:hover { background: var(--surface-alt); }
+:root[data-theme='dark'] .search-link img { filter: invert(1); }
+.search-page .info-intro { margin-bottom: 1.5rem; }
+.search-ui { --pagefind-ui-scale: 1; --pagefind-ui-primary: var(--accent); --pagefind-ui-text: var(--ink); --pagefind-ui-background: var(--surface); --pagefind-ui-border: var(--line); --pagefind-ui-tag: var(--surface-alt); --pagefind-ui-border-width: 1px; --pagefind-ui-border-radius: 10px; --pagefind-ui-font: inherit; max-width: 760px; }
+.search-ui .pagefind-ui__result-link { color: var(--heading); }
+.search-note { max-width: 760px; margin-top: 2rem; color: var(--muted); font-size: .9rem; }

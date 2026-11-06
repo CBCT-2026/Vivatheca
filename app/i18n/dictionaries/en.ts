@@ -41,6 +41,7 @@ const en = {
     modelLibrary: 'Model library',
     tryViewer: 'Try the 3D viewer',
     students: 'Students',
+    search: 'Search',
     studentsMobile: 'Learning for students',
   },
   // Homepage: the two uses of the site, kept apart.
@@ -1134,6 +1135,20 @@ const en = {
     failed: 'The 3D viewer could not load. Use the download links below to open the model.',
     loading: 'Loading 3D model…',
     help: 'Drag to rotate · Scroll or pinch to zoom · On a phone, tap the AR icon to place the model on a table',
+  },
+  search: {
+    title: 'Search | Vivatheca',
+    description: 'Search every Vivatheca model, case page and student page.',
+    heading: 'Search',
+    intro: 'Find a model, condition, case page or student page. Results come from the pages in your current language.',
+    placeholder: 'Search, for example "fibula" or "wisdom tooth"',
+    clear: 'Clear',
+    zero: 'No results for [SEARCH_TERM]',
+    many: '[COUNT] results for [SEARCH_TERM]',
+    one: '[COUNT] result for [SEARCH_TERM]',
+    more: 'Load more results',
+    searching: 'Searching for [SEARCH_TERM]...',
+    note: 'The search index is built when the site is published, so a page added today appears after the next publish.',
   },
   about: {
     title: 'About — Vivatheca',

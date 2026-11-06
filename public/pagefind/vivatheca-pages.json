@@ -1,0 +1,114 @@
+{
+ "/about": {
+  "en": "4729dd7f3e74",
+  "ja": "cbac573029aa"
+ },
+ "/contribute": {
+  "en": "3504d27d5b79",
+  "ja": "70fe1d6eb110"
+ },
+ "/create": {
+  "en": "3418f6cfbe73",
+  "ja": "311b713bb3e9"
+ },
+ "/disclaimer": {
+  "en": "b700144b3bd2",
+  "ja": "2db4b5e0761d"
+ },
+ "/learn/cracked-tooth": {
+  "en": "17bb01922ac9",
+  "ja": "199094c9f25a"
+ },
+ "/learn/development": {
+  "en": "c7c7eb80397e",
+  "ja": "9d96ae3c4034"
+ },
+ "/learn/head-neck": {
+  "en": "7041edc44b93",
+  "ja": "8a0d41a88108"
+ },
+ "/learn/oroantral": {
+  "en": "4dee10f2bee9",
+  "ja": "3c036e5264d6"
+ },
+ "/learn/orthognathic": {
+  "en": "ab7c6b915461",
+  "ja": "04b289a65fec"
+ },
+ "/learn": {
+  "en": "11f3761d8775",
+  "ja": "eb8f77be11f4"
+ },
+ "/learn/periodontitis": {
+  "en": "ecaa46c946a0",
+  "ja": "bb4fb534a8d9"
+ },
+ "/learn/steel-crown": {
+  "en": "b6acf685877f",
+  "ja": "b381c6f819d7"
+ },
+ "/models/alveolar-bone-graft": {
+  "en": "f7b3a1014cf3",
+  "ja": "40e963a4e44c"
+ },
+ "/models/impacted-wisdom-tooth": {
+  "en": "5b0be1fdfbb7",
+  "ja": "934fbf87a4ae"
+ },
+ "/models": {
+  "en": "9b9a3b4e74a5",
+  "ja": "2bdf4bd06d5e"
+ },
+ "/": {
+  "en": "472103f9c72c",
+  "ja": "e4e8795cdbe8"
+ },
+ "/privacy": {
+  "en": "301ae333555f",
+  "ja": "451c849f36bf"
+ },
+ "/cracked-tooth/": {
+  "en": "c6796da2758a",
+  "ja": "a7ae6886c551"
+ },
+ "/development/": {
+  "en": "9dec90331d43",
+  "ja": "34efd6875c1b"
+ },
+ "/head-neck/": {
+  "en": "b0dfd852b68e",
+  "ja": "c85cda281298"
+ },
+ "/head-neck/ameloblastoma/": {
+  "en": "94ca7caed6dd",
+  "ja": "2253f4ea3403"
+ },
+ "/head-neck/mec/": {
+  "en": "d5a4e51760ff",
+  "ja": "7734b4831dc4"
+ },
+ "/head-neck/okc/": {
+  "en": "e65c83add0ef",
+  "ja": "e29c407794c2"
+ },
+ "/head-neck/scc/": {
+  "en": "4c5c9f8caad4",
+  "ja": "0b7f8e8324bd"
+ },
+ "/oroantral/": {
+  "en": "4a5f3e818dcd",
+  "ja": "a88e03320aef"
+ },
+ "/orthognathic/": {
+  "en": "d841cd4bceeb",
+  "ja": "5fb794fcd17f"
+ },
+ "/periodontitis/": {
+  "en": "62e7a85a7b3b",
+  "ja": "0f83b219093e"
+ },
+ "/stainless-steel-crown/": {
+  "en": "39f347933e84",
+  "ja": "cee61c20afd0"
+ }
+}

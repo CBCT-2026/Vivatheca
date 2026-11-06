@@ -18,6 +18,7 @@ export async function PageHeader({ current }: { current?: string }) {
         {primaryLinks(t).map((link) => <a key={link.href} href={link.href} aria-current={current === link.href ? 'page' : undefined}><Ruby text={link.label} /></a>)}
       </nav>
       <div className="page-header-actions">
+        <a className="search-link" href="/search" aria-label={plain(t.nav.search)} title={plain(t.nav.search)}><img src="/icons/search.svg" alt="" width="22" height="22" /></a>
         <LanguageSwitcher furigana={furigana} className="always" />
         <ThemeToggle />
         <MobileNavigation furigana={furigana} onHome={false} />

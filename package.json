@@ -13,6 +13,7 @@
     "test:e2e": "playwright test",
     "check:patient-text": "node tools/patient-text/snapshot.mjs && pitk check",
     "check:glb": "node tools/glb/validate.mjs",
+    "search:index": "node tools/search/build-index.mjs",
     "test:a11y": "playwright test tests/accessibility.spec.ts"
   },
   "dependencies": {
@@ -46,6 +47,7 @@
     "eslint-config-next": "16.2.6",
     "gltf-validator": "2.0.0-dev.3.10",
     "openseadragon": "^6.1.1",
+    "pagefind": "^1.6.0",
     "react-server-dom-webpack": "19.2.6",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",

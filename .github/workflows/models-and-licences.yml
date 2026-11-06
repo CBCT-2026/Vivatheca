@@ -33,3 +33,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: fsfe/reuse-action@v5
+  search-index:
+    # The Pagefind index in public/pagefind is committed; this job rebuilds it and fails if it is stale.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm build
+      - run: node tools/search/build-index.mjs
+      # Pagefind's chunk names and some page text (viewer captions) are not reproducible, so only the
+      # set of indexed pages is compared: a page added or removed without rebuilding the index fails here.
+      - run: |
+          git show HEAD:public/pagefind/vivatheca-pages.json > /tmp/committed-pages.json
+          node -e "const a=Object.keys(require('/tmp/committed-pages.json')).sort(), b=Object.keys(require('./public/pagefind/vivatheca-pages.json')).sort(); if (JSON.stringify(a)!==JSON.stringify(b)) { console.error('Search index is stale. Committed:', a, 'Now:', b, '\nRun pnpm build, pnpm start, pnpm search:index and commit public/pagefind'); process.exit(1); }"
