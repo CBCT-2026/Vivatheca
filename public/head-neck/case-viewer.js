@@ -65,6 +65,18 @@
   document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => setView(VIEWS[b.dataset.view])));
 
   let parts = [], offset = 0, target = 0;
+
+  // "Take the model apart" panel (/model-parts.js): the parts on show in this stage, each can be hidden.
+  const hiddenParts = new Set();
+  const partGroup = (n) => n.replace(/^screws$/, 'plate').replace(/^free_flap_(artery|vein)$/, 'free_flap');
+  function announceParts() {
+    box.vtParts = {
+      names: () => [...new Set(parts.filter((o) => o.userData.stageVis).map((o) => partGroup(o.userData.n)))],
+      colour: (g) => { const o = parts.find((p) => partGroup(p.userData.n) === g); return o ? '#' + o.material.color.clone().convertLinearToSRGB().getHexString() : ''; },
+      hide: (g, off) => { if (off) hiddenParts.add(g); else hiddenParts.delete(g); parts.forEach((o) => { o.visible = o.userData.stageVis && !hiddenParts.has(partGroup(o.userData.n)); }); },
+    };
+    box.dispatchEvent(new Event('vt-parts'));
+  }
   const baseName = (n) => n.replace(/[._]\d+$/, '');
   function apply() {
     if (!parts.length) return;
@@ -75,7 +87,7 @@
       else if (/^excised/.test(n)) vis = s === 'op';
       else if (RECON.test(n)) vis = s === 'recon';
       else if (MOVE.test(n) && (s === 'post' || s === 'recon')) vis = false;
-      o.visible = vis;
+      o.userData.stageVis = vis; o.visible = vis && !hiddenParts.has(partGroup(n));
       const xr = state.xray && /^(bone|sphenoid|specimen_bone|mucosa)/.test(n);
       o.material.transparent = xr || o.userData.tr; o.material.opacity = xr ? 0.28 : o.userData.op;
       o.material.depthWrite = !o.material.transparent; o.material.needsUpdate = true;
@@ -91,6 +103,7 @@
       const col = '#' + o.material.color.clone().convertLinearToSRGB().getHexString();
       return '<li><span class="dot" style="background:' + col + '"></span>' + (JA ? I.ruby(ja) : en) + '</li>';
     }).join('');
+    announceParts();
   }
   const m = document.getElementById('btn-margin'), x = document.getElementById('btn-xray');
   if (m) m.addEventListener('click', () => { state.margin = !state.margin; pressed(); apply(); });

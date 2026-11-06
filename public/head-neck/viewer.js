@@ -119,6 +119,18 @@
   const MOVE = /^(specimen|extracted|lesion|nerve|removed|excised|margin)/;
   const baseName = (n) => n.replace(/[._]\d+$/, '');
 
+  // "Take the model apart" panel (/model-parts.js): the parts on show in this stage, each can be hidden.
+  const hiddenParts = new Set();
+  const partGroup = (n) => n.replace(/^screws$/, 'plate').replace(/^free_flap_(artery|vein)$/, 'free_flap');
+  function announceParts() {
+    box.vtParts = {
+      names: () => [...new Set((cur ? cur.parts : []).filter((o) => o.userData.stageVis).map((o) => partGroup(o.userData.n)))],
+      colour: (g) => { const o = (cur ? cur.parts : []).find((p) => partGroup(p.userData.n) === g); return o ? '#' + o.material.color.clone().convertLinearToSRGB().getHexString() : ''; },
+      hide: (g, off) => { if (off) hiddenParts.add(g); else hiddenParts.delete(g); (cur ? cur.parts : []).forEach((o) => { o.visible = o.userData.stageVis && !hiddenParts.has(partGroup(o.userData.n)); }); },
+    };
+    box.dispatchEvent(new Event('vt-parts'));
+  }
+
   function load(key) {
     if (cache[key]) return Promise.resolve(cache[key]);
     return new Promise((res, rej) => loader.load('models/' + key + '.glb', res, undefined, rej)).then((gltf) => {
@@ -147,7 +159,7 @@
       else if (/^excised/.test(n)) vis = s === 'op';
       else if (/^(obturator|free_flap|fibula|plate|screws)/.test(n)) vis = s === 'recon';
       else if (MOVE.test(n) && (s === 'post' || s === 'recon')) vis = false;
-      o.visible = vis;
+      o.userData.stageVis = vis; o.visible = vis && !hiddenParts.has(partGroup(n));
       const xr = state.xray && /^(bone|sphenoid|specimen_bone|specimen_sph)/.test(n);
       o.material.transparent = xr || o.userData.tr; o.material.opacity = xr ? 0.28 : o.userData.op;
       o.material.depthWrite = !o.material.transparent; o.material.needsUpdate = true;
@@ -163,6 +175,7 @@
       const col = '#' + o.material.color.clone().convertLinearToSRGB().getHexString();
       return '<li><span class="dot" style="background:' + col + '"></span>' + (JA ? I.ruby(ja) : en) + '</li>';
     }).join('');
+    announceParts();
   }
 
   function info(key) {
