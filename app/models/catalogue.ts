@@ -16,7 +16,7 @@ export const licence = {
 };
 
 export const catalogue: CatalogueModel[] = [
-  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.2', updated: '2026-11-06' },
+  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.3', updated: '2026-11-06' },
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '0.4', updated: '2026-11-05' },
   { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '0.1', updated: '2026-11-05' },
   { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '0.2', updated: '2026-11-06' },
@@ -63,6 +63,6 @@ export const wisdomTooth = {
     { text: 'Ghaeminia H, Gerlach NL, Hoppenreijs TJM, et al. Clinical relevance of cone beam computed tomography in mandibular third molar removal: a multicentre, randomised, controlled trial. J Craniomaxillofac Surg. 2015;43(10):2158-2167. (Conflicting evidence: CBCT before removal did not reduce nerve injury compared with panoramic radiography.)', href: 'https://doi.org/10.1016/j.jcms.2015.10.009' },
     { text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. Chapter on the permanent mandibular molars. (Third molars: smaller than second molars, variable crowns, often fused roots; basis for the note on how the normal was made.)', href: '' },
   ] satisfies Source[],
-  changelogDates: { '1.2': '2026-11-06', '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
-  citation: 'Seifert L. Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.2. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
+  changelogDates: { '1.3': '2026-11-06', '1.2': '2026-11-06', '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
+  citation: 'Seifert L. Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.3. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
 };

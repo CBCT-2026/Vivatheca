@@ -16,7 +16,7 @@ Full disclaimer: https://vivatheca.com/disclaimer
 What the model shows, what is simplified, and its sources: https://vivatheca.com/models/impacted-wisdom-tooth
 
 Modelled by Luke Seifert, Vivatheca. Licence: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
-How to credit: Seifert L. Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.2. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].
+How to credit: Seifert L. Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.3. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].
 """
 
 for key, stl, what in [('impacted', 'impacted-molar.stl', 'impacted lower wisdom tooth (mesioangular, tooth 38)'),
