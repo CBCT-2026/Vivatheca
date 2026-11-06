@@ -12,7 +12,7 @@ const guidanceSources = [
   { text: 'Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT). Patient Educ Couns. 2014;96(3):395-403.', href: 'https://doi.org/10.1016/j.pec.2014.05.027' },
   { text: 'Trevena LJ, Zikmund-Fisher BJ, Edwards A, et al. Presenting quantitative information about decision outcomes: a risk communication primer for patient decision aid developers (IPDAS). BMC Med Inform Decis Mak. 2013;13(Suppl 2):S7.', href: 'https://doi.org/10.1186/1472-6947-13-S2-S7' },
   { text: 'Royal College of Surgeons of England. Consent: Supported Decision-Making. A good practice guide.', href: 'https://www.rcseng.ac.uk/standards-and-research/standards-and-guidance/good-practice-guides/consent' },
-  { text: 'Australian Dental Association. Policy Statement 5.15: Consent to Treatment.', href: 'https://ada.org.au/policy-statement-5-15-consent-to-treatment' },
+  { text: 'Dental Board of Australia. Code of conduct (shared Code of conduct, 2022), section on informed consent.', href: 'https://www.dentalboard.gov.au/codes-guidelines/policies-codes-guidelines/code-of-conduct.aspx' },
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
