@@ -13,9 +13,12 @@ function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
 }
 
-export function MobileNavigation({ furigana }: { furigana: boolean }) {
+// Phone menu. On the homepage the section links stay as #anchors; elsewhere they point back to the homepage.
+export function MobileNavigation({ furigana, onHome = true }: { furigana: boolean; onHome?: boolean }) {
   const { locale, t } = useI18n();
   const [open, setOpen] = useState(false);
+  const home = onHome ? '' : '/';
+  const close = () => setOpen(false);
   return (
     <div className="mobile-nav">
       <button className="icon-button" type="button" aria-label={plain(open ? t.nav.close : t.nav.open)} aria-expanded={open} onClick={() => setOpen((value) => !value)}>
@@ -23,10 +26,11 @@ export function MobileNavigation({ furigana }: { furigana: boolean }) {
       </button>
       {open ? (
         <nav className="mobile-nav-panel" aria-label={plain(t.nav.mobile)}>
-          {primaryLinks(t, true).map((link) => <a key={link.href} href={link.href} onClick={link.href.startsWith('#') ? () => setOpen(false) : undefined}><Ruby text={link.href === '/create' ? t.nav.createInfo : link.href === '/learn' ? t.nav.studentsMobile : link.label} /></a>)}
-          <a href="#collection" onClick={() => setOpen(false)}><Ruby text={t.nav.tryViewer} /></a>
+          {/* Same labels as the desktop bar (app/nav.ts). */}
+          {primaryLinks(t, onHome).map((link) => <a key={link.href} href={link.href} onClick={close}><Ruby text={link.label} /></a>)}
+          <a href={`${home}#collection`} onClick={close}><Ruby text={t.nav.tryViewer} /></a>
           <a href="/report"><Ruby text={t.nav.report} /></a>
-          <a href="#contact" onClick={() => setOpen(false)}><Ruby text={t.contact.heading} /></a>
+          <a href="#contact" onClick={close}><Ruby text={t.contact.heading} /></a>
           {locale === 'ja' ? <LanguageSwitcher furigana={furigana} className="in-menu" furiganaOnly /> : null}
         </nav>
       ) : null}

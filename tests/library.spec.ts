@@ -75,7 +75,7 @@ test('every static model page links home and back to the library', async ({ page
     // vinext start does not serve a folder's index.html by its trailing-slash URL; Cloudflare does.
     await page.goto(`${route}index.html`);
     await expect(page.locator('header a[href="/"]').first(), route).toBeVisible();
-    await expect(page.locator('header a[href="/models"]').first(), route).toBeVisible();
+    await expect(page.locator('header a[href="/models"]:visible').first(), route).toBeVisible();
     await page.goto('/models');
     await expect(page.locator(`.library-card a[href="${route}"]`), route).toHaveCount(1);
   }

@@ -77,3 +77,24 @@ test('unknown addresses show a branded 404 page with a way home', async ({ page 
   await expect(page.locator('main a[href="/models"]')).toBeVisible();
   await expect(page.locator('footer a[href="/disclaimer"]').first()).toBeVisible();
 });
+
+test('phones get the same menu button on inner pages and static model pages', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 800 });
+  for (const path of ['/about', '/models', '/periodontitis/index.html', '/head-neck/scc/index.html']) {
+    await page.goto(path);
+    const header = page.locator('header').first();
+    await expect(header.getByRole('link', { name: 'Model collection' }), `${path}: links sit behind the menu`).toBeHidden();
+    await header.getByRole('button', { name: 'Open navigation' }).click();
+    await expect(header.getByRole('link', { name: 'Model collection' }), path).toBeVisible();
+    await expect(header.getByRole('link', { name: 'Students' }), `${path}: same labels as desktop`).toBeVisible();
+  }
+});
+
+test('static model pages use the site top bar on desktop', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.goto('/oroantral/index.html');
+  const nav = page.getByRole('navigation', { name: 'Primary navigation' });
+  await expect(nav.getByRole('link')).toHaveText(['How it works', 'Model collection', 'Evidence', 'Create', 'Students', 'About']);
+  await expect(page.locator('header #theme')).toBeVisible();
+  await expect(page.locator('header #langs button')).toHaveCount(2);
+});

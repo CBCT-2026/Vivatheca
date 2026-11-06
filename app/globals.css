@@ -904,3 +904,15 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .clinical-figure figcaption { margin-top: .6rem; color: var(--text-strong); font-size: .95rem; line-height: 1.5; }
 .clinical-credit { display: block; margin-top: .35rem; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
 .clinical-credit a { color: inherit; }
+
+/* Inner pages on phones and tablets: the same menu button as the homepage instead of wrapped rows of links. */
+@media (max-width: 900px) {
+  .page-header { grid-template-columns: auto 1fr; }
+  .page-header .page-nav { display: none; }
+  .page-header-actions { grid-row: 1; grid-column: 2; }
+  .page-header .mobile-nav { display: block; }
+}
+/* The menu repeats the furigana switch (Japanese only), so the header drops it on phones, as on the homepage. */
+@media (max-width: 560px) {
+  .page-header-actions > .language-switcher .furigana-toggle { display: none; }
+}
