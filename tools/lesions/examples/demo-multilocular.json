@@ -1,0 +1,20 @@
+{
+  "_about": "DEMO ONLY: shows the spec format. Every value here is an estimate, so the tool will not write it under public/. Before any real use, replace each value with one taken from a published source and fill in \"source\".",
+  "name": "demo-multilocular",
+  "kind": "multilocular",
+  "size_mm": {
+    "length": { "value": 30, "estimate": true, "reason": "Demo value; replace with a published case or series." },
+    "height": { "value": 18, "estimate": true, "reason": "Demo value; replace with a published case or series." },
+    "width":  { "value": 14, "estimate": true, "reason": "Demo value; replace with a published case or series." }
+  },
+  "locules": {
+    "count":           { "value": 7, "estimate": true, "reason": "Demo value." },
+    "diameter_min_mm": { "value": 5, "estimate": true, "reason": "Demo value." },
+    "diameter_max_mm": { "value": 9, "estimate": true, "reason": "Demo value." }
+  },
+  "blend_mm": 1.2,
+  "resolution_mm": 0.3,
+  "seed": 3,
+  "colour": "#D55748",
+  "material": "lesion"
+}
