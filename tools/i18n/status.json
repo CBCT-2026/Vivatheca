@@ -1,6 +1,6 @@
 {
  "dictionary": {
-  "total": 1676,
+  "total": 1678,
   "extraInJa": [
    "builder.models.oroantral",
    "builder.models.periodontitis",
@@ -26,13 +26,18 @@
   "byStatus": {
    "reviewed": 0,
    "changed": 0,
-   "unreviewed": 1686
+   "unreviewed": 1688
   },
   "changed": []
  },
  "pages": [
   {
    "page": "cracked-tooth",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
+   "page": "dentigerous-cyst",
    "tracked": false,
    "note": "translations live in the page script, not tracked by key"
   },

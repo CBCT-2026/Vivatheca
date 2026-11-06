@@ -29,6 +29,7 @@ export const colours = {
     "pulp": "#B83A3A",
     "necroticPulp": "#6B5A3E",
     "abscess": "#CDBB6E",
+    "cyst": "#ECD27A",
     "dentineCut": "#E2CFA8",
     "boneCut": "#C9B48E",
     "filling": "#7FA7C4",

@@ -1534,7 +1534,7 @@ const vi = withFallback(en, {
     "factsLabel": "Thông tin mô hình",
     "version": "Phiên bản {v}",
     "nextHeading": "Sắp ra mắt",
-    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: nang quanh một răng chưa mọc.",
+    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: răng nanh hàm trên mọc lệch về phía vòm miệng.",
     "askText": "Bạn muốn có một mô hình cụ thể, hoặc có mô hình muốn chia sẻ?",
     "askLink": "Hãy cho chúng tôi biết",
     "askGap": " ",
@@ -1596,6 +1596,12 @@ const vi = withFallback(en, {
         "title": "Hoại tử tủy kèm áp xe quanh chóp mạn tính ở răng cối lớn thứ nhất hàm dưới, so với răng lành",
         "specialty": "Nội nha",
         "summary": "Một răng cối lớn thứ nhất hàm dưới có tủy đã chết do sâu răng sâu, nhiễm trùng ở cả hai chóp chân răng và đường rò ra lợi, đặt cạnh chính răng đó khi lành. Cắt mở để so sánh. Trong ảnh: răng lành (trái) và áp xe (phải), đã cắt mở.",
+        "pairing": "Bệnh lý + răng bình thường lành mạnh"
+      },
+      "dentigerous-cyst": {
+        "title": "Nang thân răng của răng cối lớn thứ ba hàm dưới chưa mọc, so với túi răng bình thường",
+        "specialty": "Bệnh học miệng và hàm mặt",
+        "summary": "Một răng khôn hàm dưới vẫn nằm trong xương, với túi mỏng bình thường bọc thân răng, bên cạnh cùng răng đó có nang phát triển từ túi này. Cắt mở để thấy thân răng nằm trong nang. Trong ảnh: bình thường (trái) và có nang (phải).",
         "pairing": "Bệnh lý + răng bình thường lành mạnh"
       },
       "tmd": {
@@ -1886,10 +1892,6 @@ const vi = withFallback(en, {
     "loading": "Đang tải số lượt ủng hộ…",
     "unavailable": "Chức năng đếm lượt ủng hộ chưa được bật. Bạn vẫn có thể gửi ý tưởng qua email đến vivatheca@gmail.com.",
     "seeds": {
-      "dentigerous-cyst": {
-        "title": "Nang quanh một răng chưa mọc (nang thân răng) bên cạnh một răng chưa mọc bình thường",
-        "specialty": "Bệnh học miệng và hàm mặt"
-      },
       "ectopic-canine": {
         "title": "Răng nanh hàm trên mọc sai chỗ (răng nanh lạc chỗ) bên cạnh quá trình mọc bình thường",
         "specialty": "Chỉnh nha"
