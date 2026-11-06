@@ -1,0 +1,336 @@
+{
+ "slug": "head-neck-mec",
+ "models": {
+  "m": "/head-neck/models/mec-case.glb"
+ },
+ "style": {
+  "^margin": {
+   "opacity": 0.18
+  },
+  "^excised": {
+   "opacity": 0.55
+  },
+  "^mucosa$": {
+   "opacity": 0.4
+  },
+  "^cover_plate": {
+   "opacity": 0.45
+  },
+  "^fibula": {
+   "color": "#c8a47a"
+  }
+ },
+ "anchors": {
+  "lesion": {
+   "node": "^lesion$",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  "excised": {
+   "node": "^excised",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  "plate": {
+   "node": "^cover_plate",
+   "at": [
+    0.5,
+    0.3,
+    0.8
+   ]
+  }
+ },
+ "scenes": {
+  "pre": {
+   "from": [
+    -34,
+    -55,
+    3.3
+   ],
+   "to": [
+    -22,
+    -55,
+    3.3
+   ],
+   "chip": "pre",
+   "hide": "^margin|^excised|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": [
+    [
+     "lesion",
+     "r",
+     230
+    ]
+   ]
+  },
+  "op": {
+   "from": [
+    -22,
+    -55,
+    3.3
+   ],
+   "to": [
+    -12,
+    -55,
+    3.3
+   ],
+   "chip": "op",
+   "hide": "^margin|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "lift": {
+    "match": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+    "dy": -0.025
+   },
+   "labels": [
+    [
+     "excised",
+     "r",
+     230
+    ]
+   ]
+  },
+  "post": {
+   "from": [
+    -12,
+    -55,
+    3.3
+   ],
+   "to": [
+    -4,
+    -55,
+    3.3
+   ],
+   "chip": "post",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": []
+  },
+  "recon": {
+   "from": [
+    -4,
+    -55,
+    3.3
+   ],
+   "to": [
+    -16,
+    -51,
+    3.3
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+   "labels": [
+    [
+     "plate",
+     "l",
+     230
+    ]
+   ]
+  },
+  "end": {
+   "from": [
+    -16,
+    -51,
+    3.3
+   ],
+   "to": [
+    -36,
+    -49,
+    3.564
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)"
+  }
+ },
+ "sources": [
+  "Ellam M, et al. Mucoepidermoid carcinoma of the hard palate: a case illustrating grading uncertainty and bone-sparing surgical management. Cureus. 2026;18(8):e115250. https://doi.org/10.7759/cureus.115250"
+ ],
+ "en": {
+  "title": "Cancer of a small spit gland in the roof of the mouth: one real case",
+  "chips": {
+   "pre": "1 · Before surgery",
+   "op": "2 · What is removed",
+   "post": "3 · After removal",
+   "recon": "4 · Rebuilding"
+  },
+  "labels": {
+   "lesion": [
+    "Cancer",
+    "mucoepidermoid carcinoma"
+   ],
+   "excised": [
+    "Lining removed",
+    "5 mm cuff"
+   ],
+   "plate": [
+    "Clear cover plate",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "This model follows one real, published case.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "A man aged 42 had a slow-growing lump in the roof of his mouth.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "It was a slow type of cancer that starts in a small spit gland.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "The surgeon took out the lump with a cuff of normal lining, and kept the bone above it.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "He lost no teeth, and there was no hole into the nose.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "A clear plastic plate protected the area while new lining grew.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "By 4 months the roof of the mouth had healed. He then had regular checks.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{口|くち}の{天井|てんじょう}の{小|ちい}さなだ{液腺|えきせん}のがん：{実際|じっさい}の{一例|いちれい}",
+  "chips": {
+   "pre": "1 · {手術|しゅじゅつ}の{前|まえ}",
+   "op": "2 · {取|と}るところ",
+   "post": "3 · {取|と}ったあと",
+   "recon": "4 · {治|なお}す"
+  },
+  "labels": {
+   "lesion": [
+    "がん",
+    "{粘表皮|ねんひょうひ}がん"
+   ],
+   "excised": [
+    "{取|と}る{粘膜|ねんまく}",
+    "まわり5ミリ"
+   ],
+   "plate": [
+    "{透明|とうめい}な{保護|ほご}の{板|いた}",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "この{模型|もけい}は、{論文|ろんぶん}で{発表|はっぴょう}された{実際|じっさい}の{一例|いちれい}をもとにしています。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "42{歳|さい}の{男性|だんせい}の{口|くち}の{天井|てんじょう}に、ゆっくり{大|おお}きくなるしこりがありました。",
+      "cite": [
+       1
+      ],
+      "tts": "よんじゅうにさいの、だんせいの、くちのてんじょうに、ゆっくりおおきくなる、しこりが、ありました。"
+     },
+     {
+      "text": "{小|ちい}さなだ{液腺|えきせん}にできる、{進|すす}みのおそいがんでした。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "しこりを、まわりの{正常|せいじょう}な{粘膜|ねんまく}といっしょに{取|と}り、{骨|ほね}は{残|のこ}しました。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "{歯|は}は{失|うしな}わず、{鼻|はな}への{穴|あな}もできませんでした。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "{新|あたら}しい{粘膜|ねんまく}ができるまで、{透明|とうめい}な{板|いた}で{守|まも}りました。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "4か{月|げつ}で{治|なお}り、その{後|あと}は{定期的|ていきてき}に{検査|けんさ}を{受|う}けました。",
+      "cite": [
+       1
+      ],
+      "tts": "よんかげつで、なおり、そのあとは、ていきてきに、けんさを、うけました。"
+     }
+    ]
+   }
+  ]
+ }
+}

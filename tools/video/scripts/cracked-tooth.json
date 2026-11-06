@@ -1,0 +1,391 @@
+{
+ "slug": "cracked-tooth",
+ "models": {
+  "healthy-whole": "/cracked-tooth/models/healthy-whole.glb",
+  "cracked-whole": "/cracked-tooth/models/cracked-whole.glb",
+  "cracked-cut": "/cracked-tooth/models/cracked-cut.glb",
+  "composite-whole": "/cracked-tooth/models/composite-whole.glb",
+  "crown-whole": "/cracked-tooth/models/crown-whole.glb"
+ },
+ "anchors": {
+  "tooth": {
+   "model": "healthy-whole",
+   "node": "^tooth$",
+   "at": [
+    0.5,
+    0.95,
+    0.5
+   ]
+  },
+  "crack": {
+   "model": "cracked-whole",
+   "node": "^tooth$",
+   "at": [
+    0.5,
+    0.92,
+    0.5
+   ]
+  },
+  "pulp": {
+   "model": "cracked-cut",
+   "node": "^pulp$",
+   "at": [
+    0.5,
+    0.7,
+    0.5
+   ]
+  },
+  "filling": {
+   "model": "composite-whole",
+   "node": "^filling$",
+   "at": [
+    0.5,
+    0.9,
+    0.5
+   ]
+  },
+  "crown": {
+   "model": "crown-whole",
+   "node": "^crown$",
+   "at": [
+    0.5,
+    0.9,
+    0.5
+   ]
+  }
+ },
+ "scenes": {
+  "healthy": {
+   "model": "healthy-whole",
+   "from": [
+    10,
+    25,
+    2.6
+   ],
+   "to": [
+    25,
+    25,
+    2.6
+   ],
+   "chip": "healthy",
+   "hide": "^(force|hold)$",
+   "labels": [
+    [
+     "tooth",
+     "r",
+     200
+    ]
+   ]
+  },
+  "cracked": {
+   "model": "cracked-whole",
+   "from": [
+    25,
+    30,
+    2.6
+   ],
+   "to": [
+    40,
+    35,
+    2.6
+   ],
+   "chip": "cracked",
+   "hide": "^(force|hold)$",
+   "labels": [
+    [
+     "crack",
+     "r",
+     200
+    ]
+   ]
+  },
+  "cut": {
+   "model": "cracked-cut",
+   "from": [
+    90,
+    10,
+    2.6
+   ],
+   "to": [
+    80,
+    10,
+    2.6
+   ],
+   "chip": "cracked",
+   "hide": "^(force|hold)$",
+   "labels": [
+    [
+     "pulp",
+     "l",
+     520
+    ]
+   ]
+  },
+  "filling": {
+   "model": "composite-whole",
+   "from": [
+    25,
+    30,
+    2.6
+   ],
+   "to": [
+    35,
+    35,
+    2.6
+   ],
+   "chip": "filling",
+   "hide": "^(force|hold)$",
+   "labels": [
+    [
+     "filling",
+     "r",
+     200
+    ]
+   ]
+  },
+  "crown": {
+   "model": "crown-whole",
+   "from": [
+    35,
+    30,
+    2.6
+   ],
+   "to": [
+    10,
+    25,
+    2.7
+   ],
+   "chip": "crown",
+   "hide": "^(force|hold)$",
+   "labels": [
+    [
+     "crown",
+     "r",
+     200
+    ]
+   ]
+  }
+ },
+ "sources": [
+  "American Association of Endodontists. Cracked teeth (patient information). https://www.aae.org/patients/dental-symptoms/cracked-teeth/",
+  "Hilton TJ, Funkhouser E, Ferracane JL, et al. Recommended treatment of cracked teeth: results from the National Dental Practice-Based Research Network. J Prosthet Dent. 2020;123(1):71-78. https://doi.org/10.1016/j.prosdent.2018.12.005",
+  "Reeh ES, Messer HH, Douglas WH. Reduction in tooth stiffness as a result of endodontic and restorative procedures. J Endod. 1989;15(11):512-516. https://doi.org/10.1016/S0099-2399(89)80191-8",
+  "Banerji S, Mehta SB, Millar BJ. Cracked tooth syndrome. Part 2: restorative options for the management of cracked tooth syndrome. Br Dent J. 2010;208(11):503-514. https://doi.org/10.1038/sj.bdj.2010.496",
+  "Zhang S, Xu Y, Ma Y, et al. The treatment outcomes of cracked teeth: a systematic review and meta-analysis. J Dent. 2024;142:104843. https://doi.org/10.1016/j.jdent.2024.104843",
+  "Wu S, Lew HP, Chen NN. Incidence of pulpal complications after diagnosis of vital cracked teeth. J Endod. 2019;45(5):521-525. https://doi.org/10.1016/j.joen.2019.02.003"
+ ],
+ "en": {
+  "title": "Cracked tooth: a filling or a crown?",
+  "chips": {
+   "healthy": "Healthy",
+   "cracked": "Cracked",
+   "filling": "Filling",
+   "crown": "Crown"
+  },
+  "labels": {
+   "tooth": [
+    "Bumps on top",
+    "cusps"
+   ],
+   "crack": [
+    "Crack",
+    "drawn wider than real"
+   ],
+   "pulp": [
+    "Nerve and blood vessels",
+    "pulp"
+   ],
+   "filling": [
+    "Large filling",
+    ""
+   ],
+   "crown": [
+    "Crown",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "healthy",
+    "sentences": [
+     {
+      "text": "This is a healthy back tooth from the lower jaw.",
+      "cite": []
+     },
+     {
+      "text": "Ridges join the bumps on top, like the walls of a box.",
+      "cite": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "cracked",
+    "sentences": [
+     {
+      "text": "A cracked tooth has a crack that starts on top and runs down toward the root.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "It does not always hurt.",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "cut",
+    "sentences": [
+     {
+      "text": "If the crack reaches the nerve inside, you may need root canal treatment.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "filling",
+    "sentences": [
+     {
+      "text": "A large filling goes through both ridges. When you bite, the bumps can still bend apart.",
+      "cite": [
+       3,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "crown",
+    "sentences": [
+     {
+      "text": "A crown wraps around them and holds them together.",
+      "cite": [
+       4,
+       6
+      ]
+     },
+     {
+      "text": "Studies found fewer nerve problems with a crown, but the numbers are not certain.",
+      "cite": [
+       5,
+       6
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "ひびの{入|はい}った{歯|は}：{詰|つ}め{物|もの}か、かぶせ{物|もの}か",
+  "chips": {
+   "healthy": "{健康|けんこう}",
+   "cracked": "ひび",
+   "filling": "{詰|つ}め{物|もの}",
+   "crown": "かぶせ{物|もの}"
+  },
+  "labels": {
+   "tooth": [
+    "{歯|は}の{山|やま}",
+    "{咬頭|こうとう}"
+   ],
+   "crack": [
+    "ひび",
+    "{実際|じっさい}より{太|ふと}く{表示|ひょうじ}"
+   ],
+   "pulp": [
+    "{神経|しんけい}と{血管|けっかん}",
+    "{歯髄|しずい}"
+   ],
+   "filling": [
+    "{大|おお}きな{詰|つ}め{物|もの}",
+    ""
+   ],
+   "crown": [
+    "かぶせ{物|もの}",
+    "クラウン"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "healthy",
+    "sentences": [
+     {
+      "text": "これは{下|した}あごの{健康|けんこう}な{奥歯|おくば}です。",
+      "cite": []
+     },
+     {
+      "text": "{歯|は}の{上|うえ}の{山|やま}は、{箱|はこ}の{壁|かべ}のように、ふちの{盛|も}り{上|あ}がりでつながっています。",
+      "cite": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "cracked",
+    "sentences": [
+     {
+      "text": "ひびは{歯|は}の{上|うえ}から{始|はじ}まり、{根|ね}の{方|ほう}へのびます。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "いつも{痛|いた}むとはかぎりません。",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "cut",
+    "sentences": [
+     {
+      "text": "ひびが{中|なか}の{神経|しんけい}まで{届|とど}くと、{根|ね}の{治療|ちりょう}が{必要|ひつよう}になることがあります。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "filling",
+    "sentences": [
+     {
+      "text": "{大|おお}きな{詰|つ}め{物|もの}は、{両方|りょうほう}のふちを{通|とお}ります。かむと、{山|やま}が{開|ひら}くように{動|うご}きます。",
+      "cite": [
+       3,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "crown",
+    "sentences": [
+     {
+      "text": "かぶせ{物|もの}は{山|やま}をつつんで、まとめて{支|ささ}えます。",
+      "cite": [
+       4,
+       6
+      ]
+     },
+     {
+      "text": "かぶせ{物|もの}のほうが{神経|しんけい}の{問題|もんだい}が{少|すく}なかったという{研究|けんきゅう}がありますが、{確|たし}かではありません。",
+      "cite": [
+       5,
+       6
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "slug": "periodontitis",
+ "models": {
+  "healthy": "/periodontitis/models/healthy.glb",
+  "s1": "/periodontitis/models/stage-1.glb",
+  "s2": "/periodontitis/models/stage-2.glb",
+  "s3": "/periodontitis/models/stage-3.glb",
+  "s4": "/periodontitis/models/stage-4.glb"
+ },
+ "anchors": {
+  "teeth": { "model": "healthy", "node": "^teeth$", "at": [0.5, 0.85, 0.97] },
+  "bone": { "model": "healthy", "node": "^bone$", "at": [0.5, 0.25, 0.97] },
+  "lost": { "model": "s4", "node": "^lost$", "at": [0.5, 0.75, 0.97] }
+ },
+ "scenes": {
+  "healthy": { "model": "healthy", "from": [-35, 14, 2.9], "to": [-12, 14, 2.9], "chip": "healthy", "labels": [["teeth", "r", 190], ["bone", "l", 560]] },
+  "s1": { "model": "s1", "from": [-12, 14, 2.9], "to": [0, 14, 2.6], "chip": "s1", "labels": [["lost", "r", 220]] },
+  "s2": { "model": "s2", "from": [0, 14, 2.6], "to": [15, 14, 2.6], "chip": "s2", "labels": [["lost", "r", 220]] },
+  "s4": { "model": "s4", "from": [15, 14, 2.6], "to": [35, 16, 2.6], "chip": "s4", "labels": [["lost", "r", 220]] },
+  "end": { "model": "s4", "from": [35, 16, 2.6], "to": [-20, 18, 2.8], "chip": "s4" }
+ },
+ "sources": [
+  "Hausmann E, Allen K, Clerehugh V. What alveolar crest level on a bite-wing radiograph represents bone loss? J Periodontol. 1991;62(9):570-572. https://doi.org/10.1902/jop.1991.62.9.570",
+  "Healthdirect Australia (Australian Government). Gum disease. Last reviewed February 2025. https://www.healthdirect.gov.au/gum-disease",
+  "Better Health Channel, Department of Health, Victoria. Gum disease. Reviewed 1 August 2025. https://www.betterhealth.vic.gov.au/health/conditionsandtreatments/gum-disease",
+  "Tonetti MS, Greenwell H, Kornman KS. Staging and grading of periodontitis: framework and proposal of a new classification and case definition. J Periodontol. 2018;89 Suppl 1:S159-S172. https://doi.org/10.1002/JPER.18-0006",
+  "Sanz M, Herrera D, Kebschull M, et al. Treatment of stage I–III periodontitis: the EFP S3 level clinical practice guideline. J Clin Periodontol. 2020;47 Suppl 22:4-60. https://doi.org/10.1111/jcpe.13290"
+ ],
+ "en": {
+  "title": "Gum disease: losing the bone around your teeth",
+  "labels": { "teeth": ["Teeth", ""], "bone": ["Jaw bone", "mandible"], "lost": ["Bone lost", "shown in red"] },
+  "chips": { "healthy": "Healthy", "s1": "Stage I", "s2": "Stage II", "s4": "Stage IV" },
+  "paragraphs": [
+   { "scene": "healthy", "sentences": [
+    { "text": "This is a healthy lower jaw.", "cite": [] },
+    { "text": "The bone comes up close to the necks of the teeth.", "cite": [1] } ] },
+   { "scene": "s1", "sentences": [
+    { "text": "Gum disease (periodontitis) slowly wears away the gum and bone that hold your teeth.", "tts": "Gum disease, periodontitis, slowly wears away the gum and bone that hold your teeth.", "cite": [2, 3] },
+    { "text": "Red shows the bone that has gone.", "cite": [] } ] },
+   { "scene": "s2", "sentences": [
+    { "text": "Dentists use stages one to four. Stage one is the mildest.", "cite": [4] } ] },
+   { "scene": "s4", "sentences": [
+    { "text": "By stage four, much of the bone has gone.", "cite": [4] },
+    { "text": "Teeth can become loose, move or need to come out.", "cite": [2, 3] } ] },
+   { "scene": "end", "sentences": [
+    { "text": "Lost bone mostly does not grow back, but you and your dentist can control the disease.", "cite": [5, 2] },
+    { "text": "See a dentist if your gums keep bleeding.", "cite": [3] } ] }
+  ]
+ },
+ "ja": {
+  "title": "{歯周病|ししゅうびょう}：{歯|は}のまわりの{骨|ほね}が{失|うしな}われるしくみ",
+  "labels": { "teeth": ["{歯|は}", ""], "bone": ["あごの{骨|ほね}", "{下顎骨|かがくこつ}"], "lost": ["{失|うしな}われた{骨|ほね}", "{赤|あか}で{表示|ひょうじ}"] },
+  "chips": { "healthy": "{健康|けんこう}", "s1": "ステージⅠ", "s2": "ステージⅡ", "s4": "ステージⅣ" },
+  "paragraphs": [
+   { "scene": "healthy", "sentences": [
+    { "text": "これは{健康|けんこう}な{下|した}のあごです。", "cite": [] },
+    { "text": "{骨|ほね}は{歯|は}の{根元|ねもと}の{近|ちか}くまであります。", "cite": [1] } ] },
+   { "scene": "s1", "sentences": [
+    { "text": "{歯周病|ししゅうびょう}では、{歯|は}を{支|ささ}える{歯|は}ぐきと{骨|ほね}が、ゆっくり{失|うしな}われます。", "cite": [2, 3] },
+    { "text": "{赤|あか}いところが、{失|うしな}われた{骨|ほね}です。", "cite": [] } ] },
+   { "scene": "s2", "sentences": [
+    { "text": "{歯科|しか}{医師|いし}は、ステージ{一|いち}から{四|よん}で{表|あらわ}します。{一|いち}がいちばん{軽|かる}いです。", "tts": "しかいしは、ステージいちから、よんで、あらわします。いちが、いちばんかるいです。", "cite": [4] } ] },
+   { "scene": "s4", "sentences": [
+    { "text": "ステージ{四|よん}では、{多|おお}くの{骨|ほね}がなくなっています。", "tts": "ステージよんでは、おおくのほねが、なくなっています。", "cite": [4] },
+    { "text": "{歯|は}がぐらぐらしたり、{動|うご}いたり、{抜|ぬ}くことになったりします。", "cite": [2, 3] } ] },
+   { "scene": "end", "sentences": [
+    { "text": "{失|うしな}われた{骨|ほね}はほとんど{戻|もど}りません。でも、{歯科|しか}{医師|いし}と{一緒|いっしょ}に{進行|しんこう}を{抑|おさ}えられます。", "cite": [5, 2] },
+    { "text": "{歯|は}ぐきから{血|ち}が{出|で}つづけるときは、{歯科|しか}を{受診|じゅしん}してください。", "cite": [3] } ] }
+  ]
+ }
+}

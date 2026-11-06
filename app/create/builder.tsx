@@ -184,7 +184,7 @@ export function Builder() {
     }
   }
 
-  const draftPrompt = `${systemPrompt}\n\n---\n\n${buildUserPrompt(brief, locale)}`;
+  const draftPrompt = `${systemPrompt}\n\n---\n\n${buildUserPrompt(brief, locale === 'ja' ? 'ja' : 'en')}`; // drafts only in languages pitk can check
   const simplifyPrompt = `${systemPrompt}\n\n---\n\n${buildRefinePrompt('simplify', draft, result.findings.map((f) => `${f.section}: ${f.message}`))}`;
 
   function captureView() {

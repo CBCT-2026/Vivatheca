@@ -10,6 +10,7 @@ import { localeTags } from '../../i18n/config';
 import { format } from '../../i18n/dictionaries';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
+import { VideoSection } from '../../video-section';
 
 const model = catalogue.find((item) => item.slug === 'impacted-wisdom-tooth')!;
 
@@ -46,6 +47,7 @@ export default async function WisdomToothPage() {
         <div data-vt-share="" data-vt-scope=".compare" />
         <AfterHydration src="/share-tools.js" />
         <div className="model-disclaimer">{reviewNote}</div>
+        <VideoSection slug="impacted-wisdom-tooth" />
 
         <div className="model-details">
           <section aria-labelledby="downloads-title" className="detail-block detail-downloads">

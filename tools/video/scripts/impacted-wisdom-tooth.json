@@ -1,0 +1,397 @@
+{
+ "slug": "impacted-wisdom-tooth",
+ "models": {
+  "m": "/models/impacted-molar.glb"
+ },
+ "anchors": {
+  "tooth": {
+   "node": "^wisdom[ _]tooth$",
+   "at": [
+    0.5,
+    0.8,
+    0.5
+   ]
+  },
+  "roots": {
+   "node": "^wisdom[ _]tooth$",
+   "at": [
+    0.5,
+    0.1,
+    0.5
+   ]
+  },
+  "nerve": {
+   "node": "^nerve$",
+   "at": [
+    0.5,
+    0.5,
+    0.6
+   ]
+  },
+  "bone": {
+   "node": "^mandible[ _]left$",
+   "at": [
+    0.5,
+    0.1,
+    0.6
+   ]
+  }
+ },
+ "scenes": {
+  "intro": {
+   "from": [
+    72,
+    12,
+    2.4
+   ],
+   "to": [
+    100,
+    10,
+    2.4
+   ],
+   "labels": [
+    [
+     "tooth",
+     "r",
+     200
+    ],
+    [
+     "nerve",
+     "l",
+     550
+    ]
+   ]
+  },
+  "nerve": {
+   "from": [
+    100,
+    10,
+    2.0
+   ],
+   "to": [
+    84,
+    12,
+    2.0
+   ],
+   "xray": "^mandible",
+   "labels": [
+    [
+     "nerve",
+     "r",
+     570
+    ],
+    [
+     "bone",
+     "l",
+     610
+    ]
+   ]
+  },
+  "roots": {
+   "from": [
+    118,
+    -8,
+    1.4
+   ],
+   "to": [
+    80,
+    2,
+    1.4
+   ],
+   "target": "roots",
+   "xray": "^mandible",
+   "labels": [
+    [
+     "tooth",
+     "r",
+     190
+    ],
+    [
+     "roots",
+     "r",
+     500
+    ],
+    [
+     "nerve",
+     "l",
+     560
+    ]
+   ]
+  },
+  "risk": {
+   "from": [
+    98,
+    10,
+    2.4
+   ],
+   "to": [
+    104,
+    10,
+    2.4
+   ],
+   "chip": "risk",
+   "xray": "^mandible",
+   "labels": [
+    [
+     "nerve",
+     "l",
+     560
+    ]
+   ]
+  },
+  "specialist": {
+   "from": [
+    100,
+    10,
+    2.4
+   ],
+   "to": [
+    75,
+    12,
+    2.4
+   ],
+   "labels": [
+    [
+     "tooth",
+     "r",
+     200
+    ],
+    [
+     "roots",
+     "r",
+     300
+    ],
+    [
+     "nerve",
+     "l",
+     550
+    ]
+   ]
+  }
+ },
+ "sources": [
+  "Kang F, Sah MK, Fei G. Determining the risk relationship associated with inferior alveolar nerve injury following removal of mandibular third molar teeth: a systematic review. J Stomatol Oral Maxillofac Surg. 2019;121(1):63-69. https://doi.org/10.1016/j.jormas.2019.06.010",
+  "Sarikov R, Juodzbalys G. Inferior alveolar nerve injury after mandibular third molar extraction: a literature review. J Oral Maxillofac Res. 2014;5(4):e1. https://doi.org/10.5037/jomr.2014.5401",
+  "Faculty of Dental Surgery, Royal College of Surgeons of England. Parameters of care for patients undergoing mandibular third molar surgery. London: RCS England; 2020. https://www.rcseng.ac.uk/-/media/Files/RCS/FDS/3rd-molar-guidelines--April-2021-v3.pdf",
+  "Juodzbalys G, Wang HL, Sabalys G. Anatomy of mandibular vital structures. Part I: mandibular canal and inferior alveolar neurovascular bundle in relation with dental implantology. J Oral Maxillofac Res. 2010;1(1):e2. https://doi.org/10.5037/jomr.2010.1102"
+ ],
+ "en": {
+  "title": "Wisdom tooth removal: the risk to your nerve",
+  "chips": {
+   "risk": "About 7 in 100 get some nerve damage"
+  },
+  "labels": {
+   "nerve": [
+    "Jaw nerve",
+    "inferior alveolar nerve"
+   ],
+   "roots": [
+    "Roots",
+    ""
+   ],
+   "tooth": [
+    "Wisdom tooth",
+    "third molar"
+   ],
+   "bone": [
+    "Jaw bone",
+    "mandible"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "intro",
+    "sentences": [
+     {
+      "text": "This is a stuck (impacted) lower wisdom tooth.",
+      "cite": [],
+      "tts": "This is a stuck, impacted, lower wisdom tooth."
+     },
+     {
+      "text": "Its roots wrap around a nerve.",
+      "cite": []
+     },
+     {
+      "text": "Taking it out can damage the nerve and make your lip and chin numb.",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "nerve",
+    "sentences": [
+     {
+      "text": "The red part is the nerve.",
+      "cite": []
+     },
+     {
+      "text": "It gives feeling to the lower teeth, gums, lip and chin.",
+      "cite": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "roots",
+    "sentences": [
+     {
+      "text": "As the tooth comes out, the nerve can be pressed or cut.",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "risk",
+    "sentences": [
+     {
+      "text": "For a tooth like this, rates vary, but about 7 in 100 may get nerve damage.",
+      "cite": [
+       1,
+       2
+      ]
+     },
+     {
+      "text": "Most get better within a few months.",
+      "cite": [
+       2
+      ]
+     },
+     {
+      "text": "About 1 in 100 may have damage that does not go away, and for most of them it is mild.",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "specialist",
+    "sentences": [
+     {
+      "text": "So it is a good idea to see a specialist (an oral surgeon) first.",
+      "cite": [
+       3
+      ],
+      "tts": "So it is a good idea to see a specialist, an oral surgeon, first."
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "speed": 1.1,
+  "title": "{親知|おやし}らずを{抜|ぬ}くときの、{神経|しんけい}が{傷|きず}つくリスク",
+  "chips": {
+   "risk": "100{人|にん}{中|ちゅう}{約|やく}7{人|にん}で{神経|しんけい}が{傷|きず}つく"
+  },
+  "labels": {
+   "nerve": [
+    "{下|した}あごの{神経|しんけい}",
+    "{下歯槽|かしそう}{神経|しんけい}"
+   ],
+   "roots": [
+    "{根|ね}",
+    ""
+   ],
+   "tooth": [
+    "{親知|おやし}らず",
+    "{第三大臼歯|だいさんだいきゅうし}"
+   ],
+   "bone": [
+    "{下|した}あごの{骨|ほね}",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "intro",
+    "sentences": [
+     {
+      "text": "これは、{埋|う}まっている{下|した}の{親知|おやし}らずです。",
+      "cite": []
+     },
+     {
+      "text": "{根|ね}が{神経|しんけい}に{巻|ま}き{付|つ}いています。",
+      "cite": []
+     },
+     {
+      "text": "{歯|は}を{抜|ぬ}くと{神経|しんけい}が{傷|きず}つき、{下唇|したくちびる}やあごがしびれることがあります。",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "nerve",
+    "sentences": [
+     {
+      "text": "{赤|あか}い{部分|ぶぶん}が{神経|しんけい}で、{下|した}の{歯|は}、{歯|は}ぐき、{唇|くちびる}、あごの{感覚|かんかく}を{伝|つた}えています。",
+      "cite": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "roots",
+    "sentences": [
+     {
+      "text": "{歯|は}を{抜|ぬ}くときに、{神経|しんけい}が{圧迫|あっぱく}されたり{切|き}れたりすることがあります。",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "risk",
+    "sentences": [
+     {
+      "text": "このような{歯|は}では、{差|さ}はありますが、100{人|にん}{中|ちゅう}{約|やく}7{人|にん}で{神経|しんけい}が{傷|きず}つく{可能性|かのうせい}があります。",
+      "cite": [
+       1,
+       2
+      ],
+      "tts": "このような歯では、差はありますが、ひゃくにんちゅう、やくななにんで、神経が傷つく可能性があります。"
+     },
+     {
+      "text": "{多|おお}くの{人|ひと}は、{数|すう}か{月|げつ}で{治|なお}ります。",
+      "cite": [
+       2
+      ],
+      "tts": "多くの人は、すうかげつで治ります。"
+     },
+     {
+      "text": "{約|やく}1{人|にん}は{治|なお}らない{可能性|かのうせい}がありますが、その{多|おお}くは{軽|かる}いしびれです。",
+      "cite": [
+       1,
+       2
+      ],
+      "tts": "やくひとりは治らない可能性がありますが、その多くは軽いしびれです。"
+     }
+    ]
+   },
+   {
+    "scene": "specialist",
+    "sentences": [
+     {
+      "text": "そのため、まず{口|くち}の{外科|げか}の{医師|いし}に{診|み}てもらうとよいでしょう。",
+      "cite": [
+       3
+      ],
+      "tts": "そのため、まず、くちの、げかの、いしに、みてもらうとよいでしょう。"
+     }
+    ]
+   }
+  ]
+ }
+}

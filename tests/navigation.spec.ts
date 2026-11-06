@@ -1,6 +1,7 @@
 import { readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
+import { languageButton } from './language';
 
 // Finds every page automatically, so new pages are checked without editing this file:
 // app routes (app/**/page.tsx, skipping dynamic and redirect-only routes) and static pages (public/*/index.html).
@@ -96,5 +97,10 @@ test('static model pages use the site top bar on desktop', async ({ page }) => {
   const nav = page.getByRole('navigation', { name: 'Primary navigation' });
   await expect(nav.getByRole('link')).toHaveText(['How it works', 'Model collection', 'Evidence', 'Create', 'Students', 'About']);
   await expect(page.locator('header #theme')).toBeVisible();
-  await expect(page.locator('header #langs button')).toHaveCount(2);
+  // Languages in their own names, alphabetical by English name; Chinese and Vietnamese are not translated yet.
+  await expect(languageButton(page)).toHaveAccessibleName('Language: English');
+  await languageButton(page).click();
+  await expect(page.locator('header #langs li button .vt-name')).toHaveText(['中文', 'English', '日本語', 'Tiếng Việt']);
+  await expect(page.locator('header #langs li button img.vt-flag')).toHaveCount(4);
+  await expect(page.locator('header #langs li button[aria-disabled="true"]')).toHaveCount(2);
 });

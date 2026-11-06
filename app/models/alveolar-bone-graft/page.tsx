@@ -8,6 +8,7 @@ import { CopyCitation } from '../impacted-wisdom-tooth/copy-citation';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { ModelExperience } from '../../ui';
+import { VideoSection } from '../../video-section';
 
 // Collection page for the alveolar bone graft series (the same viewer as the homepage interactive section).
 const model = catalogue.find((item) => item.slug === 'alveolar-bone-graft')!;
@@ -39,6 +40,7 @@ export default async function AlveolarBoneGraftPage() {
           <p><Ruby text={item.summary} /></p>
         </div>
         <ModelExperience />
+        <VideoSection slug="alveolar-bone-graft" />
         {/* "Use this model" panel: links to a view, pictures, tour, credit, embed (public/share-tools.js). */}
         <div data-vt-share="" data-vt-scope=".model-experience" />
         <AfterHydration src="/share-tools.js" />

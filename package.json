@@ -13,6 +13,9 @@
     "test:e2e": "playwright test",
     "check:patient-text": "node tools/patient-text/snapshot.mjs && pitk check",
     "check:glb": "node tools/glb/validate.mjs",
+    "search:index": "node tools/search/build-index.mjs",
+    "i18n:status": "node tools/i18n/status.mjs",
+    "slices:build": "python3 tools/cbct/voxelize.py public/models/impacted-molar.glb public/slices/wisdom-tooth.nvol --pitch 0.4 && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-before.nvol --pitch 0.5 --skip fibula,plate,screws && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-after.nvol --pitch 0.5 --skip specimen,lesion,margin",
     "test:a11y": "playwright test tests/accessibility.spec.ts"
   },
   "dependencies": {
@@ -26,6 +29,7 @@
     "react-dom": "19.2.6"
   },
   "devDependencies": {
+    "@annotorious/openseadragon": "^3.9.5",
     "@axe-core/playwright": "^4.14.0",
     "@cloudflare/vite-plugin": "1.37.1",
     "@cloudflare/workers-types": "4.20260515.1",
@@ -44,6 +48,8 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
     "gltf-validator": "2.0.0-dev.3.10",
+    "openseadragon": "^6.1.1",
+    "pagefind": "^1.6.0",
     "react-server-dom-webpack": "19.2.6",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",

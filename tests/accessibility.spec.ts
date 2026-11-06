@@ -23,6 +23,7 @@ const pages = [
   '/orthognathic/index.html',
   '/fixation/index.html',
   '/learn/periodontitis',
+  '/learn/slices',
 ];
 
 const variants: { name: string; lang: 'en' | 'ja'; theme: 'light' | 'dark' }[] = [

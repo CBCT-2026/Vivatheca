@@ -66,6 +66,8 @@ Keep global-access data markers, legends and location labels as accessible HTML 
 
 The platform is translated into English (default) and Japanese; the structure is ready for more languages. `app/i18n/config.ts` lists the locales and the cookies (`vivatheca-lang`, `vivatheca-furigana`); `app/i18n/dictionaries/en.ts` is the source text and every other dictionary must match its shape (TypeScript enforces this). Server components call `getI18n()` from `app/i18n/server.ts`; client components use `useI18n()`. Never hard-code visible text in components: add it to `en.ts` and `ja.ts`. `?lang=ja` on any URL sets the cookie and redirects (worker/index.ts).
 
+Security headers are set in `worker/index.ts` (`withSecurityHeaders`): a Content Security Policy that allows only this origin, HSTS, nosniff, Referrer-Policy and Permissions-Policy. Serve every script, decoder, font, image, model and video from this site. If a page must load something from another site, add that host to `CONTENT_SECURITY_POLICY` and check the page for CSP errors in the browser console (build, then `npx wrangler dev -c dist/server/wrangler.json`; `vinext start` does not run the Worker for static pages). Export only `default` and Durable Object classes from `worker/index.ts`: any other export stops the Worker from starting.
+
 Japanese text carries furigana for every kanji word, written inline as `{漢字|かんじ}` and rendered by `<Ruby>` (`app/i18n/ruby.tsx`) as `<ruby>` with `aria-hidden` readings. Use `plain()` for attributes (alt, aria-label, placeholders, metadata). Visitors can hide furigana. Use standard Japanese dental terminology with dental readings (下顎 = かがく, 下歯槽神経 = かしそうしんけい, 智歯 = ちし) and everyday words first in plain-language text (親知らず). The static `/development` page reads the same cookie through `public/development/i18n.js` (`data-i18n` keys). Japanese translations need review by a native-speaking clinician before launch. Until then, every Japanese page says so: `t.disclaimer.translationNote` in the app footers and `.vt-translation-note` from `public/contact.js` on static pages (static pages must load `/contact.js`). In Japanese mode, show the Japanese disclaimer and review status only, and mark the verbatim English versions `lang="en"` so they hide, as on every other page.
 
 ## Student pages (/learn)
@@ -123,6 +125,10 @@ This is a standing project rule. Every text-based patient education material on 
 - Plain-language rewrites must keep every citation and must not change what the source says. The evidence, disclaimer and language rules still apply; the disclaimer wording stays verbatim.
 - The `/create` builder applies the same rules in the browser (`app/create/checker.ts`, `briefs.ts`). When the toolkit changes, update the port, the pinned commit in the workflow, and this section.
 - For judgement the checker cannot make (PEMAT, CDC Clear Communication Index, risk wording), use the toolkit's skills, and test materials with people from the audience.
+
+## Model videos
+
+Every model in the collection has a narrated video of at most 45 seconds, in English and Japanese, in `public/videos/<slug>/`, shown on its page (`#video`) and badged on its collection card. A new model needs a script in `tools/video/scripts/` and a video before it goes in the collection (`tests/videos.spec.ts` checks this). Video words follow the same evidence, disclaimer and patient text rules. Re-render a model's video when its GLB changes. How to build one: `tools/video/README.md`.
 
 ## Clinical images (required for all conditions and cases)
 

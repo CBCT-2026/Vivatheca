@@ -1,0 +1,339 @@
+{
+ "slug": "head-neck-ameloblastoma",
+ "models": {
+  "m": "/head-neck/models/ameloblastoma-case.glb"
+ },
+ "style": {
+  "^margin": {
+   "opacity": 0.18
+  },
+  "^excised": {
+   "opacity": 0.55
+  },
+  "^mucosa$": {
+   "opacity": 0.4
+  },
+  "^cover_plate": {
+   "opacity": 0.45
+  },
+  "^fibula": {
+   "color": "#c8a47a"
+  }
+ },
+ "anchors": {
+  "lesion": {
+   "node": "^lesion$",
+   "at": [
+    0.5,
+    0.6,
+    0.5
+   ]
+  },
+  "specimen": {
+   "node": "^specimen_teeth",
+   "at": [
+    0.5,
+    0.8,
+    0.5
+   ]
+  },
+  "plate": {
+   "node": "^plate$",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  }
+ },
+ "scenes": {
+  "pre": {
+   "from": [
+    30,
+    10,
+    3.6
+   ],
+   "to": [
+    42,
+    10,
+    3.6
+   ],
+   "chip": "pre",
+   "hide": "^margin|^excised|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": [
+    [
+     "lesion",
+     "l",
+     560
+    ]
+   ],
+   "xray": true
+  },
+  "op": {
+   "from": [
+    42,
+    10,
+    3.6
+   ],
+   "to": [
+    52,
+    10,
+    3.6
+   ],
+   "chip": "op",
+   "hide": "^margin|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "lift": {
+    "match": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+    "dy": 0.03
+   },
+   "labels": [
+    [
+     "specimen",
+     "l",
+     230
+    ]
+   ]
+  },
+  "post": {
+   "from": [
+    52,
+    10,
+    3.6
+   ],
+   "to": [
+    60,
+    10,
+    3.6
+   ],
+   "chip": "post",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": []
+  },
+  "recon": {
+   "from": [
+    60,
+    10,
+    3.6
+   ],
+   "to": [
+    48,
+    14,
+    3.6
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+   "labels": [
+    [
+     "plate",
+     "l",
+     580
+    ]
+   ]
+  },
+  "end": {
+   "from": [
+    48,
+    14,
+    3.6
+   ],
+   "to": [
+    28,
+    16,
+    3.8880000000000003
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)"
+  }
+ },
+ "sources": [
+  "Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. https://doi.org/10.7759/cureus.104441",
+  "Almeida RAC, Andrade ESS, Barbalho JC, Vajgel A, Vasconcelos BCE. Recurrence rate following treatment for primary multicystic ameloblastoma: systematic review and meta-analysis. Int J Oral Maxillofac Surg. 2016;45(3):359-367. https://doi.org/10.1016/j.ijom.2015.12.016"
+ ],
+ "en": {
+  "title": "Ameloblastoma in the lower jaw: one real case",
+  "chips": {
+   "pre": "1 · Before surgery",
+   "op": "2 · What is removed",
+   "post": "3 · After removal",
+   "recon": "4 · Rebuilding"
+  },
+  "labels": {
+   "lesion": [
+    "Growth",
+    "ameloblastoma"
+   ],
+   "specimen": [
+    "Removed",
+    "top of the jaw and 4 teeth"
+   ],
+   "plate": [
+    "Titanium plate",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "This model follows one real, published case.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "A man aged 32 had an ameloblastoma in the front of his left lower jaw.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "It is not cancer, but it keeps growing into bone.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "Surgeons took out the top part of the jaw with 4 teeth, and kept the lower edge.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "Only about 6 mm of bone stayed, so it could break when chewing.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "A titanium plate along the lower edge keeps the jaw strong.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "Ameloblastoma can come back, so people need X-ray checks for many years.",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{下|した}あごのエナメル{上皮|じょうひ}{腫|しゅ}：{実際|じっさい}の{一例|いちれい}",
+  "chips": {
+   "pre": "1 · {手術|しゅじゅつ}の{前|まえ}",
+   "op": "2 · {取|と}るところ",
+   "post": "3 · {取|と}ったあと",
+   "recon": "4 · {治|なお}す"
+  },
+  "labels": {
+   "lesion": [
+    "できもの",
+    "エナメル{上皮|じょうひ}{腫|しゅ}"
+   ],
+   "specimen": [
+    "{取|と}るところ",
+    "あごの{上|うえ}の{部分|ぶぶん}と{歯|は}4{本|ほん}"
+   ],
+   "plate": [
+    "チタンのプレート",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "この{模型|もけい}は、{論文|ろんぶん}で{発表|はっぴょう}された{実際|じっさい}の{一例|いちれい}をもとにしています。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "32{歳|さい}の{男性|だんせい}の{左下|ひだりした}のあごの{前|まえ}の{方|ほう}に、エナメル{上皮|じょうひ}{腫|しゅ}がありました。",
+      "cite": [
+       1
+      ],
+      "tts": "さんじゅうにさいの、だんせいの、ひだりしたのあごの、まえのほうに、エナメルじょうひしゅが、ありました。"
+     },
+     {
+      "text": "がんではありませんが、{骨|ほね}の{中|なか}で{大|おお}きくなりつづけます。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "{手術|しゅじゅつ}で、あごの{上|うえ}の{部分|ぶぶん}を{歯|は}4{本|ほん}といっしょに{取|と}り、{下|した}のふちは{残|のこ}しました。",
+      "cite": [
+       1
+      ],
+      "tts": "しゅじゅつで、あごのうえのぶぶんを、は、よんほんと、いっしょにとり、したのふちは、のこしました。"
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "{残|のこ}った{骨|ほね}は6ミリほどで、かむと{折|お}れるおそれがありました。",
+      "cite": [
+       1
+      ],
+      "tts": "のこったほねは、ろくミリほどで、かむと、おれるおそれが、ありました。"
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "{下|した}のふちに{沿|そ}ったチタンのプレートで、あごを{強|つよ}くします。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "{再発|さいはつ}することがあるので、{長|なが}い{間|あいだ}、レントゲンで{確|たし}かめます。",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
