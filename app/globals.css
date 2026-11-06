@@ -997,3 +997,19 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .search-ui { --pagefind-ui-scale: 1; --pagefind-ui-primary: var(--accent); --pagefind-ui-text: var(--ink); --pagefind-ui-background: var(--surface); --pagefind-ui-border: var(--line); --pagefind-ui-tag: var(--surface-alt); --pagefind-ui-border-width: 1px; --pagefind-ui-border-radius: 10px; --pagefind-ui-font: inherit; max-width: 760px; }
 .search-ui .pagefind-ui__result-link { color: var(--heading); }
 .search-note { max-width: 760px; margin-top: 2rem; color: var(--muted); font-size: .9rem; }
+
+/* Virtual CBCT slice viewer (/learn/slices, NiiVue) */
+.slices { margin: 1.5rem 0 2.5rem; }
+.slices-controls { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; margin-bottom: .75rem; font-size: .92rem; }
+.slices-controls label, .slices-group { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.slices-controls > * > span:first-child { color: var(--muted); font-weight: 700; margin-right: .2rem; }
+.slices-controls select { font: inherit; padding: .35rem .5rem; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--text-strong); }
+.slices-group button { font: inherit; font-size: .88rem; min-height: 36px; padding: .3rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--heading); cursor: pointer; }
+.slices-group button.is-active { background: var(--heading); border-color: var(--heading); color: var(--surface); }
+.slices-canvas { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-sm); overflow: hidden; background: #050b14; border: 1px solid var(--line); }
+.slices-canvas canvas { display: block; width: 100%; height: 100%; }
+.slices-status { position: absolute; inset: auto 0 0 0; margin: 0; padding: .5rem; text-align: center; color: #fff; background: rgba(0,0,0,.55); font-size: .9rem; }
+.slices-position { margin-top: .5rem; font-size: .88rem; color: var(--muted); }
+.slices-position output { font-variant-numeric: tabular-nums; color: var(--text-strong); }
+.slices-position a { color: var(--accent); }
+@media (max-width: 720px) { .slices-canvas { aspect-ratio: 1 / 1; } }

@@ -76,6 +76,17 @@ export default async function LearnPage() {
           <p className="learn-model-disclaimer"><Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
         </section>
 
+        <section aria-labelledby="tools-heading">
+          <h2 id="tools-heading"><Ruby text={l.toolsHeading} /></h2>
+          <div className="learn-guides">
+            <article className="learn-guide">
+              <h3><Ruby text={l.tools.slices.title} /></h3>
+              <p><Ruby text={l.tools.slices.text} /></p>
+              <div className="learn-actions"><a className="button" href="/learn/slices"><Ruby text={l.tools.slices.link} /></a></div>
+            </article>
+          </div>
+        </section>
+
         <section aria-labelledby="using-heading">
           <h2 id="using-heading"><Ruby text={l.usingHeading} /></h2>
           <ul className="learn-list">{l.using.map((item) => <li key={item}><Ruby text={item} /></li>)}</ul>
