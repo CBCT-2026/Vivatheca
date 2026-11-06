@@ -16,6 +16,11 @@ const STATES = {
     alt: '3D model of a skull after a bilateral sagittal split osteotomy: the front part of the lower jaw has been moved forward and held with a titanium plate on each side.',
     text: 'A <b>lower jaw split</b> (BSSO) splits each side of the lower jaw along its length. The part with the teeth slides 6 mm forward, so the teeth meet as in the normal model. A small titanium plate on each side holds the pieces while the bone heals. Red shows cut bone.',
   },
+  'class2-after-genio': {
+    title: 'Class II, after surgery, with chin surgery (genioplasty)',
+    alt: '3D model of a skull after a bilateral sagittal split osteotomy and an advancement genioplasty: the lower jaw and, separately, the tip of the chin have been moved forward and held with titanium plates.',
+    text: 'The same <b>lower jaw split</b> (BSSO) moves the teeth 6 mm forward. In a <b>genioplasty</b>, the surgeon also cuts off the tip of the chin below the tooth roots and slides it 5 mm forward. A small plate holds the chin. This is for a chin that still looks set back once the teeth fit. Red shows cut bone.',
+  },
   'class3-before': {
     title: 'Class III, before surgery: upper jaw back, lower jaw forward',
     alt: '3D model of a skull with a Class III bite: the lower front teeth sit in front of the upper front teeth. The mouth is shown slightly open.',
@@ -25,6 +30,11 @@ const STATES = {
     title: 'Class III, after surgery: both jaws moved',
     alt: '3D model of a skull after a Le Fort I osteotomy and a bilateral sagittal split osteotomy, with titanium plates on the upper and lower jaw.',
     text: 'The surgeon operates on both jaws at once. An <b>upper jaw cut</b> (Le Fort I) above the tooth roots lets the upper jaw move 3 mm forward. A <b>lower jaw split</b> (BSSO) moves the lower teeth 5 mm back. Four plates hold the upper jaw and one plate on each side holds the lower jaw. Red shows cut bone.',
+  },
+  'class3-after-genio': {
+    title: 'Class III, after surgery, with chin surgery (genioplasty)',
+    alt: '3D model of a skull after a Le Fort I osteotomy, a bilateral sagittal split osteotomy and a reduction genioplasty: the tip of the chin has been moved back and held with a small titanium plate.',
+    text: 'The same operations on both jaws, plus a <b>genioplasty</b>: the surgeon cuts off the tip of the chin below the tooth roots and slides it 4 mm back. A small plate holds the chin. This is for a chin that still looks too far forward once the teeth fit. Red shows cut bone.',
   },
 };
 
@@ -36,11 +46,13 @@ const ghost = document.getElementById('ghost');
 const moved = document.getElementById('moved');
 const afterTools = document.getElementById('after-tools');
 const legendAfter = document.querySelectorAll('.after-only');
-let cls = 'normal', phase = 'before';
+const genioGroup = document.getElementById('genio');
+const genioButtons = document.querySelectorAll('[data-genio]');
+let cls = 'normal', phase = 'before', genio = false;
 
-function key() { return cls === 'normal' ? 'normal' : cls + '-' + phase; }
+function key() { return cls === 'normal' ? 'normal' : cls + '-' + phase + (phase === 'after' && genio ? '-genio' : ''); }
 function show() {
-  const k = key(), s = STATES[k], j = 's_' + k.replace('-', '_') + '_';
+  const k = key(), s = STATES[k], j = 's_' + k.replace(/-/g, '_') + '_';
   const T = window.vtT || ((_, en) => en), TP = window.vtTPlain || ((_, en) => en);
   mv.src = 'models/' + k + '.glb';
   mv.alt = TP(j + 'alt', s.alt);
@@ -48,15 +60,18 @@ function show() {
   classButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.class === cls));
   phaseButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.phase === phase));
   phaseGroup.hidden = cls === 'normal';
-  const after = k.endsWith('-after');
+  genioButtons.forEach(b => b.setAttribute('aria-pressed', (b.dataset.genio === 'with') === genio));
+  const after = phase === 'after' && cls !== 'normal';
+  genioGroup.hidden = !after;
   afterTools.hidden = !after;
   legendAfter.forEach(el => { el.hidden = !after; });
   try { history.replaceState(null, '', '#' + k); } catch { /* ignore */ }
 }
 classButtons.forEach(b => b.addEventListener('click', () => { cls = b.dataset.class; show(); }));
 phaseButtons.forEach(b => b.addEventListener('click', () => { phase = b.dataset.phase; show(); }));
+genioButtons.forEach(b => b.addEventListener('click', () => { genio = b.dataset.genio === 'with'; show(); }));
 const start = location.hash.slice(1);
-if (STATES[start]) { const p = start.split('-'); cls = p[0]; phase = p[1] || 'before'; }
+if (STATES[start]) { const p = start.split('-'); cls = p[0]; phase = p[1] || 'before'; genio = p[2] === 'genio'; }
 show();
 
 // Overlays on the after models: the bone as it was before surgery (see-through blue), and the moved bone tinted.

@@ -21,6 +21,15 @@ Method (all simplifications are listed on the web page and in README.md):
   BSSO (Obwegeser-Dal Pont type): medial horizontal cut above the lingula, sagittal split lateral to
   the tooth roots, vertical buccal cut between first and second molar. Plane-based approximation.
 - Teeth always move rigidly with their bone.
+- Chin: the Z-Anatomy symphysis is short (25 mm; lower canine root tip 5 mm above the lower border), too short
+  for a genioplasty cut below the roots. All models get a taller chin: the bone below the front root tips is
+  stretched down by CHIN_LEN mm, fading out towards the premolars. Teeth are not changed.
+- Genioplasty (optional after models, '-genio'): sliding osteotomy of the chin along one plane below the
+  canine and premolar root tips, running down to the lower border at the premolars. Class II: chin
+  advanced GENIO_II mm; Class III: chin set back GENIO_III mm (moved along the cut plane).
+- Plates are miniplates: round screw holes joined by narrow bridges (L-plates at the Le Fort I cut,
+  straight 4-hole plates with a gap across the BSSO, a 4-hole box plate across the genioplasty cut),
+  each with screw heads. Shapes and sizes are illustrative (2.0 mm system scale).
 """
 import json, sys
 from pathlib import Path
@@ -44,6 +53,10 @@ Y_BUCCAL = -50.0          # BSSO buccal vertical cut, between lower first and se
 SPLIT = ((31.0, -50.0), (38.5, -25.0))  # (x, y) points of the sagittal split line on the x > 0 side
 Q_POST = ((-22.0, Z_MEDIAL), (-30.0, 1500.0))  # (y, z): medial split runs from behind the lingula down to the lower border, in front of the angle
 LEFORT = ((-85.0, 1562.0), (-40.0, 1565.0))  # (y, z) of the Le Fort I plane, ~4 mm above the canine apex
+CHIN_LEN = 8.0            # chin made taller by 8 mm: symphysis 25 -> 33 mm (see docstring)
+GENIO = ((-80.0, 1497.0), (-62.0, 1494.0))  # (y, z) of the genioplasty plane: 4.7 mm below the canine root tip, sloping down backwards
+GENIO_II = 5.0            # Class II: advancement genioplasty 5 mm
+GENIO_III = 4.0           # Class III: reduction (setback) genioplasty 4 mm
 
 def smooth(t):
     t = np.clip(t, 0, 1); return t * t * (3 - 2 * t)
@@ -64,8 +77,16 @@ def warp(m, w, dy):
 def shift(m, dy, dz=0.0):
     m = m.copy(); m.apply_translation([0, dy, dz]); return m
 
+def lengthen_chin(m):
+    """Stretch the bone below the front root tips downwards (all models; see docstring)."""
+    m = m.copy(); v = m.vertices.copy()
+    wy = ramp(v[:, 1], -74.0, -55.0)
+    wz = np.clip((1502.0 - v[:, 2]) / (1502.0 - 1496.0), 0, 1)
+    v[:, 2] -= CHIN_LEN * wy * smooth(wz)
+    m.vertices = v; return m
+
 # Hinge axis through the two condyle tops (for opening the mouth slightly in the before models).
-_mv = part('mandible').vertices
+_mv = lengthen_chin(part('mandible')).vertices
 CONDYLES = [ _mv[(_mv[:, 2] > _mv[:, 2].max() - 6) & (s * _mv[:, 0] > 0)].mean(0) for s in (1, -1)]
 def open_mouth(m, deg):
     a = CONDYLES[0] - CONDYLES[1]; a /= np.linalg.norm(a)
@@ -90,6 +111,12 @@ def lefort_plane():
     t = np.array([0, y1 - y0, z1 - z0]); n = np.cross([1, 0, 0], t)
     if n[2] < 0: n = -n
     return plane(n, [0, y0, z0])  # n points up
+
+def genio_plane():
+    (y0, z0), (y1, z1) = GENIO
+    t = np.array([0, y1 - y0, z1 - z0]); n = np.cross([1, 0, 0], t)
+    if n[2] < 0: n = -n
+    return plane(n, [0, y0, z0]), t / np.linalg.norm(t)  # n points up; t points backwards along the cut
 
 def bsso_planes(s):
     """Planes for side s (+1: x > 0, -1: x < 0). Normals point into the proximal piece."""
@@ -136,55 +163,58 @@ def cut_faces(m, tol=0.03):
     return mask
 
 # ---- plates (titanium miniplates) and screws
-def plate(bones, centre, along, out, length, holes, width=4.2, thick=0.9):
-    """A strip plate lying on the bone surface: a grid projected onto the nearest bone surface."""
+from shapely.geometry import Point, LineString
+from shapely.ops import unary_union
+from scipy.ndimage import gaussian_filter
+from scipy.interpolate import RegularGridInterpolator
+
+def miniplate(bones, centre, along, out, holes, links, ring=2.0, hole=1.05, bridge=1.5, thick=0.8):
+    """A miniplate lying on the bone: round rings around the screw holes joined by narrow bridges.
+    holes: (u, v) in mm (u along `along`, v sideways); links: pairs of hole indices joined by a bridge.
+    The flat outline is extruded, then bent onto a smoothed height map of the bone (ray casting along -out),
+    as a plate bent to the bone would be. A screw head sits in every hole."""
     along = np.asarray(along, float); along /= np.linalg.norm(along)
     out = np.asarray(out, float); out -= along * (out @ along); out /= np.linalg.norm(out)
-    side = np.cross(out, along)
+    side = np.cross(out, along); centre = np.asarray(centre, float)
+    shape = unary_union([Point(h).buffer(ring, 10) for h in holes] +
+                        [LineString([holes[a], holes[b]]).buffer(bridge / 2, cap_style=2) for a, b in links])
+    shape = shape.difference(unary_union([Point(h).buffer(hole, 8) for h in holes]))
+    pl = trimesh.creation.extrude_polygon(shape, thick)
+    v, f = trimesh.remesh.subdivide_to_size(pl.vertices, pl.faces, 0.8)
+    # height map of the bone under the plate
     target = trimesh.util.concatenate(bones)
-    nu, nv = int(length / 0.8) + 1, 5
-    us = np.linspace(-length / 2, length / 2, nu); vs = np.linspace(-width / 2, width / 2, nv)
-    grid = np.array([[centre + u * along + v * side for v in vs] for u in us]).reshape(-1, 3)
-    origins = grid + out * 15
-    loc, idx_ray, _ = target.ray.intersects_location(origins, np.repeat([-out], len(origins), 0), multiple_hits=False)
-    surf = grid.copy(); hit = np.zeros(len(grid), bool)
-    surf[idx_ray] = loc; hit[idx_ray] = True
-    if not hit.all():  # fill misses from neighbours
-        surf[~hit] = trimesh.proximity.closest_point(target, grid[~hit])[0]
-    s2 = surf.reshape(nu, nv, 3)
-    # smooth the surface so the plate bends gently, as a contoured plate would
-    for _ in range(3):
-        s2[1:-1] = (s2[:-2] + 2 * s2[1:-1] + s2[2:]) / 4
-    s2[:] = s2.mean(1, keepdims=True) + (s2 - s2.mean(1, keepdims=True)) * 0.3 + np.array([[v * side * 0.7 for v in vs]])
-    bottom = s2 + out * 0.15; top = s2 + out * (0.15 + thick)
-    V = np.concatenate([bottom.reshape(-1, 3), top.reshape(-1, 3)]); off = nu * nv
-    F = []
-    idx = lambda i, j: i * nv + j
-    for i in range(nu - 1):
-        for j in range(nv - 1):
-            a, b, c, d = idx(i, j), idx(i + 1, j), idx(i + 1, j + 1), idx(i, j + 1)
-            F += [[a, c, b], [a, d, c], [a + off, b + off, c + off], [a + off, c + off, d + off]]
-    for i in range(nu - 1):
-        for j in (0, nv - 1):
-            a, b = idx(i, j), idx(i + 1, j)
-            f = [[a, b, b + off], [a, b + off, a + off]]
-            F += f if j == 0 else [x[::-1] for x in f]
-    for j in range(nv - 1):
-        for i in (0, nu - 1):
-            a, b = idx(i, j), idx(i, j + 1)
-            f = [[a, b + off, b], [a, a + off, b + off]]
-            F += f if i == 0 else [x[::-1] for x in f]
-    pl = trimesh.Trimesh(V, F, process=True); trimesh.repair.fix_normals(pl)
+    u0, v0, u1, v1 = shape.bounds
+    us = np.arange(u0 - 1.5, u1 + 1.6, 0.4); vs = np.arange(v0 - 1.5, v1 + 1.6, 0.4)
+    U, V = np.meshgrid(us, vs, indexing='ij')
+    base = centre + U[..., None] * along + V[..., None] * side
+    origins = base.reshape(-1, 3) + out * 15
+    loc, idx, _ = target.ray.intersects_location(origins, np.repeat([-out], len(origins), 0), multiple_hits=False)
+    h = np.full(len(origins), np.nan); h[idx] = (loc - base.reshape(-1, 3)[idx]) @ out
+    if np.isnan(h).any():
+        miss = np.isnan(h); cp = trimesh.proximity.closest_point(target, base.reshape(-1, 3)[miss])[0]
+        h[miss] = (cp - base.reshape(-1, 3)[miss]) @ out
+    h = gaussian_filter(h.reshape(U.shape), 2.0, mode='nearest')
+    H = RegularGridInterpolator((us, vs), h)
+    def place(uvz):
+        return centre + uvz[:, :1] * along + uvz[:, 1:2] * side + out * (H(uvz[:, :2])[:, None] + 0.12 + uvz[:, 2:3])
+    plate_m = trimesh.Trimesh(place(v), f, process=True); trimesh.repair.fix_normals(plate_m)
     screws = []
-    for u in np.linspace(-length / 2 + 2.6, length / 2 - 2.6, holes):
-        i = np.argmin(np.abs(us - u)); c = top[i, nv // 2]
-        cyl = trimesh.creation.cylinder(radius=1.0, height=0.5, sections=20)
-        cyl.apply_transform(trimesh.geometry.align_vectors([0, 0, 1], out)); cyl.apply_translation(c + out * 0.2)
-        screws.append(cyl)
-    return pl, screws
+    for hu, hv in holes:
+        top = place(np.array([[hu, hv, thick]]))[0]
+        head = trimesh.creation.cylinder(radius=hole - 0.08, height=0.55, sections=24)
+        head.apply_transform(trimesh.geometry.align_vectors([0, 0, 1], out)); head.apply_translation(top - out * 0.12)
+        screws.append(head)
+    return plate_m, screws
+
+def l_plate(foot):
+    """4-hole L-plate: three holes in a line across the cut (gap at the cut), one foot hole sideways."""
+    return [(10.0, 0.0), (4.5, 0.0), (-4.0, 0.0), (-4.0, foot)], [(0, 1), (1, 2), (2, 3)]
+
+STRAIGHT_GAP = ([(-10.0, 0.0), (-4.5, 0.0), (4.5, 0.0), (10.0, 0.0)], [(0, 1), (1, 2), (2, 3)])  # 4-hole, longer middle bridge
+CHIN_BOX = ([(4.2, -4.5), (4.2, 4.5), (-4.8, -4.5), (-4.8, 4.5)], [(0, 1), (2, 3), (0, 2), (1, 3)])  # 4-hole box plate across the chin cut
 
 # ---- states
-mand0, lt0, ut0, cran0 = part('mandible'), part('lower_teeth'), part('upper_teeth'), part('cranium')
+mand0, lt0, ut0, cran0 = lengthen_chin(part('mandible')), part('lower_teeth'), part('upper_teeth'), part('cranium')
 max_parts0 = [part(n) for n in NAMES if n.startswith('cut_') and 'concha' not in n]
 conchae = [part(n) for n in NAMES if 'concha' in n]
 
@@ -216,13 +246,21 @@ def make(state):
         return out, info
     PLANES.clear()
     distal, prox = bsso(mand)
-    dy = -MAND_II if state == 'class2-after' else MAND_III
+    dy = -MAND_II if state.startswith('class2') else MAND_III
     distal_m = from_mf(distal.translate([0, dy, 0]))
     lt_m = shift(lt, dy)
+    genio = None
+    if state.endswith('-genio'):
+        (gn, gp), back = genio_plane()
+        D = to_mf(distal_m); seg = keep(D, -gn, gp)
+        gmove = back * (-GENIO_II if state.startswith('class2') else GENIO_III)
+        info['genio_move_mm'] = [round(float(x), 2) for x in gmove]
+        info['genio_segment_cm3'] = round(seg.volume() / 1000, 2)
+        distal_m = from_mf(keep(D, gn, gp)); genio = from_mf(seg.translate(gmove.tolist()))
     proximal = [from_mf(p - distal.translate([0, dy, 0])) for p in prox]  # trim overlap (setback)
     info['bsso_move_mm'] = dy
     out['before'] += [from_mf(distal), lt]
-    if state == 'class3-after':
+    if state.startswith('class3-after'):
         up, down = lefort(maxp)
         down_m = [shift(m, -MAX_III) for m in down]
         ut_m = shift(ut, -MAX_III)
@@ -234,15 +272,21 @@ def make(state):
             # centres on the bone surface at the cut (measured by ray casting on this maxilla)
             for x, y, z, o in ((16.0, -79.8, 1562.0, (0.3, -1.0, 0)), (43.0, -60.0, 1562.0, (1.0, -0.5, 0))):
                 c = np.array([s * x, y, z]); o = np.array([s * o[0], o[1], o[2]])
-                pl, sc = plate(up + down_m, c, [0, 0, 1], o, 16.0, 4)
+                pl, sc = miniplate(up + down_m, c, [0, 0, 1], o, *l_plate(-s * 5.5))
                 out['plate'].append(pl); out['screw'] += sc
     else:
         out['bone'] += maxp; out['teeth'] += [ut]
-    out['bone'] += proximal; out['moved'] += [distal_m]; out['teeth'] += [lt_m]
+    out['bone'] += proximal; out['moved'] += [distal_m] + ([genio] if genio is not None else []); out['teeth'] += [lt_m]
+    if genio is not None:  # chin plate across the genioplasty cut, on the midline
+        (gn, gp), _ = genio_plane()
+        front = distal_m.vertices[np.abs(distal_m.vertices[:, 0]) < 2]
+        yf = front[np.abs(front[:, 2] - gp[2]) < 2][:, 1].min()
+        pl, sc = miniplate([distal_m, genio], [0, yf, gp[2]], [0, 0.15, 1], [0, -1, 0], *CHIN_BOX)
+        out['plate'].append(pl); out['screw'] += sc
     # BSSO plate on the outer surface, across the buccal step, each side
     for s in (1, -1):
         c = np.array([s * 34.0, Y_BUCCAL + 1.0, 1520.0])
-        pl, sc = plate(proximal + [distal_m], c, [0, 1, -0.05], [s, 0, 0], 20.0, 4)
+        pl, sc = miniplate(proximal + [distal_m], c, [0, 1, -0.05], [s, 0, 0], *STRAIGHT_GAP)
         out['plate'].append(pl); out['screw'] += sc
     # colour cut faces, plus a thin band of the outer surface along each cut so the cut line shows
     from scipy.spatial import cKDTree
@@ -291,7 +335,7 @@ def export(out, path, centre):
         scene.add_geometry(m, node_name=key, geom_name=key)
     scene.export(path)
 
-STATES = ['normal', 'class2-before', 'class2-after', 'class3-before', 'class3-after']
+STATES = ['normal', 'class2-before', 'class2-after', 'class2-after-genio', 'class3-before', 'class3-after', 'class3-after-genio']
 want = sys.argv[3:] or STATES
 centre = np.array([0.0, -45.0, 1550.0])
 report = []
@@ -300,5 +344,6 @@ for st in want:
     info['faces'] = {k: int(sum(len(m.faces) for m in v if m is not None)) for k, v in out.items()}
     export(out, OUT / f'{st}.glb', centre)
     print(json.dumps(info)); report.append(info)
-json.dump({'states': report, 'moves_mm': {'MAND_II': MAND_II, 'MAX_III': MAX_III, 'MAND_III': MAND_III}},
+json.dump({'states': report, 'moves_mm': {'MAND_II': MAND_II, 'MAX_III': MAX_III, 'MAND_III': MAND_III,
+                                          'CHIN_LEN': CHIN_LEN, 'GENIO_II': GENIO_II, 'GENIO_III': GENIO_III}},
           open(OUT / 'build_report.json', 'w'), indent=1)
