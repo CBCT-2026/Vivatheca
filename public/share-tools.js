@@ -32,6 +32,10 @@
     qrSave: ['Save QR code (SVG)', 'QRコードを{保存|ほぞん}（SVG）'],
     qrAlt: ['QR code that opens this view of the model', 'この{模型|もけい}の{表示|ひょうじ}を{開|ひら}くQRコード'],
     picture: ['Save picture (PNG)', '{画像|がぞう}を{保存|ほぞん}（PNG）'],
+    offline: ['Save for offline', 'オフライン{用|よう}に{保存|ほぞん}'],
+    offlineBusy: ['Saving this model on this device…', 'この{端末|たんまつ}に{保存|ほぞん}しています…'],
+    offlineDone: ['Saved on this device. This page and its model now open without internet. Nothing is sent to Vivatheca.', 'この{端末|たんまつ}に{保存|ほぞん}しました。インターネットがなくても、このページと{模型|もけい}を{開|ひら}けます。Vivathecaには{何|なに}も{送|おく}られません。'],
+    offlineNo: ['This browser cannot save pages for offline use.', 'このブラウザはオフライン{保存|ほぞん}に{対応|たいおう}していません。'],
     pictureDone: ['Picture saved. The credit and disclaimer are printed under the model.', '{画像|がぞう}を{保存|ほぞん}しました。{模型|もけい}の{下|した}にクレジットと{免責|めんせき}{事項|じこう}が{入|はい}っています。'],
     steps: ['Picture steps (no words)', '{絵|え}だけの{手順|てじゅん}{図|ず}'],
     stepsBusy: ['Making the picture steps: {n} of {total}…', '{手順|てじゅん}{図|ず}を{作成中|さくせいちゅう}：{total}{枚|まい}{中|ちゅう}{n}{枚目|まいめ}…'],
@@ -386,6 +390,7 @@
         '<button type="button" class="vt-link">' + say('link') + '</button>' +
         '<button type="button" class="vt-qr-btn" aria-expanded="false">' + say('qr') + '</button>' +
         '<button type="button" class="vt-pic">' + say('picture') + '</button>' +
+        '<button type="button" class="vt-offline">' + say('offline') + '</button>' +
         (hasTour ? '<button type="button" class="vt-tour">' + say('tour') + '</button><button type="button" class="vt-steps">' + say('steps') + '</button>' : '') +
         '<button type="button" class="vt-credit-btn" aria-expanded="false">' + say('credit') + '</button>' +
         '<button type="button" class="vt-embed-btn" aria-expanded="false">' + say('embed') + '</button>' +
@@ -422,6 +427,29 @@
         qrBox.querySelector('.vt-qr-save').onclick = () => {
           const a = doc.createElement('a'); a.href = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })); a.download = 'vivatheca-' + slug + '-qr.svg'; doc.body.appendChild(a); a.click(); a.remove();
         };
+      };
+      // Save for offline (public/sw.js, built by tools/offline/build-sw.mjs with Workbox). The service
+      // worker is registered only here, on request; it then keeps copies of what this device loads.
+      panel.querySelector('.vt-offline').onclick = async (e) => {
+        const b = e.currentTarget;
+        if (!('serviceWorker' in navigator) || !window.caches) { tell('offlineNo'); return; }
+        b.disabled = true; tell('offlineBusy');
+        try {
+          await navigator.serviceWorker.register('/sw.js');
+          await navigator.serviceWorker.ready;
+          if (!navigator.serviceWorker.controller) {
+            await new Promise((r) => { navigator.serviceWorker.addEventListener('controllerchange', r, { once: true }); setTimeout(r, 4000); });
+          }
+          const urls = new Set();
+          for (const entry of performance.getEntriesByType('resource')) {
+            try { const u = new URL(entry.name); if (u.origin === location.origin && !u.pathname.startsWith('/api/')) urls.add(u.pathname + u.search); } catch (err) { /* skip */ }
+          }
+          const page = new URL(location.href); page.hash = '';
+          await (await caches.open('vt-pages')).add(new Request(page.toString(), { credentials: 'same-origin' }));
+          await Promise.all([...urls].map((u) => fetch(u, { credentials: 'same-origin' }).catch(() => {})));
+          tell('offlineDone');
+        } catch (err) { tell('failed'); }
+        b.disabled = false;
       };
       panel.querySelector('.vt-pic').onclick = async (e) => {
         const b = e.currentTarget; b.disabled = true;
