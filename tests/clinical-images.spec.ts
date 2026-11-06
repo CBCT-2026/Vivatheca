@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 // Every real clinical image must show its source and licence next to it (docs/image-licensing.md).
-const pages = ['/', '/periodontitis/index.html', '/oroantral/index.html', '/orthognathic/index.html', '/development/index.html', '/head-neck/index.html'];
+const pages = ['/', '/periodontitis/index.html', '/oroantral/index.html', '/orthognathic/index.html', '/development/index.html', '/cracked-tooth/index.html', '/head-neck/index.html'];
 const licence = /creativecommons\.org\/(licenses|publicdomain)\//;
 
 for (const path of pages) {

@@ -254,7 +254,7 @@
       "id": "cracked-photo-molar",
       "file": "public/images/clinical/cracked-tooth/photo-cracked-molar.jpg",
       "pages": [
-        "/cracked-tooth/ (pending: page is in PR #25)"
+        "/cracked-tooth/"
       ],
       "type": "Clinical photograph (intraoral)",
       "description": "Occlusal view of the right lower back teeth; the cracked molar before treatment.",
@@ -273,7 +273,7 @@
       "id": "cracked-photo-stained",
       "file": "public/images/clinical/cracked-tooth/photo-crack-stained.jpg",
       "pages": [
-        "/cracked-tooth/ (pending: page is in PR #25)"
+        "/cracked-tooth/"
       ],
       "type": "Clinical photograph (intraoral)",
       "description": "Methylene blue dye showing crack lines across the cusps of the cracked molar.",
