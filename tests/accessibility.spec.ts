@@ -23,6 +23,7 @@ const pages = [
   '/orthognathic/index.html',
   '/learn/periodontitis',
   '/learn/slices',
+  '/models/averaged-jaw',
 ];
 
 const variants: { name: string; lang: 'en' | 'ja'; theme: 'light' | 'dark' }[] = [

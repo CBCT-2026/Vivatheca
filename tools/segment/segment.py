@@ -21,6 +21,12 @@ LABELS = {1: 'mandible', 2: 'teeth_lower', 3: 'skull', 4: 'head', 5: 'sinus_maxi
 
 def convert(series_dir: Path, out: Path) -> Path | None:
     import dicom2nifti
+    import dicom2nifti.settings as settings
+    # Some open neck CTs have uneven slice spacing or gantry tilt; resample them instead of refusing.
+    settings.disable_validate_slice_increment()
+    settings.enable_resampling()
+    settings.set_resample_spline_interpolation_order(1)
+    settings.set_resample_padding(-1024)
     tmp = out / 'nifti_tmp'
     tmp.mkdir(parents=True, exist_ok=True)
     try:
