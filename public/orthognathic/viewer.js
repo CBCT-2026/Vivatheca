@@ -40,10 +40,11 @@ let cls = 'normal', phase = 'before';
 
 function key() { return cls === 'normal' ? 'normal' : cls + '-' + phase; }
 function show() {
-  const k = key(), s = STATES[k];
+  const k = key(), s = STATES[k], j = 's_' + k.replace('-', '_') + '_';
+  const T = window.vtT || ((_, en) => en), TP = window.vtTPlain || ((_, en) => en);
   mv.src = 'models/' + k + '.glb';
-  mv.alt = s.alt;
-  caption.innerHTML = '<h2>' + s.title + '</h2><p>' + s.text + '</p>';
+  mv.alt = TP(j + 'alt', s.alt);
+  caption.innerHTML = '<h2>' + T(j + 'title', s.title) + '</h2><p>' + T(j + 'text', s.text) + '</p>';
   classButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.class === cls));
   phaseButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.phase === phase));
   phaseGroup.hidden = cls === 'normal';
@@ -106,9 +107,9 @@ function showProblem(text) {
   box.textContent = text;
 }
 const canvas = document.createElement('canvas');
-if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem('This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.');
-mv.addEventListener('error', () => showProblem('The 3D model could not load. Please reload the page.'));
-setTimeout(() => { if (!customElements.get('model-viewer')) showProblem('The 3D model could not load. Please reload the page.'); }, 10000);
+if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem((window.vtTPlain || ((_, en) => en))('noWebgl', 'This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.'));
+mv.addEventListener('error', () => showProblem((window.vtTPlain || ((_, en) => en))('loadFailed', 'The 3D model could not load. Please reload the page.')));
+setTimeout(() => { if (!customElements.get('model-viewer')) showProblem((window.vtTPlain || ((_, en) => en))('loadFailed', 'The 3D model could not load. Please reload the page.')); }, 10000);
 
 // A tap on a source number opens the closed list of sources first.
 document.querySelectorAll('.cite a').forEach(a => a.addEventListener('click', () => {

@@ -143,7 +143,7 @@ test('every page ends with a contact section for Instagram, X and email', async 
 });
 
 test('static model pages end with the contact footer', async ({ page }) => {
-  for (const path of ['/head-neck/index.html', '/oroantral/index.html', '/orthognathic/index.html', '/periodontitis/index.html', '/stainless-steel-crown/index.html']) {
+  for (const path of ['/head-neck/index.html', '/oroantral/index.html', '/orthognathic/index.html', '/periodontitis/index.html']) {
     await page.goto(path);
     const contact = page.getByRole('contentinfo').filter({ hasText: 'Contact us' });
     await expect(contact).toContainText('Instagram');

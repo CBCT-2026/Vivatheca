@@ -13,7 +13,8 @@
   const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g, '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
 
   function render() {
-    if (document.querySelector('footer.vt-contact')) return;
+    // Skip pages that already carry a hand-copied contact footer.
+    if (document.querySelector('footer.vt-contact, footer.contact')) return;
     const t = text[document.documentElement.lang.startsWith('ja') ? 'ja' : 'en'];
     const item = (name, handle, href) => href
       ? '<li><a href="' + href + '"' + (href.startsWith('mailto:') ? '' : ' target="_blank" rel="noreferrer"') + '><b>' + name + '</b> <span>' + handle + '</span></a></li>'
