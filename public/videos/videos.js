@@ -344,6 +344,94 @@ window.VT_VIDEOS = {
    ]
   }
  },
+ "endodontic": {
+  "sources": [
+   "American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020. https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/",
+   "European Society of Endodontology. Quality guidelines for endodontic treatment: consensus report of the European Society of Endodontology. Int Endod J. 2006;39(12):921-930. https://doi.org/10.1111/j.1365-2591.2006.01180.x"
+  ],
+  "en": {
+   "title": "How a tooth abscess forms",
+   "seconds": 28,
+   "lines": [
+    {
+     "text": "This is a healthy back tooth in the lower jaw.",
+     "cite": []
+    },
+    {
+     "text": "Inside is the pulp: the nerve and blood vessels.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "Deep decay can reach the pulp. Germs get in, and the pulp can die.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "The germs spread out of the root tips, and the bone there wears away.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "Pus can drain through a thin channel to the gum. It may hurt only a little.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "Root canal treatment cleans and seals the canals. Then the bone can heal, over months or years.",
+     "cite": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "{歯|は}ののうようができるまで",
+   "seconds": 32,
+   "lines": [
+    {
+     "text": "これは{下|した}あごの{健康|けんこう}な{奥歯|おくば}です。",
+     "cite": []
+    },
+    {
+     "text": "{中|なか}には{神経|しんけい}と{血管|けっかん}、{歯髄|しずい}があります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{深|ふか}いむし{歯|ば}が{歯髄|しずい}に{届|とど}くと、{細菌|さいきん}が{入|はい}り、{歯髄|しずい}が{死|し}ぬことがあります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{細菌|さいきん}は{根|ね}の{先|さき}から{広|ひろ}がり、そこの{骨|ほね}がなくなります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "うみは{細|ほそ}い{通|とお}り{道|みち}から{歯|は}ぐきに{出|で}ることがあり、{痛|いた}みが{少|すく}ないこともあります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{根管治療|こんかんちりょう}で{根|ね}の{管|くだ}をきれいにしてふさぐと、{骨|ほね}は{何|なん}か{月|げつ}から{何年|なんねん}かけて{治|なお}ります。",
+     "cite": [
+      1,
+      2
+     ]
+    }
+   ]
+  }
+ },
  "fixation": {
   "sources": [
    "Champy M, Loddé JP, Schmitt R, Jaeger JH, Muster D. Mandibular osteosynthesis by miniature screwed plates via a buccal approach. J Maxillofac Surg. 1978;6(1):14-21. https://doi.org/10.1016/s0301-0503(78)80062-9",

@@ -37,7 +37,7 @@ export default async function ModelsPage() {
         <div className="info-intro">
           <p className="eyebrow"><Ruby text={l.eyebrow} /></p>
           <h1><Ruby text={l.heading} /></h1>
-          <p><Ruby text={l.intro} /> <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>.</p>
+          <p><Ruby text={l.intro} /> <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. <Ruby text={l.licenceOther} /></p>
           <p className="prototype-note"><strong><Ruby text={l.reviewLead} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
         </div>
 
@@ -60,6 +60,7 @@ export default async function ModelsPage() {
                       <li><Ruby text={item.pairing} /></li>
                       <li>{format(l.version, { v: model.version })}</li>
                       <li><Ruby text={l.notReviewed} /></li>
+                      <li lang="en">{(model.licence ?? licence).name}</li>
                     </ul>
                   </div>
                 </CardLink>

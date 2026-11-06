@@ -9,14 +9,20 @@ import { fileURLToPath } from 'node:url';
 
 const here = fileURLToPath(new URL('.', import.meta.url));
 const root = resolve(here, '..', '..');
+// Videos built earlier keep their recorded length when this machine has no timeline for them
+// (build/ is not committed), so one new video can be added without re-running every voice.
+const prev = (() => {
+  try { const t = readFileSync(join(root, 'public/videos/videos.js'), 'utf8'); return JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1)); } catch { return {}; }
+})();
 const data = {};
 for (const file of readdirSync(join(here, 'scripts')).filter((f) => f.endsWith('.json')).sort()) {
   const spec = JSON.parse(readFileSync(join(here, 'scripts', file), 'utf8'));
   const entry = { sources: spec.sources };
   for (const lang of ['en', 'ja']) {
     const tl = join(here, 'build', spec.slug, lang, 'timeline.json');
-    if (!existsSync(tl)) throw new Error(`${spec.slug} ${lang}: run tts.py first`);
-    const { duration } = JSON.parse(readFileSync(tl, 'utf8'));
+    const old = prev[spec.slug]?.[lang]?.seconds;
+    if (!existsSync(tl) && !old) throw new Error(`${spec.slug} ${lang}: run tts.py first`);
+    const { duration } = existsSync(tl) ? JSON.parse(readFileSync(tl, 'utf8')) : { duration: old };
     if (duration > 45) throw new Error(`${spec.slug} ${lang}: ${duration} s is over 45 s`);
     entry[lang] = {
       title: spec[lang].title,

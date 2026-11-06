@@ -14,6 +14,7 @@ export function GET() {
     image: m.image,
     version: m.version,
     updated: m.updated,
+    licence: m.licence ?? licence,
     codes: modelCodes[m.slug] ?? { subjects: [], anatomy: [] },
     title: Object.fromEntries(locales.map((l) => [l, (dictionaries[l].library.items as Record<string, { title: string }>)[m.slug]?.title ?? m.slug])),
   }));

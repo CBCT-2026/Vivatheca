@@ -114,6 +114,22 @@ export const modelBriefs: ModelBrief[] = [
     normalComparison: 'A healthy lower first molar with no crack.',
   },
   {
+    id: 'endodontic',
+    page: '/endodontic/',
+    name: 'Pulp necrosis with chronic apical abscess in a mandibular first molar, with a sound tooth',
+    glb: '/endodontic/models/abscess-whole.glb',
+    condition: 'A lower first molar in its bone. Deep decay has reached the pulp and the pulp has died; infection has spread out of the root tips, the bone around them has worn away (a periapical lesion), and a sinus tract drains pus to the gum. Shown beside the same tooth when sound. Main treatments: root canal treatment (usually followed by a crown) or extraction.',
+    labels: [
+      { plain: 'Tooth' },
+      { plain: 'Jaw bone', medical: 'mandible' },
+      { plain: 'Pulp (nerve)', medical: 'dental pulp' },
+      { plain: 'Decay', medical: 'caries' },
+      { plain: 'Infection at the root tips', medical: 'periapical lesion' },
+      { plain: 'Drainage channel', medical: 'sinus tract' },
+    ],
+    normalComparison: 'The same lower first molar, sound, with a living pulp and whole bone around the root tips.',
+  },
+  {
     id: 'stainless-steel-crown',
     page: '/stainless-steel-crown/',
     name: 'Preformed metal (stainless steel) crown on a mandibular second primary molar',

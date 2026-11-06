@@ -38,7 +38,7 @@ export function modelJsonLd(slug: string) {
     dateModified: m.updated,
     inLanguage: [...listedLocales],
     isAccessibleForFree: true,
-    license: licence.href,
+    license: (m.licence ?? licence).href,
     creator: ORG,
     publisher: ORG,
     learningResourceType: '3D model',

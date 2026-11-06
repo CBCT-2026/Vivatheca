@@ -48,8 +48,9 @@
     next: ['Next', '{次|つぎ}へ', 'Tiếp'],
     stop: ['End tour', 'ツアーを{終|お}える', 'Kết thúc hướng dẫn'],
     credit: ['Credit and citation', 'クレジット・{引用|いんよう}', 'Ghi công và trích dẫn'],
-    creditHeading: ['Credit for reuse (CC BY-SA 4.0)', '{再利用|さいりよう}{時|じ}のクレジット（CC BY-SA 4.0）', 'Ghi công khi sử dụng lại (CC BY-SA 4.0)'],
+    creditHeading: ['Credit for reuse ({lic})', '{再利用|さいりよう}{時|じ}のクレジット（{lic}）', 'Ghi công khi sử dụng lại ({lic})'],
     creditHelp: ['Paste this wherever you use the model or a picture of it. If you change the model, say what you changed. Things you make from it must use the same licence.', '{模型|もけい}やその{画像|がぞう}を{使|つか}う{場所|ばしょ}に{貼|は}り{付|つ}けてください。{模型|もけい}を{変|か}えたときは、{何|なに}を{変|か}えたかを{書|か}いてください。これをもとに{作|つく}ったものは、{同|おな}じライセンスにしてください。', 'Dán nội dung này ở bất cứ đâu bạn dùng mô hình hoặc ảnh của nó. Nếu bạn thay đổi mô hình, hãy ghi rõ bạn đã thay đổi gì. Những gì bạn làm từ nó phải dùng cùng giấy phép.'],
+    creditHelpBy: ['Paste this wherever you use the model or a picture of it. If you change the model, say what you changed.', '{模型|もけい}やその{画像|がぞう}を{使|つか}う{場所|ばしょ}に{貼|は}り{付|つ}けてください。{模型|もけい}を{変|か}えたときは、{何|なに}を{変|か}えたかを{書|か}いてください。', 'Dán nội dung này ở bất cứ đâu bạn dùng mô hình hoặc ảnh của nó. Nếu bạn thay đổi mô hình, hãy ghi rõ bạn đã thay đổi gì.'],
     fmtPlain: ['Plain text', 'テキスト', 'Văn bản thường'],
     fmtHtml: ['HTML (web page)', 'HTML（ウェブページ）', 'HTML (trang web)'],
     fmtShort: ['Short (slides, posters)', '{短|みじか}い{形|かたち}（スライド・ポスター）', 'Ngắn (trang chiếu, áp phích)'],
@@ -88,7 +89,8 @@
 
   // ---- model facts (title, version, licence, review status, disclaimer) ----
   let metaPromise = null;
-  const meta = () => (metaPromise ||= fetch('/api/models').then((r) => r.json()).then((m) => ({ ...m, model: m.models.find((x) => norm(x.href) === PATH) || null })).catch(() => null));
+  // A model may have its own licence (BodyParts3D-based models are CC BY 4.0); otherwise the site licence.
+  const meta = () => (metaPromise ||= fetch('/api/models').then((r) => r.json()).then((m) => { const model = m.models.find((x) => norm(x.href) === PATH) || null; return { ...m, model, licence: (model && model.licence) || m.licence }; }).catch(() => null));
   const lang = JA ? 'ja' : VI ? 'vi' : 'en';
 
   // ---- usage counts (/impact) ----
@@ -535,9 +537,9 @@
         const c = credits(m);
         let fmt = 'plain';
         const draw = () => {
-          cBox.innerHTML = '<p><strong>' + say('creditHeading') + '</strong><br>' + say('creditHelp') + ' ' + say('citeHelp') + '</p>' +
+          cBox.innerHTML = '<p><strong>' + say('creditHeading').replace('{lic}', esc(m.licence.name)) + '</strong><br>' + say(/BY-SA/.test(m.licence.name) ? 'creditHelp' : 'creditHelpBy') + ' ' + say('citeHelp') + '</p>' +
             '<div class="vt-tabs" role="group">' + [['plain', 'fmtPlain'], ['html', 'fmtHtml'], ['short', 'fmtShort'], ['vancouver', 'fmtVancouver'], ['apa', 'fmtApa'], ['bibtex', 'fmtBibtex'], ['ris', 'fmtRis']].map(([k, w]) => '<button type="button" data-fmt="' + k + '" aria-pressed="' + (fmt === k) + '">' + say(w) + '</button>').join('') + '</div>' +
-            '<textarea readonly aria-label="' + esc(sayPlain('creditHeading')) + '">' + esc(c[fmt]) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>' + codesHtml(m.model.codes);
+            '<textarea readonly aria-label="' + esc(sayPlain('creditHeading').replace('{lic}', m.licence.name)) + '">' + esc(c[fmt]) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>' + codesHtml(m.model.codes);
           cBox.querySelectorAll('[data-fmt]').forEach((x) => { x.onclick = () => { fmt = x.dataset.fmt; draw(); cBox.querySelector('[data-fmt="' + fmt + '"]').focus(); }; });
           cBox.querySelector('.vt-copy').onclick = async () => { const ok = await copyText(c[fmt]); if (!ok) cBox.querySelector('textarea').select(); tell(ok ? 'copied' : 'linkShown'); count('credit'); };
         };

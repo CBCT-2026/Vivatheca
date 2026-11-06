@@ -10,10 +10,11 @@ const SOURCES = [
   { slug: 'periodontitis', dir: 'public/periodontitis/downloads', match: /^vivatheca-periodontitis-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'oroantral', dir: 'public/oroantral/downloads', match: /^vivatheca-oroantral-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'cracked-tooth', dir: 'public/cracked-tooth/downloads', match: /^vivatheca-cracked-tooth-(.+)-([\d.]+)x\.zip$/ },
+  { slug: 'endodontic', dir: 'public/endodontic/downloads', match: /^vivatheca-endodontic-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'stainless-steel-crown', dir: 'public/stainless-steel-crown/downloads', match: /^vivatheca-stainless-steel-crown-([\d.]+)x\.zip$/, single: true },
   { slug: 'alveolar-bone-graft', dir: 'public/models/abg', match: /^vivatheca-abg-(.+)-stl\.zip$/, scale: 1 },
 ];
-const ORDER = ['normal', 'healthy', 'risk', 'oac', 'oaf', 'clot', 'flap', 'bfp', 'palatal', 'stage-1', 'stage-2', 'stage-3', 'stage-4', 'cracked', 'composite', 'crown', 'impacted'];
+const ORDER = ['normal', 'healthy', 'sound', 'abscess', 'risk', 'oac', 'oaf', 'clot', 'flap', 'bfp', 'palatal', 'stage-1', 'stage-2', 'stage-3', 'stage-4', 'cracked', 'composite', 'crown', 'impacted'];
 const label = (id) => id.replace(/^age-(\d+)-(\d)$/, 'Age $1.$2').replace(/^stage-(\d)$/, 'Stage $1').replace(/^(\d)b?-/, (m) => m.toUpperCase().replace('-', '. ')).replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
 // Names for each set, as on the model pages (Japanese with furigana).
 const NAMES = {
@@ -23,6 +24,7 @@ const NAMES = {
   'stage-1': ['Stage I', 'ステージI'], 'stage-2': ['Stage II', 'ステージII'], 'stage-3': ['Stage III', 'ステージIII'], 'stage-4': ['Stage IV', 'ステージIV'],
   cracked: ['Cracked tooth', 'ひびの{入|はい}った{歯|は}'], composite: ['Filling', '{詰|つ}め{物|もの}'], crown: ['Crown', 'かぶせ{物|もの}'],
   '1-pre-op': ['1. Before surgery', '1. {手術|しゅじゅつ}{前|まえ}'], '2-during-braces': ['2. During braces', '2. {矯正|きょうせい}{中|ちゅう}'], '3-long-term': ['3. Long term', '3. {長期|ちょうき}'], '3b-substitution': ['3B. Canine moved into the gap', '3B. {犬歯|けんし}で{隙間|すきま}を{埋|う}める'],
+  sound: ['Sound tooth', '{健康|けんこう}な{歯|は}'], abscess: ['Tooth with abscess', 'のうようのある{歯|は}'],
   all: ['All stages', 'すべての{段階|だんかい}'],
 };
 const names = (id) => { const a = id.match(/^age-(\d+)-(\d)$/); if (a) return [`Age ${a[1]}.${a[2]}`, `${a[1]}.${a[2]}{歳|さい}`]; return NAMES[id] || [label(id), label(id)]; };

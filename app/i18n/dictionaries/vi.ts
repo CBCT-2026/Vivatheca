@@ -1536,12 +1536,13 @@ const vi = withFallback(en, {
     "eyebrow": "Thư viện mô hình",
     "heading": "Mô hình có bản bình thường để so sánh.",
     "intro": "Mỗi bệnh lý đều đi kèm giải phẫu bình thường tương ứng, để bạn cho bệnh nhân thấy điều gì khác biệt và vì sao điều đó quan trọng. Tất cả mô hình đều miễn phí để xem, tải, in và chỉnh sửa theo giấy phép",
+    "licenceOther": "Các mô hình làm từ BodyParts3D dùng giấy phép CC BY 4.0, cho phép bạn chia sẻ những gì bạn làm theo bất kỳ giấy phép nào. Mỗi thẻ đều ghi rõ.",
     "reviewLead": "Tình trạng thẩm định được ghi trên từng mô hình.",
     "listLabel": "Mô hình",
     "factsLabel": "Thông tin mô hình",
     "version": "Phiên bản {v}",
     "nextHeading": "Sắp ra mắt",
-    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: áp xe quanh chóp, hàm mất răng teo xương và nang xương hàm.",
+    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: hàm mất răng teo xương.",
     "askText": "Bạn muốn có một mô hình cụ thể, hoặc có mô hình muốn chia sẻ?",
     "askLink": "Hãy cho chúng tôi biết",
     "askGap": " ",
@@ -1592,6 +1593,12 @@ const vi = withFallback(en, {
         "specialty": "Điều trị khe hở: phẫu thuật miệng và hàm mặt và chỉnh nha",
         "summary": "Hàm trên của một trẻ có khe hở cung hàm bên trái, qua ba giai đoạn: trước khi ghép xương, sau ghép có mắc cài, và nhiều năm sau khi răng nanh đã được đưa vào chỗ trống. Trong ảnh: trước (trái) và nhiều năm sau (phải).",
         "pairing": "Các giai đoạn điều trị"
+      },
+      "endodontic": {
+        "title": "Hoại tử tủy kèm áp xe quanh chóp mạn tính ở răng cối lớn thứ nhất hàm dưới, so với răng lành",
+        "specialty": "Nội nha",
+        "summary": "Một răng cối lớn thứ nhất hàm dưới có tủy đã chết do sâu răng sâu, nhiễm trùng ở cả hai chóp chân răng và đường rò ra lợi, đặt cạnh chính răng đó khi lành. Cắt mở để so sánh. Trong ảnh: răng lành (trái) và áp xe (phải), đã cắt mở.",
+        "pairing": "Bệnh lý + răng bình thường lành mạnh"
       },
       "stainless-steel-crown": {
         "title": "Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới",
@@ -1870,10 +1877,6 @@ const vi = withFallback(en, {
     "loading": "Đang tải số lượt ủng hộ…",
     "unavailable": "Chức năng đếm lượt ủng hộ chưa được bật. Bạn vẫn có thể gửi ý tưởng qua email đến vivatheca@gmail.com.",
     "seeds": {
-      "endo-periapical": {
-        "title": "Nhiễm trùng ở chóp chân răng (áp xe quanh chóp) bên cạnh một răng lành",
-        "specialty": "Nội nha"
-      },
       "prosth-edentulous": {
         "title": "Xương hàm mất răng bị teo (hàm dưới mất răng teo xương) bên cạnh hàm còn răng, với các lựa chọn hàm giả và implant",
         "specialty": "Phục hình"
