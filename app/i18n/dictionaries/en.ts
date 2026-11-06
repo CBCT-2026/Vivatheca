@@ -728,7 +728,7 @@ const en = {
       'The STL is in millimetres at about 1.7 times life size (166 mm long), so the roots and nerve are easier to see. Scale it to about 60% in your slicer for life size. It is not checked as a closed solid, so repair it in your slicer before printing.',
     ],
     sourcesHeading: 'Published sources',
-    sourcesNote: '',
+    sourcesNote: 'Modelled by Luke Seifert, Vivatheca’s founder. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies.',
     changelogHeading: 'Change log',
     changelog: [
       { version: '1.1', text: 'Added the matched normal jaw and STL files for both models.' },
