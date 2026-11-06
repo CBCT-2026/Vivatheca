@@ -48,3 +48,17 @@ test('cracked tooth student guide cites every source it numbers, in English and 
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
   await expect(page.locator('h1 rt').first()).toHaveText('きれつし');
 });
+
+test('periodontitis student guide cites its sources and is linked from the model page and the hub', async ({ page }) => {
+  await page.goto('/learn/periodontitis');
+  await expect(page.getByRole('heading', { name: 'Periodontitis: staging and grading', level: 1 })).toBeVisible();
+  const cited = await page.locator('main .cite a').evaluateAll((links) => [...new Set(links.map((a) => a.getAttribute('href')))]);
+  expect(cited.length).toBe(7);
+  for (const href of cited) await expect(page.locator(href!)).toHaveCount(1);
+  await expect(page.locator('.learn-model-box a.button')).toHaveAttribute('href', '/periodontitis/');
+  await page.goto('/learn');
+  await expect(page.locator('a[href="/learn/periodontitis"]')).toHaveCount(1);
+  await expect(page.locator('a[href="/head-neck/"]')).toHaveCount(1);
+  await page.goto('/periodontitis/index.html');
+  await expect(page.locator('main a[href="/learn/periodontitis"]')).toHaveCount(1);
+});

@@ -70,8 +70,8 @@ function capture() {
     if (cs.display === 'none' || cs.visibility === 'hidden') el.setAttribute('data-pitk-hidden', '');
   }
   const copy = main.cloneNode(true);
-  // .vt-create (public/model-page.js) is a clinician link to /create, not patient text.
-  copy.querySelectorAll('[data-pitk-hidden], script, style, model-viewer, button, [role="group"], #stage, nav, .vt-create').forEach((el) => el.remove());
+  // .vt-create and .vt-guide (public/model-page.js) link clinicians to /create and students to /learn; not patient text.
+  copy.querySelectorAll('[data-pitk-hidden], script, style, model-viewer, button, [role="group"], #stage, nav, .vt-create, .vt-guide').forEach((el) => el.remove());
   return copy.innerHTML;
 }
 

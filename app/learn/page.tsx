@@ -16,8 +16,12 @@ export async function generateMetadata(): Promise<Metadata> {
 const guideLinks = {
   development: { guide: '/learn/development', model: '/development/' },
   cracked: { guide: '/learn/cracked-tooth', model: '/cracked-tooth/' },
+  periodontitis: { guide: '/learn/periodontitis', model: '/periodontitis/' },
   orthognathic: { guide: null, model: '/orthognathic/' },
   wisdom: { guide: null, model: '/models/impacted-wisdom-tooth' },
+  oroantral: { guide: null, model: '/oroantral/' },
+  steelCrown: { guide: null, model: '/stainless-steel-crown/' },
+  headNeck: { guide: null, model: '/head-neck/' },
 } as const;
 
 export default async function LearnPage() {

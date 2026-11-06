@@ -42,3 +42,16 @@ export const crackedSources: Source[] = [
   { id: 10, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 10th ed. St Louis: Elsevier; 2015. (Mandibular first molar crown length, 7.5 mm.)' },
   { id: 11, text: 'Ruan C, Wang L. Long-term survival of endodontically treated cracked teeth: a systematic review and meta-analysis. J Endod. 2026. (Lack of definitive cuspal coverage was a risk indicator; certainty of evidence very low.)', href: 'https://doi.org/10.1016/j.joen.2026.10.002' },
 ];
+
+// Sources for the student guide to periodontitis staging (/learn/periodontitis).
+// Numbers match the [n] markers in t.learnPerio. The same sources are cited on /periodontitis/.
+
+export const perioSources: Source[] = [
+  { id: 1, text: 'Tonetti MS, Greenwell H, Kornman KS. Staging and grading of periodontitis: framework and proposal of a new classification and case definition. J Periodontol. 2018;89 Suppl 1:S159-S172.', href: 'https://doi.org/10.1002/JPER.18-0006' },
+  { id: 2, text: 'Papapanou PN, Sanz M, Buduneli N, et al. Periodontitis: consensus report of workgroup 2 of the 2017 World Workshop on the Classification of Periodontal and Peri-Implant Diseases and Conditions. J Periodontol. 2018;89 Suppl 1:S173-S182.', href: 'https://doi.org/10.1002/JPER.17-0721' },
+  { id: 3, text: 'Caton JG, Armitage G, Berglundh T, et al. A new classification scheme for periodontal and peri-implant diseases and conditions: introduction and key changes from the 1999 classification. J Clin Periodontol. 2018;45 Suppl 20:S1-S8.', href: 'https://doi.org/10.1111/jcpe.12935' },
+  { id: 4, text: 'Sanz M, Herrera D, Kebschull M, et al. Treatment of stage I–III periodontitis: the EFP S3 level clinical practice guideline. J Clin Periodontol. 2020;47 Suppl 22:4-60.', href: 'https://doi.org/10.1111/jcpe.13290' },
+  { id: 5, text: 'Hausmann E, Allen K, Clerehugh V. What alveolar crest level on a bite-wing radiograph represents bone loss? J Periodontol. 1991;62(9):570-572.', href: 'https://doi.org/10.1902/jop.1991.62.9.570' },
+  { id: 6, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Crown and root lengths and the cervical line of the mandibular teeth.)' },
+  { id: 7, text: 'American Academy of Periodontology. Staging and grading periodontitis (chart of Tables 2 and 3 from source 1).', href: 'https://www.perio.org/wp-content/uploads/2019/08/Staging-and-Grading-Periodontitis.pdf' },
+];

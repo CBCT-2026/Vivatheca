@@ -91,6 +91,11 @@ const en = {
         title: 'Cracked tooth: crown versus filling',
         text: 'Longitudinal tooth fractures, why losing the marginal ridges lets cusps flex, and the outcome evidence for cuspal coverage, with its uncertainty.',
       },
+      periodontitis: {
+        status: 'Student guide available',
+        title: 'Periodontitis: staging and grading',
+        text: 'The 2017 AAP/EFP stages and grades, the bone levels used in each model, and the EFP stepwise treatment guideline.',
+      },
       orthognathic: {
         status: 'Student guide in preparation',
         title: 'Orthognathic surgery: Class I, II and III',
@@ -100,6 +105,21 @@ const en = {
         status: 'Clinician detail on the model',
         title: 'Impacted lower wisdom tooth',
         text: 'Switch the model to “Clinician detail” for the Winter angulation terms and the tooth’s relationship to the inferior alveolar nerve, with sources.',
+      },
+      oroantral: {
+        status: 'Clinician detail on the model',
+        title: 'Oroantral communication and fistula (OAC and OAF)',
+        text: 'The model page compares OAC with OAF, lists risk factors and shows the closure options (clot, buccal flap, buccal fat pad, palatal flap), with sources.',
+      },
+      steelCrown: {
+        status: 'Clinician detail on the model',
+        title: 'Preformed metal crown on a primary molar',
+        text: 'The model page covers why a crown is chosen over a large restoration and the Hall Technique, with sources.',
+      },
+      headNeck: {
+        status: 'Clinician detail on the model',
+        title: 'Head and neck: four published cases',
+        text: 'Each case page shows the resection, the margins used and the reconstruction, and the hub compares all six models in a table, with sources.',
       },
     },
     openGuide: 'Open the student guide',
@@ -182,6 +202,64 @@ const en = {
     ],
   },
   // Student guide: cracked tooth (/learn/cracked-tooth). [n] marks a source in crackedSources (app/learn/sources.ts).
+  // Student guide: periodontitis stages (/learn/periodontitis). [n] marks a source in perioSources (app/learn/sources.ts).
+  learnPerio: {
+    metaTitle: 'Periodontitis: staging and grading — student guide — Vivatheca',
+    metaDescription: 'The 2017 AAP/EFP staging and grading of periodontitis, how the Vivatheca stage models were built, and the EFP stepwise treatment guideline, with sources, for dental students.',
+    eyebrow: 'Student guide',
+    heading: 'Periodontitis: staging and grading',
+    lead: 'A study companion to the periodontitis stage models. The model page is written for patients; this page uses the 2017 classification terms, the thresholds behind each model and the sources they come from.',
+    openModel: 'Open the 3D models (patient page)',
+    objectivesHeading: 'Learning objectives',
+    objectives: [
+      'Describe the main changes in the 2017 AAP/EFP classification compared with 1999.',
+      'Assign a stage (I to IV) from interdental attachment loss, radiographic bone loss, tooth loss and complexity factors.',
+      'Assign a grade (A to C) from direct or indirect evidence of progression, and apply the smoking and diabetes modifiers.',
+      'Outline the four steps of the EFP S3 guideline for Stage I to III periodontitis.',
+      'Identify where the Vivatheca models simplify the disease.',
+    ],
+    termsHeading: 'Key terms',
+    terms: [
+      { term: 'Periodontitis (2017)', text: 'The 2017 World Workshop grouped the forms previously called chronic and aggressive periodontitis into a single category, periodontitis, described by stage and grade. Necrotising periodontal diseases and periodontitis as a manifestation of systemic disease are separate forms.[2][3]' },
+      { term: 'Stage', text: 'Severity and complexity of management, set mainly by interdental clinical attachment loss (CAL) at the worst site, or radiographic bone loss if CAL is not available, then raised by tooth loss and complexity factors.[1]' },
+      { term: 'Grade', text: 'Rate of progression and expected response to treatment. Clinicians start at Grade B and move to A or C on direct or indirect evidence; smoking and diabetes can raise the grade.[1]' },
+      { term: 'Extent', text: 'Added to the stage: localised (fewer than 30% of teeth involved), generalised, or a molar/incisor pattern.[1]' },
+    ],
+    mechanicsHeading: 'Stages I to IV',
+    mechanics: [
+      'Interdental CAL at the worst site: Stage I 1 to 2 mm, Stage II 3 to 4 mm, Stages III and IV 5 mm or more. Radiographic bone loss: coronal third (under 15%) in Stage I, coronal third (15 to 33%) in Stage II, extending to the middle third of the root and beyond in Stages III and IV.[1][7]',
+      'Tooth loss due to periodontitis: none in Stages I and II, 4 teeth or fewer in Stage III, 5 or more in Stage IV.[1]',
+      'Complexity: Stage I has a maximum probing depth of 4 mm or less and mostly horizontal bone loss; Stage II 5 mm or less. Stage III adds probing depths of 6 mm or more, vertical bone loss of 3 mm or more, class II or III furcation involvement or a moderate ridge defect. Stage IV adds the need for complex rehabilitation, for example secondary occlusal trauma (mobility degree 2 or more), bite collapse, drifting or flaring, or fewer than 20 remaining teeth (10 opposing pairs).[1][7]',
+      'Grade, indirect evidence: percentage bone loss divided by age is under 0.25 for Grade A, 0.25 to 1.0 for Grade B and over 1.0 for Grade C. Modifiers: smoking under 10 cigarettes a day suggests Grade B and 10 or more Grade C; diabetes with HbA1c under 7.0% suggests Grade B and 7.0% or more Grade C.[1][7]',
+    ],
+    evidenceHeading: 'Treatment: the EFP S3 guideline (Stages I to III)',
+    evidenceColumns: ['Step', 'Aim', 'What it includes'],
+    evidence: [
+      { study: 'Step 1[4]', design: 'Behaviour change and risk factor control', finding: 'Oral hygiene instruction, supragingival plaque and calculus removal, control of retentive factors, and risk factor control such as smoking cessation and diabetes control.' },
+      { study: 'Step 2[4]', design: 'Cause-related therapy', finding: 'Subgingival instrumentation, with or without adjuncts, to reduce the subgingival biofilm and calculus.' },
+      { study: 'Step 3[4]', design: 'Sites that do not respond', finding: 'Repeat instrumentation, access flap surgery, or resective or regenerative surgery for residual deep pockets, including intrabony and furcation defects.' },
+      { study: 'Step 4[4]', design: 'Supportive periodontal care', finding: 'Regular recall to keep periodontal stability, with continued plaque and risk factor control.' },
+    ],
+    uncertainHeading: 'Where the evidence is uncertain',
+    uncertain: [
+      'The authors presented staging and grading as a framework and proposal, to be refined as evidence on progression and risk accumulates.[1]',
+      'Grade relies on direct evidence of progression where it exists. Using bone loss divided by age is indirect, and a single radiograph cannot show how fast the loss happened.[1]',
+      'Radiographic bone loss depends on where the bone crest is assumed to sit in health. In one bitewing study the healthy CEJ-to-crest distance ranged from 0.4 to 1.9 mm, so small losses are hard to separate from normal variation.[5]',
+    ],
+    simplifyHeading: 'What the models simplify',
+    simplify: [
+      'All five models use the same adult lower jaw and 14 teeth from Z-Anatomy, with no wisdom teeth. The CEJ of each tooth was placed from typical crown and root lengths.[6]',
+      'The healthy crest sits 1.5 mm below the CEJ, inside the range reported for health.[5] Each stage lowers the bone by a set share of root length (Stage I 10%, II 25%, III 40%, IV 60%), chosen to sit inside each stage’s band.[1]',
+      'Bone loss is mostly even around the jaw (generalised). Real periodontitis is often uneven, with vertical defects at single sites.',
+      'The gingiva and the attachment are not modelled, so the models cannot show CAL or probing depth, the main staging measures. Grades cannot be modelled at all.',
+    ],
+    questionsHeading: 'Check your understanding',
+    questions: [
+      { q: 'A patient’s worst interdental CAL is 4 mm, bone loss is in the coronal third, no teeth have been lost and the deepest pocket is 5 mm. What stage is this?', a: 'Stage II: CAL 3 to 4 mm, bone loss in the coronal third (15 to 33%), no tooth loss, maximum probing depth 5 mm or less.[1]' },
+      { q: 'A 30-year-old has 40% bone loss at the worst tooth. What grade does the indirect evidence suggest?', a: '40 ÷ 30 = 1.33, which is over 1.0, so Grade C. A real grade also uses direct evidence, the case phenotype and risk factors.[1]' },
+      { q: 'In the EFP guideline, when is periodontal surgery considered?', a: 'In Step 3, for sites that have not responded to Steps 1 and 2, such as residual deep pockets with intrabony or furcation defects.[4]' },
+    ],
+  },
   learnCracked: {
     metaTitle: 'Cracked tooth: crown versus direct restoration — student guide — Vivatheca',
     metaDescription: 'Longitudinal tooth fractures, cuspal flexure, and the evidence on cuspal coverage for cracked teeth, with sources, for dental students.',
