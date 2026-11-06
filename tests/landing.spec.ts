@@ -167,7 +167,7 @@ test('every page ends with a contact section for Instagram, X and email', async 
     await expect(contact).toBeVisible();
     await expect(contact).toContainText('Instagram');
     await expect(contact).toContainText('X');
-    await expect(contact.getByRole('link', { name: 'Contact Vivatheca by Email' })).toHaveAttribute('href', 'mailto:vivatheca@gmail.com');
+    await expect(contact.getByRole('link', { name: /Email vivatheca@gmail.com/ })).toHaveAttribute('href', 'mailto:vivatheca@gmail.com');
   }
 });
 

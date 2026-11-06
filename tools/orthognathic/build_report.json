@@ -30,13 +30,32 @@
    "state": "class2-after",
    "bsso_move_mm": -6.0,
    "faces": {
-    "bone": 242574,
+    "bone": 242573,
     "teeth": 98430,
-    "moved": 91624,
-    "cut": 10776,
-    "plate": 1032,
-    "screw": 640,
-    "before": 145914
+    "moved": 91628,
+    "cut": 10781,
+    "plate": 17608,
+    "screw": 768,
+    "before": 145916
+   }
+  },
+  {
+   "state": "class2-after-genio",
+   "genio_move_mm": [
+    -0.0,
+    -4.93,
+    0.82
+   ],
+   "genio_segment_cm3": 1.92,
+   "bsso_move_mm": -6.0,
+   "faces": {
+    "bone": 242622,
+    "teeth": 98430,
+    "moved": 91339,
+    "cut": 12297,
+    "plate": 28328,
+    "screw": 1152,
+    "before": 145916
    }
   },
   {
@@ -57,19 +76,49 @@
    "bsso_move_mm": 5.0,
    "lefort_move_mm": -3.0,
    "faces": {
-    "bone": 193849,
+    "bone": 193853,
     "teeth": 98430,
-    "moved": 146990,
-    "cut": 13987,
-    "plate": 2696,
-    "screw": 1920,
-    "before": 248454
+    "moved": 147006,
+    "cut": 13957,
+    "plate": 45976,
+    "screw": 2304,
+    "before": 248472
+   }
+  },
+  {
+   "state": "class3-after-genio",
+   "genio_move_mm": [
+    0.0,
+    3.95,
+    -0.66
+   ],
+   "genio_segment_cm3": 1.92,
+   "bsso_move_mm": 5.0,
+   "lefort_move_mm": -3.0,
+   "faces": {
+    "bone": 193853,
+    "teeth": 98430,
+    "moved": 146722,
+    "cut": 15525,
+    "plate": 56696,
+    "screw": 2688,
+    "before": 248472
    }
   }
  ],
+ "chin": {
+  "ii_me_before": 33.34,
+  "ii_me_after": 44.78,
+  "mf_border_before": 11.08,
+  "mf_border_after": 14.98,
+  "midline_drop_mm": 12.53,
+  "fade_to_x_mm": 27.86
+ },
  "moves_mm": {
   "MAND_II": 6.0,
   "MAX_III": 3.0,
-  "MAND_III": 5.0
+  "MAND_III": 5.0,
+  "GENIO_II": 5.0,
+  "GENIO_III": 4.0
  }
 }
