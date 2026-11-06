@@ -22,8 +22,9 @@ extend-exclude = [
 
 [default]
 # Long random tokens (verification codes, hashes) are not words.
-# Vietnamese "thay đổi" (change) / "thay thế" (replace) inside shared page scripts.
-extend-ignore-re = ["[A-Za-z0-9_-]{30,}", "[Tt]hay (đổi|thế)"]
+# Vietnamese "thay đổi" (change) / "thay thế" (replace) / "thay vì" (instead of), "vai trò" (role) and
+# "tham gia" (take part) inside page sources that keep English and Vietnamese side by side.
+extend-ignore-re = ["[A-Za-z0-9_-]{30,}", "[Tt]hay (đổi|thế|vì)", "[Vv]ai trò", "[Tt]ham gia"]
 locale = "en"
 
 [default.extend-words]
@@ -34,6 +35,7 @@ Pont = "Pont"
 Atack = "Atack"
 Restor = "Restor"  # J Esthet Restor Dent
 Mak = "Mak"        # BMC Med Inform Decis Mak
+Commun = "Commun"  # Int J Lang Commun Disord
 Brach = "Brach"   # Shoemaker SJ, Wolf MS, Brach C (PEMAT)
 Servier = "Servier" # Servier Medical Art
 technic = "technic" # historic title: "the Le Fort I osteotomy technic"
