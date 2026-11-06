@@ -10,7 +10,7 @@ Method, per stage age:
     Before emerging, each tooth stays fully inside the jaw (bone with the adult sockets filled): see place()
     and the sources above it. While the crown forms it sits in the shallowest spot that fits; once the root
     starts it rises to the bone crest (reached at age e - 1), then through the gum (e) to the biting level.
-    Where the adult jaw shape is too thin, a 1 mm crypt wall is added (a bulge, as in a child's jaw).
+    Where the adult jaw shape is too thin, a 1.73 mm crypt wall is added (Bhattad 2015; a bulge, as in a child's jaw).
     Every depth and move is written to tooth-positions.txt.
   - Third molars: made from the second molar, scaled 0.9, placed behind it.
   - Baby teeth: made from the permanent teeth (incisors and canine from their successors, both
@@ -148,11 +148,18 @@ def deform_points(p, age, jaw):
 #  - Gargiulo et al. 1961: gum above the bone crest (connective tissue + epithelial attachment + sulcus) is about
 #    2.7 mm, so at gum emergence the cusp tip is about that far above the bone crest.
 #  - Ericson and Kurol 1986: the jaw bulges over a growing canine (the buccal bulge felt in children).
-# Where the adult (Z-Anatomy) jaw is too thin to hold a growing tooth, a thin bony crypt wall (1 mm; our estimate, no
-# study gives a figure) is added over it, which shows as a bulge, as in a real child's jaw.
+#  - Bhattad et al. 2015: buccal cortical bone over the developing premolar region in children aged 8-10 (CBCT,
+#    n = 15) is 1.73 +/- 0.41 mm thick, measured 6 mm from the CEJ. Where the adult (Z-Anatomy) jaw is too thin
+#    to hold a growing tooth, a crypt wall of this thickness is added over it; it shows as a bulge, as in a child's
+#    jaw. One small study at one site, applied to every tooth: stated on the page.
+#  - Ekstrand et al. 2003: gum emergence to biting contact takes on average 15.2 months for first molars and 27.5
+#    months for second molars (girls and boys averaged). No study found for the other teeth: they use the first
+#    molar figure (stated on the page).
 GUM_ABOVE_CREST = 2.73     # mm, Gargiulo et al. 1961 (2.04 mm attachment + 0.69 mm sulcus)
-CRYPT_WALL = 1.0           # mm, estimate (see above)
-TO_OCCLUSION = 1.5         # years from gum emergence to reaching the biting level: estimate, no study found
+CRYPT_WALL = 1.73          # mm, Bhattad et al. 2015
+TO_OCCLUSION_M = {'M1': 15.2 / 12, 'M2': 27.5 / 12}  # years, Ekstrand et al. 2003
+def to_occlusion(t):
+    return TO_OCCLUSION_M.get(t, TO_OCCLUSION_M['M1'])
 
 def final_roots(jaw, age):
     """The part of each adult tooth below its crown, in its final place: the tooth sockets of the adult mesh.
@@ -203,9 +210,9 @@ def place(jaw, t, age, J, avoid):
     probe = lambda d: (to_manifold(trimesh.creation.icosphere(1, 0.3).apply_translation(tip - a * d)) - J).volume() < 1e-3
     dc = next((d for d in np.arange(0, 30, 0.25) if probe(d)), 0.0)
     crest = tip - a * dc  # a point on the bone crest over this tooth (fixed in space)
-    if age >= tm['e'] + TO_OCCLUSION: return m0, 0.0, 0.0, 'in place', crest
+    if age >= tm['e'] + to_occlusion(t): return m0, 0.0, 0.0, 'in place', crest
     if age >= tm['e']:  # in the mouth, still rising to the biting level (gum emergence: tip ~2.7 mm above crest)
-        d = lerp(max(dc - GUM_ABOVE_CREST, 0), 0.0, (age - tm['e']) / TO_OCCLUSION)
+        d = lerp(max(dc - GUM_ABOVE_CREST, 0), 0.0, (age - tm['e']) / to_occlusion(t))
         m = m0.copy(); m.apply_translation(-a * d); return m, d, 0.0, 'erupting', crest
     if age >= tm['e'] - 1:  # through the bone, not yet through the gum
         d = lerp(dc, max(dc - GUM_ABOVE_CREST, 0), age - (tm['e'] - 1))
