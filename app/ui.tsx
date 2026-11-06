@@ -41,7 +41,7 @@ export function MobileNavigation({ furigana }: { furigana: boolean }) {
 // Sources (numbers in modelSources) supporting each tour step, plain and clinician text.
 const tourCites = [
   { plain: [1], clinical: [1] },
-  { plain: [2], clinical: [2, 3] },
+  { plain: [2], clinical: [4, 5, 2, 3, 6] },
   { plain: [] as number[], clinical: [] as number[] },
 ];
 
@@ -51,6 +51,9 @@ export const modelSources = [
   { id: 1, text: 'Winter GB. Principles of exodontia as applied to the impacted mandibular third molar. St Louis: American Medical Book Co; 1926. (Origin of the angulation terms used here.)' },
   { id: 2, text: 'Renton T. Oral surgery: part 4. Minimising and managing nerve injuries and other complications. Br Dent J. 2013;215(8):393-399.', href: 'https://doi.org/10.1038/sj.bdj.2013.993' },
   { id: 3, text: 'Reia VCB, de Toledo Telles-Araujo G, Peralta-Mamani M, et al. Diagnostic accuracy of CBCT compared to panoramic radiography in predicting IAN exposure: a systematic review and meta-analysis. Clin Oral Investig. 2021;25(8):4721-4733.', href: 'https://doi.org/10.1007/s00784-021-03942-4' },
+  { id: 4, text: 'Sorooshzadeh M, Hoseyni Y, Goudarzi F, Jamali A. Key factors in mandibular third molar surgery: a comprehensive view of their prevalence and interrelationships. Saudi Dent J. 2025;37(7-9):53. (526 CBCT scans: the canal lay below the tooth in 78.9%.)', href: 'https://doi.org/10.1007/s44445-025-00061-8' },
+  { id: 5, text: 'Jun SH, Kim CH, Ahn JS, Padwa BL, Kwon JJ. Anatomical differences in lower third molars visualized by 2D and 3D X-ray imaging: clinical outcomes after extraction. Int J Oral Maxillofac Surg. 2013;42(4):489-496. (Complications were mostly in roots inside or touching the canal.)', href: 'https://doi.org/10.1016/j.ijom.2012.12.005' },
+  { id: 6, text: 'Ghaeminia H, Gerlach NL, Hoppenreijs TJM, et al. Clinical relevance of cone beam computed tomography in mandibular third molar removal: a multicentre, randomised, controlled trial. J Craniomaxillofac Surg. 2015;43(10):2158-2167. (Conflicting evidence: CBCT before removal did not reduce nerve injury compared with panoramic radiography.)', href: 'https://doi.org/10.1016/j.jcms.2015.10.009' },
 ];
 
 function Cites({ ids, label }: { ids: number[]; label: string }) {

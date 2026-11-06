@@ -32,6 +32,7 @@ export default async function AboutPage() {
         <section aria-labelledby="why-title">
           <h2 id="why-title"><Ruby text={a.whyHeading} /></h2>
           {a.why.map((text) => <p key={text}><Ruby text={text} /></p>)}
+          <p><Link href="/#publications"><Ruby text={a.whyEvidence} /></Link></p>
         </section>
 
         <section aria-labelledby="principles-title">
