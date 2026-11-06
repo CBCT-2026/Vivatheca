@@ -1,6 +1,6 @@
 {
  "dictionary": {
-  "total": 1518,
+  "total": 1519,
   "extraInJa": [
    "builder.models.oroantral",
    "builder.models.periodontitis",
@@ -26,7 +26,7 @@
   "byStatus": {
    "reviewed": 0,
    "changed": 0,
-   "unreviewed": 1528
+   "unreviewed": 1529
   },
   "changed": []
  },
@@ -40,12 +40,12 @@
    "page": "development",
    "tracked": true,
    "file": "i18n.js",
-   "needed": 40,
+   "needed": 41,
    "missing": [],
    "byStatus": {
     "reviewed": 0,
     "changed": 0,
-    "unreviewed": 40
+    "unreviewed": 41
    }
   },
   {
@@ -64,12 +64,12 @@
    "page": "head-neck",
    "tracked": true,
    "file": "i18n.js",
-   "needed": 40,
+   "needed": 37,
    "missing": [],
    "byStatus": {
     "reviewed": 0,
     "changed": 0,
-    "unreviewed": 40
+    "unreviewed": 37
    }
   },
   {

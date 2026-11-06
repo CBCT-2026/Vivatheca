@@ -1,0 +1,107 @@
+6.5 upper I1: through bone, 12.0 mm down the long axis, 0.0 mm towards the tongue, 40 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 upper I2: in crypt, 13.0 mm down the long axis, 1.7 mm towards the tongue, 15 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 upper C: in crypt, 16.6 mm down the long axis, 2.9 mm towards the tongue, 8 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 upper PM1: in crypt, 18.2 mm down the long axis, 1.1 mm towards the tongue, 1 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 upper PM2: in crypt, 21.2 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+6.5 upper M1: erupting, 5.6 mm down the long axis, 0.0 mm towards the tongue, 33 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 upper M2: in crypt, 13.0 mm down the long axis, 3.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+6.5 lower I1: erupting, 10.3 mm down the long axis, 0.0 mm towards the tongue, 8 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 lower I2: through bone, 12.5 mm down the long axis, 0.0 mm towards the tongue, 10 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 lower C: in crypt, 14.8 mm down the long axis, 0.6 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+6.5 lower PM1: in crypt, 13.3 mm down the long axis, 2.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+6.5 lower PM2: in crypt, 15.2 mm down the long axis, 2.2 mm towards the tongue, 2 mm3 below the crest outside the adult jaw shape (crypt wall added)
+6.5 lower M1: erupting, 4.4 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+6.5 lower M2: in crypt, 7.2 mm down the long axis, 0.0 mm towards the tongue, 26 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 upper I1: erupting, 9.3 mm down the long axis, 0.0 mm towards the tongue, 44 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 upper I2: through bone, 12.8 mm down the long axis, 0.0 mm towards the tongue, 127 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 upper C: in crypt, 14.2 mm down the long axis, 3.0 mm towards the tongue, 9 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 upper PM1: in crypt, 16.8 mm down the long axis, 0.6 mm towards the tongue, 5 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 upper PM2: in crypt, 17.2 mm down the long axis, 1.1 mm towards the tongue, 1 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 upper M1: erupting, 0.1 mm down the long axis, 0.0 mm towards the tongue, 2 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 upper M2: in crypt, 12.5 mm down the long axis, 3.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+7.5 lower I1: erupting, 2.2 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+7.5 lower I2: erupting, 9.8 mm down the long axis, 0.0 mm towards the tongue, 13 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 lower C: in crypt, 13.6 mm down the long axis, 0.5 mm towards the tongue, 1 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 lower PM1: in crypt, 11.8 mm down the long axis, 1.4 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+7.5 lower PM2: in crypt, 15.0 mm down the long axis, 1.9 mm towards the tongue, 5 mm3 below the crest outside the adult jaw shape (crypt wall added)
+7.5 lower M1: erupting, 0.1 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+7.5 lower M2: in crypt, 7.5 mm down the long axis, 0.0 mm towards the tongue, 35 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 upper I1: erupting, 2.0 mm down the long axis, 0.0 mm towards the tongue, 20 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 upper I2: erupting, 10.0 mm down the long axis, 0.0 mm towards the tongue, 103 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 upper C: in crypt, 12.7 mm down the long axis, 2.8 mm towards the tongue, 17 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 upper PM1: in crypt, 16.0 mm down the long axis, 0.6 mm towards the tongue, 4 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 upper PM2: in crypt, 16.6 mm down the long axis, 0.0 mm towards the tongue, 2 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 upper M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+8.5 upper M2: in crypt, 9.4 mm down the long axis, 1.7 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+8.5 upper M3: in crypt, 13.5 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+8.5 lower I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+8.5 lower I2: erupting, 2.1 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+8.5 lower C: in crypt, 11.9 mm down the long axis, 0.6 mm towards the tongue, 1 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 lower PM1: in crypt, 11.4 mm down the long axis, 0.6 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+8.5 lower PM2: in crypt, 13.1 mm down the long axis, 1.3 mm towards the tongue, 6 mm3 below the crest outside the adult jaw shape (crypt wall added)
+8.5 lower M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+8.5 lower M2: in crypt, 7.4 mm down the long axis, 0.0 mm towards the tongue, 35 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 upper I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+9.5 upper I2: erupting, 2.1 mm down the long axis, 0.0 mm towards the tongue, 13 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 upper C: in crypt, 12.7 mm down the long axis, 2.4 mm towards the tongue, 43 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 upper PM1: through bone, 11.5 mm down the long axis, 0.0 mm towards the tongue, 15 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 upper PM2: in crypt, 15.5 mm down the long axis, 0.6 mm towards the tongue, 2 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 upper M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+9.5 upper M2: in crypt, 9.3 mm down the long axis, 1.3 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+9.5 upper M3: in crypt, 20.5 mm down the long axis, 3.0 mm towards the tongue, 1 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 lower I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+9.5 lower I2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+9.5 lower C: through bone, 10.1 mm down the long axis, 0.0 mm towards the tongue, 12 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 lower PM1: in crypt, 10.3 mm down the long axis, 0.1 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+9.5 lower PM2: in crypt, 11.2 mm down the long axis, 1.1 mm towards the tongue, 6 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 lower M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+9.5 lower M2: in crypt, 7.2 mm down the long axis, 0.0 mm towards the tongue, 40 mm3 below the crest outside the adult jaw shape (crypt wall added)
+9.5 lower M3: in crypt, 2.8 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+10.5 upper I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+10.5 upper I2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+10.5 upper C: through bone, 12.2 mm down the long axis, 0.0 mm towards the tongue, 138 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 upper PM1: erupting, 8.8 mm down the long axis, 0.0 mm towards the tongue, 13 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 upper PM2: through bone, 9.4 mm down the long axis, 0.0 mm towards the tongue, 8 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 upper M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+10.5 upper M2: in crypt, 9.2 mm down the long axis, 0.3 mm towards the tongue, 2 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 upper M3: in crypt, 22.5 mm down the long axis, 3.0 mm towards the tongue, 11 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 lower I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+10.5 lower I2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+10.5 lower C: erupting, 5.3 mm down the long axis, 0.0 mm towards the tongue, 4 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 lower PM1: through bone, 8.9 mm down the long axis, 0.0 mm towards the tongue, 2 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 lower PM2: through bone, 10.2 mm down the long axis, 0.0 mm towards the tongue, 6 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 lower M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+10.5 lower M2: in crypt, 7.3 mm down the long axis, 0.0 mm towards the tongue, 44 mm3 below the crest outside the adult jaw shape (crypt wall added)
+10.5 lower M3: in crypt, 3.0 mm down the long axis, 0.0 mm towards the tongue, 4 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 upper I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+11.5 upper I2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+11.5 upper C: erupting, 9.5 mm down the long axis, 0.0 mm towards the tongue, 102 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 upper PM1: erupting, 1.8 mm down the long axis, 0.0 mm towards the tongue, 2 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 upper PM2: erupting, 4.9 mm down the long axis, 0.0 mm towards the tongue, 9 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 upper M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+11.5 upper M2: through bone, 9.0 mm down the long axis, 0.0 mm towards the tongue, 8 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 upper M3: in crypt, 22.0 mm down the long axis, 3.0 mm towards the tongue, 26 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 lower I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+11.5 lower I2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+11.5 lower C: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+11.5 lower PM1: erupting, 4.6 mm down the long axis, 0.0 mm towards the tongue, 3 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 lower PM2: erupting, 7.5 mm down the long axis, 0.0 mm towards the tongue, 5 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 lower M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+11.5 lower M2: through bone, 5.9 mm down the long axis, 0.0 mm towards the tongue, 27 mm3 below the crest outside the adult jaw shape (crypt wall added)
+11.5 lower M3: in crypt, 3.0 mm down the long axis, 0.0 mm towards the tongue, 14 mm3 below the crest outside the adult jaw shape (crypt wall added)
+12.5 upper I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 upper I2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 upper C: erupting, 2.0 mm down the long axis, 0.0 mm towards the tongue, 15 mm3 below the crest outside the adult jaw shape (crypt wall added)
+12.5 upper PM1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 upper PM2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 upper M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 upper M2: erupting, 6.3 mm down the long axis, 0.0 mm towards the tongue, 10 mm3 below the crest outside the adult jaw shape (crypt wall added)
+12.5 upper M3: in crypt, 20.0 mm down the long axis, 3.0 mm towards the tongue, 38 mm3 below the crest outside the adult jaw shape (crypt wall added)
+12.5 lower I1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 lower I2: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 lower C: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 lower PM1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 lower PM2: erupting, 1.6 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 lower M1: in place, 0.0 mm down the long axis, 0.0 mm towards the tongue, 0 mm3 below the crest outside the adult jaw shape
+12.5 lower M2: erupting, 3.5 mm down the long axis, 0.0 mm towards the tongue, 21 mm3 below the crest outside the adult jaw shape (crypt wall added)
+12.5 lower M3: in crypt, 3.0 mm down the long axis, 0.0 mm towards the tongue, 26 mm3 below the crest outside the adult jaw shape (crypt wall added)

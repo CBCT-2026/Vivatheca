@@ -6,7 +6,8 @@
     { "file": "public/head-neck/ameloblastoma/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
     { "file": "public/head-neck/mec/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
     { "file": "public/head-neck/okc/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
-    { "file": "public/head-neck/scc/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." }
+    { "file": "public/head-neck/scc/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
+    { "file": "public/development/index.html", "match": "Schroeder HE.", "reason": "Author initials (H. E. Schroeder) in a reference, not a pronoun." }
   ],
   "justify": [],
   "licence": []

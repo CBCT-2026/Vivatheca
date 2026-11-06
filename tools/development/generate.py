@@ -7,7 +7,11 @@ Timing: timings.csv (typical ages; see its header). Jaw size: jaw_growth.csv.
 
 Method, per stage age:
   - Permanent teeth: crown grows from the cusp tip down; then the root grows to full length.
-    Before emerging, each tooth sits deeper along its long axis and rises over time.
+    Before emerging, each tooth stays fully inside the jaw (bone with the adult sockets filled): see place()
+    and the sources above it. While the crown forms it sits in the shallowest spot that fits; once the root
+    starts it rises to the bone crest (reached at age e - 1), then through the gum (e) to the biting level.
+    Where the adult jaw shape is too thin, a 1.73 mm crypt wall is added (Bhattad 2015; a bulge, as in a child's jaw).
+    Every depth and move is written to tooth-positions.txt.
   - Third molars: made from the second molar, scaled 0.9, placed behind it.
   - Baby teeth: made from the permanent teeth (incisors and canine from their successors, both
     baby molars from the permanent first molar), scaled to typical baby tooth widths and set side
@@ -17,7 +21,7 @@ Method, per stage age:
     (jaw_growth.csv: Riolo 1974 Michigan atlas, West and McNamara 1999 adults). The ramus is lowered and
     the part behind the first molar shortened front-to-back. Second and third molars move with it.
   - Cutaway: the cheek-side half of the bone around the teeth is removed, as in the classic chart.
-Outputs per stage: GLB (web, metres, Y up, front +Z) and STL per print part (mm).
+Outputs per stage: GLB (web, metres, Y up, front +Z) and STL per print part (mm); tooth-positions.txt, print-notes.txt.
 """
 import csv, json, sys
 from pathlib import Path
@@ -133,13 +137,45 @@ def deform_points(p, age, jaw):
         p[..., 2] = z0 + (p[..., 2] - z0) * (1 - (1 - kr) * w)
     return p
 
-def eruption_offset(age, e):
-    """How far (mm) the tooth sits below its final place, along its long axis."""
-    if age >= e + 1.5: return 0.0
-    if age >= e: return lerp(7.0, 0.0, (age - e) / 1.5)
-    return min(7.0 + (e - age) * 3.0, 20.0)
+# ---- Where a growing adult tooth sits (all positions keep it inside the jaw until it comes through) ----
+# Sources (cited on the page):
+#  - AlQahtani et al. 2010 (London Atlas): a tooth breaks through the bone (alveolar emergence) about a year before
+#    it comes through the gum (timings.csv header), so until age e - 1 the whole tooth stays inside bone.
+#  - Marks and Schroeder 1996: before root formation the tooth germ stays in its bony crypt and grows in place;
+#    eruptive movement towards the crest starts as the root begins to form.
+#  - Schour and Massler 1941 chart; Ten Cate's Oral Histology (Nanci 2018): successors grow on the tongue side of and
+#    below the baby teeth (front teeth) or between the baby molar roots (premolars), each in its own bony crypt.
+#  - Gargiulo et al. 1961: gum above the bone crest (connective tissue + epithelial attachment + sulcus) is about
+#    2.7 mm, so at gum emergence the cusp tip is about that far above the bone crest.
+#  - Ericson and Kurol 1986: the jaw bulges over a growing canine (the buccal bulge felt in children).
+#  - Bhattad et al. 2015: buccal cortical bone over the developing premolar region in children aged 8-10 (CBCT,
+#    n = 15) is 1.73 +/- 0.41 mm thick, measured 6 mm from the CEJ. Where the adult (Z-Anatomy) jaw is too thin
+#    to hold a growing tooth, a crypt wall of this thickness is added over it; it shows as a bulge, as in a child's
+#    jaw. One small study at one site, applied to every tooth: stated on the page.
+#  - Ekstrand et al. 2003: gum emergence to biting contact takes on average 15.2 months for first molars and 27.5
+#    months for second molars (girls and boys averaged). No study found for the other teeth: they use the first
+#    molar figure (stated on the page).
+GUM_ABOVE_CREST = 2.73     # mm, Gargiulo et al. 1961 (2.04 mm attachment + 0.69 mm sulcus)
+CRYPT_WALL = 1.73          # mm, Bhattad et al. 2015
+TO_OCCLUSION_M = {'M1': 15.2 / 12, 'M2': 27.5 / 12}  # years, Ekstrand et al. 2003
+def to_occlusion(t):
+    return TO_OCCLUSION_M.get(t, TO_OCCLUSION_M['M1'])
 
-def perm_tooth(jaw, t, age):
+def final_roots(jaw, age):
+    """The part of each adult tooth below its crown, in its final place: the tooth sockets of the adult mesh.
+    Added to the bone so the jaw is solid (a child's jaw has no empty adult sockets)."""
+    out = []
+    for t in PERM:
+        b = base[(jaw, t)]
+        r = clip(b['mesh'], b['tip'] - b['axis'] * CROWN_FRAC[t] * b['L'], -b['axis'])
+        if r is None: continue
+        if t in ('M2', 'M3'):
+            c = r.centroid; r.apply_translation(deform_points(c, age, jaw) - c)
+        out.append(r)
+    return out
+
+def formed_part(jaw, t, age):
+    """The part of the tooth formed by this age, in its final place (crown from the cusp tip down, then root)."""
     tm = T[(jaw, t)]; b = base[(jaw, t)]
     if age < tm['ci']: return None
     a, tip, L = b['axis'], b['tip'], b['L']
@@ -149,10 +185,76 @@ def perm_tooth(jaw, t, age):
     else: keep = L + 1
     m = b['mesh'] if keep > L else clip(b['mesh'], tip - a * keep, a)
     if m is None: return None
-    m = m.copy(); m.apply_translation(-a * eruption_offset(age, tm['e']))
+    m = m.copy()
     if t in ('M2', 'M3'):  # rides with the growing back of the jaw
         c = m.centroid; m.apply_translation(deform_points(c, age, jaw) - c)
     return m
+
+def inward_dir(jaw, p):
+    """Horizontal unit vector from p towards the tongue (towards the arch centre)."""
+    centre = np.array([0.0, base[(jaw, 'M1')]['mesh'].centroid[1], p[2]])
+    d = centre - p; d[2] = 0; n = np.linalg.norm(d)
+    return d / n if n > 1e-6 else np.zeros(3)
+
+def outside(X, J):
+    return (X - J).volume()
+
+def place(jaw, t, age, J, avoid):
+    """Place a not-yet-erupted adult tooth. Returns (mesh, depth along the axis, sideways move, phase)."""
+    tm = T[(jaw, t)]; m0 = formed_part(jaw, t, age)
+    if m0 is None: return None
+    a = base[(jaw, t)]['axis']
+    X0 = to_manifold(m0)
+    tipz = m0.vertices @ a; tip = m0.vertices[np.argmax(tipz)]
+    # depth at which the cusp tip reaches the bone crest: walk down the axis until the tip is inside the jaw
+    probe = lambda d: (to_manifold(trimesh.creation.icosphere(1, 0.3).apply_translation(tip - a * d)) - J).volume() < 1e-3
+    dc = next((d for d in np.arange(0, 30, 0.25) if probe(d)), 0.0)
+    crest = tip - a * dc  # a point on the bone crest over this tooth (fixed in space)
+    if age >= tm['e'] + to_occlusion(t): return m0, 0.0, 0.0, 'in place', crest
+    if age >= tm['e']:  # in the mouth, still rising to the biting level (gum emergence: tip ~2.7 mm above crest)
+        d = lerp(max(dc - GUM_ABOVE_CREST, 0), 0.0, (age - tm['e']) / to_occlusion(t))
+        m = m0.copy(); m.apply_translation(-a * d); return m, d, 0.0, 'erupting', crest
+    if age >= tm['e'] - 1:  # through the bone, not yet through the gum
+        d = lerp(dc, max(dc - GUM_ABOVE_CREST, 0), age - (tm['e'] - 1))
+        m = m0.copy(); m.apply_translation(-a * d); return m, d, 0.0, 'through bone', crest
+    # inside the bone: search depth (deeper than the crest) and a move towards the tongue (0-3 mm), keeping the
+    # whole tooth inside the jaw and clear of the baby teeth; the shallowest such place wins (crypt just under
+    # the baby tooth). Eruptive movement starts with root formation, so after crown completion the crypt place
+    # is blended towards the crest at alveolar emergence (age e - 1).
+    inw = inward_dir(jaw, m0.centroid)
+    best = None
+    L = base[(jaw, t)]['L']
+    for d in np.arange(dc + 0.5, dc + L, 0.5):  # cusp tip never deeper than the tooth's full length below the crest
+        for s in (0.0, 0.75, 1.5, 2.25, 3.0):
+            mv = -a * d + inw * s
+            X = X0.translate(mv.tolist())
+            cost = outside(X, J) + (sum((X ^ o).volume() for o in avoid) if avoid else 0.0)
+            score = (round(cost, 0), d + s * 0.5)
+            if best is None or score < best[0]: best = (score, d, s)
+        if best[0][0] == 0: break  # shallowest depth that fits
+    _, d0, s0 = best
+    if age > tm['cc']:
+        f = (age - tm['cc']) / max((tm['e'] - 1) - tm['cc'], 0.25)
+        d = lerp(d0, dc, f); s = lerp(s0, 0.0, f)
+        # stay inside: if the blended place pokes out, go back towards the crypt place
+        for k in np.linspace(0, 1, 9):
+            dd, ss = lerp(d, d0, k), lerp(s, s0, k)
+            X = X0.translate((-a * dd + inw * ss).tolist())
+            if outside(X, J) <= outside(X0.translate((-a * d0 + inw * s0).tolist()), J) + 1.0: d, s = dd, ss; break
+    else:
+        d, s = d0, s0
+    m = m0.copy(); m.apply_translation(-a * d + inw * s)
+    return m, d, s, 'in crypt', crest
+
+def crypt_shell(m, jaw, exposed_axis=None, exposed_from=None):
+    """Bony crypt wall: convex hull of the tooth grown by CRYPT_WALL in every direction. For a tooth that has
+    broken through the bone, the part above the crest is cut off so the crown shows."""
+    dirs = trimesh.creation.icosphere(1).vertices
+    pts = (m.vertices[None, :, :] + CRYPT_WALL * dirs[:, None, :]).reshape(-1, 3)
+    h = trimesh.convex.convex_hull(pts)
+    if exposed_axis is not None:
+        h = clip(h, exposed_from, -exposed_axis)
+    return h
 
 def arch(jaw):
     """Arch line through the permanent tooth centres at occlusal level, starting at the midline."""
@@ -218,7 +320,8 @@ def baby_tooth(jaw, name, age):
     root = b['L'] - b['crown']; keep = b['crown'] + root * (shed - age) / 3.0
     return clip(b['mesh'], b['tip'] - b['axis'] * keep, b['axis'])
 
-def bone(jaw, age):
+def jaw_solid(jaw, age):
+    """The whole (uncut) jaw for this age: bone plus the adult tooth sockets filled in."""
     if jaw == 'lower':
         m = trimesh.Trimesh(B['mandible_v'], B['mandible_f'], process=False)
     else:
@@ -226,6 +329,12 @@ def bone(jaw, age):
                                       trimesh.Trimesh(B['palatine_v'], B['palatine_f'], process=False)])
     v = deform_points(m.vertices, age, jaw)
     M = to_manifold(trimesh.Trimesh(v, m.faces, process=False))
+    for r in final_roots(jaw, age): M = M + to_manifold(r)
+    return M
+
+def bone(jaw, age, J, shells=()):
+    M = J
+    for h in shells: M = M + to_manifold(h)
     if jaw == 'lower':
         M = M.trim_by_plane([-1, 0, 0], -0.0)  # keep the right half (x <= 0)
     # cutaway: remove the cheek-side half of the bone over the teeth, from the midline to behind the third molar
@@ -266,23 +375,44 @@ def anchor(m, bone_m, jaw, others):
     return m, None
 
 LOG = []
+PLACE = []
 def stage(age):
     parts = {}
     for jaw in ('upper', 'lower'):
-        b = bone(jaw, age); bm = to_manifold(b)
-        adult = [x for t in PERM + ['M3'] if (x := perm_tooth(jaw, t, age)) is not None]
-        baby = []
-        for n, _ in BABY:
-            x = baby_tooth(jaw, n, age)
-            if x is None: continue
-            others = [to_manifold(o) for o in adult + baby]
-            x, step = anchor(x, bm, jaw, others)
-            if step and any(step): LOG.append(f'{age} {jaw} {n}: moved {step[0]} mm towards the tongue and {step[1]} mm deeper to join the bone')
-            if step is None: LOG.append(f'{age} {jaw} {n}: NOT joined to bone or teeth (check before printing)')
-            baby.append(x)
+        J = jaw_solid(jaw, age)
+        # the model is the right half: growing teeth must also stay on the right of the midline cut
+        Jfit = J.trim_by_plane([-1, 0, 0], 0.0) if jaw == 'lower' else J
+        baby = [x for n, _ in BABY if (x := baby_tooth(jaw, n, age)) is not None]
+        avoid = [to_manifold(x) for x in baby]
+        adult, shells = [], []
+        for t in PERM + ['M3']:
+            r = place(jaw, t, age, Jfit, avoid)
+            if r is None: continue
+            m, d, sdw, phase, crest = r
+            if jaw == 'lower' and phase != 'in place' and m.bounds[1][0] > -0.3:
+                # moving down its tilted long axis can carry a lower front tooth over the midline cut (< 1 mm):
+                # keep it on the right side so it does not show on the cut face
+                m = m.copy(); m.apply_translation([-0.3 - m.bounds[1][0], 0, 0])
+            a = base[(jaw, t)]['axis']; X = to_manifold(m)
+            # Everything below the bone crest must be covered by bone. In the crypt that is the whole tooth.
+            below = m if phase == 'in crypt' else clip(m, crest, -a)
+            out = outside(to_manifold(below), Jfit) if below is not None else 0.0; wall = out > 0.5
+            if wall:
+                shells.append(crypt_shell(m, jaw) if phase == 'in crypt' else crypt_shell(below, jaw, a, crest))
+            PLACE.append(f'{age} {jaw} {t}: {phase}, {d:.1f} mm down the long axis, {sdw:.1f} mm towards the tongue, '
+                         f'{max(out, 0):.0f} mm3 below the crest outside the adult jaw shape' + (' (crypt wall added)' if wall else ''))
+            adult.append(m); avoid.append(X)
+        b = bone(jaw, age, J, shells); bm = to_manifold(b)
+        placed = []
+        for x in baby:
+            others = [to_manifold(o) for o in adult + placed]
+            x2, step = anchor(x, bm, jaw, others)
+            if step and any(step): LOG.append(f'{age} {jaw} baby tooth: moved {step[0]} mm towards the tongue and {step[1]} mm deeper to join the bone')
+            if step is None: LOG.append(f'{age} {jaw} baby tooth: NOT joined to bone or teeth (check before printing)')
+            placed.append(x2)
         parts[f'{jaw}-bone'] = b
         parts[f'{jaw}-adult-teeth'] = trimesh.util.concatenate(adult)
-        if baby: parts[f'{jaw}-baby-teeth'] = trimesh.util.concatenate(baby)
+        if placed: parts[f'{jaw}-baby-teeth'] = trimesh.util.concatenate(placed)
     return parts
 
 def to_web(m):
@@ -321,3 +451,4 @@ if __name__ == '__main__':
         print(tag, summary[tag])
     json.dump(summary, open(OUT / 'summary.json', 'w'), indent=1)
     (OUT / 'print-notes.txt').write_text('\n'.join(LOG) + '\n'); print('\n'.join(LOG))
+    (OUT / 'tooth-positions.txt').write_text('\n'.join(PLACE) + '\n'); print('\n'.join(PLACE))
