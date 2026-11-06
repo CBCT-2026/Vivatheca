@@ -1052,7 +1052,7 @@ const en = {
     ],
     sourcesHeading: 'Published sources',
     citeLabel: 'Source {n}',
-    sourcesNote: 'Modelled by Luke Seifert, Vivatheca’s founder. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies.',
+    sourcesNote: 'Modelled from scratch by Luke Seifert, Vivatheca’s founder; no third-party or library mesh was used. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies.',
     changelogHeading: 'Change log',
     changelog: [
       { version: '1.2', text: 'Teeth are now tooth-coloured, slightly lighter than the bone, as in every other Vivatheca model. STL files now come in a ZIP with a read-me that holds the review status, the disclaimer and the licence.' },
