@@ -10,12 +10,12 @@ test.describe('stainless steel crown model page', () => {
     const stages = page.getByRole('group', { name: 'Choose a stage' }).getByRole('button');
     await expect(stages).toHaveCount(5);
 
-    await page.getByRole('button', { name: /^Crown/ }).click();
+    await stages.filter({ hasText: /^Crown/ }).click();
     await expect(viewer).toHaveAttribute('src', 'models/crown.glb');
     await expect(page.locator('#stage h2')).toHaveText('Steel crown');
     await expect(page.locator('#legend')).toContainText('Steel crown');
 
-    await page.getByRole('button', { name: /^Filling/ }).click();
+    await stages.filter({ hasText: /^Filling/ }).click();
     await expect(viewer).toHaveAttribute('src', 'models/filling.glb');
     await expect(page).toHaveURL(/#filling$/);
 

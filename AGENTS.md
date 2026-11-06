@@ -125,6 +125,10 @@ This is a standing project rule. Every text-based patient education material on 
 - The `/create` builder applies the same rules in the browser (`app/create/checker.ts`, `briefs.ts`). When the toolkit changes, update the port, the pinned commit in the workflow, and this section.
 - For judgement the checker cannot make (PEMAT, CDC Clear Communication Index, risk wording), use the toolkit's skills, and test materials with people from the audience.
 
+## Model videos
+
+Every model in the collection has a narrated video of at most 45 seconds, in English and Japanese, in `public/videos/<slug>/`, shown on its page (`#video`) and badged on its collection card. A new model needs a script in `tools/video/scripts/` and a video before it goes in the collection (`tests/videos.spec.ts` checks this). Video words follow the same evidence, disclaimer and patient text rules. Re-render a model's video when its GLB changes. How to build one: `tools/video/README.md`.
+
 ## Clinical images (required for all conditions and cases)
 
 Follow [`docs/image-licensing.md`](docs/image-licensing.md) for every radiograph, scan, clinical photograph or third-party figure: accepted licences, the limits on non-commercial (NC) images, full visible attribution, patient consent, and the register entry in `assets/clinical-images/manifest.json`. Skip any image whose licence or consent is unclear. Not-for-profit status never overrides a licence, and Australian fair dealing does not cover publishing these images.

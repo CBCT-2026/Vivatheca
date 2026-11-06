@@ -1,0 +1,404 @@
+{
+ "slug": "alveolar-bone-graft",
+ "models": {
+  "pre": "/models/abg/abg-1-pre-op.glb",
+  "braces": "/models/abg/abg-2-during-braces.glb",
+  "later": "/models/abg/abg-3b-substitution.glb",
+  "long": "/models/abg/abg-3-long-term.glb"
+ },
+ "anchors": {
+  "gum": {
+   "model": "pre",
+   "node": "^soft-tissue$",
+   "at": [
+    0.65,
+    0.5,
+    0.95
+   ]
+  },
+  "gap": {
+   "model": "pre",
+   "node": "^bone$",
+   "at": [
+    0.62,
+    0.6,
+    0.97
+   ]
+  },
+  "graft": {
+   "model": "braces",
+   "node": "^graft$"
+  },
+  "braces": {
+   "model": "braces",
+   "node": "^braces$",
+   "at": [
+    0.4,
+    0.5,
+    0.97
+   ]
+  },
+  "canine": {
+   "model": "pre",
+   "node": "^canine$"
+  },
+  "implant": {
+   "model": "long",
+   "node": "^option-implant$"
+  }
+ },
+ "scenes": {
+  "pre": {
+   "model": "pre",
+   "from": [
+    -12,
+    15,
+    2.6
+   ],
+   "to": [
+    0,
+    15,
+    2.6
+   ],
+   "chip": "pre",
+   "labels": [
+    [
+     "gum",
+     "r",
+     230
+    ]
+   ]
+  },
+  "gap": {
+   "model": "pre",
+   "from": [
+    0,
+    15,
+    2.6
+   ],
+   "to": [
+    12,
+    15,
+    2.4
+   ],
+   "chip": "pre",
+   "hide": "^soft-tissue$",
+   "labels": [
+    [
+     "gap",
+     "r",
+     230
+    ],
+    [
+     "canine",
+     "l",
+     580
+    ]
+   ]
+  },
+  "braces": {
+   "model": "braces",
+   "from": [
+    12,
+    15,
+    2.5
+   ],
+   "to": [
+    0,
+    15,
+    2.5
+   ],
+   "chip": "braces",
+   "hide": "^soft-tissue$",
+   "labels": [
+    [
+     "graft",
+     "r",
+     230
+    ],
+    [
+     "braces",
+     "l",
+     580
+    ]
+   ]
+  },
+  "later": {
+   "model": "later",
+   "from": [
+    -10,
+    13,
+    3.1
+   ],
+   "to": [
+    -20,
+    12,
+    3.1
+   ],
+   "chip": "later"
+  },
+  "long": {
+   "model": "long",
+   "from": [
+    0,
+    15,
+    3.1
+   ],
+   "to": [
+    -10,
+    13,
+    3.1
+   ],
+   "chip": "later",
+   "hide": "^option-(none|bridge|denture)$",
+   "labels": [
+    [
+     "implant",
+     "r",
+     230
+    ]
+   ]
+  }
+ },
+ "sources": [
+  "Lilja J. Alveolar bone grafting. Indian J Plast Surg. 2009;42:S110-S115. https://doi.org/10.1055/s-0039-1699383",
+  "Bergland O, Semb G, Abyholm FE. Elimination of the residual alveolar cleft by secondary bone grafting and subsequent orthodontic treatment. Cleft Palate J. 1986;23:175-205. https://pubmed.ncbi.nlm.nih.gov/3524905/",
+  "Semb G. Alveolar bone grafting. Front Oral Biol. 2012;16:124-136. https://doi.org/10.1159/000337666",
+  "Kokich VO Jr, Kinzer GA. Managing congenitally missing lateral incisors. Part I: canine substitution. J Esthet Restor Dent. 2005;17:5-10. https://doi.org/10.1111/j.1708-8240.2005.tb00076.x",
+  "Zachrisson BU, Rosa M, Toreskog S. Congenitally missing maxillary lateral incisors: canine substitution. Am J Orthod Dentofacial Orthop. 2011;139:434-438. https://doi.org/10.1016/j.ajodo.2011.02.003",
+  "Clerc MM, et al. Replacement of missing lateral incisors for patients with cleft lip and palate: a decision-making tree based on a systematic review. J Prosthet Dent. 2025;134:50-60. https://doi.org/10.1016/j.prosdent.2023.07.023"
+ ],
+ "en": {
+  "title": "Bone graft for a cleft in the upper jaw",
+  "chips": {
+   "pre": "Before: about 9 to 10 years old",
+   "braces": "After the graft: about 12 to 13",
+   "later": "Years later: later teens"
+  },
+  "labels": {
+   "gum": [
+    "Gum",
+    ""
+   ],
+   "gap": [
+    "Gap in the bone",
+    "alveolar cleft"
+   ],
+   "canine": [
+    "Eye tooth",
+    "canine"
+   ],
+   "graft": [
+    "New bone",
+    "bone graft"
+   ],
+   "braces": [
+    "Braces",
+    ""
+   ],
+   "implant": [
+    "Implant",
+    "one way to fill the gap"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "This child was born with a cleft on the left side.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "The pink gum covers a gap in the bone that holds the teeth.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "gap",
+    "sentences": [
+     {
+      "text": "Without the gum, you can see the gap.",
+      "cite": []
+     },
+     {
+      "text": "A bone graft fills this gap with bone.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "braces",
+    "sentences": [
+     {
+      "text": "2 to 3 years later, bone joins the two parts of the jaw.",
+      "cite": [
+       2,
+       3
+      ]
+     },
+     {
+      "text": "The eye tooth has come down through the new bone, and braces line up the teeth.",
+      "cite": [
+       2,
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "long",
+    "sentences": [
+     {
+      "text": "Years later, an implant, a bridge or a plate can fill the space where a tooth never grew.",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "later",
+    "sentences": [
+     {
+      "text": "Or braces move the eye tooth into the gap, and the dentist shapes it.",
+      "cite": [
+       4,
+       5
+      ]
+     },
+     {
+      "text": "Your cleft team will help you choose.",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{上|うえ}あごの{割|わ}れ{目|め}の{骨|ほね}{移植|いしょく}",
+  "chips": {
+   "pre": "{手術|しゅじゅつ}の{前|まえ}：9〜10{歳|さい}ごろ",
+   "braces": "{移植|いしょく}の{後|あと}：12〜13{歳|さい}ごろ",
+   "later": "{数年|すうねん}{後|ご}：10{代|だい}{後半|こうはん}"
+  },
+  "labels": {
+   "gum": [
+    "{歯|は}ぐき",
+    ""
+   ],
+   "gap": [
+    "{骨|ほね}のすき{間|ま}",
+    "{顎裂|がくれつ}"
+   ],
+   "canine": [
+    "{犬歯|けんし}",
+    ""
+   ],
+   "graft": [
+    "{新|あたら}しい{骨|ほね}",
+    "{骨|ほね}{移植|いしょく}"
+   ],
+   "braces": [
+    "{矯正|きょうせい}{装置|そうち}",
+    ""
+   ],
+   "implant": [
+    "インプラント",
+    "すき{間|ま}を{埋|う}める{方法|ほうほう}の1つ"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "この{子|こ}どもは、{生|う}まれつき{左側|ひだりがわ}に{割|わ}れ{目|め}があります。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "ピンクの{歯|は}ぐきが、{歯|は}をささえる{骨|ほね}のすき{間|ま}をおおっています。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "gap",
+    "sentences": [
+     {
+      "text": "{歯|は}ぐきを{外|はず}すと、すき{間|ま}が{見|み}えます。",
+      "cite": []
+     },
+     {
+      "text": "{骨|ほね}{移植|いしょく}で、このすき{間|ま}を{骨|ほね}でうめます。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "braces",
+    "sentences": [
+     {
+      "text": "2〜3{年|ねん}{後|ご}、{骨|ほね}があごの2つの{部分|ぶぶん}をつないでいます。",
+      "cite": [
+       2,
+       3
+      ],
+      "tts": "にさんねんごに、ほねが、あごの、ふたつのぶぶんを、つないでいます。"
+     },
+     {
+      "text": "{犬歯|けんし}が{新|あたら}しい{骨|ほね}を{通|とお}っておりてきて、{装置|そうち}で{歯|は}をならべます。",
+      "cite": [
+       2,
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "long",
+    "sentences": [
+     {
+      "text": "{数年|すうねん}{後|ご}、{歯|は}が{生|は}えなかったすき{間|ま}は、インプラントやブリッジ、{入|い}れ{歯|ば}で{埋|う}められます。",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "later",
+    "sentences": [
+     {
+      "text": "または、{犬歯|けんし}をすき{間|ま}に{動|うご}かし、{形|かたち}を{整|ととの}えます。",
+      "cite": [
+       4,
+       5
+      ]
+     },
+     {
+      "text": "チームと{一緒|いっしょ}に{選|えら}びます。",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

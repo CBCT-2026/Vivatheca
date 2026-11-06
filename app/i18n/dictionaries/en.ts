@@ -963,6 +963,17 @@ const en = {
       popupBlocked: 'Pop-ups are blocked. Use "Download HTML" and print that file instead.',
     },
   },
+  video: {
+    badge: 'Video',
+    heading: 'Watch: a short video about this model',
+    meta: '{s} seconds · computer voice · subtitles',
+    says: 'What the video says',
+    voice: 'The voice is made by a computer (Kokoro-82M text to speech). The video shows the same 3D model as this page. It is made in the same way as the narrated video for the Vivatheca wisdom tooth model.',
+    sources: 'Sources for the video',
+    label: 'Narrated video: ',
+    noVideo: 'Your browser cannot play this video.',
+    english: '',
+  },
   library: {
     title: 'Model library — Vivatheca',
     description: 'Free 3D models of dental and oral and maxillofacial conditions, each paired with normal anatomy, with GLB and STL downloads.',
@@ -980,6 +991,8 @@ const en = {
     askGap: ' ',
     askEnd: '.',
     notReviewed: 'Not yet clinically reviewed',
+    videoBadge: 'Video',
+    watchVideo: 'Watch the {s}-second video',
     items: {
       'impacted-wisdom-tooth': {
         title: 'Impacted lower wisdom tooth',

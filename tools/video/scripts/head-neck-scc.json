@@ -1,0 +1,371 @@
+{
+ "slug": "head-neck-scc",
+ "models": {
+  "m": "/head-neck/models/scc-case.glb"
+ },
+ "style": {
+  "^margin": {
+   "opacity": 0.18
+  },
+  "^excised": {
+   "opacity": 0.55
+  },
+  "^mucosa$": {
+   "opacity": 0.4
+  },
+  "^cover_plate": {
+   "opacity": 0.45
+  },
+  "^fibula": {
+   "color": "#c8a47a"
+  }
+ },
+ "anchors": {
+  "lesion": {
+   "node": "^lesion$",
+   "at": [
+    0.5,
+    0.6,
+    0.5
+   ]
+  },
+  "specimen": {
+   "node": "^specimen_bone",
+   "at": [
+    0.3,
+    0.5,
+    0.6
+   ]
+  },
+  "fibula": {
+   "node": "^fibula",
+   "at": [
+    0.3,
+    0.5,
+    0.6
+   ]
+  },
+  "plate": {
+   "node": "^plate$",
+   "at": [
+    0.5,
+    0.5,
+    0.9
+   ]
+  }
+ },
+ "scenes": {
+  "pre": {
+   "from": [
+    -60,
+    14,
+    4.2
+   ],
+   "to": [
+    -48,
+    14,
+    4.2
+   ],
+   "chip": "pre",
+   "hide": "^margin|^excised|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": [
+    [
+     "lesion",
+     "r",
+     230
+    ]
+   ]
+  },
+  "op": {
+   "from": [
+    -48,
+    14,
+    4.2
+   ],
+   "to": [
+    -38,
+    14,
+    4.2
+   ],
+   "chip": "op",
+   "hide": "^margin|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "lift": {
+    "match": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+    "dy": 0.03
+   },
+   "labels": [
+    [
+     "specimen",
+     "l",
+     230
+    ]
+   ]
+  },
+  "post": {
+   "from": [
+    -38,
+    14,
+    4.2
+   ],
+   "to": [
+    -30,
+    14,
+    4.2
+   ],
+   "chip": "post",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": []
+  },
+  "recon": {
+   "from": [
+    -30,
+    14,
+    4.2
+   ],
+   "to": [
+    -42,
+    18,
+    4.2
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+   "labels": [
+    [
+     "fibula",
+     "l",
+     560
+    ],
+    [
+     "plate",
+     "r",
+     230
+    ]
+   ]
+  },
+  "end": {
+   "from": [
+    -42,
+    18,
+    4.2
+   ],
+   "to": [
+    -62,
+    20,
+    4.5360000000000005
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)"
+  }
+ },
+ "sources": [
+  "Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077. https://doi.org/10.7759/cureus.56077",
+  "Hidalgo DA. Fibula free flap: a new method of mandible reconstruction. Plast Reconstr Surg. 1989;84(1):71-79. https://pubmed.ncbi.nlm.nih.gov/2734406/"
+ ],
+ "en": {
+  "title": "Mouth cancer in the lower jaw: one real case",
+  "chips": {
+   "pre": "1 · Before surgery",
+   "op": "2 · What is removed",
+   "post": "3 · After removal",
+   "recon": "4 · Rebuilding"
+  },
+  "labels": {
+   "lesion": [
+    "Cancer",
+    "squamous cell carcinoma"
+   ],
+   "specimen": [
+    "Bone removed",
+    "with 8 teeth"
+   ],
+   "fibula": [
+    "Leg bone",
+    "fibula"
+   ],
+   "plate": [
+    "Titanium plate",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "This model follows one real, published case.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "A woman aged 72 had a cancer on her right lower gum, and it had grown into the bone.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "Surgeons took out the right side of her lower jaw in one piece, with its 8 teeth.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "This left a large gap.",
+      "cite": []
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "They rebuilt the jaw with bone from her leg (fibula).",
+      "cite": [
+       1,
+       2
+      ],
+      "tts": "They rebuilt the jaw with bone from her leg, the fibula."
+     },
+     {
+      "text": "Surgeons join its blood vessels to vessels in the neck, so the bone stays alive.",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "Nine months later the new bone had taken well.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "If you have had mouth cancer, you need regular checks for many years.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{下|した}あごの{口|くち}のがん：{実際|じっさい}の{一例|いちれい}",
+  "chips": {
+   "pre": "1 · {手術|しゅじゅつ}の{前|まえ}",
+   "op": "2 · {取|と}るところ",
+   "post": "3 · {取|と}ったあと",
+   "recon": "4 · {治|なお}す"
+  },
+  "labels": {
+   "lesion": [
+    "がん",
+    "{扁平|へんぺい}{上皮|じょうひ}がん"
+   ],
+   "specimen": [
+    "{取|と}る{骨|ほね}",
+    "{歯|は}8{本|ほん}といっしょに"
+   ],
+   "fibula": [
+    "{足|あし}の{骨|ほね}",
+    "ひ{骨|こつ}"
+   ],
+   "plate": [
+    "チタンのプレート",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "この{模型|もけい}は、{論文|ろんぶん}で{発表|はっぴょう}された{実際|じっさい}の{一例|いちれい}をもとにしています。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "72{歳|さい}の{女性|じょせい}の{右下|みぎした}の{歯|は}ぐきにがんができ、{骨|ほね}まで{広|ひろ}がっていました。",
+      "cite": [
+       1
+      ],
+      "tts": "ななじゅうにさいの、じょせいの、みぎしたの、はぐきに、がんができ、ほねまで、ひろがっていました。"
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "{手術|しゅじゅつ}で、{下|した}あごの{右側|みぎがわ}を、{歯|は}8{本|ほん}といっしょに{取|と}りました。",
+      "cite": [
+       1
+      ],
+      "tts": "しゅじゅつで、したあごの、みぎがわを、は、はっぽんと、いっしょに、とりました。"
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "{大|おお}きなすき{間|ま}ができます。",
+      "cite": []
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "{足|あし}の{骨|ほね}（ひ{骨|こつ}）で、あごを{作|つく}り{直|なお}しました。",
+      "cite": [
+       1,
+       2
+      ],
+      "tts": "あしの、ほね、ひこつで、あごを、つくりなおしました。"
+     },
+     {
+      "text": "{骨|ほね}の{血管|けっかん}を{首|くび}の{血管|けっかん}につなぐので、{骨|ほね}は{生|い}きたままです。",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "9か{月|げつ}{後|ご}、{新|あたら}しい{骨|ほね}はよくついていました。",
+      "cite": [
+       1
+      ],
+      "tts": "きゅうかげつごに、あたらしいほねは、よくついていました。"
+     },
+     {
+      "text": "{口|くち}のがんの{後|あと}は、{長|なが}い{間|あいだ}、{定期的|ていきてき}な{検査|けんさ}が{必要|ひつよう}です。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

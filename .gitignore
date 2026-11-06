@@ -45,4 +45,5 @@ tsconfig.tsbuildinfo
 
 # patient text snapshots for pitk (tools/patient-text)
 /.pitk/
+/tools/video/build/
 .dev.vars*

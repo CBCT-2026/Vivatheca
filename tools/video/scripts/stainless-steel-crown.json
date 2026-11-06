@@ -1,0 +1,367 @@
+{
+ "slug": "stainless-steel-crown",
+ "style": {
+  "^steel$": {
+   "metalness": 0.35,
+   "roughness": 0.3,
+   "color": "#c9ccd1"
+  }
+ },
+ "models": {
+  "healthy": "/stainless-steel-crown/models/healthy.glb",
+  "decay": "/stainless-steel-crown/models/decay.glb",
+  "filling": "/stainless-steel-crown/models/filling.glb",
+  "prepared": "/stainless-steel-crown/models/prepared.glb",
+  "crown": "/stainless-steel-crown/models/crown.glb"
+ },
+ "anchors": {
+  "tooth": {
+   "model": "healthy",
+   "node": "^teeth$",
+   "at": [
+    0.5,
+    0.9,
+    0.5
+   ]
+  },
+  "adult": {
+   "model": "healthy",
+   "node": "^premolar$"
+  },
+  "decay": {
+   "model": "decay",
+   "node": "^decay$"
+  },
+  "filling": {
+   "model": "filling",
+   "node": "^filling$",
+   "at": [
+    0.5,
+    0.9,
+    0.5
+   ]
+  },
+  "steel": {
+   "model": "crown",
+   "node": "^steel$",
+   "at": [
+    0.5,
+    0.9,
+    0.5
+   ]
+  }
+ },
+ "scenes": {
+  "healthy": {
+   "model": "healthy",
+   "from": [
+    -40,
+    22,
+    4.2
+   ],
+   "to": [
+    -30,
+    22,
+    4.2
+   ],
+   "chip": "healthy",
+   "xray": {
+    "^gum$": 0.18,
+    "^bone$": 0.18,
+    "^steel$": 0.3,
+    "^cement$": 0.45,
+    "^teeth$": 0.4,
+    "^decay$": 0.6,
+    "^filling$": 0.55
+   },
+   "labels": [
+    [
+     "tooth",
+     "r",
+     200
+    ],
+    [
+     "adult",
+     "l",
+     560
+    ]
+   ]
+  },
+  "decay": {
+   "model": "decay",
+   "from": [
+    -30,
+    30,
+    4.2
+   ],
+   "to": [
+    -20,
+    40,
+    4.2
+   ],
+   "chip": "decay",
+   "labels": [
+    [
+     "decay",
+     "r",
+     270
+    ]
+   ]
+  },
+  "filling": {
+   "model": "filling",
+   "from": [
+    -20,
+    40,
+    4.2
+   ],
+   "to": [
+    -30,
+    30,
+    4.2
+   ],
+   "chip": "filling",
+   "labels": [
+    [
+     "filling",
+     "r",
+     250
+    ]
+   ]
+  },
+  "prepared": {
+   "model": "prepared",
+   "from": [
+    -30,
+    30,
+    4.2
+   ],
+   "to": [
+    -40,
+    25,
+    4.2
+   ],
+   "chip": "prepared"
+  },
+  "crown": {
+   "model": "crown",
+   "from": [
+    -40,
+    25,
+    4.2
+   ],
+   "to": [
+    -20,
+    25,
+    4.2
+   ],
+   "chip": "crown",
+   "labels": [
+    [
+     "steel",
+     "r",
+     250
+    ]
+   ]
+  }
+ },
+ "sources": [
+  "American Academy of Pediatric Dentistry. Pediatric restorative dentistry. The Reference Manual of Pediatric Dentistry. Chicago, IL: AAPD; 2025:473-86. https://www.aapd.org/research/oral-health-policies--recommendations/pediatric-restorative-dentistry/",
+  "Seale NS. The use of stainless steel crowns. Pediatr Dent. 2002;24(5):501-505. https://pubmed.ncbi.nlm.nih.gov/12412965/",
+  "Innes NPT, Ricketts D, Chong LY, et al. Preformed crowns for decayed primary molar teeth. Cochrane Database Syst Rev. 2015;(12):CD005512. https://doi.org/10.1002/14651858.CD005512.pub3",
+  "Wu E, Yang YJ, Munz SM, Hsiao CC, Boynton JR. Restorations versus stainless steel crowns in primary molars: a retrospective split-mouth study. Pediatr Dent. 2021;43(4):290-295. https://pubmed.ncbi.nlm.nih.gov/34467846/"
+ ],
+ "en": {
+  "title": "A steel crown for a baby back tooth",
+  "chips": {
+   "healthy": "Healthy",
+   "decay": "Decay",
+   "filling": "Filling",
+   "prepared": "Shaped",
+   "crown": "Crown"
+  },
+  "labels": {
+   "tooth": [
+    "Baby back tooth",
+    "primary molar"
+   ],
+   "adult": [
+    "Adult tooth growing",
+    ""
+   ],
+   "decay": [
+    "Decay",
+    ""
+   ],
+   "filling": [
+    "Large filling",
+    ""
+   ],
+   "steel": [
+    "Steel crown",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "healthy",
+    "sentences": [
+     {
+      "text": "This is a baby back tooth in a child's lower jaw. Under it, the adult tooth is growing.",
+      "cite": []
+     }
+    ]
+   },
+   {
+    "scene": "decay",
+    "sentences": [
+     {
+      "text": "Here, decay has made holes on more than one side of the tooth.",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "filling",
+    "sentences": [
+     {
+      "text": "A large filling leaves only thin walls of tooth around it.",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "prepared",
+    "sentences": [
+     {
+      "text": "For a steel crown, the dentist most often numbs the tooth, takes out the decay and trims it a little.",
+      "cite": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "crown",
+    "sentences": [
+     {
+      "text": "Then the dentist glues a ready-made metal cap over the whole tooth.",
+      "cite": [
+       3,
+       1
+      ]
+     },
+     {
+      "text": "After 2 years, about 93 in 100 crowns were still working well, compared with 80 in 100 large fillings.",
+      "cite": [
+       4
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{乳歯|にゅうし}の{奥歯|おくば}の{金属|きんぞく}のかぶせ{物|もの}",
+  "chips": {
+   "healthy": "{健康|けんこう}",
+   "decay": "むし{歯|ば}",
+   "filling": "{詰|つ}め{物|もの}",
+   "prepared": "{形|かたち}を{整|ととの}える",
+   "crown": "かぶせ{物|もの}"
+  },
+  "labels": {
+   "tooth": [
+    "{乳歯|にゅうし}の{奥歯|おくば}",
+    "{乳臼歯|にゅうきゅうし}"
+   ],
+   "adult": [
+    "{育|そだ}っている{永久歯|えいきゅうし}",
+    ""
+   ],
+   "decay": [
+    "むし{歯|ば}",
+    ""
+   ],
+   "filling": [
+    "{大|おお}きな{詰|つ}め{物|もの}",
+    ""
+   ],
+   "steel": [
+    "{金属|きんぞく}のかぶせ{物|もの}",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "healthy",
+    "sentences": [
+     {
+      "text": "これは{子|こ}どもの{下|した}あごの{乳歯|にゅうし}の{奥歯|おくば}です。{下|した}では{永久歯|えいきゅうし}が{育|そだ}っています。",
+      "cite": []
+     }
+    ]
+   },
+   {
+    "scene": "decay",
+    "sentences": [
+     {
+      "text": "ここでは、むし{歯|ば}が{歯|は}の{二|ふた}つ{以上|いじょう}の{面|めん}に{穴|あな}をあけています。",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "filling",
+    "sentences": [
+     {
+      "text": "{大|おお}きな{詰|つ}め{物|もの}だと、まわりの{歯|は}の{壁|かべ}がうすくなります。",
+      "cite": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "prepared",
+    "sentences": [
+     {
+      "text": "かぶせ{物|もの}では、ふつう{麻酔|ますい}をして、むし{歯|ば}を{取|と}り、{歯|は}を{少|すこ}し{削|けず}ります。",
+      "cite": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "crown",
+    "sentences": [
+     {
+      "text": "そして、{既製|きせい}の{金属|きんぞく}のかぶせ{物|もの}を{歯|は}{全体|ぜんたい}につけます。",
+      "cite": [
+       3,
+       1
+      ]
+     },
+     {
+      "text": "2{年|ねん}{後|ご}、かぶせ{物|もの}は100{本|ぽん}{中|ちゅう}{約|やく}93{本|ほん}、{大|おお}きな{詰|つ}め{物|もの}は80{本|ほん}がうまくいっていました。",
+      "cite": [
+       4
+      ],
+      "tts": "にねんごに、かぶせものは、ひゃっぽんちゅう、やくきゅうじゅうさんぼん、おおきなつめものは、はちじゅっぽんが、うまくいっていました。"
+     }
+    ]
+   }
+  ]
+ }
+}

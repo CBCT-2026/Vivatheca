@@ -1,0 +1,410 @@
+{
+ "slug": "head-neck",
+ "models": {
+  "pa": "/head-neck/models/pa.glb",
+  "acc": "/head-neck/models/acc.glb"
+ },
+ "style": {
+  "^margin": {
+   "opacity": 0.18
+  },
+  "^excised": {
+   "opacity": 0.55
+  },
+  "^mucosa$": {
+   "opacity": 0.4
+  },
+  "^cover_plate": {
+   "opacity": 0.45
+  },
+  "^fibula": {
+   "color": "#c8a47a"
+  }
+ },
+ "anchors": {
+  "pa": {
+   "model": "pa",
+   "node": "^lesion$"
+  },
+  "pa_ex": {
+   "model": "pa",
+   "node": "^excised",
+   "label": "excised"
+  },
+  "acc": {
+   "model": "acc",
+   "node": "^lesion$"
+  },
+  "nerve": {
+   "model": "acc",
+   "node": "^nerve_path",
+   "at": [
+    0.5,
+    0.8,
+    0.3
+   ]
+  },
+  "spec": {
+   "model": "acc",
+   "node": "^specimen_bone",
+   "at": [
+    0.5,
+    0.3,
+    0.5
+   ]
+  },
+  "flap": {
+   "model": "acc",
+   "node": "^free_flap$"
+  }
+ },
+ "scenes": {
+  "pa_pre": {
+   "model": "pa",
+   "from": [
+    -34,
+    -52,
+    2.9
+   ],
+   "to": [
+    -22,
+    -55,
+    2.9
+   ],
+   "chip": "pa",
+   "hide": "^margin|^excised",
+   "labels": [
+    [
+     "pa",
+     "r",
+     230
+    ]
+   ]
+  },
+  "pa_op": {
+   "model": "pa",
+   "from": [
+    -22,
+    -55,
+    2.9
+   ],
+   "to": [
+    -10,
+    -55,
+    2.9
+   ],
+   "chip": "pa",
+   "lift": {
+    "match": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+    "dy": -0.025
+   },
+   "labels": [
+    [
+     "pa_ex",
+     "r",
+     230
+    ]
+   ]
+  },
+  "acc_pre": {
+   "model": "acc",
+   "from": [
+    -34,
+    -50,
+    2.9
+   ],
+   "to": [
+    -24,
+    -52,
+    2.9
+   ],
+   "chip": "acc",
+   "hide": "^margin|^free_flap",
+   "xray": true,
+   "labels": [
+    [
+     "acc",
+     "r",
+     230
+    ],
+    [
+     "nerve",
+     "l",
+     560
+    ]
+   ]
+  },
+  "acc_op": {
+   "model": "acc",
+   "from": [
+    -24,
+    -52,
+    2.9
+   ],
+   "to": [
+    -12,
+    -52,
+    2.9
+   ],
+   "chip": "acc",
+   "hide": "^margin|^free_flap",
+   "lift": {
+    "match": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+    "dy": -0.025
+   },
+   "labels": [
+    [
+     "spec",
+     "r",
+     580
+    ]
+   ]
+  },
+  "acc_recon": {
+   "model": "acc",
+   "from": [
+    -12,
+    -52,
+    2.9
+   ],
+   "to": [
+    -30,
+    -48,
+    3.0
+   ],
+   "chip": "acc",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+   "labels": [
+    [
+     "flap",
+     "r",
+     230
+    ]
+   ]
+  }
+ },
+ "sources": [
+  "Zar K, Tabib R, Rushinek H, et al. The correlation between histopathological pattern and surgical treatment for palatal pleomorphic adenoma. J Craniomaxillofac Surg. 2024;52(12):1469-1475. https://doi.org/10.1016/j.jcms.2024.08.015",
+  "Moon SY. Surgical management of the palatal pleomorphic adenoma. J Craniofac Surg. 2019;30(6):e580-e582. https://doi.org/10.1097/SCS.0000000000005608",
+  "Ju WT, Zhao TC, Liu Y, et al. Computed tomographic features of adenoid cystic carcinoma in the palate. Cancer Imaging. 2019;19(1):3. https://doi.org/10.1186/s40644-019-0190-z",
+  "Bakst RL, Glastonbury CM, Parvathaneni U, et al. Perineural invasion and perineural tumor spread in head and neck cancer. Int J Radiat Oncol Biol Phys. 2019;103(5):1109-1124. https://doi.org/10.1016/j.ijrobp.2018.12.009",
+  "Brown JS, Shaw RJ. Reconstruction of the maxilla and midface: introducing a new classification. Lancet Oncol. 2010;11(10):1001-1008. https://doi.org/10.1016/S1470-2045(10)70113-3",
+  "Breeze J, Rennie A, Morrison A, et al. Health-related quality of life after maxillectomy: obturator rehabilitation compared with flap reconstruction. Br J Oral Maxillofac Surg. 2016;54(8):857-862. https://doi.org/10.1016/j.bjoms.2016.05.024",
+  "Kostares E, Diamantopoulou S, Schoinohoriti O, et al. Recurrent pleomorphic adenoma of the palate: a case report. Clin Pract. 2026;16(9):168. https://doi.org/10.3390/clinpract16090168"
+ ],
+ "en": {
+  "title": "Two growths in the roof of the mouth",
+  "chips": {
+   "pa": "Pleomorphic adenoma (not cancer)",
+   "acc": "Adenoid cystic carcinoma (cancer)"
+  },
+  "labels": {
+   "pa": [
+    "Growth",
+    "pleomorphic adenoma"
+   ],
+   "excised": [
+    "Removed",
+    "growth and lining"
+   ],
+   "acc": [
+    "Cancer",
+    "adenoid cystic carcinoma"
+   ],
+   "nerve": [
+    "Nerve path",
+    "greater palatine nerve"
+   ],
+   "spec": [
+    "Bone removed",
+    "with 2 teeth"
+   ],
+   "flap": [
+    "Flap",
+    "tissue from elsewhere in the body"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pa_pre",
+    "sentences": [
+     {
+      "text": "These models show two growths in the roof of the mouth.",
+      "cite": []
+     },
+     {
+      "text": "This is the most common growth of a spit gland here that is not cancer.",
+      "cite": [
+       1,
+       2,
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "pa_op",
+    "sentences": [
+     {
+      "text": "The surgeon takes it out with the lining over it. The teeth and bone most often stay.",
+      "cite": [
+       1,
+       2,
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "acc_pre",
+    "sentences": [
+     {
+      "text": "This is a slow cancer that creeps along nerves.",
+      "cite": [
+       3,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "acc_op",
+    "sentences": [
+     {
+      "text": "So the surgery goes further back and higher up, and takes some bone and teeth.",
+      "cite": [
+       3,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "acc_recon",
+    "sentences": [
+     {
+      "text": "Here the gap is closed with tissue moved from elsewhere in the body.",
+      "cite": [
+       5
+      ]
+     },
+     {
+      "text": "A plate with teeth is another choice. It depends on the gap and what you prefer.",
+      "cite": [
+       5,
+       6
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{口|くち}の{天井|てんじょう}にできる2つのできもの",
+  "chips": {
+   "pa": "{多形|たけい}{腺腫|せんしゅ}（がんではない）",
+   "acc": "{腺様|せんよう}のう{胞|ほう}がん（がん）"
+  },
+  "labels": {
+   "pa": [
+    "できもの",
+    "{多形|たけい}{腺腫|せんしゅ}"
+   ],
+   "excised": [
+    "{取|と}るところ",
+    "できものと{粘膜|ねんまく}"
+   ],
+   "acc": [
+    "がん",
+    "{腺様|せんよう}のう{胞|ほう}がん"
+   ],
+   "nerve": [
+    "{神経|しんけい}の{通|とお}り{道|みち}",
+    "{大口蓋|だいこうがい}{神経|しんけい}"
+   ],
+   "spec": [
+    "{取|と}る{骨|ほね}",
+    "{歯|は}2{本|ほん}といっしょに"
+   ],
+   "flap": [
+    "{皮弁|ひべん}",
+    "{体|からだ}のほかの{場所|ばしょ}の{組織|そしき}"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pa_pre",
+    "sentences": [
+     {
+      "text": "{口|くち}の{天井|てんじょう}にできる、2つのできものの{模型|もけい}です。",
+      "cite": [],
+      "tts": "くちのてんじょうにできる、ふたつの、できものの、もけいです。"
+     },
+     {
+      "text": "これは、ここにできる{唾液腺|だえきせん}のできもので、がんではないもののうち、いちばん{多|おお}いものです。",
+      "cite": [
+       1,
+       2,
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "pa_op",
+    "sentences": [
+     {
+      "text": "{上|うえ}の{粘膜|ねんまく}といっしょに{取|と}ります。{歯|は}と{骨|ほね}はふつう{残|のこ}ります。",
+      "cite": [
+       1,
+       2,
+       7
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "acc_pre",
+    "sentences": [
+     {
+      "text": "これは、{神経|しんけい}に{沿|そ}ってゆっくり{広|ひろ}がるがんです。",
+      "cite": [
+       3,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "acc_op",
+    "sentences": [
+     {
+      "text": "そのため、より{奥|おく}と{上|うえ}まで、{骨|ほね}と{歯|は}もいっしょに{取|と}ります。",
+      "cite": [
+       3,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "acc_recon",
+    "sentences": [
+     {
+      "text": "ここでは、{体|からだ}のほかの{場所|ばしょ}から{移|うつ}した{組織|そしき}で、{穴|あな}を{閉|と}じています。",
+      "cite": [
+       5
+      ]
+     },
+     {
+      "text": "{歯|は}のついた{入|い}れ{歯|ば}を{使|つか}う{方法|ほうほう}もあり、{穴|あな}の{大|おお}きさや{希望|きぼう}で{選|えら}びます。",
+      "cite": [
+       5,
+       6
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
