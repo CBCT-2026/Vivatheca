@@ -5,7 +5,7 @@
 //
 // PLACEHOLDERS: Luke has not given the real Instagram and X handles yet, and the email is the
 // address the site already used before this change. Fill them in here. An empty handle shows
-// "Coming soon" instead of a link, so the site never points at someone else's account.
+// a button with no destination yet, so the site never points at someone else's account.
 export const contact = {
   /** PLACEHOLDER: confirm this is the address Vivatheca should be contacted on. */
   email: 'hello@vivatheca.com',

@@ -32,11 +32,11 @@ export function ContactSection({ t }: { t: Dictionary }) {
                   <span className="contact-handle">{link.id === 'email' ? link.handle : `@${link.handle}`}</span>
                 </a>
               ) : (
-                <span className="contact-pending">
+                // No destination yet (Luke, 2026-11-06): shown as a button, not a link.
+                <a className="contact-pending" role="link" aria-disabled="true">
                   {icon}
                   <span className="contact-name"><Ruby text={name} /></span>
-                  <span className="contact-handle"><Ruby text={c.comingSoon} /></span>
-                </span>
+                </a>
               )}
             </li>
           );
