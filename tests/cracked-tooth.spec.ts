@@ -35,7 +35,7 @@ test.describe('cracked tooth models', () => {
     await expect(page.getByText('Not yet clinically reviewed.').first()).toBeHidden();
     await expect(page.locator('[lang="ja"] strong').filter({ hasText: '臨床' }).first()).toBeVisible();
     await expect(page.locator('footer.contact')).toBeVisible();
-    await expect(page.locator('.vt-translation-note')).toBeVisible();
+    await expect(page.locator('.vt-translation-note[lang="ja"]')).toBeVisible();
   });
 
   test('model and print files are served', async ({ request }) => {
