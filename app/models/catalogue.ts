@@ -19,7 +19,7 @@ export const catalogue: CatalogueModel[] = [
   { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.1', updated: '2026-11-05' },
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '1.0', updated: '2026-11-05' },
-  { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '1.0', updated: '2026-11-05' },
+  { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '1.1', updated: '2026-11-06' },
   { slug: 'cracked-tooth', href: '/cracked-tooth/', image: '/assets/renders/cracked-tooth.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'stainless-steel-crown', href: '/stainless-steel-crown/', image: '/assets/renders/stainless-steel-crown.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'head-neck', href: '/head-neck/', image: '/assets/renders/head-neck.webp', version: '1.0', updated: '2026-11-05' },

@@ -12,8 +12,12 @@ const P = {
   sinus: '0.0016 0.0021 0.0043', rootN: '0.0025 -0.0108 0.0114', floorN: '0.0025 -0.0068 0.0110',
   opening: '0.0045 -0.0116 0.0105', socket: '0.0025 -0.0204 0.0113', flap: '0.0029 -0.0249 0.0098',
   flapB: '-0.0079 -0.0181 0.0089', fat: '-0.0147 -0.0076 -0.0034', fatC: '0.0026 -0.0248 0.0099',
+  palF: '0.0029 -0.0249 0.0098', palB: '0.0145 -0.0249 -0.0032', palD: '0.0200 -0.0160 0.0075',
   tract: '0.0005 -0.0194 0.0113', lining: '-0.0082 -0.0040 0.0084', gum: '-0.0082 -0.0175 0.0084',
 };
+
+// Labels face the cut face, except these (they sit on the cheek side or under the palate).
+const NORMAL = { fat: '-1 0 0', palB: '0 -1 0', palD: '0 -1 0' };
 
 const STAGES = {
   normal: {
@@ -58,6 +62,12 @@ const STAGES = {
     ja: ['{閉鎖|へいさ}：ほおの{脂肪|しぼう}のかたまりでふさぐ', 'ほおの{奥|おく}、{上|うわ}あごの{後|うし}ろにある{脂肪|しぼう}のかたまりを、{血流|けつりゅう}をつけたまま{前|まえ}に{引|ひ}き{出|だ}し、{穴|あな}の{上|うえ}に{広|ひろ}げて{口蓋|こうがい}の{歯|は}ぐきに{縫|ぬ}いつけます。{奥|おく}の{方|ほう}の{穴|あな}に{向|む}いており、ほお{側|がわ}の{弁|べん}と{組|く}み{合|あ}わせることもあります。' + cite(1, 5) + 'ランダム{化|か}{試験|しけん}9{件|けん}のネットワークメタアナリシスでは、ほおの{脂肪|しぼう}のかたまりはほお{側|がわ}の{弁|べん}や{口蓋弁|こうがいべん}より{確実|かくじつ}に{閉|と}じ、{再発|さいはつ}が{少|すく}なかったと{報告|ほうこく}されています。' + cite(4)],
     labels: [['fat', 'up', 'Fat pad stalk', 'ほおの{脂肪|しぼう}のかたまり'], ['fatC', 'right', 'Fat pad', '{脂肪|しぼう}']],
   },
+  palatal: {
+    parts: ['bone', 'teeth', 'gum', 'sinus', 'clot', 'flap'],
+    en: ['Repair: palate gum flap (palatal rotation flap)', 'The surgeon lifts a strip of thick gum from the roof of the mouth (the palate). It stays joined at the back, where its blood comes in. They swing it sideways over the socket and stitch it down, with no pulling. This flap has a good blood supply and is thick. But it leaves bare bone on the palate. That spot can be sore, and it slowly heals over by itself. The flap suits holes near the smaller teeth in front of the molars. At the back, the pull on it can cut off its blood, and part of it may die.' + cite(1, 2) + ' In the review of 9 trials, it closed holes less often than the fat pad.' + cite(4) + ' Tap “From the mouth” to see the bare bone.'],
+    ja: ['{閉鎖|へいさ}：{口蓋|こうがい}の{歯|は}ぐきの{弁|べん}（{口蓋回転弁|こうがいかいてんべん}）', '{上|うわ}あごの{天井|てんじょう}（{口蓋|こうがい}）の{厚|あつ}い{歯|は}ぐきを{細長|ほそなが}くはがします。{血流|けつりゅう}が{入|はい}る{後|うし}ろ{側|がわ}はつけたまま{横|よこ}に{回|まわ}し、ひっぱらないように{穴|あな}の{上|うえ}にかぶせて{縫|ぬ}いつけます。{血流|けつりゅう}がよく{厚|あつ}みのある{弁|べん}ですが、はがしたあとの{口蓋|こうがい}の{骨|ほね}がむき{出|だ}しになります。そこは{痛|いた}むことがあり、ゆっくりと{自然|しぜん}に{治|なお}ります。{小臼歯|しょうきゅうし}のあたりの{穴|あな}に{向|む}いています。{奥|おく}の{方|ほう}では{弁|べん}がひっぱられて{血流|けつりゅう}が{止|と}まり、{一部|いちぶ}が{死|し}んでしまうことがあります。' + cite(1, 2) + 'ランダム{化|か}{試験|しけん}9{件|けん}の{解析|かいせき}では、ほおの{脂肪|しぼう}のかたまりより{閉|と}じる{割合|わりあい}が{低|ひく}かったと{報告|ほうこく}されています。' + cite(4) + '「{口|くち}の{中|なか}から」でむき{出|だ}しの{骨|ほね}が{見|み}えます。'],
+    labels: [['palF', 'right', 'Flap', '{弁|べん}'], ['palB', 'left', 'Joined at back', '{後|うし}ろでつながる'], ['palD', 'right', 'Bare bone', 'むき{出|だ}しの{骨|ほね}']],
+  },
 };
 const LANG = () => (html.lang === 'ja' ? 'ja' : 'en');
 let current = 'normal';
@@ -82,7 +92,7 @@ function render() {
   s.labels.forEach(([key, side, en, ja], i) => {
     const b = document.createElement('div');
     b.className = 'hotspot'; b.slot = 'hotspot-' + i; b.dataset.position = P[key]; b.dataset.side = side;
-    b.dataset.normal = key === 'fat' ? '-1 0 0' : '0 0 1'; b.dataset.visibilityAttribute = 'visible';
+    b.dataset.normal = NORMAL[key] || '0 0 1'; b.dataset.visibilityAttribute = 'visible';
     b.setAttribute('aria-hidden', 'true');
     b.innerHTML = '<span class="label">' + (l === 'ja' ? ruby(ja) : en) + '</span>';
     mv.appendChild(b);
@@ -92,6 +102,8 @@ function render() {
 function showStage(k) {
   current = k;
   mv.src = 'models/' + k + '.glb';
+  const dl = document.getElementById('download');
+  if (dl) dl.href = 'downloads/vivatheca-oroantral-' + k + '-1.0x.zip';
   stageButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.stage === k));
   render();
   try { history.replaceState(null, '', '#' + k); } catch (e) {}

@@ -14,6 +14,11 @@ Stages
   clot     small opening: blood clot fills the socket and seals it
   flap     buccal advancement flap: cheek-side gum moved over the socket and stitched to the palate
   bfp      buccal fat pad flap: fat pad brought forward from behind the upper jaw to cover the socket
+  palatal  palatal rotation flap: a tongue of palate gum, still joined at the back, swung sideways
+           over the socket; the palate bone it came from is left bare to heal on its own
+
+Each stage is also written as STL parts for 3D printing (out/stl/<stage>/, millimetres, Z up),
+one file per material. The sinus air is left out.
 
 Simplifications are listed in tools/oroantral/README.md.
 """
@@ -120,6 +125,7 @@ MAT = {
     'fat': ([0.93, 0.62, 0.08, 1], 0.55),
 }
 
+WT = {}
 def export(name, parts):
     scene = trimesh.Scene()
     for key, mask, target in parts:
@@ -129,6 +135,18 @@ def export(name, parts):
         mat = trimesh.visual.material.PBRMaterial(name=key, baseColorFactor=[int(round(c * 255)) for c in col],
                                                   metallicFactor=0.0, roughnessFactor=rough,
                                                   alphaMode='BLEND' if col[3] < 1 else 'OPAQUE', doubleSided=False)
+        if key != 'sinus':
+            os.makedirs(f'{OUT}/stl/{name}', exist_ok=True)
+            st = tm.copy(); st.vertices = st.vertices - CENTRE
+            if not st.is_watertight:
+                # Simplification leaves a few edges shared by 4 faces in the bone; MeshFix repairs them.
+                import pymeshfix
+                v, f = pymeshfix.clean_from_arrays(np.ascontiguousarray(st.vertices, dtype=np.float64),
+                                                   np.ascontiguousarray(st.faces, dtype=np.int32),
+                                                   remove_smallest_components=False)
+                st = trimesh.Trimesh(v, f)
+            st.export(f'{OUT}/stl/{name}/{name}-{key}.stl')
+            WT[f'{name}-{key}'] = bool(st.is_watertight)
         tm.visual = trimesh.visual.TextureVisuals(material=mat)
         # Z-up mm (Blender) -> glTF Y-up metres, centred.
         v = tm.vertices.copy() - CENTRE
@@ -208,6 +226,26 @@ S_b = S_o & ~clot_b & ~fat
 export('bfp', [('bone', bone_o, 60000), ('teeth', teeth_o, 20000), ('gum', gum_b, 20000), ('sinus', S_b, 15000),
                ('clot', clot_b, 12000), ('fat', fat, 15000)])
 
+# --- palatal rotation flap: full-thickness palate gum raised as a tongue, base at the back (where the
+# greater palatine vessels run), swung sideways over the socket. Path: a curved strip 7 mm wide from
+# the base to the socket, plus the ridge over the socket. The donor area on the palate in front of the
+# base is left as bare bone (heals by itself over weeks).
+pal_ctrl = [(-12.0, -44.5), (-12.5, -53.0), (-17.0, -58.5), (-24.5, -58.8)]
+strip2d = np.zeros(SH[:2], bool)
+X2 = X[:, :, 0]; Y2 = Y[:, :, 0]
+for t in np.linspace(0, 1, 120):
+    c = bez(pal_ctrl, t)
+    strip2d |= (X2 - c[0]) ** 2 + (Y2 - c[1]) ** 2 <= 3.5 ** 2
+low = np.where(bone_o.any(axis=2), np.argmax(bone_o, axis=2), SH[2])          # lowest bone voxel per column
+top = np.minimum(LO[2] + P * (low + .5), crest + 0.3)[:, :, None]
+pal = (cols(strip2d) | cols(cover2d)) & (Z <= top) & (Z > top - 2.4) & ~bone_o & ~dil(teeth_o, 0.1)
+donor = cols((X2 > -16.5) & (X2 < -3.5) & (Y2 < -48.5)) & gum_o & ~pal
+gum_p = gum_o & ~pal & ~donor
+clot_p = clot_f & ~pal
+S_p = S_o & ~clot_p
+export('palatal', [('bone', bone_o, 60000), ('teeth', teeth_o, 20000), ('gum', gum_p, 20000), ('sinus', S_p, 15000),
+                   ('clot', clot_p, 12000), ('flap', pal, 15000)])
+
 # --- OAF: weeks later. The socket has filled in (shown as bone) except a 3.2 mm track through the
 # middle of the socket from mouth to sinus. The track is lined (epithelium, 0.6 mm). The gum has
 # grown over the ridge except at the track. The sinus lining is thickened (sinusitis).
@@ -254,6 +292,9 @@ lab = {
     'flap_buccal': to_gl(centroid(buccal_part)),
     'fat_pad': to_gl(centroid(fat & (Y > -50))),
     'fat_cover': to_gl(centroid(fat & cols(foot2d))),
+    'pal_flap': to_gl(centroid(pal & cols(foot2d))),
+    'pal_base': to_gl(centroid(pal & (Y > -47))),
+    'pal_donor': to_gl(surf_point(bone_o, -6.5, -55.0, "below")),
     'tract': to_gl([cx - 2.0, Y_CUT + 0.3, 1546.0]),
     'tract_mouth': to_gl([cx, cy, crest - 2.0]),
     'lining': to_gl(centroid(lin & (X < -30))),
@@ -261,3 +302,5 @@ lab = {
 }
 json.dump(lab, open(f'{OUT}/labels.json', 'w'), indent=1)
 print('labels', lab)
+json.dump(WT, open(f'{OUT}/stl/watertight.json', 'w'), indent=1)
+print('watertight', WT)
