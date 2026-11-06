@@ -872,6 +872,13 @@ const ja: Dictionary = {
     contactHeading: 'お{問|と}い{合|あ}わせ',
     contact: 'プライバシーについてのご{質問|しつもん}：',
   },
+  notFound: {
+    title: 'ページが見つかりません — Vivatheca',
+    heading: 'ページが{見|み}つかりませんでした。',
+    intro: 'リンクが{古|ふる}いか、{入力|にゅうりょく}が{間違|まちが}っている{可能性|かのうせい}があります。{模型|もけい}{一覧|いちらん}かホームをご{覧|らん}ください。',
+    models: '{模型|もけい}を{見|み}る',
+    home: 'Vivathecaホーム',
+  },
   report: {
     title: '誤りを報告 — Vivatheca',
     description: '模型の解剖、ラベル、説明文でおかしいと思う点をVivathecaに知らせてください。',
