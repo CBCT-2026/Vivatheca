@@ -1,0 +1,61 @@
+name: Model pictures
+
+# Takes one fixed picture of every model on the base branch, then on this pull request, on the same
+# machine, and fails if a model looks different (shape, colour or a missing part). WebGL output varies
+# between machines, so no pictures are stored in git. Spec: tests/pictures/model-pictures.spec.ts.
+# If a change was meant, say so in the PR; before/after pictures are in the "model-pictures" artifact.
+on:
+  pull_request:
+
+concurrency:
+  group: model-pictures-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  pictures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - name: Keep this PR's picture tests
+        run: |
+          mkdir -p "$RUNNER_TEMP/pictures/tests"
+          cp playwright.pictures.config.ts "$RUNNER_TEMP/pictures/"
+          cp -r tests/pictures/. "$RUNNER_TEMP/pictures/tests/"
+      - name: Pictures of the base branch
+        run: |
+          git checkout --quiet ${{ github.event.pull_request.base.sha }}
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium
+          pnpm build
+          cp "$RUNNER_TEMP/pictures/playwright.pictures.config.ts" .
+          mkdir -p tests/pictures && cp -r "$RUNNER_TEMP/pictures/tests/." tests/pictures/
+          pnpm exec playwright test -c playwright.pictures.config.ts --update-snapshots=all --reporter=list
+          git checkout --quiet -- .
+          git clean -fdq -e .model-pictures -e node_modules
+      - name: Pictures of this PR, compared
+        run: |
+          git checkout --quiet ${{ github.event.pull_request.head.sha }}
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm exec playwright test -c playwright.pictures.config.ts
+      - name: Upload pictures
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-pictures
+          path: |
+            model-pictures-report/
+            test-results/
+            .model-pictures/
+          retention-days: 14

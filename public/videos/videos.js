@@ -978,7 +978,7 @@ window.VT_VIDEOS = {
  },
  "impacted-wisdom-tooth": {
   "sources": [
-   "Kang F, Sah MK, Fei G. Determining the risk relationship associated with inferior alveolar nerve injury following removal of mandibular third molar teeth: a systematic review. J Stomatol Oral Maxillofac Surg. 2019;121(1):63-69. https://doi.org/10.1016/j.jormas.2019.06.010",
+   "Kang F, Sah MK, Fei G. Determining the risk relationship associated with inferior alveolar nerve injury following removal of mandibular third molar teeth: a systematic review. J Stomatol Oral Maxillofac Surg. 2020;121(1):63-69. https://doi.org/10.1016/j.jormas.2019.06.010",
    "Sarikov R, Juodzbalys G. Inferior alveolar nerve injury after mandibular third molar extraction: a literature review. J Oral Maxillofac Res. 2014;5(4):e1. https://doi.org/10.5037/jomr.2014.5401",
    "Faculty of Dental Surgery, Royal College of Surgeons of England. Parameters of care for patients undergoing mandibular third molar surgery. London: RCS England; 2020. https://www.rcseng.ac.uk/-/media/Files/RCS/FDS/3rd-molar-guidelines--April-2021-v3.pdf",
    "Juodzbalys G, Wang HL, Sabalys G. Anatomy of mandibular vital structures. Part I: mandibular canal and inferior alveolar neurovascular bundle in relation with dental implantology. J Oral Maxillofac Res. 2010;1(1):e2. https://doi.org/10.5037/jomr.2010.1102"

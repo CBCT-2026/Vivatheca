@@ -1,0 +1,24 @@
+# How to cite Vivatheca. GitHub shows a "Cite this repository" button from this file.
+# Each model's own licence and credits are on its page and in REUSE.toml; cite the model page too.
+cff-version: 1.2.0
+message: "If you use Vivatheca models or materials, please cite them as below and keep each model's licence credit."
+type: software
+title: "Vivatheca: free clinical 3D models with matched normal anatomy"
+abstract: "Free 3D models of dental and oral and maxillofacial conditions, each with a comparable normal model, for clinicians making patient education materials and for student education."
+authors:
+  - given-names: Luke
+    family-names: Seifert
+    affiliation: Vivatheca
+  - name: Vivatheca
+    email: vivatheca@gmail.com
+repository-code: "https://github.com/CBCT-2026/Vivatheca"
+url: "https://vivatheca.com"
+license: MIT
+license-url: "https://github.com/CBCT-2026/Vivatheca/blob/main/LICENSE"
+keywords:
+  - dentistry
+  - oral and maxillofacial surgery
+  - 3D models
+  - patient education
+  - anatomy
+date-released: "2026-11-06"

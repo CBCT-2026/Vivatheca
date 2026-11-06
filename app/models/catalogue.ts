@@ -8,6 +8,7 @@ export type CatalogueModel = {
   image: string;
   version: string;
   updated: string; // ISO date
+  icon: string; // specialty icon in public/icons/health/ (Health Icons, CC0)
 };
 
 export const licence = {
@@ -16,20 +17,20 @@ export const licence = {
 };
 
 export const catalogue: CatalogueModel[] = [
-  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.3', updated: '2026-11-06' },
-  { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '0.4', updated: '2026-11-05' },
-  { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '0.1', updated: '2026-11-05' },
-  { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '0.2', updated: '2026-11-06' },
-  { slug: 'cracked-tooth', href: '/cracked-tooth/', image: '/assets/renders/cracked-tooth.webp', version: '0.2', updated: '2026-11-05' },
-  { slug: 'stainless-steel-crown', href: '/stainless-steel-crown/', image: '/assets/renders/stainless-steel-crown.webp', version: '0.2', updated: '2026-11-05' },
-  { slug: 'head-neck', href: '/head-neck/', image: '/assets/renders/head-neck.webp', version: '1.1', updated: '2026-11-06' },
-  { slug: 'head-neck-scc', href: '/head-neck/scc/', image: '/assets/renders/head-neck-scc.webp', version: '1.0', updated: '2026-11-06' },
-  { slug: 'head-neck-ameloblastoma', href: '/head-neck/ameloblastoma/', image: '/assets/renders/head-neck-ameloblastoma.webp', version: '1.0', updated: '2026-11-06' },
-  { slug: 'head-neck-okc', href: '/head-neck/okc/', image: '/assets/renders/head-neck-okc.webp', version: '1.0', updated: '2026-11-06' },
-  { slug: 'head-neck-mec', href: '/head-neck/mec/', image: '/assets/renders/head-neck-mec.webp', version: '1.0', updated: '2026-11-06' },
-  { slug: 'alveolar-bone-graft', href: '/models/alveolar-bone-graft', image: '/assets/renders/alveolar-bone-graft.webp', version: '0.1', updated: '2026-11-06' },
-  { slug: 'orthognathic', href: '/orthognathic/', image: '/assets/renders/orthognathic.webp', version: '0.3', updated: '2026-11-06' },
-  { slug: 'fixation', href: '/fixation/', image: '/assets/renders/fixation.webp', version: '0.1', updated: '2026-11-06' },
+  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.3', updated: '2026-11-06', icon: 'general-surgery' },
+  { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '0.4', updated: '2026-11-05', icon: 'child-care' },
+  { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '0.1', updated: '2026-11-05', icon: 'mouth' },
+  { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '0.2', updated: '2026-11-06', icon: 'general-surgery' },
+  { slug: 'cracked-tooth', href: '/cracked-tooth/', image: '/assets/renders/cracked-tooth.webp', version: '0.2', updated: '2026-11-05', icon: 'tooth' },
+  { slug: 'stainless-steel-crown', href: '/stainless-steel-crown/', image: '/assets/renders/stainless-steel-crown.webp', version: '0.2', updated: '2026-11-05', icon: 'child-care' },
+  { slug: 'head-neck', href: '/head-neck/', image: '/assets/renders/head-neck.webp', version: '1.1', updated: '2026-11-06', icon: 'head' },
+  { slug: 'head-neck-scc', href: '/head-neck/scc/', image: '/assets/renders/head-neck-scc.webp', version: '1.0', updated: '2026-11-06', icon: 'head' },
+  { slug: 'head-neck-ameloblastoma', href: '/head-neck/ameloblastoma/', image: '/assets/renders/head-neck-ameloblastoma.webp', version: '1.0', updated: '2026-11-06', icon: 'head' },
+  { slug: 'head-neck-okc', href: '/head-neck/okc/', image: '/assets/renders/head-neck-okc.webp', version: '1.0', updated: '2026-11-06', icon: 'head' },
+  { slug: 'head-neck-mec', href: '/head-neck/mec/', image: '/assets/renders/head-neck-mec.webp', version: '1.0', updated: '2026-11-06', icon: 'head' },
+  { slug: 'alveolar-bone-graft', href: '/models/alveolar-bone-graft', image: '/assets/renders/alveolar-bone-graft.webp', version: '0.1', updated: '2026-11-06', icon: 'general-surgery' },
+  { slug: 'orthognathic', href: '/orthognathic/', image: '/assets/renders/orthognathic.webp', version: '0.3', updated: '2026-11-06', icon: 'braces' },
+  { slug: 'fixation', href: '/fixation/', image: '/assets/renders/fixation.webp', version: '0.1', updated: '2026-11-06', icon: 'general-surgery' },
 ];
 
 export function formatDate(iso: string, intl: string) {

@@ -80,3 +80,12 @@
   function start() { render(); translationNote(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
+
+// Free full-text notes beside cited DOIs (public/oa-links.js, data from tools/citations/oa-links.mjs).
+(function () {
+  if (document.querySelector('script[src="/oa-links.js"]')) return;
+  const s = document.createElement('script');
+  s.src = '/oa-links.js';
+  s.defer = true;
+  document.head.appendChild(s);
+})();

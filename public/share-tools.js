@@ -32,6 +32,10 @@
     qrSave: ['Save QR code (SVG)', 'QRコードを{保存|ほぞん}（SVG）'],
     qrAlt: ['QR code that opens this view of the model', 'この{模型|もけい}の{表示|ひょうじ}を{開|ひら}くQRコード'],
     picture: ['Save picture (PNG)', '{画像|がぞう}を{保存|ほぞん}（PNG）'],
+    offline: ['Save for offline', 'オフライン{用|よう}に{保存|ほぞん}'],
+    offlineBusy: ['Saving this model on this device…', 'この{端末|たんまつ}に{保存|ほぞん}しています…'],
+    offlineDone: ['Saved on this device. This page and its model now open without internet. Nothing is sent to Vivatheca.', 'この{端末|たんまつ}に{保存|ほぞん}しました。インターネットがなくても、このページと{模型|もけい}を{開|ひら}けます。Vivathecaには{何|なに}も{送|おく}られません。'],
+    offlineNo: ['This browser cannot save pages for offline use.', 'このブラウザはオフライン{保存|ほぞん}に{対応|たいおう}していません。'],
     pictureDone: ['Picture saved. The credit and disclaimer are printed under the model.', '{画像|がぞう}を{保存|ほぞん}しました。{模型|もけい}の{下|した}にクレジットと{免責|めんせき}{事項|じこう}が{入|はい}っています。'],
     steps: ['Picture steps (no words)', '{絵|え}だけの{手順|てじゅん}{図|ず}'],
     stepsBusy: ['Making the picture steps: {n} of {total}…', '{手順|てじゅん}{図|ず}を{作成中|さくせいちゅう}：{total}{枚|まい}{中|ちゅう}{n}{枚目|まいめ}…'],
@@ -79,10 +83,20 @@
   const lang = JA ? 'ja' : 'en';
 
   // ---- usage counts (/impact) ----
+  // sendBeacon is made for fire-and-forget counts: the browser sends it in the background and drops
+  // the reply. A fetch whose reply is never read stays "in flight" in Chromium, which stops pages
+  // from ever reaching network idle (it hung the local Playwright tests), so the fallback cancels it.
+  function sendHit(model, kind) {
+    const data = JSON.stringify({ model, kind });
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon('/api/stats/hit', new Blob([data], { type: 'text/plain' }))) return;
+    } catch (e) { /* fall back to fetch */ }
+    try { fetch('/api/stats/hit', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain' }, body: data }).then((r) => r.body && r.body.cancel()).catch(() => {}); } catch (e) { /* counting is optional */ }
+  }
   function count(kind) {
     meta().then((m) => {
       if (!m || !m.model) return;
-      try { fetch('/api/stats/hit', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: m.model.slug, kind }) }).catch(() => {}); } catch (e) { /* counting is optional */ }
+      sendHit(m.model.slug, kind);
     });
   }
   window.vtCount = count;
@@ -242,6 +256,23 @@
       status: plain(m.reviewStatus[lang]) + ' ' + plain(m.modelDisclaimer[lang]) + ' vivatheca.com' + m.disclaimerHref,
     };
   }
+  // Readable fonts for saved pictures (public/fonts/readable/readable.css, SIL OFL 1.1): Atkinson
+  // Hyperlegible for Latin text and BIZ UDPGothic (universal-design) for Japanese. Loaded on first use.
+  let readableReady = null;
+  function readableFonts(sample) {
+    if (!readableReady) {
+      readableReady = new Promise((res) => {
+        if (doc.querySelector('link[href="/fonts/readable/readable.css"]')) return res();
+        const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/fonts/readable/readable.css';
+        l.onload = l.onerror = () => res(); doc.head.appendChild(l);
+      });
+    }
+    return readableReady.then(() => Promise.all(['400', '700'].flatMap((w) => [
+      doc.fonts.load(w + ' 20px "Atkinson Hyperlegible"', sample),
+      doc.fonts.load(w + ' 20px "BIZ UDPGothic"', sample),
+    ])).catch(() => {}));
+  }
+
   // Draws pictures in a grid (numbered when there are several) with the credit and disclaimer underneath.
   function compose(images, m, numbered) {
     const cols = images.length <= 1 ? 1 : images.length <= 4 ? Math.min(images.length, 2) : 3;
@@ -251,7 +282,7 @@
     const W = Math.round(cell * cols), pad = Math.round(W / 60) + 8;
     const c = doc.createElement('canvas');
     const ctx = c.getContext('2d');
-    const font = (px, bold) => (bold ? '600 ' : '') + px + 'px system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif';
+    const font = (px, bold) => (bold ? '700 ' : '') + px + 'px "Atkinson Hyperlegible", "BIZ UDPGothic", system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif';
     const fs = Math.max(14, Math.round(W / 70));
     ctx.font = font(fs);
     const L = creditLines(m);
@@ -369,6 +400,7 @@
         '<button type="button" class="vt-link">' + say('link') + '</button>' +
         '<button type="button" class="vt-qr-btn" aria-expanded="false">' + say('qr') + '</button>' +
         '<button type="button" class="vt-pic">' + say('picture') + '</button>' +
+        '<button type="button" class="vt-offline">' + say('offline') + '</button>' +
         (hasTour ? '<button type="button" class="vt-tour">' + say('tour') + '</button><button type="button" class="vt-steps">' + say('steps') + '</button>' : '') +
         '<button type="button" class="vt-credit-btn" aria-expanded="false">' + say('credit') + '</button>' +
         '<button type="button" class="vt-embed-btn" aria-expanded="false">' + say('embed') + '</button>' +
@@ -406,9 +438,32 @@
           const a = doc.createElement('a'); a.href = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })); a.download = 'vivatheca-' + slug + '-qr.svg'; doc.body.appendChild(a); a.click(); a.remove();
         };
       };
+      // Save for offline (public/sw.js, built by tools/offline/build-sw.mjs with Workbox). The service
+      // worker is registered only here, on request; it then keeps copies of what this device loads.
+      panel.querySelector('.vt-offline').onclick = async (e) => {
+        const b = e.currentTarget;
+        if (!('serviceWorker' in navigator) || !window.caches) { tell('offlineNo'); return; }
+        b.disabled = true; tell('offlineBusy');
+        try {
+          await navigator.serviceWorker.register('/sw.js');
+          await navigator.serviceWorker.ready;
+          if (!navigator.serviceWorker.controller) {
+            await new Promise((r) => { navigator.serviceWorker.addEventListener('controllerchange', r, { once: true }); setTimeout(r, 4000); });
+          }
+          const urls = new Set();
+          for (const entry of performance.getEntriesByType('resource')) {
+            try { const u = new URL(entry.name); if (u.origin === location.origin && !u.pathname.startsWith('/api/')) urls.add(u.pathname + u.search); } catch (err) { /* skip */ }
+          }
+          const page = new URL(location.href); page.hash = '';
+          await (await caches.open('vt-pages')).add(new Request(page.toString(), { credentials: 'same-origin' }));
+          await Promise.all([...urls].map((u) => fetch(u, { credentials: 'same-origin' }).catch(() => {})));
+          tell('offlineDone');
+        } catch (err) { tell('failed'); }
+        b.disabled = false;
+      };
       panel.querySelector('.vt-pic').onclick = async (e) => {
         const b = e.currentTarget; b.disabled = true;
-        try { const img = await captureVisible(group); await download(compose([img], m, false), 'vivatheca-' + slug + '.png'); tell('pictureDone'); count('image'); } catch (err) { tell('failed'); }
+        try { const img = await captureVisible(group); await readableFonts(Object.values(creditLines(m)).join(' ')); await download(compose([img], m, false), 'vivatheca-' + slug + '.png'); tell('pictureDone'); count('image'); } catch (err) { tell('failed'); }
         b.disabled = false;
       };
       if (hasTour) {
@@ -426,6 +481,7 @@
               await sleep(250);
               imgs.push(await captureVisible(group));
             }
+            await readableFonts(Object.values(creditLines(m)).join(' '));
             await download(compose(imgs, m, true), 'vivatheca-' + slug + '-steps.png');
             tell('stepsDone'); count('steps');
           } catch (err) { tell('failed'); }

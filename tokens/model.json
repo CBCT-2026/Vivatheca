@@ -1,0 +1,23 @@
+{
+  "model": {
+    "$description": "Colour standard for every Vivatheca model, print file and render (Luke, 2026-11-06). Change colours here, then run `pnpm tokens`.",
+    "tooth":        { "$value": "#F3EEE4", "$description": "Realistic white teeth (wisdom tooth model v1.3 standard)" },
+    "nerve":        { "$value": "#F2C94C", "$description": "Inferior alveolar nerve: yellow" },
+    "bone":         { "$value": "#E3D3B5", "$description": "Bone" },
+    "gum":          { "$value": "#E89A9A", "$description": "Gum, flaps and soft tissue" },
+    "lining":       { "$value": "#D98C8C", "$description": "Sinus lining" },
+    "clot":         { "$value": "#8B1E2D", "$description": "Blood clot and fistula tract" },
+    "fat":          { "$value": "#F2D16B", "$description": "Buccal fat pad" },
+    "graft":        { "$value": "#C9A46B", "$description": "Bone graft" },
+    "decay":        { "$value": "#5A3A22", "$description": "Tooth decay" },
+    "filling":      { "$value": "#7FA7C4", "$description": "Fillings and prepared tooth base" },
+    "steel":        { "$value": "#B8BEC6", "$description": "Stainless steel crown" },
+    "cement":       { "$value": "#7FB8A6", "$description": "Luting cement" },
+    "crown":        { "$value": "#D9D6CF", "$description": "Ceramic crown" },
+    "hardware":     { "$value": "#9AA3AD", "$description": "Braces, implants, bridges, dentures, plates and screws" },
+    "babyTeeth":    { "$value": "#5B8DEF", "$description": "Development and orthodontic models only: baby teeth blue" },
+    "adultTeeth":   { "$value": "#F2C94C", "$description": "Development and orthodontic models only: adult teeth yellow" },
+    "printBase":    { "$value": "#00244D", "$description": "Printed base plate (brand navy)" },
+    "printLabel":   { "$value": "#FFFFFF", "$description": "Raised label on the base plate" }
+  }
+}
