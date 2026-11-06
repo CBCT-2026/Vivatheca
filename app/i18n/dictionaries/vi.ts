@@ -1813,7 +1813,7 @@ const vi = withFallback(en, {
       {
         "id": "on-device",
         "heading": "Chỉ lưu trên thiết bị của bạn",
-        "text": "Mục yêu thích đã lưu và bản nháp trong công cụ soạn thông tin cho bệnh nhân được giữ trong trình duyệt của chính bạn và không bao giờ gửi cho chúng tôi. Xóa dữ liệu trình duyệt sẽ xóa chúng."
+        "text": "Mục yêu thích đã lưu và bản nháp trong công cụ soạn thông tin cho bệnh nhân được giữ trong trình duyệt của chính bạn và không bao giờ gửi cho chúng tôi. Xóa dữ liệu trình duyệt sẽ xóa chúng. “Lưu để dùng ngoại tuyến” trên trang mô hình giữ một bản sao của trang đó và mô hình của nó trên thiết bị của bạn. Sau đó trang mở được khi không có internet. Xóa dữ liệu trang web trong trình duyệt để gỡ bản sao."
       },
       {
         "id": "builder",
@@ -2009,7 +2009,8 @@ const vi = withFallback(en, {
       "Giữ dòng ghi công và tuyên bố miễn trừ. Giấy phép (CC BY-SA 4.0) yêu cầu ghi công, và mọi thứ làm từ mẫu đều dùng cùng giấy phép đó.",
       "Viết cho bệnh nhân: câu ngắn, ưu tiên từ ngữ thông dụng, và nêu nguy cơ dưới dạng “X trên 100”. Công cụ soạn sẽ kiểm tra giúp bạn.",
       "Ghi nguồn cho các thông tin của bạn, và nêu chỗ mô hình được đơn giản hóa.",
-      "Không bao giờ thêm ảnh hoặc thông tin của bệnh nhân khi chưa có sự đồng ý được ghi nhận của họ."
+      "Không bao giờ thêm ảnh hoặc thông tin của bệnh nhân khi chưa có sự đồng ý được ghi nhận của họ.",
+      "Các mẫu dùng hai phông chữ miễn phí, dễ đọc: Atkinson Hyperlegible và BIZ UDPGothic (cho tiếng Nhật). Tải miễn phí từ Google Fonts. Nếu không có, máy tính sẽ dùng phông chữ của chính nó."
     ],
     "handout": "Tờ hướng dẫn A4 (dọc)",
     "slide": "Trang chiếu (16:9)",
