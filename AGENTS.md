@@ -89,6 +89,17 @@ Ideas borrowed from other services (write-up: `audits/ideas-from-other-industrie
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.
 
+## Base meshes and model licences (rule from 6 Nov 2026)
+
+This is a standing project rule for every new model and every rebuild.
+
+- **Start from BodyParts3D** for bone and teeth wherever it has the structure. BodyParts3D is CC BY 4.0 (confirmed on the [DBCLS licence page](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html), 6 Nov 2026), so models built only from it and our own work can be released as **CC BY 4.0**, which is easier for clinics to reuse than CC BY-SA. Required credit, verbatim: "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International".
+- **Hand-build what BodyParts3D lacks** (inferior alveolar nerve and artery, other jaw nerves and vessels, parotid gland, maxillary sinus, TMJ disc, third molars, primary teeth, lesions), from cited dimensions (see Evidence and transparency). Hand-built parts keep the model CC BY.
+- **Use Z-Anatomy only when a part cannot reasonably be hand-built.** Any model that contains a Z-Anatomy part, however small, must be released as **CC BY-SA 4.0** with the Z-Anatomy credit.
+- Existing Z-Anatomy-based models (orthognathic, oroantral, stainless steel crown, head and neck cases and others) stay CC BY-SA 4.0. Rebuilding one on BodyParts3D makes it CC BY only if no Z-Anatomy part remains.
+- Every model page, download and print zip states which base was used, its licence and the required credit, and the model's own licence (CC BY 4.0 or CC BY-SA 4.0). Never label a model CC BY if any part came from Z-Anatomy or another share-alike source.
+- Base meshes come from one adult reference body, not from any patient, so the model disclaimer still applies.
+
 ## Evidence and transparency (required for everything)
 
 This is a standing project rule. It applies to every page, model, download, text and generated material, whether or not a task restates it.

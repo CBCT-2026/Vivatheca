@@ -45,7 +45,7 @@ test('the language switch lists four languages with flags; Chinese and Vietnames
   const langs = page.locator('header .lang-panel button');
   await expect(langs.locator('.lang-name')).toHaveText(['中文', 'English', '日本語', 'Tiếng Việt']);
   await expect(langs.locator('img.lang-flag')).toHaveCount(4);
-  const vi = page.getByRole('button', { name: 'Tiếng Việt (Coming soon)' });
+  const vi = page.getByRole('button', { name: 'Tiếng Việt Coming soon' });
   await expect(vi).toHaveAttribute('aria-disabled', 'true');
   await vi.click({ force: true }); // does nothing: not translated yet
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');

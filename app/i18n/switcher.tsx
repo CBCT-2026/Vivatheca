@@ -49,7 +49,6 @@ export function LanguageSwitcher({ furigana: initialFurigana, className = '', fu
   }
 
   const label = plain(t.language.label);
-  const soon = plain(t.language.comingSoon);
   const current = languageMenu.find((item) => item.locale === locale) ?? languageMenu[0];
   const flag = (code: string) => <img aria-hidden="true" className="lang-flag" src={`/flags/${code}.svg`} width={20} height={15} alt="" />;
 
@@ -81,7 +80,7 @@ export function LanguageSwitcher({ furigana: initialFurigana, className = '', fu
                   </button>
                 ) : (
                   // Not translated yet: listed so visitors know it is planned, but it does nothing.
-                  <button type="button" lang={item.tag} className="lang-soon" aria-disabled="true" aria-label={`${item.name} (${soon})`}>
+                  <button type="button" lang={item.tag} className="lang-soon" aria-disabled="true">
                     <span className="lang-name">{item.name}</span>
                     {flag(item.flag)}
                     <span className="lang-soon-note" lang={locale}><Ruby text={t.language.comingSoon} /></span>

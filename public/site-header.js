@@ -122,7 +122,6 @@
         b = document.createElement('button');
         b.type = 'button'; b.lang = item.tag; b.className = 'vt-soon';
         b.setAttribute('aria-disabled', 'true');
-        b.setAttribute('aria-label', item.name + ' (' + soon + ')');
         b.innerHTML = '<span class="vt-name">' + item.name + '</span>' + flag(item.flag) + '<span class="vt-soon-note" lang="' + (inJa ? 'ja' : 'en') + '">' + (inJa ? ruby('{準備中|じゅんびちゅう}') : soon) + '</span>';
       }
       const li = document.createElement('li');
