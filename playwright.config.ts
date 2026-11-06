@@ -2,6 +2,8 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  // Model picture checks run with their own config (playwright.pictures.config.ts).
+  testIgnore: ['**/pictures/**'],
   fullyParallel: true,
   retries: 0,
   reporter: 'list',

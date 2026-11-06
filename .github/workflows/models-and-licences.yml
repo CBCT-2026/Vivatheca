@@ -38,6 +38,8 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check:glb
+      # Colour tokens: the built files must match tokens/*.json (run `pnpm tokens`).
+      - run: pnpm tokens && git diff --exit-code -- public/tokens app/tokens.generated.ts tools/tokens/colours.py
   reuse:
     runs-on: ubuntu-latest
     timeout-minutes: 5

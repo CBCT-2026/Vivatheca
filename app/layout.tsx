@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '@fontsource-variable/manrope';
 import './globals.css';
 import { themeInitScript } from './theme';
+import { AfterHydration } from './script-mount';
 import { localeTags } from './i18n/config';
 import { I18nProvider } from './i18n/context';
 import { getI18n } from './i18n/server';
@@ -55,6 +56,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <span hidden aria-hidden="true" dangerouslySetInnerHTML={{ __html: `<!-- ${designContract.replaceAll('--', '—')} -->` }} />
         <I18nProvider locale={locale}>{children}</I18nProvider>
+        {/* Free full-text notes beside cited DOIs (public/oa-links.js). */}
+        <AfterHydration src="/oa-links.js" />
       </body>
     </html>
   );

@@ -19,6 +19,7 @@ import urllib.request
 from PIL import Image
 from pptx import Presentation
 from pptx.dml.color import RGBColor
+from pptx.oxml.ns import qn
 from pptx.util import Mm, Pt
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:3000'
@@ -54,6 +55,23 @@ WORDS = {
 }
 
 
+# Easy-to-read fonts (SIL OFL 1.1, free from Google Fonts): Atkinson Hyperlegible for Latin text and
+# BIZ UDPGothic (Morisawa universal-design font, bundled with Windows 10 and later) for Japanese.
+# A computer without them falls back to its own font.
+LATIN_FONT, JA_FONT = 'Atkinson Hyperlegible', 'BIZ UDPGothic'
+
+
+def readable(run):
+    run.font.name = LATIN_FONT
+    rpr = run._r.get_or_add_rPr()
+    for tag in ('a:ea', 'a:cs'):
+        el = rpr.find(qn(tag))
+        if el is None:
+            el = rpr.makeelement(qn(tag), {})
+            rpr.append(el)
+        el.set('typeface', JA_FONT)
+
+
 def text(slide, x, y, w, h, s, size=12, bold=False, colour=NAVY, wrap=True):
     box = slide.shapes.add_textbox(x, y, w, h)
     tf = box.text_frame
@@ -66,6 +84,7 @@ def text(slide, x, y, w, h, s, size=12, bold=False, colour=NAVY, wrap=True):
         r.font.size = Pt(size)
         r.font.bold = bold
         r.font.color.rgb = colour
+        readable(r)
     return box
 
 
@@ -80,8 +99,8 @@ def framed(slide, x, y, w, h, heading, hint, lang):
     tf.margin_top = Mm(3)
     tf.vertical_anchor = 1  # top
     p = tf.paragraphs[0]
-    r = p.add_run(); r.text = heading; r.font.size = Pt(14); r.font.bold = True; r.font.color.rgb = NAVY
-    p2 = tf.add_paragraph(); r2 = p2.add_run(); r2.text = hint; r2.font.size = Pt(11); r2.font.color.rgb = GREY
+    r = p.add_run(); r.text = heading; r.font.size = Pt(14); r.font.bold = True; r.font.color.rgb = NAVY; readable(r)
+    p2 = tf.add_paragraph(); r2 = p2.add_run(); r2.text = hint; r2.font.size = Pt(11); r2.font.color.rgb = GREY; readable(r2)
     p.alignment = p2.alignment = 1
 
 
