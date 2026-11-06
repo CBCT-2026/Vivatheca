@@ -1158,7 +1158,7 @@ const en = {
     reviewText: 'no model has been independently clinically reviewed yet.',
     founderHeading: 'Who runs it',
     founderName: 'Luke Seifert, Founder & Director.',
-    founder: 'Vivatheca was founded in Australia by Luke, a dental professional who models and 3D prints anatomy. He builds each model, checks it against published sources and tests prints on a desktop printer. It is currently a one-person project. Clinicians are being invited to review models and suggest new ones.',
+    founder: 'Vivatheca was founded in Australia by Luke, a dental professional who models and 3D prints anatomy. They build each model, check it against published sources and test-print it on a Bambu P1S 3D printer. It is currently a one-person project. Clinicians are being invited to review models and suggest new ones.',
     noSponsor: 'Vivatheca has no commercial sponsor and earns no money from the models.',
     planHeading: 'Not-for-profit plan',
     plan: 'Vivatheca is run as a not-for-profit project. The plan is to form Vivatheca Ltd, an Australian company limited by guarantee, and apply to register it as a charity with the Australian Charities and Not-for-profits Commission (ACNC). Neither step is complete yet. Any future funding will pay for model development, hosting and printed models for clinics, never for profit.',
