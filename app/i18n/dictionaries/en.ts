@@ -1145,6 +1145,12 @@ const en = {
         summary: 'A lower first molar whose pulp has died from deep decay, with infection at both root tips and a drainage channel to the gum, beside the same tooth when sound. Cut open to compare. Pictured: sound (left) and abscess (right), cut open.',
         pairing: 'Condition + healthy normal',
       },
+      'dentigerous-cyst': {
+        title: 'Dentigerous cyst of an unerupted mandibular third molar, with a normal dental follicle',
+        specialty: 'Oral and maxillofacial pathology',
+        summary: 'A lower wisdom tooth still inside the bone, with the thin normal sac over its crown, beside the same tooth with a cyst grown from that sac. Cut them open to see the crown inside the cyst. Pictured: normal (left) and cyst (right).',
+        pairing: 'Condition + healthy normal',
+      },
       tmd: {
         title: 'Temporomandibular disorders (TMD) and jaw muscle pain: jaw joints, chewing muscles and jaw exercises',
         specialty: 'Orofacial pain (multidisciplinary care)',
@@ -1385,7 +1391,6 @@ const en = {
     unavailable: 'Support counts are not switched on yet. You can still email your idea to vivatheca@gmail.com.',
     seeds: {
       'prosth-edentulous': { title: 'Shrunken jaw without teeth (atrophic edentulous mandible) beside a jaw with teeth, with denture and implant options', specialty: 'Prosthodontics' },
-      'dentigerous-cyst': { title: 'Cyst around an unerupted tooth (dentigerous cyst) beside a normal unerupted tooth', specialty: 'Oral and maxillofacial pathology' },
       'ectopic-canine': { title: 'Upper canine growing in the wrong place (ectopic canine) beside normal eruption', specialty: 'Orthodontics' },
       'development-extended': { title: 'Tooth development from before birth to adulthood (beyond ages 6 to 12)', specialty: 'Orthodontics and paediatric dentistry' },
       'ortho-variants': { title: 'More jaw surgery cases: facial asymmetry, open bite and chin surgery', specialty: 'Orthodontics and oral and maxillofacial surgery' },

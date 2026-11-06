@@ -13,6 +13,7 @@
     '/stainless-steel-crown/': 'stainless-steel-crown',
     '/endodontic/': 'endodontic',
     '/tmd/': 'tmd',
+    '/dentigerous-cyst/': 'dentigerous-cyst',
     '/head-neck/scc/': 'head-neck-scc',
     '/head-neck/ameloblastoma/': 'head-neck-ameloblastoma',
     '/head-neck/okc/': 'head-neck-okc',

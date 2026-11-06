@@ -1601,6 +1601,12 @@ const vi = withFallback(en, {
         "summary": "Một răng cối lớn thứ nhất hàm dưới có tủy đã chết do sâu răng sâu, nhiễm trùng ở cả hai chóp chân răng và đường rò ra lợi, đặt cạnh chính răng đó khi lành. Cắt mở để so sánh. Trong ảnh: răng lành (trái) và áp xe (phải), đã cắt mở.",
         "pairing": "Bệnh lý + răng bình thường lành mạnh"
       },
+      "dentigerous-cyst": {
+        "title": "Nang thân răng của răng cối lớn thứ ba hàm dưới chưa mọc, so với túi răng bình thường",
+        "specialty": "Bệnh học miệng và hàm mặt",
+        "summary": "Một răng khôn hàm dưới vẫn nằm trong xương, với túi mỏng bình thường bọc thân răng, bên cạnh cùng răng đó có nang phát triển từ túi này. Cắt mở để thấy thân răng nằm trong nang. Trong ảnh: bình thường (trái) và có nang (phải).",
+        "pairing": "Bệnh lý + răng bình thường lành mạnh"
+      },
       "tmd": {
         "title": "Rối loạn thái dương hàm (TMD) và đau cơ hàm: khớp hàm, cơ nhai và bài tập hàm",
         "specialty": "Đau vùng miệng mặt (chăm sóc đa chuyên ngành)",
@@ -1892,10 +1898,6 @@ const vi = withFallback(en, {
       "prosth-edentulous": {
         "title": "Xương hàm mất răng bị teo (hàm dưới mất răng teo xương) bên cạnh hàm còn răng, với các lựa chọn hàm giả và implant",
         "specialty": "Phục hình"
-      },
-      "dentigerous-cyst": {
-        "title": "Nang quanh một răng chưa mọc (nang thân răng) bên cạnh một răng chưa mọc bình thường",
-        "specialty": "Bệnh học miệng và hàm mặt"
       },
       "ectopic-canine": {
         "title": "Răng nanh hàm trên mọc sai chỗ (răng nanh lạc chỗ) bên cạnh quá trình mọc bình thường",
