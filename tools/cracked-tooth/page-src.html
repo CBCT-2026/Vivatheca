@@ -69,7 +69,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <button type="button" data-state="healthy" aria-pressed="true"><span lang="en">Healthy</span><span lang="ja">{健康|けんこう}な{歯|は}</span><small lang="en">no crack</small><small lang="ja">ひびなし</small></button>
     <button type="button" data-state="cracked" aria-pressed="false"><span lang="en">Cracked</span><span lang="ja">ひび</span><small lang="en">not treated</small><small lang="ja">{治療|ちりょう}なし</small></button>
     <button type="button" data-state="composite" aria-pressed="false"><span lang="en">Filling</span><span lang="ja">{詰|つ}め{物|もの}</span><small lang="en">composite resin</small><small lang="ja">コンポジットレジン</small></button>
-    <button type="button" data-state="crown" aria-pressed="false"><span lang="en">Crown</span><span lang="ja">クラウン</span><small lang="en">covers the cusps</small><small lang="ja">{咬頭|こうとう}をおおう</small></button>
+    <button type="button" data-state="crown" aria-pressed="false"><span lang="en">Crown</span><span lang="ja">クラウン</span><small lang="en">covers the cusps</small><small lang="ja">こうとうをおおう</small></button>
   </div>
   <div class="controls" role="group" aria-label="Model tools">
     <button type="button" id="bite" aria-pressed="false"><span lang="en">Bite down</span><span lang="ja">かむ</span></button>
@@ -91,7 +91,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <li data-cut hidden><span class="dot dentine"></span><span lang="en">Dentine</span><span lang="ja">{象牙質|ぞうげしつ}</span></li>
     <li data-cut hidden><span class="dot pulp"></span><span lang="en">Pulp (nerve)</span><span lang="ja">{歯髄|しずい}（{神経|しんけい}）</span></li>
     <li data-bite hidden><span class="dot force"></span><span lang="en">Biting force</span><span lang="ja">かむ{力|ちから}</span></li>
-    <li data-bite data-show="crown" hidden><span class="dot hold"></span><span lang="en">Crown holds the cusps</span><span lang="ja">クラウンが{咬頭|こうとう}を{支|ささ}える</span></li>
+    <li data-bite data-show="crown" hidden><span class="dot hold"></span><span lang="en">Crown holds the cusps</span><span lang="ja">クラウンがこうとうを{支|ささ}える</span></li>
   </ul>
 
   <section class="stage" id="stage" aria-live="polite"></section>
@@ -121,7 +121,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     <div lang="ja">
       <h2>{亀裂歯|きれつし}とは</h2>
       <p>{亀裂歯|きれつし}とは、かむ{面|めん}から{根|ね}の{方|ほう}へ{向|む}かってひびが{入|はい}った{歯|は}です。{歯|は}はまだ{割|わ}れて{分|わ}かれてはいませんが、ひびは{少|すこ}しずつ{広|ひろ}がることがあります。<sup class="cite"><a href="#ref-1">1</a></sup></p>
-      <p>{歯|は}が{割|わ}れて{分|わ}かれた{状態|じょうたい}（{歯|は}の{分割|ぶんかつ}）、{咬頭|こうとう}が{欠|か}けた{状態|じょうたい}、{根|ね}のひび（{垂直歯根破折|すいちょくしこんはせつ}）とは{区別|くべつ}されます。エナメル{質|しつ}だけの{細|ほそ}い{線|せん}（クレーズライン）も{別|べつ}のものです。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup>このモデルは、ひびが{歯|は}の{上|うえ}の{部分|ぶぶん}（{歯冠|しかん}）にとどまり、{歯肉|しにく}より{上|うえ}にある{例|れい}です。</p>
+      <p>{歯|は}が{割|わ}れて{分|わ}かれた{状態|じょうたい}（{歯|は}の{分割|ぶんかつ}）、こうとうが{欠|か}けた{状態|じょうたい}、{根|ね}のひび（{垂直歯根破折|すいちょくしこんはせつ}）とは{区別|くべつ}されます。エナメル{質|しつ}だけの{細|ほそ}い{線|せん}（クレーズライン）も{別|べつ}のものです。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup>このモデルは、ひびが{歯|は}の{上|うえ}の{部分|ぶぶん}（{歯冠|しかん}）にとどまり、{歯|は}ぐきより{上|うえ}にある{例|れい}です。</p>
       <p>{亀裂歯|きれつし}がいつも{痛|いた}むとは{限|かぎ}りません。アメリカで{奥歯|おくば}の{亀裂歯|きれつし}2,858{本|ほん}を{調|しら}べた{研究|けんきゅう}では、{痛|いた}みがあったのは100{本|ぽん}{中|ちゅう}{約|やく}46{本|ほん}でした。もっとも{多|おお}いのは{冷|つめ}たいものでの{痛|いた}み、{次|つぎ}がかんだときの{痛|いた}みでした。<sup class="cite"><a href="#ref-3">3</a></sup></p>
     </div>
   </section>
@@ -136,10 +136,10 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     </div>
     <div lang="ja">
       <h2>{詰|つ}め{物|もの}だけでは{足|た}りないことがある{理由|りゆう}</h2>
-      <p>{奥歯|おくば}の{上|うえ}には{咬頭|こうとう}という{山|やま}があります。{前|まえ}と{後|うし}ろのふちにある{辺縁隆線|へんえんりゅうせん}が、{箱|はこ}の{壁|かべ}のように{咬頭|こうとう}どうしをつないでいます。{大|おお}きな{詰|つ}め{物|もの}が{歯|は}を{横切|よこぎ}って{両方|りょうほう}の{辺縁隆線|へんえんりゅうせん}を{通|とお}ると、{咬頭|こうとう}はつながっていない{状態|じょうたい}になります。</p>
-      <p>{抜|ぬ}いた{歯|は}を{使|つか}った{実験|じっけん}では、このような{窩洞|かどう}によって{咬頭|こうとう}の{硬|かた}さ（たわみにくさ）が{平均|へいきん}で{約|やく}63%{下|さ}がりました。<sup class="cite"><a href="#ref-4">4</a></sup></p>
-      <p>{詰|つ}め{物|もの}は{歯|は}の{内側|うちがわ}に{入|はい}っています。かむと{咬頭|こうとう}は{外|そと}へ{開|ひら}くようにたわみ、ひびが{開|ひら}いて{広|ひろ}がることがあります。</p>
-      <p>クラウンは{歯|は}の{外側|そとがわ}からかぶさり、すべての{咬頭|こうとう}を{包|つつ}んで{支|ささ}えます。ひびもおおいます。<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><b>{詰|つ}め{物|もの}</b>と<b>クラウン</b>を{選|えら}んで、<b>かむ</b>で{比|くら}べてみてください。</p>
+      <p>{奥歯|おくば}の{上|うえ}にはこうとうという{山|やま}があります。{前|まえ}と{後|うし}ろのふちにある{辺縁隆線|へんえんりゅうせん}が、{箱|はこ}の{壁|かべ}のようにこうとうどうしをつないでいます。{大|おお}きな{詰|つ}め{物|もの}が{歯|は}を{横切|よこぎ}って{両方|りょうほう}の{辺縁隆線|へんえんりゅうせん}を{通|とお}ると、こうとうはつながっていない{状態|じょうたい}になります。</p>
+      <p>{抜|ぬ}いた{歯|は}を{使|つか}った{実験|じっけん}では、このような{削|けず}った{穴|あな}によってこうとうの{硬|かた}さ（たわみにくさ）が{平均|へいきん}で{約|やく}63%{下|さ}がりました。<sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>{詰|つ}め{物|もの}は{歯|は}の{内側|うちがわ}に{入|はい}っています。かむとこうとうは{外|そと}へ{開|ひら}くようにたわみ、ひびが{開|ひら}いて{広|ひろ}がることがあります。</p>
+      <p>クラウンは{歯|は}の{外側|そとがわ}からかぶさり、すべてのこうとうを{包|つつ}んで{支|ささ}えます。ひびもおおいます。<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-7">7</a></sup><b>{詰|つ}め{物|もの}</b>と<b>クラウン</b>を{選|えら}んで、<b>かむ</b>で{比|くら}べてみてください。</p>
     </div>
   </section>
 
@@ -154,7 +154,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     </div>
     <div lang="ja">
       <h2>{研究|けんきゅう}からわかっていること</h2>
-      <p>{研究|けんきゅう}では、クラウンをかぶせた{亀裂歯|きれつし}は、{詰|つ}め{物|もの}だけの{歯|は}より{神経|しんけい}のトラブルが{少|すく}なく、{抜歯|ばっし}になることも{少|すく}なくなっていました。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>クラウンをかぶせた{亀裂歯|きれつし}は、{詰|つ}め{物|もの}だけの{歯|は}より{神経|しんけい}のトラブルが{少|すく}なくなっていました。{歯|は}を{抜|ぬ}くことになるのも{少|すく}なくなっていました。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
       <p>クラウンはもっとも{守|まも}りが{強|つよ}い{方法|ほうほう}ですが、{歯|は}が{残|のこ}せることを{約束|やくそく}するものではありません。<sup class="cite"><a href="#ref-1">1</a></sup></p>
       <p>これらの{研究|けんきゅう}の{多|おお}くは、{治療|ちりょう}を{無作為|むさくい}に{決|き}めた{試験|しけん}ではなく、{経過|けいか}を{追|お}った{観察|かんさつ}{研究|けんきゅう}です。そのため{数字|すうじ}には{不確|ふたし}かさがあります。<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></p>
       <p>{痛|いた}みのないひびは、{経過|けいか}を{見|み}るだけでよいこともあります。アメリカの{研究|けんきゅう}で{治療|ちりょう}がすすめられたのは100{本|ぽん}{中|ちゅう}{約|やく}36{本|ほん}でした。ある{総説|そうせつ}では、{経過|けいか}{観察|かんさつ}だけの{亀裂歯|きれつし}の100{本|ぽん}{中|ちゅう}80{本|ほん}が3{年後|ねんご}も{問題|もんだい}ありませんでした。<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
@@ -185,7 +185,29 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
     </div>
   </section>
 
+  <section id="clinical-images">
+    <div lang="en">
+      <h2>Real photos</h2>
+      <p class="clinical-note">These photos are of one real person&#39;s tooth. The authors shared them with the person&#39;s consent. Real cracks are much thinner than in the model, and often hard to see.</p>
+    </div>
+    <div lang="ja">
+      <h2>{実際|じっさい}の{写真|しゃしん}</h2>
+      <p class="clinical-note">{実際|じっさい}の{患者|かんじゃ}さん1{人|り}の{歯|は}の{写真|しゃしん}です。{著者|ちょしゃ}が{本人|ほんにん}の{同意|どうい}を{得|え}て{公開|こうかい}しました。{本物|ほんもの}のひびはモデルよりずっと{細|ほそ}く、{見|み}えにくいことが{多|おお}いです。</p>
+    </div>
+    <figure class="clin-fig" id="img-1">
+      <img src="/images/clinical/cracked-tooth/photo-cracked-molar.jpg" width="600" height="461" loading="lazy" alt="Photo looking down on three lower back teeth. The middle tooth has a cracked crown, but the crack is hard to see.">
+      <figcaption><span lang="en"><b>Image 1. A cracked lower back tooth, before treatment.</b> The middle tooth has a crack. You can hardly see it in a normal photo.</span><span lang="ja"><b>{画像|がぞう}1. {治療前|ちりょうまえ}の、ひびのある{下|した}の{奥歯|おくば}。</b>まん{中|なか}の{歯|は}にひびがあります。ふつうの{写真|しゃしん}では、ほとんど{見|み}えません。</span>
+        <span class="credit">Lin Z, Xu M, Chen R, Lin J. A biomimetic adhesive approach for restoring a cracked tooth in a single visit: a case report. Case Rep Dent. 2026;2026:5525524, Figure 1(c). <a href="https://doi.org/10.1155/crid/5525524">doi.org/10.1155/crid/5525524</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient&#39;s written consent to publish the images.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-2">
+      <img src="/images/clinical/cracked-tooth/photo-crack-stained.jpg" width="600" height="400" loading="lazy" alt="The same tooth during treatment. Blue dye shows dark lines where the crack runs across the top of the tooth.">
+      <figcaption><span lang="en"><b>Image 2. The same tooth, with blue dye.</b> The dentist put a blue dye on the tooth. The dye soaks into the crack and shows it as a dark blue line.</span><span lang="ja"><b>{画像|がぞう}2. {同|おな}じ{歯|は}に{青|あお}い{色素|しきそ}をぬったところ。</b>{歯科医師|しかいし}が{歯|は}に{青|あお}い{色素|しきそ}をぬりました。{色素|しきそ}がひびにしみこみ、{濃|こ}い{青|あお}の{線|せん}になって{見|み}えます。</span>
+        <span class="credit">Lin Z, Xu M, Chen R, Lin J. A biomimetic adhesive approach for restoring a cracked tooth in a single visit: a case report. Case Rep Dent. 2026;2026:5525524, Figure 1(d). <a href="https://doi.org/10.1155/crid/5525524">doi.org/10.1155/crid/5525524</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient&#39;s written consent to publish the images.</span></figcaption>
+    </figure>
+  </section>
+
   <section>
+    <p class="learn-link"><span lang="en">Dental students can read the <a href="/learn/cracked-tooth">student guide to cracked teeth</a>. It has more detail on the studies.</span><span lang="ja">{歯学生|しがくせい}の{方|かた}は、{力学|りきがく}と{研究|けんきゅう}をくわしく{解説|かいせつ}した<a href="/learn/cracked-tooth">{亀裂歯|きれつし}の{学生|がくせい}{向|む}けガイド</a>をご{覧|らん}ください。</span></p>
     <details class="clin">
       <summary><span lang="en">Notes for the clinician: evidence and how the models were made</span><span lang="ja">{医療者向|いりょうしゃむ}け：{根拠|こんきょ}とモデルの{作|つく}り{方|かた}</span></summary>
       <div lang="en">

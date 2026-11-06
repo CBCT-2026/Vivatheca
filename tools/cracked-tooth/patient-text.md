@@ -47,3 +47,13 @@ See your dentist if you have:
 - a line you can see on a tooth.
 
 These were the signs people noticed most in the US study. Your dentist will check the tooth. They will explain your choices, and if the tooth needs treatment now.
+
+Dental students can read the student guide to cracked teeth. It has more detail on the studies.
+
+## Real photos
+
+These photos are of one real person's tooth. The authors shared them with the person's consent. Real cracks are much thinner than in the model, and often hard to see.
+
+A cracked lower back tooth, before treatment. The middle tooth has a crack. You can hardly see it in a normal photo.
+
+The same tooth, with blue dye. The dentist put a blue dye on the tooth. The dye soaks into the crack and shows it as a dark blue line.

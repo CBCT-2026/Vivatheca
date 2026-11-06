@@ -44,3 +44,7 @@ Clinicians draft, check and export patient education materials that match a Viva
 - Checks are a TypeScript port of [patient-education-toolkit](https://github.com/CBCT-2026/patient-education-toolkit) (MIT). Exports carry a red "DRAFT: AI-assisted, not clinically verified" notice until the clinician ticks every item of the check list. No briefs or drafts are stored on the server.
 
 More project context: `PRODUCT.md`, `DESIGN.md`, `AGENTS.md`, `docs/`.
+
+## Visitor analytics (Cloudflare Web Analytics)
+
+The privacy page says the site uses Cloudflare Web Analytics (cookie-free). To switch it on, open the Cloudflare dashboard → **Analytics & Logs → Web Analytics → Add a site**, choose **vivatheca.com**, and pick **Automatic setup** (enable JS snippet installation). No code change is needed because the domain is proxied by Cloudflare.

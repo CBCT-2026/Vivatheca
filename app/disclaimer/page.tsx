@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import { CompactFooter } from '../contact-section';
-import Link from 'next/link';
-import { ThemeToggle } from '../ui';
+import { PageHeader, SiteFooter } from '../site-chrome';
 import { format } from '../i18n/dictionaries';
 import { getI18n } from '../i18n/server';
 import { plain, Ruby } from '../i18n/ruby';
-import { LanguageSwitcher } from '../i18n/switcher';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getI18n();
@@ -13,24 +10,17 @@ export async function generateMetadata(): Promise<Metadata> {
     title: plain(t.disclaimer.title),
     description: plain(t.disclaimer.description),
     alternates: { canonical: '/disclaimer' },
+    openGraph: { url: '/disclaimer', images: ['/assets/og-image.jpg'] },
   };
 }
 
 export default async function DisclaimerPage() {
-  const { t, furigana } = await getI18n();
+  const { t } = await getI18n();
   const d = t.disclaimer;
   return (
     <>
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
-      <header className="site-header builder-header">
-        <Link className="brand" href="/" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
-        <span />
-        <div className="header-actions">
-          <LanguageSwitcher furigana={furigana} className="always" />
-          <ThemeToggle />
-          <Link className="button button-secondary button-compact builder-back" href="/"><Ruby text={t.create.back} /></Link>
-        </div>
-      </header>
+      <PageHeader />
       <main id="main-content" className="disclaimer-page">
         <p className="eyebrow"><Ruby text={format(d.updated, { date: d.date })} /></p>
         <h1><Ruby text={d.heading} /></h1>
@@ -43,7 +33,7 @@ export default async function DisclaimerPage() {
           </section>
         ))}
       </main>
-      <CompactFooter t={t} />
+      <SiteFooter />
     </>
   );
 }

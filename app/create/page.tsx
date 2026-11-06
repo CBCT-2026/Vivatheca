@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
-import { CompactFooter } from '../contact-section';
-import Link from 'next/link';
+import { PageHeader, SiteFooter } from '../site-chrome';
 import { getI18n } from '../i18n/server';
 import { plain, Ruby } from '../i18n/ruby';
-import { LanguageSwitcher } from '../i18n/switcher';
-import { ThemeToggle } from '../ui';
 import { Builder } from './builder';
 
 // Visible sources for the builder's rules and checks (see briefs.ts and checker.ts).
@@ -24,24 +21,17 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t.meta.createTitle,
     description: t.meta.createDescription,
     alternates: { canonical: '/create' },
+    openGraph: { url: '/create', images: ['/assets/og-image.jpg'] },
     robots: { index: false },
   };
 }
 
 export default async function CreatePage() {
-  const { t, furigana } = await getI18n();
+  const { t } = await getI18n();
   return (
     <>
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
-      <header className="site-header builder-header">
-        <Link className="brand" href="/" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
-        <span />
-        <div className="header-actions">
-          <LanguageSwitcher furigana={furigana} className="always" />
-          <ThemeToggle />
-          <Link className="button button-secondary button-compact builder-back" href="/"><Ruby text={t.create.back} /></Link>
-        </div>
-      </header>
+      <PageHeader current={'/create'} />
       <main id="main-content" className="builder-page">
         <div className="builder-intro">
           <p className="eyebrow"><Ruby text={t.create.eyebrow} /></p>
@@ -57,7 +47,7 @@ export default async function CreatePage() {
           </ol>
         </section>
       </main>
-      <CompactFooter t={t} />
+      <SiteFooter />
     </>
   );
 }

@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const guideLinks = {
   development: { guide: '/learn/development', model: '/development/' },
+  cracked: { guide: '/learn/cracked-tooth', model: '/cracked-tooth/' },
   orthognathic: { guide: null, model: '/orthognathic/' },
   wisdom: { guide: null, model: '/#collection' },
 } as const;

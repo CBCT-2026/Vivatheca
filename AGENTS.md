@@ -5,6 +5,8 @@
 The Vivatheca platform is a TypeScript/React application built with Next.js-compatible Vinext and packaged for Cloudflare Sites.
 
 - `app/page.tsx` defines the homepage.
+- `app/models/` holds the model library (`/models`), `catalogue.ts` (every model's card data, files, sources, simplifications, change log and citation) and one page per model (e.g. `/models/impacted-wisdom-tooth`, with `compare.tsx` showing the pathology beside its matched normal). Add each new model to `catalogue.ts`; every pathology model needs a matched normal.
+- `app/about/`, `app/privacy/` and `app/report/` (report-an-inaccuracy form that opens a pre-filled email) are plain info pages using `PageHeader` and `SiteFooter` from `app/site-chrome.tsx`.
 - `app/ui.tsx` contains interactive client components, including the 3D viewer and locally stored favourites.
 - `app/data.ts` contains reusable catalogue and navigation content.
 - `app/globals.css` contains the design tokens and shared styles.
@@ -43,6 +45,8 @@ Guard client-only APIs such as `localStorage`, Fullscreen, and Clipboard for ser
 For interface work, use the installed `ui-ux-pro-max` and `impeccable` skills together with `DESIGN.md`. Base decisions on the Vivatheca platform's brand, content, existing tokens, and user needs. Avoid generic AI layouts, excessive cards, decorative gradients, glassmorphism, generic SaaS palettes, unverified proof, and placeholder stock imagery. Every design choice must serve a product-specific purpose.
 
 ## Landing Page Assets
+
+Since 5 November 2026 the site shows screenshots of its own 3D models (`public/assets/renders/`) instead of AI illustrations. The rules below apply only if AI illustrations are ever reintroduced.
 
 Use [`assets/`](./assets/) as the source of truth for landing-page illustrations and related media. Replace stock imagery with original, content-specific illustrations generated with ImageGen, keep a consistent visual language, record prompt provenance in the manifest, and integrate every meaningful image with useful alternative text. Copy optimised shipping versions to `public/assets/`; do not reference files outside the repository. Every AI-generated image must carry the visible, subtle disclosure “AI-generated illustration.” Research illustrations are interpretive companions and must never be implied to be figures from a cited paper.
 

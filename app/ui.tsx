@@ -22,12 +22,13 @@ export function MobileNavigation({ furigana }: { furigana: boolean }) {
       </button>
       {open ? (
         <nav className="mobile-nav-panel" aria-label={plain(t.nav.mobile)}>
-          <a href="#collection" onClick={() => setOpen(false)}><Ruby text={t.nav.browseCollection} /></a>
+          <a href="/models"><Ruby text={t.nav.modelLibrary} /></a>
+          <a href="#collection" onClick={() => setOpen(false)}><Ruby text={t.nav.tryViewer} /></a>
           <a href="#how-it-works" onClick={() => setOpen(false)}><Ruby text={t.nav.howItWorks} /></a>
-          <a href="#publications" onClick={() => setOpen(false)}><Ruby text={t.nav.publications} /></a>
-          <a href="#contribute" onClick={() => setOpen(false)}><Ruby text={t.nav.contribute} /></a>
-          <a href="#sponsor" onClick={() => setOpen(false)}><Ruby text={t.nav.sponsor} /></a>
+          <a href="#publications" onClick={() => setOpen(false)}><Ruby text={t.nav.evidence} /></a>
           <a href="/create"><Ruby text={t.nav.createInfo} /></a>
+          <a href="/about"><Ruby text={t.nav.about} /></a>
+          <a href="/report"><Ruby text={t.nav.report} /></a>
           <a href="/learn"><Ruby text={t.nav.studentsMobile} /></a>
           <a href="#contact" onClick={() => setOpen(false)}><Ruby text={t.contact.heading} /></a>
           {locale === 'ja' ? <LanguageSwitcher furigana={furigana} className="in-menu" furiganaOnly /> : null}

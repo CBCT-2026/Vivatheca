@@ -54,7 +54,7 @@ export function CompactFooter({ t }: { t: Dictionary }) {
       <div className="footer-legal">
         <p>© 2026 Vivatheca</p>
         <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
-        <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href={mailto('Privacy question')}><Ruby text={t.footer.privacy} /></a><a href={mailto('Accessibility feedback')}><Ruby text={t.footer.accessibility} /></a></nav>
+        <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href="/privacy"><Ruby text={t.footer.privacy} /></a><a href="/report"><Ruby text={t.footer.report} /></a><a href={mailto('Accessibility feedback')}><Ruby text={t.footer.accessibility} /></a></nav>
       </div>
     </footer>
   );

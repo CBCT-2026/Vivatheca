@@ -15,17 +15,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: '/' },
     icons: { icon: '/favicon.svg' },
     openGraph: {
+      siteName: 'Vivatheca',
       title: t.meta.title,
       description: t.meta.socialDescription,
       url: '/',
       locale: localeTags[locale].og,
-      images: ['/assets/consultation-hero.webp'],
+      images: ['/assets/og-image.jpg'],
     },
     twitter: {
       card: 'summary_large_image',
       title: t.meta.title,
       description: t.meta.socialDescription,
-      images: ['/assets/consultation-hero.webp'],
+      images: ['/assets/og-image.jpg'],
     },
   };
 }
