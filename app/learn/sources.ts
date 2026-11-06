@@ -24,3 +24,21 @@ export const developmentSources: Source[] = [
   { id: 15, text: 'West KS, McNamara JA. Changes in the craniofacial complex from adolescence to midadulthood: a cephalometric study. Am J Orthod Dentofacial Orthop. 1999;115(5):521-532.', href: 'https://doi.org/10.1016/s0889-5406(99)70274-x' },
   { id: 16, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Average crown and root dimensions of primary and permanent teeth.)' },
 ];
+
+// Sources for the student guide to cracked teeth (/learn/cracked-tooth).
+// Numbers match the [n] markers in t.learnCracked and the sources on /cracked-tooth/.
+// Checked on PubMed, 5 November 2026, except the AAE pages and the textbook.
+
+export const crackedSources: Source[] = [
+  { id: 1, text: 'American Association of Endodontists. Cracked teeth (patient information). (Accessed 5 November 2026.)', href: 'https://www.aae.org/patients/dental-symptoms/cracked-teeth/' },
+  { id: 2, text: 'American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020.', href: 'https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/' },
+  { id: 3, text: 'Hilton TJ, Funkhouser E, Ferracane JL, et al. Recommended treatment of cracked teeth: results from the National Dental Practice-Based Research Network. J Prosthet Dent. 2020;123(1):71-78.', href: 'https://doi.org/10.1016/j.prosdent.2018.12.005' },
+  { id: 4, text: 'Reeh ES, Messer HH, Douglas WH. Reduction in tooth stiffness as a result of endodontic and restorative procedures. J Endod. 1989;15(11):512-516. (Laboratory study on extracted upper premolars.)', href: 'https://doi.org/10.1016/S0099-2399(89)80191-8' },
+  { id: 5, text: 'Banerji S, Mehta SB, Millar BJ. Cracked tooth syndrome. Part 2: restorative options for the management of cracked tooth syndrome. Br Dent J. 2010;208(11):503-514.', href: 'https://doi.org/10.1038/sj.bdj.2010.496' },
+  { id: 6, text: 'Zhang S, Xu Y, Ma Y, et al. The treatment outcomes of cracked teeth: a systematic review and meta-analysis. J Dent. 2024;142:104843.', href: 'https://doi.org/10.1016/j.jdent.2024.104843' },
+  { id: 7, text: 'Wu S, Lew HP, Chen NN. Incidence of pulpal complications after diagnosis of vital cracked teeth. J Endod. 2019;45(5):521-525.', href: 'https://doi.org/10.1016/j.joen.2019.02.003' },
+  { id: 8, text: 'Krell KV, Rivera EM. A six year evaluation of cracked teeth diagnosed with reversible pulpitis: treatment and prognosis. J Endod. 2007;33(12):1405-1407.', href: 'https://doi.org/10.1016/j.joen.2007.08.015' },
+  { id: 9, text: 'Olivieri JG, Elmsmari F, Miró Q, et al. Outcome and survival of endodontically treated cracked posterior permanent teeth: a systematic review and meta-analysis. J Endod. 2020;46(4):455-463.', href: 'https://doi.org/10.1016/j.joen.2020.01.006' },
+  { id: 10, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 10th ed. St Louis: Elsevier; 2015. (Mandibular first molar crown length, 7.5 mm.)' },
+  { id: 11, text: 'Ruan C, Wang L. Long-term survival of endodontically treated cracked teeth: a systematic review and meta-analysis. J Endod. 2026. (Lack of definitive cuspal coverage was a risk indicator; certainty of evidence very low.)', href: 'https://doi.org/10.1016/j.joen.2026.10.002' },
+];

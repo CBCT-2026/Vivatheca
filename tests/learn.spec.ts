@@ -13,7 +13,8 @@ test('student hub shows review status, model disclaimer and the clinician route'
   await expect(page.getByText('Not yet clinically reviewed.').first()).toBeVisible();
   await expect(page.locator('.learn-model-disclaimer').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
   await expect(page.getByRole('link', { name: 'Go to the clinician pages' })).toHaveAttribute('href', '/');
-  await expect(page.getByRole('link', { name: 'Open the student guide' })).toHaveAttribute('href', '/learn/development');
+  await expect(page.getByRole('link', { name: 'Open the student guide' }).first()).toHaveAttribute('href', '/learn/development');
+  await expect(page.locator('a[href="/learn/cracked-tooth"]')).toHaveCount(1);
 });
 
 test('development student guide cites every source it numbers', async ({ page }) => {
@@ -31,4 +32,19 @@ test('student guide is translated into Japanese with furigana', async ({ page, c
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
   await expect(page.locator('h1 rt').first()).toHaveText('は');
   await expect(page.locator('main')).toContainText('加生歯(かせいし)');
+});
+
+test('cracked tooth student guide cites every source it numbers, in English and Japanese', async ({ page, context }) => {
+  await page.goto('/learn/cracked-tooth');
+  await expect(page.getByRole('heading', { name: 'Cracked tooth: crown versus direct restoration', level: 1 })).toBeVisible();
+  await expect(page.getByRole('rowheader', { name: /Zhang 2024/ })).toBeVisible();
+  const cited = await page.locator('main .cite a').evaluateAll((links) => [...new Set(links.map((a) => a.getAttribute('href')))]);
+  expect(cited.length).toBe(11);
+  for (const href of cited) await expect(page.locator(href!)).toHaveCount(1);
+  await expect(page.locator('.learn-model-box').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
+  await expect(page.locator('.learn-model-box a.button')).toHaveAttribute('href', '/cracked-tooth/');
+  await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+  await expect(page.locator('h1 rt').first()).toHaveText('きれつし');
 });
