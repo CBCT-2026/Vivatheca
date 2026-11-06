@@ -72,7 +72,7 @@ export function ModelExperience() {
 
   useEffect(() => {
     let active = true;
-    // The ABG models are Draco-compressed; use the decoder this site already serves (no outside requests).
+    // Draco-compressed models: use the decoder this site serves, so no request goes to gstatic.com (blocked in mainland China).
     (self as unknown as { ModelViewerElement?: object }).ModelViewerElement = { dracoDecoderLocation: '/development/vendor/draco/' };
     import('@google/model-viewer').then(() => { if (active) setReady(true); });
     return () => { active = false; };
@@ -273,7 +273,7 @@ export function ModelExperience() {
       <div className="model-copy">
         <div className="segmented segmented-stages" role="group" aria-label={plain(a.stagesLabel)}>
           {a.stages.map((item, index) => (
-            <button key={item.label} type="button" aria-pressed={stage === index} onClick={() => chooseStage(index)}><Ruby text={item.label} /></button>
+            <button key={item.label} type="button" data-stage-index={index} aria-pressed={stage === index} onClick={() => chooseStage(index)}><Ruby text={item.label} /></button>
           ))}
         </div>
         <div className="segmented" role="group" aria-label={plain(m.level)}>

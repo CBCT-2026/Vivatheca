@@ -41,6 +41,8 @@ After every material landing-page change, update `AGENTS.md`, `DESIGN.md`, `PROD
 
 Use two-space indentation, semicolons, and single-quoted imports. Write React function components in PascalCase, variables and hooks in camelCase, and route folders in lowercase kebab-case. Reuse the semantic colour and spacing tokens in `:root` rather than adding isolated values. Use the theme-aware tokens (`--surface`, `--heading`, `--accent` and the rest listed in `DESIGN.md`) for light surfaces and text so new pages work in both light and dark mode; light is the default.
 
+Paragraph text is justified on every page in every language (the Justified-Paragraph Rule in `DESIGN.md`); the global `p` rule lives in `app/globals.css` and `public/site-header.css`, so never left-align paragraphs per page.
+
 Guard client-only APIs such as `localStorage`, Fullscreen, and Clipboard for server rendering. Keep interactive controls keyboard accessible and provide text alternatives for 3D content.
 
 ## UI/UX Direction
@@ -63,11 +65,23 @@ Keep global-access data markers, legends and location labels as accessible HTML 
 
 The platform is translated into English (default) and Japanese; the structure is ready for more languages. `app/i18n/config.ts` lists the locales and the cookies (`vivatheca-lang`, `vivatheca-furigana`); `app/i18n/dictionaries/en.ts` is the source text and every other dictionary must match its shape (TypeScript enforces this). Server components call `getI18n()` from `app/i18n/server.ts`; client components use `useI18n()`. Never hard-code visible text in components: add it to `en.ts` and `ja.ts`. `?lang=ja` on any URL sets the cookie and redirects (worker/index.ts).
 
+Security headers are set in `worker/index.ts` (`withSecurityHeaders`): a Content Security Policy that allows only this origin, HSTS, nosniff, Referrer-Policy and Permissions-Policy. Serve every script, decoder, font, image, model and video from this site. If a page must load something from another site, add that host to `CONTENT_SECURITY_POLICY` and check the page for CSP errors in the browser console (build, then `npx wrangler dev -c dist/server/wrangler.json`; `vinext start` does not run the Worker for static pages). Export only `default` and Durable Object classes from `worker/index.ts`: any other export stops the Worker from starting.
+
 Japanese text carries furigana for every kanji word, written inline as `{漢字|かんじ}` and rendered by `<Ruby>` (`app/i18n/ruby.tsx`) as `<ruby>` with `aria-hidden` readings. Use `plain()` for attributes (alt, aria-label, placeholders, metadata). Visitors can hide furigana. Use standard Japanese dental terminology with dental readings (下顎 = かがく, 下歯槽神経 = かしそうしんけい, 智歯 = ちし) and everyday words first in plain-language text (親知らず). The static `/development` page reads the same cookie through `public/development/i18n.js` (`data-i18n` keys). Japanese translations need review by a native-speaking clinician before launch. Until then, every Japanese page says so: `t.disclaimer.translationNote` in the app footers and `.vt-translation-note` from `public/contact.js` on static pages (static pages must load `/contact.js`). In Japanese mode, show the Japanese disclaimer and review status only, and mark the verbatim English versions `lang="en"` so they hide, as on every other page.
 
 ## Student pages (/learn)
 
 The site has two audiences, kept on separate pages: clinicians educating patients (homepage, model pages, `/create`) and dental and medical students (`/learn`). The homepage `#audiences` section and the "Students" nav link route between them. Never mix student-level text into patient pages; link instead. `app/learn/page.tsx` is the hub, `app/learn/development/page.tsx` the first student guide, `app/learn/chrome.tsx` the shared header, footer and `<Cited>` helper (`[n]` markers in dictionary text become numbered links to `#src-n`), and `app/learn/sources.ts` the guide's checked sources. Student text lives in `t.learn`, `t.learnDev`, `t.learnCracked`, `t.learnPerio`, `t.learnOrtho`, `t.learnOac`, `t.learnSsc` and `t.learnHn` in both dictionaries; `/learn/periodontitis`, `/learn/orthognathic`, `/learn/oroantral`, `/learn/steel-crown` and `/learn/head-neck` reuse the cracked-tooth guide layout. `public/model-page.js` (loaded on every static model page) adds a link to the page's student guide when it has none, a link to `/create?model=<id>` for clinicians, a skip link and 24 px citation targets: add new model pages to its maps. Every student guide shows the review status, the model disclaimer and a link to `/disclaimer`, and says where the model simplifies the evidence. When a model page's method changes, check the matching student guide still agrees.
+
+## Using and sharing models (6 Nov 2026)
+
+Ideas borrowed from other services (write-up: `audits/ideas-from-other-industries-2026-11-06.md` in the project files).
+
+- `public/share-tools.js` adds a "Use this model" panel under every viewer: link to the exact view (`?view=` holds the pressed stage buttons, toggles by id, hidden parts and camera) with a QR code (`public/vendor/qrcode-generator/`), "Save picture" (PNG with title, version, credit, licence, review status and model disclaimer drawn underneath), a guided tour and wordless "picture steps" (both step through the page's own stage buttons: `data-stage`, `data-state`, `data-age`, `data-stage-index`; orthognathic overrides in `TOURS`), "Copy credit" (plain, HTML, short) and embed code. Static pages load it right after `/model-parts.js`; React pages render `<div data-vt-share data-vt-scope="selector" />` plus `<AfterHydration src="/share-tools.js" />` (`app/script-mount.tsx`). Model facts come from `/api/models` (catalogue + dictionaries + disclaimer). Three.js viewers expose `box.vtView` (get, set, capture); `model-parts.js` exposes `viewer.vtPartsState`. New choice buttons or toggles must keep `aria-pressed` so links and tours can read them; add new toggle ids to `TOGGLES`.
+- `?embed=1` on any model page shows only the viewer, its controls and caption, with a bar holding the review status, model disclaimer, licence and a link back. Embeds work only once the site password is removed (browsers block the password prompt inside iframes). Do not remove the password for this.
+- `worker/store.ts` is a SQLite Durable Object (binding `STORE`, migration in `vite.config.ts`) for usage counts (`/api/stats`, shown on `/impact`), the model request board (`/requests`, seeded ideas in `app/requests/seed.ts`, words in `t.requests.seeds`) and "used it" posts (`/used`). Suggestions and posts stay hidden until approved at `/admin`, which needs the `ADMIN_TOKEN` Worker secret. It is a plain class with `fetch()` so the Worker still loads under `vinext start` (no bindings: the pages show a fallback). No IP addresses or e-mails are stored; votes use a random `vt-voter` cookie stored only as a hash. Update `/privacy` if this changes.
+- `/print` (`public/print/printer.js`) reads the STL zips listed in `public/print/sets.json` (rebuild with `node tools/print/build-sets.mjs` when print zips change), previews them (three.js r147 from `public/head-neck/vendor/three/`, text from `public/vendor/three-extras/`) and writes a 3MF (named, coloured parts; Bambu `model_settings.config` gives each colour its own filament slot) or STL, with optional size, base plate, raised label and magnet holes. Part colours follow the colour standard in `COLOURS`. Files are not yet test-printed; the page says so.
+- `/templates` lists editable PPTX handouts (A4) and slides (16:9) per model in English and Japanese, built by `python3 tools/templates/build.py` (needs `pnpm start` running for `/api/models`). Rebuild them when a model, its title or its render changes.
 
 ## Patient Information Builder
 
@@ -76,6 +90,17 @@ The site has two audiences, kept on separate pages: clinicians educating patient
 ## Testing Guidelines
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.
+
+## Base meshes and model licences (rule from 6 Nov 2026)
+
+This is a standing project rule for every new model and every rebuild.
+
+- **Start from BodyParts3D** for bone and teeth wherever it has the structure. BodyParts3D is CC BY 4.0 (confirmed on the [DBCLS licence page](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html), 6 Nov 2026), so models built only from it and our own work can be released as **CC BY 4.0**, which is easier for clinics to reuse than CC BY-SA. Required credit, verbatim: "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International".
+- **Hand-build what BodyParts3D lacks** (inferior alveolar nerve and artery, other jaw nerves and vessels, parotid gland, maxillary sinus, TMJ disc, third molars, primary teeth, lesions), from cited dimensions (see Evidence and transparency). Hand-built parts keep the model CC BY.
+- **Use Z-Anatomy only when a part cannot reasonably be hand-built.** Any model that contains a Z-Anatomy part, however small, must be released as **CC BY-SA 4.0** with the Z-Anatomy credit.
+- Existing Z-Anatomy-based models (orthognathic, oroantral, stainless steel crown, head and neck cases and others) stay CC BY-SA 4.0. Rebuilding one on BodyParts3D makes it CC BY only if no Z-Anatomy part remains.
+- Every model page, download and print zip states which base was used, its licence and the required credit, and the model's own licence (CC BY 4.0 or CC BY-SA 4.0). Never label a model CC BY if any part came from Z-Anatomy or another share-alike source.
+- Base meshes come from one adult reference body, not from any patient, so the model disclaimer still applies.
 
 ## Evidence and transparency (required for everything)
 
