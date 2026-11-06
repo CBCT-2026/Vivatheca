@@ -5,15 +5,15 @@ test('model library lists each model with its pairing and review status', async 
   await expect(page.getByRole('heading', { name: 'Models with a normal to compare.', level: 1 })).toBeVisible();
   const cards = page.getByRole('list', { name: 'Models' }).getByRole('listitem').filter({ has: page.getByRole('heading', { level: 2 }) });
   await expect(cards).toHaveCount(13);
-  await expect(page.locator('.library-grid .library-card-link', { hasText: 'Impacted lower wisdom tooth' })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
-  await expect(page.locator('.library-grid .library-card-link', { hasText: 'Dental development, ages 6 to 12' })).toHaveAttribute('href', '/development/');
+  await expect(page.locator('.library-grid .library-card-link', { hasText: 'Mesioangular impacted mandibular third molar' })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
+  await expect(page.locator('.library-grid .library-card-link', { hasText: 'Mixed dentition: development and eruption of the permanent teeth, 6.5 to 12.5 years' })).toHaveAttribute('href', '/development/');
   await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(13);
   await expect(page.locator('.info-intro .prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
 });
 
 test('wisdom tooth page compares impacted and normal models with downloads and details', async ({ page }) => {
   await page.goto('/models/impacted-wisdom-tooth');
-  await expect(page.getByRole('heading', { name: 'Impacted lower wisdom tooth', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Mesioangular impacted mandibular third molar', level: 1 })).toBeVisible();
   const viewers = page.locator('model-viewer');
   await expect(viewers).toHaveCount(2);
   await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/wisdom-tooth-normal.glb');
@@ -84,9 +84,9 @@ test('every static model page links home and back to the library', async ({ page
 
 test('bone graft page is in the collection and shows the staged model with its disclaimer', async ({ page }) => {
   await page.goto('/models');
-  await expect(page.locator('.library-grid .library-card-link', { hasText: 'Bone graft for a cleft in the gum' })).toHaveAttribute('href', '/models/alveolar-bone-graft');
+  await expect(page.locator('.library-grid .library-card-link', { hasText: 'Secondary alveolar bone grafting of a unilateral alveolar cleft' })).toHaveAttribute('href', '/models/alveolar-bone-graft');
   await page.goto('/models/alveolar-bone-graft');
-  await expect(page.getByRole('heading', { name: 'Bone graft for a cleft in the gum', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Secondary alveolar bone grafting of a unilateral alveolar cleft', level: 1 })).toBeVisible();
   await expect(page.locator('header a[href="/"]').first()).toBeVisible();
   await expect(page.locator('a[href="/models"]:visible').first()).toBeVisible();
   await expect.poll(() => page.locator('model-viewer').evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/abg/abg-1-pre-op.glb');

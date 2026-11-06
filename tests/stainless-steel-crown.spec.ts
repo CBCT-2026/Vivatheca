@@ -4,7 +4,7 @@ import { chooseLanguage, languageButton } from './language';
 test.describe('stainless steel crown model page', () => {
   test('switches between the five stages and keeps the disclaimer and sources visible', async ({ page }) => {
     await page.goto('/stainless-steel-crown/index.html');
-    await expect(page.getByRole('heading', { level: 1, name: "Steel crown on a child's back tooth" })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Preformed metal (stainless steel) crown on a mandibular second primary molar' })).toBeVisible();
 
     const viewer = page.locator('#mv');
     await expect(viewer).toHaveAttribute('src', 'models/healthy.glb');
@@ -36,7 +36,7 @@ test.describe('stainless steel crown model page', () => {
     await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: baseURL! }]);
     await page.goto('/stainless-steel-crown/index.html#crown');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
-    await expect(page.locator('h1')).toContainText('かぶせ');
+    await expect(page.locator('h1')).toContainText('ステンレススチールクラウン');
     await expect(page.locator('#stage h2')).toContainText('かぶせ');
     await expect(page.locator('#stage ruby').first()).toBeVisible();
     await expect(languageButton(page)).toHaveAccessibleName('言語: 日本語');

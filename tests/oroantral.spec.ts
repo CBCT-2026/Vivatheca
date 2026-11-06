@@ -4,7 +4,7 @@ import { chooseLanguage } from './language';
 test.describe('oroantral communication model page', () => {
   test('shows the model, review status, disclaimer and sources', async ({ page }) => {
     await page.goto('/oroantral/index.html');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('OAC and OAF');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Oroantral communication and oroantral fistula');
     await expect(page.locator('model-viewer')).toHaveAttribute('src', 'models/normal.glb');
     await expect(page.getByText('Not yet clinically reviewed.').first()).toBeVisible();
     await expect(page.getByRole('link', { name: 'Full disclaimer' }).first()).toHaveAttribute('href', '/disclaimer');

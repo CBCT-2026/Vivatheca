@@ -10,6 +10,7 @@ import { localeTags } from '../../i18n/config';
 import { format } from '../../i18n/dictionaries';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
+import { TermSources } from '../terms';
 import { VideoSection } from '../../video-section';
 
 const model = catalogue.find((item) => item.slug === 'impacted-wisdom-tooth')!;
@@ -39,6 +40,7 @@ export default async function WisdomToothPage() {
         <div className="info-intro">
           <p className="eyebrow"><Ruby text={item.specialty} /></p>
           <h1><Ruby text={item.title} /></h1>
+          <TermSources label={t.library.termsLabel} terms={model.terms} />
           <p><Ruby text={item.summary} /></p>
         </div>
 

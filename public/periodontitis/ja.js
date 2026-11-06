@@ -3,11 +3,12 @@
 (function () {
   const c = (...ns) => ns.map((n) => '<sup class="cite"><a href="#ref-' + n + '">' + n + '</a></sup>').join('');
   window.VT_JA = {
-    title: '{歯周病|ししゅうびょう}（{歯周炎|ししゅうえん}）：ステージⅠ〜Ⅳ | Vivatheca',
+    title: '{歯周炎|ししゅうえん} ステージI〜IV（2017{年|ねん}AAP/EFP{分類|ぶんるい}）（3D） | Vivatheca',
     description: '{健康|けんこう}な{下|した}あごと、{歯周炎|ししゅうえん}のステージⅠ〜Ⅳで{骨|ほね}がどう{失|うしな}われるかを{見|み}られる3D{模型|もけい}。{無料|むりょう}で{見|み}られて3Dプリントもできます。',
     home: 'Vivathecaホーム',
     allModels: '{模型|もけい}{一覧|いちらん}',
-    h1: '{歯周病|ししゅうびょう}（{歯周炎|ししゅうえん}）：ステージⅠ〜Ⅳ',
+    h1: '<span class="pitk-skip">{歯周炎|ししゅうえん} ステージI〜IV（2017{年|ねん}AAP/EFP{分類|ぶんるい}）</span>',
+    termsLabel: '{名称|めいしょう}と{分類|ぶんるい}：',
     chooseStage: 'ステージを{選|えら}ぶ',
     bHealthy: '{健康|けんこう}<small>{病気|びょうき}なし</small>',
     b1: 'ステージ<wbr>Ⅰ<small>{初期|しょき}</small>',
