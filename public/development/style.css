@@ -97,11 +97,10 @@ model-viewer.labels-off .hotspot, model-viewer.zoomed .hotspot[data-far] { displ
 .ar-more[hidden] { display: none; }
 .ar-more button { flex: 1 1 auto; min-height: 44px; padding: 8px 12px; border-radius: 999px; border: 0;
   background: var(--ar); color: var(--ar-text); font-family: inherit; font-size: 15px; font-weight: 600; line-height: 1.2; cursor: pointer; }
-/* Justified text, as asked. Hyphens help English lines not to stretch too much on phones. */
+/* Justified body text (site rule, see DESIGN.md). Hyphens keep English gaps small; Japanese spreads between characters. */
 main p, main li, figcaption { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+:lang(ja) main p, :lang(ja) main li, main p:lang(ja), main li:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
 main ul, main ol, .refs li { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-/* Phones: narrow lines leave wide gaps when justified, so align left there (review 2026-11-06). */
-@media (max-width: 600px) { main p, main li, figcaption, main ul, main ol, .refs li { text-align: left; } }
 .controls, .ar-more { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
 .important { background: #fff7e0; border: 2px solid #d9a400; border-radius: 12px; padding: 12px 14px; margin: 12px 0; }
 .important h2 { color: #6b4e00; }

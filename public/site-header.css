@@ -89,3 +89,8 @@
   .vt-header .langs button:not([lang]) { display: none; } /* furigana switch: no room on the smallest phones */
 }
 @media print { .vt-header { position: static; } .vt-menu, .vt-actions { display: none; } }
+
+/* Site rule (2026-11-06): all paragraph text is justified, on every page and in every language.
+   Every static page loads this file, so the rule lives here (the app pages use app/globals.css). See DESIGN.md. */
+p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+p:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
