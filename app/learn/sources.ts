@@ -42,3 +42,81 @@ export const crackedSources: Source[] = [
   { id: 10, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 10th ed. St Louis: Elsevier; 2015. (Mandibular first molar crown length, 7.5 mm.)' },
   { id: 11, text: 'Ruan C, Wang L. Long-term survival of endodontically treated cracked teeth: a systematic review and meta-analysis. J Endod. 2026. (Lack of definitive cuspal coverage was a risk indicator; certainty of evidence very low.)', href: 'https://doi.org/10.1016/j.joen.2026.10.002' },
 ];
+
+// Sources for the student guide to periodontitis staging (/learn/periodontitis).
+// Numbers match the [n] markers in t.learnPerio. The same sources are cited on /periodontitis/.
+
+export const perioSources: Source[] = [
+  { id: 1, text: 'Tonetti MS, Greenwell H, Kornman KS. Staging and grading of periodontitis: framework and proposal of a new classification and case definition. J Periodontol. 2018;89 Suppl 1:S159-S172.', href: 'https://doi.org/10.1002/JPER.18-0006' },
+  { id: 2, text: 'Papapanou PN, Sanz M, Buduneli N, et al. Periodontitis: consensus report of workgroup 2 of the 2017 World Workshop on the Classification of Periodontal and Peri-Implant Diseases and Conditions. J Periodontol. 2018;89 Suppl 1:S173-S182.', href: 'https://doi.org/10.1002/JPER.17-0721' },
+  { id: 3, text: 'Caton JG, Armitage G, Berglundh T, et al. A new classification scheme for periodontal and peri-implant diseases and conditions: introduction and key changes from the 1999 classification. J Clin Periodontol. 2018;45 Suppl 20:S1-S8.', href: 'https://doi.org/10.1111/jcpe.12935' },
+  { id: 4, text: 'Sanz M, Herrera D, Kebschull M, et al. Treatment of stage I–III periodontitis: the EFP S3 level clinical practice guideline. J Clin Periodontol. 2020;47 Suppl 22:4-60.', href: 'https://doi.org/10.1111/jcpe.13290' },
+  { id: 5, text: 'Hausmann E, Allen K, Clerehugh V. What alveolar crest level on a bite-wing radiograph represents bone loss? J Periodontol. 1991;62(9):570-572.', href: 'https://doi.org/10.1902/jop.1991.62.9.570' },
+  { id: 6, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Crown and root lengths and the cervical line of the mandibular teeth.)' },
+  { id: 7, text: 'American Academy of Periodontology. Staging and grading periodontitis (chart of Tables 2 and 3 from source 1).', href: 'https://www.perio.org/wp-content/uploads/2019/08/Staging-and-Grading-Periodontitis.pdf' },
+];
+
+// Sources for the student guide to orthognathic surgery (/learn/orthognathic).
+// Numbers match the [n] markers in t.learnOrtho and the sources on /orthognathic/.
+// Proffit 2007 and Ireland 2014 checked in full text (PubMed Central), 6 November 2026.
+
+export const orthoSources: Source[] = [
+  { id: 1, text: 'Angle EH. Classification of malocclusion. Dental Cosmos. 1899;41:248-264, 350-357.' },
+  { id: 2, text: 'Steiner CC. Cephalometrics for you and me. Am J Orthod. 1953;39(10):729-755.', href: 'https://doi.org/10.1016/0002-9416(53)90082-7' },
+  { id: 3, text: 'Trauner R, Obwegeser H. The surgical correction of mandibular prognathism and retrognathia with consideration of genioplasty. I. Oral Surg Oral Med Oral Pathol. 1957;10(7):677-689.', href: 'https://doi.org/10.1016/s0030-4220(57)80063-2' },
+  { id: 4, text: 'Dal Pont G. Retromolar osteotomy for the correction of prognathism. J Oral Surg Anesth Hosp Dent Serv. 1961;19:42-47.', href: 'https://pubmed.ncbi.nlm.nih.gov/13719390/' },
+  { id: 5, text: 'Hunsuck EE. A modified intraoral sagittal splitting technic for correction of mandibular prognathism. J Oral Surg. 1968;26(4):250-253.', href: 'https://pubmed.ncbi.nlm.nih.gov/5237786/' },
+  { id: 6, text: 'Bell WH. Le Fort I osteotomy for correction of maxillary deformities. J Oral Surg. 1975;33(6):412-426.', href: 'https://pubmed.ncbi.nlm.nih.gov/1055202/' },
+  { id: 7, text: 'Proffit WR, Turvey TA, Phillips C. The hierarchy of stability and predictability in orthognathic surgery with rigid fixation: an update and extension. Head Face Med. 2007;3:21.', href: 'https://doi.org/10.1186/1746-160X-3-21' },
+  { id: 8, text: 'NHS England (prepared by Public Health England). Interim clinical commissioning policy: orthognathic surgery (Armed Forces), N-SC/026. November 2013.', href: 'https://www.england.nhs.uk/commissioning/wp-content/uploads/sites/12/2014/03/nsc026-orthognathic-surg.pdf' },
+  { id: 9, text: 'Australian Society of Orthodontists (Orthodontics Australia). Jaw surgery and braces. (Accessed 5 November 2026.)', href: 'https://orthodonticsaustralia.org.au/jaw-surgery-braces' },
+  { id: 10, text: 'Ireland AJ, Cunningham SJ, Petrie A, et al. An index of orthognathic functional treatment need (IOFTN). J Orthod. 2014;41(2):77-83.', href: 'https://doi.org/10.1179/1465313314Y.0000000100' },
+  { id: 11, text: 'Cambridge University Hospitals NHS Foundation Trust. Jaw or chin corrective surgery (orthognathic surgery): patient information and consent. (Accessed 5 November 2026.)', href: 'https://www.cuh.nhs.uk/patient-information/patient-information-and-consent-to-jaw-or-chin-corrective-surgery-orthognathic-surgery/' },
+];
+
+// Sources for the student guide to oroantral communication and fistula (/learn/oroantral).
+// Numbers match the [n] markers in t.learnOac and the sources on /oroantral/.
+
+export const oroantralSources: Source[] = [
+  { id: 1, text: 'Parvini P, Obreja K, Begic A, Schwarz F, Becker J, Sader R, Salti L. Decision-making in closure of oroantral communication and fistula. Int J Implant Dent. 2019;5(1):13.', href: 'https://doi.org/10.1186/s40729-019-0165-7' },
+  { id: 2, text: 'Khandelwal P, Hajira N. Management of oro-antral communication and fistula: various surgical options. World J Plast Surg. 2017;6(1):3-8.', href: 'https://pubmed.ncbi.nlm.nih.gov/28289607/' },
+  { id: 3, text: 'Dipalma G, Inchingolo AM, Trilli I, et al. Management of oro-antral communication: a systemic review of diagnostic and therapeutic strategies. Diagnostics (Basel). 2025;15(2):194.', href: 'https://doi.org/10.3390/diagnostics15020194' },
+  { id: 4, text: 'Oliva S, Lorusso F, Scarano A, D’Amario M, Murmura G. The treatment and management of oroantral communications and fistulas: a systematic review and network metanalysis. Dent J (Basel). 2024;12(5):147.', href: 'https://doi.org/10.3390/dj12050147' },
+  { id: 5, text: 'Egyedi P. Utilization of the buccal fat pad for closure of oro-antral and/or oro-nasal communications. J Maxillofac Surg. 1977;5(4):241-244.', href: 'https://doi.org/10.1016/s0301-0503(77)80117-3' },
+  { id: 6, text: 'Eberhardt JA, Torabinejad M, Christiansen EL. A computed tomographic study of the distances between the maxillary sinus floor and the apices of the maxillary posterior teeth. Oral Surg Oral Med Oral Pathol. 1992;73(3):345-346.', href: 'https://doi.org/10.1016/0030-4220(92)90133-b' },
+  { id: 7, text: 'Kwak HH, Park HD, Yoon HR, Kang MK, Koh KS, Kim HJ. Topographic anatomy of the inferior wall of the maxillary sinus in Koreans. Int J Oral Maxillofac Surg. 2004;33(4):382-388.', href: 'https://doi.org/10.1016/j.ijom.2003.10.012' },
+  { id: 8, text: 'Estrela C, Nunes CA, Guedes OA, et al. Study of anatomical relationship between posterior teeth and maxillary sinus floor in a subpopulation of the Brazilian central region using cone-beam computed tomography, part 2. Braz Dent J. 2016;27(1):9-15.', href: 'https://doi.org/10.1590/0103-6440201600679' },
+  { id: 9, text: 'Hernando J, Gallego L, Junquera L, Villarreal P. Oroantral communications: a retrospective analysis. Med Oral Patol Oral Cir Bucal. 2010;15(3):e499-503.', href: 'https://doi.org/10.4317/medoral.15.e499' },
+  { id: 10, text: 'Pourmand PP, Sigron GR, Mache B, Stadlinger B, Locher MC. The most common complications after wisdom-tooth removal: part 2: a retrospective study of 1,562 cases in the maxilla. Swiss Dent J. 2014;124(10):1047-1051.', href: 'https://doi.org/10.61872/sdj-2014-10-02' },
+  { id: 11, text: 'Amani R, Noroozi M, Ashrafi MMS. Assessment of the relationships between posterior root apices and the maxillary sinus floor: a comparison of panoramic radiography and cone beam computed tomography. Gen Dent. 2023;71(5):58-63.', href: 'https://pubmed.ncbi.nlm.nih.gov/37595085/' },
+];
+
+// Sources for the student guide to preformed metal crowns (/learn/steel-crown).
+// Numbers match the [n] markers in t.learnSsc and the sources on /stainless-steel-crown/.
+
+export const steelCrownSources: Source[] = [
+  { id: 1, text: 'American Academy of Pediatric Dentistry. Pediatric restorative dentistry (Best Practices: Restorative Dentistry). The Reference Manual of Pediatric Dentistry. Chicago, IL: American Academy of Pediatric Dentistry; 2025:473-86.', href: 'https://www.aapd.org/media/policies_guidelines/bp_restorativedent.pdf' },
+  { id: 2, text: 'Innes NPT, Ricketts D, Chong LY, Keightley AJ, Lamont T, Santamaria RM. Preformed crowns for decayed primary molar teeth. Cochrane Database Syst Rev. 2015;(12):CD005512.', href: 'https://doi.org/10.1002/14651858.CD005512.pub3' },
+  { id: 3, text: 'Innes NPT, Evans DJP, Stirrups DR. Sealing caries in primary molars: randomized control trial, 5-year results. J Dent Res. 2011;90(12):1405-1410.', href: 'https://doi.org/10.1177/0022034511422064' },
+  { id: 4, text: 'Seale NS. The use of stainless steel crowns. Pediatr Dent. 2002;24(5):501-505.', href: 'https://pubmed.ncbi.nlm.nih.gov/12412965/' },
+  { id: 5, text: 'Randall RC, Vrijhoef MM, Wilson NH. Efficacy of preformed metal crowns vs. amalgam restorations in primary molars: a systematic review. J Am Dent Assoc. 2000;131(3):337-343.', href: 'https://doi.org/10.14219/jada.archive.2000.0177' },
+  { id: 6, text: 'Wu E, Yang YJ, Munz SM, Hsiao CC, Boynton JR. Restorations versus stainless steel crowns in primary molars: a retrospective split-mouth study. Pediatr Dent. 2021;43(4):290-295.', href: 'https://pubmed.ncbi.nlm.nih.gov/34467846/' },
+  { id: 7, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Primary tooth measurements, after G. V. Black.)' },
+];
+
+// Sources for the student guide to the head and neck cases (/learn/head-neck).
+// Numbers match the [n] markers in t.learnHn; all are cited on the /head-neck/ case pages.
+
+export const headNeckSources: Source[] = [
+  { id: 1, text: 'Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077.', href: 'https://doi.org/10.7759/cureus.56077' },
+  { id: 2, text: 'Hidalgo DA. Fibula free flap: a new method of mandible reconstruction. Plast Reconstr Surg. 1989;84(1):71-79.', href: 'https://pubmed.ncbi.nlm.nih.gov/2734406/' },
+  { id: 3, text: 'Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.', href: 'https://doi.org/10.1016/S1470-2045(15)00310-1' },
+  { id: 4, text: 'Soutar DS, Scheker LR, Tanner NS, McGregor IA. The radial forearm flap: a versatile method for intra-oral reconstruction. Br J Plast Surg. 1983;36(1):1-8.', href: 'https://doi.org/10.1016/0007-1226(83)90002-4' },
+  { id: 5, text: 'Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441.', href: 'https://doi.org/10.7759/cureus.104441' },
+  { id: 6, text: 'Almeida RAC, Andrade ESS, Barbalho JC, Vajgel A, Vasconcelos BCE. Recurrence rate following treatment for primary multicystic ameloblastoma: systematic review and meta-analysis. Int J Oral Maxillofac Surg. 2016;45(3):359-367.', href: 'https://doi.org/10.1016/j.ijom.2015.12.016' },
+  { id: 7, text: 'Abdelfadil E, Alsharif M, Alsharif AT, Mourad S. Management of a mandibular odontogenic keratocyst with enucleation, piezotome-assisted peripheral ostectomy, and platelet-rich fibrin: a case report. Dent J (Basel). 2025;13(11):536.', href: 'https://doi.org/10.3390/dj13110536' },
+  { id: 8, text: 'Al-Moraissi EA, Dahan AA, Alwadeai MS, et al. What surgical treatment has the lowest recurrence rate following the management of keratocystic odontogenic tumor?: A large systematic review and meta-analysis. J Craniomaxillofac Surg. 2017;45(1):131-144.', href: 'https://doi.org/10.1016/j.jcms.2016.10.013' },
+  { id: 9, text: 'Chrcanovic BR, Gomez RS. Recurrence probability for keratocystic odontogenic tumors: an analysis of 6427 cases. J Craniomaxillofac Surg. 2017;45(2):244-251.', href: 'https://doi.org/10.1016/j.jcms.2016.11.010' },
+  { id: 10, text: 'Jacobs D, et al. 5-Fluorouracil versus modified Carnoy’s solution for odontogenic keratocysts. J Oral Maxillofac Surg. 2024;82:1433-1440.', href: 'https://doi.org/10.1016/j.joms.2024.06.181' },
+  { id: 11, text: 'Ellam M, et al. Mucoepidermoid carcinoma of the hard palate: a case illustrating grading uncertainty and bone-sparing surgical management. Cureus. 2026;18(8):e115250.', href: 'https://doi.org/10.7759/cureus.115250' },
+];
