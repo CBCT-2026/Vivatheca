@@ -73,6 +73,7 @@ html[lang="ja"] .vt-video .vt-video-review span[lang="en"] { display: none; }
   }
 
   box.setAttribute('aria-labelledby', 'vt-video-h');
+  if ((document.documentElement.lang || 'en').slice(0, 2) !== lang) box.setAttribute('lang', lang);
   box.innerHTML =
     `<h2 id="vt-video-h"><span class="vt-video-badge">${lang === 'ja' ? ruby('{動画|どうが}') : 'Video'}</span>${ruby(t.heading)}</h2>` +
     `<p class="vt-video-meta">${ruby(L.title)} · ${ruby(t.meta.replace('{s}', L.seconds))}</p>` +

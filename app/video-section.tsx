@@ -11,12 +11,13 @@ export async function VideoSection({ slug }: { slug: string }) {
   const { t, locale } = await getI18n();
   const video = videos[slug];
   if (!video) return null;
+  // Videos exist in English and Japanese; other site languages show the English video.
   const lang = locale === 'ja' ? 'ja' : 'en';
   const v = video[lang];
   const files = videoFiles(slug, lang);
   const s = t.video;
   return (
-    <section className="detail-block video-block" id="video" aria-labelledby="video-title">
+    <section className="detail-block video-block" id="video" aria-labelledby="video-title" lang={locale === lang ? undefined : lang}>
       <h2 id="video-title"><span className="video-badge"><Ruby text={s.badge} /></span> <Ruby text={s.heading} /></h2>
       <p className="video-meta"><Ruby text={v.title} /> · <Ruby text={format(s.meta, { s: String(v.seconds) })} /></p>
       <video controls playsInline preload="none" poster={files.poster} aria-label={plain(s.label + v.title)}>
