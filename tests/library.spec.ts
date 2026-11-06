@@ -75,7 +75,7 @@ test('every static model page links home and back to the library', async ({ page
     // vinext start does not serve a folder's index.html by its trailing-slash URL; Cloudflare does.
     await page.goto(`${route}index.html`);
     await expect(page.locator('header a[href="/"]').first(), route).toBeVisible();
-    await expect(page.locator('header a[href="/models"]').first(), route).toBeVisible();
+    await expect(page.locator('header a[href="/models"]:visible').first(), route).toBeVisible();
     await page.goto('/models');
     await expect(page.locator(`.library-card a[href="${route}"]`), route).toHaveCount(1);
   }
@@ -87,7 +87,7 @@ test('bone graft page is in the collection and shows the staged model with its d
   await page.goto('/models/alveolar-bone-graft');
   await expect(page.getByRole('heading', { name: 'Bone graft for a cleft in the gum', level: 1 })).toBeVisible();
   await expect(page.locator('header a[href="/"]').first()).toBeVisible();
-  await expect(page.locator('a[href="/models"]').first()).toBeVisible();
+  await expect(page.locator('a[href="/models"]:visible').first()).toBeVisible();
   await expect.poll(() => page.locator('model-viewer').evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/abg/abg-1-pre-op.glb');
   await expect(page.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
   await expect(page.locator('.prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');

@@ -909,6 +909,17 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .clinical-credit { display: block; margin-top: .35rem; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
 .clinical-credit a { color: inherit; }
 
+/* Inner pages on phones and tablets: the same menu button as the homepage instead of wrapped rows of links. */
+@media (max-width: 900px) {
+  .page-header { grid-template-columns: auto 1fr; }
+  .page-header .page-nav { display: none; }
+  .page-header-actions { grid-row: 1; grid-column: 2; }
+  .page-header .mobile-nav { display: block; }
+}
+/* The menu repeats the furigana switch (Japanese only), so the header drops it on phones, as on the homepage. */
+@media (max-width: 560px) {
+  .page-header-actions > .language-switcher .furigana-toggle { display: none; }
+}
 /* Homepage: bone graft stage switcher, mixed model showcase and wisdom tooth case images. */
 .segmented-stages { grid-template-columns: repeat(3,1fr); margin-bottom: .75rem; }
 .segmented-stages button { padding: 0 .4rem; line-height: 1.2; }

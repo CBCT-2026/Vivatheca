@@ -124,7 +124,7 @@ test('landing page remains usable on mobile', async ({ page }) => {
   await page.getByRole('button', { name: 'Open navigation' }).click();
   const mobileNavigation = page.getByRole('navigation', { name: 'Mobile navigation' });
   await expect(mobileNavigation).toBeVisible();
-  await expect(mobileNavigation.getByRole('link', { name: 'Create patient information' })).toHaveAttribute('href', '/create');
+  await expect(mobileNavigation.getByRole('link', { name: 'Create', exact: true })).toHaveAttribute('href', '/create');
   await mobileNavigation.getByRole('link', { name: 'How it works', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'One model. More ways to understand.' })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
