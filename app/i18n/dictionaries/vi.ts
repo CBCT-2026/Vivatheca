@@ -667,13 +667,13 @@ const vi = withFallback(en, {
     "position": "Tâm ngắm (mm, giá trị):",
     "volumes": {
       "wisdom-tooth": {
-        "label": "Răng khôn hàm dưới mọc ngầm"
+        "label": "Răng cối lớn thứ ba hàm dưới mọc ngầm nghiêng gần"
       },
       "scc-before": {
-        "label": "Ung thư miệng ở hàm dưới, trước phẫu thuật"
+        "label": "Ung thư biểu mô tế bào vảy nướu hàm dưới, trước phẫu thuật cắt bỏ"
       },
       "scc-after": {
-        "label": "Hàm dưới sau tái tạo bằng xương mác"
+        "label": "Xương hàm dưới sau cắt đoạn và tái tạo bằng vạt xương mác tự do"
       }
     },
     "views": {
@@ -1100,9 +1100,9 @@ const vi = withFallback(en, {
     "about": "Mô hình 3D miễn phí về bệnh răng miệng và hàm mặt, mỗi mô hình đều có mô hình bình thường để so sánh, giúp nhân viên y tế làm tài liệu giáo dục bệnh nhân.",
     "badge": "Phi lợi nhuận · Giấy phép mở",
     "library": "Thư viện mô hình",
-    "wisdomTooth": "Răng khôn mọc ngầm",
-    "development": "Sự phát triển của răng từ 6 đến 12 tuổi",
-    "orthognathic": "Phẫu thuật xương hàm để chỉnh khớp cắn",
+    "wisdomTooth": "Răng cối lớn thứ ba hàm dưới mọc ngầm",
+    "development": "Sự phát triển của bộ răng hỗn hợp",
+    "orthognathic": "Phẫu thuật chỉnh hình xương hàm",
     "report": "Báo lỗi",
     "aboutGroup": {
       "label": "Giới thiệu",
@@ -1546,48 +1546,55 @@ const vi = withFallback(en, {
     "askLink": "Hãy cho chúng tôi biết",
     "askGap": " ",
     "askEnd": ".",
+    "termsLabel": "Tên gọi và phân loại:",
     "notReviewed": "Chưa được thẩm định lâm sàng",
     "videoBadge": "Video",
     "watchVideo": "Xem video {s} giây",
     "items": {
+      "averaged-jaw": {
+        "title": "Xương hàm dưới và cung răng dưới trung bình của người trưởng thành: trung bình thống kê từ các phim CT công khai"
+      },
+      "fixation": {
+        "title": "Cố định trong xương hàm dưới: kết hợp xương bằng nẹp nhỏ và nẹp tái tạo"
+      },
       "impacted-wisdom-tooth": {
-        "title": "Răng khôn hàm dưới mọc ngầm",
+        "title": "Răng cối lớn thứ ba hàm dưới mọc ngầm nghiêng gần",
         "specialty": "Phẫu thuật miệng và hàm mặt",
         "summary": "Răng khôn hàm dưới bên trái nghiêng ra trước vào răng hàm lớn thứ hai, chân răng ôm quanh dây thần kinh huyệt răng dưới. So sánh với cùng xương hàm đó khi răng khôn mọc bình thường.",
         "pairing": "Bệnh lý + bản bình thường tương ứng"
       },
       "dental-development": {
-        "title": "Sự phát triển của răng, từ 6 đến 12 tuổi",
+        "title": "Bộ răng hỗn hợp: sự phát triển và mọc của răng vĩnh viễn, 6,5 đến 12,5 tuổi",
         "specialty": "Chỉnh nha và răng trẻ em",
         "summary": "Bảy giai đoạn, mỗi năm một giai đoạn từ 6,5 đến 12,5 tuổi, cho thấy răng sữa (xanh dương) được thay bằng răng vĩnh viễn (vàng) ở hàm trên và hàm dưới bên phải.",
         "pairing": "Chuỗi phát triển bình thường"
       },
       "periodontitis": {
-        "title": "Bệnh nha chu (viêm nha chu), giai đoạn I đến IV",
+        "title": "Viêm nha chu giai đoạn I đến IV (phân loại AAP/EFP 2017)",
         "specialty": "Nha chu",
         "summary": "Tiêu xương quanh các răng hàm dưới ở từng giai đoạn viêm nha chu, bên cạnh xương hàm khỏe mạnh. Trong ảnh: khỏe mạnh (trái) và giai đoạn III (phải).",
         "pairing": "Các giai đoạn bệnh + bản bình thường khỏe mạnh"
       },
       "oroantral": {
-        "title": "Lỗ thông vào xoang sau khi nhổ răng hàm trên",
+        "title": "Thông thương miệng – xoang hàm và rò miệng – xoang hàm sau nhổ răng cối lớn hàm trên",
         "specialty": "Phẫu thuật miệng và hàm mặt",
         "summary": "Thông miệng xoang và rò miệng xoang, cách đóng chúng, và sàn xoang bình thường phía trên răng hàm trên. Trong ảnh: bình thường (trái) và lỗ thông sau nhổ răng (phải).",
         "pairing": "Bệnh lý + bản bình thường tương ứng"
       },
       "cracked-tooth": {
-        "title": "Răng nứt: trám hay bọc mão",
+        "title": "Nứt răng cối lớn thứ nhất hàm dưới: phục hồi trực tiếp so với mão phủ múi",
         "specialty": "Nha khoa phục hồi và phục hình",
         "summary": "Một răng hàm khỏe mạnh và một răng hàm bị nứt dưới lực cắn, và cách miếng trám hoặc mão răng giữ đường nứt lại. Trong ảnh: khỏe mạnh (trái) và bị nứt (phải), cắt mở.",
         "pairing": "Bệnh lý + bản bình thường khỏe mạnh + các cách điều trị"
       },
       "alveolar-bone-graft": {
-        "title": "Ghép xương cho khe hở ở lợi",
+        "title": "Ghép xương ổ răng thì hai cho khe hở ổ răng một bên",
         "specialty": "Điều trị khe hở: phẫu thuật miệng và hàm mặt và chỉnh nha",
         "summary": "Hàm trên của một trẻ có khe hở cung hàm bên trái, qua ba giai đoạn: trước khi ghép xương, sau ghép có mắc cài, và nhiều năm sau khi răng nanh đã được đưa vào chỗ trống. Trong ảnh: trước (trái) và nhiều năm sau (phải).",
         "pairing": "Các giai đoạn điều trị"
       },
       "stainless-steel-crown": {
-        "title": "Mão thép không gỉ trên răng hàm sữa",
+        "title": "Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới",
         "specialty": "Răng trẻ em",
         "summary": "Năm giai đoạn từ răng hàm sữa khỏe mạnh, qua sâu răng và mài răng, đến khi gắn mão thép không gỉ. Trong ảnh: sâu răng (trái) và mão răng (phải).",
         "pairing": "Bản bình thường khỏe mạnh + các giai đoạn điều trị"
@@ -1599,31 +1606,31 @@ const vi = withFallback(en, {
         "pairing": "Bốn ca thật và hai mô hình điển hình"
       },
       "head-neck-scc": {
-        "title": "Ung thư miệng ở hàm dưới",
+        "title": "Ung thư biểu mô tế bào vảy nướu hàm dưới: cắt đoạn xương hàm dưới và tái tạo bằng vạt xương mác tự do",
         "specialty": "Phẫu thuật miệng và hàm mặt (đầu và cổ)",
         "summary": "Một ca đã công bố: ung thư lợi hàm dưới bên phải đã lan vào xương. Nửa phải xương hàm được cắt bỏ và tái tạo bằng xương mác ở chân, chia ba đoạn, đúng như trên phim X-quang của bệnh nhân.",
         "pairing": "Trước phẫu thuật, phần được cắt bỏ, khuyết hổng và xương hàm đã tái tạo"
       },
       "head-neck-ameloblastoma": {
-        "title": "U nguyên bào men ở hàm dưới",
+        "title": "U nguyên bào men xương hàm dưới: cắt bờ xương hàm dưới",
         "specialty": "Phẫu thuật miệng và hàm mặt (đầu và cổ)",
         "summary": "Một ca đã công bố: khối u ở phía trước hàm dưới bên trái. Phần trên xương hàm được cắt bỏ cùng bốn răng, và một nẹp giữ cho bờ dưới mỏng còn lại vững chắc.",
         "pairing": "Trước phẫu thuật, phần được cắt bỏ, phần còn lại và nẹp"
       },
       "head-neck-okc": {
-        "title": "Nang sừng ở hàm dưới",
+        "title": "Nang sừng do răng xương hàm dưới: bóc nang và mài xương ngoại vi",
         "specialty": "Phẫu thuật miệng và hàm mặt (đầu và cổ)",
         "summary": "Một ca đã công bố: nang ở chóp chân của hai răng hàm dưới bên trái, được lấy bỏ và mài thành xương. Sơ đồ tám cách điều trị và tỷ lệ tái phát của từng cách.",
         "pairing": "Trước phẫu thuật, phần được lấy bỏ, khoang trống và quá trình lành"
       },
       "head-neck-mec": {
-        "title": "Ung thư tuyến nước bọt nhỏ ở vòm miệng",
+        "title": "Ung thư biểu mô nhầy – biểu bì độ thấp ở khẩu cái cứng: cắt rộng tại chỗ",
         "specialty": "Phẫu thuật miệng và hàm mặt (đầu và cổ)",
         "summary": "Một ca đã công bố: ung thư biểu bì nhầy độ thấp ở vòm miệng bên phải, được cắt bỏ cùng một viền niêm mạc nhưng giữ lại xương, rồi lành dưới một tấm che.",
         "pairing": "Trước phẫu thuật, phần được cắt bỏ, vùng hở và quá trình lành"
       },
       "orthognathic": {
-        "title": "Phẫu thuật hàm để chỉnh khớp cắn",
+        "title": "Sai khớp cắn xương loại II và loại III: phẫu thuật chỉnh hình xương hàm (cắt xương Le Fort I, BSSO và tạo hình cằm)",
         "specialty": "Chỉnh nha và phẫu thuật miệng và hàm mặt",
         "summary": "Tương quan hàm loại II và loại III trước và sau phẫu thuật chỉnh hình xương hàm, bên cạnh loại I bình thường. Có thể thêm phẫu thuật cằm (tạo hình cằm) trên các mô hình sau phẫu thuật. Trong ảnh: loại II trước phẫu thuật (trái) và sau phẫu thuật có tạo hình cằm (phải).",
         "pairing": "Bệnh lý + bản bình thường"
@@ -1631,7 +1638,7 @@ const vi = withFallback(en, {
     }
   },
   "wisdom": {
-    "title": "Răng khôn hàm dưới mọc ngầm và mô hình bình thường tương ứng — Vivatheca",
+    "title": "Răng cối lớn thứ ba hàm dưới mọc ngầm nghiêng gần và mô hình bình thường tương ứng — Vivatheca",
     "description": "Mô hình 3D miễn phí của răng khôn hàm dưới mọc ngầm gần dây thần kinh huyệt răng dưới, kèm xương hàm bình thường tương ứng. Tải GLB và STL, nguồn tài liệu và giấy phép.",
     "breadcrumb": "Đường dẫn",
     "impactedAlt": "Hàm dưới bên trái có răng khôn mọc ngầm nghiêng ra trước vào răng hàm lớn thứ hai. Chân răng ôm quanh dây thần kinh huyệt răng dưới, màu vàng.",

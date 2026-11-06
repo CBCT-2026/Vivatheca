@@ -83,7 +83,7 @@ test('the dental development page follows the chosen language', async ({ page, c
   await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
   await page.goto('/development/index.html#age-12.5');
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
-  await expect(page.locator('h1')).toContainText('子(こ)どもの歯(は)の育(そだ)ち方(かた)');
+  await expect(page.locator('h1')).toContainText('混合(こんごう)歯列(しれつ)期(き)');
   await expect(page.locator('#stage')).toContainText('第二(だいに)大臼歯(だいきゅうし)');
   await expect(page.locator('#download')).toContainText('12歳(さい)ごろ');
 });
@@ -101,7 +101,7 @@ test('model library, model page, About, Privacy and Report are translated', asyn
   await page.setViewportSize({ width: 1280, height: 900 });
   for (const [route, heading] of [
     ['/models?lang=ja', '正常と比べられる模型。'],
-    ['/models/impacted-wisdom-tooth?lang=ja', '埋伏した下の親知らず'],
+    ['/models/impacted-wisdom-tooth?lang=ja', '下顎第三大臼歯の近心傾斜埋伏'],
     ['/about?lang=ja', '診療チェアでの会話のための、わかりやすい3D模型。'],
     ['/privacy?lang=ja', 'プライバシー'],
     ['/report?lang=ja', '誤りを報告'],
@@ -133,7 +133,7 @@ test('sub-page headers fit a phone in Japanese', async ({ page, context }) => {
 
 test('orthognathic and periodontitis pages switch to Japanese with furigana', async ({ page, context }) => {
   await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
-  for (const [path, h1] of [['/orthognathic/index.html', '顎矯正'], ['/periodontitis/index.html', '歯周病']]) {
+  for (const [path, h1] of [['/orthognathic/index.html', '顎矯正'], ['/periodontitis/index.html', '歯周炎']]) {
     await page.goto(path);
     await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
     await expect(page.locator('h1')).toContainText(h1);

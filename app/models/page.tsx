@@ -6,6 +6,7 @@ import { format } from '../i18n/dictionaries';
 import { getI18n } from '../i18n/server';
 import { plain, Ruby } from '../i18n/ruby';
 import { videos } from '../videos';
+import { TermSources } from './terms';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getI18n();
@@ -59,6 +60,7 @@ export default async function ModelsPage() {
                     </ul>
                   </div>
                 </CardLink>
+                <TermSources label={l.termsLabel} terms={model.terms} />
                 {video ? <a className="library-video-link" href={`${model.href}#video`}><Ruby text={format(l.watchVideo, { s: String(video.seconds) })} /><span className="visually-hidden">: {plain(item.title)}</span></a> : null}
               </li>
             );

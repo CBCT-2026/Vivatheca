@@ -10,6 +10,7 @@ import { format } from '../../i18n/dictionaries';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { averagedJawSources, collections } from './sources';
+import { TermSources } from '../terms';
 import { AveragedJawViewer } from './viewer';
 import provenanceJson from './provenance.json';
 
@@ -24,7 +25,7 @@ export const averagedJawFiles = {
   stl: { href: '/models/averaged-jaw/averaged-jaw-mandible.stl', size: provenance.files.stl },
   provenance: { href: '/models/averaged-jaw/provenance.json' },
 };
-export const averagedJawCitation = `Seifert L. Vivatheca: Averaged jaw from open CT scans, version ${model.version}. 2026. https://vivatheca.com/models/averaged-jaw. Licensed under CC BY-SA 4.0. Accessed [date].`;
+export const averagedJawCitation = `Seifert L. Vivatheca: Mean adult mandible and mandibular dentition (statistical average of open CT scans), version ${model.version}. 2026. https://vivatheca.com/models/averaged-jaw. Licensed under CC BY-SA 4.0. Accessed [date].`;
 
 const scanRow = (s: Scan) => {
   const c = collections[s.collection_id] ?? { name: s.collection_id, doi: '', licence: s.license_short_name ?? '' };
@@ -58,6 +59,7 @@ export default async function AveragedJawPage() {
         <div className="info-intro">
           <p className="eyebrow"><Ruby text={item.specialty} /></p>
           <h1><Ruby text={item.title} /></h1>
+          <TermSources label={t.library.termsLabel} terms={model.terms} />
           <p><Cited text={d.lead} label={cite} /></p>
         </div>
 

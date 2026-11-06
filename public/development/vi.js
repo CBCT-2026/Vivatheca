@@ -1,11 +1,12 @@
 // Vietnamese text for this page (unreviewed AI draft; English prevails). Same keys as the Japanese
 // text in i18n.js; i18n.js uses it when the visitor chose Tiếng Việt.
 window.VIVA_VI = {
-  title: 'Răng của con bạn phát triển thế nào: từ 6 đến 12 tuổi | Vivatheca',
+  title: 'Bộ răng hỗn hợp: sự phát triển và mọc của răng vĩnh viễn, 6,5 đến 12,5 tuổi | Vivatheca',
   description: 'Mô hình 3D tương tác về sự phát triển răng của trẻ từ 6 đến 12 tuổi: răng sữa, răng vĩnh viễn đang hình thành trong xương hàm, và thứ tự mọc răng. Xem và in 3D miễn phí.',
   home: 'Trang chủ Vivatheca',
   allModels: 'Tất cả mô hình',
-  h1: 'Răng của con bạn phát triển thế nào: từ 6 đến 12 tuổi',
+  h1: '<span class="pitk-skip">Bộ răng hỗn hợp: sự phát triển và mọc của răng vĩnh viễn, 6,5 đến 12,5 tuổi</span>',
+  termsLabel: 'Tên gọi và phân loại:',
   studentLink: 'Bạn đang học nha khoa hoặc y khoa? <a href="/learn/development">Đọc hướng dẫn cho sinh viên</a> (thuật ngữ chuyên môn, các hệ thống phân giai đoạn và nguồn tài liệu).',
   alt: 'Mô hình 3D nửa phải hàm trên và hàm dưới của một trẻ, phần xương phía má được cắt bỏ để thấy răng sữa và răng vĩnh viễn đang phát triển.',
   altAt: 'Mô hình 3D nửa phải hàm trên và hàm dưới của một trẻ lúc {age}, phần xương phía má được cắt bỏ để thấy răng sữa và răng vĩnh viễn đang phát triển.',

@@ -1,10 +1,11 @@
 // Vietnamese text for this page (unreviewed AI draft; English prevails). Same keys as ja.js.
 window.VT_VI = {
-  title: 'Phẫu thuật hàm để chỉnh khớp cắn (phẫu thuật chỉnh hình xương hàm) | Vivatheca',
+  title: 'Sai khớp cắn xương loại II và loại III: phẫu thuật chỉnh hình xương hàm (cắt xương Le Fort I, BSSO và tạo hình cằm) | Vivatheca',
   description: 'Mô hình 3D tương tác của khớp cắn bình thường và các bất thường xương hàm loại II và loại III, trước và sau phẫu thuật chỉnh hình xương hàm (cắt xương Le Fort I và chẻ dọc cành lên hai bên).',
   home: 'Trang chủ Vivatheca',
   allModels: 'Tất cả mô hình',
-  h1: 'Phẫu thuật hàm để chỉnh khớp cắn (phẫu thuật chỉnh hình xương hàm)',
+  h1: '<span class="pitk-skip">Sai khớp cắn xương loại II và loại III: phẫu thuật chỉnh hình xương hàm (cắt xương Le Fort I, BSSO và tạo hình cằm)</span>',
+  termsLabel: 'Tên gọi và phân loại:',
   review: '<strong>Chưa được thẩm định lâm sàng.</strong> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a>',
   viewOnly: '<strong>Hiện chỉ xem 3D.</strong> Chưa có tệp in.',
   chooseBite: 'Chọn khớp cắn',

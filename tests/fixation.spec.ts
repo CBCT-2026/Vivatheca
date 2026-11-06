@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test.describe('plates and screws demonstration', () => {
   test('steps through the placement and shows diagrams, disclaimer and sources', async ({ page }) => {
     await page.goto('/fixation/index.html');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('plates and screws');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Internal fixation of the mandible');
     await expect(page.getByText('Not yet clinically reviewed.').first()).toBeVisible();
     await expect(page.getByRole('link', { name: 'Full disclaimer' }).first()).toHaveAttribute('href', '/disclaimer');
     const viewer = page.locator('#mv');

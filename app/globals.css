@@ -1121,6 +1121,11 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .slices-position a { color: var(--accent); }
 @media (max-width: 720px) { .slices-canvas { aspect-ratio: 1 / 1; } }
 
+/* Source for a model's formal clinical name (app/models/terms.tsx; static pages use p.term-sources too). */
+.term-sources { margin: .25rem 0 .75rem; font-size: .8rem; line-height: 1.45; color: var(--muted); text-align: justify; hyphens: auto; }
+.library-card > .term-sources { margin: 0 1.4rem 1rem; }
+.term-sources a { color: inherit; text-underline-offset: .2em; overflow-wrap: anywhere; }
+
 /* Averaged jaw page (/models/averaged-jaw): one viewer column, provenance table. */
 .averaged-jaw-experience { grid-template-columns: 1fr; min-height: 560px; }
 .averaged-jaw-page .detail-block { margin-top: 2rem; }

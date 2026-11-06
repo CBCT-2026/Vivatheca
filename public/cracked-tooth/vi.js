@@ -2,12 +2,13 @@
 // html maps the English content of each lang="en" element to Vietnamese; when the English changes, update the key
 // too, or that element stays in English.
 window.VT_VI_PAGE = {
- "title": "Răng nứt: vì sao mão răng bảo vệ tốt hơn miếng trám | Vivatheca",
+ "title": "Nứt răng cối lớn thứ nhất hàm dưới: phục hồi trực tiếp so với mão phủ múi | Vivatheca",
  "description": "Mô hình 3D tương tác của một răng sau khỏe mạnh, một răng nứt, và răng nứt có miếng trám hoặc mão răng. Bấm cắn để thấy vì sao việc che phủ các múi răng bảo vệ răng nứt.",
  "html": {
   "Vivatheca home": "Trang chủ Vivatheca",
   "All models": "Tất cả mô hình",
-  "Cracked tooth: why a crown protects it better than a filling": "Răng nứt: vì sao mão răng bảo vệ tốt hơn miếng trám",
+  "<span class=\"pitk-skip\">Cracked mandibular first molar: direct restoration versus cuspal-coverage crown</span>": "<span class=\"pitk-skip\">Nứt răng cối lớn thứ nhất hàm dưới: phục hồi trực tiếp so với mão phủ múi</span>",
+  "Name and classification:": "Tên gọi và phân loại:",
   "<span class=\"status\">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href=\"/disclaimer\">Full disclaimer</a>": "<span class=\"status\">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href=\"/disclaimer\">Toàn văn tuyên bố miễn trừ trách nhiệm</a>",
   "Healthy": "Khỏe mạnh",
   "no crack": "không nứt",

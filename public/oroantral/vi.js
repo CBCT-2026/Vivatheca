@@ -2,12 +2,13 @@
 // html maps the English content of each lang="en" element to Vietnamese; when the English changes, update the key
 // too, or that element stays in English.
 window.VT_VI_PAGE = {
- "title": "Lỗ thông vào xoang sau khi nhổ răng hàm trên (OAC và OAF) | Vivatheca",
+ "title": "Thông thương miệng – xoang hàm và rò miệng – xoang hàm sau nhổ răng cối lớn hàm trên | Vivatheca",
  "description": "Mô hình 3D tương tác: việc nhổ một răng sau hàm trên có thể tạo lỗ thông vào xoang thế nào (thông miệng xoang, OAC), khác với rò miệng xoang (OAF) ra sao, và cách xử trí từng loại.",
  "html": {
   "Vivatheca home": "Trang chủ Vivatheca",
   "All models": "Tất cả mô hình",
-  "Removing an upper back tooth: when an opening into the sinus forms (OAC and OAF)": "Nhổ răng sau hàm trên: khi nào hình thành lỗ thông vào xoang (OAC và OAF)",
+  "<span class=\"pitk-skip\">Oroantral communication and oroantral fistula after maxillary molar extraction</span>": "<span class=\"pitk-skip\">Thông thương miệng – xoang hàm và rò miệng – xoang hàm sau nhổ răng cối lớn hàm trên</span>",
+  "Name and classification:": "Tên gọi và phân loại:",
   "Before and after the dentist takes out the tooth": "Trước và sau khi nha sĩ nhổ răng",
   "1 Normal": "1 Bình thường",
   "for comparison": "để so sánh",

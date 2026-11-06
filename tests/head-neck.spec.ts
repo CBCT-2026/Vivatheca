@@ -3,10 +3,10 @@ import { chooseLanguage } from './language';
 
 // The four condition pages each follow one published case (tools/head-neck/pages.py builds them).
 const pages = [
-  { slug: 'scc', h1: 'Mouth cancer in the lower jaw', ref: 'Vergier', ja: 'へんぺい上皮がん' },
-  { slug: 'ameloblastoma', h1: 'Ameloblastoma in the lower jaw', ref: 'Sikri', ja: 'エナメル上皮腫' },
-  { slug: 'okc', h1: 'Keratocyst in the lower jaw', ref: 'Abdelfadil', ja: '角化のう胞' },
-  { slug: 'mec', h1: 'Cancer of a small spit gland', ref: 'Ellam', ja: 'だ液腺のがん' },
+  { slug: 'scc', h1: 'Squamous cell carcinoma of the mandibular gingiva', ref: 'Vergier', ja: '下顎歯肉扁平上皮癌' },
+  { slug: 'ameloblastoma', h1: 'Ameloblastoma of the mandible', ref: 'Sikri', ja: '下顎エナメル上皮腫' },
+  { slug: 'okc', h1: 'Odontogenic keratocyst of the mandible', ref: 'Abdelfadil', ja: '下顎の歯原性角化嚢胞' },
+  { slug: 'mec', h1: 'Low-grade mucoepidermoid carcinoma of the hard palate', ref: 'Ellam', ja: '硬口蓋の低悪性度粘表皮癌' },
 ];
 
 for (const p of pages) {
