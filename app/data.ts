@@ -1,3 +1,4 @@
+import { catalogue } from './models/catalogue';
 import type { Dictionary } from './i18n/dictionaries';
 import { mailto } from './contact';
 
@@ -10,9 +11,8 @@ export function footerGroups(t: Dictionary) {
       label: f.explore.label,
       links: [
         { label: f.library, href: '/models' },
-        { label: f.wisdomTooth, href: '/models/impacted-wisdom-tooth' },
-        { label: f.development, href: '/development/' },
-        { label: f.orthognathic, href: '/orthognathic/' },
+        // Every model in the catalogue (head and neck cases are reached from their hub page).
+        ...catalogue.filter((m) => !m.slug.startsWith('head-neck-')).map((m) => ({ label: t.library.items[m.slug as keyof typeof t.library.items].title, href: m.href })),
         { label: t.nav.createInfo, href: '/create' },
         { label: f.explore.students, href: '/learn' },
       ],

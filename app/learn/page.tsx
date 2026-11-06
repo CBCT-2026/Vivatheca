@@ -17,7 +17,7 @@ const guideLinks = {
   development: { guide: '/learn/development', model: '/development/' },
   cracked: { guide: '/learn/cracked-tooth', model: '/cracked-tooth/' },
   orthognathic: { guide: null, model: '/orthognathic/' },
-  wisdom: { guide: null, model: '/#collection' },
+  wisdom: { guide: null, model: '/models/impacted-wisdom-tooth' },
 } as const;
 
 export default async function LearnPage() {

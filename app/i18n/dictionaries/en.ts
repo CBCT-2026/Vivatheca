@@ -560,6 +560,7 @@ const en = {
     toFix: 'to fix',
     toConsider: 'to consider',
     possibleDetails: 'Possible patient details: {details}.',
+    exportBlocked: 'Export is blocked because the draft may contain patient details ({details}). Remove them to print or download.',
     checksSource: 'Checks from the open-source patient-education-toolkit, based on the guidance listed below the builder (NHS, ISO 24495-1, CDC, PEMAT, IPDAS). Scores are estimates.',
     simplifying: 'Simplifying…',
     simplify: 'Make it simpler (AI)',
