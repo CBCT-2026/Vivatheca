@@ -19,9 +19,9 @@ This workflow replaces any plan from earlier chats. The PRD and repository guide
 5. **Iconography — Google Material Symbols**
    - Use one consistent rounded icon family for controls and semantic cues.
    - Icons support labels; they never replace accessible names or carry meaning by colour alone.
-6. **Illustration — OpenAI ImageGen**
-   - Replace stock imagery with original, content-specific raster illustrations in `assets/`.
-   - Use a shared clinical cut-paper/soft-3D visual language, the brand palette, no embedded text, no watermarks, meaningful alt text, visible AI disclosure, and prompt provenance in `assets/manifest.json`.
+6. **Images — renders of Vivatheca's own models**
+   - Show anatomy only through screenshots or renders of Vivatheca's own models, whose design decisions are cited on the model pages. Never use an image generator to draw anatomy.
+   - A generated image is allowed only for non-anatomical content (people, rooms, objects), with the brand palette, no embedded text, no watermarks, meaningful alt text, a visible “AI-generated illustration.” caption, and prompt provenance in `assets/manifest.json`.
 7. **End-to-end quality — Playwright + Awesome Skills webapp-testing**
    - Test the critical landing-page journeys at mobile and desktop widths using semantic locators.
    - Verify navigation, model fallback, keyboard focus, local favourites, reduced-motion behaviour, and absence of horizontal overflow.

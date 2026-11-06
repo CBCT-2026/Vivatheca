@@ -77,7 +77,7 @@ components:
 
 The Vivatheca platform places understandable anatomy in an illuminated, calm working space: deep navy creates the viewing theatre, cyan marks interaction and teaching layers, warm paper carries explanatory content, and coral appears only when affected anatomy or an unresolved status needs attention. The identity feels like a generous clinical conversation, not a hospital portal or a generic charity campaign.
 
-The system is spacious and editorial, with one dominant visual or interactive mechanism per section. Tactile ImageGen scenes provide the human and physical context; precise React, CSS, Material Symbols and WebGL provide the interface and interaction.
+The system is spacious and editorial, with one dominant visual or interactive mechanism per section. Screenshots and renders of Vivatheca's own models provide the visual content; precise React, CSS, Material Symbols and WebGL provide the interface and interaction.
 
 **Key Characteristics:**
 
@@ -85,7 +85,7 @@ The system is spacious and editorial, with one dominant visual or interactive me
 - Large, compact Manrope headings establish clarity without ornamental display type.
 - Dark viewing fields alternate with warm-white reading fields.
 - Cyan is used decisively for action and guidance, never as a decorative wash.
-- Generated imagery uses matte resin, paper and translucent teaching-film materials.
+- Anatomy is shown only from Vivatheca's own models (screenshots or renders), never drawn by an image generator, because generated anatomy cannot be traced to a source.
 
 ## Colors
 
@@ -155,7 +155,7 @@ At 1100px, the model and image/text pairs stack. At 760px, navigation becomes a 
 
 ### Full-page Reference Export
 
-The maintained landing-page PDF uses the 1190 x 912 desktop viewport and screen media styling, then captures the complete document as one continuous page. Fonts, generated images and the interactive mandible must finish loading before capture. The export preserves the full visual sequence from navigation through footer without print-media reflow, missing WebGL content, duplicated sections or clipped edges. Regenerate and visually inspect `output/pdf/vivatheca-landing-page-full-view.pdf` after every material landing-page update.
+The maintained landing-page PDF uses the 1190 x 912 desktop viewport and screen media styling, then captures the complete document as one continuous page. Fonts, images and the interactive mandible must finish loading before capture. The export preserves the full visual sequence from navigation through footer without print-media reflow, missing WebGL content, duplicated sections or clipped edges. Regenerate and visually inspect `output/pdf/vivatheca-landing-page-full-view.pdf` after every material landing-page update.
 
 ## Elevation & Depth
 
@@ -205,7 +205,7 @@ The signature model component pairs a deep-navy 3D viewing field with a Teaching
 
 ### Impact Map
 
-The impact map is a labelled data visualization on a deep-navy field. A disclosed AI-generated, geographically recognizable atlas image supplies cartographic context beneath independently rendered HTML markers. Creator, donor, reviewer and translator roles use cyan, amber, coral and violet respectively, while letters, legend text and a location list repeat the meaning without colour.
+The impact map is a labelled data visualization on a deep-navy field. A public-domain map (for example Natural Earth) supplies cartographic context beneath independently rendered HTML markers. Creator, donor, reviewer and translator roles use cyan, amber, coral and violet respectively, while letters, legend text and a location list repeat the meaning without colour.
 
 ### Origin and Mission Strips
 
@@ -213,17 +213,17 @@ Two independent horizontal strips sit beneath the hero. The upper paper strip le
 
 ### Research Records
 
-Each peer-reviewed record is a ruled editorial row pairing citation copy with one 4:3 interpretive illustration on the right. The paper link remains the primary verification path. Generated imagery is never styled or described as a journal figure and always carries the subtle visible caption “AI-generated illustration.”
+Each peer-reviewed record is a ruled editorial row of citation copy, finding and DOI, with no illustration: a picture beside a citation reads as a figure from that study. The paper link remains the primary verification path.
 
 ### Sustainable Printing Commitment
 
-The commitment follows the global access map and uses a two-column editorial layout led by a large sustainability heading and a disclosed AI-generated makerspace image. It names retired or failed prints, supports, prime towers, purge material, empty spools and packaging as areas under investigation. An explicit exploratory note prevents the design from implying an established programme or partner.
+The commitment follows the global access map and uses a two-column editorial layout led by a large sustainability heading and, if an image is used, a real photograph of Vivatheca's own prints. It names retired or failed prints, supports, prime towers, purge material, empty spools and packaging as areas under investigation. An explicit exploratory note prevents the design from implying an established programme or partner.
 
 ### Translation Aims
 
 The contribution section includes a full-width ruled roadmap showing all 24 current translation targets alphabetically by English name: Arabic, Bengali, Cantonese Chinese, Dutch, English, Farsi, French, German, Hindi, Italian, Japanese, Javanese, Korean, Mandarin Chinese, Portuguese, Punjabi, Russian, Spanish, Swahili, Tamil, Telugu, Turkish, Urdu and Vietnamese. Each entry centres an accurate vector flag, an English label and its native name; Dutch uses “Nederlands” and the Netherlands flag. Correct `lang`, `dir` and bidirectional isolation preserve pronunciation and right-to-left reading behavior. The compact roadmap uses eight columns on very wide screens, six below 1700px, four below 1200px, three below 760px and two below 360px. Cells retain readable labels and roughly 100–112px content-driven height rather than using oversized fixed rows. Expert review remains required before publication.
 
-The illustrative impacted-molar review record is capped at 1280px and uses a 520–720px fluid desktop frame to keep the model and review summary visually connected without excess blank space. Below 900px, the visual and accessible HTML review data stack vertically. The generated anatomy removes the erupted tooth directly above the impaction and depicts the left inferior alveolar nerve below the tooth roots, emerging through the left mental foramen. This is an interpretive prototype visual and requires independent clinical verification.
+The illustrative impacted-molar review record is capped at 1280px and uses a 520–720px fluid desktop frame to keep the model and review summary visually connected without excess blank space. Below 900px, the visual and accessible HTML review data stack vertically. The viewer shows a screenshot of the real impacted-molar model, never generated anatomy.
 
 ## Production domain and access boundary
 
@@ -235,7 +235,7 @@ Five editorial rows present the distinct ways to help: submit a model, donate a 
 
 ### Clinical Review Transparency
 
-The trust section uses a restrained two-column editorial introduction followed by a full-width, realistic impacted-molar review-interface example. A generated anatomical viewer anchors the left side while accessible HTML on the right presents an unmistakably illustrative record: the most recent reviewer, approval state, total reviews, approval percentage, negative count and reviewer stack. Its ruled records explain private eligibility verification; limited public attribution to title, initials, occupation and country of practice; and the narrow approve-or-reject assessment of educational fidelity. Supporting condition and procedure content points to appropriately licensed public government health-service information and a route to further information. Prototype governance remains visibly labelled until the workflow is operational and verified.
+The trust section uses a restrained two-column editorial introduction followed by a full-width, realistic impacted-molar review-interface example. A screenshot of the real model viewer anchors the left side while accessible HTML on the right presents an unmistakably illustrative record: the most recent reviewer, approval state, total reviews, approval percentage, negative count and reviewer stack. Its ruled records explain private eligibility verification; limited public attribution to title, initials, occupation and country of practice; and the narrow approve-or-reject assessment of educational fidelity. Supporting condition and procedure content points to appropriately licensed public government health-service information and a route to further information. Prototype governance remains visibly labelled until the workflow is operational and verified.
 
 The featured disciplines are ordered alphabetically: Cardiology, Dentistry, Ear, Nose and Throat Surgery, Ophthalmology, Oral and Maxillofacial Surgery, and Orthopaedics. The ruled list uses three columns on wide screens, two at intermediate widths and one on mobile.
 
@@ -248,8 +248,8 @@ Instagram and Facebook use recognizable monochrome SVG brand symbols. A badge re
 ### Do:
 
 - **Do** lead with the working anatomy or the people using it.
-- **Do** pair every interactive or generated visual with a useful alternative and a text explanation.
-- **Do** place the visible “AI-generated illustration.” disclosure immediately below every generated image.
+- **Do** pair every interactive visual or image with a useful alternative and a text explanation.
+- **Do** take anatomy only from Vivatheca's own models. If a non-anatomical AI image is ever used (people, rooms, objects), place the visible “AI-generated illustration.” disclosure immediately below it and record its prompt in `assets/manifest.json`.
 - **Do** describe Vivatheca as a platform in user-facing copy.
 - **Do** label placeholder clinical, governance and translation content plainly.
 - **Do** use the supplied logo colours and the single rounded Material Symbols family consistently.
@@ -260,5 +260,6 @@ Instagram and Facebook use recognizable monochrome SVG brand symbols. A badge re
 - **Don't** fabricate reviewer identities, partner logos, usage statistics, licences, DOIs or medical proof.
 - **Don't** use stock medical photography, decorative gradients, glassmorphism, emoji icons or generic SaaS card grids.
 - **Don't** use cyan or coral as low-contrast body text.
-- **Don't** add visual effects that compete with the 3D model or the generated editorial scenes.
+- **Don't** add visual effects that compete with the 3D model or the model renders.
+- **Don't** use an image generator to draw teeth, bone, nerves or any other anatomy.
 - **Don't** present the educational model as diagnosis or treatment advice.
