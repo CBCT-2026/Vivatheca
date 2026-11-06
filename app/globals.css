@@ -740,7 +740,27 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .language-switcher button:hover { color: var(--cyan-600); }
 .language-switcher .furigana-toggle { margin-left: .35rem; border-color: var(--line); font-size: .78rem; }
 .language-switcher.in-menu { display: flex; flex-wrap: wrap; padding: .75rem .25rem 0; }
-.language-switcher .lang-short { display: none; }
+.language-switcher button { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; }
+/* Language menu: the button shows the current language; the list shows all of them, each in
+   its own name followed by its flag (SVG, so flags show on Windows too). */
+.language-switcher .lang-menu { position: relative; }
+.language-switcher .lang-trigger { border-color: var(--line); }
+.language-switcher .lang-chevron { width: 7px; height: 7px; margin: -3px .1rem 0 .1rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform 150ms ease; }
+.language-switcher .lang-trigger[aria-expanded="true"] .lang-chevron { margin-top: 3px; transform: rotate(-135deg); }
+/* The outline keeps white flags such as Japan's visible on light backgrounds. */
+.language-switcher .lang-flag { width: 20px; height: 15px; flex: 0 0 auto; border-radius: 2px; box-shadow: 0 0 0 1px var(--line); object-fit: cover; }
+.language-switcher .lang-panel {
+  position: absolute; z-index: 120; top: calc(100% + .4rem); right: 0; min-width: 14rem; margin: 0; padding: .35rem; list-style: none;
+  border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 18px 40px rgba(0,36,77,.16);
+}
+.language-switcher .lang-panel[hidden] { display: none; }
+.language-switcher .lang-panel button { width: 100%; justify-content: flex-start; border-radius: 10px; padding: .45rem .75rem; font-size: .9rem; }
+.language-switcher .lang-panel button[aria-current="true"] { border-color: var(--line); background: var(--aqua-50); }
+/* Languages not translated yet: listed but inactive. */
+.language-switcher .lang-soon { color: var(--muted); cursor: not-allowed; }
+.language-switcher .lang-soon .lang-flag { opacity: .6; }
+.language-switcher .lang-soon:hover { color: var(--muted); }
+.language-switcher .lang-soon-note { margin-left: auto; padding-left: .75rem; font-size: .72rem; font-weight: 600; }
 .language-switcher.in-menu .furigana-toggle { margin-left: 0; }
 /* Phones: keep the language and theme switches in the top bar, made compact. */
 @media (max-width: 560px) {
@@ -749,11 +769,11 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
   .brand { width: 108px; height: 42px; }
   .brand img { width: 108px; }
   .header-actions > .language-switcher .ui-icon { display: none; }
-  .header-actions > .language-switcher { gap: 0; border: 1px solid var(--line); border-radius: 999px; padding: 1px; }
-  .header-actions > .language-switcher button { min-width: 40px; padding: .3rem .45rem; font-size: .8rem; white-space: nowrap; }
+  .header-actions > .language-switcher { gap: .15rem; }
+  .header-actions > .language-switcher > button, .header-actions > .language-switcher .lang-trigger { min-width: 40px; padding: .3rem .45rem; font-size: .8rem; white-space: nowrap; }
   .header-actions > .language-switcher .furigana-toggle { min-width: 0; margin-left: .15rem; padding-inline: .35rem; font-size: .72rem; }
+  /* Phones: the language button shows only the flag (its label still names the language). */
   .header-actions > .language-switcher .lang-full { display: none; }
-  .header-actions > .language-switcher .lang-short { display: inline; }
   .theme-toggle { min-width: 42px; }
   .mobile-nav .icon-button { min-width: 42px; }
   /* The logo already links home, so the Back button gives way to the switches. */
@@ -783,23 +803,25 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 :root[data-theme='dark'] .language-switcher button { color: var(--white); }
 :root[data-theme='dark'] .language-switcher button[aria-pressed="true"] { border-color: var(--line); background: rgba(255,255,255,.12); }
 :root[data-theme='dark'] .language-switcher button:hover { color: var(--cyan-500); }
+:root[data-theme='dark'] .language-switcher .lang-panel button[aria-current="true"] { background: rgba(255,255,255,.12); }
+:root[data-theme='dark'] .language-switcher .lang-panel { box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+:root[data-theme='dark'] .language-switcher .lang-soon, :root[data-theme='dark'] .language-switcher .lang-soon:hover { color: var(--muted); }
 
 /* Sub-page header with the language switcher: keep it on one row on phones. */
 .language-switcher button { white-space: nowrap; }
 @media (max-width: 600px) {
   .page-header .language-switcher .ui-icon { display: none; }
-  .page-header .language-switcher button { min-width: 0; padding: 0 .45rem; font-size: .8rem; }
+  .page-header .language-switcher > button, .page-header .language-switcher .lang-trigger { min-width: 0; padding: 0 .45rem; font-size: .8rem; }
   .page-header .brand img { width: 128px; height: auto; }
   .page-header-actions { gap: .25rem; }
   .page-nav { gap: .1rem .8rem; font-size: .86rem; }
 }
-/* Phones: same compact switch as the homepage header (short EN / 日本語 labels). */
+/* Phones: same compact switch as the homepage header (flags only). */
 @media (max-width: 560px) {
   .page-header .brand, .page-header .brand img { width: 108px; }
-  .page-header-actions > .language-switcher { gap: 0; border: 1px solid var(--line); border-radius: 999px; padding: 1px; }
-  .page-header-actions > .language-switcher button { min-width: 40px; min-height: 40px; padding: .3rem .45rem; }
+  .page-header-actions > .language-switcher { gap: .15rem; }
+  .page-header-actions > .language-switcher > button, .page-header-actions > .language-switcher .lang-trigger { min-width: 40px; min-height: 40px; padding: .3rem .45rem; }
   .page-header-actions > .language-switcher .lang-full { display: none; }
-  .page-header-actions > .language-switcher .lang-short { display: inline; }
   .page-header-actions > .language-switcher .furigana-toggle { min-width: 0; margin-left: .15rem; padding-inline: .35rem; font-size: .72rem; }
 }
 @media (max-width: 340px) {

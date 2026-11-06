@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { chooseLanguage } from './language';
 
 // The four condition pages each follow one published case (tools/head-neck/pages.py builds them).
 const pages = [
@@ -42,7 +43,7 @@ for (const p of pages) {
 
     test('switches to Japanese with furigana', async ({ page }) => {
       await page.goto(`/head-neck/${p.slug}/index.html`);
-      await page.getByRole('button', { name: '日本語' }).click();
+      await chooseLanguage(page, '日本語');
       await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
       await expect(page.getByRole('heading', { level: 1 })).toContainText(p.ja.slice(0, 2));
       await expect(page.locator('h1 ruby').first()).toBeVisible();
