@@ -2,6 +2,7 @@
 Run: python3 finish_glb.py <in_dir> <out_dir>   (needs npx; @gltf-transform/cli 4.1.1, as tools/development)"""
 import json, struct, subprocess, sys, runpy
 from pathlib import Path
+FINISH = Path(__file__).resolve().parents[2] / 'tools' / 'glb' / 'finish.mjs'  # shared tidy + Draco step
 MAT = {
     'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.8963, 0.855, 0.7758, 1], 'premolar': [0.8963, 0.855, 0.7758, 1],
     'pulp': [0.576, 0.031, 0.043, 1], 'gum': [0.62, 0.20, 0.22, 1], 'decay': [0.13, 0.065, 0.025, 1],
@@ -16,5 +17,5 @@ for name in ('healthy', 'decay', 'filling', 'prepared', 'crown'):
     js = json.dumps(j, separators=(',', ':')).encode(); js += b' ' * (-len(js) % 4)
     out = b'glTF' + struct.pack('<II', 2, 12 + 8 + len(js) + len(rest)) + struct.pack('<I', len(js)) + b'JSON' + js + rest
     tmp = dst / ('raw-' + f.name); tmp.write_bytes(out)
-    subprocess.run(['npx', '-y', '@gltf-transform/cli@4.1.1', 'draco', str(tmp), str(dst / f.name)], check=True, capture_output=True)
+    subprocess.run(['node', str(FINISH), str(tmp), '--out', str(dst / f.name)], check=True)
     tmp.unlink(); print(f.name, (dst / f.name).stat().st_size)

@@ -28,6 +28,7 @@ export default async function Home() {
           {primaryLinks(t, true).map((link) => <a key={link.href} href={link.href}><Ruby text={link.label} /></a>)}
         </nav>
         <div className="header-actions">
+          <a className="search-link" href="/search" aria-label={plain(t.nav.search)} title={plain(t.nav.search)}><img src="/icons/search.svg" alt="" width="22" height="22" /></a>
           <LanguageSwitcher furigana={furigana} />
           <ThemeToggle />
           <a className="button button-compact" href="#sponsor"><Ruby text={t.nav.sponsor} /></a>

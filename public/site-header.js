@@ -14,8 +14,8 @@
   // {漢字|かな} marks furigana, as in the dictionaries.
   const ruby = (s) => s.replace(/\{([^|}]+)\|([^}]+)\}/g, (_, k, r) => (furigana ? '<ruby>' + k + '<rp aria-hidden="true">(</rp><rt aria-hidden="true">' + r + '</rt><rp aria-hidden="true">)</rp></ruby>' : k));
   const L = ja
-    ? { howItWorks: '{使|つか}い{方|かた}', models: '{模型|もけい}コレクション', evidence: '{根拠|こんきょ}', create: '{資料|しりょう}{作成|さくせい}', students: '{学生|がくせい}の{方|かた}へ', about: 'Vivathecaについて', tryViewer: '3Dビューアーを{試|ため}す', report: '{誤|あやま}りを{報告|ほうこく}', contact: 'お{問|と}い{合|あ}わせ', primary: 'メインナビゲーション', open: 'メニューを開く', close: 'メニューを閉じる', crumbs: '現在地' }
-    : { howItWorks: 'How it works', models: 'Model collection', evidence: 'Evidence', create: 'Create', students: 'Students', about: 'About', tryViewer: 'Try the 3D viewer', report: 'Report an inaccuracy', contact: 'Contact us', primary: 'Primary navigation', open: 'Open navigation', close: 'Close navigation', crumbs: 'You are here' };
+    ? { howItWorks: '{使|つか}い{方|かた}', models: '{模型|もけい}コレクション', evidence: '{根拠|こんきょ}', create: '{資料|しりょう}{作成|さくせい}', students: '{学生|がくせい}の{方|かた}へ', about: 'Vivathecaについて', search: '検索', tryViewer: '3Dビューアーを{試|ため}す', report: '{誤|あやま}りを{報告|ほうこく}', contact: 'お{問|と}い{合|あ}わせ', primary: 'メインナビゲーション', open: 'メニューを開く', close: 'メニューを閉じる', crumbs: '現在地' }
+    : { howItWorks: 'How it works', models: 'Model collection', evidence: 'Evidence', create: 'Create', students: 'Students', about: 'About', search: 'Search', tryViewer: 'Try the 3D viewer', report: 'Report an inaccuracy', contact: 'Contact us', primary: 'Primary navigation', open: 'Open navigation', close: 'Close navigation', crumbs: 'You are here' };
   const primary = [
     ['/#how-it-works', L.howItWorks], ['/models', L.models], ['/#publications', L.evidence],
     ['/create', L.create], ['/learn', L.students], ['/about', L.about],
@@ -34,6 +34,10 @@
 
   const actions = document.createElement('div');
   actions.className = 'vt-actions';
+  const search = document.createElement('a');
+  search.className = 'search-link'; search.href = '/search'; search.setAttribute('aria-label', L.search); search.title = L.search;
+  search.innerHTML = '<img src="/icons/search.svg" alt="" width="22" height="22">';
+  actions.append(search);
   if (langs) actions.append(langs);
   if (theme) actions.append(theme);
 
