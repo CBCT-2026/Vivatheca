@@ -124,12 +124,12 @@
   "ja": "aa3f68bf55ab"
  },
  "/head-neck/": {
-  "en": "ad3f0ba17511",
+  "en": "5a4cc4c192e9",
   "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
   "en": "318aad8d66a8",
-  "ja": "6accb00aaf01"
+  "ja": "7e6e5e8d778f"
  },
  "/head-neck/mec/": {
   "en": "697396964f77",
@@ -137,11 +137,11 @@
  },
  "/head-neck/okc/": {
   "en": "94c42054dc9a",
-  "ja": "16e0a0e68ff4"
+  "ja": "4be8e867f3eb"
  },
  "/head-neck/scc/": {
-  "en": "400c290d784d",
-  "ja": "9a75900248be"
+  "en": "26d36bab79f3",
+  "ja": "b623e56894bc"
  },
  "/oroantral/": {
   "en": "34b1de268598",
@@ -156,8 +156,12 @@
   "ja": "d665c022e531"
  },
  "/stainless-steel-crown/": {
-  "en": "f6d16e393b19",
-  "ja": "6e286fd0f5da"
+  "en": "2e3b49e515d6",
+  "ja": "ec4cbae6a043"
+ },
+ "/stainless-steel-crown/kids/": {
+  "en": "b1c603fb1a36",
+  "ja": "317bf610e039"
  },
  "/tmd/": {
   "en": "9778ecbf0cd6",

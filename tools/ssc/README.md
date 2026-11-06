@@ -29,3 +29,10 @@ Bone (0.6724, 0.5972, 0.4969) and tooth (0.770, 0.718, 0.648), roughness 0.7: th
 
 ## Licence
 Derived from Z-Anatomy (CC BY-SA 4.0), which uses BodyParts3D (CC BY-SA 2.1 Japan). The models are CC BY-SA 4.0.
+
+## Kids view (`/stainless-steel-crown/kids/`)
+A child-friendly 4-step story (healthy, holes, getting ready, crown) for children and parents, built on AAPD basic behaviour guidance (tell-show-do, positive previsit imagery, stop signal, distraction, descriptive praise) with the 2023 AAPD guideline's very low certainty stated on the page. Guides: Mika and Bolt the pangolin, original Vivatheca characters (inline SVG in the page); Mika tells the visit as a peer (modelling).
+- Page: edit `kids-src.html` (EN, JA with `{漢字|かな}` furigana, VI all inline), then `python3 gen.py kids-src.html ../../public/stainless-steel-crown/kids/index.html`. Story text and Mika's lines: `public/stainless-steel-crown/kids/viewer.js`.
+- Models: `python3 kids_glb.py public/stainless-steel-crown/models public/stainless-steel-crown/kids/models` copies 4 stage GLBs with only the colours changed (baby tooth blue, adult tooth yellow, as the development models).
+- Paths in the kids page are absolute, because production may serve it without a trailing slash.
+- Not yet tested with children or parents; Vietnamese is an unreviewed draft.

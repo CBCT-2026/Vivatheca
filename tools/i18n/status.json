@@ -160,6 +160,11 @@
    "note": "translations live in the page script, not tracked by key"
   },
   {
+   "page": "stainless-steel-crown/kids",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
    "page": "tmd",
    "tracked": false,
    "note": "translations live in the page script, not tracked by key"

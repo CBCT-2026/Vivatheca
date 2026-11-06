@@ -18,6 +18,7 @@ const pages = [
   '/models/alveolar-bone-graft',
   '/periodontitis/index.html',
   '/development/index.html',
+  '/stainless-steel-crown/kids/index.html',
   '/head-neck/index.html',
   '/head-neck/scc/index.html',
   '/orthognathic/index.html',

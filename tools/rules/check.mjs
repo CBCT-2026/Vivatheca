@@ -66,7 +66,10 @@ for (const file of pages) {
   if (hasModel) {
     if (!t.includes(modelDisclaimer)) fail(file, 'disclaimer', 'model disclaimer missing or not word-for-word (copy it from app/disclaimer-text.ts)');
     if (!/clinically reviewed/i.test(t)) fail(file, 'review-status', 'no review status (e.g. "Not yet clinically reviewed.")');
-    if (!hrefs.has(route)) fail(file, 'collection', `model page ${route} is not in app/models/catalogue.ts`);
+    // A sub-view of a catalogued model (for example /stainless-steel-crown/kids/) counts if it links back to that model's page.
+    const parent = [...hrefs].find((h) => h !== '/' && route !== h && route.startsWith(h));
+    const linked = parent && html.includes(`href="${parent}"`);
+    if (!hrefs.has(route) && !linked) fail(file, 'collection', `model page ${route} is not in app/models/catalogue.ts`);
   }
   if (/z-anatomy/i.test(t) && !/CC BY-SA/.test(t)) fail(file, 'licence', 'uses Z-Anatomy but does not say CC BY-SA 4.0');
 }
