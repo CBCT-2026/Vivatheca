@@ -18,6 +18,7 @@ const SHOTS: Shot[] = [
   { name: 'cracked-tooth', path: '/cracked-tooth/index.html', kind: 'model-viewer' },
   { name: 'endodontic', path: '/endodontic/index.html', kind: 'model-viewer' },
   { name: 'vpi', path: '/vpi/index.html', kind: 'model-viewer' },
+  { name: 'prosthodontic', path: '/prosthodontic/index.html', kind: 'model-viewer' },
   { name: 'tmd', path: '/tmd/index.html', kind: 'model-viewer' },
   { name: 'stainless-steel-crown', path: '/stainless-steel-crown/index.html', kind: 'model-viewer' },
   { name: 'orthognathic', path: '/orthognathic/index.html', kind: 'model-viewer' },

@@ -10,6 +10,7 @@ import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
+import { MyModels, QuickPick } from './show/quick';
 
 // A mix of other models (app/models/catalogue.ts). The wisdom tooth is the hero; the bone graft series is the interactive section.
 const showcaseSlugs = ['dental-development', 'orthognathic', 'periodontitis', 'head-neck', 'oroantral', 'cracked-tooth'];
@@ -40,12 +41,15 @@ export default async function Home() {
       </header>
 
       <main id="main-content">
+        {/* The visitor's starred models (this browser only); renders nothing until there is one. */}
+        <div className="home-my-models"><MyModels /></div>
         <section className="hero" id="top">
           <div className="hero-copy">
             <h1 className="hero-title"><span className="hero-line"><Ruby text={t.hero.line1} /></span><span className="hero-line"><Ruby text={t.hero.line2} /></span></h1>
             <p className="hero-lede"><Ruby text={t.hero.lede} /></p>
             <div className="hero-actions">
-              <a className="button" href="/models"><Ruby text={t.hero.explore} /> <Icon name="arrow_forward" /></a>
+              <a className="button" href="#quick-show"><Ruby text={t.show.heroButton} /></a>
+              <a className="button button-secondary" href="/models"><Ruby text={t.hero.explore} /> <Icon name="arrow_forward" /></a>
               <a className="button button-secondary" href="#collection"><Ruby text={t.hero.how} /></a>
             </div>
             <ul className="access-list" aria-label={plain(t.hero.accessLabel)}>{t.hero.access.map((item) => <li key={item}><Ruby text={item} /></li>)}</ul>
@@ -56,6 +60,16 @@ export default async function Home() {
           </figure>
         </section>
 
+        {/* Show a patient: every model one tap from home, opening full screen (app/show). */}
+        <section className="quick-section" id="quick-show" aria-labelledby="quick-show-title">
+          <div className="quick-inner">
+            <h2 id="quick-show-title"><Ruby text={t.show.homeHeading} /></h2>
+            <p className="quick-intro"><Ruby text={t.show.homeText} /></p>
+            <QuickPick headingLevel={3} />
+            <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
+          </div>
+        </section>
+
         <aside className="origin-band" aria-label={plain(t.origin.label)}>
           <a href="https://www.pmc.gov.au/resources/flag-images-and-template-files-download" target="_blank" rel="noreferrer" aria-label={plain(t.origin.flagLink)}>
             <img src="/assets/australian-national-flag.jpg" alt={plain(t.origin.flagAlt)} width="120" height="60" />
@@ -63,10 +77,6 @@ export default async function Home() {
           <p><Ruby text={t.origin.text} /></p>
         </aside>
 
-        <section className="mission-band" aria-label={plain(t.mission.label)}>
-          <p><Ruby text={t.mission.text} /></p>
-          <div className="mission-links">{t.mission.links.map((item) => <span key={item}><Ruby text={item} /></span>)}</div>
-        </section>
 
         <section className="audience-section" id="audiences" aria-label={plain(t.audiences.label)}>
           <h2><Ruby text={t.audiences.heading} /></h2>
@@ -137,8 +147,8 @@ export default async function Home() {
         <section className="understanding-section" id="how-it-works">
           <div className="section-heading compact-heading"><h2><Ruby text={t.understanding.heading} /></h2><p><Ruby text={t.understanding.text} /></p></div>
           <div className="understanding-paths">
-            {understandingPaths(t).map((path, index) => (
-              <article key={path.icon}><span className="path-number">{String(index + 1).padStart(2, '0')}</span><Icon name={path.icon} size={30} /><h3><Ruby text={path.title} /></h3><p><Ruby text={path.text} /></p></article>
+            {understandingPaths(t).map((path) => (
+              <article key={path.icon}><Icon name={path.icon} size={30} /><h3><Ruby text={path.title} /></h3><p><Ruby text={path.text} /></p></article>
             ))}
           </div>
         </section>

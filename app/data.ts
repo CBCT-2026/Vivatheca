@@ -11,6 +11,7 @@ export function footerGroups(t: Dictionary) {
       label: f.explore.label,
       links: [
         { label: f.library, href: '/models' },
+        { label: t.show.eyebrow, href: '/show' },
         // Every model in the catalogue (head and neck cases are reached from their hub page).
         ...catalogue.filter((m) => !m.slug.startsWith('head-neck-')).map((m) => ({ label: t.library.items[m.slug as keyof typeof t.library.items].title, href: m.href })),
         { label: t.nav.createInfo, href: '/create' },

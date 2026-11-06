@@ -114,6 +114,22 @@ export const modelBriefs: ModelBrief[] = [
     normalComparison: 'A healthy lower first molar with no crack.',
   },
   {
+    id: 'prosthodontic',
+    page: '/prosthodontic/',
+    name: 'Atrophic edentulous mandible (Cawood and Howell class V) with a dentate mandible, and complete denture or two-implant overdenture',
+    glb: '/prosthodontic/models/denture-whole.glb',
+    condition: 'A lower jaw years after all its teeth were lost. The bone that held the teeth (the ridge) has shrunk to a low, flat base, most of all at the back, so a lower denture has little to hold on to. Shown beside the same jaw with its teeth. Options shown: a complete denture resting on the gum, or a denture held by two implants in the front of the jaw (two-implant overdenture).',
+    labels: [
+      { plain: 'Jaw bone', medical: 'mandible' },
+      { plain: 'Ridge', medical: 'residual alveolar ridge' },
+      { plain: 'Gum', medical: 'oral mucosa' },
+      { plain: 'Teeth' },
+      { plain: 'Denture', medical: 'complete denture' },
+      { plain: 'Implants', medical: 'dental implants' },
+    ],
+    normalComparison: 'The same lower jaw with all 14 adult teeth (no wisdom teeth) and a full-height ridge.',
+  },
+  {
     id: 'endodontic',
     page: '/endodontic/',
     name: 'Pulp necrosis with chronic apical abscess in a mandibular first molar, with a sound tooth',
@@ -143,6 +159,8 @@ export const modelBriefs: ModelBrief[] = [
       { plain: 'Air leaking through the nose', medical: 'nasal air emission' },
     ],
     normalComparison: 'The same throat with normal velopharyngeal closure: the soft palate lifts and touches the back wall, and air goes out through the mouth only.',
+  },
+  {
     id: 'tmd',
     page: '/tmd/',
     name: 'Temporomandibular disorders (TMD) and jaw muscle pain: jaw joints, chewing muscles and jaw exercises',

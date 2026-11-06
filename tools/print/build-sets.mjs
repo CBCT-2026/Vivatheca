@@ -11,6 +11,7 @@ const SOURCES = [
   { slug: 'oroantral', dir: 'public/oroantral/downloads', match: /^vivatheca-oroantral-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'cracked-tooth', dir: 'public/cracked-tooth/downloads', match: /^vivatheca-cracked-tooth-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'endodontic', dir: 'public/endodontic/downloads', match: /^vivatheca-endodontic-(.+)-([\d.]+)x\.zip$/ },
+  { slug: 'prosthodontic', dir: 'public/prosthodontic/downloads', match: /^vivatheca-prosthodontic-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'stainless-steel-crown', dir: 'public/stainless-steel-crown/downloads', match: /^vivatheca-stainless-steel-crown-([\d.]+)x\.zip$/, single: true },
   { slug: 'alveolar-bone-graft', dir: 'public/models/abg', match: /^vivatheca-abg-(.+)-stl\.zip$/, scale: 1 },
 ];

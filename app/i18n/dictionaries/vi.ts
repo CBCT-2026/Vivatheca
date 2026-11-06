@@ -52,7 +52,7 @@ const vi = withFallback(en, {
   },
   "audiences": {
     "label": "Vivatheca dành cho ai",
-    "heading": "Hai cách sử dụng Vivatheca.",
+    "heading": "Dành cho nhân viên y tế và sinh viên",
     "clinicians": {
       "eyebrow": "Dành cho nhân viên y tế",
       "title": "Giải thích cho bệnh nhân",
@@ -940,7 +940,7 @@ const vi = withFallback(en, {
   },
   "hero": {
     "line1": "Mô hình lâm sàng",
-    "line2": "dễ hiểu.",
+    "line2": "dễ hiểu",
     "lede": "Thư viện mô hình 3D miễn phí, phi lợi nhuận về nha khoa và phẫu thuật miệng. Mỗi bệnh đều có mô hình bình thường tương ứng, để nhân viên y tế cho bệnh nhân thấy điểm khác biệt, trên màn hình hoặc bằng bản in 3D.",
     "explore": "Xem các mô hình",
     "how": "Dùng thử trình xem 3D",
@@ -960,17 +960,8 @@ const vi = withFallback(en, {
     "flagAlt": "Quốc kỳ Úc",
     "text": "Thành lập và hoạt động tại Úc."
   },
-  "mission": {
-    "label": "Sứ mệnh của Vivatheca",
-    "text": "Mô hình 3D mở cho những cuộc trao đổi rõ ràng hơn.",
-    "links": [
-      "Xem dạng 3D",
-      "Chia sẻ bằng liên kết",
-      "In ra khi có thể"
-    ]
-  },
   "collection": {
-    "heading": "Xem lời giải thích từ mọi góc độ.",
+    "heading": "Thử một mô hình tương tác",
     "text": "Xoay hàm trên của một trẻ qua ba giai đoạn ghép xương khe hở cung hàm, ẩn lợi để thấy xương, và chuyển giữa ngôn ngữ dễ hiểu và chi tiết lâm sàng.",
     "label": "Mô hình tương tác",
     "moreHeading": "Mô hình thử nghiệm",
@@ -978,14 +969,14 @@ const vi = withFallback(en, {
     "allModels": "Xem tất cả mô hình trong thư viện"
   },
   "showcase": {
-    "heading": "Thêm từ bộ sưu tập.",
+    "heading": "Các mô hình khác trong bộ sưu tập",
     "text": "Một số mô hình bạn có thể mở ngay hôm nay, từ sự phát triển răng của trẻ đến phẫu thuật xương hàm. Mỗi mô hình đều đi kèm giải phẫu bình thường hoặc được trình bày theo từng giai đoạn.",
     "label": "Các mô hình trong bộ sưu tập",
     "open": "Mở mô hình"
   },
   "understanding": {
-    "heading": "Một mô hình. Nhiều cách để hiểu.",
-    "text": "Nền tảng Vivatheca kết nối thời điểm giải thích với mọi việc có thể diễn ra sau đó.",
+    "heading": "Trang mô hình có gì",
+    "text": "Trang mô hình có trình xem 3D, hai mức giải thích và, với hầu hết mô hình, tệp để in 3D.",
     "explore": {
       "title": "Khám phá dạng 3D",
       "text": "Xoay, phóng to và theo dõi phần hướng dẫn có chú thích bằng bàn phím hoặc cảm ứng."
@@ -995,7 +986,7 @@ const vi = withFallback(en, {
       "text": "Chuyển giữa phần hướng dẫn bằng ngôn ngữ dễ hiểu và chi tiết lâm sàng sâu hơn."
     },
     "further": {
-      "title": "Đi xa hơn",
+      "title": "Chia sẻ hoặc in",
       "text": "Chia sẻ mô hình, xem bằng AR trên điện thoại, hoặc tải tệp STL để in."
     }
   },
@@ -1003,12 +994,12 @@ const vi = withFallback(en, {
     "imageAlt": "Mặt phía má của mô hình răng khôn mọc ngầm: bên trái là mô hình số, bên phải là ảnh chụp chính mô hình đó đã in 3D, kèm thước kẻ. Cả hai đều có xương và răng màu be xám, dây thần kinh màu đỏ.",
     "imageAltLingual": "Mặt phía lưỡi của cùng mô hình số và bản in 3D, kèm thước kẻ.",
     "caption": "Trên: phía má. Dưới: phía lưỡi. Trái: mô hình số, hiển thị theo màu của bản in (be xám, dây thần kinh màu đỏ). Phải: cùng mô hình đó đã in 3D (phiên bản 10.1). Ảnh: Luke Seifert, Vivatheca.",
-    "heading": "Từ màn hình đến vật cầm được trong tay.",
+    "heading": "In mô hình bằng máy in 3D để bàn",
     "text": "Hầu hết các mô hình có kèm tệp STL miễn phí tính bằng milimét, tỉ lệ in ghi trên trang mô hình, để bạn in bằng máy in 3D để bàn, giúp lời giải thích đi từ màn hình đến tay bệnh nhân. Tệp in cho các mô hình phẫu thuật xương hàm và vòm miệng sẽ có khi các mô hình đó hoàn thiện.",
     "download": "Tải cả hai tệp STL"
   },
   "trust": {
-    "heading": "Sự tin cậy cần được thấy rõ, không chỉ được ngầm hiểu.",
+    "heading": "Cách kiểm tra mô hình",
     "text": "Mỗi mô hình đều liệt kê nguồn đã công bố, những điểm được đơn giản hóa, phiên bản và nhật ký thay đổi, và cho biết đã có nhân viên y tế thẩm định hay chưa.",
     "report": "Báo lỗi",
     "reportAfter": "và phần sửa sẽ được ghi vào nhật ký thay đổi.",
@@ -1040,7 +1031,7 @@ const vi = withFallback(en, {
     "warning": "chưa có mô hình nào được thẩm định độc lập, và mỗi trang mô hình đều ghi rõ điều đó. Hiện đang mời người thẩm định."
   },
   "publications": {
-    "heading": "Bằng chứng về việc nhìn và cầm giải phẫu trong tay.",
+    "heading": "Nghiên cứu về mô hình 3D trong trao đổi với bệnh nhân",
     "text": "Các nghiên cứu độc lập, đã bình duyệt đã kiểm tra cách mô hình 3D thật và ảo có thể giúp bệnh nhân hiểu biết, trao đổi và hiểu rõ hơn. Kết quả phụ thuộc vào bối cảnh lâm sàng và không nên coi là bằng chứng áp dụng cho mọi trường hợp.",
     "note": "Các bài báo này là bằng chứng độc lập và không liên quan đến Vivatheca.",
     "read": "Đọc bài báo đã bình duyệt",
@@ -1061,7 +1052,7 @@ const vi = withFallback(en, {
     }
   },
   "contribute": {
-    "heading": "Cùng xây dựng bộ sưu tập.",
+    "heading": "Cùng xây dựng bộ sưu tập",
     "text": "Nhân viên y tế giúp thư viện luôn chính xác và quyết định mô hình nào được làm tiếp theo.",
     "learn": "Tìm hiểu cách tham gia",
     "openForm": "Mở biểu mẫu",
@@ -1091,7 +1082,7 @@ const vi = withFallback(en, {
     "imageAlt": "Mô hình phát triển răng lúc 9,5 tuổi: hàm trên và hàm dưới bên phải với răng sữa màu xanh và răng vĩnh viễn màu vàng đang hình thành bên dưới."
   },
   "sponsor": {
-    "heading": "Giúp mô hình đến được với nhiều người hơn.",
+    "heading": "Tài trợ một mô hình",
     "text": "Tài trợ có thể hỗ trợ phát triển mô hình và sau này gửi mô hình in tới các phòng khám không tự in được. Vivatheca chưa phải là tổ chức từ thiện đã đăng ký, nên khoản tài trợ không được khấu trừ thuế.",
     "cta": "Bắt đầu trao đổi về tài trợ"
   },
@@ -1160,7 +1151,7 @@ const vi = withFallback(en, {
     "sourceLabel": "Nguồn {n}"
   },
   "abg": {
-    "status": "Ví dụ tương tác",
+    "status": "Mô hình tương tác",
     "stagesLabel": "Giai đoạn ghép xương",
     "gumOff": "Ẩn lợi",
     "gumOn": "Hiện lại lợi",
@@ -1535,7 +1526,7 @@ const vi = withFallback(en, {
     "title": "Thư viện mô hình — Vivatheca",
     "description": "Mô hình 3D miễn phí về các bệnh lý răng miệng và hàm mặt, mỗi mô hình đi kèm giải phẫu bình thường, có tải GLB và STL.",
     "eyebrow": "Thư viện mô hình",
-    "heading": "Mô hình có bản bình thường để so sánh.",
+    "heading": "Mô hình có bản bình thường để so sánh",
     "intro": "Mỗi bệnh lý đều đi kèm giải phẫu bình thường tương ứng, để bạn cho bệnh nhân thấy điều gì khác biệt và vì sao điều đó quan trọng. Tất cả mô hình đều miễn phí để xem, tải, in và chỉnh sửa theo giấy phép",
     "licenceOther": "Các mô hình làm từ BodyParts3D dùng giấy phép CC BY 4.0, cho phép bạn chia sẻ những gì bạn làm theo bất kỳ giấy phép nào. Mỗi thẻ đều ghi rõ.",
     "reviewLead": "Tình trạng thẩm định được ghi trên từng mô hình.",
@@ -1543,7 +1534,7 @@ const vi = withFallback(en, {
     "factsLabel": "Thông tin mô hình",
     "version": "Phiên bản {v}",
     "nextHeading": "Sắp ra mắt",
-    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: hàm mất răng teo xương.",
+    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: nang quanh một răng chưa mọc.",
     "askText": "Bạn muốn có một mô hình cụ thể, hoặc có mô hình muốn chia sẻ?",
     "askLink": "Hãy cho chúng tôi biết",
     "askGap": " ",
@@ -1600,6 +1591,12 @@ const vi = withFallback(en, {
         "specialty": "Điều trị khe hở môi vòm miệng và âm ngữ trị liệu",
         "summary": "Họng được cắt dọc ở giữa. Khi nói bình thường, vòm miệng mềm đóng đường lên mũi; khi có VPI, một khe hở để không khí thoát lên mũi. Mô hình cho thấy ba phẫu thuật đóng khe hở và vì sao cần trị liệu ngôn ngữ trước và sau phẫu thuật. Trong ảnh: đóng bình thường (trái) và VPI (phải).",
         "pairing": "Bệnh lý + bản bình thường khỏe mạnh + các cách điều trị"
+      },
+      "prosthodontic": {
+        "title": "Hàm dưới mất răng teo xương (Cawood và Howell loại V) so với hàm dưới còn răng, kèm hàm giả toàn phần hoặc hàm giả phủ trên hai implant",
+        "specialty": "Phục hình",
+        "summary": "Một hàm dưới còn răng bên cạnh cùng hàm đó nhiều năm sau khi mất hết răng, khi sống hàm đã teo thành một nền thấp và phẳng. Có thể đặt thêm hàm giả toàn phần hoặc hàm giả giữ bằng hai implant. Trong ảnh: còn răng (trái) và mất răng (phải).",
+        "pairing": "Bệnh lý + răng bình thường lành mạnh"
       },
       "endodontic": {
         "title": "Hoại tử tủy kèm áp xe quanh chóp mạn tính ở răng cối lớn thứ nhất hàm dưới, so với răng lành",
@@ -1771,7 +1768,7 @@ const vi = withFallback(en, {
     "title": "Giới thiệu — Vivatheca",
     "description": "Vì sao Vivatheca ra đời, ai điều hành và cách tổ chức phi lợi nhuận này được quản lý.",
     "eyebrow": "Giới thiệu",
-    "heading": "Mô hình 3D rõ ràng cho cuộc trò chuyện bên ghế nha.",
+    "heading": "Mô hình 3D rõ ràng cho cuộc trò chuyện bên ghế nha",
     "intro": "Vivatheca là thư viện miễn phí các mô hình 3D về răng miệng và hàm mặt. Nhân viên y tế dùng chúng để giải thích bệnh lý, cho thấy quá trình điều trị, và tự soạn tài liệu giáo dục bệnh nhân, trên màn hình hoặc dưới dạng bản in 3D.",
     "whyHeading": "Vì sao Vivatheca ra đời",
     "whyEvidence": "Xem các thử nghiệm, kèm đường dẫn, trong phần Bằng chứng",
@@ -1895,10 +1892,6 @@ const vi = withFallback(en, {
     "loading": "Đang tải số lượt ủng hộ…",
     "unavailable": "Chức năng đếm lượt ủng hộ chưa được bật. Bạn vẫn có thể gửi ý tưởng qua email đến vivatheca@gmail.com.",
     "seeds": {
-      "prosth-edentulous": {
-        "title": "Xương hàm mất răng bị teo (hàm dưới mất răng teo xương) bên cạnh hàm còn răng, với các lựa chọn hàm giả và implant",
-        "specialty": "Phục hình"
-      },
       "dentigerous-cyst": {
         "title": "Nang quanh một răng chưa mọc (nang thân răng) bên cạnh một răng chưa mọc bình thường",
         "specialty": "Bệnh học miệng và hàm mặt"
@@ -2310,6 +2303,79 @@ const vi = withFallback(en, {
     "emailNote": "Tin nhắn của bạn sẽ mở trong ứng dụng email, gửi đến vivatheca@gmail.com, để bạn kiểm tra trước khi gửi.",
     "reviewLead": "Mô hình được chấp nhận bắt đầu với nhãn “Chưa được thẩm định lâm sàng”.",
     "sourcesHeading": "Nguồn"
+  },
+  "show": {
+    "title": "Cho bệnh nhân xem — Vivatheca",
+    "description": "Mở bất kỳ mô hình Vivatheca nào toàn màn hình chỉ với một lần chạm, điều khiển đơn giản, sẵn sàng cho bệnh nhân xem.",
+    "eyebrow": "Cho bệnh nhân xem",
+    "heading": "Chọn một mô hình và cho xem ngay.",
+    "intro": "Chạm vào một mô hình để mở toàn màn hình với điều khiển đơn giản. Trang đầy đủ, có nguồn, tệp tải về và thêm công cụ, chỉ cách một lần chạm.",
+    "heroButton": "Cho bệnh nhân xem",
+    "homeHeading": "Cho bệnh nhân xem ngay",
+    "homeText": "Một lần chạm mở mô hình toàn màn hình, sẵn sàng xoay và cho xem. Gắn sao cho các mô hình bạn dùng nhiều nhất để chúng luôn ở trên cùng.",
+    "searchLabel": "Tìm mô hình",
+    "searchPlaceholder": "Nhập tên bệnh, ví dụ răng khôn",
+    "noResults": "Không có mô hình nào khớp với tìm kiếm.",
+    "listLabel": "Mô hình để cho xem",
+    "myModels": "Mô hình của tôi",
+    "myModelsEmpty": "Chạm vào ngôi sao trên một mô hình để lưu ở đây.",
+    "myModelsNote": "Chỉ lưu trong trình duyệt này trên thiết bị này. Không cần tài khoản.",
+    "favourite": "Thêm {title} vào Mô hình của tôi",
+    "unfavourite": "Bỏ {title} khỏi Mô hình của tôi",
+    "showLink": "Cho bệnh nhân xem",
+    "opensPage": "Mở trang đầy đủ của mô hình",
+    "details": "Trang đầy đủ",
+    "detailsLong": "Trang đầy đủ có nguồn và tệp tải về",
+    "close": "Tất cả mô hình",
+    "fullscreen": "Toàn màn hình",
+    "exitFullscreen": "Thoát toàn màn hình",
+    "reset": "Đặt lại góc nhìn",
+    "viewsLabel": "Nội dung hiển thị",
+    "loading": "Đang tải mô hình…",
+    "failed": "Không tải được mô hình ở đây. Hãy mở trang đầy đủ.",
+    "hint": "Kéo để xoay. Chụm hoặc cuộn để phóng to. Phím mũi tên đổi góc nhìn.",
+    "age": "{n} tuổi",
+    "step": "Bước {n}",
+    "views": {
+      "normal": "Bình thường",
+      "healthy": "Khỏe mạnh",
+      "impacted": "Răng khôn mọc ngầm",
+      "stage1": "Giai đoạn I",
+      "stage2": "Giai đoạn II",
+      "stage3": "Giai đoạn III",
+      "stage4": "Giai đoạn IV",
+      "risk": "Có nguy cơ",
+      "oac": "Lỗ thông (OAC)",
+      "oaf": "Đường rò (OAF)",
+      "clot": "Cục máu đông",
+      "buccalFlap": "Vạt má",
+      "fatPad": "Khối mỡ má",
+      "palatalFlap": "Vạt khẩu cái",
+      "cracked": "Bị nứt",
+      "filling": "Trám",
+      "crown": "Mão răng",
+      "sound": "Răng lành",
+      "abscess": "Áp xe",
+      "soundCut": "Răng lành, cắt ngang",
+      "abscessCut": "Áp xe, cắt ngang",
+      "decay": "Sâu răng",
+      "shaped": "Đã mài",
+      "steelCrown": "Mão thép",
+      "abgBefore": "Trước",
+      "abgGraft": "Sau ghép xương",
+      "abgLater": "Nhiều năm sau",
+      "average": "Hàm trung bình",
+      "withTeeth": "Còn răng",
+      "noTeeth": "Mất hết răng",
+      "denture": "Hàm giả",
+      "implantDenture": "Hàm giả trên implant",
+      "class2Before": "Loại II trước",
+      "class2After": "Loại II sau",
+      "class2Genio": "Loại II sau, có phẫu thuật cằm",
+      "class3Before": "Loại III trước",
+      "class3After": "Loại III sau",
+      "class3Genio": "Loại III sau, có phẫu thuật cằm"
+    }
   }
 });
 

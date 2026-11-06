@@ -406,7 +406,7 @@
    "id": "abscess",
    "label": {
     "en": "Tooth with abscess",
-    "ja": "{膿瘍|のうよう}のある{歯|は}"
+    "ja": "のうようのある{歯|は}"
    },
    "zip": "/endodontic/downloads/vivatheca-endodontic-abscess-2x.zip",
    "scale": 2,
@@ -418,6 +418,66 @@
     "abscess-pulp.stl",
     "abscess-lesion.stl",
     "abscess-tract.stl"
+   ]
+  }
+ ],
+ "prosthodontic": [
+  {
+   "id": "dentate",
+   "label": {
+    "en": "Dentate",
+    "ja": "Dentate"
+   },
+   "zip": "/prosthodontic/downloads/vivatheca-prosthodontic-dentate-1x.zip",
+   "scale": 1,
+   "files": [
+    "dentate-bone.stl",
+    "dentate-teeth.stl",
+    "dentate-gum.stl"
+   ]
+  },
+  {
+   "id": "denture",
+   "label": {
+    "en": "Denture",
+    "ja": "Denture"
+   },
+   "zip": "/prosthodontic/downloads/vivatheca-prosthodontic-denture-1x.zip",
+   "scale": 1,
+   "files": [
+    "denture-bone.stl",
+    "denture-gum.stl",
+    "denture-denture.stl",
+    "denture-denture_teeth.stl"
+   ]
+  },
+  {
+   "id": "edentulous",
+   "label": {
+    "en": "Edentulous",
+    "ja": "Edentulous"
+   },
+   "zip": "/prosthodontic/downloads/vivatheca-prosthodontic-edentulous-1x.zip",
+   "scale": 1,
+   "files": [
+    "edentulous-bone.stl",
+    "edentulous-gum.stl"
+   ]
+  },
+  {
+   "id": "overdenture",
+   "label": {
+    "en": "Overdenture",
+    "ja": "Overdenture"
+   },
+   "zip": "/prosthodontic/downloads/vivatheca-prosthodontic-overdenture-1x.zip",
+   "scale": 1,
+   "files": [
+    "overdenture-bone.stl",
+    "overdenture-gum.stl",
+    "overdenture-implant.stl",
+    "overdenture-denture.stl",
+    "overdenture-denture_teeth.stl"
    ]
   }
  ],
