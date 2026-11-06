@@ -1,6 +1,7 @@
 // Vivatheca's contact details: the ONE place to change them. Used by the contact section in
 // every page footer (app/contact-section.tsx), the mailto links in app/data.ts and app/page.tsx,
-// and copied by hand into public/development/index.html (static page, search "CONTACT").
+// and copied by hand into the static pages: public/contact.js (most model pages) and the
+// "CONTACT" blocks in public/development/index.html and public/cracked-tooth/index.html.
 //
 // PLACEHOLDERS: Luke has not given the real Instagram and X handles yet, and the email is the
 // address the site already used before this change. Fill them in here. An empty handle shows
