@@ -1542,7 +1542,7 @@ const vi = withFallback(en, {
     "factsLabel": "Thông tin mô hình",
     "version": "Phiên bản {v}",
     "nextHeading": "Sắp ra mắt",
-    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: hàm mất răng teo xương.",
+    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: nang quanh một răng chưa mọc.",
     "askText": "Bạn muốn có một mô hình cụ thể, hoặc có mô hình muốn chia sẻ?",
     "askLink": "Hãy cho chúng tôi biết",
     "askGap": " ",
@@ -1593,6 +1593,12 @@ const vi = withFallback(en, {
         "specialty": "Điều trị khe hở: phẫu thuật miệng và hàm mặt và chỉnh nha",
         "summary": "Hàm trên của một trẻ có khe hở cung hàm bên trái, qua ba giai đoạn: trước khi ghép xương, sau ghép có mắc cài, và nhiều năm sau khi răng nanh đã được đưa vào chỗ trống. Trong ảnh: trước (trái) và nhiều năm sau (phải).",
         "pairing": "Các giai đoạn điều trị"
+      },
+      "prosthodontic": {
+        "title": "Hàm dưới mất răng teo xương (Cawood và Howell loại V) so với hàm dưới còn răng, kèm hàm giả toàn phần hoặc hàm giả phủ trên hai implant",
+        "specialty": "Phục hình",
+        "summary": "Một hàm dưới còn răng bên cạnh cùng hàm đó nhiều năm sau khi mất hết răng, khi sống hàm đã teo thành một nền thấp và phẳng. Có thể đặt thêm hàm giả toàn phần hoặc hàm giả giữ bằng hai implant. Trong ảnh: còn răng (trái) và mất răng (phải).",
+        "pairing": "Bệnh lý + răng bình thường lành mạnh"
       },
       "endodontic": {
         "title": "Hoại tử tủy kèm áp xe quanh chóp mạn tính ở răng cối lớn thứ nhất hàm dưới, so với răng lành",
@@ -1877,10 +1883,6 @@ const vi = withFallback(en, {
     "loading": "Đang tải số lượt ủng hộ…",
     "unavailable": "Chức năng đếm lượt ủng hộ chưa được bật. Bạn vẫn có thể gửi ý tưởng qua email đến vivatheca@gmail.com.",
     "seeds": {
-      "prosth-edentulous": {
-        "title": "Xương hàm mất răng bị teo (hàm dưới mất răng teo xương) bên cạnh hàm còn răng, với các lựa chọn hàm giả và implant",
-        "specialty": "Phục hình"
-      },
       "dentigerous-cyst": {
         "title": "Nang quanh một răng chưa mọc (nang thân răng) bên cạnh một răng chưa mọc bình thường",
         "specialty": "Bệnh học miệng và hàm mặt"

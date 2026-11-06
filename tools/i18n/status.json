@@ -155,6 +155,11 @@
    }
   },
   {
+   "page": "prosthodontic",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
    "page": "stainless-steel-crown",
    "tracked": false,
    "note": "translations live in the page script, not tracked by key"

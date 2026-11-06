@@ -52,6 +52,8 @@
     [/^teeth$/, 'Teeth', '{歯|は}', 'Răng'],
     [/^pulp$/, 'Nerve (pulp)', '{歯|は}の{神経|しんけい}', 'Tủy răng (dây thần kinh)'],
     [/^sinus$/, 'Sinus', '{上顎洞|じょうがくどう}', 'Xoang'],
+    [/^denture$/, 'Denture', '{入|い}れ{歯|ば}', 'Hàm giả'],
+    [/^implant$/, 'Implants', 'インプラント', 'Trụ implant'],
     [/^tract$/, 'Drainage channel (sinus tract)', 'うみの{出口|でぐち}', 'Đường rò'],
     [/^lesion$/, 'Disease', '{病変|びょうへん}', 'Tổn thương'],
     [/^bone$/, 'Bone', '{骨|ほね}', 'Xương'],
