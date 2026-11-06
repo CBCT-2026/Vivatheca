@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test.describe('stainless steel crown model page', () => {
   test('switches between the five stages and keeps the disclaimer and sources visible', async ({ page }) => {
     await page.goto('/stainless-steel-crown/index.html');
-    await expect(page.getByRole('heading', { level: 1, name: 'Stainless steel crown on a baby molar' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: "Steel crown on a child's back tooth" })).toBeVisible();
 
     const viewer = page.locator('#mv');
     await expect(viewer).toHaveAttribute('src', 'models/healthy.glb');
@@ -12,7 +12,7 @@ test.describe('stainless steel crown model page', () => {
 
     await page.getByRole('button', { name: /^Crown/ }).click();
     await expect(viewer).toHaveAttribute('src', 'models/crown.glb');
-    await expect(page.locator('#stage h2')).toHaveText('Stainless steel crown');
+    await expect(page.locator('#stage h2')).toHaveText('Steel crown');
     await expect(page.locator('#legend')).toContainText('Steel crown');
 
     await page.getByRole('button', { name: /^Filling/ }).click();
@@ -20,14 +20,25 @@ test.describe('stainless steel crown model page', () => {
     await expect(page).toHaveURL(/#filling$/);
 
     // Review status and model disclaimer beside the viewer, with a link to the full disclaimer.
-    await expect(page.locator('.model-note')).toContainText('Not yet clinically reviewed.');
-    await expect(page.locator('.model-note')).toContainText('Educational model only.');
-    await expect(page.locator('.model-note a[href="/disclaimer"]')).toBeVisible();
+    const note = page.locator('#mv + p');
+    await expect(note).toContainText('Not yet clinically reviewed.');
+    await expect(note).toContainText('Educational model only.');
+    await expect(note.locator('a[href="/disclaimer"]').first()).toBeVisible();
 
     // Every cited source is listed.
     await expect(page.locator('.refs li')).toHaveCount(7);
     await page.locator('.cite a').first().click();
     await expect(page.locator('.refs details')).toHaveAttribute('open', '');
+  });
+
+  test('shows the Japanese version with furigana', async ({ page, context, baseURL }) => {
+    await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: baseURL! }]);
+    await page.goto('/stainless-steel-crown/index.html#crown');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+    await expect(page.locator('h1')).toContainText('かぶせ');
+    await expect(page.locator('#stage h2')).toContainText('かぶせ');
+    await expect(page.locator('#stage ruby').first()).toBeVisible();
+    await expect(page.getByRole('button', { name: 'English' })).toBeVisible();
   });
 
   test('serves the models and the print download', async ({ request }) => {

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steel crown on a child's back tooth | Vivatheca</title>
+<meta name="description" content="Interactive 3D model of a child's back tooth: healthy, with large decay, with a large filling, shaped for a crown, and with a stainless steel crown. With the evidence for crowns, cited.">
+<meta name="robots" content="noindex">
+<!-- Generated from tools/ssc/page-src.html by tools/ssc/gen.py ({漢字|かな} marks furigana). Edit the source, not this file. -->
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// Language and furigana use the same cookies as the rest of the site (app/i18n/config.ts).
+(function () { const c = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
+  if (c('vivatheca-lang') === 'ja') document.documentElement.lang = 'ja';
+  document.documentElement.dataset.furigana = c('vivatheca-furigana') === 'off' ? 'off' : 'on'; })();
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="../development/style.css">
+<style>
+  /* Show only the visitor's language (the language switcher buttons always show). */
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button) { display: none !important; }
+  .stages { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .stages button { min-height: 52px; padding: 6px 2px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 14px/1.15 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; cursor: pointer; }
+  .stages button small { display: block; font-weight: 500; font-size: 11px; color: var(--muted); }
+  .stages button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  @media (max-width: 420px) { .stages button { font-size: 13px; } }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .status { font-weight: 700; color: var(--heading); }
+  .dot.tooth { background: #e4dcd1; } .dot.decay { background: #61462b; } .dot.filling { background: #ad98dd; }
+  .dot.steel { background: linear-gradient(135deg, #f2f2f4, #9a9ca2); } .dot.cement { background: #f8f3e6; }
+  .dot.gum { background: #cf7c80; } .dot.bone { background: #d7cbbb; } .dot.pulp { background: #c9262e; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  details.clin summary { cursor: pointer; font-weight: 600; color: var(--heading); }
+  .download { display: inline-block; margin-top: 4px; }
+</style>
+<script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/"><span lang="en">Vivatheca home</span><span lang="ja">Vivatheca ホーム</span></a>
+    <a class="lang" href="/models"><span lang="en">All models</span><span lang="ja">{模型|もけい}{一覧|いちらん}</span></a>
+    <button class="theme" id="theme" type="button">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+
+<main>
+  <h1><span lang="en">Steel crown on a child's back tooth</span><span lang="ja">{子|こ}どもの{奥歯|おくば}の{金属|きんぞく}のかぶせ{物|もの}</span></h1>
+
+  <model-viewer id="mv"
+    src="models/healthy.glb"
+    alt="3D model of a healthy baby back tooth in a block of gum and bone, with the adult tooth growing under it."
+    camera-controls camera-orbit="-30deg 68deg 46mm" camera-target="0mm -1mm 0mm" min-camera-orbit="auto auto 20mm" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="1" exposure="1.05" environment-image="neutral" loading="eager">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <p class="small"><span class="status">Not yet clinically reviewed.</span><span lang="en"> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></span><span lang="ja"><br><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+
+  <div class="stages" role="group" aria-label="Choose a stage">
+    <button type="button" data-stage="healthy" aria-pressed="true"><span lang="en">Healthy</span><span lang="ja">{健康|けんこう}</span><small lang="en">normal</small><small lang="ja">ふつう</small></button>
+    <button type="button" data-stage="decay" aria-pressed="false"><span lang="en">Decay</span><span lang="ja">むし{歯|ば}</span><small lang="en">large holes</small><small lang="ja">{大|おお}きな{穴|あな}</small></button>
+    <button type="button" data-stage="filling" aria-pressed="false"><span lang="en">Filling</span><span lang="ja">{詰|つ}め{物|もの}</span><small lang="en">large</small><small lang="ja">{大|おお}きい</small></button>
+    <button type="button" data-stage="prepared" aria-pressed="false"><span lang="en">Shaped</span><span lang="ja">{形|かたち}を{整|ととの}える</span><small lang="en">for crown</small><small lang="ja">かぶせる{前|まえ}</small></button>
+    <button type="button" data-stage="crown" aria-pressed="false"><span lang="en">Crown</span><span lang="ja">かぶせ{物|もの}</span><small lang="en">steel</small><small lang="ja">{金属|きんぞく}</small></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model views">
+    <button type="button" data-orbit="-30deg 68deg 46mm" aria-pressed="true"><span lang="en">Cheek side</span><span lang="ja">ほお{側|がわ}</span></button>
+    <button type="button" data-orbit="0deg 10deg 40mm" aria-pressed="false"><span lang="en">Biting surface</span><span lang="ja">かむ{面|めん}</span></button>
+    <button type="button" data-orbit="90deg 70deg 46mm" aria-pressed="false"><span lang="en">Front side</span><span lang="ja">{前|まえ}{側|がわ}</span></button>
+    <button type="button" id="xray" aria-pressed="false"><span lang="en">See-through</span><span lang="ja">{透|す}かして{見|み}る</span></button>
+  </div>
+  <ul class="legend" id="legend"></ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <section>
+    <div lang="en">
+      <h2>What the model shows</h2>
+      <p>The model shows one baby back tooth from a child's lower jaw. It sits in a block of gum and bone. Under it, the adult tooth that will take its place is growing.</p>
+      <p>Choose one of the 5 stages to see each step, from a healthy tooth to a tooth with a crown. Tap <b>See-through</b> to look inside. You can see the nerve (red), the tooth under the crown and the adult tooth.</p>
+    </div>
+    <div lang="ja">
+      <h2>このモデルについて</h2>
+      <p>{子|こ}どもの{下|した}の{奥歯|おくば}（{乳歯|にゅうし}）1{本|ぽん}を、{歯|は}ぐきと{骨|ほね}のブロックに{入|い}れて{見|み}せています。{下|した}では、{生|は}えかわる{大人|おとな}の{歯|は}（{永久歯|えいきゅうし}）が{育|そだ}っています。</p>
+      <p>ボタンで5つの{段階|だんかい}を{見|み}られます。{健康|けんこう}な{歯|は}、むし{歯|ば}の{穴|あな}がある{歯|は}、{詰|つ}め{物|もの}をした{歯|は}、{形|かたち}を{整|ととの}えた{歯|は}、かぶせ{物|もの}をした{歯|は}です。「{透|す}かして{見|み}る」を{押|お}すと、{中|なか}の{神経|しんけい}（{赤|あか}）、かぶせ{物|もの}の{下|した}の{歯|は}、{大人|おとな}の{歯|は}が{見|み}えます。</p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>What is a steel crown?</h2>
+      <p>A steel crown is a ready-made metal cap. It covers the whole of a baby back tooth. Dentists use one when:<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <ul>
+        <li>decay has made holes on more than one side of the tooth</li>
+        <li>the dentist has treated the nerve inside the tooth</li>
+        <li>the tooth is broken, or did not grow in the right way</li>
+        <li>your child is likely to get more decay</li>
+      </ul>
+      <p>Most often, the dentist numbs the tooth and takes out the decay. Then they trim a little off the tooth so the crown fits, and glue the crown on.<sup class="cite"><a href="#ref-2">2</a></sup> The crown comes out with the baby tooth when the adult tooth comes through.</p>
+    </div>
+    <div lang="ja">
+      <h2>{金属|きんぞく}のかぶせ{物|もの}とは</h2>
+      <p>{乳歯|にゅうし}の{奥歯|おくば}{全体|ぜんたい}をおおう、{既製|きせい}の{金属|きんぞく}のキャップです（{既製|きせい}{金属|きんぞく}{冠|かん}、ステンレス{冠|かん}とも{呼|よ}びます）。{次|つぎ}のようなときに{使|つか}います。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <ul>
+        <li>むし{歯|ば}の{穴|あな}が{歯|は}の2つ{以上|いじょう}の{面|めん}にある</li>
+        <li>{歯|は}の{中|なか}の{神経|しんけい}の{治療|ちりょう}をした</li>
+        <li>{歯|は}が{欠|か}けた、または{歯|は}がうまく{育|そだ}たなかった</li>
+        <li>むし{歯|ば}がまたできやすい</li>
+      </ul>
+      <p>ふつうは{麻酔|ますい}をして、むし{歯|ば}を{取|と}ります。かぶせ{物|もの}が{入|はい}るように{歯|は}を{少|すこ}し{削|けず}り、かぶせ{物|もの}をつけます。<sup class="cite"><a href="#ref-2">2</a></sup>{大人|おとな}の{歯|は}が{生|は}えてくると、かぶせ{物|もの}は{乳歯|にゅうし}といっしょに{抜|ぬ}けます。</p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>Why a crown and not a large filling?</h2>
+      <p>A filling only replaces the part of the tooth that the decay took away. When the holes are large, the walls of tooth left around the filling are thin. A crown covers the whole tooth. It holds the tooth together, and it leaves no edges where new decay can start.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>Studies that compared crowns with fillings in baby back teeth found:</p>
+      <ul>
+        <li>Crowns were less likely to fail badly, for example with an infection or the tooth needing to come out. They were also less likely to cause pain later.<sup class="cite"><a href="#ref-2">2</a></sup></li>
+        <li>After 2 years, about 93 in 100 crowns were still working well. For large fillings, it was 80 in 100.<sup class="cite"><a href="#ref-6">6</a></sup></li>
+        <li>In a 5-year study, 3 in 100 crowns failed badly. For fillings, it was about 17 in 100.<sup class="cite"><a href="#ref-3">3</a></sup></li>
+      </ul>
+      <p>Dentists for children in the USA advise steel crowns for some children. These are children who are likely to get more decay and have large holes in their baby back teeth.<sup class="cite"><a href="#ref-1">1</a></sup> For a small hole, a filling can still be the right choice.<span><sup class="cite"><a href="#ref-1">1</a></sup></span> Ask your child's dentist which is best for your child.</p>
+    </div>
+    <div lang="ja">
+      <h2>なぜ{大|おお}きな{詰|つ}め{物|もの}ではなく、かぶせ{物|もの}なのか</h2>
+      <p>{詰|つ}め{物|もの}は、なくなった{部分|ぶぶん}だけを{補|おぎな}います。{穴|あな}が{大|おお}きいと、{詰|つ}め{物|もの}のまわりに{残|のこ}る{歯|は}の{壁|かべ}がうすくなります。かぶせ{物|もの}は{歯|は}{全体|ぜんたい}をおおうので、{歯|は}を{支|ささ}え、むし{歯|ば}が{新|あたら}しくできやすいすき{間|ま}も{残|のこ}りません。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+      <p>{乳歯|にゅうし}の{奥歯|おくば}で、かぶせ{物|もの}と{詰|つ}め{物|もの}を{比|くら}べた{研究|けんきゅう}では、{次|つぎ}のことがわかっています。</p>
+      <ul>
+        <li>かぶせ{物|もの}のほうが、{感染|かんせん}したり{歯|は}をぬいたりするような{大|おお}きな{失敗|しっぱい}が{少|すく}なかった。{後|あと}で{痛|いた}みが{出|で}ることも{少|すく}なかった。<sup class="cite"><a href="#ref-2">2</a></sup></li>
+        <li>2{年|ねん}{後|ご}にうまく{使|つか}えていたのは、かぶせ{物|もの}が100{本|ぽん}{中|ちゅう}{約|やく}93{本|ぼん}、{大|おお}きな{詰|つ}め{物|もの}が100{本|ぽん}{中|ちゅう}80{本|ぽん}だった。<sup class="cite"><a href="#ref-6">6</a></sup></li>
+        <li>5{年|ねん}{間|かん}の{研究|けんきゅう}で、{大|おお}きな{失敗|しっぱい}はかぶせ{物|もの}が100{本|ぽん}{中|ちゅう}3{本|ぼん}、{詰|つ}め{物|もの}が100{本|ぽん}{中|ちゅう}{約|やく}17{本|ほん}だった。<sup class="cite"><a href="#ref-3">3</a></sup></li>
+      </ul>
+      <p>アメリカの{小児|しょうに}{歯科|しか}の{学会|がっかい}は、{金属|きんぞく}のかぶせ{物|もの}をすすめています。むし{歯|ば}になりやすく、{奥歯|おくば}に{大|おお}きな{穴|あな}がある{子|こ}どもが{対象|たいしょう}です。<sup class="cite"><a href="#ref-1">1</a></sup>{小|ちい}さな{穴|あな}なら、{詰|つ}め{物|もの}がよいこともあります。<span><sup class="cite"><a href="#ref-1">1</a></sup></span>どれがよいかは、お{子|こ}さんの{歯科医師|しかいし}に{相談|そうだん}してください。</p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>The Hall Technique</h2>
+      <p>Some dentists use another way, called the Hall Technique. The dentist glues a steel crown over the tooth as it is. They do not numb the tooth, take out the decay or trim the tooth. The crown seals the decay in, which helps stop it.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></p>
+      <p>The <b>Shaped</b> stage in the model shows the usual way. With the Hall Technique, the crown would go over the tooth as it is.</p>
+    </div>
+    <div lang="ja">
+      <h2>ホール・テクニック</h2>
+      <p>ホール・テクニックという{別|べつ}の{方法|ほうほう}もあります。{麻酔|ますい}をせず、むし{歯|ば}も{取|と}らず、{歯|は}も{削|けず}らずに、{金属|きんぞく}のかぶせ{物|もの}をそのままつけます。むし{歯|ば}をかぶせ{物|もの}の{中|なか}に{閉|と}じこめて、{進|すす}みにくくします。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></p>
+      <p>モデルの「{形|かたち}を{整|ととの}える」は、ふつうの{方法|ほうほう}です。ホール・テクニックでは、{削|けず}らない{歯|は}にそのままかぶせます。</p>
+    </div>
+  </section>
+
+  <section>
+    <details class="clin">
+      <summary><span lang="en">For clinicians: evidence and how the model was made</span><span lang="ja">{医療者向|いりょうしゃむ}け：{根拠|こんきょ}とモデルの{作|つく}り{方|かた}</span></summary>
+      <div lang="en">
+        <p>Tooth: mandibular second primary molar (FDI 75), with the developing second premolar (35) in its crypt. Indications (AAPD): multisurface or large lesions, after pulpotomy or pulpectomy, developmental defects, fractured teeth, and high caries risk, especially under sedation or general anaesthesia.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup> AAPD notes that most evidence for preformed metal crowns is from non-randomised and retrospective studies.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th scope="col">Source</th><th scope="col">Finding</th></tr></thead>
+          <tbody>
+            <tr><td>Cochrane review, 2015<sup class="cite"><a href="#ref-2">2</a></sup></td><td>Crowns vs fillings, long term: major failure RR 0.18 (95% CI 0.06 to 0.56; 3 trials, 346 teeth, moderate certainty); pain RR 0.15 (0.04 to 0.67; 2 trials, 312 teeth). No RCT compared Hall vs conventional crowns.</td></tr>
+            <tr><td>Systematic review, 2000<sup class="cite"><a href="#ref-5">5</a></sup></td><td>10 studies: failure 1.9 to 30.3% for preformed metal crowns vs 11.6 to 88.7% for amalgam (mostly retrospective).</td></tr>
+            <tr><td>Retrospective split-mouth, 2021 (988 molars)<sup class="cite"><a href="#ref-6">6</a></sup></td><td>2-year survival 92.8% (SSC) vs 80.0% (multisurface intracoronal restorations); difference largest at age 4 or younger.</td></tr>
+            <tr><td>Hall Technique RCT, 5 years<sup class="cite"><a href="#ref-3">3</a></sup></td><td>Major failures 3% (Hall) vs 16.5% (GDP restorations); minor failures 5% vs 42%.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Model: Z-Anatomy permanent lower first molar and pulp scaled to primary second molar size (crown 9.9 mm MD, 8.7 mm BL, crown height 5.5 mm, root 9.8 mm),<sup class="cite"><a href="#ref-7">7</a></sup> roots straightened and flared. Illustrative preparation: 1.5 mm occlusal reduction following the cusps, 1.0 mm mesial and distal slices, no buccal or lingual reduction, margin 0.5 mm below the CEJ. Crown wall 0.35 mm (thicker than real, for printing). Gum and bone are a teaching block. Details: tools/ssc/README.md in the Vivatheca repository.</p>
+      </div>
+      <div lang="ja">
+        <p>{歯|は}：{下顎|かがく}{第二|だいに}{乳臼歯|にゅうきゅうし}（FDI 75）と、{歯胚|しはい}の{中|なか}で{育|そだ}つ{第二|だいに}{小臼歯|しょうきゅうし}（35）。AAPDの{適応|てきおう}：{多面|ためん}・{大|おお}きなう{蝕|しょく}、{断髄|だんずい}・{抜髄|ばつずい}{後|ご}、{形成|けいせい}{不全|ふぜん}、{破折|はせつ}、う{蝕|しょく}{高|こう}リスク（{特|とく}に{鎮静|ちんせい}・{全身|ぜんしん}{麻酔|ますい}{下|か}）。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup>{既製|きせい}{金属|きんぞく}{冠|かん}の{根拠|こんきょ}の{多|おお}くは{非|ひ}ランダム{化|か}・{後|こう}ろ{向|む}き{研究|けんきゅう}です。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+        <p>コクラン・レビュー（2015）：{長期|ちょうき}の{大|だい}{失敗|しっぱい} RR 0.18（95% CI 0.06〜0.56、3{試験|しけん}346{歯|し}）、{疼痛|とうつう} RR 0.15（0.04〜0.67、2{試験|しけん}312{歯|し}）。<sup class="cite"><a href="#ref-2">2</a></sup>{系統的|けいとうてき}レビュー（2000）：{失敗率|しっぱいりつ}は{既製|きせい}{金属|きんぞく}{冠|かん}1.9〜30.3%、アマルガム11.6〜88.7%。<sup class="cite"><a href="#ref-5">5</a></sup>{後|こう}ろ{向|む}き{研究|けんきゅう}（2021、988{歯|し}）：2{年|ねん}{生存率|せいぞんりつ}92.8%{対|たい}80.0%。<sup class="cite"><a href="#ref-6">6</a></sup>ホール・テクニックRCT（5{年|ねん}）：{大|だい}{失敗|しっぱい}3%{対|たい}16.5%、{小|しょう}{失敗|しっぱい}5%{対|たい}42%。<sup class="cite"><a href="#ref-3">3</a></sup></p>
+        <p>モデル：Z-Anatomyの{下顎|かがく}{第一|だいいち}{大臼歯|だいきゅうし}と{歯髄|しずい}を{第二|だいに}{乳臼歯|にゅうきゅうし}の{大|おお}きさに{縮小|しゅくしょう}（{歯冠|しかん}{近遠心|きんえんしん}9.9 mm、{頬舌|きょうぜつ}8.7 mm、{歯冠|しかん}{高|こう}5.5 mm、{歯根|しこん}9.8 mm）。<sup class="cite"><a href="#ref-7">7</a></sup>{形成|けいせい}は{説明用|せつめいよう}：{咬合面|こうごうめん}1.5 mm、{近遠心|きんえんしん}{各|かく}1.0 mm、{頬舌側|きょうぜつそく}は{削|けず}らず、マージンはCEJの0.5 mm{下|した}。{冠|かん}の{厚|あつ}さ0.35 mm（{印刷用|いんさつよう}に{実際|じっさい}より{厚|あつ}い）。</p>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>3D printing</h2>
+      <p><a class="download" href="downloads/vivatheca-stainless-steel-crown-2x.zip">Download 3D print files (STL, 2 times life size)</a></p>
+      <p class="small">Separate STL parts so you can print them in different colours: bone and gum base, the adult tooth, one baby tooth for each stage (decay and filling are separate parts), the shaped tooth, the cement and the crown. Print the crown in silver. Size: 2 times life size, because this baby tooth is only about 10 mm across.</p>
+    </div>
+    <div lang="ja">
+      <h2>3Dプリント</h2>
+      <p><a class="download" href="downloads/vivatheca-stainless-steel-crown-2x.zip">3Dプリント{用|よう}ファイル（STL、{実物|じつぶつ}の2{倍|ばい}）</a></p>
+      <p class="small">{色|いろ}を{変|か}えて{印刷|いんさつ}できるよう、{骨|ほね}と{歯|は}ぐきの{台|だい}、{大人|おとな}の{歯|は}、{段階|だんかい}ごとの{乳歯|にゅうし}（むし{歯|ば}と{詰|つ}め{物|もの}は{別|べつ}パーツ）、{形|かたち}を{整|ととの}えた{歯|は}、セメント、かぶせ{物|もの}を{別|べつ}のSTLにしています。かぶせ{物|もの}は{銀色|ぎんいろ}で{印刷|いんさつ}してください。この{乳歯|にゅうし}は{幅|はば}{約|やく}10 mmと{小|ちい}さいので、2{倍|ばい}の{大|おお}きさにしています。</p>
+    </div>
+    <p class="small"><span class="status">Not yet clinically reviewed.</span><span lang="en"> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. Printed models are not sterile and must not be put in the mouth; small parts are a choking hazard. <a href="/disclaimer">Full disclaimer</a></span><span lang="ja"><br><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。{印刷|いんさつ}した{模型|もけい}は{清潔|せいけつ}ではないので{口|くち}に{入|い}れないでください。{小|ちい}さな{部品|ぶひん}は{誤飲|ごいん}の{危険|きけん}があります。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+  </section>
+
+  <section class="disclaimer">
+    <h2><span lang="en">About this model</span><span lang="ja">このモデルについての{注意|ちゅうい}</span></h2>
+    <p><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
+    <p class="small"><span lang="en">Prototype, version 0.2. The baby tooth is made by resizing an adult tooth shape and spreading its roots. Gum and bone are simple blocks, as on a teaching model, and the teeth next to it are left out. The size of the decay, the amount of trimming and the crown thickness are illustrations, not measurements. Colours: tooth and bone as the Vivatheca wisdom tooth model, purple for the filling, silver for the crown, red for the nerve.</span><span lang="ja">プロトタイプ（{版|はん}0.2）。{乳歯|にゅうし}は{大人|おとな}の{歯|は}の{形|かたち}を{縮|ちぢ}め、{根|ね}を{広|ひろ}げて{作|つく}りました。{歯|は}ぐきと{骨|ほね}は{教育用|きょういくよう}の{簡単|かんたん}なブロックで、{隣|となり}の{歯|は}は{省|はぶ}いています。むし{歯|ば}の{大|おお}きさ、{削|けず}る{量|りょう}、かぶせ{物|もの}の{厚|あつ}さは{説明用|せつめいよう}で、{実測|じっそく}ではありません。{歯|は}と{骨|ほね}の{色|いろ}は Vivatheca の{親知|おやし}らずモデルと{同|おな}じで、{詰|つ}め{物|もの}は{紫|むらさき}、かぶせ{物|もの}は{銀色|ぎんいろ}、{神経|しんけい}は{赤|あか}です。</span></p>
+    <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: lower first molar, its pulp and the second premolar extracted, resized and reshaped; decay, filling, trimming, cement, crown, gum and bone added. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2><span lang="en">Sources</span><span lang="ja">{出典|しゅってん}</span></h2></summary>
+    <p class="small"><span lang="en">Where this information comes from: when steel crowns are used and the advice come from the American Academy of Pediatric Dentistry guideline (1). Results come from a Cochrane systematic review (2), clinical studies (3, 6) and a systematic review (5). Tooth sizes come from a dental anatomy textbook (7). Each sentence above shows its source number.</span><span lang="ja">{情報|じょうほう}の{出典|しゅってん}：{使|つか}う{場面|ばめん}とすすめは{米国|べいこく}{小児|しょうに}{歯科|しか}{学会|がっかい}のガイドライン（1）、{結果|けっか}はコクランの{系統的|けいとうてき}レビュー（2）、{臨床|りんしょう}{研究|けんきゅう}（3、6）、{系統的|けいとうてき}レビュー（5）、{歯|は}の{大|おお}きさは{歯科|しか}{解剖学|かいぼうがく}の{教科書|きょうかしょ}（7）によります。{各|かく}{文|ぶん}に{出典|しゅってん}{番号|ばんごう}をつけています。</span></p>
+    <ol>
+      <li id="ref-1">American Academy of Pediatric Dentistry. Pediatric restorative dentistry (Best Practices: Restorative Dentistry). The Reference Manual of Pediatric Dentistry. Chicago, IL: American Academy of Pediatric Dentistry; 2025:473-86. <a href="https://www.aapd.org/media/policies_guidelines/bp_restorativedent.pdf">aapd.org</a></li>
+      <li id="ref-2">Innes NPT, Ricketts D, Chong LY, Keightley AJ, Lamont T, Santamaria RM. Preformed crowns for decayed primary molar teeth. Cochrane Database Syst Rev. 2015;(12):CD005512. <a href="https://doi.org/10.1002/14651858.CD005512.pub3">doi.org/10.1002/14651858.CD005512.pub3</a></li>
+      <li id="ref-3">Innes NPT, Evans DJP, Stirrups DR. Sealing caries in primary molars: randomized control trial, 5-year results. J Dent Res. 2011;90(12):1405-1410. <a href="https://doi.org/10.1177/0022034511422064">doi.org/10.1177/0022034511422064</a></li>
+      <li id="ref-4">Seale NS. The use of stainless steel crowns. Pediatr Dent. 2002;24(5):501-505. <a href="https://pubmed.ncbi.nlm.nih.gov/12412965/">PubMed 12412965</a></li>
+      <li id="ref-5">Randall RC, Vrijhoef MM, Wilson NH. Efficacy of preformed metal crowns vs. amalgam restorations in primary molars: a systematic review. J Am Dent Assoc. 2000;131(3):337-343. <a href="https://doi.org/10.14219/jada.archive.2000.0177">doi.org/10.14219/jada.archive.2000.0177</a></li>
+      <li id="ref-6">Wu E, Yang YJ, Munz SM, Hsiao CC, Boynton JR. Restorations versus stainless steel crowns in primary molars: a retrospective split-mouth study. Pediatr Dent. 2021;43(4):290-295. <a href="https://pubmed.ncbi.nlm.nih.gov/34467846/">PubMed 34467846</a></li>
+      <li id="ref-7">Nelson SJ. Wheeler's Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. Chapter on the primary dentition (table of primary tooth measurements, after G. V. Black).</li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small"><span lang="en">Version 0.2, 5 November 2026. Journal sources checked on PubMed. Patient text checked with the patient-education-toolkit rules.</span><span lang="ja">{版|はん}0.2、2026{年|ねん}11{月|がつ}5{日|か}。{論文|ろんぶん}の{出典|しゅってん}は PubMed で{確認|かくにん}。</span></p>
+</main>
+<!-- CONTACT: copy of app/contact.ts. When the Instagram/X handles are known, turn the
+     "Coming soon" items into links like the email one. -->
+<footer class="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h"><span lang="en">Contact us</span><span lang="ja">お{問|と}い{合|あ}わせ</span></h2>
+  <p><span lang="en">Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.</span><span lang="ja">{模型|もけい}についてのご{質問|しつもん}、{誤|あやま}りのご{指摘|してき}、アイデアをお{待|ま}ちしています。Vivathecaをフォローするか、お{気軽|きがる}にご{連絡|れんらく}ください。</span></p>
+  <ul>
+    <li><span class="pending"><b>Instagram</b> <span lang="en">Coming soon</span><span lang="ja">{準備中|じゅんびちゅう}</span></span></li>
+    <li><span class="pending"><b>X</b> <span lang="en">Coming soon</span><span lang="ja">{準備中|じゅんびちゅう}</span></span></li>
+    <li><a href="mailto:hello@vivatheca.com"><b><span lang="en">Email</span><span lang="ja">メール</span></b> hello@vivatheca.com</a></li>
+  </ul>
+  <p class="small"><span lang="en">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Full disclaimer</a></span><span lang="ja">Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+</footer>
+<script src="viewer.js"></script>
+</body>
+</html>
