@@ -73,3 +73,33 @@ export const orthoSources: Source[] = [
   { id: 10, text: 'Ireland AJ, Cunningham SJ, Petrie A, et al. An index of orthognathic functional treatment need (IOFTN). J Orthod. 2014;41(2):77-83.', href: 'https://doi.org/10.1179/1465313314Y.0000000100' },
   { id: 11, text: 'Cambridge University Hospitals NHS Foundation Trust. Jaw or chin corrective surgery (orthognathic surgery): patient information and consent. (Accessed 5 November 2026.)', href: 'https://www.cuh.nhs.uk/patient-information/patient-information-and-consent-to-jaw-or-chin-corrective-surgery-orthognathic-surgery/' },
 ];
+
+// Sources for the student guide to oroantral communication and fistula (/learn/oroantral).
+// Numbers match the [n] markers in t.learnOac and the sources on /oroantral/.
+
+export const oroantralSources: Source[] = [
+  { id: 1, text: 'Parvini P, Obreja K, Begic A, Schwarz F, Becker J, Sader R, Salti L. Decision-making in closure of oroantral communication and fistula. Int J Implant Dent. 2019;5(1):13.', href: 'https://doi.org/10.1186/s40729-019-0165-7' },
+  { id: 2, text: 'Khandelwal P, Hajira N. Management of oro-antral communication and fistula: various surgical options. World J Plast Surg. 2017;6(1):3-8.', href: 'https://pubmed.ncbi.nlm.nih.gov/28289607/' },
+  { id: 3, text: 'Dipalma G, Inchingolo AM, Trilli I, et al. Management of oro-antral communication: a systemic review of diagnostic and therapeutic strategies. Diagnostics (Basel). 2025;15(2):194.', href: 'https://doi.org/10.3390/diagnostics15020194' },
+  { id: 4, text: 'Oliva S, Lorusso F, Scarano A, D’Amario M, Murmura G. The treatment and management of oroantral communications and fistulas: a systematic review and network metanalysis. Dent J (Basel). 2024;12(5):147.', href: 'https://doi.org/10.3390/dj12050147' },
+  { id: 5, text: 'Egyedi P. Utilization of the buccal fat pad for closure of oro-antral and/or oro-nasal communications. J Maxillofac Surg. 1977;5(4):241-244.', href: 'https://doi.org/10.1016/s0301-0503(77)80117-3' },
+  { id: 6, text: 'Eberhardt JA, Torabinejad M, Christiansen EL. A computed tomographic study of the distances between the maxillary sinus floor and the apices of the maxillary posterior teeth. Oral Surg Oral Med Oral Pathol. 1992;73(3):345-346.', href: 'https://doi.org/10.1016/0030-4220(92)90133-b' },
+  { id: 7, text: 'Kwak HH, Park HD, Yoon HR, Kang MK, Koh KS, Kim HJ. Topographic anatomy of the inferior wall of the maxillary sinus in Koreans. Int J Oral Maxillofac Surg. 2004;33(4):382-388.', href: 'https://doi.org/10.1016/j.ijom.2003.10.012' },
+  { id: 8, text: 'Estrela C, Nunes CA, Guedes OA, et al. Study of anatomical relationship between posterior teeth and maxillary sinus floor in a subpopulation of the Brazilian central region using cone-beam computed tomography, part 2. Braz Dent J. 2016;27(1):9-15.', href: 'https://doi.org/10.1590/0103-6440201600679' },
+  { id: 9, text: 'Hernando J, Gallego L, Junquera L, Villarreal P. Oroantral communications: a retrospective analysis. Med Oral Patol Oral Cir Bucal. 2010;15(3):e499-503.', href: 'https://doi.org/10.4317/medoral.15.e499' },
+  { id: 10, text: 'Pourmand PP, Sigron GR, Mache B, Stadlinger B, Locher MC. The most common complications after wisdom-tooth removal: part 2: a retrospective study of 1,562 cases in the maxilla. Swiss Dent J. 2014;124(10):1047-1051.', href: 'https://doi.org/10.61872/sdj-2014-10-02' },
+  { id: 11, text: 'Amani R, Noroozi M, Ashrafi MMS. Assessment of the relationships between posterior root apices and the maxillary sinus floor: a comparison of panoramic radiography and cone beam computed tomography. Gen Dent. 2023;71(5):58-63.', href: 'https://pubmed.ncbi.nlm.nih.gov/37595085/' },
+];
+
+// Sources for the student guide to preformed metal crowns (/learn/steel-crown).
+// Numbers match the [n] markers in t.learnSsc and the sources on /stainless-steel-crown/.
+
+export const steelCrownSources: Source[] = [
+  { id: 1, text: 'American Academy of Pediatric Dentistry. Pediatric restorative dentistry (Best Practices: Restorative Dentistry). The Reference Manual of Pediatric Dentistry. Chicago, IL: American Academy of Pediatric Dentistry; 2025:473-86.', href: 'https://www.aapd.org/media/policies_guidelines/bp_restorativedent.pdf' },
+  { id: 2, text: 'Innes NPT, Ricketts D, Chong LY, Keightley AJ, Lamont T, Santamaria RM. Preformed crowns for decayed primary molar teeth. Cochrane Database Syst Rev. 2015;(12):CD005512.', href: 'https://doi.org/10.1002/14651858.CD005512.pub3' },
+  { id: 3, text: 'Innes NPT, Evans DJP, Stirrups DR. Sealing caries in primary molars: randomized control trial, 5-year results. J Dent Res. 2011;90(12):1405-1410.', href: 'https://doi.org/10.1177/0022034511422064' },
+  { id: 4, text: 'Seale NS. The use of stainless steel crowns. Pediatr Dent. 2002;24(5):501-505.', href: 'https://pubmed.ncbi.nlm.nih.gov/12412965/' },
+  { id: 5, text: 'Randall RC, Vrijhoef MM, Wilson NH. Efficacy of preformed metal crowns vs. amalgam restorations in primary molars: a systematic review. J Am Dent Assoc. 2000;131(3):337-343.', href: 'https://doi.org/10.14219/jada.archive.2000.0177' },
+  { id: 6, text: 'Wu E, Yang YJ, Munz SM, Hsiao CC, Boynton JR. Restorations versus stainless steel crowns in primary molars: a retrospective split-mouth study. Pediatr Dent. 2021;43(4):290-295.', href: 'https://pubmed.ncbi.nlm.nih.gov/34467846/' },
+  { id: 7, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Primary tooth measurements, after G. V. Black.)' },
+];

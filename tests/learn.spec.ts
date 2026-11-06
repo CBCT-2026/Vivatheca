@@ -74,3 +74,19 @@ test('orthognathic student guide cites its sources and is linked from the hub an
   await page.goto('/orthognathic/index.html');
   await expect(page.locator('main a[href="/learn/orthognathic"]')).toHaveCount(1);
 });
+
+for (const g of [
+  { path: '/learn/oroantral', heading: 'Oroantral communication and fistula (OAC and OAF)', sources: 11, model: '/oroantral/' },
+  { path: '/learn/steel-crown', heading: 'Preformed metal crowns on primary molars', sources: 7, model: '/stainless-steel-crown/' },
+]) {
+  test(`${g.path} cites every source it numbers and links its model both ways`, async ({ page }) => {
+    await page.goto(g.path);
+    await expect(page.getByRole('heading', { name: g.heading, level: 1 })).toBeVisible();
+    const cited = await page.locator('main .cite a').evaluateAll((links) => [...new Set(links.map((a) => a.getAttribute('href')))]);
+    expect(cited.length).toBe(g.sources);
+    for (const href of cited) await expect(page.locator(href!)).toHaveCount(1);
+    await expect(page.locator('.learn-model-box a.button')).toHaveAttribute('href', g.model);
+    await page.goto(`${g.model}index.html`);
+    await expect(page.locator(`main a[href="${g.path}"]`)).toHaveCount(1);
+  });
+}

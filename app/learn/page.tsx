@@ -19,8 +19,8 @@ const guideLinks = {
   periodontitis: { guide: '/learn/periodontitis', model: '/periodontitis/' },
   orthognathic: { guide: '/learn/orthognathic', model: '/orthognathic/' },
   wisdom: { guide: null, model: '/models/impacted-wisdom-tooth' },
-  oroantral: { guide: null, model: '/oroantral/' },
-  steelCrown: { guide: null, model: '/stainless-steel-crown/' },
+  oroantral: { guide: '/learn/oroantral', model: '/oroantral/' },
+  steelCrown: { guide: '/learn/steel-crown', model: '/stainless-steel-crown/' },
   headNeck: { guide: null, model: '/head-neck/' },
 } as const;
 
