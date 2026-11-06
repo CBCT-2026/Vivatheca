@@ -15,6 +15,7 @@ const en = {
     label: 'Language',
     furigana: 'Furigana',
     furiganaHint: 'Show or hide readings above kanji',
+    comingSoon: 'Coming soon',
   },
   common: {
     skip: 'Skip to main content',

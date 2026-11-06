@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { chooseLanguage } from './language';
 
 test.describe('oroantral communication model page', () => {
   test('shows the model, review status, disclaimer and sources', async ({ page }) => {
@@ -37,7 +38,7 @@ test.describe('oroantral communication model page', () => {
 
   test('switches to Japanese with furigana, shared with the site language cookie', async ({ page }) => {
     await page.goto('/oroantral/index.html');
-    await page.getByRole('button', { name: '日本語' }).click();
+    await chooseLanguage(page, '日本語');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
     await expect(page.locator('h1 ruby').first()).toBeVisible();
     await expect(page.getByRole('button', { name: 'ダークモード' })).toBeVisible();
@@ -47,7 +48,7 @@ test.describe('oroantral communication model page', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
     await page.getByRole('button', { name: 'ふりがな' }).click();
     await expect(page.locator('html')).toHaveAttribute('data-furigana', 'off');
-    await page.getByRole('button', { name: 'English' }).click();
+    await chooseLanguage(page, 'English');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   });
 });

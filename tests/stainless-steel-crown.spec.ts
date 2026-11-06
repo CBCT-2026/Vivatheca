@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { chooseLanguage, languageButton } from './language';
 
 test.describe('stainless steel crown model page', () => {
   test('switches between the five stages and keeps the disclaimer and sources visible', async ({ page }) => {
@@ -38,7 +39,10 @@ test.describe('stainless steel crown model page', () => {
     await expect(page.locator('h1')).toContainText('かぶせ');
     await expect(page.locator('#stage h2')).toContainText('かぶせ');
     await expect(page.locator('#stage ruby').first()).toBeVisible();
-    await expect(page.getByRole('button', { name: 'English' })).toBeVisible();
+    await expect(languageButton(page)).toHaveAccessibleName('言語: 日本語');
+    await chooseLanguage(page, 'English');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await expect(languageButton(page)).toHaveAccessibleName('Language: English');
   });
 
   test('serves the models and the print download', async ({ request }) => {

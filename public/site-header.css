@@ -1,7 +1,7 @@
 /* Shared top bar for the static model pages (see /site-header.js). Mirrors the app header
    (app/globals.css .site-header / .page-header) and uses Vivatheca core colours. */
 .vt-header {
-  --vt-heading: #00244d; --vt-accent: #007f8b; --vt-line: #cfe1e7; --vt-surface: #ffffff; --vt-tint: #effcfc;
+  --vt-heading: #00244d; --vt-accent: #007f8b; --vt-line: #cfe1e7; --vt-surface: #ffffff; --vt-tint: #effcfc; --vt-muted: #4d6378;
   --vt-bg: rgba(247,250,251,.96);
   position: sticky; z-index: 100; top: 0;
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .25rem 1rem;
@@ -11,7 +11,7 @@
   max-width: none; box-sizing: border-box;
 }
 :root[data-theme="dark"] .vt-header {
-  --vt-heading: #ffffff; --vt-accent: #14c9d7; --vt-line: #1f4266; --vt-surface: #00244d; --vt-tint: #062e58;
+  --vt-heading: #ffffff; --vt-accent: #14c9d7; --vt-line: #1f4266; --vt-surface: #00244d; --vt-tint: #062e58; --vt-muted: #a7bccb;
   --vt-bg: rgba(0,26,55,.96);
 }
 .vt-header .brand-home { display: inline-flex; align-items: center; width: 164px; height: 54px; overflow: hidden; line-height: 0; }
@@ -30,7 +30,25 @@
   padding: .3rem .6rem; color: var(--vt-heading); font: inherit; font-size: .85rem; font-weight: 650; cursor: pointer; white-space: nowrap;
 }
 .vt-header .langs button[aria-pressed="true"] { border-color: var(--vt-line); background: var(--vt-tint); }
-.vt-header .langs .vt-short { display: none; }
+.vt-header .langs button { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; }
+/* Language menu (built by /site-header.js): the button shows the current language; the list shows
+   all of them, each in its own name followed by its flag (SVG, so flags show on Windows too). */
+.vt-header .vt-lang-menu { position: relative; }
+.vt-header .vt-chevron { width: 7px; height: 7px; margin: -3px .1rem 0; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); }
+.vt-header .vt-lang-trigger[aria-expanded="true"] .vt-chevron { margin-top: 3px; transform: rotate(-135deg); }
+/* The outline keeps Japan's white flag visible on light backgrounds. */
+.vt-header .langs .vt-flag { width: 20px; height: 15px; flex: 0 0 auto; border-radius: 2px; box-shadow: 0 0 0 1px var(--vt-line); }
+.vt-header .vt-lang-panel {
+  position: absolute; z-index: 120; top: calc(100% + .4rem); right: 0; min-width: 14rem; margin: 0; padding: .35rem; list-style: none;
+  border: 1px solid var(--vt-line); border-radius: 16px; background: var(--vt-surface); box-shadow: 0 18px 40px rgba(0,36,77,.16);
+}
+.vt-header .vt-lang-panel[hidden] { display: none; }
+.vt-header .vt-lang-panel button { width: 100%; justify-content: flex-start; border-radius: 10px; padding: .45rem .75rem; font-size: .9rem; }
+.vt-header .vt-lang-panel button[aria-current="true"] { border-color: var(--vt-line); background: var(--vt-tint); }
+/* Languages not translated yet: listed but inactive. */
+.vt-header .langs .vt-soon { color: var(--vt-muted); cursor: not-allowed; }
+.vt-header .langs .vt-soon .vt-flag { opacity: .6; }
+.vt-header .vt-soon-note { margin-left: auto; padding-left: .75rem; font-size: .72rem; font-weight: 600; }
 .vt-header .theme {
   display: inline-flex; align-items: center; gap: .45rem; min-width: 44px; min-height: 44px;
   border: 1px solid var(--vt-line); border-radius: 12px; background: transparent; padding: 0 .8rem;
@@ -78,15 +96,15 @@
   .vt-header .brand-home { height: 44px; }
   .vt-actions { gap: .25rem; }
   .vt-header .langs { gap: 0; flex-wrap: nowrap; }
-  .vt-header .langs button:not([lang]) { min-width: 0; margin-left: .15rem; padding-inline: .35rem; font-size: .72rem; }
-  .vt-header .langs button { min-width: 40px; padding: .3rem .45rem; font-size: .8rem; }
+  .vt-header .langs > button:not([lang]) { min-width: 0; margin-left: .15rem; padding-inline: .35rem; font-size: .72rem; }
+  .vt-header .langs > button, .vt-header .vt-lang-trigger { min-width: 40px; padding: .3rem .45rem; font-size: .8rem; }
+  /* Phones: the language button shows only the flag (its label still names the language). */
   .vt-header .langs .vt-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .vt-header .langs .vt-short { display: inline; }
   .vt-header .theme { min-width: 42px; }
 }
 @media (max-width: 380px) {
   .vt-header .brand-home, .vt-header .brand-home img { width: 92px; }
-  .vt-header .langs button:not([lang]) { display: none; } /* furigana switch: no room on the smallest phones */
+  .vt-header .langs > button:not([lang]) { display: none; } /* furigana switch: no room on the smallest phones */
 }
 @media print { .vt-header { position: static; } .vt-menu, .vt-actions { display: none; } }
 

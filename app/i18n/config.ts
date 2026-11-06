@@ -18,8 +18,19 @@ export const FURIGANA_COOKIE = 'vivatheca-furigana';
 
 // Each language is named in its own script so visitors can find it.
 export const localeNames: Record<Locale, string> = { en: 'English', ja: '日本語', 'zh-Hans': '简体中文', 'zh-Hant': '繁體中文', vi: 'Tiếng Việt' };
-// Shorter names for the phone header, where space is tight.
-export const localeShortNames: Record<Locale, string> = { en: 'EN', ja: '日本語', 'zh-Hans': '简中', 'zh-Hant': '繁中', vi: 'VI' };
+
+// The language switch, ordered alphabetically by English name (Chinese, English, Japanese,
+// Vietnamese). Each shows its own name, then its flag (SVGs in /public/flags from flag-icons,
+// MIT; flag emoji do not render on Windows). Entries without `locale` are not translated yet
+// and show as "coming soon": they need translation and clinician review, not machine translation.
+// Keep in step with LANGUAGE_MENU in public/site-header.js (the static pages).
+export type LanguageOption = { tag: string; name: string; flag: string; locale?: Locale };
+export const languageMenu: readonly LanguageOption[] = [
+  { tag: 'zh-Hans', name: '中文', flag: 'cn' },
+  { tag: 'en', name: 'English', flag: 'gb', locale: 'en' },
+  { tag: 'ja', name: '日本語', flag: 'jp', locale: 'ja' },
+  { tag: 'vi', name: 'Tiếng Việt', flag: 'vn' },
+];
 // Used for <html lang>, Intl formatting and Open Graph.
 export const localeTags: Record<Locale, { html: string; intl: string; og: string }> = {
   en: { html: 'en', intl: 'en-AU', og: 'en_AU' },

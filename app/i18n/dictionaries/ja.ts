@@ -17,6 +17,7 @@ const ja: Dictionary = {
     label: '{言語|げんご}',
     furigana: 'ふりがな',
     furiganaHint: '{漢字|かんじ}の{上|うえ}の{読|よ}みがなを{表示|ひょうじ}・{非表示|ひひょうじ}',
+    comingSoon: '{準備中|じゅんびちゅう}',
   },
   common: {
     skip: 'メインコンテンツへ{移動|いどう}',
