@@ -1,7 +1,0 @@
-Use case: precise-object-edit
-Asset type: Vivatheca clinical review interface illustration
-Input image: assets/impacted-molar-review-interface.png, used as the edit target.
-Primary request: remove the erupted tooth directly superior to the horizontally impacted left mandibular third molar, then add the left inferior alveolar nerve in its anatomical course below the tooth roots, passing inferior to the impacted molar and emerging through the left mental foramen as the mental nerve.
-Style/medium: high-fidelity realistic 3D medical visualization integrated into the existing interface.
-Constraints: preserve the impacted wisdom tooth, remaining dentition, mandible, toolbar, navy field, pale blank review panel, camera, lighting and composition; no labels, arrows, text or extra controls.
-Generated with: OpenAI ImageGen built-in tool.
