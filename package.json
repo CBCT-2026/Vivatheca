@@ -14,6 +14,7 @@
     "check:patient-text": "node tools/patient-text/snapshot.mjs && pitk check",
     "check:glb": "node tools/glb/validate.mjs",
     "check:rules": "node tools/rules/check.mjs",
+    "check:dois": "node tools/rules/dois.mjs",
     "i18n:furigana": "node tools/i18n/furigana.mjs",
     "search:index": "node tools/search/build-index.mjs",
     "i18n:status": "node tools/i18n/status.mjs",
