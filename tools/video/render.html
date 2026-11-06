@@ -57,7 +57,8 @@
 // The script file (tools/video/scripts/<slug>.json) gives the models, the scenes and the label anchors.
 // Scene: { model, from: [azimuth deg, elevation deg, distance × model size], to: [...], target: anchor name or [x,y,z],
 //          hide: regex of node names, xray: true (bone see-through), lift: { match: regex, dy: metres },
-//          labels: [[anchor, 'l'|'r', y px]], chip: key of a stage name in the language's "chips" }.
+//          labels: [[anchor, 'l'|'r', y px]], chip: key of a stage name in the language's "chips",
+//          anim: name of a glTF animation in the model, played from the scene's start and looped (e.g. the TMD jaw exercises) }.
 // Azimuth 0 looks at the front of the face (+Z); 90 looks at the patient's left side (+X); -90 at the right side.
 const BLEND = 0.9;   // seconds to glide the camera from one scene to the next
 const FADE = 0.4;    // seconds for labels to fade in
@@ -136,7 +137,9 @@ window.init = async (scriptUrl, timelineUrl) => {
     g.updateMatrixWorld(true);
     const size = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere()).radius;
     g.visible = false; scene.add(g);
-    groups[key] = { g, parts, size };
+    // Skinned parts move with their bones, so do not cull them by their rest-pose bounds.
+    parts.forEach(o => { if (o.isSkinnedMesh) o.frustumCulled = false; });
+    groups[key] = { g, parts, size, clips: gltf.animations || [], mixer: new THREE.AnimationMixer(g) };
   }
   // Anchors: a point on a named part (bounding box, "at" = fraction from min to max on each axis).
   for (const [name, a] of Object.entries(S.anchors || {})) {
@@ -206,6 +209,13 @@ window.setFrame = async (t) => {
   const tints = Object.entries(c.tint || {}).map(([k, v]) => [new RegExp(k), new THREE.Color(v).convertSRGBToLinear()]);
   const lift = c.lift ? new RegExp(c.lift.match) : null;
   const lk = c.lift ? ease((t - s.start - 0.6) / 1.2) : 0;
+  // glTF animation for this scene (or the model's rest pose when there is none).
+  if (grp.clips.length) {
+    const clip = grp.clips.find(a => a.name === (c.anim || 'rest')) || grp.clips[0];
+    grp.mixer.stopAllAction();
+    grp.mixer.clipAction(clip).play();
+    grp.mixer.setTime(c.anim ? (t - s.start) % clip.duration : 0);
+  }
   for (const o of grp.parts) {
     const n = o.userData.n;
     o.visible = !(hide && hide.test(n));

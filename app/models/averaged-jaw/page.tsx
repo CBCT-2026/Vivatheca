@@ -8,6 +8,7 @@ import { Cited, SourceList } from '../../learn/chrome';
 import { CopyCitation } from '../impacted-wisdom-tooth/copy-citation';
 import { disclaimerHref } from '../../disclaimer-text';
 import { localeTags } from '../../i18n/config';
+import { VideoSection } from '../../video-section';
 import { format } from '../../i18n/dictionaries';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
@@ -75,6 +76,7 @@ export default async function AveragedJawPage() {
         <AveragedJawViewer src={averagedJawFiles.glb.href} alt={plain(d.alt)} />
         <div data-vt-share="" data-vt-scope=".averaged-jaw-experience" />
         <AfterHydration src="/share-tools.js" />
+        <VideoSection slug="averaged-jaw" />
 
         <section aria-labelledby="what-heading" className="detail-block">
           <h2 id="what-heading"><Ruby text={d.whatHeading} /></h2>
