@@ -120,3 +120,13 @@ export const headNeckSources: Source[] = [
   { id: 10, text: 'Jacobs D, et al. 5-Fluorouracil versus modified Carnoy’s solution for odontogenic keratocysts. J Oral Maxillofac Surg. 2024;82:1433-1440.', href: 'https://doi.org/10.1016/j.joms.2024.06.181' },
   { id: 11, text: 'Ellam M, et al. Mucoepidermoid carcinoma of the hard palate: a case illustrating grading uncertainty and bone-sparing surgical management. Cureus. 2026;18(8):e115250.', href: 'https://doi.org/10.7759/cureus.115250' },
 ];
+
+// Sources for the virtual CBCT slice viewer (/learn/slices). Numbers match [n] in t.learnSlices.
+export const slicesSources: Source[] = [
+  { id: 1, text: 'Pauwels R, Jacobs R, Singer SR, Mupparapu M. CBCT-based bone quality assessment: are Hounsfield units applicable? Dentomaxillofac Radiol. 2015;44(1):20140238.', href: 'https://doi.org/10.1259/dmfr.20140238' },
+  { id: 2, text: 'Schneider U, Pedroni E, Lomax A. The calibration of CT Hounsfield units for radiotherapy treatment planning. Phys Med Biol. 1996;41(1):111-124.', href: 'https://doi.org/10.1088/0031-9155/41/1/009' },
+  { id: 3, text: 'Scarfe WC, Farman AG. What is cone-beam CT and how does it work? Dent Clin North Am. 2008;52(4):707-730.', href: 'https://doi.org/10.1016/j.cden.2008.05.005' },
+  { id: 4, text: 'Schulze R, Heil U, Gross D, et al. Artefacts in CBCT: a review. Dentomaxillofac Radiol. 2011;40(5):265-273.', href: 'https://doi.org/10.1259/dmfr/30642039' },
+  { id: 5, text: 'NiiVue contributors. NiiVue: a WebGL2 medical image viewer. Version 0.69.0, BSD-2-Clause licence. GitHub repository.', href: 'https://github.com/niivue/niivue' },
+  { id: 6, text: 'Vivatheca. tools/cbct/voxelize.py: how each virtual scan is made from the model mesh (voxel size, tissue values).', href: 'https://github.com/CBCT-2026/Vivatheca/blob/main/tools/cbct/voxelize.py' },
+];

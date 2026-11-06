@@ -20,7 +20,7 @@ SPDX-FileCopyrightText = "2026 Vivatheca"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = ["public/**/*.glb", "public/**/*.stl", "public/**/*.3mf", "public/**/*.zip", "public/assets/renders/**", "public/videos/**", "public/**/*.webp", "public/**/*.mp4"]
+path = ["public/**/*.glb", "public/**/*.nvol", "public/**/*.stl", "public/**/*.3mf", "public/**/*.zip", "public/assets/renders/**", "public/videos/**", "public/**/*.webp", "public/**/*.mp4"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 Vivatheca"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
@@ -54,3 +54,9 @@ path = ["public/development/vendor/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "Google LLC and the Draco authors"
 SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["public/vendor/niivue/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "NiiVue contributors (@niivue/niivue 0.69.0)"
+SPDX-License-Identifier = "BSD-2-Clause"

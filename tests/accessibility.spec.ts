@@ -22,6 +22,7 @@ const pages = [
   '/head-neck/scc/index.html',
   '/orthognathic/index.html',
   '/learn/periodontitis',
+  '/learn/slices',
 ];
 
 const variants: { name: string; lang: 'en' | 'ja'; theme: 'light' | 'dark' }[] = [
