@@ -1,0 +1,383 @@
+{
+ "slug": "orthognathic",
+ "models": {
+  "normal": "/orthognathic/models/normal.glb",
+  "class2-before": "/orthognathic/models/class2-before.glb",
+  "class2-after": "/orthognathic/models/class2-after.glb",
+  "class3-before": "/orthognathic/models/class3-before.glb",
+  "class3-after": "/orthognathic/models/class3-after.glb"
+ },
+ "style": {
+  "^moved$": {
+   "color": "#d7cbbb"
+  }
+ },
+ "anchors": {
+  "molars": {
+   "model": "normal",
+   "node": "^teeth$",
+   "at": [
+    0.5,
+    0.45,
+    0.55
+   ]
+  },
+  "chin2": {
+   "model": "class2-before",
+   "node": "^bone$",
+   "at": [
+    0.5,
+    0.06,
+    0.88
+   ]
+  },
+  "moved2": {
+   "model": "class2-after",
+   "node": "^moved$",
+   "at": [
+    0.5,
+    0.2,
+    0.9
+   ]
+  },
+  "plate2": {
+   "model": "class2-after",
+   "node": "^plate$",
+   "at": [
+    0.0,
+    0.5,
+    0.5
+   ]
+  },
+  "chin3": {
+   "model": "class3-before",
+   "node": "^bone$",
+   "at": [
+    0.5,
+    0.06,
+    0.88
+   ]
+  }
+ },
+ "scenes": {
+  "normal": {
+   "model": "normal",
+   "from": [
+    60,
+    2,
+    2.4
+   ],
+   "to": [
+    80,
+    2,
+    2.4
+   ],
+   "chip": "normal",
+   "hide": "^before$",
+   "labels": [
+    [
+     "molars",
+     "r",
+     470
+    ]
+   ]
+  },
+  "c2b": {
+   "model": "class2-before",
+   "from": [
+    80,
+    2,
+    2.4
+   ],
+   "to": [
+    90,
+    2,
+    2.4
+   ],
+   "chip": "c2b",
+   "hide": "^before$",
+   "labels": [
+    [
+     "chin2",
+     "r",
+     600
+    ]
+   ]
+  },
+  "c2a": {
+   "model": "class2-after",
+   "from": [
+    90,
+    2,
+    2.4
+   ],
+   "to": [
+    60,
+    2,
+    2.4
+   ],
+   "chip": "c2a",
+   "hide": "^before$",
+   "tint": {
+    "^moved$": "#da993c"
+   },
+   "labels": [
+    [
+     "moved2",
+     "r",
+     600
+    ]
+   ]
+  },
+  "c3b": {
+   "model": "class3-before",
+   "from": [
+    80,
+    2,
+    2.4
+   ],
+   "to": [
+    90,
+    2,
+    2.4
+   ],
+   "chip": "c3b",
+   "hide": "^before$",
+   "labels": [
+    [
+     "chin3",
+     "r",
+     600
+    ]
+   ]
+  },
+  "c3a": {
+   "model": "class3-after",
+   "from": [
+    90,
+    2,
+    2.4
+   ],
+   "to": [
+    45,
+    2,
+    2.5
+   ],
+   "chip": "c3a",
+   "hide": "^before$",
+   "tint": {
+    "^moved$": "#da993c"
+   }
+  }
+ },
+ "sources": [
+  "Angle EH. Classification of malocclusion. Dental Cosmos. 1899;41:248-264, 350-357.",
+  "Australian Society of Orthodontists (Orthodontics Australia). Jaw surgery and braces. https://www.orthodonticsaustralia.org.au/",
+  "Trauner R, Obwegeser H. The surgical correction of mandibular prognathism and retrognathia with consideration of genioplasty. I. Oral Surg Oral Med Oral Pathol. 1957;10(7):677-689. https://doi.org/10.1016/s0030-4220(57)80063-2",
+  "Bell WH. Le Fort I osteotomy for correction of maxillary deformities. J Oral Surg. 1975;33(6):412-426. https://pubmed.ncbi.nlm.nih.gov/1055202/",
+  "Cambridge University Hospitals NHS Foundation Trust. Jaw or chin corrective surgery (orthognathic surgery): patient information and consent. https://www.cuh.nhs.uk/",
+  "NHS England. Interim clinical commissioning policy: orthognathic surgery (Armed Forces), N-SC/026. November 2013. https://www.england.nhs.uk/"
+ ],
+ "en": {
+  "title": "Jaw surgery to correct the bite",
+  "chips": {
+   "normal": "Normal bite (Class I)",
+   "c2b": "Class II, before surgery",
+   "c2a": "Class II, after surgery",
+   "c3b": "Class III, before surgery",
+   "c3a": "Class III, after surgery"
+  },
+  "labels": {
+   "molars": [
+    "Back teeth meet in line",
+    ""
+   ],
+   "chin2": [
+    "Lower jaw too far back",
+    ""
+   ],
+   "moved2": [
+    "Moved bone",
+    "shown in orange"
+   ],
+   "chin3": [
+    "Lower jaw too far forward",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "normal",
+    "sentences": [
+     {
+      "text": "This skull has a normal bite. The big upper and lower back teeth meet in line.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "c2b",
+    "sentences": [
+     {
+      "text": "Here the lower jaw sits too far back. Braces can move teeth, but not the jaw bones.",
+      "cite": [
+       1,
+       2,
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "c2a",
+    "sentences": [
+     {
+      "text": "The surgeon splits the lower jaw from inside your mouth and slides the front part forward.",
+      "cite": [
+       3
+      ]
+     },
+     {
+      "text": "Small titanium plates hold it while it heals.",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "c3b",
+    "sentences": [
+     {
+      "text": "Here the lower jaw sits too far forward.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "c3a",
+    "sentences": [
+     {
+      "text": "The surgeon may move both jaws.",
+      "cite": [
+       3,
+       4
+      ]
+     },
+     {
+      "text": "About 10 in 100 people have a numb lip or chin for several weeks after surgery.",
+      "cite": [
+       5
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "かみ{合|あ}わせを{治|なお}すあごの{手術|しゅじゅつ}",
+  "chips": {
+   "normal": "{正常|せいじょう}なかみ{合|あ}わせ",
+   "c2b": "Ⅱ{級|きゅう}・{手術|しゅじゅつ}{前|まえ}",
+   "c2a": "Ⅱ{級|きゅう}・{手術|しゅじゅつ}{後|ご}",
+   "c3b": "Ⅲ{級|きゅう}・{手術|しゅじゅつ}{前|まえ}",
+   "c3a": "Ⅲ{級|きゅう}・{手術|しゅじゅつ}{後|ご}"
+  },
+  "labels": {
+   "molars": [
+    "{奥歯|おくば}がそろってかむ",
+    ""
+   ],
+   "chin2": [
+    "{下|した}あごが{後|うし}ろすぎる",
+    ""
+   ],
+   "moved2": [
+    "{動|うご}かした{骨|ほね}",
+    "オレンジで{表示|ひょうじ}"
+   ],
+   "chin3": [
+    "{下|した}あごが{前|まえ}すぎる",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "normal",
+    "sentences": [
+     {
+      "text": "これは{正常|せいじょう}なかみ{合|あ}わせの{頭|ず}{骨|こつ}です。{上下|じょうげ}の{奥歯|おくば}がそろってかみます。",
+      "cite": [
+       1
+      ],
+      "tts": "これは、せいじょうな、かみあわせの、ずこつです。じょうげの、おくばが、そろってかみます。"
+     }
+    ]
+   },
+   {
+    "scene": "c2b",
+    "sentences": [
+     {
+      "text": "ここでは{下|した}あごが{後|うし}ろすぎます。{矯正|きょうせい}{装置|そうち}で{歯|は}は{動|うご}かせても、あごの{骨|ほね}は{動|うご}かせません。",
+      "cite": [
+       1,
+       2,
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "c2a",
+    "sentences": [
+     {
+      "text": "{手術|しゅじゅつ}では、{口|くち}の{中|なか}から{下|した}あごを{分|わ}けて、{前|まえ}の{部分|ぶぶん}を{前|まえ}に{出|だ}します。",
+      "cite": [
+       3
+      ]
+     },
+     {
+      "text": "{治|なお}るまで、{小|ちい}さなチタンのプレートで{留|と}めます。",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "c3b",
+    "sentences": [
+     {
+      "text": "ここでは{下|した}あごが{前|まえ}に{出|で}すぎています。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "c3a",
+    "sentences": [
+     {
+      "text": "{上下|じょうげ}{両方|りょうほう}のあごを{動|うご}かすこともあります。",
+      "cite": [
+       3,
+       4
+      ]
+     },
+     {
+      "text": "{手術|しゅじゅつ}のあと、100{人|にん}に{約|やく}10{人|にん}は、{数週間|すうしゅうかん}{唇|くちびる}やあごがしびれます。",
+      "cite": [
+       5
+      ],
+      "tts": "しゅじゅつのあと、ひゃくにんに、やくじゅうにんは、すうしゅうかん、くちびるやあごが、しびれます。"
+     }
+    ]
+   }
+  ]
+ }
+}

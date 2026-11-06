@@ -136,6 +136,14 @@ async function appText() {
     const c = d.clinical;
     const captions = Object.values(c.images).map((img) => `<p>${ruby(img.caption)}</p>`).join('\n');
     files[`app-wisdom-tooth-images.${lang}.html`] = doc(lang, 'Wisdom tooth X-rays and scans (homepage)', `<h2>${ruby(c.heading)}</h2>\n<p>${ruby(c.note)}</p>\n${captions}`);
+    // Narrated videos on the app model pages (app/video-section.tsx). Static pages show theirs through
+    // public/video-embed.js, so the static snapshots above already hold those words.
+    const { videos } = await import(pathToFileURL(join(root, 'app/videos.ts')).href);
+    for (const slug of ['impacted-wisdom-tooth', 'alveolar-bone-graft']) {
+      const v = videos[slug][lang];
+      files[`app-video-${slug}.${lang}.html`] = doc(lang, `Video: ${v.title}`,
+        `<h2>${ruby(d.video.says)}</h2>\n<p>${v.lines.map((l) => ruby(l.text)).join(' ')}</p>`);
+    }
   }
   return files;
 }

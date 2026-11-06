@@ -4,6 +4,7 @@ import { catalogue } from '../catalogue';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { ModelExperience } from '../../ui';
+import { VideoSection } from '../../video-section';
 
 // Collection page for the alveolar bone graft series (the same viewer as the homepage interactive section).
 const model = catalogue.find((item) => item.slug === 'alveolar-bone-graft')!;
@@ -34,6 +35,7 @@ export default async function AlveolarBoneGraftPage() {
           <p><Ruby text={item.summary} /></p>
         </div>
         <ModelExperience />
+        <VideoSection slug="alveolar-bone-graft" />
       </main>
       <SiteFooter />
     </>

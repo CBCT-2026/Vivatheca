@@ -20,7 +20,9 @@
     ".status",
     ".review",
     ".disclaimer",
-    ".pitk-skip"
+    ".pitk-skip",
+    ".vt-video-review",
+    ".vt-video-refs"
   ],
   "ignore_sections": [
     "^Sources$",

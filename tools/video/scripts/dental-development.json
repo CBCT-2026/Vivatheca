@@ -1,0 +1,314 @@
+{
+ "slug": "dental-development",
+ "models": {
+  "6-5": "/development/models/age-6-5.glb",
+  "7-5": "/development/models/age-7-5.glb",
+  "8-5": "/development/models/age-8-5.glb",
+  "9-5": "/development/models/age-9-5.glb",
+  "10-5": "/development/models/age-10-5.glb",
+  "11-5": "/development/models/age-11-5.glb",
+  "12-5": "/development/models/age-12-5.glb"
+ },
+ "anchors": {
+  "baby": {
+   "model": "6-5",
+   "node": "^lower-baby-teeth$",
+   "at": [
+    0.5,
+    0.7,
+    0.5
+   ]
+  },
+  "adult": {
+   "model": "6-5",
+   "node": "^lower-adult-teeth$",
+   "at": [
+    0.6,
+    0.2,
+    0.5
+   ]
+  },
+  "molar": {
+   "model": "6-5",
+   "node": "^lower-adult-teeth$",
+   "at": [
+    0.5,
+    0.9,
+    0.1
+   ]
+  }
+ },
+ "scenes": {
+  "a6": {
+   "model": "6-5",
+   "from": [
+    -100,
+    8,
+    2.6
+   ],
+   "to": [
+    -90,
+    8,
+    2.6
+   ],
+   "chip": "a6",
+   "labels": [
+    [
+     "baby",
+     "r",
+     200
+    ],
+    [
+     "adult",
+     "l",
+     600
+    ]
+   ]
+  },
+  "a6x": {
+   "model": "6-5",
+   "from": [
+    -90,
+    8,
+    2.6
+   ],
+   "to": [
+    -80,
+    8,
+    2.6
+   ],
+   "chip": "a6",
+   "xray": "-bone$",
+   "labels": [
+    [
+     "adult",
+     "l",
+     600
+    ]
+   ]
+  },
+  "a9": {
+   "model": "9-5",
+   "from": [
+    -80,
+    8,
+    2.6
+   ],
+   "to": [
+    -90,
+    8,
+    2.6
+   ],
+   "chip": "a9",
+   "xray": "-bone$"
+  },
+  "a12": {
+   "model": "12-5",
+   "from": [
+    -90,
+    8,
+    2.6
+   ],
+   "to": [
+    -100,
+    8,
+    2.6
+   ],
+   "chip": "a12",
+   "xray": "-bone$"
+  },
+  "end": {
+   "model": "12-5",
+   "from": [
+    -100,
+    8,
+    2.6
+   ],
+   "to": [
+    -90,
+    10,
+    2.7
+   ],
+   "chip": "a12"
+  }
+ },
+ "sources": [
+  "Moorrees CFA, Fanning EA, Hunt EE. Age variation of formation stages for ten permanent teeth. J Dent Res. 1963;42(6):1490-1502. https://doi.org/10.1177/00220345630420062701",
+  "Harokopakis-Hajishengallis E. Physiologic root resorption in primary teeth: molecular and histological events. J Oral Sci. 2007;49(1):1-12. https://doi.org/10.2334/josnusd.49.1",
+  "AlQahtani SJ, Hector MP, Liversidge HM. Brief communication: the London atlas of human tooth development and eruption. Am J Phys Anthropol. 2010;142(3):481-490. https://doi.org/10.1002/ajpa.21258",
+  "American Dental Association. Eruption charts: primary teeth and permanent teeth. MouthHealthy. https://www.mouthhealthy.org/all-topics-a-z/eruption-charts",
+  "American Academy of Pediatric Dentistry. Dental growth and development (chronology of the human dentition). https://www.aapd.org/",
+  "Schour I, Massler M. The development of the human dentition. J Am Dent Assoc. 1941;28:1153-1160."
+ ],
+ "en": {
+  "title": "How your child's teeth grow: ages 6 to 12",
+  "chips": {
+   "a6": "6 years",
+   "a9": "9 years",
+   "a12": "12 years"
+  },
+  "labels": {
+   "baby": [
+    "Baby teeth",
+    "primary teeth"
+   ],
+   "adult": [
+    "Adult teeth",
+    "permanent teeth"
+   ],
+   "molar": [
+    "First adult molar",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "a6",
+    "sentences": [
+     {
+      "text": "This model shows the right side of a child's jaws at 6 years.",
+      "cite": []
+     },
+     {
+      "text": "Baby teeth are blue and adult teeth are yellow.",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "a6x",
+    "sentences": [
+     {
+      "text": "Each adult tooth starts as a crown deep in the jaw. As its root grows, it moves toward the gum.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "a9",
+    "sentences": [
+     {
+      "text": "As it moves up, the root of the baby tooth melts away. The baby tooth gets loose and falls out.",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "a12",
+    "sentences": [
+     {
+      "text": "The first adult molars come at about 6, and the second molars at about 12.",
+      "cite": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "Every child is different. Teeth often come a year or more earlier or later, and this is usually normal.",
+      "cite": [
+       4,
+       5
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{子|こ}どもの{歯|は}の{育|そだ}ち{方|かた}：6{歳|さい}から12{歳|さい}",
+  "chips": {
+   "a6": "6{歳|さい}",
+   "a9": "9{歳|さい}",
+   "a12": "12{歳|さい}"
+  },
+  "labels": {
+   "baby": [
+    "{乳歯|にゅうし}",
+    "{子|こ}どもの{歯|は}"
+   ],
+   "adult": [
+    "{永久歯|えいきゅうし}",
+    "おとなの{歯|は}"
+   ],
+   "molar": [
+    "{第一大臼歯|だいいちだいきゅうし}",
+    ""
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "a6",
+    "sentences": [
+     {
+      "text": "これは、6{歳|さい}の{子|こ}どもの{右側|みぎがわ}のあごの{模型|もけい}です。",
+      "cite": [],
+      "tts": "これは、ろくさいの、こどもの、みぎがわの、あごの、もけいです。"
+     },
+     {
+      "text": "{乳歯|にゅうし}は{青|あお}、{永久歯|えいきゅうし}は{黄色|きいろ}です。",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "a6x",
+    "sentences": [
+     {
+      "text": "{永久歯|えいきゅうし}は、あごの{奥|おく}で{頭|あたま}の{部分|ぶぶん}から{育|そだ}ちます。{根|ね}がのびると、{歯|は}ぐきの{方|ほう}へ{動|うご}きます。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "a9",
+    "sentences": [
+     {
+      "text": "{永久歯|えいきゅうし}が{上|あ}がってくると、{乳歯|にゅうし}の{根|ね}がとけて、{乳歯|にゅうし}がぬけます。",
+      "cite": [
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "a12",
+    "sentences": [
+     {
+      "text": "{奥|おく}の{大|おお}きな{歯|は}は、6{歳|さい}ごろと12{歳|さい}ごろに{生|は}えます。",
+      "cite": [
+       3
+      ],
+      "tts": "おくの、おおきなはは、ろくさいごろと、じゅうにさいごろに、はえます。"
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "{育|そだ}ち{方|かた}は{一人|ひとり}ひとりちがいます。1{年|ねん}{以上|いじょう}{早|はや}くても{遅|おそ}くても、たいていは{心配|しんぱい}いりません。",
+      "cite": [
+       4,
+       5
+      ],
+      "tts": "そだちかたは、ひとりひとり、ちがいます。いちねんいじょう、はやくても、おそくても、たいていは、しんぱいいりません。"
+     }
+    ]
+   }
+  ]
+ }
+}

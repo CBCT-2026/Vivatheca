@@ -1,0 +1,353 @@
+{
+ "slug": "head-neck-okc",
+ "models": {
+  "m": "/head-neck/models/okc-case.glb"
+ },
+ "style": {
+  "^margin": {
+   "opacity": 0.18
+  },
+  "^excised": {
+   "opacity": 0.55
+  },
+  "^mucosa$": {
+   "opacity": 0.4
+  },
+  "^cover_plate": {
+   "opacity": 0.45
+  },
+  "^fibula": {
+   "color": "#c8a47a"
+  }
+ },
+ "anchors": {
+  "lesion": {
+   "node": "^lesion$",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  "removed": {
+   "node": "^removed_bone",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  "teeth": {
+   "node": "^teeth$",
+   "at": [
+    0.75,
+    0.9,
+    0.6
+   ]
+  },
+  "prf": {
+   "node": "^prf",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  }
+ },
+ "scenes": {
+  "pre": {
+   "from": [
+    36,
+    8,
+    3.6
+   ],
+   "to": [
+    48,
+    8,
+    3.6
+   ],
+   "chip": "pre",
+   "hide": "^margin|^excised|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": [
+    [
+     "lesion",
+     "l",
+     560
+    ]
+   ],
+   "xray": true
+  },
+  "op": {
+   "from": [
+    48,
+    8,
+    3.6
+   ],
+   "to": [
+    58,
+    8,
+    3.6
+   ],
+   "chip": "op",
+   "hide": "^margin|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "lift": {
+    "match": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+    "dy": 0.03
+   },
+   "labels": [
+    [
+     "lesion",
+     "l",
+     230
+    ]
+   ]
+  },
+  "post": {
+   "from": [
+    58,
+    8,
+    3.6
+   ],
+   "to": [
+    66,
+    8,
+    3.6
+   ],
+   "chip": "post",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)|(fibula|plate|screws|prf|cover_plate|dressing|free_flap|obturator)",
+   "labels": []
+  },
+  "recon": {
+   "from": [
+    66,
+    8,
+    3.6
+   ],
+   "to": [
+    54,
+    12,
+    3.6
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)",
+   "labels": [
+    [
+     "prf",
+     "l",
+     560
+    ]
+   ]
+  },
+  "end": {
+   "from": [
+    54,
+    12,
+    3.6
+   ],
+   "to": [
+    34,
+    14,
+    3.8880000000000003
+   ],
+   "chip": "recon",
+   "hide": "^(specimen|extracted|lesion|removed|excised|margin|root_tips)"
+  }
+ },
+ "sources": [
+  "Abdelfadil E, Alsharif M, Alsharif AT, Mourad S. Management of a mandibular odontogenic keratocyst with enucleation, piezotome-assisted peripheral ostectomy, and platelet-rich fibrin: a case report. Dent J (Basel). 2025;13(11):536. https://doi.org/10.3390/dj13110536",
+  "Al-Moraissi EA, Dahan AA, Alwadeai MS, et al. What surgical treatment has the lowest recurrence rate following the management of keratocystic odontogenic tumor?: A large systematic review and meta-analysis. J Craniomaxillofac Surg. 2017;45(1):131-144. https://doi.org/10.1016/j.jcms.2016.10.013",
+  "Chrcanovic BR, Gomez RS. Recurrence probability for keratocystic odontogenic tumors: an analysis of 6427 cases. J Craniomaxillofac Surg. 2017;45(2):244-251. https://doi.org/10.1016/j.jcms.2016.11.010"
+ ],
+ "en": {
+  "title": "Keratocyst in the lower jaw: one real case",
+  "chips": {
+   "pre": "1 · Before surgery",
+   "op": "2 · What is removed",
+   "post": "3 · After removal",
+   "recon": "4 · Rebuilding"
+  },
+  "labels": {
+   "lesion": [
+    "Cyst",
+    "odontogenic keratocyst"
+   ],
+   "prf": [
+    "Gel from his own blood",
+    "PRF"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "This model follows one real, published case.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "A man aged 54 had a keratocyst at the root tips of two lower left teeth.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "It is a sac in the jaw. It is not cancer, but it often comes back.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "The surgeon lifted out the whole sac, shaved the bone wall and cut off the root tips.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "The teeth stayed in place.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "A gel made from his own blood filled the space.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "Three years later the bone had healed, and the cyst had not come back.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "There are several ways to treat a keratocyst, and how often it comes back differs between them.",
+      "cite": [
+       2,
+       3
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{下|した}あごの{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}：{実際|じっさい}の{一例|いちれい}",
+  "chips": {
+   "pre": "1 · {手術|しゅじゅつ}の{前|まえ}",
+   "op": "2 · {取|と}るところ",
+   "post": "3 · {取|と}ったあと",
+   "recon": "4 · {治|なお}す"
+  },
+  "labels": {
+   "lesion": [
+    "のう{胞|ほう}",
+    "{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}"
+   ],
+   "prf": [
+    "{自分|じぶん}の{血液|けつえき}から{作|つく}ったゲル",
+    "PRF"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "pre",
+    "sentences": [
+     {
+      "text": "この{模型|もけい}は、{論文|ろんぶん}で{発表|はっぴょう}された{実際|じっさい}の{一例|いちれい}をもとにしています。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "54{歳|さい}の{男性|だんせい}の、{左下|ひだりした}の{歯|は}2{本|ほん}の{根|ね}の{先|さき}に、のう{胞|ほう}がありました。",
+      "cite": [
+       1
+      ],
+      "tts": "ごじゅうよんさいの、だんせいの、ひだりしたの、は、にほんの、ねのさきに、のうほうが、ありました。"
+     },
+     {
+      "text": "あごの{中|なか}の{袋|ふくろ}です。がんではありませんが、よく{再発|さいはつ}します。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "op",
+    "sentences": [
+     {
+      "text": "{袋|ふくろ}を{全部|ぜんぶ}{取|と}り{出|だ}し、{骨|ほね}の{壁|かべ}を{削|けず}り、{根|ね}の{先|さき}を{切|き}りました。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "post",
+    "sentences": [
+     {
+      "text": "{歯|は}はそのまま{残|のこ}りました。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "recon",
+    "sentences": [
+     {
+      "text": "{自分|じぶん}の{血液|けつえき}から{作|つく}ったゲルで、すき{間|ま}をうめました。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "3{年|ねん}{後|ご}、{骨|ほね}は{治|なお}り、{再発|さいはつ}もありませんでした。",
+      "cite": [
+       1
+      ],
+      "tts": "さんねんごに、ほねは、なおり、さいはつも、ありませんでした。"
+     }
+    ]
+   },
+   {
+    "scene": "end",
+    "sentences": [
+     {
+      "text": "{治療|ちりょう}の{方法|ほうほう}はいくつかあり、{再発|さいはつ}のしやすさがちがいます。",
+      "cite": [
+       2,
+       3
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,261 @@
+<!doctype html>
+<!-- Frame renderer for the model videos. Opened by tools/video/render.js, not by visitors.
+     Same layout as the wisdom tooth narrated video (title, 3D model with line labels, burned-in subtitles),
+     in Vivatheca core colours, with the review status and model disclaimer at the bottom of every frame. -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Manrope; src: url('/head-neck/fonts/manrope-latin-wght-normal.woff2') format('woff2'); font-weight: 200 800; }
+  html, body { margin: 0; width: 540px; height: 960px; overflow: hidden; background: #effcfc;
+    font-family: Manrope, "Noto Sans JP", sans-serif; color: #06233f; }
+  html[lang=ja] body { font-family: "Noto Sans JP", sans-serif; }
+  #brand { position: absolute; top: 18px; left: 0; right: 0; text-align: center; font-size: 13px; font-weight: 700;
+    letter-spacing: .08em; color: #007f8b; text-transform: uppercase; }
+  #title { position: absolute; top: 40px; left: 24px; right: 24px; font-size: 22px; font-weight: 800;
+    line-height: 1.3; color: #00244d; text-align: center; }
+  html[lang=ja] #title { line-height: 1.75; font-size: 21px; }
+  #stage { position: absolute; top: 112px; left: 0; width: 540px; height: 560px; }
+  #stage canvas { display: block; }
+  #fade { position: absolute; top: 112px; left: 0; width: 540px; height: 560px; background: #effcfc; opacity: 0; }
+  #chip { position: absolute; top: 120px; left: 0; right: 0; text-align: center; }
+  #chip span { display: inline-block; background: #00244d; color: #fff; font-size: 16px; font-weight: 700;
+    padding: 6px 14px; border-radius: 999px; }
+  html[lang=ja] #chip span { padding: 9px 14px 5px; line-height: 1.6; }
+  #chip span:empty { display: none; }
+  #labels { position: absolute; inset: 0; pointer-events: none; }
+  #labels .main { font-size: 18px; font-weight: 700; fill: #06233f; }
+  #labels .med { font-size: 13px; font-weight: 400; fill: #4d6378; }
+  #labels rect { fill: #fff; stroke: #00244d; stroke-width: 1; }
+  #labels line { stroke: #00244d; stroke-width: 1.6; }
+  #labels .rt { fill: #06233f; font-weight: 400; }
+  #labels circle { fill: #00244d; stroke: #fff; stroke-width: 1.5; }
+  rt { font-size: 0.5em; font-weight: 400; }
+  ruby { ruby-align: center; }
+  #sub { position: absolute; left: 24px; right: 24px; top: 690px; text-align: center; }
+  #sub span { display: inline; font-size: 25px; line-height: 1.5; font-weight: 600; color: #fff;
+    background: rgba(0, 26, 55, .9); padding: 3px 10px; box-decoration-break: clone;
+    -webkit-box-decoration-break: clone; border-radius: 6px; }
+  html[lang=ja] #sub span { word-break: auto-phrase; line-height: 2.05; padding: 9px 10px 4px; }
+  #sub span:empty { display: none; }
+  #foot { position: absolute; left: 20px; right: 20px; bottom: 16px; font-size: 12px; line-height: 1.45; color: #4d6378;
+    border-top: 1px solid #cfe1e7; padding-top: 8px; }
+  #foot b { color: #06233f; }
+  html[lang=ja] #foot { font-size: 11px; line-height: 1.9; }
+</style></head>
+<body>
+<div id="brand">Vivatheca</div>
+<div id="title"></div>
+<div id="stage"></div>
+<div id="fade"></div>
+<div id="chip"><span></span></div>
+<svg id="labels" width="540" height="960"></svg>
+<div id="sub"><span></span></div>
+<div id="foot"></div>
+<script src="/head-neck/vendor/three/three.min.js"></script>
+<script src="/head-neck/vendor/three/GLTFLoader.js"></script>
+<script src="/head-neck/vendor/three/DRACOLoader.js"></script>
+<script>
+// The script file (tools/video/scripts/<slug>.json) gives the models, the scenes and the label anchors.
+// Scene: { model, from: [azimuth deg, elevation deg, distance × model size], to: [...], target: anchor name or [x,y,z],
+//          hide: regex of node names, xray: true (bone see-through), lift: { match: regex, dy: metres },
+//          labels: [[anchor, 'l'|'r', y px]], chip: key of a stage name in the language's "chips" }.
+// Azimuth 0 looks at the front of the face (+Z); 90 looks at the patient's left side (+X); -90 at the right side.
+const BLEND = 0.9;   // seconds to glide the camera from one scene to the next
+const FADE = 0.4;    // seconds for labels to fade in
+const BG = 0xeffcfc;
+const DISCLAIMER = {
+  en: '<b>Not yet clinically reviewed.</b> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. vivatheca.com/disclaimer',
+  ja: '<b>{臨床|りんしょう}レビュー{未実施|みじっし}。</b>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。vivatheca.com/disclaimer',
+};
+
+let S, T, renderer, scene, camera;
+const groups = {}, anchors = {};
+const ease = x => x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
+const mix = (a, b, k) => a.map((v, i) => v + (b[i] - v) * k);
+const MARK = /\{([^{}|]+)\|([^{}]*)\}/g;
+const ruby = s => s.replace(MARK, '<ruby>$1<rt>$2</rt></ruby>');
+const plain = s => s.replace(MARK, '$1');
+const hasRuby = s => /\{[^{}|]+\|[^{}]*\}/.test(s);
+const baseName = n => n.replace(/[._]\d+$/, '');
+
+function loadGlb(url) {
+  const loader = new THREE.GLTFLoader();
+  loader.setDRACOLoader(new THREE.DRACOLoader().setDecoderPath('/head-neck/vendor/draco/'));
+  return new Promise((ok, bad) => loader.load(url, ok, undefined, bad));
+}
+
+// Materials follow each page's own viewer (see public/head-neck/case-viewer.js for the case models).
+function prepare(root, style) {
+  const parts = [];
+  root.traverse(o => {
+    if (!o.isMesh) return;
+    // A mesh with several primitives loads as a group of meshes: use the group's (node's) name.
+    const multi = o.parent && o.parent !== root && o.parent.children.length > 1 && o.parent.children.every(c => c.isMesh);
+    const n = baseName((multi ? o.parent.name : o.name) || '');
+    const mt = o.material.clone(); mt.side = THREE.DoubleSide;
+    if (!o.geometry.attributes.normal) o.geometry.computeVertexNormals();
+    for (const [re, st] of Object.entries(style || {})) {
+      if (!new RegExp(re).test(n)) continue;
+      if (st.color) mt.color.set(st.color).convertSRGBToLinear();
+      if (st.metalness !== undefined) mt.metalness = st.metalness;
+      if (st.roughness !== undefined) mt.roughness = st.roughness;
+      if (st.opacity !== undefined) { mt.transparent = st.opacity < 1; mt.opacity = st.opacity; mt.depthWrite = st.opacity >= 1; }
+    }
+    o.material = mt;
+    o.userData = { n, op: mt.opacity, tr: mt.transparent, y0: o.position.y, c0: mt.color.clone() };
+    parts.push(o);
+  });
+  return parts;
+}
+
+window.init = async (scriptUrl, timelineUrl) => {
+  S = await (await fetch(scriptUrl)).json();
+  T = await (await fetch(timelineUrl)).json();
+  document.documentElement.lang = T.lang;
+  document.getElementById('title').innerHTML = ruby(T.title);
+  document.getElementById('foot').innerHTML = ruby(DISCLAIMER[T.lang]);
+
+  const box = document.getElementById('stage');
+  renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(window.devicePixelRatio); renderer.setSize(540, 560);
+  renderer.outputEncoding = THREE.sRGBEncoding; renderer.setClearColor(BG, 1);
+  box.appendChild(renderer.domElement);
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(30, 540 / 560, 0.001, 10);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8478, 0.75));
+  const k1 = new THREE.DirectionalLight(0xffffff, 0.8); camera.add(k1); k1.position.set(-0.4, 0.6, 0.2);
+  const k2 = new THREE.DirectionalLight(0xffffff, 0.35); camera.add(k2); k2.position.set(0.5, -0.4, 0.3);
+  scene.add(camera);
+
+  // Every model is centred on the origin; "size" is the radius of its bounding sphere.
+  for (const [key, url] of Object.entries(S.models)) {
+    const gltf = await loadGlb(url);
+    const g = gltf.scene;
+    const parts = prepare(g, S.style);
+    const bb = new THREE.Box3().setFromObject(g);
+    g.position.sub(bb.getCenter(new THREE.Vector3()));
+    g.updateMatrixWorld(true);
+    const size = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere()).radius;
+    g.visible = false; scene.add(g);
+    groups[key] = { g, parts, size };
+  }
+  // Anchors: a point on a named part (bounding box, "at" = fraction from min to max on each axis).
+  for (const [name, a] of Object.entries(S.anchors || {})) {
+    const grp = groups[a.model || Object.keys(S.models)[0]];
+    const re = new RegExp(a.node);
+    const bb = new THREE.Box3();
+    grp.parts.filter(o => re.test(o.userData.n)).forEach(o => bb.expandByObject(o));
+    if (bb.isEmpty()) throw new Error('anchor ' + name + ': no node matches ' + a.node);
+    const at = a.at || [0.5, 0.5, 0.5];
+    anchors[name] = new THREE.Vector3(...[0, 1, 2].map(i => bb.min.getComponent(i) + (bb.max.getComponent(i) - bb.min.getComponent(i)) * at[i]));
+  }
+  await document.fonts.ready;
+  return T.duration;
+};
+
+function sceneAt(t) {
+  let i = T.scenes.findIndex(s => t < s.end);
+  return i < 0 ? T.scenes.length - 1 : i;
+}
+const targetOf = (c) => !c.target ? [0, 0, 0] : Array.isArray(c.target) ? c.target : anchors[c.target].toArray();
+
+function cameraAt(i, t) {
+  const s = T.scenes[i], c = S.scenes[s.scene];
+  const k = ease((t - s.start) / (s.end - s.start));
+  let orbit = mix(c.from, c.to || c.from, k), target = targetOf(c);
+  // Glide from where the last scene ended, unless the model changes (then the picture fades instead).
+  if (i > 0 && t - s.start < BLEND) {
+    const p = S.scenes[T.scenes[i - 1].scene];
+    if (p.model === c.model || !c.model) {
+      const b = ease((t - s.start) / BLEND);
+      orbit = mix(p.to || p.from, orbit, b);
+      target = mix(targetOf(p), target, b);
+    }
+  }
+  return { orbit, target, model: c.model || Object.keys(S.models)[0] };
+}
+
+function svgText(s, x, y, px, weight, cls) {
+  let out = `<text class="${cls}" x="${x}" y="${y}">${plain(s)}</text>`, before = '';
+  for (const part of s.split(/(\{[^{}|]+\|[^{}]*\})/)) {
+    const m = /^\{([^{}|]+)\|([^{}]*)\}$/.exec(part);
+    if (m) {
+      const cx = x + measure(before, px, weight) + measure(m[1], px, weight) / 2;
+      out += `<text class="rt" x="${cx}" y="${y - px * 0.92}" text-anchor="middle" font-size="${Math.round(px * 0.5)}">${m[2]}</text>`;
+    }
+    before += m ? m[1] : part;
+  }
+  return out;
+}
+const ctx = document.createElement('canvas').getContext('2d');
+function measure(text, px, weight) {
+  ctx.font = `${weight} ${px}px ` + getComputedStyle(document.body).fontFamily;
+  return ctx.measureText(text).width;
+}
+
+window.setFrame = async (t) => {
+  const i = sceneAt(t), s = T.scenes[i], c = S.scenes[s.scene];
+  const cam = cameraAt(i, t);
+  const grp = groups[cam.model];
+  for (const [k, v] of Object.entries(groups)) v.g.visible = k === cam.model;
+
+  // Parts shown in this scene, see-through bone and lifted parts (what the surgeon removes).
+  const hide = c.hide ? new RegExp(c.hide) : null;
+  // xray: true (bone), a regex (those parts at 0.28) or { regex: opacity }.
+  const xrs = !c.xray ? [] : typeof c.xray === 'object' ? Object.entries(c.xray).map(([k, v]) => [new RegExp(k), v])
+    : [[new RegExp(c.xray === true ? '^(bone|.*-bone|sphenoid|specimen_bone|mucosa)$' : c.xray), 0.28]];
+  const tints = Object.entries(c.tint || {}).map(([k, v]) => [new RegExp(k), new THREE.Color(v).convertSRGBToLinear()]);
+  const lift = c.lift ? new RegExp(c.lift.match) : null;
+  const lk = c.lift ? ease((t - s.start - 0.6) / 1.2) : 0;
+  for (const o of grp.parts) {
+    const n = o.userData.n;
+    o.visible = !(hide && hide.test(n));
+    const see = xrs.find(([re]) => re.test(n));
+    o.material.transparent = !!see || o.userData.tr; o.material.opacity = see ? see[1] : o.userData.op;
+    const tn = tints.find(([re]) => re.test(n));
+    o.material.color.copy(tn ? tn[1] : o.userData.c0);
+    o.material.depthWrite = !o.material.transparent;
+    o.position.y = o.userData.y0 + (lift && lift.test(n) ? c.lift.dy * lk : 0);
+  }
+
+  const [az, el, dist] = cam.orbit;
+  const r = dist * grp.size, a = THREE.MathUtils.degToRad(az), e = THREE.MathUtils.degToRad(el);
+  const tg = new THREE.Vector3(...cam.target);
+  camera.position.set(tg.x + r * Math.cos(e) * Math.sin(a), tg.y + r * Math.sin(e), tg.z + r * Math.cos(e) * Math.cos(a));
+  camera.up.set(0, 1, 0); camera.lookAt(tg); camera.near = r / 50; camera.far = r * 10; camera.updateProjectionMatrix();
+  renderer.render(scene, camera);
+
+  // A short fade when the model changes between scenes.
+  const prev = i > 0 ? (S.scenes[T.scenes[i - 1].scene].model || Object.keys(S.models)[0]) : cam.model;
+  const fade = prev !== cam.model ? 1 - ease((t - s.start) / 0.35) : 0;
+  document.getElementById('fade').style.opacity = fade;
+
+  // Stage name chip and line labels (everyday name in bold, medical name underneath, as in the wisdom tooth video).
+  const a2 = ease((t - s.start) / FADE);
+  document.querySelector('#chip span').innerHTML = c.chip && T.chips && T.chips[c.chip] ? ruby(T.chips[c.chip]) : '';
+  let svg = '';
+  for (const [name, side, y] of (c.labels || [])) {
+    const p = anchors[name].clone();
+    const ap = grp.parts.find(o => o.userData.n.match(new RegExp(S.anchors[name].node)));
+    if (ap && lift && lift.test(ap.userData.n)) p.y += c.lift.dy * lk;
+    p.project(camera);
+    const ax = (p.x + 1) / 2 * 540, ay = 112 + (1 - p.y) / 2 * 560;
+    if (ay < 112 || ay > 672) continue;
+    const [main, med] = T.labels[S.anchors[name].label || name];
+    const up = hasRuby(main) ? 9 : 0, mid = med && hasRuby(med) ? 7 : 0;
+    const w = Math.max(measure(plain(main), 18, 700), med ? measure(plain(med), 13, 400) : 0) + 16;
+    const bh = (med ? 46 : 30) + up + mid;
+    const bx = side === 'l' ? 14 : 526 - w, by = y - bh / 2;
+    const lx = side === 'l' ? bx + w : bx;
+    svg += `<g opacity="${a2 * (1 - fade)}"><line x1="${lx}" y1="${y}" x2="${ax}" y2="${ay}"/>` +
+           `<rect x="${bx}" y="${by}" width="${w}" height="${bh}" rx="3"/>` +
+           svgText(main, bx + 8, by + 21 + up, 18, 700, 'main') +
+           (med ? svgText(med, bx + 8, by + 38 + up + mid, 13, 400, 'med') : '') +
+           `<circle cx="${ax}" cy="${ay}" r="4"/></g>`;
+  }
+  document.getElementById('labels').innerHTML = svg;
+
+  const cue = T.cues.find(q => t >= q.start && t < q.end + 0.25);
+  document.querySelector('#sub span').innerHTML = cue ? ruby(cue.text) : '';
+};
+</script>
+</body></html>

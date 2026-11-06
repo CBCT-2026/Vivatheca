@@ -5,6 +5,7 @@ import { disclaimerHref } from '../disclaimer-text';
 import { format } from '../i18n/dictionaries';
 import { getI18n } from '../i18n/server';
 import { plain, Ruby } from '../i18n/ruby';
+import { videos } from '../videos';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getI18n();
@@ -22,7 +23,7 @@ function CardLink({ href, children }: { href: string; children: React.ReactNode 
 }
 
 export default async function ModelsPage() {
-  const { t } = await getI18n();
+  const { t, locale } = await getI18n();
   const l = t.library;
   return (
     <>
@@ -39,10 +40,14 @@ export default async function ModelsPage() {
         <ul className="library-grid" aria-label={plain(l.listLabel)}>
           {catalogue.map((model) => {
             const item = l.items[model.slug];
+            const video = videos[model.slug]?.[locale === 'ja' ? 'ja' : 'en'];
             return (
               <li key={model.slug} className="library-card">
                 <CardLink href={model.href}>
-                  <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
+                  <span className="library-card-media">
+                    <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
+                    {video ? <span className="library-video-badge"><Ruby text={l.videoBadge} /> · {video.seconds}s</span> : null}
+                  </span>
                   <div className="library-card-body">
                     <p className="library-meta"><Ruby text={item.specialty} /></p>
                     <h2><Ruby text={item.title} /></h2>
@@ -54,6 +59,7 @@ export default async function ModelsPage() {
                     </ul>
                   </div>
                 </CardLink>
+                {video ? <a className="library-video-link" href={`${model.href}#video`} aria-label={`${plain(format(l.watchVideo, { s: String(video.seconds) }))}: ${plain(item.title)}`}><Ruby text={format(l.watchVideo, { s: String(video.seconds) })} /></a> : null}
               </li>
             );
           })}
