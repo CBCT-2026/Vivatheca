@@ -139,7 +139,7 @@ def build(folder, out):
     # Arch, root tips and CEJ per tooth.
     cen = [teeth[n].centroid[:2] for n in ARCH]
     t, d, cum = arch_coords(G, cen)
-    tpos = cum[1:-1]
+    tooth_t = cum[1:-1]
     apex = np.array([teeth[n].bounds[0][2] for n in ARCH])
     bone_top = column_top(Bm & ~Tall, G.zs)
     cej = []
@@ -161,8 +161,8 @@ def build(folder, out):
     # Resorbed ridge along the arch: H(t) above the lower border of the jaw under the arch line, from
     # H_SYMPHYSIS at the midline to H_MOLAR at the first molars and behind, rising smoothly into the
     # retromolar area and ramus beyond the last molar (the ramus is not resorbed).
-    tmid = (tpos[6] + tpos[7]) / 2
-    t6 = (tpos[1], tpos[-2])
+    tmid = (tooth_t[6] + tooth_t[7]) / 2
+    t6 = (tooth_t[1], tooth_t[-2])
     ts = np.linspace(cum[0], cum[-1], 400)
     Hs = np.where(ts < tmid, np.interp(ts, [t6[0], tmid], [H_MOLAR, H_SYMPHYSIS]),
                   np.interp(ts, [tmid, t6[1]], [H_SYMPHYSIS, H_MOLAR]))
@@ -178,7 +178,7 @@ def build(folder, out):
         bot.append(win.min() if len(win) else np.nan)
     bot = ndimage.gaussian_filter1d(np.nan_to_num(np.array(bot), nan=np.nanmedian(bot)), 6)
     L = np.interp(t, ts, bot + Hs)
-    e = np.maximum(tpos[0] - t, t - tpos[-1])
+    e = np.maximum(tooth_t[0] - t, t - tooth_t[-1])
     L = L + np.where(e > 0, 0.35 * e ** 2, 0)
     zone = d < 13.0
     L = np.where(zone, L, np.inf)
@@ -210,23 +210,23 @@ def build(folder, out):
 
     # Mucosa: a 1.63 mm layer over the bone of the ridge, down to 4 mm below the ridge top (drawn limit),
     # between the last molar positions. Limits are smooth fields so the edges stay clean.
-    lim2d = ndimage.gaussian_filter(np.maximum.reduce([d - 12.0, tpos[0] - 2.0 - t, t - (tpos[-1] + 2.0)]), 1.0 / PITCH)
+    lim2d = ndimage.gaussian_filter(np.maximum.reduce([d - 12.0, tooth_t[0] - 2.0 - t, t - (tooth_t[-1] + 2.0)]), 1.0 / PITCH)
     zoneZ = endo.isect(G.full(lim2d[:, :, None]), G.full((Lf - 4.0)[:, :, None] - G.Z))
     Me = ndimage.gaussian_filter(endo.isect(Be - MUCOSA, -Be, zoneZ), 1.0)
     # Dentate gum: same thickness (drawn), a band within 3 mm of the teeth, above the old root level.
     near = ndimage.gaussian_filter(T - 3.0, 2.0)
-    Md = ndimage.gaussian_filter(endo.isect(B - MUCOSA, -B, -T, near, G.full((np.interp(t, tpos, cej) - 7.0)[:, :, None] - G.Z)), 1.0)
+    Md = ndimage.gaussian_filter(endo.isect(B - MUCOSA, -B, -T, near, G.full((np.interp(t, tooth_t, cej) - 7.0)[:, :, None] - G.Z)), 1.0)
     Bd = endo.isect(B, -T)
 
     # Denture: a base following the arch (crown half-width + 1 mm), from FLANGE below the ridge top up to
     # the old CEJ level, sitting on the mucosa; denture teeth are the BodyParts3D crowns above the CEJ.
-    W = np.interp(t, tpos, half_w + 1.0)
-    W = np.where(np.isfinite(L) & (t >= tpos[0] - 4) & (t <= tpos[-1] + 4), W, -5)
-    Zc = np.interp(t, tpos, cej)
+    W = np.interp(t, tooth_t, half_w + 1.0)
+    W = np.where(np.isfinite(L) & (t >= tooth_t[0] - 4) & (t <= tooth_t[-1] + 4), W, -5)
+    Zc = np.interp(t, tooth_t, cej)
     lat = G.full((d - W)[:, :, None])
     top_base = G.full(G.Z - (Zc + 0.8)[:, :, None])
     bot_base = G.full((Lf - FLANGE)[:, :, None] - G.Z)
-    ends = G.full(np.maximum(tpos[0] - 3.5 - t, t - (tpos[-1] + 3.5))[:, :, None])
+    ends = G.full(np.maximum(tooth_t[0] - 3.5 - t, t - (tooth_t[-1] + 3.5))[:, :, None])
     slab = ndimage.gaussian_filter(endo.isect(lat, top_base, bot_base, ends), 5.0) + 0.3
     crowns = endo.isect(T, G.full((Zc - 0.5)[:, :, None] - G.Z))
     Dbase = endo.isect(slab, -(Be - MUCOSA), -crowns)
