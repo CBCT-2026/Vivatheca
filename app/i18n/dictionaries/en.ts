@@ -281,7 +281,7 @@ const en = {
     imageAlt: 'The impacted wisdom tooth model beside its matched normal, where the wisdom tooth stands upright in line with the other molars.',
     caption: 'Left: impacted wisdom tooth. Right: matched normal, with the wisdom tooth upright. Screenshots of the models.',
     heading: 'From the screen to something you can hold.',
-    text: 'Every model comes with a free STL file in millimetres, with its print scale stated on the model page, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands.',
+    text: 'Most models come with a free STL file in millimetres, with its print scale stated on the model page, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands. Print files for the jaw and palate surgery models will follow once those models are finalised.',
     download: 'Download both STL files',
   },
   trust: {
@@ -738,8 +738,9 @@ const en = {
     heading: 'Clear 3D models for the conversation in the chair.',
     intro: 'Vivatheca is a free library of 3D dental and oral and maxillofacial models. Clinicians use them to explain a condition, show what treatment involves, and build their own patient education materials, on screen or as a 3D print.',
     whyHeading: 'Why it exists',
+    whyEvidence: 'See the trials, with links, in the Evidence section',
     why: [
-      'Patients often leave an appointment without a clear picture of what is happening in their mouth. Radiographs and diagrams are hard to read for most people. Trials in other surgical specialties report that 3D models can improve patient understanding and communication, though dental evidence is still limited. Good models are expensive, hard to find, or locked to one product.',
+      'Trials in other surgical specialties report that 3D models can improve patient understanding and communication, though dental evidence is still limited. Good models are expensive, hard to find, or locked to one product.',
       'Vivatheca makes those models open: one place to find a condition, see it beside normal anatomy, and download it for any use in patient education.',
     ],
     principlesHeading: 'How we work',
