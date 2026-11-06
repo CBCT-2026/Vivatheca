@@ -47,6 +47,8 @@
     [/^fat$/, 'Cheek fat pad', '{頬|ほお}の{脂肪|しぼう}', 'Khối mỡ má'],
     [/^clot$/, 'Blood clot', '{血|ち}のかたまり', 'Cục máu đông'],
     [/^decay$/, 'Decay', 'むし{歯|ば}', 'Sâu răng'],
+    [/^canine$/, 'Adult canine', '{大人|おとな}の{犬歯|けんし}', 'Răng nanh vĩnh viễn'],
+    [/^baby-canine$/, 'Baby canine', '{乳歯|にゅうし}の{犬歯|けんし}', 'Răng nanh sữa'],
     [/^baby-teeth$/, 'Baby teeth', '{乳歯|にゅうし}', 'Răng sữa'],
     [/^premolar$/, 'Adult tooth growing below', '{下|した}で{育|そだ}つ{大人|おとな}の{歯|は}', 'Răng vĩnh viễn đang mọc bên dưới'],
     [/^teeth$/, 'Teeth', '{歯|は}', 'Răng'],
