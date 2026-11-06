@@ -48,3 +48,46 @@ test('cracked tooth student guide cites every source it numbers, in English and 
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
   await expect(page.locator('h1 rt').first()).toHaveText('きれつし');
 });
+
+test('periodontitis student guide cites its sources and is linked from the model page and the hub', async ({ page }) => {
+  await page.goto('/learn/periodontitis');
+  await expect(page.getByRole('heading', { name: 'Periodontitis: staging and grading', level: 1 })).toBeVisible();
+  const cited = await page.locator('main .cite a').evaluateAll((links) => [...new Set(links.map((a) => a.getAttribute('href')))]);
+  expect(cited.length).toBe(7);
+  for (const href of cited) await expect(page.locator(href!)).toHaveCount(1);
+  await expect(page.locator('.learn-model-box a.button')).toHaveAttribute('href', '/periodontitis/');
+  await page.goto('/learn');
+  await expect(page.locator('a[href="/learn/periodontitis"]')).toHaveCount(1);
+  await expect(page.locator('a[href="/head-neck/"]')).toHaveCount(1);
+  await page.goto('/periodontitis/index.html');
+  await expect(page.locator('main a[href="/learn/periodontitis"]')).toHaveCount(1);
+});
+
+test('orthognathic student guide cites its sources and is linked from the hub and model page', async ({ page }) => {
+  await page.goto('/learn/orthognathic');
+  await expect(page.getByRole('heading', { name: 'Orthognathic surgery: Class I, II and III', level: 1 })).toBeVisible();
+  const cited = await page.locator('main .cite a').evaluateAll((links) => [...new Set(links.map((a) => a.getAttribute('href')))]);
+  expect(cited.length).toBe(11);
+  for (const href of cited) await expect(page.locator(href!)).toHaveCount(1);
+  await page.goto('/learn');
+  await expect(page.locator('a[href="/learn/orthognathic"]')).toHaveCount(1);
+  await page.goto('/orthognathic/index.html');
+  await expect(page.locator('main a[href="/learn/orthognathic"]')).toHaveCount(1);
+});
+
+for (const g of [
+  { path: '/learn/oroantral', heading: 'Oroantral communication and fistula (OAC and OAF)', sources: 11, model: '/oroantral/' },
+  { path: '/learn/steel-crown', heading: 'Preformed metal crowns on primary molars', sources: 7, model: '/stainless-steel-crown/' },
+  { path: '/learn/head-neck', heading: 'Head and neck: resection and reconstruction in four cases', sources: 11, model: '/head-neck/' },
+]) {
+  test(`${g.path} cites every source it numbers and links its model both ways`, async ({ page }) => {
+    await page.goto(g.path);
+    await expect(page.getByRole('heading', { name: g.heading, level: 1 })).toBeVisible();
+    const cited = await page.locator('main .cite a').evaluateAll((links) => [...new Set(links.map((a) => a.getAttribute('href')))]);
+    expect(cited.length).toBe(g.sources);
+    for (const href of cited) await expect(page.locator(href!)).toHaveCount(1);
+    await expect(page.locator('.learn-model-box a.button')).toHaveAttribute('href', g.model);
+    await page.goto(`${g.model}index.html`);
+    await expect(page.locator(`main a[href="${g.path}"]`)).toHaveCount(1);
+  });
+}

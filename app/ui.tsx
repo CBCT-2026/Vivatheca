@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { THEME_KEY } from './theme';
 import { primaryLinks } from './nav';
 import { disclaimerHref } from './disclaimer-text';
+import { abgSources, abgStages } from './abg';
 import { useI18n } from './i18n/context';
 import { format } from './i18n/dictionaries';
 import { plain, Ruby } from './i18n/ruby';
@@ -34,49 +35,31 @@ export function MobileNavigation({ furigana }: { furigana: boolean }) {
   );
 }
 
-// Sources (numbers in modelSources) supporting each tour step, plain and clinician text.
-const tourCites = [
-  { plain: [1], clinical: [1] },
-  { plain: [2], clinical: [4, 5, 2, 3, 6] },
-  { plain: [] as number[], clinical: [] as number[] },
-];
-
-// Visible sources for the wisdom tooth model. Checked on PubMed, 5 November 2026.
-// Citations stay in English, the language they were published in.
-export const modelSources = [
-  { id: 1, text: 'Winter GB. Principles of exodontia as applied to the impacted mandibular third molar. St Louis: American Medical Book Co; 1926. (Origin of the angulation terms used here.)' },
-  { id: 2, text: 'Renton T. Oral surgery: part 4. Minimising and managing nerve injuries and other complications. Br Dent J. 2013;215(8):393-399.', href: 'https://doi.org/10.1038/sj.bdj.2013.993' },
-  { id: 3, text: 'Reia VCB, de Toledo Telles-Araujo G, Peralta-Mamani M, et al. Diagnostic accuracy of CBCT compared to panoramic radiography in predicting IAN exposure: a systematic review and meta-analysis. Clin Oral Investig. 2021;25(8):4721-4733.', href: 'https://doi.org/10.1007/s00784-021-03942-4' },
-  { id: 4, text: 'Sorooshzadeh M, Hoseyni Y, Goudarzi F, Jamali A. Key factors in mandibular third molar surgery: a comprehensive view of their prevalence and interrelationships. Saudi Dent J. 2025;37(7-9):53. (526 CBCT scans: the canal lay below the tooth in 78.9%.)', href: 'https://doi.org/10.1007/s44445-025-00061-8' },
-  { id: 5, text: 'Jun SH, Kim CH, Ahn JS, Padwa BL, Kwon JJ. Anatomical differences in lower third molars visualized by 2D and 3D X-ray imaging: clinical outcomes after extraction. Int J Oral Maxillofac Surg. 2013;42(4):489-496. (Complications were mostly in roots inside or touching the canal.)', href: 'https://doi.org/10.1016/j.ijom.2012.12.005' },
-  { id: 6, text: 'Ghaeminia H, Gerlach NL, Hoppenreijs TJM, et al. Clinical relevance of cone beam computed tomography in mandibular third molar removal: a multicentre, randomised, controlled trial. J Craniomaxillofac Surg. 2015;43(10):2158-2167. (Conflicting evidence: CBCT before removal did not reduce nerve injury compared with panoramic radiography.)', href: 'https://doi.org/10.1016/j.jcms.2015.10.009' },
-];
-
 function Cites({ ids, label }: { ids: number[]; label: string }) {
   return <>{ids.map((id) => <sup key={id} className="cite"><a href={`#model-ref-${id}`} aria-label={plain(format(label, { n: id }))} onClick={() => document.querySelector('.model-sources')?.setAttribute('open', '')}>{id}</a></sup>)}</>;
 }
 
-export const modelLicence = { name: 'CC BY-SA 4.0', href: 'https://creativecommons.org/licenses/by-sa/4.0/' };
+type ModelViewerElement = HTMLElement & { model?: { materials: { name: string; setAlphaMode: (mode: string) => void; pbrMetallicRoughness: { baseColorFactor: number[]; setBaseColorFactor: (c: number[]) => void } }[] } };
 
+// Homepage interactive section: the alveolar bone graft series, three stages (models from CBCT-2026/ABG).
 export function ModelExperience() {
   const { t } = useI18n();
   const m = t.model;
-  const tourSteps = m.tour;
+  const a = t.abg;
   const [ready, setReady] = useState(false);
-  const [favourite, setFavourite] = useState(false);
-  const [step, setStep] = useState(0);
+  const [stage, setStage] = useState(0);
   const [detail, setDetail] = useState<'plain' | 'clinical'>('plain');
   const [rotationEnabled, setRotationEnabled] = useState(true);
+  const [gumOff, setGumOff] = useState(false);
+  const [hasGum, setHasGum] = useState(false);
   const viewerFrame = useRef<HTMLDivElement>(null);
+  const viewer = useRef<ModelViewerElement>(null);
 
   useEffect(() => {
     let active = true;
-    import('@google/model-viewer').then(() => {
-      if (active) {
-        setReady(true);
-        setFavourite(window.localStorage.getItem('vivatheca:favourite:impacted-molar') === 'true');
-      }
-    });
+    // The ABG models are Draco-compressed; use the decoder this site already serves (no outside requests).
+    (self as unknown as { ModelViewerElement?: object }).ModelViewerElement = { dracoDecoderLocation: '/development/vendor/draco/' };
+    import('@google/model-viewer').then(() => { if (active) setReady(true); });
     return () => { active = false; };
   }, []);
 
@@ -90,19 +73,43 @@ export function ModelExperience() {
     return () => motionPreference.removeEventListener('change', respectMotionPreference);
   }, []);
 
-  function toggleFavourite() {
-    const next = !favourite;
-    setFavourite(next);
-    window.localStorage.setItem('vivatheca:favourite:impacted-molar', String(next));
+  // The gum part is the material named "gum" (CBCT-2026/ABG docs/model-spec.md). Hiding it shows the bone.
+  const gumMaterial = () => viewer.current?.model?.materials.find((material) => material.name.replace(/\.\d+$/, '') === 'gum');
+  function setGum(off: boolean) {
+    const material = gumMaterial();
+    if (!material) return;
+    const colour = material.pbrMetallicRoughness.baseColorFactor.slice(0, 3);
+    material.setAlphaMode(off ? 'BLEND' : 'OPAQUE');
+    material.pbrMetallicRoughness.setBaseColorFactor([...colour, off ? 0 : 1]);
+    setGumOff(off);
+  }
+
+  useEffect(() => {
+    const element = viewer.current;
+    if (!ready || !element) return;
+    const onLoad = () => { setHasGum(Boolean(gumMaterial())); setGumOff(false); };
+    element.addEventListener('load', onLoad);
+    return () => element.removeEventListener('load', onLoad);
+  }, [ready]);
+
+  function chooseStage(index: number) {
+    if (index === stage) return;
+    setHasGum(false);
+    setGumOff(false);
+    setStage(index);
   }
 
   async function enterFullscreen() {
     await viewerFrame.current?.requestFullscreen?.();
   }
 
+  const current = abgStages[stage];
+  const text = a.stages[stage];
   const modelViewer = React.createElement('model-viewer', {
-    src: '/models/impacted-molar.glb',
-    alt: plain(m.alt),
+    ref: viewer,
+    src: current.src,
+    poster: current.poster,
+    alt: plain(text.alt),
     'camera-controls': true,
     'touch-action': 'pan-y',
     'auto-rotate': rotationEnabled || undefined,
@@ -110,12 +117,12 @@ export function ModelExperience() {
     'rotation-per-second': '18deg',
     'shadow-intensity': '0.7',
     'environment-image': 'neutral',
-    'camera-orbit': '90deg 80deg auto',
+    'camera-orbit': '0deg 75deg auto',
     'field-of-view': '30deg',
     reveal: 'auto',
     'interaction-prompt': 'none',
     ar: true,
-    'ar-modes': 'webxr scene-viewer quick-look',
+    'ar-modes': 'webxr scene-viewer',
     className: 'model-viewer',
   });
 
@@ -123,14 +130,16 @@ export function ModelExperience() {
     <div className="model-experience">
       <div className="model-stage" ref={viewerFrame}>
         <div className="model-stage-topline">
-          <span className="status-chip"><span className="status-dot" /><Ruby text={m.status} /></span>
+          <span className="status-chip"><span className="status-dot" /><Ruby text={a.status} /></span>
           <div className="model-actions">
             <button type="button" className="rotation-button" onClick={() => setRotationEnabled((value) => !value)} aria-pressed={rotationEnabled}>
               <Ruby text={rotationEnabled ? m.pause : m.resume} />
             </button>
-            <button type="button" className="icon-button on-dark" onClick={toggleFavourite} aria-pressed={favourite} aria-label={plain(favourite ? m.favouriteRemove : m.favouriteAdd)}>
-              <Icon name={favourite ? 'favorite' : 'favorite_border'} size={22} />
-            </button>
+            {hasGum ? (
+              <button type="button" className="rotation-button" onClick={() => setGum(!gumOff)} aria-pressed={gumOff}>
+                <Ruby text={gumOff ? a.gumOn : a.gumOff} />
+              </button>
+            ) : null}
             <button type="button" className="icon-button on-dark" onClick={enterFullscreen} aria-label={plain(m.fullscreen)}><Icon name="fullscreen" size={22} /></button>
           </div>
         </div>
@@ -138,27 +147,23 @@ export function ModelExperience() {
         <p className="model-help"><Ruby text={m.help} /></p>
       </div>
       <div className="model-copy">
-        <div className="segmented" aria-label={plain(m.level)}>
+        <div className="segmented segmented-stages" role="group" aria-label={plain(a.stagesLabel)}>
+          {a.stages.map((item, index) => (
+            <button key={item.label} type="button" aria-pressed={stage === index} onClick={() => chooseStage(index)}><Ruby text={item.label} /></button>
+          ))}
+        </div>
+        <div className="segmented" role="group" aria-label={plain(m.level)}>
           <button type="button" aria-pressed={detail === 'plain'} onClick={() => setDetail('plain')}><Ruby text={m.plain} /></button>
           <button type="button" aria-pressed={detail === 'clinical'} onClick={() => setDetail('clinical')}><Ruby text={m.clinical} /></button>
         </div>
-        <h3><Ruby text={tourSteps[step].title} /></h3>
-        <p className="model-index"><Ruby text={format(m.stepOf, { label: tourSteps[step].label, n: step + 1, total: tourSteps.length })} /></p>
-        <p><Ruby text={detail === 'plain' ? tourSteps[step].text : tourSteps[step].clinical} /><Cites ids={tourCites[step][detail]} label={m.sourceLabel} /></p>
-        <div className="tour-controls">
-          <button type="button" className="text-button" disabled={step === 0} onClick={() => setStep((value) => value - 1)}><Ruby text={m.previous} /></button>
-          <div className="tour-dots" aria-label={format(m.tourStep, { n: step + 1, total: tourSteps.length })}>{tourSteps.map((item, index) => <span key={item.label} className={index === step ? 'active' : ''} />)}</div>
-          <button type="button" className="text-button" disabled={step === tourSteps.length - 1} onClick={() => setStep((value) => value + 1)}><Ruby text={m.next} /></button>
-        </div>
-        <div className="model-links">
-          <a href="/models/impacted-molar.glb" download><Icon name="download" /><Ruby text={m.downloadGlb} /></a>
-          <a href="/models/downloads/vivatheca-impacted-wisdom-tooth-stl.zip" download><Icon name="print" /><Ruby text={m.downloadStl} /></a>
-        </div>
-        <p className="licence-note"><Ruby text={m.licence} /> <a href={modelLicence.href} target="_blank" rel="noreferrer">{modelLicence.name}</a>. <Ruby text={m.licenceNote} /></p>
+        <p className="model-index"><Ruby text={format(m.stepOf, { label: text.when, n: stage + 1, total: abgStages.length })} /></p>
+        <h3><Ruby text={text.title} /></h3>
+        <p><Ruby text={detail === 'plain' ? text.text : text.clinical} /><Cites ids={current.cites[detail]} label={m.sourceLabel} /></p>
+        <p className="licence-note"><Ruby text={a.made} /></p>
         <details className="model-sources">
           <summary><Ruby text={m.sources} /></summary>
-          <p><Ruby text={m.sourcesIntro} /></p>
-          <ol lang="en">{modelSources.map((source) => <li key={source.id} id={`model-ref-${source.id}`}>{source.text}{source.href ? <> <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></> : null}</li>)}</ol>
+          <p><Ruby text={a.simplified} /></p>
+          <ol lang="en">{abgSources.map((source) => <li key={source.id} id={`model-ref-${source.id}`}>{source.text} <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}</ol>
         </details>
         <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
       </div>

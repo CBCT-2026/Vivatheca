@@ -4,10 +4,10 @@ test('model library lists each model with its pairing and review status', async 
   await page.goto('/models');
   await expect(page.getByRole('heading', { name: 'Models with a normal to compare.', level: 1 })).toBeVisible();
   const cards = page.getByRole('list', { name: 'Models' }).getByRole('listitem').filter({ has: page.getByRole('heading', { level: 2 }) });
-  await expect(cards).toHaveCount(12);
+  await expect(cards).toHaveCount(13);
   await expect(page.locator('.library-grid').getByRole('link', { name: /Impacted lower wisdom tooth/ })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
   await expect(page.locator('.library-grid').getByRole('link', { name: /Dental development, ages 6 to 12/ })).toHaveAttribute('href', '/development/');
-  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(12);
+  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(13);
   await expect(page.locator('.info-intro .prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
 });
 
@@ -82,4 +82,16 @@ test('every static model page links home and back to the library', async ({ page
     await page.goto('/models');
     await expect(page.locator(`.library-card a[href="${route}"]`), route).toHaveCount(1);
   }
+});
+
+test('bone graft page is in the collection and shows the staged model with its disclaimer', async ({ page }) => {
+  await page.goto('/models');
+  await expect(page.locator('.library-grid').getByRole('link', { name: /Bone graft for a cleft in the gum/ })).toHaveAttribute('href', '/models/alveolar-bone-graft');
+  await page.goto('/models/alveolar-bone-graft');
+  await expect(page.getByRole('heading', { name: 'Bone graft for a cleft in the gum', level: 1 })).toBeVisible();
+  await expect(page.locator('header a[href="/"]').first()).toBeVisible();
+  await expect(page.locator('a[href="/models"]').first()).toBeVisible();
+  await expect.poll(() => page.locator('model-viewer').evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/abg/abg-1-pre-op.glb');
+  await expect(page.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
+  await expect(page.locator('.prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
 });

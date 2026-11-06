@@ -24,12 +24,12 @@ test('the site opens in English and switches to Japanese with furigana', async (
 
   // The clinical tour uses Japanese dental terms.
   // Retry until the page has hydrated after the reload.
-  const clinician = page.locator('.segmented button').nth(1);
+  const clinician = page.locator('.model-copy .segmented:not(.segmented-stages) button').nth(1);
   await expect(async () => {
     await clinician.click();
     await expect(clinician).toHaveAttribute('aria-pressed', 'true', { timeout: 500 });
   }).toPass();
-  await expect(page.locator('.model-copy')).toContainText('下顎(かがく)第三(だいさん)大臼歯(だいきゅうし)が近心(きんしん)傾斜(けいしゃ)して埋伏(まいふく)');
+  await expect(page.locator('.model-copy')).toContainText('左側(ひだりがわ)片側性(へんそくせい)顎裂(がくれつ)');
 
   await page.getByRole('button', { name: 'English' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
@@ -77,7 +77,7 @@ test('the disclaimer is translated, with a note that the English version prevail
   await expect(page.locator('h1')).toHaveText('免責(めんせき)事項(じこう)');
   await expect(page.locator('main')).toContainText('英語(えいご)版(ばん)が優先(ゆうせん)します');
   await page.goto('/');
-  await expect(page.locator('.prototype-note')).toContainText('臨床(りんしょう)レビュー未実施(みじっし)');
+  await expect(page.locator('#showcase .prototype-note')).toContainText('臨床(りんしょう)レビュー未実施(みじっし)');
 });
 
 test('model library, model page, About, Privacy and Report are translated', async ({ page }) => {
