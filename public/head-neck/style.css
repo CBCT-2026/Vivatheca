@@ -150,13 +150,20 @@ h2 { font-weight: 720; }
 .group-label { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin: 14px 0 4px; }
 :lang(ja) .group-label { text-transform: none; letter-spacing: 0; }
 .cases, .stages { display: flex; flex-wrap: wrap; gap: 8px; }
-.cases button, .stages button, .toggles button, .views button { min-height: 44px; padding: 8px 14px; border-radius: 999px;
+.cases button, .stages button, .toggles button, .views button, .vt-section button { min-height: 44px; padding: 8px 14px; border-radius: 999px;
   border: 1px solid var(--line); background: var(--card); color: var(--text); font: inherit; font-size: 15px; font-weight: 650; line-height: 1.2; cursor: pointer; }
-.cases button[aria-pressed="true"], .stages button[aria-pressed="true"], .toggles button[aria-pressed="true"], .views button[aria-pressed="true"] {
+.cases button[aria-pressed="true"], .stages button[aria-pressed="true"], .toggles button[aria-pressed="true"], .views button[aria-pressed="true"], .vt-section button[aria-pressed="true"] {
   border-color: var(--accent); color: var(--accent); background: var(--bg); box-shadow: inset 0 0 0 1px var(--accent); }
 button:disabled { opacity: .45; cursor: not-allowed; }
 button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 0; }
+/* Cross-section tool (section.js) */
+.vt-section-more { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; width: 100%; }
+.vt-section-more[hidden] { display: none; }
+.vt-section-axes { display: flex; flex-wrap: wrap; gap: 8px; }
+.vt-section-pos { display: flex; align-items: center; gap: 8px; flex: 1 1 220px; font-size: 14px; color: var(--muted); }
+.vt-section-pos input { flex: 1; min-height: 44px; accent-color: var(--accent); }
+.vt-section-note { width: 100%; margin: 0; font-size: 14px; color: var(--muted); }
 .row .lbl { font-size: 14px; color: var(--muted); min-width: 4.5em; }
 .viewer { position: relative; width: 100%; height: 60vh; min-height: 320px; max-height: 580px; background: var(--card); border-radius: 14px; overflow: hidden; margin-top: 12px; }
 .viewer canvas { display: block; width: 100%; height: 100%; touch-action: none; }

@@ -113,7 +113,7 @@
   // ---- what the page shows right now (stage, toggles, parts, camera) ----
   // Choice buttons in the order they must be pressed to rebuild a view.
   const CHOICE = ['data-case', 'data-class', 'data-phase', 'data-stage', 'data-state', 'data-age', 'data-stage-index'];
-  const TOGGLES = ['xray', 'lost', 'labels', 'bite', 'cut', 'seethrough', 'ghost', 'moved', 'btn-margin', 'btn-xray', 'btn-recon'];
+  const TOGGLES = ['xray', 'lost', 'labels', 'bite', 'cut', 'seethrough', 'ghost', 'moved', 'btn-margin', 'btn-xray', 'btn-recon', 'btn-section'];
   const outside = (el) => !el.closest('.vt-share, .vt-parts, .vt-tourbar, header, nav, footer');
   const choiceButtons = (scope, attr) => [...(scope || doc).querySelectorAll('button[' + attr + ']')].filter((b) => outside(b) && !b.hidden && !b.disabled && b.offsetParent !== null);
 
