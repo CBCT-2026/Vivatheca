@@ -5,6 +5,7 @@ Shared steps for every web model on the site.
 | Script | What it does | Run |
 | --- | --- | --- |
 | `finish.mjs` | Last step of a model build: dedup, prune, weld, Draco-compress, then validate. Used by every `tools/*/finish*.py` and `finish.sh`. | `node tools/glb/finish.mjs build/*.glb --out public/<model>/models` |
+| `drop-fragments.mjs` | Removes tiny loose components (1 to 8 triangle slivers left by decimation and booleans) from every mesh, keeping materials and nodes, then re-finishes. Used on the head and neck case models on 6 Nov 2026 (546 slivers across 6 files). | `node tools/glb/drop-fragments.mjs in.glb --out out.glb [--min-faces 16] [--dry-run]` |
 | `validate.mjs` | Khronos glTF-Validator on every GLB under `public/`, with a 6 MB limit. Runs in CI (`models-and-licences.yml`). | `pnpm check:glb` |
 
 Both use the glTF-Transform and validator versions pinned in `package.json`, so a build no longer fetches `@gltf-transform/cli` through `npx` at run time.
