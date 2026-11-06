@@ -13,6 +13,7 @@
     "test:e2e": "playwright test",
     "check:patient-text": "node tools/patient-text/snapshot.mjs && pitk check",
     "check:glb": "node tools/glb/validate.mjs",
+    "check:rules": "node tools/rules/check.mjs",
     "search:index": "node tools/search/build-index.mjs",
     "i18n:status": "node tools/i18n/status.mjs",
     "slices:build": "python3 tools/cbct/voxelize.py public/models/impacted-molar.glb public/slices/wisdom-tooth.nvol --pitch 0.4 && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-before.nvol --pitch 0.5 --skip fibula,plate,screws && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-after.nvol --pitch 0.5 --skip specimen,lesion,margin",

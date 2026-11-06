@@ -1,0 +1,12 @@
+{
+  "neutral-wording": [
+    { "file": "app/i18n/dictionaries/en.ts", "match": "What did Hunsuck change", "reason": "Historical surgeon (Hunsuck), named in a cited source; not about Luke or a site user. Pending Luke's decision on case wording." },
+    { "file": "app/i18n/dictionaries/en.ts", "match": "as on her X-ray", "reason": "Published SCC case report states the patient's sex. Pending Luke's decision on case wording." },
+    { "file": "public/head-neck/ameloblastoma/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
+    { "file": "public/head-neck/mec/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
+    { "file": "public/head-neck/okc/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
+    { "file": "public/head-neck/scc/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." }
+  ],
+  "justify": [],
+  "licence": []
+}
