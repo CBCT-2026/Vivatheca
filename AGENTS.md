@@ -110,6 +110,8 @@ This is a standing project rule for every new model and every rebuild.
 - Every model page, download and print zip states which base was used, its licence and the required credit, and the model's own licence (CC BY 4.0 or CC BY-SA 4.0). Never label a model CC BY if any part came from Z-Anatomy or another share-alike source.
 - Base meshes come from one adult reference body, not from any patient, so the model disclaimer still applies.
 
+Model picture checks: `tests/pictures/model-pictures.spec.ts` (own config `playwright.pictures.config.ts`, ignored by `pnpm test:e2e`) takes one fixed picture of every collection model. The `Model pictures` workflow takes them on the base branch and then on the PR on the same machine and fails on any visible model change. Add new models to its `SHOTS` list. Locally: on main `pnpm test:pictures --update-snapshots=all`, then on your branch (after `pnpm build`) `pnpm test:pictures`.
+
 ## Evidence and transparency (required for everything)
 
 This is a standing project rule. It applies to every page, model, download, text and generated material, whether or not a task restates it.
