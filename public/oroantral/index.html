@@ -14,7 +14,7 @@
 try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
 // Language and furigana use the same cookies as the rest of the site (app/i18n/config.ts).
 (function () { const c = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
-  if (c('vivatheca-lang') === 'ja') document.documentElement.lang = 'ja';
+  if (c('vivatheca-lang') === 'ja' || c('vivatheca-lang') === 'vi') document.documentElement.lang = c('vivatheca-lang');
   document.documentElement.dataset.furigana = c('vivatheca-furigana') === 'off' ? 'off' : 'on'; })();
 // The models are Draco-compressed; the decoder is served from this site.
 self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
@@ -22,7 +22,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 <link rel="stylesheet" href="../development/style.css">
 <style>
   /* Show only the visitor's language (the language switcher buttons always show). */
-  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button) { display: none !important; }
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button), html[lang="vi"] [lang="ja"]:not(#langs button) { display: none !important; }
   .stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
   .stages + .stages { margin-top: 6px; }
   .stages-head { font-size: 13px; color: var(--muted); margin: 12px 0 0; font-weight: 600; }
@@ -307,6 +307,8 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 
   <p class="small"><span lang="en">Version 0.2, 6 November 2026 (palatal flap stage and 3D print files added). Sources found through PubMed.</span><span lang="ja"><ruby>版<rp aria-hidden="true">(</rp><rt aria-hidden="true">はん</rt><rp aria-hidden="true">)</rp></ruby>0.2、2026<ruby>年<rp aria-hidden="true">(</rp><rt aria-hidden="true">ねん</rt><rp aria-hidden="true">)</rp></ruby>11<ruby>月<rp aria-hidden="true">(</rp><rt aria-hidden="true">がつ</rt><rp aria-hidden="true">)</rp></ruby>6<ruby>日<rp aria-hidden="true">(</rp><rt aria-hidden="true">か</rt><rp aria-hidden="true">)</rp></ruby>。<ruby>出典<rp aria-hidden="true">(</rp><rt aria-hidden="true">しゅってん</rt><rp aria-hidden="true">)</rp></ruby>は PubMed で<ruby>検索<rp aria-hidden="true">(</rp><rt aria-hidden="true">けんさく</rt><rp aria-hidden="true">)</rp></ruby>。</span></p>
 </main>
+<script src="vi.js"></script>
+<script src="/inline-vi.js"></script>
 <script src="viewer.js"></script>
 <script src="/contact.js"></script>
 <script src="/model-page.js"></script>
