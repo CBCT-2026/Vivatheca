@@ -781,6 +781,19 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
   .page-header-actions { gap: .25rem; }
   .page-nav { gap: .1rem .8rem; font-size: .86rem; }
 }
+/* Phones: same compact switch as the homepage header (short EN / 日本語 labels). */
+@media (max-width: 560px) {
+  .page-header .brand, .page-header .brand img { width: 108px; }
+  .page-header-actions > .language-switcher { gap: 0; border: 1px solid var(--line); border-radius: 999px; padding: 1px; }
+  .page-header-actions > .language-switcher button { min-width: 40px; min-height: 40px; padding: .3rem .45rem; }
+  .page-header-actions > .language-switcher .lang-full { display: none; }
+  .page-header-actions > .language-switcher .lang-short { display: inline; }
+  .page-header-actions > .language-switcher .furigana-toggle { min-width: 0; margin-left: .15rem; padding-inline: .35rem; font-size: .72rem; }
+}
+@media (max-width: 340px) {
+  .page-header .brand, .page-header .brand img { width: 92px; }
+  .page-header-actions > .language-switcher .furigana-toggle { display: none; }
+}
 /* Links to prototype model pages (static pages under public/) below the featured model. */
 .prototype-links { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--line); display: grid; gap: .25rem; }
 .prototype-links h3 { margin: 0; font-size: .84rem; font-weight: 700; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }

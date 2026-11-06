@@ -43,8 +43,8 @@ test('?lang=ja makes a shareable Japanese link', async ({ page }) => {
   await expect(page.locator('h1')).toHaveText('患者(かんじゃ)説明(せつめい)資料(しりょう)をつくる');
 });
 
-test('language and theme switches stay in the top bar on phones', async ({ page }) => {
-  for (const path of ['/', '/create', '/disclaimer']) {
+test('language and theme switches stay in the top bar on phones', async ({ page, context }) => {
+  for (const path of ['/', '/create', '/disclaimer', '/models', '/about', '/report']) {
     await page.setViewportSize({ width: 360, height: 780 });
     await page.goto(path);
     const header = page.locator('header.site-header');
@@ -102,4 +102,14 @@ test('model library, model page, About, Privacy and Report are translated', asyn
     document.querySelector('form')!.requestSubmit();
   })).catch(() => '');
   if (href) expect(decodeURIComponent(href)).toContain('Issue: Anatomy is wrong');
+});
+
+test('sub-page headers fit a phone in Japanese', async ({ page, context }) => {
+  await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
+  await page.setViewportSize({ width: 360, height: 780 });
+  for (const path of ['/about', '/models', '/create', '/privacy']) {
+    await page.goto(path);
+    await expect(page.locator('header.site-header .theme-toggle')).toBeInViewport();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
+  }
 });
