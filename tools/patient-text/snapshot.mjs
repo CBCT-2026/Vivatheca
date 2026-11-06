@@ -78,20 +78,25 @@ async function snapshotStatic(browser, base, page, lang) {
   // Click through every combination of the caption buttons (stage, age, bite class, before/after).
   const captions = [];
   const groups = [];
+  // Captions are read from #stage. A page without one (head-neck) has nothing to collect, and
+  // reading a missing #stage waits for Playwright's 30 s timeout at every combination.
+  const hasStage = (await tab.locator('#stage').count()) > 0;
   for (const attr of ['data-stage', 'data-age', 'data-class', 'data-phase', 'data-case']) {
-    if ((await tab.locator(`[${attr}]`).count()) > 0) groups.push(tab.locator(`button[${attr}]`));
+    if (hasStage && (await tab.locator(`[${attr}]`).count()) > 0) groups.push(tab.locator(`button[${attr}]`));
   }
   const walk = async (level) => {
     if (level === groups.length) {
-      const html = await tab.locator('#stage').innerHTML().catch(() => '');
+      const html = hasStage ? await tab.locator('#stage').innerHTML() : '';
       if (html.trim() && !captions.includes(html)) captions.push(html);
       return;
     }
     const buttons = groups[level];
     let clicked = false;
     for (let i = 0; i < (await buttons.count()); i += 1) {
-      if (!(await buttons.nth(i).isVisible())) continue;
-      await buttons.nth(i).click();
+      // Skip hidden and disabled buttons: Playwright would wait on a disabled one until its
+      // timeout (head-neck disables "Closing the gap" for cases without a reconstruction).
+      if (!(await buttons.nth(i).isVisible()) || !(await buttons.nth(i).isEnabled())) continue;
+      await buttons.nth(i).click({ timeout: 5000 });
       clicked = true;
       await walk(level + 1);
     }
@@ -127,7 +132,9 @@ const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath
 try {
   for (const page of await staticPages()) {
     for (const lang of LANGS) {
+      const t0 = Date.now();
       const html = await snapshotStatic(browser, base, page, lang);
+      console.log(`${page} ${lang}: ${((Date.now() - t0) / 1000).toFixed(1)} s`);
       if (html) files[`${page}.${lang}.html`] = html;
       else console.log(`${page}: no ${lang} version`);
     }
