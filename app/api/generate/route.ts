@@ -57,6 +57,9 @@ interface RequestBody {
 }
 
 export async function POST(request: Request): Promise<Response> {
+  // Only Vivatheca's own /create page may spend the platform's AI credits.
+  const origin = request.headers.get('Origin');
+  if (origin && origin !== new URL(request.url).origin) return json({ error: 'Invalid request.' }, 403);
   const { ANTHROPIC_API_KEY, AI_DAILY_LIMIT_PER_VISITOR } = await config();
   if (!ANTHROPIC_API_KEY) return json({ error: 'AI drafting is not set up yet. Use the copy-prompt option instead.' }, 503);
 
@@ -69,9 +72,9 @@ export async function POST(request: Request): Promise<Response> {
 
   let prompt: string;
   if (body.action === 'draft' && body.brief) {
-    const language = (body.language && body.language in draftLanguages ? body.language : 'en') as DraftLanguage;
+    const language = (typeof body.language === 'string' && Object.hasOwn(draftLanguages, body.language) ? body.language : 'en') as DraftLanguage;
     prompt = buildUserPrompt(body.brief, language);
-  } else if (body.action && body.action in refineActions && typeof body.draft === 'string') {
+  } else if (typeof body.action === 'string' && Object.hasOwn(refineActions, body.action) && typeof body.draft === 'string') {
     prompt = buildRefinePrompt(body.action as RefineAction, body.draft, (body.findings ?? []).slice(0, 40).map(String));
   } else {
     return json({ error: 'Invalid request.' }, 400);

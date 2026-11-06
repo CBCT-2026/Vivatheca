@@ -154,6 +154,14 @@ function json(body: unknown, status = 200, extra: Record<string, string> = {}) {
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', ...extra } });
 }
 
+// Compares in constant time for equal lengths, so response timing does not reveal the token.
+function sameSecret(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
 const clip = (v: unknown, max: number) => (typeof v === 'string' ? v.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '').trim().slice(0, max) : '');
 
 async function hash(text: string) {
@@ -245,8 +253,11 @@ export async function handleStoreApi(request: Request, env: StoreEnv): Promise<R
 
   if (path.startsWith('/api/admin')) {
     if (!env.ADMIN_TOKEN) return json({ error: 'admin-off' }, 503);
-    const auth = request.headers.get('Authorization') ?? '';
-    if (!allowed(request, 30) || auth !== `Bearer ${env.ADMIN_TOKEN}`) return json({ error: 'auth' }, 401);
+    // The token comes in X-Admin-Token, because the site password gate (worker/index.ts) uses the
+    // Authorization header while it is on. A Bearer header still works when the gate is off.
+    const bearer = request.headers.get('Authorization') ?? '';
+    const token = request.headers.get('X-Admin-Token') ?? (bearer.startsWith('Bearer ') ? bearer.slice(7) : '');
+    if (!allowed(request, 30) || !sameSecret(token, env.ADMIN_TOKEN)) return json({ error: 'auth' }, 401);
     if (path === '/api/admin/pending' && method === 'GET') return json({ items: await store.pending() });
     if (path === '/api/admin/moderate' && method === 'POST') {
       const b = await body(request);
