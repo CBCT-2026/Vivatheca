@@ -15,12 +15,22 @@ function appRoutes(dir = 'app', base = ''): string[] {
 }
 const redirects = new Set(['/collection']);
 const appPages = appRoutes().filter((route) => route !== '/' && !redirects.has(route));
-const staticPages = readdirSync('public', { withFileTypes: true })
-  .filter((entry) => entry.isDirectory() && existsSync(join('public', entry.name, 'index.html')))
-  // The local server needs index.html spelled out; production serves /<name>/.
-  .map((entry) => `/${entry.name}/index.html`);
+// Includes nested pages such as public/head-neck/scc/index.html.
+function staticRoutes(dir = 'public', base = ''): string[] {
+  const routes: string[] = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const path = join(dir, entry.name);
+    // The local server needs index.html spelled out; production serves /<name>/.
+    if (existsSync(join(path, 'index.html'))) routes.push(`${base}/${entry.name}/index.html`);
+    routes.push(...staticRoutes(path, `${base}/${entry.name}`));
+  }
+  return routes;
+}
+const staticPages = staticRoutes();
 
 test('every page has a logo in its header that links to the homepage', async ({ page }) => {
+  test.setTimeout(180_000); // visits every page, including the static model pages
   expect(appPages.length).toBeGreaterThan(5);
   expect(staticPages.length).toBeGreaterThan(5);
   for (const path of [...appPages, ...staticPages]) {
@@ -57,4 +67,13 @@ test('inner pages share the same top bar order as the homepage', async ({ page }
   await expect(nav.getByRole('link')).toHaveText(['How it works', 'Model collection', 'Evidence', 'Create', 'Students', 'About']);
   await nav.getByRole('link', { name: 'How it works' }).click();
   await expect(page).toHaveURL(/\/#how-it-works$/);
+});
+
+test('unknown addresses show a branded 404 page with a way home', async ({ page }) => {
+  const response = await page.goto('/no-such-page');
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('We could not find that page.');
+  await expect(page.locator('header').first().locator('a[href="/"]').filter({ has: page.locator('img[alt="Vivatheca"]') })).toHaveCount(1);
+  await expect(page.locator('main a[href="/models"]')).toBeVisible();
+  await expect(page.locator('footer a[href="/disclaimer"]').first()).toBeVisible();
 });

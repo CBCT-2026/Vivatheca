@@ -811,6 +811,13 @@ const en = {
     contactHeading: 'Contact',
     contact: 'Privacy questions:',
   },
+  notFound: {
+    title: 'Page not found — Vivatheca',
+    heading: 'We could not find that page.',
+    intro: 'The link may be old or mistyped. Try the model collection or go back to the homepage.',
+    models: 'Browse the models',
+    home: 'Vivatheca home',
+  },
   report: {
     title: 'Report an inaccuracy — Vivatheca',
     description: 'Tell Vivatheca about anatomy, labels or text that do not look right in a model.',
