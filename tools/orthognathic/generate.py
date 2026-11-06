@@ -270,7 +270,7 @@ def make(state):
 COL = {  # linear RGB; bone and teeth as the wisdom tooth model (teeth lightened, see project colour rule)
     'bone': ([0.6724, 0.5972, 0.4969, 1], 0.7, 0.0),
     'moved': ([0.6724, 0.5972, 0.4969, 1], 0.7, 0.0),
-    'teeth': ([0.7682, 0.7157, 0.6514, 1], 0.45, 0.0),
+    'teeth': ([0.8963, 0.855, 0.7758, 1], 0.45, 0.0),
     'cut': ([0.62, 0.08, 0.06, 1], 0.6, 0.0),
     'plate': ([0.72, 0.74, 0.77, 1], 0.3, 0.6),
     'screw': ([0.45, 0.47, 0.5, 1], 0.35, 0.6),

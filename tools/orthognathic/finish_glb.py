@@ -4,7 +4,7 @@ import json, struct, subprocess, sys
 from pathlib import Path
 COL = {  # keep in step with COL in generate.py
     'bone': ([0.6724, 0.5972, 0.4969, 1], 0.7, 0.0), 'moved': ([0.6724, 0.5972, 0.4969, 1], 0.7, 0.0),
-    'teeth': ([0.7682, 0.7157, 0.6514, 1], 0.45, 0.0), 'cut': ([0.62, 0.08, 0.06, 1], 0.6, 0.0),
+    'teeth': ([0.8963, 0.855, 0.7758, 1], 0.45, 0.0), 'cut': ([0.62, 0.08, 0.06, 1], 0.6, 0.0),
     'plate': ([0.72, 0.74, 0.77, 1], 0.3, 0.6), 'screw': ([0.45, 0.47, 0.5, 1], 0.35, 0.6),
     'before': ([0.12, 0.45, 0.85, 0.0], 0.6, 0.0)}
 src, dst = Path(sys.argv[1]), Path(sys.argv[2]); dst.mkdir(parents=True, exist_ok=True)

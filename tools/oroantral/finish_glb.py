@@ -3,7 +3,7 @@ Run: python3 finish_glb.py <in_dir> <out_dir>   (needs npx; uses @gltf-transform
 import json, struct, subprocess, sys
 from pathlib import Path
 COL = {
-    'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.768, 0.716, 0.651, 1], 'gum': [0.70, 0.25, 0.28, 1],
+    'bone': [0.6724, 0.5972, 0.4969, 1], 'teeth': [0.8963, 0.855, 0.7758, 1], 'gum': [0.70, 0.25, 0.28, 1],
     'sinus': [0.18, 0.48, 0.86, 0.38], 'lining': [0.80, 0.22, 0.16, 0.85], 'tract': [0.62, 0.05, 0.10, 1],
     'clot': [0.26, 0.015, 0.02, 1], 'flap': [0.95, 0.52, 0.42, 1], 'fat': [0.93, 0.62, 0.08, 1],
 }

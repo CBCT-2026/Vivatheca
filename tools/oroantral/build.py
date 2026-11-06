@@ -115,7 +115,7 @@ def mesh(mask, target, smooth=8):
 # Materials: linear RGBA. Bone = latest wisdom tooth model colour; teeth slightly lighter.
 MAT = {
     'bone': ([0.6724, 0.5972, 0.4969, 1], 0.7),
-    'teeth': ([0.768, 0.716, 0.651, 1], 0.45),
+    'teeth': ([0.8963, 0.855, 0.7758, 1], 0.45),
     'gum': ([0.70, 0.25, 0.28, 1], 0.6),
     'sinus': ([0.18, 0.48, 0.86, 0.38], 0.3),
     'lining': ([0.80, 0.22, 0.16, 0.85], 0.6),

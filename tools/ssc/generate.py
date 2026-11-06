@@ -45,14 +45,14 @@ CREST_BELOW_CEJ = 1.5  # bone crest, mm below the enamel-root junction
 # Colours (linear RGB, glTF). Bone and tooth: the wisdom tooth model's colours (Luke, 5 Nov 2026).
 MAT = {
     'bone':    dict(c=[0.6724, 0.5972, 0.4969, 1], r=0.7, m=0.0),
-    'teeth':   dict(c=[0.770, 0.718, 0.648, 1], r=0.7, m=0.0),
+    'teeth':   dict(c=[0.8963, 0.855, 0.7758, 1], r=0.7, m=0.0),
     'pulp':    dict(c=[0.576, 0.031, 0.043, 1], r=0.5, m=0.0),   # nerve red of the wisdom tooth model
     'gum':     dict(c=[0.62, 0.20, 0.22, 1], r=0.55, m=0.0),
     'decay':   dict(c=[0.13, 0.065, 0.025, 1], r=0.8, m=0.0),
     'filling': dict(c=[0.42, 0.32, 0.72, 1], r=0.35, m=0.0),  # lilac, so it stands out from tooth
     'cement':  dict(c=[0.93, 0.90, 0.80, 1], r=0.6, m=0.0),
     'steel':   dict(c=[0.75, 0.75, 0.77, 1], r=0.28, m=1.0),
-    'premolar': dict(c=[0.770, 0.718, 0.648, 1], r=0.7, m=0.0),
+    'premolar': dict(c=[0.8963, 0.855, 0.7758, 1], r=0.7, m=0.0),
 }
 
 def M(m):

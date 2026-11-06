@@ -589,8 +589,9 @@ const en = {
     further: { title: 'Take it further', text: 'Share the model, view it in AR on your phone, or download the STL to print it.' },
   },
   print: {
-    imageAlt: 'The impacted wisdom tooth model beside its matched normal, where the wisdom tooth stands upright in line with the other molars.',
-    caption: 'Left: impacted wisdom tooth. Right: matched normal, with the wisdom tooth upright. Screenshots of the models.',
+    imageAlt: 'Cheek-side view of the impacted wisdom tooth model: on the left the digital model, on the right a photo of the same model 3D printed, with a ruler. Both show grey-beige bone and teeth and the nerve in red.',
+    imageAltLingual: 'Tongue-side view of the same digital model and 3D print, with a ruler.',
+    caption: 'Top: cheek side. Bottom: tongue side. Left: digital model, shown here in the print’s colours (grey-beige, nerve in red). Right: the same model 3D printed (version 10.1). Photos by Luke Seifert, Vivatheca.',
     heading: 'From the screen to something you can hold.',
     text: 'Most models come with a free STL file in millimetres, with its print scale stated on the model page, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands. Print files for the jaw and palate surgery models will follow once those models are finalised.',
     download: 'Download both STL files',
