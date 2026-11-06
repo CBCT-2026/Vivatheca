@@ -36,12 +36,15 @@ number chosen by hand; it catches scans where the rami were labelled as skull or
    component.
 4. Rigid alignment of each mandible to the reference (the scan with the median mandible volume): centroid
    translation, then iterative closest point on 4000 surface points [4]. The same transform is applied to the
-   scan's teeth and skull so they keep their place on the jaw. No scaling: the average reflects the sizes in
+   scan's teeth so they keep their place on the jaw. No scaling: the average reflects the sizes in
    the set. (A PCA frame was tried as the initial pose, but its axis signs flip between scans on a near-symmetric
    mandible and ICP cannot recover; centroid + ICP is robust because all scans are supine, head first.)
-5. Aligned binary masks are averaged into a per-part probability map; the model surface is the 0.5 iso-surface
-   (bone or tooth in at least half the scans), extracted with marching cubes [5], smoothed with 10 Taubin
-   iterations (no shrinkage) [6] and decimated to 30 000 faces (60 000 for the skull).
+5. Aligned binary masks are averaged into a per-part probability map and smoothed with a 0.7 mm Gaussian
+   (with six scans the raw mean is quantised, 3/6 = 0.5 exactly, which leaves pits and one-voxel needles from
+   thick-slice scans); the model surface is the 0.5 iso-surface (bone or tooth in at least half the scans),
+   extracted with marching cubes [5], smoothed with 10 Taubin iterations (no shrinkage) [6] and decimated to
+   30 000 faces. Only the mandible and lower teeth are exported: the skull and upper teeth averages were patchy
+   shells, because neck scans stop at different levels and several people had few upper teeth.
 6. Export as one GLB in metres, Y-up, patient right at −x, one material per part so the site's take-apart
    tools work; finished with `tools/glb/finish.mjs` (weld, Draco). The mandible is also exported as STL in mm.
 
@@ -51,7 +54,8 @@ number chosen by hand; it catches scans where the rami were labelled as skull or
 - Older cancer patients with mixed dentition; missing teeth in several scans thin or remove teeth in the mean.
 - Segmentation errors near the skull base and metal artefacts are reduced by the largest-component rule and the
   edge check, not eliminated.
-- Small n and rigid-only alignment; the skull stops where the neck scans stop.
+- Small n and rigid-only alignment; no skull or upper teeth; the lower teeth are thin because teeth that only some
+  people had do not reach the half-way threshold.
 - Not clinically reviewed. Reference shape only, not for diagnosis, planning or fitting anything to a patient.
 
 ## Licence

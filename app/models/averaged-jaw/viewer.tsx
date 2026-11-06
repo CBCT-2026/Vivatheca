@@ -6,7 +6,7 @@ import { Ruby } from '../../i18n/ruby';
 import { type ModelViewerElement, PartsPanel } from '../../model-parts';
 
 // The averaged jaw in model-viewer, with the shared take-apart tools (one material per part in the GLB).
-export const averagedJawParts = ['mandible', 'teeth_lower', 'teeth_upper', 'skull'];
+export const averagedJawParts = ['mandible', 'teeth_lower'];
 
 export function AveragedJawViewer({ src, alt }: { src: string; alt: string }) {
   const { t } = useI18n();

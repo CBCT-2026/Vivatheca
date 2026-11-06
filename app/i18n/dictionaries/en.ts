@@ -490,9 +490,9 @@ const en = {
   },
   // Averaged jaw from open CT scans (/models/averaged-jaw). [n] marks a source in averagedJawSources.
   averagedJaw: {
-    lead: 'One lower jaw, upper teeth and skull base that belong to nobody: the average of several open, de-identified CT scans, each segmented automatically and aligned to the others. It is a reference for the shape and proportions of a typical adult jaw, not a picture of any one patient.[1][3][7]',
+    lead: 'One lower jaw that belongs to nobody: the average of several open, de-identified CT scans, each segmented automatically and aligned to the others. It is a reference for the shape and proportions of a typical adult mandible, not a picture of any one patient.[1][3][7]',
     notPerson: 'This model is a statistical mean of {n} scans. Every surface is the boundary where at least half of the aligned scans had bone or tooth, so no feature of it comes from a single person and it cannot be matched back to anyone.',
-    alt: 'Three-dimensional model of an averaged adult lower jaw with lower and upper teeth and the base of the skull',
+    alt: 'Three-dimensional model of an averaged adult lower jaw with its teeth',
     whatHeading: 'What this model is for',
     what: [
       'A matched “normal” to put beside the condition models when no single healthy scan should be shown.',
@@ -513,10 +513,10 @@ const en = {
     methodHeading: 'How it was made',
     method: [
       'Each CT series was converted to NIfTI and, for whole-body scans, cropped to the top 300 mm so the head was kept.[8]',
-      'TotalSegmentator (task craniofacial_structures) labelled the mandible, lower teeth, upper teeth, skull and sinuses in each scan.[1] The task is open (Apache-2.0) and follows the dental segmentation work of Dot and colleagues.[2]',
+      'TotalSegmentator (task craniofacial_structures) labelled the mandible, lower teeth, upper teeth, skull and sinuses in each scan.[1] The task is open (Apache-2.0) and follows the dental segmentation work of Dot and colleagues.[2] Only the mandible and lower teeth are averaged here.',
       'Each label volume was resampled to 0.7 mm cubes in a standard patient orientation, and each part was reduced to its largest connected piece to drop stray islands.[8]',
-      'The scan with the median mandible volume was the reference. Every other mandible was moved onto it by matching centroids and then by iterative closest point registration on surface points; the same rigid move was applied to that scan’s teeth and skull, so the teeth stayed in place on their jaw.[4]',
-      'For each part the aligned masks were averaged into a probability map. The model surface is where that probability is 0.5, extracted with marching cubes, smoothed with Taubin’s method (which does not shrink the shape) and reduced to a web-friendly number of triangles.[5][6]',
+      'The scan with the median mandible volume was the reference. Every other mandible was moved onto it by matching centroids and then by iterative closest point registration on surface points; the same rigid move was applied to that scan’s teeth, so they stayed in place on their jaw.[4]',
+      'For each part the aligned masks were averaged into a probability map and smoothed by 0.7 mm. The model surface is where that probability is 0.5 (bone in at least half the scans), extracted with marching cubes, smoothed with Taubin’s method (which does not shrink the shape) and reduced to a web-friendly number of triangles.[5][6]',
       'The GLB is finished with the same tool as every other Vivatheca model (welded vertices, Draco compression), and provenance.json records each scan, its licence and its fit.[8]',
     ],
     limitsHeading: 'What to keep in mind',
@@ -525,10 +525,10 @@ const en = {
       'The people scanned were adults being treated for cancer, often older, and their dentition varies; missing teeth in several scans leave gaps or thin teeth in the average.',
       'Automatic segmentation can mislabel bone near the skull base and metal fillings cause streaks; the largest-piece rule and the edge check catch most of this but not all of it.[1]',
       'Rigid alignment only: jaws are not scaled to one size, so the average reflects the mix of sizes in this set, and the number of scans is small. The table above says exactly which.',
-      'The skull is only the part that was inside the neck scans, so it stops where the scans stop.',
+      'The upper teeth and skull are left out: the neck scans stop at different levels and several people had few upper teeth, so their averages were patchy shells that said nothing about anatomy. The lower teeth are kept but are thin, because teeth that only some people had do not reach the half-way threshold.',
     ],
     downloadsTitle: 'Downloads',
-    glb: 'Averaged jaw · GLB (mandible, teeth, skull as separate parts)',
+    glb: 'Averaged jaw · GLB (mandible and lower teeth as separate parts)',
     stl: 'Averaged mandible · STL for printing',
     provenanceFile: 'Provenance · which scans, settings and fit',
     licenceText: 'This model is released under',
@@ -1174,7 +1174,7 @@ const en = {
       'averaged-jaw': {
         title: 'Averaged jaw from open CT scans',
         specialty: 'Oral and maxillofacial surgery · reference anatomy',
-        summary: 'The mean lower jaw, teeth and skull base of several de-identified public CT scans, segmented automatically and aligned: a typical adult jaw that belongs to no one, with every source scan listed.',
+        summary: 'The mean lower jaw and teeth of several de-identified public CT scans, segmented automatically and aligned: a typical adult mandible that belongs to no one, with every source scan listed.',
         pairing: 'Reference normal (statistical mean)',
       },
       orthognathic: {

@@ -1,1 +1,122 @@
-{"n": 0, "pitch_mm": 0.7, "scans_used": [], "parts": {}, "files": {"glb": "0 MB", "stl": "0 MB"}}
+{
+ "scans_used": [
+  {
+   "scan": "cptac_luad__C3N-02948",
+   "icp_mean_mm": 1.93,
+   "voxel_mm": [
+    0.551,
+    0.551,
+    1.5
+   ],
+   "mandible_cm3": 52.2,
+   "collection_id": "cptac_luad",
+   "PatientID": "C3N-02948",
+   "PatientAge": "067Y",
+   "PatientSex": "M",
+   "SeriesDescription": "NECK  1.5  I31s  3",
+   "source_DOI": "10.7937/k9/tcia.2018.pat12tbs",
+   "license_short_name": "CC BY 4.0"
+  },
+  {
+   "scan": "tcga_thca__TCGA-DE-A4MA",
+   "icp_mean_mm": 2.54,
+   "voxel_mm": [
+    0.977,
+    0.977,
+    1.5
+   ],
+   "mandible_cm3": 72.0,
+   "collection_id": "tcga_thca",
+   "PatientID": "TCGA-DE-A4MA",
+   "PatientAge": "052Y",
+   "PatientSex": "F",
+   "SeriesDescription": "CT HeadNeck  3.0  B31s",
+   "source_DOI": "10.7937/k9/tcia.2016.9zfrvf1b",
+   "license_short_name": "CC BY 3.0"
+  },
+  {
+   "scan": "tcga_thca__TCGA-DE-A4MC",
+   "icp_mean_mm": 1.17,
+   "voxel_mm": [
+    0.49,
+    0.49,
+    3.0
+   ],
+   "mandible_cm3": 73.1,
+   "collection_id": "tcga_thca",
+   "PatientID": "TCGA-DE-A4MC",
+   "PatientAge": "043Y",
+   "PatientSex": "F",
+   "SeriesDescription": "Neck  ST Axial",
+   "source_DOI": "10.7937/k9/tcia.2016.9zfrvf1b",
+   "license_short_name": "CC BY 3.0"
+  },
+  {
+   "scan": "tcga_thca__TCGA-DE-A4MD",
+   "icp_mean_mm": 2.81,
+   "voxel_mm": [
+    0.467,
+    0.467,
+    2.5
+   ],
+   "mandible_cm3": 91.7,
+   "collection_id": "tcga_thca",
+   "PatientID": "TCGA-DE-A4MD",
+   "PatientAge": "071Y",
+   "PatientSex": "M",
+   "SeriesDescription": "Soft Tissue Neck",
+   "source_DOI": "10.7937/k9/tcia.2016.9zfrvf1b",
+   "license_short_name": "CC BY 3.0"
+  },
+  {
+   "scan": "tcga_thca__TCGA-E3-A3E5",
+   "icp_mean_mm": 2.56,
+   "voxel_mm": [
+    0.516,
+    0.516,
+    1.5
+   ],
+   "mandible_cm3": 72.5,
+   "collection_id": "tcga_thca",
+   "PatientID": "TCGA-E3-A3E5",
+   "PatientAge": "057Y",
+   "PatientSex": "M",
+   "SeriesDescription": "S.T. NECK W",
+   "source_DOI": "10.7937/k9/tcia.2016.9zfrvf1b",
+   "license_short_name": "CC BY 3.0"
+  },
+  {
+   "scan": "varepop_apollo__AP-RMFZ",
+   "icp_mean_mm": 2.81,
+   "voxel_mm": [
+    2.0,
+    0.637,
+    0.637
+   ],
+   "mandible_cm3": 79.7,
+   "collection_id": "varepop_apollo",
+   "PatientID": "AP-RMFZ",
+   "PatientAge": "055Y",
+   "PatientSex": "M",
+   "SeriesDescription": "Neck 2.000",
+   "source_DOI": "10.7937/ghkn-md15",
+   "license_short_name": "CC BY 4.0"
+  }
+ ],
+ "n": 6,
+ "pitch_mm": 0.7,
+ "parts": {
+  "mandible": {
+   "faces": 30000,
+   "volume_cm3": 66.0
+  },
+  "teeth_lower": {
+   "faces": 6812,
+   "volume_cm3": 1.1
+  }
+ },
+ "files": {
+  "glb": "0.1 MB",
+  "stl": "1.5 MB"
+ }
+}

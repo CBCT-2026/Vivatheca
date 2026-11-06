@@ -60,3 +60,9 @@ path = ["public/vendor/niivue/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "NiiVue contributors (@niivue/niivue 0.69.0)"
 SPDX-License-Identifier = "BSD-2-Clause"
+
+[[annotations]]
+path = ["public/models/averaged-jaw/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Vivatheca, derived from CC BY CT collections credited in provenance.json"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

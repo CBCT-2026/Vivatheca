@@ -27,7 +27,9 @@ from scipy import ndimage
 from scipy.spatial import cKDTree
 from skimage import measure
 
-PARTS = {'mandible': 1, 'teeth_lower': 2, 'teeth_upper': 7, 'skull': 3}
+# The skull is segmented too but not averaged: neck scans stop at different levels, so the mean skull is a jagged
+# partial shell that says nothing about anatomy.
+PARTS = {'mandible': 1, 'teeth_lower': 2, 'teeth_upper': 7}
 ROOT = Path(__file__).resolve().parents[2]
 FINISH = ROOT / 'tools' / 'glb' / 'finish.mjs'
 
@@ -71,6 +73,9 @@ def mesh_from_prob(prob, pitch, smooth_iters=10, target_faces=40000):
     trimesh.smoothing.filter_taubin(m, lamb=0.5, nu=-0.53, iterations=smooth_iters)
     if len(m.faces) > target_faces:
         m = m.simplify_quadric_decimation(face_count=target_faces)
+    m.fix_normals()
+    if m.volume < 0:  # marching cubes on a probability map gives inward-facing triangles
+        m.invert()
     return m
 
 
@@ -84,6 +89,7 @@ def main():
     ap.add_argument('--min-fraction', type=float, default=0.6, help='keep scans whose mandible volume is at least this fraction of the median')
     ap.add_argument('--selection', help='selection.json from the fetch step, to record collection, patient ID, DOI and licence per scan')
     args = ap.parse_args()
+    np.random.seed(0)  # surface sampling for ICP is random; fix it so the result is reproducible
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
 
@@ -162,10 +168,13 @@ def main():
     meshes = {}
     for part in PARTS:
         prob = sums[part] / n
+        # A little Gaussian smoothing (0.7 mm) before the iso-surface: with few scans the raw mean is quantised
+        # (3 of 6 scans = exactly 0.5), which leaves pits and one-voxel needles from thick-slice scans.
+        prob = ndimage.gaussian_filter(prob, sigma=1.0)
         if (prob > 0.5).sum() < 100:  # strictly above, so the iso-surface at 0.5 always exists
             print(f'{part}: too little agreement, skipped')
             continue
-        m = mesh_from_prob(prob, pitch, target_faces=60000 if part == 'skull' else 30000)
+        m = mesh_from_prob(prob, pitch, target_faces=30000)
         m.apply_translation(-np.array([pad, pad, pad]) * pitch)
         meshes[part] = m
         nib.save(nib.Nifti1Image(prob, np.diag([pitch, pitch, pitch, 1])), out / f'{part}-probability.nii.gz')
@@ -174,7 +183,7 @@ def main():
     # One GLB, metres, Y-up like the other site models (R, A, S) -> (-x, y, z): x = -R, y = S, z = A.
     scene = trimesh.Scene()
     # Slightly different colours per part, so tools/glb/finish.mjs does not merge the materials (each part is hidden/shown by its material).
-    colours = {'mandible': [226, 220, 205, 255], 'skull': [222, 215, 200, 255], 'teeth_lower': [245, 243, 236, 255], 'teeth_upper': [244, 242, 235, 255]}
+    colours = {'mandible': [226, 220, 205, 255], 'teeth_lower': [245, 243, 236, 255], 'teeth_upper': [244, 242, 235, 255]}
     centre = meshes['mandible'].bounds.mean(0) if 'mandible' in meshes else np.zeros(3)
     for part, m in meshes.items():
         v = (m.vertices - centre) / 1000.0

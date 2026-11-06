@@ -49,3 +49,4 @@ tsconfig.tsbuildinfo
 .dev.vars*
 __pycache__/
 *.pyc
+tools/segment/out/
