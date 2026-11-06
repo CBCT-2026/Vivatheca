@@ -86,6 +86,11 @@ const en = {
         title: 'Dental development, ages 6 to 12',
         text: 'Mixed dentition, the Nolla, Moorrees and Demirjian staging systems, jaw growth, and how dental age estimates vary between populations.',
       },
+      cracked: {
+        status: 'Student guide available',
+        title: 'Cracked tooth: crown versus filling',
+        text: 'Longitudinal tooth fractures, why losing the marginal ridges lets cusps flex, and the outcome evidence for cuspal coverage, with its uncertainty.',
+      },
       orthognathic: {
         status: 'Student guide in preparation',
         title: 'Orthognathic surgery: Class I, II and III',
@@ -174,6 +179,64 @@ const en = {
       { q: 'Which permanent teeth on the model are accessional?', a: 'The permanent molars. They erupt behind the primary dentition and do not replace a primary tooth.[1]' },
       { q: 'What does Moorrees stage R½ mean for a mandibular canine?', a: 'The root has reached about half of its final length.[3]' },
       { q: 'Why might a Demirjian dental age be older than a child’s real age?', a: 'Pooled studies show the method overestimates age by about half a year in many populations, and accuracy depends on the reference population used to convert maturity scores to ages.[6][7]' },
+    ],
+  },
+  // Student guide: cracked tooth (/learn/cracked-tooth). [n] marks a source in crackedSources (app/learn/sources.ts).
+  learnCracked: {
+    metaTitle: 'Cracked tooth: crown versus direct restoration — student guide — Vivatheca',
+    metaDescription: 'Longitudinal tooth fractures, cuspal flexure, and the evidence on cuspal coverage for cracked teeth, with sources, for dental students.',
+    eyebrow: 'Student guide',
+    heading: 'Cracked tooth: crown versus direct restoration',
+    lead: 'A study companion to the cracked tooth model. The model page is written for patients; this page uses the technical terms, the biomechanics and the studies behind the model.',
+    openModel: 'Open the 3D model (patient page)',
+    objectivesHeading: 'Learning objectives',
+    objectives: [
+      'Name the five longitudinal tooth fractures that the AAE separates, and place a cracked tooth among them.',
+      'Explain why loss of marginal ridge integrity reduces cuspal stiffness.',
+      'Contrast intracoronal restorations with cuspal coverage for a cracked tooth.',
+      'Summarise the evidence on full crowns, direct restorations and monitoring, and its certainty.',
+      'Identify where this model simplifies or exaggerates.',
+    ],
+    termsHeading: 'Key terms',
+    terms: [
+      { term: 'Cracked tooth', text: 'The AAE Glossary defines it as “a thin surface disruption of enamel and dentin, and possibly cementum, of unknown depth or extension.”[2] For patients, the AAE describes a crack that extends from the chewing surface vertically toward the root, with the tooth not yet separated into pieces.[1]' },
+      { term: 'Longitudinal tooth fractures', text: 'The AAE separates craze lines, fractured cusp, cracked tooth, split tooth and vertical root fracture.[1] A split tooth cannot be saved intact.[1]' },
+      { term: 'Cuspal coverage', text: 'A restoration that covers the cusps, such as a full crown or an onlay, rather than sitting only within the tooth (intracoronal).[5]' },
+      { term: 'Marginal ridge', text: 'The enamel ridges on the mesial and distal edges of the occlusal surface. Losing them had the largest effect on cuspal stiffness in a laboratory study.[4]' },
+    ],
+    mechanicsHeading: 'Why cuspal coverage matters',
+    mechanics: [
+      'In extracted maxillary premolars loaded within their elastic range, an occlusal cavity reduced relative cuspal stiffness by 20%, endodontic access by only 5%, and an MOD cavity by 63% on average. The largest losses came with loss of marginal ridge integrity.[4]',
+      'Cusps that are less stiff flex more under occlusal load. An intracoronal restoration does not tie the cusps together, so a crack running under it can still open with each load. Cuspal coverage braces the cusps and covers the crack from the oral environment.[5][7]',
+      'The model shows this with an exaggerated 6 degree tilt of the buccal and lingual halves about the base of the crack. Real cuspal deflection is far too small to see.',
+    ],
+    evidenceHeading: 'Outcomes: what the studies show',
+    evidenceColumns: ['Study', 'Design', 'Main finding'],
+    evidence: [
+      { study: 'Zhang 2024[6]', design: 'Systematic review and meta-analysis, 27 studies (26 pooled)', finding: 'Vital cracked teeth: direct restorations without cuspal coverage vs full crowns, RR 3.2 (95% CI 1.51 to 6.82) for pulpal complications and RR 8.1 (1.05 to 62.5) for extraction. Root-filled cracked teeth without a full crown: 11.3-fold risk of extraction. Monitoring without restoration: 80% success at 3 years.' },
+      { study: 'Wu 2019[7]', design: 'Retrospective cohort, 199 teeth with reversible pulpitis', finding: '29.1% developed irreversible pulpitis or necrosis within 3 years. No full-coverage crown: OR 8.74 for pulpal complications.' },
+      { study: 'Krell and Rivera 2007[8]', design: 'Case series, 127 teeth with reversible pulpitis, all planned for crowns', finding: 'About 20% needed root canal treatment, mostly within 6 months.' },
+      { study: 'Hilton 2020[3]', design: 'Practice-based cohort, 2,858 teeth', finding: '46% painful (cold 1,055, biting 459, spontaneous 367). About one third recommended for treatment; caries, biting pain and a radiographic crack were the strongest predictors of a restoration recommendation.' },
+      { study: 'Olivieri 2020[9]', design: 'Systematic review, 7 cohorts of root-filled cracked teeth', finding: '1-year survival 88% and success 82%. A crack-associated periodontal pocket increased the risk of tooth loss.' },
+    ],
+    uncertainHeading: 'Where the evidence is uncertain',
+    uncertain: [
+      'The studies are observational. Teeth that received crowns may differ from those that did not, and wide confidence intervals (for example RR 8.1, 95% CI 1.05 to 62.5) show how few events some comparisons rest on.[6]',
+      'A 2026 review of root-filled cracked teeth rated all included studies at serious risk of bias and the certainty of evidence very low; lack of definitive cuspal coverage was one of several risk indicators.[11]',
+      'A crown gives maximum protection but does not guarantee success.[1] Asymptomatic cracks are often monitored rather than restored.[3][6]',
+    ],
+    simplifyHeading: 'What the model simplifies',
+    simplify: [
+      'One lower first molar from Z-Anatomy; the CEJ is set 7.5 mm below the highest cusp tip, a typical crown length.[10] Enamel thickness is an estimate.',
+      'The crack is drawn 0.24 mm wide and runs mesiodistally through both marginal ridges, stopping 0.8 to 2.6 mm above the CEJ. Real cracks are much narrower and vary in path and depth.',
+      'Cavity and crown preparation dimensions are typical teaching values chosen for the model, not taken from one source. They are listed in the notes on the model page.',
+      'Biting movement is exaggerated many times and is shown only for the cracked and filled teeth.',
+    ],
+    questionsHeading: 'Check your understanding',
+    questions: [
+      { q: 'Which cavity preparation caused the largest loss of cuspal stiffness in Reeh and colleagues’ study?', a: 'The MOD preparation, with a mean loss of 63%, because it removes both marginal ridges.[4]' },
+      { q: 'For a vital cracked tooth, what did the 2024 meta-analysis find for direct restorations without cuspal coverage compared with full crowns?', a: 'A higher risk of pulpal complications (RR 3.2) and of extraction (RR 8.1), from observational studies.[6]' },
+      { q: 'Name one finding that argues against treating every crack straight away.', a: 'In the 2024 meta-analysis, monitoring without restoration had 80% success at 3 years, and in the US practice network about one third of cracked teeth were recommended for treatment.[3][6]' },
     ],
   },
   hero: {
@@ -380,6 +443,27 @@ const en = {
         clinical: 'Use this visualisation alongside clinical findings and imaging. It is an educational aid, not a diagnostic record or treatment recommendation.',
       },
     ],
+  },
+  clinical: {
+    heading: 'Impacted wisdom teeth on real X-rays and scans',
+    note: 'These images are from real patients. Their authors published them under open licences; each licence is given under the image and is not the model licence.',
+    images: {
+      opgLow: {
+        alt: 'Panoramic X-ray. The lower left wisdom tooth lies deep in the jaw, low down behind the second molar.',
+        caption: 'Image 1. A lower wisdom tooth (right side of the picture, which is the patient’s left) lying deep in the jaw, close to the roots of the tooth in front of it.',
+      },
+      ctCanal: {
+        alt: 'Four CT slices across the lower jaw, showing the wisdom tooth deep in the bone.',
+        caption: 'Image 2. The same tooth on CT slices. The authors report that it sits just above the nerve canal (inferior alveolar canal), as in the 3D model.',
+      },
+      cbctNerve: {
+        alt: 'A grid of CBCT slices through a lower wisdom tooth. In several slices the nerve canal passes between the tooth roots.',
+        caption: 'Image 3. 3D scan (CBCT) slices of another patient: here the nerve canal runs between the roots of the wisdom tooth.',
+      },
+    },
+    credit: 'Credit',
+    licence: 'Licence',
+    changes: 'Changes',
   },
   // The English disclaimer wording lives in app/disclaimer-text.ts (single source of truth).
   disclaimer: {

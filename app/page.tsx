@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { contributionPaths, publications, trustItems, understandingPaths } from './data';
+import { clinicalImages, contributionPaths, publications, trustItems, understandingPaths } from './data';
 import { SiteFooter } from './site-chrome';
 import { mailto } from './contact';
 import { getI18n } from './i18n/server';
@@ -88,6 +88,24 @@ export default async function Home() {
             <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.collection.label} /></div>
           </div>
           <ModelExperience />
+          <div className="clinical-images" id="clinical-images">
+            <h3><Ruby text={t.clinical.heading} /></h3>
+            <p className="clinical-note"><Ruby text={t.clinical.note} /></p>
+            <div className="clinical-grid">
+              {clinicalImages.map((image, index) => {
+                const text = t.clinical.images[image.key];
+                return (
+                  <figure key={image.key} className="clinical-figure" id={`img-${index + 1}`}>
+                    <img src={image.src} width={image.width} height={image.height} loading="lazy" alt={plain(text.alt)} />
+                    <figcaption>
+                      <Ruby text={text.caption} />
+                      <span className="clinical-credit">{plain(t.clinical.credit)}: <span lang="en">{image.credit} <a href={image.href} target="_blank" rel="noreferrer">{image.href.replace('https://', '')}</a>.</span> {plain(t.clinical.licence)}: <a href={image.licence.href} target="_blank" rel="noreferrer" lang="en">{image.licence.name}</a>. {plain(t.clinical.changes)}: <span lang="en">{image.changes}</span></span>
+                    </figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </div>
           <div className="prototype-links">
             <h3><Ruby text={t.collection.moreHeading} /></h3>
             <a className="text-link" href="/head-neck/"><Ruby text={t.collection.moreHeadNeck} /> <Icon name="arrow_forward" /></a>

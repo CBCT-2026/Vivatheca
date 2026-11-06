@@ -87,3 +87,39 @@ export function contributionPaths(t: Dictionary) {
     { icon: '3d_rotation', ...c.request, href: 'mailto:hello@vivatheca.com?subject=Model%20request' },
   ];
 }
+
+// Real radiographs and scans shown under the homepage wisdom tooth model.
+// Licences and consent reasoning: assets/clinical-images/manifest.json and docs/image-licensing.md.
+// Credits stay in English, the language the sources were published in.
+export const clinicalImages = [
+  {
+    key: 'opgLow',
+    src: '/images/clinical/wisdom-tooth/opg-low-impacted-lower-third-molar.jpg',
+    width: 750,
+    height: 480,
+    credit: 'Kudo Y, Asoda S, Muraoka W, et al. Trigeminal neuropathic pain with complicated pathophysiology caused by a low-level impacted mandibular third molar: a case report. Cureus. 2025;17(5):e84308, Figure 1.',
+    href: 'https://doi.org/10.7759/cureus.84308',
+    licence: { name: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
+    changes: 'None.',
+  },
+  {
+    key: 'ctCanal',
+    src: '/images/clinical/wisdom-tooth/ct-third-molar-canal.jpg',
+    width: 750,
+    height: 428,
+    credit: 'Same article as Image 1, Figure 2.',
+    href: 'https://doi.org/10.7759/cureus.84308',
+    licence: { name: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
+    changes: 'None.',
+  },
+  {
+    key: 'cbctNerve',
+    src: '/images/clinical/wisdom-tooth/cbct-nerve-between-roots.jpg',
+    width: 732,
+    height: 985,
+    credit: 'Pellegrino G, Tayeb S, Vignudelli E, et al. Dynamic navigation-assisted coronectomy of a deeply impacted mandibular third molar: a 5-year case follow-up. Case Rep Dent. 2025;2025:7010729, Figure 1. The article records the patient’s consent to publication of the images.',
+    href: 'https://doi.org/10.1155/crid/7010729',
+    licence: { name: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
+    changes: 'None.',
+  },
+] as const;

@@ -90,7 +90,8 @@ test('print section offers the STL download and sponsorship contact', async ({ p
 test('landing-page images are model screenshots, not AI illustrations', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByText('AI-generated illustration.', { exact: true })).toHaveCount(0);
-  const sources = await page.locator('main figure img').evaluateAll((images) => images.map((image) => image.getAttribute('src')));
+  // Real clinical images carry their own source and licence credit; other figures are model screenshots.
+  const sources = await page.locator('main figure:not(.clinical-figure) img').evaluateAll((images) => images.map((image) => image.getAttribute('src')));
   expect(sources.length).toBeGreaterThan(0);
   for (const src of sources) expect(src).toMatch(/^\/assets\/renders\//);
   const visibleCopy = await page.locator('body').innerText();
