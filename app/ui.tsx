@@ -72,7 +72,7 @@ export function ModelExperience() {
 
   useEffect(() => {
     let active = true;
-    // The ABG models are Draco-compressed; use the decoder this site already serves (no outside requests).
+    // Draco-compressed models: use the decoder this site serves, so no request goes to gstatic.com (blocked in mainland China).
     (self as unknown as { ModelViewerElement?: object }).ModelViewerElement = { dracoDecoderLocation: '/development/vendor/draco/' };
     import('@google/model-viewer').then(() => { if (active) setReady(true); });
     return () => { active = false; };

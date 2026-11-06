@@ -40,6 +40,8 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
 
   useEffect(() => {
     let active = true;
+    // Draco-compressed models: use the decoder this site serves, so no request goes to gstatic.com (blocked in mainland China).
+    (self as unknown as { ModelViewerElement?: object }).ModelViewerElement = { dracoDecoderLocation: '/development/vendor/draco/' };
     import('@google/model-viewer').then(() => { if (active) { setReady(true); setCanFullscreen(Boolean(document.fullscreenEnabled)); } }).catch(() => { if (active) setFailed(true); });
     return () => { active = false; };
   }, []);
