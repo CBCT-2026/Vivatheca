@@ -10,6 +10,7 @@ import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
+import { MyModels, QuickPick } from './show/quick';
 
 // A mix of other models (app/models/catalogue.ts). The wisdom tooth is the hero; the bone graft series is the interactive section.
 const showcaseSlugs = ['dental-development', 'orthognathic', 'periodontitis', 'head-neck', 'oroantral', 'cracked-tooth'];
@@ -40,12 +41,15 @@ export default async function Home() {
       </header>
 
       <main id="main-content">
+        {/* The visitor's starred models (this browser only); renders nothing until there is one. */}
+        <div className="home-my-models"><MyModels /></div>
         <section className="hero" id="top">
           <div className="hero-copy">
             <h1 className="hero-title"><span className="hero-line"><Ruby text={t.hero.line1} /></span><span className="hero-line"><Ruby text={t.hero.line2} /></span></h1>
             <p className="hero-lede"><Ruby text={t.hero.lede} /></p>
             <div className="hero-actions">
-              <a className="button" href="/models"><Ruby text={t.hero.explore} /> <Icon name="arrow_forward" /></a>
+              <a className="button" href="#quick-show"><Ruby text={t.show.heroButton} /></a>
+              <a className="button button-secondary" href="/models"><Ruby text={t.hero.explore} /> <Icon name="arrow_forward" /></a>
               <a className="button button-secondary" href="#collection"><Ruby text={t.hero.how} /></a>
             </div>
             <ul className="access-list" aria-label={plain(t.hero.accessLabel)}>{t.hero.access.map((item) => <li key={item}><Ruby text={item} /></li>)}</ul>
@@ -54,6 +58,16 @@ export default async function Home() {
             <img src="/assets/renders/wisdom-tooth-hero.webp" alt={plain(t.hero.imageAlt)} width="1536" height="1024" fetchPriority="high" />
             <figcaption><Ruby text={t.hero.caption} /></figcaption>
           </figure>
+        </section>
+
+        {/* Show a patient: every model one tap from home, opening full screen (app/show). */}
+        <section className="quick-section" id="quick-show" aria-labelledby="quick-show-title">
+          <div className="quick-inner">
+            <h2 id="quick-show-title"><Ruby text={t.show.homeHeading} /></h2>
+            <p className="quick-intro"><Ruby text={t.show.homeText} /></p>
+            <QuickPick headingLevel={3} />
+            <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
+          </div>
         </section>
 
         <aside className="origin-band" aria-label={plain(t.origin.label)}>
