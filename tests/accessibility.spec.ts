@@ -21,6 +21,7 @@ const pages = [
   '/head-neck/index.html',
   '/head-neck/scc/index.html',
   '/orthognathic/index.html',
+  '/fixation/index.html',
   '/learn/periodontitis',
 ];
 

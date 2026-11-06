@@ -1059,6 +1059,12 @@ const en = {
         summary: 'Class II and Class III jaw relationships before and after orthognathic surgery, beside a Class I normal. Optional chin surgery (genioplasty) on the after models. Pictured: Class II before surgery (left) and after surgery with genioplasty (right).',
         pairing: 'Conditions + normal',
       },
+      fixation: {
+        title: 'How surgeons hold bone with plates and screws',
+        specialty: 'Oral and maxillofacial surgery',
+        summary: 'A step-by-step 3D demonstration of a titanium plate and screws going onto a cut lower jaw, with diagrams of where surgeons place plates in jaw surgery and jaw reconstruction.',
+        pairing: 'Seven steps, from the cut to the last screw',
+      },
     } as Record<string, { title: string; specialty: string; summary: string; pairing: string }>,
   },
   wisdom: {

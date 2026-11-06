@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How surgeons hold bone with plates and screws | Vivatheca</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="description" content="A step-by-step 3D model of a titanium plate and screws going onto a cut lower jaw, with diagrams of where surgeons place plates in jaw surgery and jaw reconstruction.">
+<meta name="robots" content="noindex">
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="../development/style.css">
+<style>
+  .steps { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .steps button, .nav button { min-height: 44px; padding: 6px 4px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, sans-serif; cursor: pointer; }
+  .steps button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  .nav { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0 0; }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; }
+  .stage p { margin: 0; }
+  .dot.bone { background: #d7cbbb; } .dot.teeth { background: #f3eee4; } .dot.cut { background: #cf3b2c; }
+  .dot.plate { background: #b9bcc2; } .dot.screw { background: #7d838a; } .dot.drill { background: #9aa1a8; }
+  figure.diagram { margin: 16px 0; }
+  figure.diagram img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+  figure.diagram figcaption { font-size: 14px; margin-top: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  footer { max-width: 640px; margin: 0 auto; padding: 16px 16px 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+  @media (max-width: 520px) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>
+<script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
+<link rel="stylesheet" href="/site-header.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="brand-home" href="/" style="display:inline-flex;align-items:center;line-height:0"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="53" height="40" style="height:40px;width:auto;background:#fff;border-radius:6px"></a>
+    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>
+    <a class="lang" href="/models" data-i18n="allModels">All models</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+<script src="/site-header.js"></script>
+
+<main>
+  <h1 data-i18n="h1">How surgeons hold bone with plates and screws</h1>
+  <p data-i18n="lede">After jaw surgery or an injury, the bone pieces must stay still while they heal. Surgeons often hold them with small titanium plates and screws.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup> This page shows, step by step, how a plate and screws go in. It also shows where surgeons put them in the Vivatheca models.</p>
+
+  <model-viewer id="mv"
+    src="models/1-cut.glb"
+    alt="3D model of the left side of a lower jaw, cut through between two back teeth. The back piece sits apart from the front piece."
+    camera-controls camera-orbit="70deg 80deg 0.12m" camera-target="0m 0m 0m" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="0.6" exposure="0.95" loading="eager">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <p class="small" data-i18n="viewOnly"><strong>3D viewing only for now.</strong> Print files are not available yet.</p>
+  <p class="status" data-i18n="review"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+
+  <div class="steps" role="group" aria-label="Steps" data-i18n-aria="stepsGroup">
+    <button type="button" data-stage="1-cut" aria-pressed="true">1</button>
+    <button type="button" data-stage="2-lined-up" aria-pressed="false">2</button>
+    <button type="button" data-stage="3-plate" aria-pressed="false">3</button>
+    <button type="button" data-stage="4-drill" aria-pressed="false">4</button>
+    <button type="button" data-stage="5-first-screw" aria-pressed="false">5</button>
+    <button type="button" data-stage="6-all-screws" aria-pressed="false">6</button>
+    <button type="button" data-stage="7-see-through" aria-pressed="false">7</button>
+  </div>
+  <div class="nav">
+    <button type="button" id="prev" data-i18n="prev">Back</button>
+    <button type="button" id="next" data-i18n="next">Next step</button>
+  </div>
+  <section class="stage" id="stage" aria-live="polite">
+    <p data-for="1-cut" data-i18n="s1"><b>Step 1. The bone is cut.</b> Here the cut goes between two back teeth, as in lower jaw surgery. The back piece has slipped out of place. Red shows the cut bone.</p>
+    <p data-for="2-lined-up" data-i18n="s2" hidden><b>Step 2. Line up the pieces.</b> The surgeon puts the pieces back in the right place. The teeth must meet as planned.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    <p data-for="3-plate" data-i18n="s3" hidden><b>Step 3. Bend the plate to fit.</b> The surgeon picks a plate and bends it to match the bone, often using a soft metal guide first. The plate crosses the cut, with two holes on each side.<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
+    <p data-for="4-drill" data-i18n="s4" hidden><b>Step 4. Drill the first hole.</b> The drill goes through a plate hole, straight into the bone. Cool water runs over it, so the bone does not get too hot.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    <p data-for="5-first-screw" data-i18n="s5" hidden><b>Step 5. Put in the first screw.</b> The surgeon measures how deep the hole is and picks a screw of the right length. Then they turn it in until its head sits in the plate.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    <p data-for="6-all-screws" data-i18n="s6" hidden><b>Step 6. Fill the other holes.</b> Each hole is drilled and screwed in the same way. With two screws on each side of the cut, the pieces cannot move.<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></p>
+    <p data-for="7-see-through" data-i18n="s7" hidden><b>Step 7. Look inside.</b> The bone is see-through here. These short screws go into the hard outer layer of bone only. They stay away from the tooth roots and the nerve inside the jaw.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup></p>
+  </section>
+  <ul class="legend">
+    <li><span class="dot bone"></span><span data-i18n="lBone">Bone</span></li>
+    <li><span class="dot teeth"></span><span data-i18n="lTeeth">Teeth</span></li>
+    <li><span class="dot cut"></span><span data-i18n="lCut">Cut bone</span></li>
+    <li><span class="dot plate"></span><span data-i18n="lPlate">Titanium plate</span></li>
+    <li><span class="dot screw"></span><span data-i18n="lScrew">Screws</span></li>
+    <li><span class="dot drill"></span><span data-i18n="lDrill">Drill (step 4 only)</span></li>
+  </ul>
+
+  <section>
+    <h2 data-i18n="partsH">The plate and the screws</h2>
+    <p data-i18n="parts1">A small plate (miniplate) is a thin strip of round screw holes joined by narrow bridges. It is about 1 mm thick. The screws are about 2 mm wide.<sup class="cite"><a href="#ref-4">4</a></sup> Each hole has a sloped rim, so the screw head sits low in the plate.</p>
+    <p data-i18n="parts2">Surgeons use a bigger plate (reconstruction plate) when the jaw must carry more load. One example is after part of the jaw is removed. It is thicker and stronger. Its screws often go right through the jaw.<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></p>
+    <figure class="diagram">
+      <img src="diagrams/plate-and-screw.svg" width="800" height="300" loading="lazy" data-i18n-alt="dg1Alt" alt="Diagram of a plate across a cut in bone from above, and two slices through the jaw showing a short and a long screw.">
+      <figcaption data-i18n="dg1"><b>Diagram 1. Plate and screws.</b> (A) From above. 1 A small plate. 2 An empty hole with its sloped rim. 3 A screw head with a cross-shaped slot. 4 The cut in the bone. (B) A cut through the jaw. 5 The hard outer layer of bone. 6 The soft inside. 7 The hard inner layer. 8 A short screw goes into the outer layer only (monocortical). (C) 9 A thicker reconstruction plate. 10 A long screw goes through both layers (bicortical).<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></figcaption>
+    </figure>
+    <figure class="diagram">
+      <img src="diagrams/placing-steps.svg" width="800" height="450" loading="lazy" data-i18n-alt="dg2Alt" alt="Six numbered drawings of a plate and four screws going onto bone across a cut, from lining up to the last screw.">
+      <figcaption data-i18n="dg2"><b>Diagram 2. How a plate and screws go in.</b> 1 The bone pieces are lined up. 2 The plate is bent to fit the bone. 3 A hole is drilled straight through the plate hole, with cooling water. 4 The depth of the hole is measured. 5 The first screw goes in. 6 The other holes are drilled and screwed.<sup class="cite"><a href="#ref-3">3</a></sup></figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2 data-i18n="whereH">Where surgeons put the plates</h2>
+    <p data-i18n="where1">Surgeons put plates where the bone is thick and strong, and away from tooth roots and nerves.<sup class="cite"><a href="#ref-1">1</a></sup> Where they go depends on the operation.</p>
+    <figure class="diagram">
+      <img src="diagrams/orthognathic-plates.svg" width="800" height="340" loading="lazy" data-i18n-alt="dg3Alt" alt="Diagram of the jaws from the front and the side, showing the cuts and where the plates go in jaw surgery.">
+      <figcaption data-i18n="dg3"><b>Diagram 3. Plates in jaw surgery.</b> (A) From the front. 1 An L-shaped plate beside the nose. 2 An L-shaped plate on the strong ridge above the back teeth. 3 The upper jaw cut (Le Fort I). 4 The chin plate. 5 The chin cut (genioplasty). (B) The lower jaw from the side. 6 The lower jaw split (BSSO). 7 One straight plate across it. 8 The lower edge of the jaw.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-8">8</a></sup></figcaption>
+    </figure>
+    <ul>
+      <li data-i18n="w1"><b>Upper jaw cut (Le Fort I).</b> Most often four L-shaped plates: two beside the nose and two on the strong ridges above the back teeth. Some surgeons use only two.<sup class="cite"><a href="#ref-5">5</a></sup> <a href="/orthognathic/">See the jaw surgery models</a>.</li>
+      <li data-i18n="w2"><b>Lower jaw split (BSSO).</b> One straight plate on each side, across the cut, with short screws. Some surgeons use three long screws instead. Both hold the jaw about as well.<sup class="cite"><a href="#ref-6">6</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></li>
+      <li data-i18n="w3"><b>Chin surgery (genioplasty).</b> One small plate in the middle of the chin, with two screws above the cut and two below. Some surgeons use two screws instead.<sup class="cite"><a href="#ref-8">8</a></sup></li>
+      <li data-i18n="w4"><b>Jaw rebuilt with leg bone (fibula flap).</b> Small plates join each piece of leg bone to the next and to the jaw. Some surgeons use one long, strong plate instead. Studies differ on which has fewer problems.<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup> <a href="/head-neck/scc/">See the mouth cancer case</a>.</li>
+      <li data-i18n="w5"><b>Top of the jaw removed (rim resection).</b> If the bone left is thin, a long plate along the lower edge keeps it from breaking. <a href="/head-neck/ameloblastoma/">See the ameloblastoma case</a>.<sup class="cite"><a href="#ref-13">13</a></sup></li>
+    </ul>
+    <p data-i18n="where2">Your surgeon will explain which plates they plan to use for you, and why.</p>
+  </section>
+
+  <section>
+    <h2 data-i18n="clinH">For clinicians: the Vivatheca fixation standard</h2>
+    <p data-i18n="clin0">Every Vivatheca model with plates uses one shared build component (<code>tools/fixation/</code>), so plates look and sit the same way across the collection. Sizes and placements come from the sources below; where a value is our estimate, it says so.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th data-i18n="thSys">System</th><th data-i18n="thPlate">Plate</th><th data-i18n="thScrew">Screws</th><th data-i18n="thUse">Used in</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="t1a">2.0 mm miniplate</td><td data-i18n="t1b">1.0 mm thick (AO lists 1.0–2.0 mm for Mini Plate 2.0)<sup class="cite"><a href="#ref-4">4</a></sup>; lobes 4.5 mm, bridges 1.9 mm (our estimate)</td><td data-i18n="t1c">2.0 mm, monocortical, 5 mm (shorter where the model bone is thinner)<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></td><td data-i18n="t1d">Le Fort I, BSSO, genioplasty, fibula flap (SCC case), this demo</td></tr>
+        <tr><td data-i18n="t2a">2.0 mm reconstruction-type plate</td><td data-i18n="t2b">1.5 mm thick (our estimate within the 1.0–2.0 mm range)<sup class="cite"><a href="#ref-4">4</a></sup>; continuous bar with lobes, 6.5 mm hole spacing</td><td data-i18n="t2c">2.0 mm, bicortical; length = bone thickness along the screw + 1 mm<sup class="cite"><a href="#ref-9">9</a></sup></td><td data-i18n="t2d">Rim resection (ameloblastoma case; plate size from the case report)<sup class="cite"><a href="#ref-13">13</a></sup></td></tr>
+        <tr><td data-i18n="t3a">2.4 mm locking reconstruction plate</td><td data-i18n="t3b">2.5 mm thick<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></td><td data-i18n="t3c">2.4 mm locking, bicortical; at least 3–4 screws in each segment<sup class="cite"><a href="#ref-3">3</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></td><td data-i18n="t3d">Ready for future segmental resections; not yet used</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <ul>
+      <li data-i18n="c1">Placement: miniplates on Champy's lines of osteosynthesis, monocortical, below the tooth apices and away from the inferior alveolar canal.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-2">2</a></sup> Le Fort I: four L-plates, piriform aperture and zygomaticomaxillary buttress each side (two-plate fixation at the piriform aperture was equally stable in one cohort of 39).<sup class="cite"><a href="#ref-5">5</a></sup> BSSO: one 4-hole extended miniplate each side across the buccal step<sup class="cite"><a href="#ref-6">6</a></sup>; bicortical screws and miniplates did not differ significantly in stability after setback in a meta-analysis.<sup class="cite"><a href="#ref-7">7</a></sup> Genioplasty: one central pre-bent 4-hole chin plate, two screws in each segment (stiffer than two bicortical screws in a finite element model).<sup class="cite"><a href="#ref-8">8</a></sup></li>
+      <li data-i18n="c2">Fibula flap: miniplates at every junction with at least two screws on each side, as on the case radiograph<sup class="cite"><a href="#ref-12">12</a></sup>; miniplate versus reconstruction-bar evidence is mixed (more plate complications with miniplates in a meta-analysis of 1,513 patients; fewer plate exposures with miniplates in a series of 205).<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></li>
+      <li data-i18n="c3">Geometry: the flat outline is extruded, countersunk at each hole, then bent onto a smoothed height map of the bone (the highest bone within 1.5 mm, then Gaussian-smoothed), so the plate bridges steps instead of sinking into them; long plates follow a spline through their holes so they can wrap round the jaw. Screws are dome-headed with a cross recess, threaded, and set along the local plate normal (drilled at a right angle to the plate, as in the instructions for use).<sup class="cite"><a href="#ref-3">3</a></sup> Lobe and bridge widths, head shape and thread pitch are illustrative.</li>
+      <li data-i18n="c4">Demo model: left mandibular body of the Vivatheca orthognathic base skull (Z-Anatomy), cut between the first and second molars; plate at the height of the BSSO plate. The inferior alveolar canal and the cortical layers are not modelled in 3D; Diagram 1 shows them schematically. Steps follow the order in the instructions for use.<sup class="cite"><a href="#ref-3">3</a></sup></li>
+      <li data-i18n="c5">Not shown: lag screws, resorbable plates, patient-specific (3D-printed) plates, locking versus non-locking screw heads, and intermaxillary fixation.</li>
+    </ul>
+    <p class="small" data-i18n="clin9">Build scripts: <code>tools/fixation/</code> (component, demo, diagrams) in the Vivatheca repository.</p>
+  </section>
+
+  <section class="disclaimer">
+    <h2 data-i18n="aboutH">About this model</h2>
+    <p data-i18n="review"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p class="small credit" data-i18n="credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: mandible and teeth extracted, smoothed, remeshed, cropped and cut; plate, screws and drill added. This model and the diagrams are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2 data-i18n="sourcesH">Sources</h2></summary>
+    <ol>
+      <li id="ref-1">Champy M, Loddé JP, Schmitt R, Jaeger JH, Muster D. Mandibular osteosynthesis by miniature screwed plates via a buccal approach. J Maxillofac Surg. 1978;6(1):14-21. <a href="https://doi.org/10.1016/s0301-0503(78)80062-9">doi.org/10.1016/s0301-0503(78)80062-9</a> (Monocortical juxta-alveolar and subapical miniplates; ideal lines of osteosynthesis.)</li>
+      <li id="ref-2">Worthington P, Champy M. Monocortical miniplate osteosynthesis. Otolaryngol Clin North Am. 1987;20(3):607-620. <a href="https://pubmed.ncbi.nlm.nih.gov/3317206/">PubMed 3317206</a></li>
+      <li id="ref-3">DePuy Synthes. MatrixMANDIBLE Preformed Reconstruction Plates: instructions for use. SE_530350 AE, 10/2015. <a href="https://ifu.depuysynthes.com/binary/org/DPY_SYN_EMEA/ifu_documents/CMF/MatrixMANDIBLE_Preformed_Reconstruction_Plates%20se_530350_AE_eng.pdf">ifu.depuysynthes.com</a> (Manufacturer's instructions: plate 2.5 mm thick; minimum 3–4 screws in each segment; drill at a right angle to the plate with irrigation; step order.)</li>
+      <li id="ref-4">AO Foundation Technical Commission. Locking Reconstruction Plate 2.4 and Mini Plate 2.0 System. Approved solution, 2014. <a href="https://www.aofoundation.org/approved/approvedsolutionsfolder/2014/locking-reconstruction-plate-24-and-mini-plate-20-system">aofoundation.org</a> (Mini Plate 2.0: 1.0, 1.25, 1.5 or 2.0 mm thick, 2.0 mm screws; Locking Reconstruction Plate 2.4: 2.5 mm thick. Written for the veterinary version of the system; used here for plate and screw sizes only.)</li>
+      <li id="ref-5">Beyler E, Altıparmak N, Bayram B. Comparison of the postoperative stability after repositioning of the maxilla with Le Fort I osteotomy using four- versus two-plate fixation. J Stomatol Oral Maxillofac Surg. 2021;122(2):156-161. <a href="https://doi.org/10.1016/j.jormas.2020.05.011">doi.org/10.1016/j.jormas.2020.05.011</a></li>
+      <li id="ref-6">Oguz Y, Saglam H, Dolanmaz D, Uckan S. Comparison of stability of 2.0 mm standard and 2.0 mm locking miniplate/screws for the fixation of sagittal split ramus osteotomy on sheep mandibles. Br J Oral Maxillofac Surg. 2011;49(2):135-137. <a href="https://doi.org/10.1016/j.bjoms.2009.11.014">doi.org/10.1016/j.bjoms.2009.11.014</a> (4-hole extended 2.0 mm miniplates.)</li>
+      <li id="ref-7">Al-Moraissi EA, Ellis E. Stability of bicortical screw versus plate fixation after mandibular setback with the bilateral sagittal split osteotomy: a systematic review and meta-analysis. Int J Oral Maxillofac Surg. 2016;45(1):1-7. <a href="https://doi.org/10.1016/j.ijom.2015.09.017">doi.org/10.1016/j.ijom.2015.09.017</a></li>
+      <li id="ref-8">Gulsever S, Munevveroglu S, Hartomacioglu S, Guldiken IN, Uckan S. Comparison of screw and plate osteosynthesis in advancement genioplasty: a finite element analysis study. Eur Oral Res. 2025;59(1):40-45. <a href="https://doi.org/10.26650/eor.20241371296">doi.org/10.26650/eor.20241371296</a> (One central 4-hole pre-bent chin plate, two screws in each segment.)</li>
+      <li id="ref-9">Schiel S, Otto S, Pautke C, Cornelius CP, Probst FA. Simplified transoral load-bearing osteosynthesis with preformed mandible reconstruction plates. Craniomaxillofac Trauma Reconstr. 2013;6(3):211-214. <a href="https://doi.org/10.1055/s-0033-1343784">doi.org/10.1055/s-0033-1343784</a> (Reconstruction plates fixed with bicortical locking screws.)</li>
+      <li id="ref-10">Sobti N, Ahmed KS, Polanco T, et al. Mini-plate versus reconstruction bar fixation for oncologic mandibular reconstruction with free fibula flaps: a systematic review and meta-analysis. J Plast Reconstr Aesthet Surg. 2022;75(8):2691-2701. <a href="https://doi.org/10.1016/j.bjps.2022.04.097">doi.org/10.1016/j.bjps.2022.04.097</a></li>
+      <li id="ref-11">Chang TY, Lai YS, Lin CY, et al. Plate-related complication and health-related quality of life after mandibular reconstruction by fibula flap with reconstruction plate or miniplate versus anterolateral thigh flap with reconstruction plate. Microsurgery. 2023;43(2):131-141. <a href="https://doi.org/10.1002/micr.30893">doi.org/10.1002/micr.30893</a></li>
+      <li id="ref-12">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a></li>
+      <li id="ref-13">Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. <a href="https://doi.org/10.7759/cureus.104441">doi.org/10.7759/cureus.104441</a></li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small" data-i18n="version">Version 0.1, 6 November 2026.</p>
+</main>
+<footer>
+  <p data-i18n="site">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Disclaimer</a></p>
+</footer>
+<script src="ja.js"></script>
+<script src="/static-i18n.js"></script>
+<script src="../development/theme.js"></script>
+<script src="viewer.js"></script>
+<script src="/contact.js"></script>
+<script src="/model-page.js"></script>
+<script src="/fullscreen.js"></script>
+<script src="/model-parts.js"></script>
+<script src="/share-tools.js"></script>
+</body>
+</html>

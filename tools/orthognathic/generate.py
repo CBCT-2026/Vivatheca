@@ -29,9 +29,13 @@ Method (all simplifications are listed on the web page and in README.md):
   anterior root tips and more than 9.12 mm below the mental foramen (the 99.99% safe distance of Lin et al. 2020),
   running down to the lower border at the premolars. Class II: chin
   advanced GENIO_II mm; Class III: chin set back GENIO_III mm (moved along the cut plane).
-- Plates are miniplates: round screw holes joined by narrow bridges (L-plates at the Le Fort I cut,
-  straight 4-hole plates with a gap across the BSSO, a 4-hole box plate across the genioplasty cut),
-  each with screw heads. Shapes and sizes are illustrative (2.0 mm system scale).
+- Plates and screws come from the shared fixation component (tools/fixation/fixation.py; sizes and
+  placement sources in tools/fixation/README.md): 2.0 mm miniplates, 1.0 mm thick, countersunk holes,
+  monocortical 2.0 mm screws with cross-recess heads along the bone normal. Le Fort I: a 4-hole L-plate at
+  the piriform rim and at the zygomaticomaxillary buttress each side (four-plate fixation, Beyler 2020).
+  BSSO: one 4-hole extended straight plate across the buccal step each side (Champy line; Oguz 2010;
+  Al-Moraissi & Ellis 2016). Genioplasty: one central pre-bent 4-hole chin plate, two screws in each
+  segment (Gulsever 2025).
 """
 import json, sys
 from pathlib import Path
@@ -216,56 +220,10 @@ def cut_faces(m, tol=0.03):
         d = np.abs((tri - p) @ n); mask |= (d < tol).all(1)
     return mask
 
-# ---- plates (titanium miniplates) and screws
-from shapely.geometry import Point, LineString
-from shapely.ops import unary_union
-from scipy.ndimage import gaussian_filter
-from scipy.interpolate import RegularGridInterpolator
-
-def miniplate(bones, centre, along, out, holes, links, ring=2.0, hole=1.05, bridge=1.5, thick=0.8):
-    """A miniplate lying on the bone: round rings around the screw holes joined by narrow bridges.
-    holes: (u, v) in mm (u along `along`, v sideways); links: pairs of hole indices joined by a bridge.
-    The flat outline is extruded, then bent onto a smoothed height map of the bone (ray casting along -out),
-    as a plate bent to the bone would be. A screw head sits in every hole."""
-    along = np.asarray(along, float); along /= np.linalg.norm(along)
-    out = np.asarray(out, float); out -= along * (out @ along); out /= np.linalg.norm(out)
-    side = np.cross(out, along); centre = np.asarray(centre, float)
-    shape = unary_union([Point(h).buffer(ring, 10) for h in holes] +
-                        [LineString([holes[a], holes[b]]).buffer(bridge / 2, cap_style=2) for a, b in links])
-    shape = shape.difference(unary_union([Point(h).buffer(hole, 8) for h in holes]))
-    pl = trimesh.creation.extrude_polygon(shape, thick)
-    v, f = trimesh.remesh.subdivide_to_size(pl.vertices, pl.faces, 0.8)
-    # height map of the bone under the plate
-    target = trimesh.util.concatenate(bones)
-    u0, v0, u1, v1 = shape.bounds
-    us = np.arange(u0 - 1.5, u1 + 1.6, 0.4); vs = np.arange(v0 - 1.5, v1 + 1.6, 0.4)
-    U, V = np.meshgrid(us, vs, indexing='ij')
-    base = centre + U[..., None] * along + V[..., None] * side
-    origins = base.reshape(-1, 3) + out * 15
-    loc, idx, _ = target.ray.intersects_location(origins, np.repeat([-out], len(origins), 0), multiple_hits=False)
-    h = np.full(len(origins), np.nan); h[idx] = (loc - base.reshape(-1, 3)[idx]) @ out
-    if np.isnan(h).any():
-        miss = np.isnan(h); cp = trimesh.proximity.closest_point(target, base.reshape(-1, 3)[miss])[0]
-        h[miss] = (cp - base.reshape(-1, 3)[miss]) @ out
-    h = gaussian_filter(h.reshape(U.shape), 2.0, mode='nearest')
-    H = RegularGridInterpolator((us, vs), h)
-    def place(uvz):
-        return centre + uvz[:, :1] * along + uvz[:, 1:2] * side + out * (H(uvz[:, :2])[:, None] + 0.12 + uvz[:, 2:3])
-    plate_m = trimesh.Trimesh(place(v), f, process=True); trimesh.repair.fix_normals(plate_m)
-    screws = []
-    for hu, hv in holes:
-        top = place(np.array([[hu, hv, thick]]))[0]
-        head = trimesh.creation.cylinder(radius=hole - 0.08, height=0.55, sections=24)
-        head.apply_transform(trimesh.geometry.align_vectors([0, 0, 1], out)); head.apply_translation(top - out * 0.12)
-        screws.append(head)
-    return plate_m, screws
-
-def l_plate(foot):
-    """4-hole L-plate: three holes in a line across the cut (gap at the cut), one foot hole sideways."""
-    return [(10.0, 0.0), (4.5, 0.0), (-4.0, 0.0), (-4.0, foot)], [(0, 1), (1, 2), (2, 3)]
-
-STRAIGHT_GAP = ([(-10.0, 0.0), (-4.5, 0.0), (4.5, 0.0), (10.0, 0.0)], [(0, 1), (1, 2), (2, 3)])  # 4-hole, longer middle bridge
-CHIN_BOX = ([(4.2, -4.5), (4.2, 4.5), (-4.8, -4.5), (-4.8, 4.5)], [(0, 1), (2, 3), (0, 2), (1, 3)])  # 4-hole box plate across the chin cut
+# ---- plates and screws: shared Vivatheca fixation component (tools/fixation, sources in its README)
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'fixation'))
+import fixation as fx
+PLATES = {}  # per state: plate and screw details for build_report.json
 
 # ---- states
 mand0, lt0, ut0, cran0 = lengthen_chin(part('mandible')), part('lower_teeth'), part('upper_teeth'), part('cranium')
@@ -326,7 +284,7 @@ def make(state):
             # centres on the bone surface at the cut (measured by ray casting on this maxilla)
             for x, y, z, o in ((16.0, -79.8, 1562.0, (0.3, -1.0, 0)), (43.0, -60.0, 1562.0, (1.0, -0.5, 0))):
                 c = np.array([s * x, y, z]); o = np.array([s * o[0], o[1], o[2]])
-                pl, sc = miniplate(up + down_m, c, [0, 0, 1], o, *l_plate(-s * 5.5))
+                pl, sc = fx.make_plate(up + down_m, c, [0, 0, 1], o, fx.l_plate(foot=-s * 5.5), fx.MINI_2_0, info=info)
                 out['plate'].append(pl); out['screw'] += sc
     else:
         out['bone'] += maxp; out['teeth'] += [ut]
@@ -335,12 +293,14 @@ def make(state):
         (gn, gp), _ = genio_plane()
         front = distal_m.vertices[np.abs(distal_m.vertices[:, 0]) < 2]
         yf = front[np.abs(front[:, 2] - gp[2]) < 2][:, 1].min()
-        pl, sc = miniplate([distal_m, genio], [0, yf, gp[2]], [0, 0.15, 1], [0, -1, 0], *CHIN_BOX)
+        pl, sc = fx.make_plate([distal_m, genio], [0, yf, gp[2]], [0, 0.15, 1], [0, -1, 0],
+                               fx.chin_plate(width=9.0, up=4.2, down=4.8), fx.MINI_2_0, info=info)
         out['plate'].append(pl); out['screw'] += sc
     # BSSO plate on the outer surface, across the buccal step, each side
     for s in (1, -1):
         c = np.array([s * 34.0, Y_BUCCAL + 1.0, 1520.0])
-        pl, sc = miniplate(proximal + [distal_m], c, [0, 1, -0.05], [s, 0, 0], *STRAIGHT_GAP)
+        pl, sc = fx.make_plate(proximal + [distal_m], c, [0, 1, -0.05], [s, 0, 0], fx.straight(4, pitch=5.5, gap=9.0),
+                               fx.MINI_2_0, info=info)
         out['plate'].append(pl); out['screw'] += sc
     # colour cut faces, plus a thin band of the outer surface along each cut so the cut line shows
     from scipy.spatial import cKDTree
