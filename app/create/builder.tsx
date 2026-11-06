@@ -77,9 +77,16 @@ export function Builder() {
     const savedBrief = readStorage(STORAGE.brief);
     const startBrief = { ...emptyBrief, topic: plain(b.defaultTopic) };
     setBrief(startBrief);
+    let restored = startBrief;
     if (savedBrief) {
-      try { setBrief({ ...startBrief, ...JSON.parse(savedBrief) }); } catch { /* ignore */ }
+      try { restored = { ...startBrief, ...JSON.parse(savedBrief) }; } catch { /* ignore */ }
     }
+    // A model page links here as /create?model=<id>: preselect that model and drop a topic written for another one.
+    const linked = new URLSearchParams(window.location.search).get('model');
+    if (linked && linked !== restored.modelId && modelBriefs.some((m) => m.id === linked)) {
+      restored = { ...restored, modelId: linked, topic: '' };
+    }
+    setBrief(restored);
     setDraft(readStorage(STORAGE.draft) ?? '');
     /* eslint-enable react-hooks/set-state-in-effect */
     fetch('/api/generate').then((r) => (r.ok ? (r.json() as Promise<{ enabled?: boolean }>) : null)).then((d) => setAiEnabled(Boolean(d?.enabled))).catch(() => setAiEnabled(false));
@@ -100,9 +107,16 @@ export function Builder() {
   const model = modelBriefs.find((m) => m.id === brief.modelId);
   const briefDetails = findPossiblePatientDetails([brief.topic, brief.keyPoints, brief.riskNumbers].join('\n'));
   const draftDetails = findPossiblePatientDetails(draft);
+  // Exports stay blocked while the draft looks like it holds patient details.
+  const exportBlocked = !draft || draftDetails.length > 0;
 
   function update<K extends keyof Brief>(key: K, value: Brief[K]) {
     setBrief((b) => ({ ...b, [key]: value }));
+  }
+
+  // The default topic is about the wisdom tooth; clear it when another model is picked.
+  function changeModel(modelId: string) {
+    setBrief((current) => ({ ...current, modelId, topic: current.topic === plain(b.defaultTopic) && modelId !== 'impacted-molar' ? '' : current.topic }));
   }
 
   function acknowledge() {
@@ -182,7 +196,7 @@ export function Builder() {
 
   function exportHtml(): string {
     const title = markdownTitle(draft);
-    const modelUrl = `${window.location.origin}/#collection`;
+    const modelUrl = `${window.location.origin}${model?.page ?? '/models'}`;
     const qr = qrcode(0, 'M');
     qr.addData(modelUrl);
     qr.make();
@@ -264,7 +278,7 @@ ${markdownToHtml(stripClinicianNotes(draft))}
         <h2 id="brief-title"><span className="builder-step">1</span> <Ruby text={b.brief} /></h2>
         <div className="builder-grid">
           <label><Ruby text={b.model} />
-            <select value={brief.modelId} onChange={(e) => update('modelId', e.target.value)}>
+            <select value={brief.modelId} onChange={(e) => changeModel(e.target.value)}>
               {modelBriefs.map((m) => <option key={m.id} value={m.id}>{plain(b.models[m.id] ?? m.name)}</option>)}
             </select>
           </label>
@@ -385,10 +399,11 @@ ${markdownToHtml(stripClinicianNotes(draft))}
           </label>
         </fieldset>
         <div className="builder-actions">
-          <button className="button" type="button" disabled={!draft} onClick={printSheet}><Ruby text={b.print} /></button>
-          <button className="button button-secondary" type="button" disabled={!draft} onClick={() => download(`${slug()}.html`, exportHtml(), 'text/html')}><Ruby text={b.downloadHtml} /></button>
-          <button className="button button-secondary" type="button" disabled={!draft} onClick={() => download(`${slug()}.md`, markdownExport(), 'text/markdown')}><Ruby text={b.downloadMarkdown} /></button>
+          <button className="button" type="button" disabled={exportBlocked} onClick={printSheet}><Ruby text={b.print} /></button>
+          <button className="button button-secondary" type="button" disabled={exportBlocked} onClick={() => download(`${slug()}.html`, exportHtml(), 'text/html')}><Ruby text={b.downloadHtml} /></button>
+          <button className="button button-secondary" type="button" disabled={exportBlocked} onClick={() => download(`${slug()}.md`, markdownExport(), 'text/markdown')}><Ruby text={b.downloadMarkdown} /></button>
         </div>
+        {draftDetails.length ? <p className="builder-alert" role="alert"><Ruby text={format(b.exportBlocked, { details: draftDetails.join(', ') })} /></p> : null}
         {draft ? (
           <div className="builder-preview" aria-label={plain(b.preview)}>
             <p className="builder-hint"><Ruby text={b.previewHint} /></p>

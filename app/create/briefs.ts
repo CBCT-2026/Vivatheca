@@ -5,6 +5,8 @@ export interface ModelBrief {
   id: string;
   name: string;
   glb?: string;
+  // The model's page on Vivatheca; the A4 sheet's QR code opens it.
+  page?: string;
   condition: string;
   // Label names used on the 3D model. Drafts reuse them so text, sheet and model match.
   labels: { plain: string; medical?: string }[];
@@ -14,6 +16,7 @@ export interface ModelBrief {
 export const modelBriefs: ModelBrief[] = [
   {
     id: 'impacted-molar',
+    page: '/models/impacted-wisdom-tooth',
     name: 'Impacted lower wisdom tooth',
     glb: '/models/impacted-molar.glb',
     condition: 'An impacted lower third molar (wisdom tooth) angled forward against the second molar, with roots close to the inferior alveolar nerve.',
@@ -30,6 +33,7 @@ export const modelBriefs: ModelBrief[] = [
   },
   {
     id: 'oroantral',
+    page: '/oroantral/',
     name: 'Opening into the sinus after upper molar removal (OAC and OAF)',
     glb: '/oroantral/models/oac.glb',
     condition: 'Upper first molar roots reaching into the maxillary sinus; removal leaves an oroantral communication (OAC, a fresh opening). If it stays open it becomes an oroantral fistula (OAF, an epithelium-lined tunnel). Repairs shown: blood clot (small openings), buccal advancement flap, buccal fat pad flap, palatal rotation flap.',
@@ -50,6 +54,136 @@ export const modelBriefs: ModelBrief[] = [
       { plain: 'Bare bone', medical: 'exposed palatal bone (donor site)' },
     ],
     normalComparison: 'Stage 1 of the same model: a healthy upper jaw with 3 mm of bone between the first molar root tips and the sinus.',
+  },
+  {
+    id: 'periodontitis',
+    page: '/periodontitis/',
+    name: 'Gum disease (periodontitis), Stages I to IV',
+    glb: '/periodontitis/models/healthy.glb',
+    condition: 'A lower jaw showing the 2017 AAP/EFP periodontitis stages: healthy, then Stage I (initial), II (moderate), III (severe) and IV (advanced), with bone height falling further below the enamel edge of the teeth at each stage.',
+    labels: [
+      { plain: 'Teeth' },
+      { plain: 'Bone' },
+      { plain: 'Bone lost (compared with the healthy model)', medical: 'alveolar bone loss' },
+    ],
+    normalComparison: 'The healthy stage of the same jaw, with bone about 1.5 mm below the enamel edge.',
+  },
+  {
+    id: 'development',
+    page: '/development/',
+    name: 'Dental development, ages 6 to 12',
+    glb: '/development/models/age-6-5.glb',
+    condition: 'A child\'s upper and lower jaws at each year from 6 to 12, showing baby teeth being lost and adult teeth growing inside the jaw and coming through. This is normal development, not a disease.',
+    labels: [
+      { plain: 'Baby teeth', medical: 'primary teeth (shown blue)' },
+      { plain: 'Adult teeth', medical: 'permanent teeth (shown yellow)' },
+      { plain: 'Bone' },
+    ],
+  },
+  {
+    id: 'orthognathic',
+    page: '/orthognathic/',
+    name: 'Jaw surgery to correct the bite (orthognathic surgery)',
+    glb: '/orthognathic/models/normal.glb',
+    condition: 'Upper and lower jaws with a normal bite (Class I), a lower jaw set back (Class II) and a lower jaw set forward (Class III), each shown before and after jaw surgery that moves the bone and holds it with titanium plates and screws.',
+    labels: [
+      { plain: 'Bone' },
+      { plain: 'Teeth' },
+      { plain: 'Cut bone', medical: 'osteotomy' },
+      { plain: 'Titanium plates and screws' },
+      { plain: 'Moved bone' },
+    ],
+    normalComparison: 'The Class I model: upper and lower jaws in balance, with the back teeth fitting together.',
+  },
+  {
+    id: 'cracked-tooth',
+    page: '/cracked-tooth/',
+    name: 'Cracked tooth: crown versus filling',
+    glb: '/cracked-tooth/models/cracked-whole.glb',
+    condition: 'A lower first molar with a crack, shown untreated, with a large composite resin filling, and with a crown that covers the cusps, beside a healthy tooth. Biting force can open the crack; a crown holds the cusps together.',
+    labels: [
+      { plain: 'Tooth' },
+      { plain: 'Crack' },
+      { plain: 'Filling', medical: 'composite resin restoration' },
+      { plain: 'Crown', medical: 'full-coverage crown' },
+      { plain: 'Enamel' },
+      { plain: 'Dentine' },
+      { plain: 'Pulp (nerve)', medical: 'dental pulp' },
+      { plain: 'Biting force' },
+    ],
+    normalComparison: 'A healthy lower first molar with no crack.',
+  },
+  {
+    id: 'stainless-steel-crown',
+    page: '/stainless-steel-crown/',
+    name: 'Steel crown on a child\'s back tooth',
+    glb: '/stainless-steel-crown/models/crown.glb',
+    condition: 'A baby back tooth in a child\'s lower jaw, shown healthy, with large decay, with a large filling, shaped for a crown, and with a preformed stainless steel crown. The adult tooth grows in the bone underneath.',
+    labels: [
+      { plain: 'Baby tooth', medical: 'primary molar' },
+      { plain: 'Gum' },
+      { plain: 'Bone' },
+      { plain: 'Nerve', medical: 'dental pulp' },
+    ],
+    normalComparison: 'The healthy baby tooth, with the adult tooth growing underneath.',
+  },
+  {
+    id: 'head-neck-scc',
+    page: '/head-neck/scc/',
+    name: 'Mouth cancer in the lower jaw (squamous cell carcinoma) with fibula rebuild',
+    glb: '/head-neck/models/scc-case.glb',
+    condition: 'Based on one published case: a squamous cell carcinoma of the right lower gum that had grown into the bone. The right side of the lower jaw was removed with a safety margin and rebuilt with bone from the leg (fibula free flap).',
+    labels: [
+      { plain: 'Bone' },
+      { plain: 'Teeth' },
+      { plain: 'Disease', medical: 'squamous cell carcinoma' },
+      { plain: 'Bone removed', medical: 'segmental mandibulectomy' },
+      { plain: 'Teeth removed with the bone' },
+      { plain: 'Safety margin', medical: 'resection margin' },
+    ],
+  },
+  {
+    id: 'head-neck-ameloblastoma',
+    page: '/head-neck/ameloblastoma/',
+    name: 'Ameloblastoma in the lower jaw',
+    glb: '/head-neck/models/ameloblastoma-case.glb',
+    condition: 'Based on one published case: an ameloblastoma (a growth that is not cancer but grows into bone) in the front of the left lower jaw. The top part of the jaw was removed with four teeth, keeping the lower edge, and a metal plate keeps the thin edge strong.',
+    labels: [
+      { plain: 'Bone' },
+      { plain: 'Teeth' },
+      { plain: 'Disease', medical: 'ameloblastoma' },
+      { plain: 'Bone removed', medical: 'marginal mandibulectomy' },
+      { plain: 'Teeth removed with the bone' },
+      { plain: 'Safety margin', medical: 'resection margin' },
+    ],
+  },
+  {
+    id: 'head-neck-okc',
+    page: '/head-neck/okc/',
+    name: 'Keratocyst in the lower jaw (odontogenic keratocyst)',
+    glb: '/head-neck/models/okc-case.glb',
+    condition: 'Based on one published case: an odontogenic keratocyst (a fluid-filled sac in the jaw that is not cancer but often comes back) at the root tips of two lower left premolars. The sac was removed, the bone wall shaved and the teeth kept.',
+    labels: [
+      { plain: 'Bone' },
+      { plain: 'Teeth' },
+      { plain: 'Disease', medical: 'odontogenic keratocyst' },
+      { plain: 'Bone removed', medical: 'peripheral ostectomy' },
+      { plain: 'Root tips cut off', medical: 'apicectomy' },
+    ],
+  },
+  {
+    id: 'head-neck-mec',
+    page: '/head-neck/mec/',
+    name: 'Cancer of a small spit gland in the roof of the mouth (mucoepidermoid carcinoma)',
+    glb: '/head-neck/models/mec-case.glb',
+    condition: 'Based on one published case: a slow-growing mucoepidermoid carcinoma of a minor salivary gland on the right side of the palate. The lump was removed with a cuff of normal lining, the bone above it kept, and the raw area healed under a cover plate.',
+    labels: [
+      { plain: 'Bone' },
+      { plain: 'Teeth' },
+      { plain: 'Disease', medical: 'mucoepidermoid carcinoma' },
+      { plain: 'Palate lining', medical: 'palatal mucosa' },
+      { plain: 'Safety margin', medical: 'resection margin' },
+    ],
   },
   {
     id: 'none',

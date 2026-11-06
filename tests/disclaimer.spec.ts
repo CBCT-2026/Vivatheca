@@ -27,7 +27,10 @@ test('every print download carries the review status, model disclaimer and licen
 test('disclaimer page and links are present on every main route', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.footer-legal').getByText(/not medical advice/)).toBeVisible();
-  await expect(page.locator('.prototype-note').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
+  // The interactive model and the model showcase each show the review status and model disclaimer.
+  for (const section of ['#collection', '#showcase']) {
+    await expect(page.locator(`${section} .prototype-note`).getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
+  }
 
   await page.goto('/development/index.html');
   await expect(page.locator('.disclaimer').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');

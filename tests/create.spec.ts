@@ -69,3 +69,30 @@ test('the AI route reports that drafting is off without a key', async ({ request
   const post = await request.post('/api/generate', { data: { action: 'draft', brief: {} } });
   expect(post.status()).toBe(503);
 });
+
+test('a model page link preselects its model, and every model page links to the builder', async ({ page }) => {
+  await page.goto('/create?model=periodontitis');
+  await page.getByLabel('I understand and accept these limits.').check();
+  await page.getByRole('button', { name: 'Continue to the builder' }).click();
+  const select = page.getByLabel('Vivatheca model');
+  await expect(select).toHaveValue('periodontitis');
+  await expect(select.locator('option')).toHaveCount(12);
+
+  await page.goto('/periodontitis/index.html');
+  await expect(page.locator('.vt-create a')).toHaveAttribute('href', '/create?model=periodontitis');
+  await page.goto('/head-neck/okc/index.html');
+  await expect(page.locator('.vt-create a')).toHaveAttribute('href', '/create?model=head-neck-okc');
+});
+
+test('exports are blocked while the draft looks like it has patient details', async ({ page }) => {
+  await page.goto('/create');
+  await page.getByLabel('I understand and accept these limits.').check();
+  await page.getByRole('button', { name: 'Continue to the builder' }).click();
+  const draft = page.getByLabel('Draft (Markdown)');
+  await draft.fill('# Wisdom tooth\n\nYou were born 12/03/1980 and your Medicare number is 1234 56789 1.');
+  await expect(page.getByRole('button', { name: 'Download Markdown' })).toBeDisabled();
+  await expect(page.getByText('Export is blocked', { exact: false })).toBeVisible();
+  await draft.fill('# Wisdom tooth\n\nIn some cases the lip feels numb after surgery.');
+  await expect(page.getByRole('button', { name: 'Download Markdown' })).toBeEnabled();
+  await expect(page.locator('.builder-findings')).toContainText('"In some cases" without a number');
+});

@@ -661,7 +661,7 @@ def build(slug, P):
     w(f'\n<p class="small" data-i18n="version">{VERSION_EN}</p>\n</main>')
     w('<script src="ja.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
     w('<script src="/head-neck/vendor/three/three.min.js"></script>\n<script src="/head-neck/vendor/three/GLTFLoader.js"></script>\n<script src="/head-neck/vendor/three/OrbitControls.js"></script>')
-    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n</body>\n</html>\n')
+    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n</body>\n</html>\n')
     d = os.path.join(PUB, slug)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w').write('\n'.join(out))

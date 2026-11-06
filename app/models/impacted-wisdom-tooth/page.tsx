@@ -52,7 +52,7 @@ export default async function WisdomToothPage() {
             </ul>
             {reviewNote}
             <p className="detail-note"><Ruby text={w.licence} /> <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. <Ruby text={w.licenceText} /></p>
-            <a className="button button-compact" href="/create"><Ruby text={w.makeInfo} /></a>
+            <a className="button button-compact" href="/create?model=impacted-molar"><Ruby text={w.makeInfo} /></a>
           </section>
 
           <section aria-labelledby="details-title" className="detail-block">
