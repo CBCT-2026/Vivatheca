@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { Fragment } from 'react';
 import { ThemeToggle } from '../ui';
+import { homeHref } from '../nav';
 import { CompactFooter } from '../contact-section';
 import type { Dictionary } from '../i18n/dictionaries';
 import { plain, Ruby } from '../i18n/ruby';
@@ -14,10 +14,10 @@ export function LearnHeader({ t, furigana }: { t: Dictionary; furigana: boolean 
     <>
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <header className="site-header builder-header">
-        <Link className="brand" href="/" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></Link>
+        <a className="brand" href={homeHref} aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
         <nav className="learn-crumbs" aria-label={plain(t.learn.sectionNav)}>
-          <Link href="/"><Ruby text={t.learn.forClinicians} /></Link>
-          <Link href="/learn" aria-current="page"><Ruby text={t.learn.forStudents} /></Link>
+          <a href="/"><Ruby text={t.learn.forClinicians} /></a>
+          <a href="/learn" aria-current="page"><Ruby text={t.learn.forStudents} /></a>
         </nav>
         <div className="header-actions">
           <LanguageSwitcher furigana={furigana} className="always" />

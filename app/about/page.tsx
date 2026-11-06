@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { PageHeader, SiteFooter } from '../site-chrome';
 import { disclaimerHref } from '../disclaimer-text';
 import { getI18n } from '../i18n/server';
@@ -32,7 +31,7 @@ export default async function AboutPage() {
         <section aria-labelledby="why-title">
           <h2 id="why-title"><Ruby text={a.whyHeading} /></h2>
           {a.why.map((text) => <p key={text}><Ruby text={text} /></p>)}
-          <p><Link href="/#publications"><Ruby text={a.whyEvidence} /></Link></p>
+          <p><a href="/#publications"><Ruby text={a.whyEvidence} /></a></p>
         </section>
 
         <section aria-labelledby="principles-title">
@@ -40,7 +39,7 @@ export default async function AboutPage() {
           <ul className="principle-list">
             {a.principles.map((item) => <li key={item.title}><h3><Ruby text={item.title} /></h3><p><Ruby text={item.text} /></p></li>)}
           </ul>
-          <p className="prototype-note"><strong><Ruby text={a.reviewLabel} /></strong> <Ruby text={a.reviewText} /> <Ruby text={t.disclaimer.model} /> <Link href={disclaimerHref}><Ruby text={t.disclaimer.full} /></Link></p>
+          <p className="prototype-note"><strong><Ruby text={a.reviewLabel} /></strong> <Ruby text={a.reviewText} /> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
         </section>
 
         <section aria-labelledby="founder-title">
@@ -58,7 +57,7 @@ export default async function AboutPage() {
         <section aria-labelledby="help-title">
           <h2 id="help-title"><Ruby text={a.helpHeading} /></h2>
           <ul className="plain-list">
-            <li><Link href="/report"><Ruby text={a.helpReport} /></Link> <Ruby text={a.helpReportAfter} /></li>
+            <li><a href="/report"><Ruby text={a.helpReport} /></a> <Ruby text={a.helpReportAfter} /></li>
             <li><a href="mailto:hello@vivatheca.com?subject=Join%20clinical%20review"><Ruby text={a.helpReview} /></a> <Ruby text={a.helpReviewAfter} /></li>
             <li><a href="mailto:hello@vivatheca.com?subject=Model%20request"><Ruby text={a.helpRequest} /></a> <Ruby text={a.helpRequestAfter} /></li>
           </ul>

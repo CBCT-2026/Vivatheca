@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { clinicalImages, contributionPaths, publications, trustItems, understandingPaths } from './data';
 import { SiteFooter } from './site-chrome';
+import { homeHref, primaryLinks } from './nav';
 import { mailto } from './contact';
 import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
@@ -17,9 +17,9 @@ export default async function Home() {
     <>
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
+        <a className="brand" href={homeHref} aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="181" height="136" /></a>
         <nav className="desktop-nav" aria-label={plain(t.nav.primary)}>
-          <Link href="/models"><Ruby text={t.nav.models} /></Link><a href="#how-it-works"><Ruby text={t.nav.howItWorks} /></a><a href="#publications"><Ruby text={t.nav.evidence} /></a><Link href="/create"><Ruby text={t.nav.create} /></Link><Link href="/about"><Ruby text={t.nav.about} /></Link><a href="/learn"><Ruby text={t.nav.students} /></a>
+          {primaryLinks(t, true).map((link) => <a key={link.href} href={link.href}><Ruby text={link.label} /></a>)}
         </nav>
         <div className="header-actions">
           <LanguageSwitcher furigana={furigana} />
@@ -35,7 +35,7 @@ export default async function Home() {
             <h1 className="hero-title"><span className="hero-line"><Ruby text={t.hero.line1} /></span><span className="hero-line"><Ruby text={t.hero.line2} /></span></h1>
             <p className="hero-lede"><Ruby text={t.hero.lede} /></p>
             <div className="hero-actions">
-              <Link className="button" href="/models"><Ruby text={t.hero.explore} /> <Icon name="arrow_forward" /></Link>
+              <a className="button" href="/models"><Ruby text={t.hero.explore} /> <Icon name="arrow_forward" /></a>
               <a className="button button-secondary" href="#collection"><Ruby text={t.hero.how} /></a>
             </div>
             <ul className="access-list" aria-label={plain(t.hero.accessLabel)}>{t.hero.access.map((item) => <li key={item}><Ruby text={item} /></li>)}</ul>
@@ -66,7 +66,7 @@ export default async function Home() {
               <h3><Ruby text={t.audiences.clinicians.title} /></h3>
               <p><Ruby text={t.audiences.clinicians.text} /></p>
               <div className="audience-actions">
-                <Link className="button" href="/models"><Ruby text={t.audiences.clinicians.primary} /></Link>
+                <a className="button" href="/models"><Ruby text={t.audiences.clinicians.primary} /></a>
                 <a className="button button-secondary" href="/create"><Ruby text={t.audiences.clinicians.secondary} /></a>
               </div>
             </article>
@@ -84,7 +84,7 @@ export default async function Home() {
 
         <section className="collection-section" id="collection">
           <div className="section-heading split-heading">
-            <div><h2><Ruby text={t.collection.heading} /></h2><p><Ruby text={t.collection.text} /> <Link href="/models/impacted-wisdom-tooth"><Ruby text={t.collection.compare} /></Link></p></div>
+            <div><h2><Ruby text={t.collection.heading} /></h2><p><Ruby text={t.collection.text} /> <a href="/models/impacted-wisdom-tooth"><Ruby text={t.collection.compare} /></a></p></div>
             <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.collection.label} /></div>
           </div>
           <ModelExperience />
@@ -109,7 +109,7 @@ export default async function Home() {
           <div className="prototype-links">
             <h3><Ruby text={t.collection.moreHeading} /></h3>
             <a className="text-link" href="/head-neck/"><Ruby text={t.collection.moreHeadNeck} /> <Icon name="arrow_forward" /></a>
-            <Link className="text-link" href="/models"><Ruby text={t.collection.allModels} /> <Icon name="arrow_forward" /></Link>
+            <a className="text-link" href="/models"><Ruby text={t.collection.allModels} /> <Icon name="arrow_forward" /></a>
           </div>
         </section>
 
@@ -124,11 +124,11 @@ export default async function Home() {
 
         <section className="print-section">
           <figure><img src="/assets/renders/wisdom-tooth-compare.webp" alt={plain(t.print.imageAlt)} width="1200" height="800" /><figcaption className="figure-note"><Ruby text={t.print.caption} /></figcaption></figure>
-          <div className="print-copy"><h2><Ruby text={t.print.heading} /></h2><p><Ruby text={t.print.text} /></p><Link className="text-link" href="/models/impacted-wisdom-tooth"><Ruby text={t.print.download} /> <Icon name="download" /></Link></div>
+          <div className="print-copy"><h2><Ruby text={t.print.heading} /></h2><p><Ruby text={t.print.text} /></p><a className="text-link" href="/models/impacted-wisdom-tooth"><Ruby text={t.print.download} /> <Icon name="download" /></a></div>
         </section>
 
         <section className="trust-section" id="trust">
-          <div className="trust-intro"><Icon name="health_and_safety" size={36} /><h2><Ruby text={t.trust.heading} /></h2><p><Ruby text={t.trust.text} /> <Link href="/report"><Ruby text={t.trust.report} /></Link> <Ruby text={t.trust.reportAfter} /></p></div>
+          <div className="trust-intro"><Icon name="health_and_safety" size={36} /><h2><Ruby text={t.trust.heading} /></h2><p><Ruby text={t.trust.text} /> <a href="/report"><Ruby text={t.trust.report} /></a> <Ruby text={t.trust.reportAfter} /></p></div>
           <ul>{trustItems(t).map((item) => <li key={item.title}><span aria-hidden="true">✓</span><div><h3><Ruby text={item.title} /></h3><p><Ruby text={item.text} /></p></div></li>)}</ul>
           <p className="trust-warning"><strong><Ruby text={t.trust.warningLabel} /></strong> <Ruby text={t.trust.warning} /></p>
         </section>
