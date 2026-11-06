@@ -29,7 +29,7 @@ const PUBLIC_ICON_PATHS = new Set([
   '/site.webmanifest',
 ]);
 
-export function safeEqual(a: string, b: string): boolean {
+function safeEqual(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
   let diff = 0;
   for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
@@ -72,20 +72,47 @@ function noteFailure(request: Request) {
 
 // Path for a same-site redirect. Collapses leading slashes so `//other.site/` cannot
 // turn into a redirect to another site.
-export function sameSitePath(url: URL): string {
+function sameSitePath(url: URL): string {
   return '/' + url.pathname.replace(/^[/\\]+/, '') + url.search + url.hash;
 }
 
-// Low-risk headers added to every response. /admin may not be framed by any site;
+// Content Security Policy: everything the site loads is its own (models, Draco/three.js
+// decoders in public/*/vendor, fonts, videos), so only this origin is allowed.
+// - 'unsafe-inline' scripts: the theme script, vinext hydration and the static pages use inline scripts.
+// - 'wasm-unsafe-eval' and blob: workers: the Draco decoder runs as WebAssembly, in workers.
+// - frame-ancestors is left open on purpose so model embeds (?embed=1) keep working;
+//   /admin adds frame-ancestors 'none'.
+// Before loading anything from another site, add its host here and check every page for CSP errors (see AGENTS.md).
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob:",
+  "worker-src 'self' blob:",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "media-src 'self' blob:",
+  "connect-src 'self' data: blob:",
+  "frame-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join('; ');
+
+// Headers added to every response. /admin may not be framed by any site;
 // other pages stay embeddable because model embeds (?embed=1) are a feature.
-function withSecurityHeaders(response: Response, pathname: string): Response {
+function withSecurityHeaders(response: Response, pathname: string, secure: boolean): Response {
   const res = new Response(response.body, response);
   res.headers.set('X-Content-Type-Options', 'nosniff');
   if (!res.headers.has('Referrer-Policy')) res.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  if (pathname === '/admin' || pathname.startsWith('/admin/')) {
-    res.headers.set('X-Frame-Options', 'DENY');
-    res.headers.set('Content-Security-Policy', "frame-ancestors 'none'");
+  res.headers.set('Permissions-Policy', 'microphone=(), geolocation=(), payment=(), usb=()');
+  // One year, this host only (no includeSubDomains, no preload list), so it is easy to back out.
+  if (secure) res.headers.set('Strict-Transport-Security', 'max-age=31536000');
+  const contentType = res.headers.get('Content-Type') ?? '';
+  const isAdmin = pathname === '/admin' || pathname.startsWith('/admin/');
+  if (contentType.includes('text/html') || isAdmin || response.status === 401) {
+    res.headers.set('Content-Security-Policy', CONTENT_SECURITY_POLICY + (isAdmin ? "; frame-ancestors 'none'" : ''));
   }
+  if (isAdmin) res.headers.set('X-Frame-Options', 'DENY');
   return res;
 }
 
@@ -94,7 +121,8 @@ const worker = {
     const response = await handle(request, workerEnv, ctx);
     // WebSocket upgrades (local dev) cannot be re-wrapped.
     if (response.status === 101) return response;
-    return withSecurityHeaders(response, new URL(request.url).pathname);
+    const url = new URL(request.url);
+    return withSecurityHeaders(response, url.pathname, url.protocol === 'https:');
   },
 };
 export default worker;

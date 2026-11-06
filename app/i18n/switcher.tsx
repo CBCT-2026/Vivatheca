@@ -49,7 +49,10 @@ export function LanguageSwitcher({ furigana: initialFurigana, className = '', fu
   }
 
   const label = plain(t.language.label);
-  const current = languageMenu.find((item) => item.locale === locale) ?? languageMenu[0];
+  // Drafts reachable only through ?lang= (e.g. zh-Hant) show the closest menu entry.
+  const current = languageMenu.find((item) => item.tag === locale)
+    ?? languageMenu.find((item) => item.tag.split('-')[0] === locale.split('-')[0])
+    ?? languageMenu[1];
   const flag = (code: string) => <img aria-hidden="true" className="lang-flag" src={`/flags/${code}.svg`} width={20} height={15} alt="" />;
 
   return (
