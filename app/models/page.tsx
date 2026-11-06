@@ -10,6 +10,7 @@ import { plain, Ruby } from '../i18n/ruby';
 import { videos } from '../videos';
 import { TermSources } from './terms';
 import { currentReview } from './reviews';
+import { FavouriteStar, MyModels } from '../show/quick';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getI18n();
@@ -42,6 +43,9 @@ export default async function ModelsPage() {
           <p className="prototype-note"><strong><Ruby text={l.reviewLead} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
         </div>
 
+        <MyModels />
+        <p className="quick-more"><a className="text-link" href="/show"><Ruby text={t.show.homeHeading} /> <img aria-hidden="true" className="ui-icon" src="/icons/arrow_forward.svg" width="20" height="20" alt="" /></a></p>
+
         <ul className="library-grid" aria-label={plain(l.listLabel)}>
           {catalogue.map((model) => {
             const item = l.items[model.slug];
@@ -66,6 +70,7 @@ export default async function ModelsPage() {
                     </ul>
                   </div>
                 </CardLink>
+                <FavouriteStar slug={model.slug} />
                 <TermSources label={l.termsLabel} terms={model.terms} />
                 {video ? <a className="library-video-link" href={`${model.href}#video`}><Ruby text={format(l.watchVideo, { s: String(video.seconds) })} /><span className="visually-hidden">: {plain(item.title)}</span></a> : null}
               </li>

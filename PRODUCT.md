@@ -31,6 +31,7 @@ The product is used in clinical conversations, classrooms, independent patient r
 - The landing experience must lead visitors into the collection and demonstrate an impacted wisdom tooth model using the supplied GLB.
 - Core model experiences require keyboard-accessible 3D controls, text alternatives, guided tours, full-screen presentation, QR sharing, AR where compatible, plain-language and clinician-detail views, teach-back prompts, downloads, and known-limitations information.
 - Favourites and prototype roadmap votes are stored only on the current device.
+- Busy clinicians must be able to show a patient any model in as few taps as possible: the homepage "Show a patient now" grid opens a model full screen in one tap (`/show?model=<slug>`), with the full model page one tap further. Starred models ("My models", no login, this browser only) sit at the top of the homepage, `/models` and `/show`.
 - Production submissions need secure storage, moderation, and notification; the prototype must not imply that placeholder workflows are production-ready.
 - No patient-identifying information may be collected.
 - Medical claims, reviewers, dates, translations, licences, DOIs, and download files remain clearly identified as placeholders until verified.

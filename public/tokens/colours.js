@@ -37,6 +37,7 @@ window.VT_COLOURS = {
     "cement": "#7FB8A6",
     "crown": "#D9D6CF",
     "hardware": "#9AA3AD",
+    "dentureBase": "#D46A7E",
     "babyTeeth": "#5B8DEF",
     "adultTeeth": "#F2C94C",
     "muscle": "#B5534A",

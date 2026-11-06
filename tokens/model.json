@@ -21,6 +21,7 @@
     "cement":       { "$value": "#7FB8A6", "$description": "Luting cement" },
     "crown":        { "$value": "#D9D6CF", "$description": "Ceramic crown" },
     "hardware":     { "$value": "#9AA3AD", "$description": "Braces, implants, bridges, dentures, plates and screws" },
+    "dentureBase":  { "$value": "#D46A7E", "$description": "Acrylic denture base (pink)" },
     "babyTeeth":    { "$value": "#5B8DEF", "$description": "Development and orthodontic models only: baby teeth blue" },
     "adultTeeth":   { "$value": "#F2C94C", "$description": "Development and orthodontic models only: adult teeth yellow" },
     "muscle":       { "$value": "#B5534A", "$description": "Muscle (masseter, temporalis): muscle red" },
