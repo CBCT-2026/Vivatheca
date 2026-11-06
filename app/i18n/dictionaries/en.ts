@@ -617,6 +617,8 @@ const en = {
     nextText: 'The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: a periapical abscess, an atrophic jaw without teeth and a jaw cyst.',
     askText: 'Want a particular model, or able to check one for accuracy?',
     askLink: 'Tell us',
+    askGap: ' ',
+    askEnd: '.',
     notReviewed: 'Not yet clinically reviewed',
     items: {
       'impacted-wisdom-tooth': {
