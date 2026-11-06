@@ -102,6 +102,10 @@ This is a standing project rule for every new model and every rebuild.
 - Every model page, download and print zip states which base was used, its licence and the required credit, and the model's own licence (CC BY 4.0 or CC BY-SA 4.0). Never label a model CC BY if any part came from Z-Anatomy or another share-alike source.
 - Base meshes come from one adult reference body, not from any patient, so the model disclaimer still applies.
 
+## Free rules check (`pnpm check:rules`)
+
+`tools/rules/check.mjs` checks, on every pull request and with no AI or API cost: every static page links to `/disclaimer`; every static model page has the model disclaimer word for word, a review status and a `catalogue.ts` entry; every catalogue model has a render and `library.items` in `en.ts` and `ja.ts`; a page that uses Z-Anatomy says CC BY-SA; no stylesheet left-aligns plain `<p>` text; and English site text has no gendered pronouns. Exceptions go in `tools/rules/allow.json` with a reason. `pnpm i18n:furigana` checks Japanese furigana: `{漢字|かんじ}` markup, and each reading against JMdict/KANJIDIC; a correct reading they lack goes in `extraReadings` in `tools/i18n/furigana.mjs` with a reason. `pnpm check:dois` checks every cited DOI against Crossref (exists, not retracted or withdrawn, first author and year near the DOI); it runs weekly with the link check (`.github/workflows/links.yml`), which opens one issue when something needs fixing. Whole-repo reviews by Claude happen only when Luke asks (no paid per-PR AI checks).
+
 ## Evidence and transparency (required for everything)
 
 This is a standing project rule. It applies to every page, model, download, text and generated material, whether or not a task restates it.
