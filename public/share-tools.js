@@ -18,54 +18,59 @@
   const doc = document;
   const cookie = (name) => (doc.cookie.match('(?:^|; )' + name + '=([^;]*)') || [])[1];
   const JA = (doc.documentElement.lang || '').startsWith('ja') || cookie('vivatheca-lang') === 'ja';
+  const VI = !JA && ((doc.documentElement.lang || '').startsWith('vi') || cookie('vivatheca-lang') === 'vi');
   const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g, '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
   const plain = (s) => (s || '').replace(/\{([^{}|]+)\|[^{}]+\}/g, '$1');
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const T = {
-    heading: ['Use this model', 'この{模型|もけい}を{使|つか}う'],
-    lead: ['Share this exact view, save a picture for a handout, or show it step by step. The credit and disclaimer go with it.', 'この{見|み}え{方|かた}を{共有|きょうゆう}したり、{資料|しりょう}{用|よう}の{画像|がぞう}を{保存|ほぞん}したり、{順番|じゅんばん}に{見|み}せたりできます。クレジットと{免責|めんせき}{事項|じこう}も{一緒|いっしょ}に{付|つ}きます。'],
-    link: ['Copy link to this view', 'この{表示|ひょうじ}へのリンクをコピー'],
-    linked: ['Link copied. It opens the same stage, angle and hidden parts.', 'リンクをコピーしました。{同|おな}じ{段階|だんかい}・{角度|かくど}・{隠|かく}した{部分|ぶぶん}で{開|ひら}きます。'],
-    linkShown: ['Copy this link:', 'このリンクをコピーしてください：'],
-    qr: ['QR code', 'QRコード'],
-    qrHide: ['Hide QR code', 'QRコードを{隠|かく}す'],
-    qrSave: ['Save QR code (SVG)', 'QRコードを{保存|ほぞん}（SVG）'],
-    qrAlt: ['QR code that opens this view of the model', 'この{模型|もけい}の{表示|ひょうじ}を{開|ひら}くQRコード'],
-    picture: ['Save picture (PNG)', '{画像|がぞう}を{保存|ほぞん}（PNG）'],
-    pictureDone: ['Picture saved. The credit and disclaimer are printed under the model.', '{画像|がぞう}を{保存|ほぞん}しました。{模型|もけい}の{下|した}にクレジットと{免責|めんせき}{事項|じこう}が{入|はい}っています。'],
-    steps: ['Picture steps (no words)', '{絵|え}だけの{手順|てじゅん}{図|ず}'],
-    stepsBusy: ['Making the picture steps: {n} of {total}…', '{手順|てじゅん}{図|ず}を{作成中|さくせいちゅう}：{total}{枚|まい}{中|ちゅう}{n}{枚目|まいめ}…'],
-    stepsDone: ['Picture steps saved. Each stage is a numbered picture with no words, so it works in any language.', '{手順|てじゅん}{図|ず}を{保存|ほぞん}しました。{各|かく}{段階|だんかい}が{番号|ばんごう}{付|つ}きの{絵|え}で、{文字|もじ}がないので、どの{言語|げんご}でも{使|つか}えます。'],
-    tour: ['Guided tour', 'ガイド{付|つ}きツアー'],
-    tourStep: ['Step {n} of {total}', '{total}{中|ちゅう}{n}'],
-    back: ['Back', '{戻|もど}る'],
-    next: ['Next', '{次|つぎ}へ'],
-    stop: ['End tour', 'ツアーを{終|お}える'],
-    credit: ['Copy credit', 'クレジットをコピー'],
-    creditHeading: ['Credit for reuse (CC BY-SA 4.0)', '{再利用|さいりよう}{時|じ}のクレジット（CC BY-SA 4.0）'],
-    creditHelp: ['Paste this wherever you use the model or a picture of it. If you change the model, say what you changed. Things you make from it must use the same licence.', '{模型|もけい}やその{画像|がぞう}を{使|つか}う{場所|ばしょ}に{貼|は}り{付|つ}けてください。{模型|もけい}を{変|か}えたときは、{何|なに}を{変|か}えたかを{書|か}いてください。これをもとに{作|つく}ったものは、{同|おな}じライセンスにしてください。'],
-    fmtPlain: ['Plain text', 'テキスト'],
-    fmtHtml: ['HTML (web page)', 'HTML（ウェブページ）'],
-    fmtShort: ['Short (slides, posters)', '{短|みじか}い{形|かたち}（スライド・ポスター）'],
-    copy: ['Copy', 'コピー'],
-    copied: ['Copied.', 'コピーしました。'],
-    embed: ['Embed on a website', 'ウェブサイトに{埋|う}め{込|こ}む'],
-    embedHelp: ['Paste this code into a clinic website, blog or course page. The viewer keeps the review status, disclaimer and credit. Embeds work once Vivatheca leaves its private preview.', 'このコードを{医院|いいん}のサイトや{授業|じゅぎょう}ページに{貼|は}り{付|つ}けてください。{審査|しんさ}の{状況|じょうきょう}・{免責|めんせき}{事項|じこう}・クレジットも{表示|ひょうじ}されます。Vivathecaの{限定|げんてい}{公開|こうかい}が{終|お}わると{使|つか}えます。'],
-    more: ['More ways to use it', 'ほかの{使|つか}い{方|かた}'],
-    print: ['3D print: 3MF file or custom print', '3D{印刷|いんさつ}：3MFファイル・カスタム{印刷|いんさつ}'],
-    templates: ['Handout and slide templates', '{配布|はいふ}{資料|しりょう}とスライドのテンプレート'],
-    used: ['Tell us how you used it', '{使|つか}い{方|かた}を{教|おし}えてください'],
-    request: ['Ask for a new model', '{新|あたら}しい{模型|もけい}をリクエスト'],
-    embedOpen: ['Open on Vivatheca', 'Vivathecaで{開|ひら}く'],
-    embedTitle: ['3D model from Vivatheca', 'Vivathecaの3D{模型|もけい}'],
-    failed: ['Sorry, that did not work in this browser.', 'このブラウザではうまくいきませんでした。'],
-    version: ['version', 'バージョン'],
-    licensed: ['Licensed under', 'ライセンス：'],
-    changes: ['Changes: none (or describe your changes).', '{変更|へんこう}：なし（{変更|へんこう}した{場合|ばあい}はその{内容|ないよう}）。'],
-    model: ['Model', '{模型|もけい}'],
+    heading: ['Use this model', 'この{模型|もけい}を{使|つか}う', 'Dùng mô hình này'],
+    lead: ['Share this exact view, save a picture for a handout, or show it step by step. The credit and disclaimer go with it.', 'この{見|み}え{方|かた}を{共有|きょうゆう}したり、{資料|しりょう}{用|よう}の{画像|がぞう}を{保存|ほぞん}したり、{順番|じゅんばん}に{見|み}せたりできます。クレジットと{免責|めんせき}{事項|じこう}も{一緒|いっしょ}に{付|つ}きます。', 'Chia sẻ đúng góc nhìn này, lưu ảnh cho tờ hướng dẫn, hoặc trình bày từng bước. Ghi công và tuyên bố miễn trừ trách nhiệm đi kèm.'],
+    link: ['Copy link to this view', 'この{表示|ひょうじ}へのリンクをコピー', 'Sao chép đường dẫn đến góc nhìn này'],
+    linked: ['Link copied. It opens the same stage, angle and hidden parts.', 'リンクをコピーしました。{同|おな}じ{段階|だんかい}・{角度|かくど}・{隠|かく}した{部分|ぶぶん}で{開|ひら}きます。', 'Đã sao chép đường dẫn. Nó mở đúng giai đoạn, góc nhìn và các phần đã ẩn.'],
+    linkShown: ['Copy this link:', 'このリンクをコピーしてください：', 'Sao chép đường dẫn này:'],
+    qr: ['QR code', 'QRコード', 'Mã QR'],
+    qrHide: ['Hide QR code', 'QRコードを{隠|かく}す', 'Ẩn mã QR'],
+    qrSave: ['Save QR code (SVG)', 'QRコードを{保存|ほぞん}（SVG）', 'Lưu mã QR (SVG)'],
+    qrAlt: ['QR code that opens this view of the model', 'この{模型|もけい}の{表示|ひょうじ}を{開|ひら}くQRコード', 'Mã QR mở góc nhìn này của mô hình'],
+    picture: ['Save picture (PNG)', '{画像|がぞう}を{保存|ほぞん}（PNG）', 'Lưu ảnh (PNG)'],
+    offline: ['Save for offline', 'オフライン{用|よう}に{保存|ほぞん}', 'Lưu để dùng ngoại tuyến'],
+    offlineBusy: ['Saving this model on this device…', 'この{端末|たんまつ}に{保存|ほぞん}しています…', 'Đang lưu mô hình này trên thiết bị…'],
+    offlineDone: ['Saved on this device. This page and its model now open without internet. Nothing is sent to Vivatheca.', 'この{端末|たんまつ}に{保存|ほぞん}しました。インターネットがなくても、このページと{模型|もけい}を{開|ひら}けます。Vivathecaには{何|なに}も{送|おく}られません。', 'Đã lưu trên thiết bị này. Trang này và mô hình của nó giờ mở được khi không có internet. Không có gì được gửi đến Vivatheca.'],
+    offlineNo: ['This browser cannot save pages for offline use.', 'このブラウザはオフライン{保存|ほぞん}に{対応|たいおう}していません。', 'Trình duyệt này không lưu được trang để dùng ngoại tuyến.'],
+    pictureDone: ['Picture saved. The credit and disclaimer are printed under the model.', '{画像|がぞう}を{保存|ほぞん}しました。{模型|もけい}の{下|した}にクレジットと{免責|めんせき}{事項|じこう}が{入|はい}っています。', 'Đã lưu ảnh. Ghi công và tuyên bố miễn trừ trách nhiệm được in bên dưới mô hình.'],
+    steps: ['Picture steps (no words)', '{絵|え}だけの{手順|てじゅん}{図|ず}', 'Ảnh từng bước (không có chữ)'],
+    stepsBusy: ['Making the picture steps: {n} of {total}…', '{手順|てじゅん}{図|ず}を{作成中|さくせいちゅう}：{total}{枚|まい}{中|ちゅう}{n}{枚目|まいめ}…', 'Đang tạo ảnh từng bước: {n} trên {total}…'],
+    stepsDone: ['Picture steps saved. Each stage is a numbered picture with no words, so it works in any language.', '{手順|てじゅん}{図|ず}を{保存|ほぞん}しました。{各|かく}{段階|だんかい}が{番号|ばんごう}{付|つ}きの{絵|え}で、{文字|もじ}がないので、どの{言語|げんご}でも{使|つか}えます。', 'Đã lưu ảnh từng bước. Mỗi giai đoạn là một ảnh đánh số, không có chữ, nên dùng được với mọi ngôn ngữ.'],
+    tour: ['Guided tour', 'ガイド{付|つ}きツアー', 'Hướng dẫn từng bước'],
+    tourStep: ['Step {n} of {total}', '{total}{中|ちゅう}{n}', 'Bước {n} trên {total}'],
+    back: ['Back', '{戻|もど}る', 'Quay lại'],
+    next: ['Next', '{次|つぎ}へ', 'Tiếp'],
+    stop: ['End tour', 'ツアーを{終|お}える', 'Kết thúc hướng dẫn'],
+    credit: ['Copy credit', 'クレジットをコピー', 'Sao chép ghi công'],
+    creditHeading: ['Credit for reuse (CC BY-SA 4.0)', '{再利用|さいりよう}{時|じ}のクレジット（CC BY-SA 4.0）', 'Ghi công khi sử dụng lại (CC BY-SA 4.0)'],
+    creditHelp: ['Paste this wherever you use the model or a picture of it. If you change the model, say what you changed. Things you make from it must use the same licence.', '{模型|もけい}やその{画像|がぞう}を{使|つか}う{場所|ばしょ}に{貼|は}り{付|つ}けてください。{模型|もけい}を{変|か}えたときは、{何|なに}を{変|か}えたかを{書|か}いてください。これをもとに{作|つく}ったものは、{同|おな}じライセンスにしてください。', 'Dán nội dung này ở bất cứ đâu bạn dùng mô hình hoặc ảnh của nó. Nếu bạn thay đổi mô hình, hãy ghi rõ bạn đã thay đổi gì. Những gì bạn làm từ nó phải dùng cùng giấy phép.'],
+    fmtPlain: ['Plain text', 'テキスト', 'Văn bản thường'],
+    fmtHtml: ['HTML (web page)', 'HTML（ウェブページ）', 'HTML (trang web)'],
+    fmtShort: ['Short (slides, posters)', '{短|みじか}い{形|かたち}（スライド・ポスター）', 'Ngắn (trang chiếu, áp phích)'],
+    copy: ['Copy', 'コピー', 'Sao chép'],
+    copied: ['Copied.', 'コピーしました。', 'Đã sao chép.'],
+    embed: ['Embed on a website', 'ウェブサイトに{埋|う}め{込|こ}む', 'Nhúng vào trang web'],
+    embedHelp: ['Paste this code into a clinic website, blog or course page. The viewer keeps the review status, disclaimer and credit. Embeds work once Vivatheca leaves its private preview.', 'このコードを{医院|いいん}のサイトや{授業|じゅぎょう}ページに{貼|は}り{付|つ}けてください。{審査|しんさ}の{状況|じょうきょう}・{免責|めんせき}{事項|じこう}・クレジットも{表示|ひょうじ}されます。Vivathecaの{限定|げんてい}{公開|こうかい}が{終|お}わると{使|つか}えます。', 'Dán mã này vào trang web của phòng khám, blog hoặc trang khóa học. Trình xem giữ nguyên tình trạng thẩm định, tuyên bố miễn trừ trách nhiệm và ghi công. Chức năng nhúng sẽ hoạt động khi Vivatheca kết thúc giai đoạn xem trước riêng tư.'],
+    more: ['More ways to use it', 'ほかの{使|つか}い{方|かた}', 'Các cách dùng khác'],
+    print: ['3D print: 3MF file or custom print', '3D{印刷|いんさつ}：3MFファイル・カスタム{印刷|いんさつ}', 'In 3D: tệp 3MF hoặc bản in tùy chỉnh'],
+    templates: ['Handout and slide templates', '{配布|はいふ}{資料|しりょう}とスライドのテンプレート', 'Mẫu tờ hướng dẫn và trang chiếu'],
+    used: ['Tell us how you used it', '{使|つか}い{方|かた}を{教|おし}えてください', 'Cho chúng tôi biết bạn đã dùng thế nào'],
+    request: ['Ask for a new model', '{新|あたら}しい{模型|もけい}をリクエスト', 'Đề xuất mô hình mới'],
+    embedOpen: ['Open on Vivatheca', 'Vivathecaで{開|ひら}く', 'Mở trên Vivatheca'],
+    embedTitle: ['3D model from Vivatheca', 'Vivathecaの3D{模型|もけい}', 'Mô hình 3D từ Vivatheca'],
+    failed: ['Sorry, that did not work in this browser.', 'このブラウザではうまくいきませんでした。', 'Rất tiếc, thao tác này không thực hiện được trên trình duyệt này.'],
+    version: ['version', 'バージョン', 'phiên bản'],
+    licensed: ['Licensed under', 'ライセンス：', 'Cấp phép theo'],
+    changes: ['Changes: none (or describe your changes).', '{変更|へんこう}：なし（{変更|へんこう}した{場合|ばあい}はその{内容|ないよう}）。', 'Thay đổi: không có (hoặc mô tả các thay đổi của bạn).'],
+    model: ['Model', '{模型|もけい}', 'Mô hình'],
   };
-  const say = (k) => ruby(JA ? T[k][1] : T[k][0]);
-  const sayPlain = (k) => plain(JA ? T[k][1] : T[k][0]);
+  const say = (k) => ruby(T[k][JA ? 1 : VI ? 2 : 0]);
+  const sayPlain = (k) => plain(T[k][JA ? 1 : VI ? 2 : 0]);
   const fill = (s, v) => s.replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const norm = (p) => p.replace(/index\.html$/, '').replace(/\/?$/, '/');
@@ -76,13 +81,23 @@
   // ---- model facts (title, version, licence, review status, disclaimer) ----
   let metaPromise = null;
   const meta = () => (metaPromise ||= fetch('/api/models').then((r) => r.json()).then((m) => ({ ...m, model: m.models.find((x) => norm(x.href) === PATH) || null })).catch(() => null));
-  const lang = JA ? 'ja' : 'en';
+  const lang = JA ? 'ja' : VI ? 'vi' : 'en';
 
   // ---- usage counts (/impact) ----
+  // sendBeacon is made for fire-and-forget counts: the browser sends it in the background and drops
+  // the reply. A fetch whose reply is never read stays "in flight" in Chromium, which stops pages
+  // from ever reaching network idle (it hung the local Playwright tests), so the fallback cancels it.
+  function sendHit(model, kind) {
+    const data = JSON.stringify({ model, kind });
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon('/api/stats/hit', new Blob([data], { type: 'text/plain' }))) return;
+    } catch (e) { /* fall back to fetch */ }
+    try { fetch('/api/stats/hit', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain' }, body: data }).then((r) => r.body && r.body.cancel()).catch(() => {}); } catch (e) { /* counting is optional */ }
+  }
   function count(kind) {
     meta().then((m) => {
       if (!m || !m.model) return;
-      try { fetch('/api/stats/hit', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: m.model.slug, kind }) }).catch(() => {}); } catch (e) { /* counting is optional */ }
+      sendHit(m.model.slug, kind);
     });
   }
   window.vtCount = count;
@@ -242,6 +257,23 @@
       status: plain(m.reviewStatus[lang]) + ' ' + plain(m.modelDisclaimer[lang]) + ' vivatheca.com' + m.disclaimerHref,
     };
   }
+  // Readable fonts for saved pictures (public/fonts/readable/readable.css, SIL OFL 1.1): Atkinson
+  // Hyperlegible for Latin text and BIZ UDPGothic (universal-design) for Japanese. Loaded on first use.
+  let readableReady = null;
+  function readableFonts(sample) {
+    if (!readableReady) {
+      readableReady = new Promise((res) => {
+        if (doc.querySelector('link[href="/fonts/readable/readable.css"]')) return res();
+        const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/fonts/readable/readable.css';
+        l.onload = l.onerror = () => res(); doc.head.appendChild(l);
+      });
+    }
+    return readableReady.then(() => Promise.all(['400', '700'].flatMap((w) => [
+      doc.fonts.load(w + ' 20px "Atkinson Hyperlegible"', sample),
+      doc.fonts.load(w + ' 20px "BIZ UDPGothic"', sample),
+    ])).catch(() => {}));
+  }
+
   // Draws pictures in a grid (numbered when there are several) with the credit and disclaimer underneath.
   function compose(images, m, numbered) {
     const cols = images.length <= 1 ? 1 : images.length <= 4 ? Math.min(images.length, 2) : 3;
@@ -251,7 +283,7 @@
     const W = Math.round(cell * cols), pad = Math.round(W / 60) + 8;
     const c = doc.createElement('canvas');
     const ctx = c.getContext('2d');
-    const font = (px, bold) => (bold ? '600 ' : '') + px + 'px system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif';
+    const font = (px, bold) => (bold ? '700 ' : '') + px + 'px "Atkinson Hyperlegible", "BIZ UDPGothic", system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif';
     const fs = Math.max(14, Math.round(W / 70));
     ctx.font = font(fs);
     const L = creditLines(m);
@@ -369,6 +401,7 @@
         '<button type="button" class="vt-link">' + say('link') + '</button>' +
         '<button type="button" class="vt-qr-btn" aria-expanded="false">' + say('qr') + '</button>' +
         '<button type="button" class="vt-pic">' + say('picture') + '</button>' +
+        '<button type="button" class="vt-offline">' + say('offline') + '</button>' +
         (hasTour ? '<button type="button" class="vt-tour">' + say('tour') + '</button><button type="button" class="vt-steps">' + say('steps') + '</button>' : '') +
         '<button type="button" class="vt-credit-btn" aria-expanded="false">' + say('credit') + '</button>' +
         '<button type="button" class="vt-embed-btn" aria-expanded="false">' + say('embed') + '</button>' +
@@ -406,9 +439,32 @@
           const a = doc.createElement('a'); a.href = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })); a.download = 'vivatheca-' + slug + '-qr.svg'; doc.body.appendChild(a); a.click(); a.remove();
         };
       };
+      // Save for offline (public/sw.js, built by tools/offline/build-sw.mjs with Workbox). The service
+      // worker is registered only here, on request; it then keeps copies of what this device loads.
+      panel.querySelector('.vt-offline').onclick = async (e) => {
+        const b = e.currentTarget;
+        if (!('serviceWorker' in navigator) || !window.caches) { tell('offlineNo'); return; }
+        b.disabled = true; tell('offlineBusy');
+        try {
+          await navigator.serviceWorker.register('/sw.js');
+          await navigator.serviceWorker.ready;
+          if (!navigator.serviceWorker.controller) {
+            await new Promise((r) => { navigator.serviceWorker.addEventListener('controllerchange', r, { once: true }); setTimeout(r, 4000); });
+          }
+          const urls = new Set();
+          for (const entry of performance.getEntriesByType('resource')) {
+            try { const u = new URL(entry.name); if (u.origin === location.origin && !u.pathname.startsWith('/api/')) urls.add(u.pathname + u.search); } catch (err) { /* skip */ }
+          }
+          const page = new URL(location.href); page.hash = '';
+          await (await caches.open('vt-pages')).add(new Request(page.toString(), { credentials: 'same-origin' }));
+          await Promise.all([...urls].map((u) => fetch(u, { credentials: 'same-origin' }).catch(() => {})));
+          tell('offlineDone');
+        } catch (err) { tell('failed'); }
+        b.disabled = false;
+      };
       panel.querySelector('.vt-pic').onclick = async (e) => {
         const b = e.currentTarget; b.disabled = true;
-        try { const img = await captureVisible(group); await download(compose([img], m, false), 'vivatheca-' + slug + '.png'); tell('pictureDone'); count('image'); } catch (err) { tell('failed'); }
+        try { const img = await captureVisible(group); await readableFonts(Object.values(creditLines(m)).join(' ')); await download(compose([img], m, false), 'vivatheca-' + slug + '.png'); tell('pictureDone'); count('image'); } catch (err) { tell('failed'); }
         b.disabled = false;
       };
       if (hasTour) {
@@ -426,6 +482,7 @@
               await sleep(250);
               imgs.push(await captureVisible(group));
             }
+            await readableFonts(Object.values(creditLines(m)).join(' '));
             await download(compose(imgs, m, true), 'vivatheca-' + slug + '-steps.png');
             tell('stepsDone'); count('steps');
           } catch (err) { tell('failed'); }
@@ -456,7 +513,7 @@
         const open = eBtn.getAttribute('aria-expanded') !== 'true';
         eBtn.setAttribute('aria-expanded', String(open)); eBox.hidden = !open;
         if (!open) return;
-        const u = new URL(viewUrl()); u.searchParams.set('embed', '1'); if (JA) u.searchParams.set('lang', 'ja');
+        const u = new URL(viewUrl()); u.searchParams.set('embed', '1'); if (JA || VI) u.searchParams.set('lang', lang);
         const code = '<iframe src="' + esc(u.toString()) + '" title="' + esc(plain(m.model.title[lang]) + ' – Vivatheca') + '" width="100%" height="640" style="border:0;max-width:960px" loading="lazy" allow="fullscreen; xr-spatial-tracking" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
         eBox.innerHTML = '<p>' + say('embedHelp') + '</p><textarea readonly aria-label="' + esc(sayPlain('embed')) + '">' + esc(code) + '</textarea><div class="vt-row"><button type="button" class="vt-copy">' + say('copy') + '</button></div>';
         eBox.querySelector('.vt-copy').onclick = async () => { const ok = await copyText(code); if (!ok) eBox.querySelector('textarea').select(); tell(ok ? 'copied' : 'linkShown'); };

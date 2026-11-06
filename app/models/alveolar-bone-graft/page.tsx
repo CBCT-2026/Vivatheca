@@ -7,6 +7,7 @@ import { disclaimerHref } from '../../disclaimer-text';
 import { CopyCitation } from '../impacted-wisdom-tooth/copy-citation';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
+import { TermSources } from '../terms';
 import { ModelExperience } from '../../ui';
 import { VideoSection } from '../../video-section';
 
@@ -37,6 +38,7 @@ export default async function AlveolarBoneGraftPage() {
         <div className="info-intro">
           <p className="eyebrow"><Ruby text={item.specialty} /></p>
           <h1><Ruby text={item.title} /></h1>
+          <TermSources label={t.library.termsLabel} terms={model.terms} />
           <p><Ruby text={item.summary} /></p>
         </div>
         <ModelExperience />

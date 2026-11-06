@@ -303,6 +303,7 @@ export function ModelExperience() {
 const themeLabels = {
   en: { dark: 'Dark mode', light: 'Light mode' },
   ja: { dark: 'ダークモード', light: 'ライトモード' },
+  vi: { dark: 'Chế độ tối', light: 'Chế độ sáng' },
 } as const;
 
 // Reads the <html> data-theme and lang attributes, re-rendering when either changes.
@@ -314,7 +315,7 @@ function subscribeToRoot(onChange: () => void) {
 
 export function ThemeToggle() {
   const theme = useSyncExternalStore(subscribeToRoot, () => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'), () => 'light');
-  const lang = useSyncExternalStore(subscribeToRoot, () => (document.documentElement.lang.startsWith('ja') ? 'ja' : 'en'), () => 'en') as keyof typeof themeLabels;
+  const lang = useSyncExternalStore(subscribeToRoot, () => { const l = document.documentElement.lang.slice(0, 2); return l in themeLabels ? l : 'en'; }, () => 'en') as keyof typeof themeLabels;
   const next = theme === 'dark' ? 'light' : 'dark';
   const label = themeLabels[lang][next];
   const toggle = () => {

@@ -3,6 +3,8 @@
 Each page follows one published, openly licensed case. English is written into index.html;
 Japanese goes into ja.js (window.VIVA_JA), which ../i18n-engine.js swaps in by data-i18n key.
 Japanese text uses {漢字|かんじ} for furigana and {cite:N} for a citation.
+Vietnamese (window.VIVA_VI, an unreviewed AI draft) is kept by hand in each page's vi.js, with the
+same keys as ja.js; when you add or change a key here, update vi.js too.
 Run: python3 tools/head-neck/pages.py   (after editing the text below)
 """
 import html
@@ -47,7 +49,7 @@ COMMON_JA = {
     'noWebgl': 'このブラウザでは3Dを{表示|ひょうじ}できません（WebGLがオフです）。ブラウザの{設定|せってい}でハードウェアアクセラレーションをオンにするか、{別|べつ}のブラウザで{開|ひら}いてください。',
     'loadFailed': '3D{模型|もけい}を{読|よ}み{込|こ}めませんでした。ページを{再読|さいよ}み{込|こ}みしてください。',
 }
-COMMON_JA['hub'] = '{頭|あたま}と{首|くび}の{一覧|いちらん}'
+COMMON_JA['hub'] = '{頭頸部|とうけいぶ}の{一覧|いちらん}'
 
 ABOUT2_EN = ('Prototype. The model was made to match one published case, but it is not that person’s jaw. '
              'The disease is a simple shape. Where the article gives no number, our modelling choice is stated under “For clinicians”.')
@@ -69,13 +71,14 @@ PAGES = {}
 VERG = 'Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077'
 VERG_CONSENT = 'The journal states that consent was obtained or waived.'
 PAGES['scc'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-021-01402-9">Muller S, Tilakaratne WM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: tumours of the oral cavity and mobile tongue. Head Neck Pathol. 2022;16(1):54-62.</a> <a href="https://doi.org/10.1016/S1470-2045(15)00310-1">Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.</a>',
     model='/head-neck/models/scc-case.glb', jaw='mandible', side='right', margin=True,
-    title=('Mouth cancer in the lower jaw: part of the jaw rebuilt with leg bone | Vivatheca',
-           '{下|した}あごの{口|くち}のがん：あごの{一部|いちぶ}を{足|あし}の{骨|ほね}で{作|つく}り{直|なお}す | Vivatheca'),
+    title=('Squamous cell carcinoma of the mandibular gingiva: segmental mandibulectomy and fibula free flap reconstruction | Vivatheca',
+           '{下顎|かがく}{歯肉|しにく}{扁平|へんぺい}{上皮|じょうひ}{癌|がん}：{下顎骨|かがくこつ}{区域|くいき}{切除|せつじょ}と{遊離|ゆうり}{腓骨|ひこつ}{皮弁|ひべん}による{再建|さいけん} | Vivatheca'),
     description=('A 3D model that follows one published case of mouth cancer on the right lower gum: what was removed and how the jaw was rebuilt with a fibula flap.',
                  '{右下|みぎした}の{歯|は}ぐきにできた{口|くち}のがんの{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}です。{何|なに}を{取|と}り、ひ{骨|こつ}{皮弁|ひべん}であごをどう{作|つく}り{直|なお}したかを{示|しめ}します。'),
-    h1=('Mouth cancer in the lower jaw <span class="pitk-skip">(squamous cell carcinoma)</span>',
-        '{下|した}あごの{口|くち}のがん<span class="pitk-skip">（へんぺい{上皮|じょうひ}がん）</span>'),
+    h1=('<span class="pitk-skip">Squamous cell carcinoma of the mandibular gingiva: segmental mandibulectomy and fibula free flap reconstruction</span>',
+        '<span class="pitk-skip">{下顎|かがく}{歯肉|しにく}{扁平|へんぺい}{上皮|じょうひ}{癌|がん}：{下顎骨|かがくこつ}{区域|くいき}{切除|せつじょ}と{遊離|ゆうり}{腓骨|ひこつ}{皮弁|ひべん}による{再建|さいけん}</span>'),
     lede=('This 3D model follows one real, published case. A woman aged 72 had a cancer on the gum of her right lower jaw, and it had grown into the bone. '
           'Surgeons took out the right side of her lower jaw and rebuilt it with bone from her leg.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。72{歳|さい}の{女性|じょせい}の{右下|みぎした}の{歯|は}ぐきにがんができ、あごの{骨|ほね}の{中|なか}まで{広|ひろ}がっていました。{外科医|げかい}は{下|した}あごの{右側|みぎがわ}を{取|と}り、{足|あし}の{骨|ほね}で{作|つく}り{直|なお}しました。' + jcite(1)),
@@ -193,12 +196,14 @@ PAGES['scc'] = dict(
 SIK = 'Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441'
 SIK_CONSENT = 'The article records the patient’s informed consent.'
 PAGES['ameloblastoma'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-021-01404-7">Vered M, Wright JM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: odontogenic and maxillofacial bone tumours. Head Neck Pathol. 2022;16(1):63-75.</a> <a href="https://doi.org/10.1016/S1470-2045(15)00310-1">Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.</a>',
     model='/head-neck/models/ameloblastoma-case.glb', jaw='mandible', side='left', margin=True,
-    title=('Ameloblastoma in the lower jaw: removing the top of the jaw and adding a plate | Vivatheca',
-           '{下|した}あごのエナメル{上皮腫|じょうひしゅ}：あごの{上|うえ}の{部分|ぶぶん}を{取|と}り、プレートで{支|ささ}える | Vivatheca'),
+    title=('Ameloblastoma of the mandible: marginal mandibulectomy | Vivatheca',
+           '{下顎|かがく}エナメル{上皮腫|じょうひしゅ}：{下顎骨|かがくこつ}{辺縁|へんえん}{切除|せつじょ} | Vivatheca'),
     description=('A 3D model that follows one published case of ameloblastoma in the left lower jaw: rim resection of the jaw with four teeth, and a titanium plate.',
                  '{左下|ひだりした}のあごのエナメル{上皮腫|じょうひしゅ}の{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}です。4{本|ほん}の{歯|は}と{一緒|いっしょ}にあごの{上|うえ}の{部分|ぶぶん}を{取|と}り、チタンのプレートで{支|ささ}えます。'),
-    h1=('Ameloblastoma in the lower jaw', '{下|した}あごのエナメル{上皮腫|じょうひしゅ}'),
+    h1=('<span class="pitk-skip">Ameloblastoma of the mandible: marginal mandibulectomy</span>',
+        '<span class="pitk-skip">{下顎|かがく}エナメル{上皮腫|じょうひしゅ}：{下顎骨|かがくこつ}{辺縁|へんえん}{切除|せつじょ}</span>'),
     lede=('This 3D model follows one real, published case. A man aged 32 had an ameloblastoma in the front of his left lower jaw. '
           'It is a growth that is not cancer, but it keeps growing into bone. Surgeons took out the top part of the jaw with four teeth and kept the lower edge. A metal plate keeps the thin edge strong.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。32{歳|さい}の{男性|だんせい}の{左下|ひだりした}のあごの{前|まえ}の{方|ほう}に、エナメル{上皮腫|じょうひしゅ}ができました。がんではありませんが、{骨|ほね}の{中|なか}で{大|おお}きくなり{続|つづ}けます。{外科医|げかい}は4{本|ほん}の{歯|は}と{一緒|いっしょ}にあごの{上|うえ}の{部分|ぶぶん}を{取|と}り、{下|した}のふちを{残|のこ}しました。{薄|うす}いふちは{金属|きんぞく}のプレートで{支|ささ}えます。' + jcite(1)),
@@ -307,13 +312,14 @@ PAGES['ameloblastoma'] = dict(
 ABD = 'Abdelfadil E, Alsharif M, Alsharif AT, Mourad S. Management of a mandibular odontogenic keratocyst with enucleation, piezotome-assisted peripheral ostectomy, and platelet-rich fibrin: a case report. Dent J (Basel). 2025;13(11):536'
 ABD_CONSENT = 'The article records the patient’s written consent.'
 PAGES['okc'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-021-01404-7">Vered M, Wright JM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: odontogenic and maxillofacial bone tumours. Head Neck Pathol. 2022;16(1):63-75.</a>',
     model='/head-neck/models/okc-case.glb', jaw='mandible', side='left', margin=False,
-    title=('Keratocyst in the lower jaw: ways to treat it | Vivatheca',
-           '{下|した}あごの{角化|かくか}のう{胞|ほう}：{治療|ちりょう}の{方法|ほうほう} | Vivatheca'),
+    title=('Odontogenic keratocyst of the mandible: enucleation and peripheral ostectomy | Vivatheca',
+           '{下顎|かがく}の{歯原性|しげんせい}{角化|かくか}{嚢胞|のうほう}：{摘出|てきしゅつ}と{周囲|しゅうい}{骨|こつ}{削除|さくじょ} | Vivatheca'),
     description=('A 3D model that follows one published case of odontogenic keratocyst at the roots of two lower left teeth, with diagrams of eight treatment options and how often each comes back.',
                  '{左下|ひだりした}の2{本|ほん}の{歯|は}の{根|ね}の{先|さき}にできた{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}の{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}と、8つの{治療|ちりょう}{方法|ほうほう}の{図|ず}、{再発|さいはつ}の{割合|わりあい}です。'),
-    h1=('Keratocyst in the lower jaw <span class="pitk-skip">(odontogenic keratocyst)</span>',
-        '{下|した}あごの{角化|かくか}のう{胞|ほう}<span class="pitk-skip">（{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}）</span>'),
+    h1=('<span class="pitk-skip">Odontogenic keratocyst of the mandible: enucleation and peripheral ostectomy</span>',
+        '<span class="pitk-skip">{下顎|かがく}の{歯原性|しげんせい}{角化|かくか}{嚢胞|のうほう}：{摘出|てきしゅつ}と{周囲|しゅうい}{骨|こつ}{削除|さくじょ}</span>'),
     lede=('This 3D model follows one real, published case. A man aged 54 had a keratocyst at the root tips of two lower left teeth (34 and 35). '
           'A keratocyst is a sac in the jaw, filled with thick fluid. It is not cancer, but it often comes back. The surgeon took out the sac, shaved the bone wall and kept the teeth.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。54{歳|さい}の{男性|だんせい}の{左下|ひだりした}の2{本|ほん}の{歯|は}（34と35）の{根|ね}の{先|さき}に、{角化|かくか}のう{胞|ほう}がありました。{角化|かくか}のう{胞|ほう}は、あごの{中|なか}にできる、{濃|こ}い{液|えき}が{入|はい}った{袋|ふくろ}です。がんではありませんが、よく{再発|さいはつ}します。{外科医|げかい}は{袋|ふくろ}を{取|と}り、{骨|ほね}の{壁|かべ}を{削|けず}って、{歯|は}は{残|のこ}しました。' + jcite(1)),
@@ -440,13 +446,14 @@ PAGES['okc'] = dict(
 ELL = 'Ellam M, et al. Mucoepidermoid carcinoma of the hard palate: a case illustrating grading uncertainty and bone-sparing surgical management. Cureus. 2026;18(8):e115250'
 ELL_CONSENT = 'The journal states that consent was obtained or waived. Mouth and lips only; no eyes.'
 PAGES['mec'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-022-01420-1">Skálová A, Hyrcza MD, Leivo I. Update from the 5th edition of the World Health Organization classification of head and neck tumors: salivary glands. Head Neck Pathol. 2022;16(1):40-53.</a>',
     model='/head-neck/models/mec-case.glb', jaw='maxilla', side='right', margin=True,
-    title=('Cancer of a small spit gland in the roof of the mouth | Vivatheca',
-           '{口|くち}の{天井|てんじょう}の{小|ちい}さなだ{液|えき}{腺|せん}のがん | Vivatheca'),
+    title=('Low-grade mucoepidermoid carcinoma of the hard palate: wide local excision | Vivatheca',
+           '{硬口蓋|こうこうがい}の{低悪性度|ていあくせいど}{粘表皮癌|ねんぴょうひがん}：{広範|こうはん}{局所|きょくしょ}{切除|せつじょ} | Vivatheca'),
     description=('A 3D model that follows one published case of low-grade mucoepidermoid carcinoma of the hard palate, removed with a cuff of lining while keeping the bone.',
                  '{口|くち}の{天井|てんじょう}にできた{低悪性度|ていあくせいど}の{粘表皮|ねんひょうひ}がんの{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}です。{骨|ほね}を{残|のこ}し、まわりの{粘膜|ねんまく}と{一緒|いっしょ}に{取|と}りました。'),
-    h1=('Cancer of a small spit gland in the roof of the mouth <span class="pitk-skip">(mucoepidermoid carcinoma)</span>',
-        '{口|くち}の{天井|てんじょう}の{小|ちい}さなだ{液|えき}{腺|せん}のがん<span class="pitk-skip">（{粘表皮|ねんひょうひ}がん）</span>'),
+    h1=('<span class="pitk-skip">Low-grade mucoepidermoid carcinoma of the hard palate: wide local excision</span>',
+        '<span class="pitk-skip">{硬口蓋|こうこうがい}の{低悪性度|ていあくせいど}{粘表皮癌|ねんぴょうひがん}：{広範|こうはん}{局所|きょくしょ}{切除|せつじょ}</span>'),
     lede=('This 3D model follows one real, published case. A man aged 42 had a slow-growing lump on the right side of the roof of his mouth. '
           'It was a slow type of cancer that starts in a small spit gland. The surgeon took out the lump with a cuff of normal lining and kept the bone above it.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。42{歳|さい}の{男性|だんせい}の{口|くち}の{天井|てんじょう}の{右側|みぎがわ}に、ゆっくり{大|おお}きくなるしこりがありました。{小|ちい}さなだ{液|えき}{腺|せん}にできる、{進|すす}みの{遅|おそ}いがんでした。{外科医|げかい}は、まわりの{正常|せいじょう}な{粘膜|ねんまく}と{一緒|いっしょ}にしこりを{取|と}り、{上|うえ}の{骨|ほね}は{残|のこ}しました。' + jcite(1)),
@@ -581,6 +588,9 @@ def build(slug, P):
       '    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>\n'
       '  </div>\n  <div class="langs" id="langs" role="group" aria-label="Language"></div>\n</header>\n<script src="/site-header.js"></script>\n\n<main>')
     t('h1', P['h1'][0], P['h1'][1], 'h1')
+    # Source for the formal clinical name in the title (also in app/models/catalogue.ts, terms).
+    ja['termsLabel'] = '{名称|めいしょう}と{分類|ぶんるい}：'
+    w(f'<p class="small term-sources"><span data-i18n="termsLabel">Name and classification:</span> {P["terms"]}</p>')
     t('lede', P['lede'][0], P['lede'][1], 'p', ' class="lede"')
     w('<div class="note"><p data-i18n="viewOnly"><b>3D viewing only for now.</b> Print files are not available yet.</p></div>')
     side = P.get('side', 'right')
@@ -691,7 +701,7 @@ def build(slug, P):
         w(f'    <li id="ref-{i}">{txt} <a href="{href}">{shown}</a></li>')
     w('  </ol>\n</details>\n</section>')
     w(f'\n<p class="small" data-i18n="version">{VERSION_EN}</p>\n</main>')
-    w('<script src="ja.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
+    w('<script src="ja.js"></script>\n<script src="vi.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
     w('<script src="/head-neck/vendor/three/three.min.js"></script>\n<script src="/head-neck/vendor/three/GLTFLoader.js"></script>\n<script src="/head-neck/vendor/three/DRACOLoader.js"></script>\n<script src="/head-neck/vendor/three/OrbitControls.js"></script>')
     w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n<script src="/fullscreen.js"></script>\n<script src="/videos/videos.js"></script>\n<script src="/video-embed.js"></script>\n<script src="/model-parts.js"></script>\n<script src="/clinical-zoom.js"></script>\n<script src="/share-tools.js"></script>\n</body>\n</html>\n')
     d = os.path.join(PUB, slug)

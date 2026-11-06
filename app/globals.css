@@ -570,7 +570,9 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .library-card-body { padding: 1.25rem 1.4rem 1.5rem; }
 .library-card h2 { margin: .25rem 0 .5rem; color: var(--heading); font-size: 1.4rem; line-height: 1.2; }
 .library-card p { margin: 0; color: var(--muted); }
-.library-meta { color: var(--accent) !important; font-size: .8rem; font-weight: 750; }
+.library-meta { color: var(--accent) !important; font-size: .8rem; font-weight: 750; display: flex; align-items: center; gap: 6px; }
+/* Specialty icons from Health Icons (CC0, healthicons.org), tinted with the theme accent. */
+.spec-icon { flex: none; width: 22px; height: 22px; background-color: currentColor; -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
 .library-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0 0; padding: 0; list-style: none; }
 .library-tags li { border-radius: 999px; background: var(--surface-tint-strong); padding: .2rem .65rem; color: var(--heading); font-size: .76rem; font-weight: 700; }
 .library-next { max-width: 760px; margin-top: clamp(3rem,6vw,5rem); border-top: 1px solid var(--line); padding-top: 2rem; }
@@ -1118,3 +1120,14 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .slices-position output { font-variant-numeric: tabular-nums; color: var(--text-strong); }
 .slices-position a { color: var(--accent); }
 @media (max-width: 720px) { .slices-canvas { aspect-ratio: 1 / 1; } }
+
+/* Source for a model's formal clinical name (app/models/terms.tsx; static pages use p.term-sources too). */
+.term-sources { margin: .25rem 0 .75rem; font-size: .8rem; line-height: 1.45; color: var(--muted); text-align: justify; hyphens: auto; }
+.library-card > .term-sources { margin: 0 1.4rem 1rem; }
+.term-sources a { color: inherit; text-underline-offset: .2em; overflow-wrap: anywhere; }
+
+/* Averaged jaw page (/models/averaged-jaw): one viewer column, provenance table. */
+.averaged-jaw-experience { grid-template-columns: 1fr; min-height: 560px; }
+.averaged-jaw-page .detail-block { margin-top: 2rem; }
+.averaged-jaw-page .detail-block h2 { margin-bottom: .75rem; }
+.averaged-jaw-table td, .averaged-jaw-table th { white-space: nowrap; }

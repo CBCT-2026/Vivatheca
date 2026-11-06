@@ -17,7 +17,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'impacted-molar',
     page: '/models/impacted-wisdom-tooth',
-    name: 'Impacted lower wisdom tooth',
+    name: 'Mesioangular impacted mandibular third molar',
     glb: '/models/impacted-molar.glb',
     condition: 'An impacted lower third molar (wisdom tooth) angled forward against the second molar, with roots close to the inferior alveolar nerve.',
     labels: [
@@ -34,7 +34,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'oroantral',
     page: '/oroantral/',
-    name: 'Opening into the sinus after upper molar removal (OAC and OAF)',
+    name: 'Oroantral communication and oroantral fistula after maxillary molar extraction',
     glb: '/oroantral/models/oac.glb',
     condition: 'Upper first molar roots reaching into the maxillary sinus; removal leaves an oroantral communication (OAC, a fresh opening). If it stays open it becomes an oroantral fistula (OAF, an epithelium-lined tunnel). Repairs shown: blood clot (small openings), buccal advancement flap, buccal fat pad flap, palatal rotation flap.',
     labels: [
@@ -58,7 +58,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'periodontitis',
     page: '/periodontitis/',
-    name: 'Gum disease (periodontitis), Stages I to IV',
+    name: 'Periodontitis, Stages I to IV (2017 AAP/EFP classification)',
     glb: '/periodontitis/models/healthy.glb',
     condition: 'A lower jaw showing the 2017 AAP/EFP periodontitis stages: healthy, then Stage I (initial), II (moderate), III (severe) and IV (advanced), with bone height falling further below the enamel edge of the teeth at each stage.',
     labels: [
@@ -71,7 +71,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'development',
     page: '/development/',
-    name: 'Dental development, ages 6 to 12',
+    name: 'Mixed dentition: development and eruption of the permanent teeth, 6.5 to 12.5 years',
     glb: '/development/models/age-6-5.glb',
     condition: 'A child\'s upper and lower jaws at each year from 6 to 12, showing baby teeth being lost and adult teeth growing inside the jaw and coming through. This is normal development, not a disease.',
     labels: [
@@ -83,7 +83,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'orthognathic',
     page: '/orthognathic/',
-    name: 'Jaw surgery to correct the bite (orthognathic surgery)',
+    name: 'Skeletal Class II and Class III malocclusion: orthognathic surgery (Le Fort I osteotomy, BSSO and genioplasty)',
     glb: '/orthognathic/models/normal.glb',
     condition: 'Upper and lower jaws with a normal bite (Class I), a lower jaw set back (Class II) and a lower jaw set forward (Class III), each shown before and after jaw surgery that moves the bone and holds it with titanium plates and screws.',
     labels: [
@@ -98,7 +98,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'cracked-tooth',
     page: '/cracked-tooth/',
-    name: 'Cracked tooth: crown versus filling',
+    name: 'Cracked mandibular first molar: direct restoration versus cuspal-coverage crown',
     glb: '/cracked-tooth/models/cracked-whole.glb',
     condition: 'A lower first molar with a crack, shown untreated, with a large composite resin filling, and with a crown that covers the cusps, beside a healthy tooth. Biting force can open the crack; a crown holds the cusps together.',
     labels: [
@@ -116,7 +116,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'stainless-steel-crown',
     page: '/stainless-steel-crown/',
-    name: 'Steel crown on a child\'s back tooth',
+    name: 'Preformed metal (stainless steel) crown on a mandibular second primary molar',
     glb: '/stainless-steel-crown/models/crown.glb',
     condition: 'A baby back tooth in a child\'s lower jaw, shown healthy, with large decay, with a large filling, shaped for a crown, and with a preformed stainless steel crown. The adult tooth grows in the bone underneath.',
     labels: [
@@ -130,7 +130,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'head-neck-scc',
     page: '/head-neck/scc/',
-    name: 'Mouth cancer in the lower jaw (squamous cell carcinoma) with fibula rebuild',
+    name: 'Squamous cell carcinoma of the mandibular gingiva: segmental mandibulectomy and fibula free flap reconstruction',
     glb: '/head-neck/models/scc-case.glb',
     condition: 'Based on one published case: a squamous cell carcinoma of the right lower gum that had grown into the bone. The right side of the lower jaw was removed with a safety margin and rebuilt with bone from the leg (fibula free flap).',
     labels: [
@@ -145,7 +145,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'head-neck-ameloblastoma',
     page: '/head-neck/ameloblastoma/',
-    name: 'Ameloblastoma in the lower jaw',
+    name: 'Ameloblastoma of the mandible: marginal mandibulectomy',
     glb: '/head-neck/models/ameloblastoma-case.glb',
     condition: 'Based on one published case: an ameloblastoma (a growth that is not cancer but grows into bone) in the front of the left lower jaw. The top part of the jaw was removed with four teeth, keeping the lower edge, and a metal plate keeps the thin edge strong.',
     labels: [
@@ -160,7 +160,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'head-neck-okc',
     page: '/head-neck/okc/',
-    name: 'Keratocyst in the lower jaw (odontogenic keratocyst)',
+    name: 'Odontogenic keratocyst of the mandible: enucleation and peripheral ostectomy',
     glb: '/head-neck/models/okc-case.glb',
     condition: 'Based on one published case: an odontogenic keratocyst (a fluid-filled sac in the jaw that is not cancer but often comes back) at the root tips of two lower left premolars. The sac was removed, the bone wall shaved and the teeth kept.',
     labels: [
@@ -174,7 +174,7 @@ export const modelBriefs: ModelBrief[] = [
   {
     id: 'head-neck-mec',
     page: '/head-neck/mec/',
-    name: 'Cancer of a small spit gland in the roof of the mouth (mucoepidermoid carcinoma)',
+    name: 'Low-grade mucoepidermoid carcinoma of the hard palate: wide local excision',
     glb: '/head-neck/models/mec-case.glb',
     condition: 'Based on one published case: a slow-growing mucoepidermoid carcinoma of a minor salivary gland on the right side of the palate. The lump was removed with a cuff of normal lining, the bone above it kept, and the raw area healed under a cover plate.',
     labels: [

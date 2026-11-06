@@ -1,0 +1,54 @@
+name: Request a model
+description: Suggest a condition or treatment Vivatheca should model.
+title: "Model request: "
+labels: ["model request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Requests here are **public**. You can also use the [request board](https://vivatheca.com/requests) or the [contribute page](https://vivatheca.com/contribute?kind=request).
+        **Never attach or describe a real patient's scans, photos or records.** Vivatheca models typical anatomy and disease from published evidence only.
+  - type: input
+    id: condition
+    attributes:
+      label: Condition or treatment
+      placeholder: e.g. dentigerous cyst, sinus lift, distraction osteogenesis
+    validations:
+      required: true
+  - type: dropdown
+    id: specialty
+    attributes:
+      label: Specialty
+      options:
+        - Oral and maxillofacial surgery
+        - Orthodontics
+        - Paediatric dentistry
+        - Periodontics
+        - Endodontics
+        - Prosthodontics
+        - Oral medicine and pathology
+        - Oral and maxillofacial radiology
+        - Special needs dentistry
+        - General dentistry
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: use
+    attributes:
+      label: How would you use it?
+      description: Who you would show it to and what it should help them understand. Say which stages or options it should show, and the matching normal anatomy to compare with.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Key sources (optional)
+      description: Guidelines, reviews or papers that describe the anatomy, stages or treatment.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: This request contains no patient information.
+          required: true

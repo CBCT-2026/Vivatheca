@@ -69,7 +69,13 @@ const STAGES = {
     labels: [['palF', 'right', 'Flap', '{弁|べん}'], ['palB', 'left', 'Joined at back', '{後|うし}ろでつながる'], ['palD', 'right', 'Bare bone', 'むき{出|だ}しの{骨|ほね}']],
   },
 };
-const LANG = () => (html.lang === 'ja' ? 'ja' : 'en');
+const LANG = () => (html.lang === 'ja' || html.lang === 'vi' ? html.lang : 'en');
+const VI_PAGE = window.VT_VI_PAGE || {}; // Vietnamese from vi.js (unreviewed AI draft)
+for (const k in STAGES) {
+  const v = (VI_PAGE.states || {})[k];
+  STAGES[k].vi = v ? [v.title, v.text] : STAGES[k].en;
+  STAGES[k].labels.forEach((lb, i) => { lb[4] = v && v.labels && v.labels[i] || lb[2]; });
+}
 let current = 'normal';
 
 mv.addEventListener('progress', e => {
@@ -86,15 +92,16 @@ function render() {
   const s = STAGES[current], l = LANG();
   const [title, text] = s[l];
   caption.innerHTML = '<h2>' + ruby(title) + '</h2><p>' + ruby(text) + '</p>';
-  mv.alt = (l === 'ja' ? '3Dモデル：' : '3D model: ') + title.replace(/\{([^{}|]+)\|[^{}|]+\}/g, '$1') +
-    (l === 'ja' ? '。右の上顎を第一大臼歯の中央で切った断面。' : '. Right upper jaw cut through the first molar.');
+  const X = VI_PAGE.extra || {};
+  mv.alt = (l === 'ja' ? '3Dモデル：' : l === 'vi' ? X.altPrefix || '3D model: ' : '3D model: ') + title.replace(/\{([^{}|]+)\|[^{}|]+\}/g, '$1') +
+    (l === 'ja' ? '。右の上顎を第一大臼歯の中央で切った断面。' : l === 'vi' ? X.altSuffix || '. Right upper jaw cut through the first molar.' : '. Right upper jaw cut through the first molar.');
   mv.querySelectorAll('.hotspot').forEach(h => h.remove());
-  s.labels.forEach(([key, side, en, ja], i) => {
+  s.labels.forEach(([key, side, en, ja, vi], i) => {
     const b = document.createElement('div');
     b.className = 'hotspot'; b.slot = 'hotspot-' + i; b.dataset.position = P[key]; b.dataset.side = side;
     b.dataset.normal = NORMAL[key] || '0 0 1'; b.dataset.visibilityAttribute = 'visible';
     b.setAttribute('aria-hidden', 'true');
-    b.innerHTML = '<span class="label">' + (l === 'ja' ? ruby(ja) : en) + '</span>';
+    b.innerHTML = '<span class="label">' + (l === 'ja' ? ruby(ja) : l === 'vi' ? vi : en) + '</span>';
     mv.appendChild(b);
   });
   legend.forEach(li => { li.hidden = !s.parts.includes(li.dataset.k); });
@@ -153,7 +160,7 @@ mv.addEventListener('camera-change', e => {
 // Light/dark toggle (light by default; choice shared site-wide in localStorage 'vivatheca-theme').
 const themeBtn = document.getElementById('theme');
 const isDark = () => html.dataset.theme === 'dark';
-const THEME = { en: { dark: 'Dark mode', light: 'Light mode' }, ja: { dark: 'ダークモード', light: 'ライトモード' } };
+const THEME = { en: { dark: 'Dark mode', light: 'Light mode' }, ja: { dark: 'ダークモード', light: 'ライトモード' }, vi: { dark: 'Chế độ tối', light: 'Chế độ sáng' } };
 const showTheme = () => { themeBtn.textContent = THEME[LANG()][isDark() ? 'light' : 'dark']; };
 themeBtn.addEventListener('click', () => {
   const t = isDark() ? 'light' : 'dark';
@@ -169,14 +176,17 @@ const langs = document.getElementById('langs');
 function buildLangs() {
   const l = LANG();
   langs.replaceChildren();
-  langs.setAttribute('aria-label', l === 'ja' ? '言語' : 'Language');
-  [['en', 'English'], ['ja', '日本語']].forEach(([code, name]) => {
+  langs.setAttribute('aria-label', { ja: '言語', vi: 'Ngôn ngữ' }[l] || 'Language');
+  [['en', 'English'], ['ja', '日本語'], ['vi', 'Tiếng Việt']].forEach(([code, name]) => {
     const b = document.createElement('button');
     b.type = 'button'; b.lang = code; b.textContent = name;
     b.setAttribute('aria-pressed', String(code === l));
     b.addEventListener('click', () => {
       if (code === LANG()) return;
-      setCookie('vivatheca-lang', code); html.lang = code;
+      setCookie('vivatheca-lang', code);
+      // Vietnamese replaces the English in the page, so switching to or from it reloads.
+      if (code === 'vi' || LANG() === 'vi') { location.reload(); return; }
+      html.lang = code;
       buildLangs(); showTheme(); render();
     });
     langs.append(b);
@@ -202,9 +212,9 @@ function showProblem(text) {
   box.textContent = text;
 }
 const canvas = document.createElement('canvas');
-if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem('This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.');
-mv.addEventListener('error', () => showProblem('The 3D model could not load. Please reload the page.'));
-setTimeout(() => { if (!customElements.get('model-viewer')) showProblem('The 3D model could not load. Please reload the page.'); }, 10000);
+if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem(LANG() === 'vi' ? 'Trình duyệt này không hiển thị được 3D (WebGL đang tắt). Hãy bật tăng tốc phần cứng trong cài đặt trình duyệt, hoặc mở trang bằng trình duyệt khác.' : 'This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.');
+mv.addEventListener('error', () => showProblem(LANG() === 'vi' ? 'Không tải được mô hình 3D. Hãy tải lại trang.' : 'The 3D model could not load. Please reload the page.'));
+setTimeout(() => { if (!customElements.get('model-viewer')) showProblem(LANG() === 'vi' ? 'Không tải được mô hình 3D. Hãy tải lại trang.' : 'The 3D model could not load. Please reload the page.'); }, 10000);
 
 // A tap on a source number opens the closed list of sources first.
 document.addEventListener('click', e => {

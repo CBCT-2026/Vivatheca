@@ -65,7 +65,7 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   // The wisdom tooth stays the hero; a mix of other models, including dental development, follows.
   await expect(page.locator('.hero-visual img')).toHaveAttribute('src', '/assets/renders/wisdom-tooth-hero.webp');
   const showcase = page.locator('#showcase');
-  await expect(showcase.getByRole('link', { name: /Dental development, ages 6 to 12/ })).toHaveAttribute('href', '/development/');
+  await expect(showcase.getByRole('link', { name: /Mixed dentition: development and eruption/ })).toHaveAttribute('href', '/development/');
   await expect(showcase.locator('.library-card')).toHaveCount(6);
 });
 

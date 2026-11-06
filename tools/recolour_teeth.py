@@ -8,10 +8,14 @@ development models (blue baby / yellow adult teeth), ABG and cut faces are left 
 Usage: python3 tools/recolour_teeth.py public/**/*.glb
 """
 import json
+import os
 import struct
 import sys
 
-TOOTH = [0.8963, 0.855, 0.7758, 1]
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'tokens'))
+from colours import LINEAR  # shared colour tokens (tokens/model.json, `pnpm tokens`)
+
+TOOTH = list(LINEAR['model.tooth']) + [1]
 OLD = (0.769, 0.717, 0.65)
 NAMES = {'teeth', 'tooth', 'premolar', 'wisdom tooth'}
 

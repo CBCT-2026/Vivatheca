@@ -4,19 +4,19 @@
 // Node names in the GLB decide when each part shows (see SHOW below).
 (function () {
   const I = window.VIVA_I18N || { lang: 'en', text: () => null, ruby: (s) => s, plain: (s) => s };
-  const JA = I.lang === 'ja';
+  const JA = I.lang === 'ja', VI = I.lang === 'vi';
   const T = (key, en) => { const s = I.text(key); return s ? I.ruby(s) : en; };
   const box = document.getElementById('viewer'), status = document.getElementById('status');
   const JAW = box.dataset.jaw || 'mandible';
 
   const LEGEND = [
-    [/^bone$/, 'Bone', '{骨|ほね}'], [/^teeth$/, 'Teeth', '{歯|は}'], [/^lesion/, 'Disease', '{病変|びょうへん}'], [/^margin/, 'Safety margin', '{安全|あんぜん}{域|いき}'],
-    [/^specimen_bone/, 'Bone removed', '{取|と}る{骨|ほね}'], [/^specimen_teeth/, 'Teeth removed with the bone', '{骨|ほね}と{一緒|いっしょ}に{取|と}る{歯|は}'],
-    [/^removed/, 'Bone removed', '{取|と}る{骨|ほね}'], [/^root_tips/, 'Root tips cut off', '{切|き}り{取|と}る{根|ね}の{先|さき}'],
-    [/^mucosa$/, 'Palate lining', '{口|くち}の{天井|てんじょう}の{粘膜|ねんまく}'], [/^excised/, 'Lining removed', '{取|と}る{粘膜|ねんまく}'],
-    [/^fibula/, 'Fibula (leg bone)', 'ひ{骨|こつ}（すねの{骨|ほね}）'], [/^plate$/, 'Titanium plate and screws', 'チタンのプレートとネジ'],
-    [/^prf/, 'PRF (made from the patient’s own blood)', 'PRF（{自分|じぶん}の{血液|けつえき}から{作|つく}る）'],
-    [/^cover_plate/, 'Clear cover plate', '{透明|とうめい}な{保護|ほご}{板|ばん}'], [/^dressing/, 'Dressing paste', '{傷|きず}を{守|まも}るパック'],
+    [/^bone$/, 'Bone', '{骨|ほね}', 'Xương'], [/^teeth$/, 'Teeth', '{歯|は}', 'Răng'], [/^lesion/, 'Disease', '{病変|びょうへん}', 'Tổn thương'], [/^margin/, 'Safety margin', '{安全|あんぜん}{域|いき}', 'Viền an toàn'],
+    [/^specimen_bone/, 'Bone removed', '{取|と}る{骨|ほね}', 'Xương được cắt bỏ'], [/^specimen_teeth/, 'Teeth removed with the bone', '{骨|ほね}と{一緒|いっしょ}に{取|と}る{歯|は}', 'Răng được lấy bỏ cùng xương'],
+    [/^removed/, 'Bone removed', '{取|と}る{骨|ほね}', 'Xương được cắt bỏ'], [/^root_tips/, 'Root tips cut off', '{切|き}り{取|と}る{根|ね}の{先|さき}', 'Chóp chân răng được cắt bỏ'],
+    [/^mucosa$/, 'Palate lining', '{口|くち}の{天井|てんじょう}の{粘膜|ねんまく}', 'Niêm mạc vòm miệng'], [/^excised/, 'Lining removed', '{取|と}る{粘膜|ねんまく}', 'Niêm mạc được cắt bỏ'],
+    [/^fibula/, 'Fibula (leg bone)', 'ひ{骨|こつ}（すねの{骨|ほね}）', 'Xương mác (xương cẳng chân)'], [/^plate$/, 'Titanium plate and screws', 'チタンのプレートとネジ', 'Nẹp và vít titan'],
+    [/^prf/, 'PRF (made from the patient’s own blood)', 'PRF（{自分|じぶん}の{血液|けつえき}から{作|つく}る）', 'PRF (làm từ máu của chính bệnh nhân)'],
+    [/^cover_plate/, 'Clear cover plate', '{透明|とうめい}な{保護|ほご}{板|ばん}', 'Tấm che trong suốt'], [/^dressing/, 'Dressing paste', '{傷|きず}を{守|まも}るパック', 'Băng phủ vết thương'],
   ];
   const RECON = /^(fibula|plate|screws|prf|cover_plate|dressing)/;
   const MOVE = /^(specimen|extracted|lesion|removed|excised|margin|root_tips)/;
@@ -46,7 +46,7 @@
     const h = document.querySelector('h1'); if (!h) return;
     const c = h.cloneNode(true); c.querySelectorAll('rt, rp').forEach((r) => r.remove());
     renderer.domElement.setAttribute('role', 'img');
-    renderer.domElement.setAttribute('aria-label', (document.documentElement.lang === 'ja' ? '3Dモデル: ' : '3D model: ') + c.textContent.trim());
+    renderer.domElement.setAttribute('aria-label', ({ ja: '3Dモデル: ', vi: 'Mô hình 3D: ' }[document.documentElement.lang] || '3D model: ') + c.textContent.trim());
   })();
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 4 / 3, 0.005, 5);
@@ -100,14 +100,14 @@
     });
     target = s === 'op' ? (JAW === 'mandible' ? 0.03 : -0.025) : 0;
     const vis = parts.filter((o) => o.visible);
-    document.getElementById('legend').innerHTML = LEGEND.map(([re, en, ja]) => {
+    document.getElementById('legend').innerHTML = LEGEND.map(([re, en, ja, vi]) => {
       // Before surgery the parts that will be removed still look like normal bone, teeth or lining,
       // so their legend entries would show near-identical colours: list them from stage 2 on.
       if (s === 'pre' && /specimen|removed|root_tips|excised/.test(re.source)) return '';
       const o = vis.find((p) => re.test(p.userData.n));
       if (!o) return '';
       const col = '#' + o.material.color.clone().convertLinearToSRGB().getHexString();
-      return '<li><span class="dot" style="background:' + col + '"></span>' + (JA ? I.ruby(ja) : en) + '</li>';
+      return '<li><span class="dot" style="background:' + col + '"></span>' + (JA ? I.ruby(ja) : VI ? vi : en) + '</li>';
     }).join('');
     announceParts();
   }

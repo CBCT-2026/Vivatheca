@@ -1,0 +1,19 @@
+{
+  "brand": {
+    "$description": "Vivatheca core brand colours. app/globals.css holds the theme-aware CSS tokens built on these; keep both in step.",
+    "navy950":  { "$value": "#001a37" },
+    "navy900":  { "$value": "#00244d" },
+    "navy800":  { "$value": "#083965" },
+    "cyan500":  { "$value": "#14c9d7" },
+    "cyan600":  { "$value": "#007f8b" },
+    "cyan700":  { "$value": "#006974" },
+    "aqua100":  { "$value": "#dff7f9" },
+    "aqua50":   { "$value": "#effcfc" },
+    "coral500": { "$value": "#d55748" },
+    "amber500": { "$value": "#e4aa2b" },
+    "paper":    { "$value": "#f7fafb" },
+    "ink":      { "$value": "#06233f" },
+    "muted":    { "$value": "#4d6378" },
+    "line":     { "$value": "#cfe1e7" }
+  }
+}

@@ -7,7 +7,8 @@ const showTheme = () => {
   const k = isDark() ? 'light' : 'dark';
   // In Japanese (i18n.js sets <html lang="ja">) the button shows the Japanese label.
   const ja = themeBtn.dataset[k + 'Ja'];
-  themeBtn.textContent = document.documentElement.lang === 'ja' && ja ? ja : themeBtn.dataset[k];
+  const lang = document.documentElement.lang;
+  themeBtn.textContent = lang === 'ja' && ja ? ja : lang === 'vi' ? (k === 'dark' ? 'Chế độ tối' : 'Chế độ sáng') : themeBtn.dataset[k];
 };
 themeBtn.addEventListener('click', () => {
   const t = isDark() ? 'light' : 'dark';
