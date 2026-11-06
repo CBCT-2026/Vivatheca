@@ -179,3 +179,13 @@ th { font-size: 12px; color: var(--muted); font-weight: 700; }
 .clin-fig img { display: block; width: 100%; height: auto; border-radius: 10px; background: #000; border: 1px solid var(--line); box-sizing: border-box; }
 .clin-fig figcaption { font-size: 14px; margin-top: 6px; text-align: left; }
 .clin-fig .credit { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; overflow-wrap: anywhere; }
+
+/* Desktop: the 3D viewer breaks out of the text column so the model is large on laptop screens. */
+@media (min-width: 1000px) {
+  main .viewer {
+    width: min(1100px, calc(100vw - 80px));
+    margin-left: calc(50% - min(550px, 50vw - 40px));
+    height: 68vh; max-height: 720px;
+  }
+  main .viewer:fullscreen { margin-left: 0; }
+}

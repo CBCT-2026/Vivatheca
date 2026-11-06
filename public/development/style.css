@@ -154,3 +154,14 @@ details.surgical summary { cursor: pointer; min-height: 32px; display: flex; ali
 details.surgical .clin-fig { margin-top: 8px; }
 .clin-fig figcaption, .clin-fig .credit { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
 .clin-fig img { border: 1px solid var(--line); box-sizing: border-box; }
+
+/* Desktop: the 3D viewer breaks out of the 640 px text column so the model is large on laptop screens.
+   Text stays at a readable width. Shared by every static model page that uses this stylesheet. */
+@media (min-width: 1000px) {
+  main > model-viewer {
+    width: min(1100px, calc(100vw - 80px));
+    margin-left: calc(50% - min(550px, 50vw - 40px));
+    height: 68vh; max-height: 720px;
+  }
+  main > model-viewer:fullscreen { margin-left: 0; }
+}
