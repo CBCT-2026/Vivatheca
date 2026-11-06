@@ -1144,3 +1144,5 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .survey-table { width: 100%; border-collapse: collapse; }
 .survey-table th, .survey-table td { padding: .5rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .survey-table td { white-space: nowrap; text-align: right; }
+.review-table { width: 100%; border-collapse: collapse; }
+.review-table th, .review-table td { padding: .5rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }

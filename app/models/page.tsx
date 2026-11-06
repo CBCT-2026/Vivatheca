@@ -9,6 +9,7 @@ import { getI18n } from '../i18n/server';
 import { plain, Ruby } from '../i18n/ruby';
 import { videos } from '../videos';
 import { TermSources } from './terms';
+import { currentReview } from './reviews';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getI18n();
@@ -44,6 +45,7 @@ export default async function ModelsPage() {
         <ul className="library-grid" aria-label={plain(l.listLabel)}>
           {catalogue.map((model) => {
             const item = l.items[model.slug];
+            const reviewed = currentReview(model.slug);
             const video = videos[model.slug]?.[locale === 'ja' ? 'ja' : 'en'];
             return (
               <li key={model.slug} className="library-card">
@@ -59,7 +61,7 @@ export default async function ModelsPage() {
                     <ul className="library-tags" aria-label={plain(l.factsLabel)}>
                       <li><Ruby text={item.pairing} /></li>
                       <li>{format(l.version, { v: model.version })}</li>
-                      <li><Ruby text={l.notReviewed} /></li>
+                      <li>{reviewed ? <Ruby text={format(t.review.reviewed, { name: reviewed.reviewer, credentials: reviewed.credentials, date: reviewed.date })} /> : <Ruby text={l.notReviewed} />}</li>
                       <li lang="en">{(model.licence ?? licence).name}</li>
                     </ul>
                   </div>

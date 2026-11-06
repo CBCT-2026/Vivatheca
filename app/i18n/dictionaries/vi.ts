@@ -1971,6 +1971,43 @@ const vi = withFallback(en, {
     "busy": "Bạn đã thử quá nhiều lần. Vui lòng đợi một phút rồi thử lại.",
     "privacy": "Bài đăng được lưu trên máy chủ của Vivatheca (Cloudflare). Bạn có thể yêu cầu xóa bài của mình bất cứ lúc nào."
   },
+  "review": {
+    "title": "Thẩm định lâm sàng — Vivatheca",
+    "description": "Cách bác sĩ có chuyên môn kiểm tra các mô hình Vivatheca, và hồ sơ xác nhận cho từng phiên bản mô hình.",
+    "eyebrow": "Thẩm định lâm sàng",
+    "heading": "Thẩm định lâm sàng các mô hình",
+    "intro": "Mỗi mô hình đều được đối chiếu với nghiên cứu đã công bố trước khi đưa lên trang. Thẩm định lâm sàng là bước kiểm tra thứ hai do một bác sĩ có chuyên môn phù hợp thực hiện. Trang này trình bày cách thẩm định và hồ sơ xác nhận của từng mô hình.",
+    "howHeading": "Cách thẩm định",
+    "steps": [
+      "Một bác sĩ có đăng ký hành nghề trong chuyên khoa của mô hình đề nghị thẩm định qua email.",
+      "Họ xem phiên bản hiện tại của mô hình, nội dung trang và các nguồn, theo danh sách kiểm tra bên dưới.",
+      "Họ gửi lại những gì đã phát hiện. Lỗi được sửa và mô hình có số phiên bản mới.",
+      "Khi đã hài lòng, họ xác nhận phiên bản đó: tên, chuyên môn, ngày và những gì đã kiểm tra. Hồ sơ được thêm vào trang này.",
+      "Phiên bản mới của mô hình cần được thẩm định lại. Trước đó, mô hình lại hiện “Chưa được thẩm định lâm sàng”."
+    ],
+    "checksHeading": "Người thẩm định kiểm tra những gì",
+    "checks": {
+      "anatomy": "Giải phẫu: hình dạng, kích thước và vị trí khớp với giải phẫu bình thường và các nguồn đã dẫn.",
+      "condition": "Bệnh lý: bệnh hoặc vấn đề trông giống biểu hiện điển hình.",
+      "treatment": "Điều trị: phương pháp điều trị được thể hiện phù hợp với thực hành hiện nay.",
+      "text": "Nội dung cho bệnh nhân: chính xác, dễ hiểu và không gây hoang mang.",
+      "sources": "Nguồn: mỗi số liệu trên trang có nguồn phù hợp, chất lượng cao.",
+      "translation": "Bản dịch (chỉ người thẩm định thông thạo): bản tiếng Nhật hoặc tiếng Việt có cùng nội dung với bản tiếng Anh."
+    },
+    "recordHeading": "Hồ sơ xác nhận",
+    "model": "Mô hình",
+    "version": "Phiên bản hiện tại",
+    "statusCol": "Tình trạng thẩm định",
+    "none": "Chưa được thẩm định lâm sàng",
+    "reviewed": "Thẩm định bởi {name} ({credentials}), {date}",
+    "older": "Lần thẩm định trước của phiên bản {v} ({date})",
+    "changes": "Yêu cầu chỉnh sửa",
+    "status": "Đã được {name} ({credentials}) thẩm định lâm sàng ngày {date}, phiên bản {v}.",
+    "limitHeading": "Thẩm định không có nghĩa là gì",
+    "joinHeading": "Trở thành người thẩm định",
+    "joinText": "Nếu bạn là nha sĩ, bác sĩ phẫu thuật hàm mặt hoặc bác sĩ có đăng ký hành nghề trong lĩnh vực liên quan và muốn thẩm định một mô hình, vui lòng gửi email cho chúng tôi. Tên người thẩm định chỉ được ghi trên trang này nếu họ đồng ý.",
+    "joinLink": "Gửi email để tham gia thẩm định lâm sàng"
+  },
   "survey": {
     "title": "Khảo sát dành cho nhân viên y tế — Vivatheca",
     "description": "Khảo sát hai phút cho bác sĩ và giảng viên: mô hình Vivatheca có đủ chính xác và hữu ích để dùng với bệnh nhân không?",

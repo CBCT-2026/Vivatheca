@@ -7,6 +7,7 @@
 import { catalogue, licence } from './catalogue';
 import { meshUrl, modelCodes, uberonUrl } from './semantics';
 import { modelDisclaimer } from '../disclaimer-text';
+import { currentReview } from './reviews';
 import en from '../i18n/dictionaries/en';
 import { listedLocales } from '../i18n/config';
 
@@ -26,6 +27,7 @@ export function modelJsonLd(slug: string) {
   const item = (en.library.items as Record<string, Item>)[slug];
   const codes = modelCodes[slug];
   const url = abs(m.href);
+  const reviewed = currentReview(slug);
   return {
     '@context': 'https://schema.org',
     '@type': ['3DModel', 'LearningResource'],
@@ -63,7 +65,8 @@ export function modelJsonLd(slug: string) {
       })),
     ],
     citation: m.terms.map((t) => (t.href ? { '@type': 'CreativeWork', name: t.text, url: t.href } : { '@type': 'CreativeWork', name: t.text })),
-    creativeWorkStatus: REVIEW_STATUS,
+    creativeWorkStatus: reviewed ? `Clinically reviewed (${reviewed.date})` : REVIEW_STATUS,
+    ...(reviewed ? { reviewedBy: { '@type': 'Person', name: reviewed.reviewer, description: reviewed.credentials } } : {}),
     disambiguatingDescription: modelDisclaimer,
     keywords: [item.specialty, ...(codes?.subjects ?? []).map((c) => c.label)].join(', '),
   };
