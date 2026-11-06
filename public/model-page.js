@@ -11,6 +11,7 @@
     '/oroantral/': 'oroantral',
     '/cracked-tooth/': 'cracked-tooth',
     '/stainless-steel-crown/': 'stainless-steel-crown',
+    '/endodontic/': 'endodontic',
     '/head-neck/scc/': 'head-neck-scc',
     '/head-neck/ameloblastoma/': 'head-neck-ameloblastoma',
     '/head-neck/okc/': 'head-neck-okc',

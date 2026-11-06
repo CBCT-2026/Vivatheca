@@ -386,6 +386,41 @@
    ]
   }
  ],
+ "endodontic": [
+  {
+   "id": "sound",
+   "label": {
+    "en": "Sound tooth",
+    "ja": "{健康|けんこう}な{歯|は}"
+   },
+   "zip": "/endodontic/downloads/vivatheca-endodontic-sound-2x.zip",
+   "scale": 2,
+   "files": [
+    "sound-bone.stl",
+    "sound-teeth.stl",
+    "sound-tooth.stl",
+    "sound-pulp.stl"
+   ]
+  },
+  {
+   "id": "abscess",
+   "label": {
+    "en": "Tooth with abscess",
+    "ja": "{膿瘍|のうよう}のある{歯|は}"
+   },
+   "zip": "/endodontic/downloads/vivatheca-endodontic-abscess-2x.zip",
+   "scale": 2,
+   "files": [
+    "abscess-bone.stl",
+    "abscess-teeth.stl",
+    "abscess-tooth.stl",
+    "abscess-decay.stl",
+    "abscess-pulp.stl",
+    "abscess-lesion.stl",
+    "abscess-tract.stl"
+   ]
+  }
+ ],
  "stainless-steel-crown": [
   {
    "id": "all",

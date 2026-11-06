@@ -10,6 +10,7 @@ export type CatalogueModel = {
   updated: string; // ISO date
   icon: string; // specialty icon in public/icons/health/ (Health Icons, CC0)
   terms: Source[]; // sources for the formal clinical name in the title (classification or consensus term)
+  licence?: { name: string; href: string }; // only when not the site licence (BodyParts3D-based models are CC BY 4.0)
 };
 
 export const licence = {
@@ -17,12 +18,18 @@ export const licence = {
   href: 'https://creativecommons.org/licenses/by-sa/4.0/',
 };
 
+// The licence of one model: the site licence unless the model names its own.
+export function licenceOf(slug: string) {
+  return catalogue.find((m) => m.slug === slug)?.licence ?? licence;
+}
+
 export const catalogue: CatalogueModel[] = [
   { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.3', updated: '2026-11-06', icon: 'general-surgery', terms: [{ text: 'Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1. (Winter angulation: mesioangular.)', href: 'https://doi.org/10.5037/jomr.2013.4201' }] },
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '0.4', updated: '2026-11-05', icon: 'child-care', terms: [{ text: 'AlQahtani SJ, Hector MP, Liversidge HM. Brief communication: the London atlas of human tooth development and eruption. Am J Phys Anthropol. 2010;142(3):481-490.', href: 'https://doi.org/10.1002/ajpa.21258' }] },
   { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '0.1', updated: '2026-11-05', icon: 'mouth', terms: [{ text: 'Papapanou PN, Sanz M, Buduneli N, et al. Periodontitis: consensus report of workgroup 2 of the 2017 World Workshop on the Classification of Periodontal and Peri-Implant Diseases and Conditions. J Periodontol. 2018;89 Suppl 1:S173-S182.', href: 'https://doi.org/10.1002/JPER.17-0721' }] },
   { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '0.2', updated: '2026-11-06', icon: 'general-surgery', terms: [{ text: 'Parvini P, Obreja K, Begic A, et al. Decision-making in closure of oroantral communication and fistula. Int J Implant Dent. 2019;5(1):13.', href: 'https://doi.org/10.1186/s40729-019-0165-7' }] },
   { slug: 'cracked-tooth', href: '/cracked-tooth/', image: '/assets/renders/cracked-tooth.webp', version: '0.2', updated: '2026-11-05', icon: 'tooth', terms: [{ text: 'American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020. (Cracked tooth.)', href: 'https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/' }] },
+  { slug: 'endodontic', href: '/endodontic/', image: '/assets/renders/endodontic.webp', version: '0.1', updated: '2026-11-06', icon: 'tooth', licence: { name: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' }, terms: [{ text: 'American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020. (Pulp necrosis; chronic apical abscess.)', href: 'https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/' }, { text: 'Glickman GN. AAE Consensus Conference on Diagnostic Terminology: background and perspectives. J Endod. 2009;35(12):1619-1620.', href: 'https://doi.org/10.1016/j.joen.2009.09.029' }] },
   { slug: 'stainless-steel-crown', href: '/stainless-steel-crown/', image: '/assets/renders/stainless-steel-crown.webp', version: '0.2', updated: '2026-11-05', icon: 'child-care', terms: [{ text: 'Innes NPT, Ricketts D, Chong LY, Keightley AJ, Lamont T, Santamaria RM. Preformed crowns for decayed primary molar teeth. Cochrane Database Syst Rev. 2015;(12):CD005512.', href: 'https://doi.org/10.1002/14651858.CD005512.pub3' }] },
   { slug: 'head-neck', href: '/head-neck/', image: '/assets/renders/head-neck.webp', version: '1.1', updated: '2026-11-06', icon: 'head', terms: [{ text: 'WHO Classification of Tumours Editorial Board. Head and Neck Tumours. WHO Classification of Tumours, 5th ed., vol. 9. Lyon: International Agency for Research on Cancer; 2022.', href: 'https://tumourclassification.iarc.who.int/' }] },
   { slug: 'head-neck-scc', href: '/head-neck/scc/', image: '/assets/renders/head-neck-scc.webp', version: '1.0', updated: '2026-11-06', icon: 'head', terms: [{ text: 'Muller S, Tilakaratne WM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: tumours of the oral cavity and mobile tongue. Head Neck Pathol. 2022;16(1):54-62.', href: 'https://doi.org/10.1007/s12105-021-01402-9' }, { text: 'Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.', href: 'https://doi.org/10.1016/S1470-2045(15)00310-1' }] },

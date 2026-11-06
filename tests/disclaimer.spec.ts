@@ -20,7 +20,8 @@ test('every print download carries the review status, model disclaimer and licen
     expect(notes, zip).toContain('Not yet clinically reviewed');
     expect(notes, zip).toContain(modelDisclaimer);
     expect(notes, zip).toContain('vivatheca.com/disclaimer');
-    expect(notes, zip).toContain('CC BY-SA 4.0');
+    // BodyParts3D-based models are CC BY 4.0 (with the BodyParts3D credit); the rest CC BY-SA 4.0.
+    expect(notes, zip).toMatch(/CC BY-SA 4\.0|CC BY 4\.0[\s\S]*BodyParts3D/);
   }
 });
 

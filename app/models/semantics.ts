@@ -34,6 +34,7 @@ const A = {
   enamel: { id: 'UBERON:0001752', label: 'enamel' },
   dentine: { id: 'UBERON:0001751', label: 'dentine' },
   pulp: { id: 'UBERON:0001754', label: 'dental pulp' },
+  molarRoot: { id: 'UBERON:0008854', label: 'root of molar tooth' },
   fibula: { id: 'UBERON:0001446', label: 'fibula' },
   hardPalate: { id: 'UBERON:0003216', label: 'hard palate' },
   minorSalivary: { id: 'UBERON:0001830', label: 'minor salivary gland' },
@@ -42,6 +43,9 @@ const A = {
 } satisfies Record<string, Code>;
 
 const M = {
+  periapicalAbscess: { id: 'D010482', label: 'Periapical Abscess' },
+  pulpNecrosis: { id: 'D003790', label: 'Dental Pulp Necrosis' },
+  periapicalPeriodontitis: { id: 'D010485', label: 'Periapical Periodontitis' },
   impacted: { id: 'D014095', label: 'Tooth, Impacted' },
   thirdMolar: { id: 'D008964', label: 'Molar, Third' },
   eruption: { id: 'D014078', label: 'Tooth Eruption' },
@@ -83,6 +87,7 @@ export const modelCodes: Record<string, ModelCodes> = {
   periodontitis: { subjects: [M.periodontitis], anatomy: [A.periodontium, A.gingiva, A.pdl, A.cementum] },
   oroantral: { subjects: [M.oroantral], anatomy: [A.maxillarySinus, A.maxilla, A.maxillaryAlveolus] },
   'cracked-tooth': { subjects: [M.cracked, M.crowns], anatomy: [A.molar, A.enamel, A.dentine, A.pulp] },
+  endodontic: { subjects: [M.periapicalAbscess, M.pulpNecrosis, M.periapicalPeriodontitis], anatomy: [A.molar, A.pulp, A.molarRoot, A.mandible] },
   'stainless-steel-crown': { subjects: [M.caries, M.crowns, M.deciduous], anatomy: [A.deciduousTooth, A.pulp] },
   'head-neck': { subjects: [M.hnNeoplasms, M.mandibularRecon, M.freeFlaps], anatomy: [A.mandible, A.fibula, A.hardPalate] },
   'head-neck-scc': { subjects: [M.hnscc, M.mouthNeoplasms, M.mandibularRecon, M.freeFlaps], anatomy: [A.mandible, A.fibula] },
