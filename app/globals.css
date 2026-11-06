@@ -978,3 +978,11 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
   .model-stage .model-viewer, .model-stage .model-loading { min-height: 400px; }
   .model-tools { padding: .75rem 1rem .9rem; }
 }
+
+/* Submit or request a model (/contribute): radio and checkbox groups inside the shared form style. */
+.contribute-form fieldset { display: grid; gap: .5rem; margin: 0; border: 0; padding: 0; min-width: 0; }
+.contribute-form legend { margin-bottom: .4rem; padding: 0; color: var(--heading); font-weight: 700; }
+.contribute-form .contribute-choice { display: flex; align-items: flex-start; gap: .6rem; min-height: 44px; color: var(--ink); font-weight: 400; cursor: pointer; }
+.contribute-form .contribute-choice input { flex: none; width: 1.2rem; height: 1.2rem; min-height: 0; margin: .15rem 0 0; accent-color: var(--accent); }
+.contribute-form .field-help { color: var(--muted); font-size: .9rem; font-weight: 400; }
+.contribute-page section > ul, .contribute-page section > ol { display: grid; gap: .45rem; padding-left: 1.4rem; list-style: revert; }

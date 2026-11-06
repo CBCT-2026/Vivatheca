@@ -22,7 +22,7 @@ export function footerGroups(t: Dictionary) {
       links: [
         { label: f.report, href: '/report' },
         { label: f.participate.review, href: mailto('Join clinical review') },
-        { label: f.participate.contribute, href: mailto('Contribute a model') },
+        { label: f.participate.contribute, href: '/contribute' },
         { label: f.participate.sponsor, href: '/#sponsor' },
       ],
     },
@@ -84,7 +84,7 @@ export function contributionPaths(t: Dictionary) {
   return [
     { icon: 'health_and_safety', ...c.report, href: '/report' },
     { icon: 'school', ...c.join, href: 'mailto:vivatheca@gmail.com?subject=Join%20clinical%20review' },
-    { icon: '3d_rotation', ...c.request, href: 'mailto:vivatheca@gmail.com?subject=Model%20request' },
+    { icon: '3d_rotation', ...c.request, href: '/contribute' },
   ];
 }
 
