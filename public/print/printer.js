@@ -272,7 +272,9 @@
   function save(blob, name) {
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-    try { fetch('/api/stats/hit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: current.slug, kind: 'print' }) }).catch(() => {}); } catch (e) { /* optional */ }
+    try { const data = JSON.stringify({ model: current.slug, kind: 'print' });
+      // sendBeacon (or a fetch whose reply is cancelled) so the count never keeps the page "loading".
+      if (!(navigator.sendBeacon && navigator.sendBeacon('/api/stats/hit', new Blob([data], { type: 'text/plain' })))) fetch('/api/stats/hit', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: data }).then((r) => r.body && r.body.cancel()).catch(() => {}); } catch (e) { /* optional */ }
   }
   async function exportFile(kind) {
     status('building');
