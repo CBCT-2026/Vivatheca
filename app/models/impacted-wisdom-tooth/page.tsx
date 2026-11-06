@@ -1,3 +1,4 @@
+import { AfterHydration } from '../../script-mount';
 import type { Metadata } from 'next';
 import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, formatDate, licence, wisdomTooth } from '../catalogue';
@@ -42,6 +43,9 @@ export default async function WisdomToothPage() {
         </div>
 
         <CompareViewer impacted={{ glb: wisdomTooth.impacted.glb, alt: plain(w.impactedAlt) }} normal={{ glb: wisdomTooth.normal.glb, alt: plain(w.normalAlt) }} />
+        {/* "Use this model" panel: links to a view, pictures, credit, embed (public/share-tools.js). */}
+        <div data-vt-share="" data-vt-scope=".compare" />
+        <AfterHydration src="/share-tools.js" />
         <div className="model-disclaimer">{reviewNote}</div>
         <VideoSection slug="impacted-wisdom-tooth" />
 

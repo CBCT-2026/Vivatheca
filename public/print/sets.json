@@ -1,0 +1,481 @@
+{
+ "impacted-wisdom-tooth": [
+  {
+   "id": "normal",
+   "label": {
+    "en": "Normal",
+    "ja": "{正常|せいじょう}"
+   },
+   "zip": "/models/vivatheca-wisdom-tooth-normal-stl.zip",
+   "scale": 1,
+   "files": [
+    "wisdom-tooth-normal.stl"
+   ]
+  },
+  {
+   "id": "impacted",
+   "label": {
+    "en": "Impacted",
+    "ja": "{埋伏|まいふく}"
+   },
+   "zip": "/models/vivatheca-wisdom-tooth-impacted-stl.zip",
+   "scale": 1,
+   "files": [
+    "impacted-molar.stl"
+   ]
+  }
+ ],
+ "dental-development": [
+  {
+   "id": "age-6-5",
+   "label": {
+    "en": "Age 6.5",
+    "ja": "6.5{歳|さい}"
+   },
+   "zip": "/development/downloads/vivatheca-dental-development-age-6-5-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "lower-adult-teeth.stl",
+    "lower-baby-teeth.stl",
+    "lower-bone.stl",
+    "upper-adult-teeth.stl",
+    "upper-baby-teeth.stl",
+    "upper-bone.stl"
+   ]
+  },
+  {
+   "id": "age-7-5",
+   "label": {
+    "en": "Age 7.5",
+    "ja": "7.5{歳|さい}"
+   },
+   "zip": "/development/downloads/vivatheca-dental-development-age-7-5-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "lower-adult-teeth.stl",
+    "lower-baby-teeth.stl",
+    "lower-bone.stl",
+    "upper-adult-teeth.stl",
+    "upper-baby-teeth.stl",
+    "upper-bone.stl"
+   ]
+  },
+  {
+   "id": "age-8-5",
+   "label": {
+    "en": "Age 8.5",
+    "ja": "8.5{歳|さい}"
+   },
+   "zip": "/development/downloads/vivatheca-dental-development-age-8-5-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "lower-adult-teeth.stl",
+    "lower-baby-teeth.stl",
+    "lower-bone.stl",
+    "upper-adult-teeth.stl",
+    "upper-baby-teeth.stl",
+    "upper-bone.stl"
+   ]
+  },
+  {
+   "id": "age-9-5",
+   "label": {
+    "en": "Age 9.5",
+    "ja": "9.5{歳|さい}"
+   },
+   "zip": "/development/downloads/vivatheca-dental-development-age-9-5-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "lower-adult-teeth.stl",
+    "lower-baby-teeth.stl",
+    "lower-bone.stl",
+    "upper-adult-teeth.stl",
+    "upper-baby-teeth.stl",
+    "upper-bone.stl"
+   ]
+  },
+  {
+   "id": "age-10-5",
+   "label": {
+    "en": "Age 10.5",
+    "ja": "10.5{歳|さい}"
+   },
+   "zip": "/development/downloads/vivatheca-dental-development-age-10-5-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "lower-adult-teeth.stl",
+    "lower-baby-teeth.stl",
+    "lower-bone.stl",
+    "upper-adult-teeth.stl",
+    "upper-baby-teeth.stl",
+    "upper-bone.stl"
+   ]
+  },
+  {
+   "id": "age-11-5",
+   "label": {
+    "en": "Age 11.5",
+    "ja": "11.5{歳|さい}"
+   },
+   "zip": "/development/downloads/vivatheca-dental-development-age-11-5-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "lower-adult-teeth.stl",
+    "lower-baby-teeth.stl",
+    "lower-bone.stl",
+    "upper-adult-teeth.stl",
+    "upper-baby-teeth.stl",
+    "upper-bone.stl"
+   ]
+  },
+  {
+   "id": "age-12-5",
+   "label": {
+    "en": "Age 12.5",
+    "ja": "12.5{歳|さい}"
+   },
+   "zip": "/development/downloads/vivatheca-dental-development-age-12-5-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "lower-adult-teeth.stl",
+    "lower-bone.stl",
+    "upper-adult-teeth.stl",
+    "upper-bone.stl"
+   ]
+  }
+ ],
+ "periodontitis": [
+  {
+   "id": "healthy",
+   "label": {
+    "en": "Healthy",
+    "ja": "{健康|けんこう}"
+   },
+   "zip": "/periodontitis/downloads/vivatheca-periodontitis-healthy-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "healthy-bone.stl",
+    "healthy-teeth.stl"
+   ]
+  },
+  {
+   "id": "stage-1",
+   "label": {
+    "en": "Stage I",
+    "ja": "ステージI"
+   },
+   "zip": "/periodontitis/downloads/vivatheca-periodontitis-stage-1-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "stage-1-bone.stl",
+    "stage-1-teeth.stl"
+   ]
+  },
+  {
+   "id": "stage-2",
+   "label": {
+    "en": "Stage II",
+    "ja": "ステージII"
+   },
+   "zip": "/periodontitis/downloads/vivatheca-periodontitis-stage-2-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "stage-2-bone.stl",
+    "stage-2-teeth.stl"
+   ]
+  },
+  {
+   "id": "stage-3",
+   "label": {
+    "en": "Stage III",
+    "ja": "ステージIII"
+   },
+   "zip": "/periodontitis/downloads/vivatheca-periodontitis-stage-3-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "stage-3-bone.stl",
+    "stage-3-teeth.stl"
+   ]
+  },
+  {
+   "id": "stage-4",
+   "label": {
+    "en": "Stage IV",
+    "ja": "ステージIV"
+   },
+   "zip": "/periodontitis/downloads/vivatheca-periodontitis-stage-4-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "stage-4-bone.stl",
+    "stage-4-teeth.stl"
+   ]
+  }
+ ],
+ "oroantral": [
+  {
+   "id": "normal",
+   "label": {
+    "en": "Normal",
+    "ja": "{正常|せいじょう}"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-normal-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "normal-bone.stl",
+    "normal-gum.stl",
+    "normal-teeth.stl"
+   ]
+  },
+  {
+   "id": "risk",
+   "label": {
+    "en": "Roots close to the sinus",
+    "ja": "{上顎洞|じょうがくどう}に{近|ちか}い{歯根|しこん}"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-risk-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "risk-bone.stl",
+    "risk-gum.stl",
+    "risk-teeth.stl"
+   ]
+  },
+  {
+   "id": "oac",
+   "label": {
+    "en": "Opening to the sinus (OAC)",
+    "ja": "{上顎洞|じょうがくどう}への{穿孔|せんこう}（OAC）"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-oac-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "oac-bone.stl",
+    "oac-gum.stl",
+    "oac-teeth.stl"
+   ]
+  },
+  {
+   "id": "oaf",
+   "label": {
+    "en": "Lasting tract (OAF)",
+    "ja": "{口腔|こうくう}{上顎洞|じょうがくどう}{瘻|ろう}（OAF）"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-oaf-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "oaf-bone.stl",
+    "oaf-gum.stl",
+    "oaf-lining.stl",
+    "oaf-teeth.stl",
+    "oaf-tract.stl"
+   ]
+  },
+  {
+   "id": "clot",
+   "label": {
+    "en": "Blood clot",
+    "ja": "{血|ち}のかたまり"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-clot-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "clot-bone.stl",
+    "clot-clot.stl",
+    "clot-gum.stl",
+    "clot-teeth.stl"
+   ]
+  },
+  {
+   "id": "flap",
+   "label": {
+    "en": "Cheek-side flap",
+    "ja": "{頬側|きょうそく}の{弁|べん}"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-flap-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "flap-bone.stl",
+    "flap-clot.stl",
+    "flap-flap.stl",
+    "flap-gum.stl",
+    "flap-teeth.stl"
+   ]
+  },
+  {
+   "id": "bfp",
+   "label": {
+    "en": "Cheek fat pad",
+    "ja": "{頬|ほお}の{脂肪|しぼう}"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-bfp-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "bfp-bone.stl",
+    "bfp-clot.stl",
+    "bfp-fat.stl",
+    "bfp-gum.stl",
+    "bfp-teeth.stl"
+   ]
+  },
+  {
+   "id": "palatal",
+   "label": {
+    "en": "Palate-side flap",
+    "ja": "{口蓋|こうがい}{側|がわ}の{弁|べん}"
+   },
+   "zip": "/oroantral/downloads/vivatheca-oroantral-palatal-1.0x.zip",
+   "scale": 1,
+   "files": [
+    "palatal-bone.stl",
+    "palatal-clot.stl",
+    "palatal-flap.stl",
+    "palatal-gum.stl",
+    "palatal-teeth.stl"
+   ]
+  }
+ ],
+ "cracked-tooth": [
+  {
+   "id": "healthy",
+   "label": {
+    "en": "Healthy",
+    "ja": "{健康|けんこう}"
+   },
+   "zip": "/cracked-tooth/downloads/vivatheca-cracked-tooth-healthy-3x.zip",
+   "scale": 3,
+   "files": [
+    "healthy-tooth.stl"
+   ]
+  },
+  {
+   "id": "cracked",
+   "label": {
+    "en": "Cracked tooth",
+    "ja": "ひびの{入|はい}った{歯|は}"
+   },
+   "zip": "/cracked-tooth/downloads/vivatheca-cracked-tooth-cracked-3x.zip",
+   "scale": 3,
+   "files": [
+    "cracked-tooth.stl"
+   ]
+  },
+  {
+   "id": "composite",
+   "label": {
+    "en": "Filling",
+    "ja": "{詰|つ}め{物|もの}"
+   },
+   "zip": "/cracked-tooth/downloads/vivatheca-cracked-tooth-composite-3x.zip",
+   "scale": 3,
+   "files": [
+    "composite-tooth.stl",
+    "composite-filling.stl"
+   ]
+  },
+  {
+   "id": "crown",
+   "label": {
+    "en": "Crown",
+    "ja": "かぶせ{物|もの}"
+   },
+   "zip": "/cracked-tooth/downloads/vivatheca-cracked-tooth-crown-3x.zip",
+   "scale": 3,
+   "files": [
+    "crown-tooth.stl",
+    "crown-crown.stl"
+   ]
+  }
+ ],
+ "stainless-steel-crown": [
+  {
+   "id": "all",
+   "label": {
+    "en": "All stages",
+    "ja": "すべての{段階|だんかい}"
+   },
+   "zip": "/stainless-steel-crown/downloads/vivatheca-stainless-steel-crown-2x.zip",
+   "scale": 2,
+   "files": [
+    "base-bone.stl",
+    "base-gum.stl",
+    "crown-cement.stl",
+    "crown-steel.stl",
+    "premolar-crown.stl",
+    "tooth-decay-decay-part.stl",
+    "tooth-decay-sound-part.stl",
+    "tooth-filling-filling-part.stl",
+    "tooth-filling-tooth-part.stl",
+    "tooth-healthy.stl",
+    "tooth-prepared-base.stl",
+    "tooth-prepared.stl"
+   ]
+  }
+ ],
+ "alveolar-bone-graft": [
+  {
+   "id": "1-pre-op",
+   "label": {
+    "en": "1. Before surgery",
+    "ja": "1. {手術|しゅじゅつ}{前|まえ}"
+   },
+   "zip": "/models/abg/vivatheca-abg-1-pre-op-stl.zip",
+   "scale": 1,
+   "files": [
+    "abg-1-pre-op-bone.stl",
+    "abg-1-pre-op-canine.stl",
+    "abg-1-pre-op-soft-tissue.stl",
+    "abg-1-pre-op-teeth.stl"
+   ]
+  },
+  {
+   "id": "2-during-braces",
+   "label": {
+    "en": "2. During braces",
+    "ja": "2. {矯正|きょうせい}{中|ちゅう}"
+   },
+   "zip": "/models/abg/vivatheca-abg-2-during-braces-stl.zip",
+   "scale": 1,
+   "files": [
+    "abg-2-during-braces-bone.stl",
+    "abg-2-during-braces-braces.stl",
+    "abg-2-during-braces-graft.stl",
+    "abg-2-during-braces-soft-tissue.stl",
+    "abg-2-during-braces-teeth.stl"
+   ]
+  },
+  {
+   "id": "3-long-term",
+   "label": {
+    "en": "3. Long term",
+    "ja": "3. {長期|ちょうき}"
+   },
+   "zip": "/models/abg/vivatheca-abg-3-long-term-stl.zip",
+   "scale": 1,
+   "files": [
+    "abg-3-long-term-bone.stl",
+    "abg-3-long-term-graft.stl",
+    "abg-3-long-term-option-bridge.stl",
+    "abg-3-long-term-option-denture.stl",
+    "abg-3-long-term-option-implant.stl",
+    "abg-3-long-term-option-none.stl",
+    "abg-3-long-term-soft-tissue.stl",
+    "abg-3-long-term-teeth.stl"
+   ]
+  },
+  {
+   "id": "3b-substitution",
+   "label": {
+    "en": "3B. Canine moved into the gap",
+    "ja": "3B. {犬歯|けんし}で{隙間|すきま}を{埋|う}める"
+   },
+   "zip": "/models/abg/vivatheca-abg-3b-substitution-stl.zip",
+   "scale": 1,
+   "files": [
+    "abg-3b-substitution-bone.stl",
+    "abg-3b-substitution-graft.stl",
+    "abg-3b-substitution-soft-tissue.stl",
+    "abg-3b-substitution-teeth.stl"
+   ]
+  }
+ ]
+}

@@ -273,7 +273,7 @@ export function ModelExperience() {
       <div className="model-copy">
         <div className="segmented segmented-stages" role="group" aria-label={plain(a.stagesLabel)}>
           {a.stages.map((item, index) => (
-            <button key={item.label} type="button" aria-pressed={stage === index} onClick={() => chooseStage(index)}><Ruby text={item.label} /></button>
+            <button key={item.label} type="button" data-stage-index={index} aria-pressed={stage === index} onClick={() => chooseStage(index)}><Ruby text={item.label} /></button>
           ))}
         </div>
         <div className="segmented" role="group" aria-label={plain(m.level)}>
@@ -286,7 +286,7 @@ export function ModelExperience() {
         {stage === 2 ? (
           <p className="option-note" aria-live="polite"><strong><Ruby text={a.options[optionIndex].label} />:</strong> <Ruby text={a.options[optionIndex].text} /><Cites ids={abgOptions[optionIndex].cites} label={m.sourceLabel} /></p>
         ) : null}
-        <p className="licence-note"><Ruby text={a.made} /></p>
+        <p className="licence-note"><Ruby text={a.made} /> <a href="/models/alveolar-bone-graft#downloads"><Ruby text={a.downloadsLink} /></a></p>
         <details className="model-sources">
           <summary><Ruby text={m.sources} /></summary>
           <p><Ruby text={a.simplified} /></p>

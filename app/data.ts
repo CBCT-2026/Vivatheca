@@ -15,14 +15,19 @@ export function footerGroups(t: Dictionary) {
         ...catalogue.filter((m) => !m.slug.startsWith('head-neck-')).map((m) => ({ label: t.library.items[m.slug as keyof typeof t.library.items].title, href: m.href })),
         { label: t.nav.createInfo, href: '/create' },
         { label: f.explore.students, href: '/learn' },
+        { label: f.explore.templates, href: '/templates' },
+        { label: f.explore.print, href: '/print' },
+        { label: f.explore.impact, href: '/impact' },
       ],
     },
     {
       label: f.participate.label,
       links: [
         { label: f.report, href: '/report' },
+        { label: f.participate.request, href: '/requests' },
+        { label: f.participate.used, href: '/used' },
         { label: f.participate.review, href: mailto('Join clinical review') },
-        { label: f.participate.contribute, href: mailto('Contribute a model') },
+        { label: f.participate.contribute, href: '/contribute' },
         { label: f.participate.sponsor, href: '/#sponsor' },
       ],
     },
@@ -84,7 +89,7 @@ export function contributionPaths(t: Dictionary) {
   return [
     { icon: 'health_and_safety', ...c.report, href: '/report' },
     { icon: 'school', ...c.join, href: 'mailto:vivatheca@gmail.com?subject=Join%20clinical%20review' },
-    { icon: '3d_rotation', ...c.request, href: 'mailto:vivatheca@gmail.com?subject=Model%20request' },
+    { icon: '3d_rotation', ...c.request, href: '/contribute' },
   ];
 }
 
