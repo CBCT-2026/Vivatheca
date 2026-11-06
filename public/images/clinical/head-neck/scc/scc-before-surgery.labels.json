@@ -1,0 +1,24 @@
+{
+  "image": "/images/clinical/head-neck/scc/scc-before-surgery.jpg",
+  "width": 750,
+  "height": 510,
+  "note": "Rectangles are image pixels. Every label comes from the figure legend of Vergier et al. 2024 (Cureus 16(3):e56077, Figure 2, CC BY 4.0); nothing about the patient is added.",
+  "labels": [
+    { "id": "main-lesion", "rect": [115, 110, 185, 115],
+      "en": "A: the cancer on the gum beside the right lower back teeth (45 to 47): a raised, white and red patch.",
+      "ja": "A：{右下|みぎした}の{奥歯|おくば}（45〜47）の{横|よこ}の{歯肉|しにく}のがん。{盛|も}り{上|あ}がった{白|しろ}と{赤|あか}の{部分|ぶぶん}。",
+      "source": "Figure 2A legend" },
+    { "id": "second-focus", "rect": [390, 105, 120, 125],
+      "en": "B: a second patch on the inner (tongue) side of the gum between the lower front teeth 42 and 43.",
+      "ja": "B：{下|した}の{前歯|まえば}42と43の{間|あいだ}の、{内側|うちがわ}（{舌|した}{側|がわ}）の{歯肉|しにく}の2つ{目|め}の{病変|びょうへん}。",
+      "source": "Figure 2B legend" },
+    { "id": "histology", "rect": [0, 268, 750, 242],
+      "en": "C and D: tissue samples under the microscope, confirming squamous cell carcinoma (C) and a marker stain (D).",
+      "ja": "CとD：{顕微鏡|けんびきょう}で{見|み}た{組織|そしき}。{扁平|へんぺい}{上皮|じょうひ}がん（C）と{染色|せんしょく}（D）。",
+      "source": "Figure 2C and 2D legend" },
+    { "id": "pet", "rect": [585, 15, 60, 80],
+      "en": "E: PET scan slice. The bright spot in the right side of the jaw is the cancer taking up the tracer.",
+      "ja": "E：PETの{断面|だんめん}。{右|みぎ}のあごの{明|あか}るい{部分|ぶぶん}が、がんが{薬|くすり}を{取|と}り{込|こ}んだところ。",
+      "source": "Figure 2E legend" }
+  ]
+}

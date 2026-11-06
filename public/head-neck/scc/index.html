@@ -17,6 +17,7 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 <link rel="stylesheet" href="/head-neck/style.css">
 <link rel="stylesheet" href="/head-neck/condition.css">
 <link rel="stylesheet" href="/site-header.css">
+<link rel="stylesheet" href="/clinical-zoom.css">
 </head>
 <body>
 <header class="bar">
@@ -75,12 +76,12 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 <h2 data-i18n="clinH">Real photos, X-rays and scans from this case</h2>
 <p class="clinical-note" data-i18n="clinNote">These images are from the real patient. The authors published them openly. Each image keeps its own licence, given under it; it is not covered by the model licence.</p>
 <figure class="clin-fig" id="img-1">
-  <img src="/images/clinical/head-neck/scc/scc-before-surgery.jpg" width="750" height="510" loading="lazy" alt="Five panels: two photos inside the mouth showing swollen gum beside the right lower back teeth and a patch inside the right front gum, two microscope pictures, and a scan slice with a bright spot in the right side of the jaw." data-i18n-alt="img1Alt">
+  <img src="/images/clinical/head-neck/scc/scc-before-surgery.jpg" width="750" height="510" loading="lazy" alt="Five panels: two photos inside the mouth showing swollen gum beside the right lower back teeth and a patch inside the right front gum, two microscope pictures, and a scan slice with a bright spot in the right side of the jaw." data-i18n-alt="img1Alt" data-labels="/images/clinical/head-neck/scc/scc-before-surgery.labels.json">
   <figcaption><span data-i18n="img1"><b>Image 1. The cancer before surgery.</b> (A) Swollen gum beside the right lower back teeth (45 to 47). (B) A second patch on the inner side of the gum between 42 and 43. (C, D) Tissue samples under a microscope. (E) A scan (PET) shows the cancer in the right side of the jaw bone.</span>
     <span class="credit">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077, Figure 2. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The journal states that consent was obtained or waived.</span></figcaption>
 </figure>
 <figure class="clin-fig" id="img-2">
-  <img src="/images/clinical/head-neck/scc/scc-after-fibula.jpg" width="750" height="650" loading="lazy" alt="An X-ray of the whole mouth after surgery: a straight strip of leg bone runs up the right side of the jaw and along to the front teeth, held by small metal plates. Below, two photos inside the mouth nine months later." data-i18n-alt="img2Alt">
+  <img src="/images/clinical/head-neck/scc/scc-after-fibula.jpg" width="750" height="650" loading="lazy" alt="An X-ray of the whole mouth after surgery: a straight strip of leg bone runs up the right side of the jaw and along to the front teeth, held by small metal plates. Below, two photos inside the mouth nine months later." data-i18n-alt="img2Alt" data-labels="/images/clinical/head-neck/scc/scc-after-fibula.labels.json">
   <figcaption><span data-i18n="img2"><b>Image 2. After surgery.</b> (A) An X-ray of the whole mouth one month after surgery. The leg bone runs from the right jaw joint along the jaw to the front teeth, in three pieces held by small metal plates. The 3D model copies this. (B, C) Inside the mouth nine months later.</span>
     <span class="credit">Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077, Figure 3. <a href="https://doi.org/10.7759/cureus.56077">doi.org/10.7759/cureus.56077</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The journal states that consent was obtained or waived.</span></figcaption>
 </figure>
@@ -145,5 +146,6 @@ try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentE
 <script src="/model-page.js"></script>
 <script src="/fullscreen.js"></script>
 <script src="/model-parts.js"></script>
+<script src="/clinical-zoom.js"></script>
 </body>
 </html>

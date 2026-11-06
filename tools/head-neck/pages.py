@@ -547,7 +547,7 @@ def build(slug, P):
     w(f'<meta name="description" content="{esc(P["description"][0])}">\n<meta name="robots" content="noindex">')
     w("<script>\ntry { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}\n</script>")
     w('<link rel="preload" href="/head-neck/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>')
-    w('<link rel="stylesheet" href="/head-neck/style.css">\n<link rel="stylesheet" href="/head-neck/condition.css">\n<link rel="stylesheet" href="/site-header.css">\n</head>\n<body>')
+    w('<link rel="stylesheet" href="/head-neck/style.css">\n<link rel="stylesheet" href="/head-neck/condition.css">\n<link rel="stylesheet" href="/site-header.css">\n<link rel="stylesheet" href="/clinical-zoom.css">\n</head>\n<body>')
     w('<header class="bar">\n  <div class="bar-left">\n'
       '    <a class="brand-home" href="/" style="display:inline-flex;align-items:center;line-height:0"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="53" height="40" style="height:40px;width:auto;background:#fff;border-radius:6px"></a>\n'
       '    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>\n    <a class="lang" href="/models" data-i18n="allModels">All models</a>\n'
@@ -593,7 +593,10 @@ def build(slug, P):
         key = f'img{n}'
         ja[key + 'Alt'] = im['alt'][1]
         ja[key] = im['cap'][1]
-        fig = (f'<figure class="clin-fig" id="img-{n}">\n  <img src="/images/clinical/head-neck/{im["out"]}" width="{im["w"]}" height="{im["h"]}" loading="lazy" alt="{esc(im["alt"][0])}" data-i18n-alt="{key}Alt">\n'
+        # A <name>.labels.json beside the image adds the "Explore with labels" zoom (public/clinical-zoom.js).
+        labels = '/images/clinical/head-neck/' + os.path.splitext(im['out'])[0] + '.labels.json'
+        labels_attr = f' data-labels="{labels}"' if os.path.exists(os.path.join(ROOT, 'public', labels.lstrip('/'))) else ''
+        fig = (f'<figure class="clin-fig" id="img-{n}">\n  <img src="/images/clinical/head-neck/{im["out"]}" width="{im["w"]}" height="{im["h"]}" loading="lazy" alt="{esc(im["alt"][0])}" data-i18n-alt="{key}Alt"{labels_attr}>\n'
                f'  <figcaption><span data-i18n="{key}">{im["cap"][0]}</span>\n    {im["credit"]}</figcaption>\n</figure>')
         if im.get('surgical'):
             fig = ('<details class="surgical">\n  <summary data-i18n="surgShow">Show surgery photo (shows blood)</summary>\n' + fig + '\n</details>')
@@ -663,7 +666,7 @@ def build(slug, P):
     w(f'\n<p class="small" data-i18n="version">{VERSION_EN}</p>\n</main>')
     w('<script src="ja.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
     w('<script src="/head-neck/vendor/three/three.min.js"></script>\n<script src="/head-neck/vendor/three/GLTFLoader.js"></script>\n<script src="/head-neck/vendor/three/DRACOLoader.js"></script>\n<script src="/head-neck/vendor/three/OrbitControls.js"></script>')
-    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n<script src="/fullscreen.js"></script>\n<script src="/model-parts.js"></script>\n</body>\n</html>\n')
+    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n<script src="/fullscreen.js"></script>\n<script src="/model-parts.js"></script>\n<script src="/clinical-zoom.js"></script>\n</body>\n</html>\n')
     d = os.path.join(PUB, slug)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w').write('\n'.join(out))
