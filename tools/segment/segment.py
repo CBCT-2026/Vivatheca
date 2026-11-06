@@ -33,10 +33,28 @@ def convert(series_dir: Path, out: Path) -> Path | None:
         return None
     ct = out / 'ct.nii.gz'
     files[-1].replace(ct)
+    crop_top(ct, 300.0)
     for f in tmp.glob('*'):
         f.unlink()
     tmp.rmdir()
     return ct
+
+
+def crop_top(ct: Path, height_mm: float) -> None:
+    """Keep only the top `height_mm` of tall scans (whole-body CTs), where the jaws are, so the
+    model does not spend most of its time on the chest and abdomen."""
+    img = nib.load(ct)
+    canon = nib.as_closest_canonical(img)  # RAS: axis 2 is inferior -> superior
+    dz = float(canon.header.get_zooms()[2])
+    nz = canon.shape[2]
+    keep = int(round(height_mm / dz))
+    if nz <= keep:
+        return
+    data = np.asarray(canon.dataobj)[:, :, nz - keep:]
+    affine = canon.affine.copy()
+    affine[:3, 3] += affine[:3, 2] * (nz - keep)
+    nib.save(nib.Nifti1Image(data, affine, canon.header), ct)
+    print(f'  cropped {nz} -> {keep} slices ({dz} mm) to the top {height_mm:.0f} mm')
 
 
 def coverage(label_path: Path) -> dict:
