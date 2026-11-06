@@ -110,6 +110,7 @@ This is a standing project rule. It applies to every page, model, download, text
 - Every factual statement in page text and every model design decision must cite its source visibly on the page: author, year, title or organisation, and a link (DOI or official URL) where one exists. Use numbered superscript citations with a "Sources" list on the same page.
 - Say plainly where a model simplifies or departs from the evidence, and which values are estimates rather than sourced.
 - When evidence is uncertain or conflicting, say so on the page.
+- Cited DOIs get a "free to read" / "free full text" note from `public/oa-links.js` (loaded by `/contact.js` on static pages and `app/layout.tsx` on app pages), using `public/oa-links.json`. Rebuild that file with `node tools/citations/oa-links.mjs` after adding citations. It uses Unpaywall, which lists only legal copies (publisher, PubMed Central, institutional repositories); preprints are left out, accepted manuscripts are labelled, and the DOI stays the citation.
 - If no good source can be found, remove the claim or label it clearly as unverified. Do not invent or guess references; check each one (for example on PubMed) before citing it.
 - Operational or organisational statements (what Vivatheca plans or offers) are not health claims, but must not imply evidence or verification that does not exist.
 
