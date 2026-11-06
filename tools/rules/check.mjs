@@ -83,6 +83,18 @@ for (const file of css) {
     }
   }
 }
+// --- Note boxes: tinted box, not a coloured stripe down one side (Luke's decision D6, 6 Nov 2026).
+// A thick solid left border with a colour is the stripe; 1px dividers and CSS triangles (transparent
+// top/bottom borders) are fine.
+for (const file of css) {
+  if (file.includes('pagefind')) continue;
+  const src = read(file).replace(/\/\*[\s\S]*?\*\//g, '');
+  for (const m of src.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const stripe = m[2].match(/border-(?:left|inline-start)\s*:\s*([2-9]|\d{2,})px\s+solid/);
+    if (stripe && !/border-top\s*:[^;]*transparent/.test(m[2]) && !allowed('note-stripe', file)) fail(file, 'note-stripe', `"${m[1].trim()}" has a coloured side stripe; use a tinted box (border all round + tinted background)`);
+  }
+}
+
 for (const base of ['app/globals.css', 'public/site-header.css']) {
   if (!/(^|[\s,}])p\s*\{[^}]*text-align\s*:\s*justify/.test(read(base))) fail(base, 'justify', 'base rule "p { text-align: justify }" is missing');
 }
