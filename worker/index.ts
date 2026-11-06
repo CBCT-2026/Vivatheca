@@ -33,6 +33,24 @@ const REALM = 'Vivatheca preview';
 const LANGS = locales;
 
 // Browser tab icons stay public so the tab shows the Vivatheca logo even on the password prompt.
+// The password prompt is a small HTML page that names the icons. Safari (especially on iPhone)
+// fetches a site's icon without the password and reads the <head> of whatever page it gets, so
+// without these links it shows a blank tile for vivatheca.com in suggestions and favourites.
+const GATE_PAGE = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vivatheca</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+<body><p>This preview of Vivatheca is password protected.</p></body>
+</html>
+`;
+
 const PUBLIC_ICON_PATHS = new Set([
   '/favicon.ico',
   '/favicon.svg',
@@ -185,9 +203,10 @@ async function handle(request: Request, workerEnv: Env | undefined, ctx: unknown
     }
     if (env.SITE_PASSWORD && !isPublicIcon && !isAuthorised(request, env)) {
       if (request.headers.has('Authorization')) noteFailure(request);
-      return new Response('This preview of Vivatheca is password protected.', {
+      return new Response(GATE_PAGE, {
         status: 401,
         headers: {
+          'Content-Type': 'text/html; charset=utf-8',
           'WWW-Authenticate': `Basic realm="${REALM}", charset="UTF-8"`,
           'Cache-Control': 'no-store',
         },
