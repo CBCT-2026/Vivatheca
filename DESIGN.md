@@ -137,7 +137,7 @@ The site opens in light mode for every visitor, whatever their system setting. T
 
 ### Hierarchy
 
-- **Display** (780, responsive 3.4–5.6rem, 1.06): One normally oriented first-view headline. “Medical models” is kept together above “made clear.” at wide viewports; its 46rem block exactly matches the hero introduction. Mobile may wrap naturally to avoid overflow.
+- **Display** (780, responsive 3.4–5.6rem, 1.06): One normally oriented first-view headline. “Clinical models” is kept together above “made clear.” at wide viewports; its 46rem block exactly matches the hero introduction. Mobile may wrap naturally to avoid overflow.
 - **Headline** (760, responsive 2.35–4.5rem, 1.06): Section ideas and major calls to action.
 - **Title** (700–760, responsive 1.35–1.8rem): Model tour steps and content-path titles.
 - **Body** (400, 1rem, 1.65): Explanations limited to roughly 62–65 characters where possible.

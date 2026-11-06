@@ -9,7 +9,7 @@ test('the site opens in English and switches to Japanese with furigana', async (
 
   await page.getByRole('button', { name: '日本語' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
-  await expect(page).toHaveTitle(/医療模型をわかりやすく/);
+  await expect(page).toHaveTitle(/臨床模型をわかりやすく/);
   // Kanji carry readings as ruby; the readings are hidden from assistive technology.
   const ruby = page.locator('.hero-title ruby').first();
   await expect(ruby.locator('rt')).toHaveText('いりょう');
@@ -33,7 +33,7 @@ test('the site opens in English and switches to Japanese with furigana', async (
 
   await page.getByRole('button', { name: 'English' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-  await expect(page.getByRole('heading', { name: 'Medical models made clear.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Clinical models made clear.' })).toBeVisible();
 });
 
 test('?lang=ja makes a shareable Japanese link', async ({ page }) => {

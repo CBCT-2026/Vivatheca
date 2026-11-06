@@ -14,8 +14,8 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   test.setTimeout(120_000);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Medical models made clear.' })).toBeVisible();
-  await expect(page.locator('.hero-title .hero-line')).toHaveText(['Medical models', 'made clear.']);
+  await expect(page.getByRole('heading', { name: 'Clinical models made clear.' })).toBeVisible();
+  await expect(page.locator('.hero-title .hero-line')).toHaveText(['Clinical models', 'made clear.']);
   await expect(page.getByText('Open access', { exact: true })).toBeVisible();
   await expect(page.getByText('View digitally or print', { exact: true })).toBeVisible();
 
