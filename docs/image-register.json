@@ -1,0 +1,39 @@
+{
+  "note": "Register of every third-party clinical image on the site (docs/image-licensing.md section 8). Drafts come from tools/images/openverse.mjs or are written by hand; an image is used only once secondCheck names who verified the entry.",
+  "images": [
+    {
+      "status": "in use",
+      "file": "public/images/clinical/head-neck/scc/scc-before-surgery.jpg",
+      "title": "Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report, Figure 2",
+      "creator": "Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I",
+      "source": "Cureus 2024;16(3):e56077",
+      "sourcePage": "https://doi.org/10.7759/cureus.56077",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "none",
+      "patientIdentifiable": "no (intraoral, histology and scan panels)",
+      "consent": "journal states consent was obtained or waived",
+      "rightsHolderCheck": "authors' own figure under the article licence; no third-party credit line",
+      "usedOn": ["public/head-neck/scc/index.html"],
+      "added": "2026-11-06",
+      "secondCheck": null
+    },
+    {
+      "status": "in use",
+      "file": "public/images/clinical/head-neck/scc/scc-after-fibula.jpg",
+      "title": "Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report, Figure 3",
+      "creator": "Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I",
+      "source": "Cureus 2024;16(3):e56077",
+      "sourcePage": "https://doi.org/10.7759/cureus.56077",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "none",
+      "patientIdentifiable": "no (panoramic radiograph and intraoral views)",
+      "consent": "journal states consent was obtained or waived",
+      "rightsHolderCheck": "authors' own figure under the article licence; no third-party credit line",
+      "usedOn": ["public/head-neck/scc/index.html"],
+      "added": "2026-11-06",
+      "secondCheck": null
+    }
+  ]
+}
