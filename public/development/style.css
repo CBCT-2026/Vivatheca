@@ -166,3 +166,8 @@ details.surgical .clin-fig { margin-top: 8px; }
   }
   main > model-viewer:fullscreen { margin-left: 0; }
 }
+
+/* Readable line length (design audit 6 Nov 2026, P2): body text stops at about 70 characters per line.
+   :where() keeps this at zero specificity, so any class rule (wider tables, centred notes) wins. */
+:where(main, section, article, aside, details, footer) :where(p, li, dd, figcaption, blockquote) { max-width: 70ch; }
+.important p { max-width: none; }
