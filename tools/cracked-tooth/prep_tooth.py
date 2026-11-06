@@ -13,7 +13,7 @@ import trimesh
 from scipy import ndimage
 
 PITCH = 0.06
-CROWN_HEIGHT = 7.5  # lower first molar crown length, mm (Wheeler's Dental Anatomy, 10th ed.)
+CROWN_HEIGHT = 7.5  # lower first molar crown length, mm (Wheeler's Dental Anatomy, 11th ed., 2020)
 
 
 def frame(teeth):

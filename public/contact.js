@@ -40,5 +40,19 @@
     document.head.appendChild(style);
     document.body.appendChild(footer);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
+  // Japanese pages: say the translation is not yet reviewed (shown only while the page is in Japanese).
+  const jaNote = 'この{日本語|にほんご}{訳|やく}は、まだ{日本語|にほんご}を{話|はな}す{歯科|しか}{医師|いし}の{確認|かくにん}を{受|う}けていません。{内容|ないよう}が{違|ちが}うときは、{英語|えいご}{版|ばん}が{正|ただ}しいものとします。';
+  function translationNote() {
+    const p = document.createElement('p');
+    p.className = 'vt-translation-note';
+    p.lang = 'ja';
+    p.innerHTML = ruby(jaNote);
+    p.style.cssText = 'max-width:720px;margin:0 auto;padding:0 16px 32px;font-size:14px;color:var(--muted,#4d6378)';
+    const sync = () => { p.hidden = !document.documentElement.lang.startsWith('ja'); };
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    document.body.appendChild(p);
+  }
+  function start() { render(); translationNote(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

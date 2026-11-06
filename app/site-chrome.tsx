@@ -49,7 +49,7 @@ export async function SiteFooter() {
 
       <div className="footer-legal">
         <p>© 2026 Vivatheca</p>
-        <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
+        <p className="disclaimer"><Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a>{t.disclaimer.translationNote && <> <Ruby text={t.disclaimer.translationNote} /></>}</p>
         <nav aria-label={plain(t.footer.legal)}><a href={disclaimerHref}><Ruby text={t.disclaimer.nav} /></a><a href="/privacy"><Ruby text={t.footer.privacy} /></a><a href="/report"><Ruby text={t.footer.report} /></a><a href={mailto('Accessibility feedback')}><Ruby text={t.footer.accessibility} /></a></nav>
       </div>
     </footer>

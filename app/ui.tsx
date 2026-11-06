@@ -152,7 +152,7 @@ export function ModelExperience() {
         </div>
         <div className="model-links">
           <a href="/models/impacted-molar.glb" download><Icon name="download" /><Ruby text={m.downloadGlb} /></a>
-          <a href="/models/impacted-molar.stl" download><Icon name="print" /><Ruby text={m.downloadStl} /></a>
+          <a href="/models/downloads/vivatheca-impacted-wisdom-tooth-stl.zip" download><Icon name="print" /><Ruby text={m.downloadStl} /></a>
         </div>
         <p className="licence-note"><Ruby text={m.licence} /> <a href={modelLicence.href} target="_blank" rel="noreferrer">{modelLicence.name}</a>. <Ruby text={m.licenceNote} /></p>
         <details className="model-sources">

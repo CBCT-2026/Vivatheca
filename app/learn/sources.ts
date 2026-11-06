@@ -39,6 +39,6 @@ export const crackedSources: Source[] = [
   { id: 7, text: 'Wu S, Lew HP, Chen NN. Incidence of pulpal complications after diagnosis of vital cracked teeth. J Endod. 2019;45(5):521-525.', href: 'https://doi.org/10.1016/j.joen.2019.02.003' },
   { id: 8, text: 'Krell KV, Rivera EM. A six year evaluation of cracked teeth diagnosed with reversible pulpitis: treatment and prognosis. J Endod. 2007;33(12):1405-1407.', href: 'https://doi.org/10.1016/j.joen.2007.08.015' },
   { id: 9, text: 'Olivieri JG, Elmsmari F, Miró Q, et al. Outcome and survival of endodontically treated cracked posterior permanent teeth: a systematic review and meta-analysis. J Endod. 2020;46(4):455-463.', href: 'https://doi.org/10.1016/j.joen.2020.01.006' },
-  { id: 10, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 10th ed. St Louis: Elsevier; 2015. (Mandibular first molar crown length, 7.5 mm.)' },
+  { id: 10, text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Mandibular first molar crown length, 7.5 mm.)' },
   { id: 11, text: 'Ruan C, Wang L. Long-term survival of endodontically treated cracked teeth: a systematic review and meta-analysis. J Endod. 2026. (Lack of definitive cuspal coverage was a risk indicator; certainty of evidence very low.)', href: 'https://doi.org/10.1016/j.joen.2026.10.002' },
 ];

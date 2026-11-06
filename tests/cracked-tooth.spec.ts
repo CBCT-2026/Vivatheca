@@ -31,8 +31,11 @@ test.describe('cracked tooth models', () => {
     await expect(page.getByRole('heading', { level: 1 })).toContainText('亀裂歯');
     await expect(page.locator('h1 ruby').first()).toBeVisible();
     await expect(page.locator('#stage')).toContainText('健康');
-    await expect(page.getByText('Not yet clinically reviewed.').first()).toBeVisible();
+    // The review status and disclaimer show in Japanese only, as on the other model pages.
+    await expect(page.getByText('Not yet clinically reviewed.').first()).toBeHidden();
+    await expect(page.locator('[lang="ja"] strong').filter({ hasText: '臨床' }).first()).toBeVisible();
     await expect(page.locator('footer.contact')).toBeVisible();
+    await expect(page.locator('.vt-translation-note')).toBeVisible();
   });
 
   test('model and print files are served', async ({ request }) => {

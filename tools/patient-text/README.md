@@ -27,8 +27,8 @@ on every pull request and fails on any error.
   Chromium in English and, where the page has a translation, in Japanese (cookie `vivatheca-lang=ja`).
   Hidden elements are dropped and the caption of every stage, age, bite or before/after button is added,
   because `viewer.js` writes those captions at runtime.
-- **App routes**: the plain-language tour of the homepage model (`model.tour` in `app/i18n/dictionaries`).
-  The rest of the homepage, `/create` and `/disclaimer` are written for clinicians or are fixed legal wording.
+- **App routes**: the plain-language tour of the homepage model (`model.tour`) and the homepage clinical image
+  heading, note and captions (`clinical`), both in `app/i18n/dictionaries`. The rest of the homepage, `/create` and `/disclaimer` are written for clinicians or are fixed legal wording.
 - **Patient information builder** (`/create`): drafts are checked in the browser by `app/create/checker.ts`,
   a TypeScript port of the same rules with the same limits. Exported Markdown can also be checked with
   `pitk check draft.md`.

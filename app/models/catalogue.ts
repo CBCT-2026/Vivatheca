@@ -37,18 +37,18 @@ export function formatDate(iso: string, intl: string) {
 export const wisdomTooth = {
   impacted: {
     glb: '/models/impacted-molar.glb',
-    stl: '/models/impacted-molar.stl',
+    stl: '/models/downloads/vivatheca-impacted-wisdom-tooth-stl.zip',
   },
   normal: {
     glb: '/models/wisdom-tooth-normal.glb',
-    stl: '/models/wisdom-tooth-normal.stl',
+    stl: '/models/downloads/vivatheca-wisdom-tooth-normal-stl.zip',
   },
   // Labels for these files are wisdom.files in the dictionaries, in the same order.
   files: [
     { href: '/models/impacted-molar.glb', size: '0.6 MB' },
-    { href: '/models/impacted-molar.stl', size: '1.5 MB' },
+    { href: '/models/downloads/vivatheca-impacted-wisdom-tooth-stl.zip', size: '0.6 MB' },
     { href: '/models/wisdom-tooth-normal.glb', size: '0.6 MB' },
-    { href: '/models/wisdom-tooth-normal.stl', size: '1.5 MB' },
+    { href: '/models/downloads/vivatheca-wisdom-tooth-normal-stl.zip', size: '0.6 MB' },
   ] satisfies ModelFile[],
   sources: [
     { text: 'Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1.', href: 'https://doi.org/10.5037/jomr.2013.4201' },
@@ -60,6 +60,7 @@ export const wisdomTooth = {
     { text: 'Sorooshzadeh M, Hoseyni Y, Goudarzi F, Jamali A. Key factors in mandibular third molar surgery: a comprehensive view of their prevalence and interrelationships. Saudi Dent J. 2025;37(7-9):53. (526 CBCT scans: the canal lay below the tooth in 78.9%; basis for "more often below the roots".)', href: 'https://doi.org/10.1007/s44445-025-00061-8' },
     { text: 'Jun SH, Kim CH, Ahn JS, Padwa BL, Kwon JJ. Anatomical differences in lower third molars visualized by 2D and 3D X-ray imaging: clinical outcomes after extraction. Int J Oral Maxillofac Surg. 2013;42(4):489-496. (Complications were mostly in roots inside or touching the canal; basis for "higher-risk".)', href: 'https://doi.org/10.1016/j.ijom.2012.12.005' },
     { text: 'Ghaeminia H, Gerlach NL, Hoppenreijs TJM, et al. Clinical relevance of cone beam computed tomography in mandibular third molar removal: a multicentre, randomised, controlled trial. J Craniomaxillofac Surg. 2015;43(10):2158-2167. (Conflicting evidence: CBCT before removal did not reduce nerve injury compared with panoramic radiography.)', href: 'https://doi.org/10.1016/j.jcms.2015.10.009' },
+    { text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. Chapter on the permanent mandibular molars. (Third molars: smaller than second molars, variable crowns, often fused roots; basis for the note on how the normal was made.)', href: '' },
   ] satisfies Source[],
   changelogDates: { '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
   citation: 'Seifert L. Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.1. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
