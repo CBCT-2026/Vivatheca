@@ -5,7 +5,7 @@ import { disclaimerUpdated, fullDisclaimer, modelDisclaimer, siteDisclaimer } fr
 
 const en = {
   meta: {
-    title: 'Vivatheca — Medical models made clear',
+    title: 'Vivatheca — Clinical models made clear',
     description: 'Free 3D dental and oral surgery models, each with a matched normal, for clinicians making patient education materials. View, download and print.',
     socialDescription: 'Explore free, browser-based 3D medical models designed for clearer clinical conversations.',
     createTitle: 'Create patient information — Vivatheca',
@@ -546,7 +546,7 @@ const en = {
     ],
   },
   hero: {
-    line1: 'Medical models',
+    line1: 'Clinical models',
     line2: 'made clear.',
     lede: 'A free, not-for-profit library of 3D dental and oral surgery models. Each condition comes with a matched normal, so clinicians can show patients what is different, on screen or as a 3D print.',
     explore: 'Browse the models',

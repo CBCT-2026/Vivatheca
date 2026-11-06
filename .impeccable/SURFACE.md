@@ -18,7 +18,7 @@ The page moves from immediate explanation and Australian origin, through interac
 
 ## FIRST VIEWPORT
 
-The normally oriented “Medical models made clear.” headline is larger than the introduction but shares its text-block width. The primary collection action, open-access commitments and patient-clinician scene make the purpose and next step understandable within seconds.
+The normally oriented “Clinical models made clear.” headline is larger than the introduction but shares its text-block width. The primary collection action, open-access commitments and patient-clinician scene make the purpose and next step understandable within seconds.
 
 ## FORM
 
