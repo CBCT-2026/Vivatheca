@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FURIGANA_COOKIE, LOCALE_COOKIE, localeNames, localeShortNames, locales, localeTags, type Locale } from './config';
+import { FURIGANA_COOKIE, LOCALE_COOKIE, localeNames, listedLocales, localeShortNames, localeTags, type Locale } from './config';
 import { useI18n } from './context';
 import { plain } from './ruby';
 
@@ -35,7 +35,7 @@ export function LanguageSwitcher({ furigana: initialFurigana, className = '', fu
   return (
     <div className={`language-switcher ${className}`.trim()} role="group" aria-label={plain(t.language.label)}>
       <img aria-hidden="true" className="ui-icon" src="/icons/language.svg" width={20} height={20} alt="" />
-      {furiganaOnly ? null : locales.map((code) => (
+      {furiganaOnly ? null : listedLocales.map((code) => (
         <button
           key={code}
           type="button"

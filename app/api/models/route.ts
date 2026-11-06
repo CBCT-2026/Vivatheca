@@ -4,7 +4,7 @@
 import { catalogue, licence } from '../../models/catalogue';
 import { dictionaries } from '../../i18n/dictionaries';
 import { disclaimerHref } from '../../disclaimer-text';
-import { locales } from '../../i18n/config';
+import { listedLocales as locales } from '../../i18n/config';
 
 export function GET() {
   const models = catalogue.map((m) => ({
