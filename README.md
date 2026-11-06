@@ -47,4 +47,16 @@ More project context: `PRODUCT.md`, `DESIGN.md`, `AGENTS.md`, `docs/`.
 
 ## Visitor analytics (Cloudflare Web Analytics)
 
-The privacy page says the site uses Cloudflare Web Analytics (cookie-free). To switch it on, open the Cloudflare dashboard → **Analytics & Logs → Web Analytics → Add a site**, choose **vivatheca.com**, and pick **Automatic setup** (enable JS snippet installation). No code change is needed because the domain is proxied by Cloudflare.
+The privacy page says the site uses Cloudflare Web Analytics (cookie-free). To switch it on, open the Cloudflare dashboard → **Analytics & Logs → Web Analytics → Add a site**, choose **vivatheca.com**, and pick **Automatic setup** (enable JS snippet installation). No code change is needed because the domain is proxied by Cloudflare; the Content Security Policy in `worker/index.ts` already allows the beacon (`static.cloudflareinsights.com`, `cloudflareinsights.com`). Check the Web Analytics dashboard shows visits a day after switching it on.
+
+## Contributors
+
+Vivatheca credits everyone who helps, by role, using the [all-contributors](https://allcontributors.org) specification (`.all-contributorsrc`). Roles used here: clinical review (`review`), translation (`translation`), clinical images (`content`), 3D models (`design`), code (`code`), ideas (`ideas`). Clinical reviewers are listed only with the details they agree to share (see AGENTS.md, Security & Clinical Content).
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| Contributor | Roles |
+| --- | --- |
+| Luke Seifert ([CBCT-2026](https://github.com/CBCT-2026)) | 3D models, code, content, ideas |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+To add someone, comment on a pull request or issue: `@all-contributors please add <github-name> for review` (needs the free [all-contributors app](https://github.com/apps/allcontributors) installed on this repository), or edit `.all-contributorsrc` and this table by hand.
