@@ -43,11 +43,9 @@ test('homepage navigation, evidence and contribution paths', async ({ page }) =>
   await page.goto('/');
 
   const primaryNavigation = page.getByRole('navigation', { name: 'Primary navigation' });
-  for (const name of ['Models', 'How it works', 'Evidence', 'Create', 'About']) {
-    await expect(primaryNavigation.getByRole('link', { name, exact: true })).toBeVisible();
-  }
+  await expect(primaryNavigation.getByRole('link')).toHaveText(['How it works', 'Model collection', 'Evidence', 'Create', 'Students', 'About']);
   await expect(primaryNavigation.getByRole('link', { name: 'Create', exact: true })).toHaveAttribute('href', '/create');
-  await expect(primaryNavigation.getByRole('link', { name: 'Models', exact: true })).toHaveAttribute('href', '/models');
+  await expect(primaryNavigation.getByRole('link', { name: 'Model collection', exact: true })).toHaveAttribute('href', '/models');
 
   const origin = page.locator('.origin-band');
   await expect(origin.getByText('Founded and operated in Australia.')).toBeVisible();

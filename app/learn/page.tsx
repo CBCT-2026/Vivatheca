@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { getI18n } from '../i18n/server';
 import { plain, Ruby } from '../i18n/ruby';
 import { disclaimerHref } from '../disclaimer-text';
@@ -63,7 +62,7 @@ export default async function LearnPage() {
                   <p><Ruby text={guide.text} /></p>
                   <p className="learn-review"><strong><Ruby text={l.statusLabel} /></strong> <Ruby text={t.disclaimer.notReviewed} /></p>
                   <div className="learn-actions">
-                    {links.guide ? <Link className="button" href={links.guide}><Ruby text={l.openGuide} /></Link> : null}
+                    {links.guide ? <a className="button" href={links.guide}><Ruby text={l.openGuide} /></a> : null}
                     <a className={links.guide ? 'button button-secondary' : 'button'} href={links.model}><Ruby text={l.openModel} /></a>
                   </div>
                 </article>
@@ -82,8 +81,8 @@ export default async function LearnPage() {
           <h2 id="patients-heading"><Ruby text={l.patientsHeading} /></h2>
           <p><Ruby text={l.patientsText} /></p>
           <div className="learn-actions">
-            <Link className="button button-secondary" href="/"><Ruby text={l.patientsLink} /></Link>
-            <Link className="button button-secondary" href="/create"><Ruby text={t.nav.createInfo} /></Link>
+            <a className="button button-secondary" href="/"><Ruby text={l.patientsLink} /></a>
+            <a className="button button-secondary" href="/create"><Ruby text={t.nav.createInfo} /></a>
           </div>
         </aside>
       </main>

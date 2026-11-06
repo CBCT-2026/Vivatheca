@@ -34,7 +34,7 @@ const en = {
     mobile: 'Mobile navigation',
     browseCollection: 'Browse the collection',
     createInfo: 'Create patient information',
-    models: 'Models',
+    models: 'Model collection',
     evidence: 'Evidence',
     about: 'About',
     report: 'Report an inaccuracy',

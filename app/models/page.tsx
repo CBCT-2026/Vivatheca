@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { PageHeader, SiteFooter } from '../site-chrome';
 import { catalogue, licence } from './catalogue';
 import { disclaimerHref } from '../disclaimer-text';
@@ -19,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Static pages under public/ need their trailing slash, which next/link removes.
 function CardLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return href.endsWith('/') ? <a href={href} className="library-card-link">{children}</a> : <Link href={href} className="library-card-link">{children}</Link>;
+  return href.endsWith('/') ? <a href={href} className="library-card-link">{children}</a> : <a href={href} className="library-card-link">{children}</a>;
 }
 
 export default async function ModelsPage() {
@@ -34,7 +33,7 @@ export default async function ModelsPage() {
           <p className="eyebrow"><Ruby text={l.eyebrow} /></p>
           <h1><Ruby text={l.heading} /></h1>
           <p><Ruby text={l.intro} /> <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>.</p>
-          <p className="prototype-note"><strong><Ruby text={l.reviewLead} /></strong> <Ruby text={t.disclaimer.model} /> <Link href={disclaimerHref}><Ruby text={t.disclaimer.full} /></Link></p>
+          <p className="prototype-note"><strong><Ruby text={l.reviewLead} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
         </div>
 
         <ul className="library-grid" aria-label={plain(l.listLabel)}>
@@ -63,7 +62,7 @@ export default async function ModelsPage() {
         <section className="library-next" aria-labelledby="next-title">
           <h2 id="next-title"><Ruby text={l.nextHeading} /></h2>
           <p><Ruby text={l.nextText} /></p>
-          <p><Ruby text={l.askText} /> <Link href="/report"><Ruby text={l.askLink} /></Link>.</p>
+          <p><Ruby text={l.askText} /> <a href="/report"><Ruby text={l.askLink} /></a>.</p>
         </section>
       </main>
       <SiteFooter />

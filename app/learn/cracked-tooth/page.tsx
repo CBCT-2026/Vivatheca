@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { disclaimerHref } from '../../disclaimer-text';
@@ -23,7 +22,7 @@ export default async function CrackedToothGuide() {
     <>
       <LearnHeader t={t} furigana={furigana} />
       <main id="main-content" className="learn-page">
-        <p className="eyebrow"><Link href="/learn"><Ruby text={t.learn.forStudents} /></Link> · <Ruby text={d.eyebrow} /></p>
+        <p className="eyebrow"><a href="/learn"><Ruby text={t.learn.forStudents} /></a> · <Ruby text={d.eyebrow} /></p>
         <h1><Ruby text={d.heading} /></h1>
         <p className="learn-lead"><Ruby text={d.lead} /></p>
 

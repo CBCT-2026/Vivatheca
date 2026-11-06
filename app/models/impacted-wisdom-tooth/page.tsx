@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { PageHeader, SiteFooter } from '../../site-chrome';
 import { catalogue, formatDate, licence, wisdomTooth } from '../catalogue';
 import { CompareViewer } from '../compare';
@@ -27,13 +26,13 @@ export default async function WisdomToothPage() {
   const w = t.wisdom;
   const item = t.library.items[model.slug];
   const date = (iso: string) => formatDate(iso, localeTags[locale].intl);
-  const reviewNote = <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <Link href={disclaimerHref}><Ruby text={t.disclaimer.full} /></Link></p>;
+  const reviewNote = <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>;
   return (
     <>
       <a className="skip-link" href="#main-content"><Ruby text={t.common.skip} /></a>
       <PageHeader current="/models" />
       <main id="main-content" className="info-page model-page">
-        <nav className="breadcrumb" aria-label={plain(w.breadcrumb)}><Link href="/models"><Ruby text={t.library.eyebrow} /></Link><span aria-hidden="true">/</span><span aria-current="page"><Ruby text={item.title} /></span></nav>
+        <nav className="breadcrumb" aria-label={plain(w.breadcrumb)}><a href="/models"><Ruby text={t.library.eyebrow} /></a><span aria-hidden="true">/</span><span aria-current="page"><Ruby text={item.title} /></span></nav>
         <div className="info-intro">
           <p className="eyebrow"><Ruby text={item.specialty} /></p>
           <h1><Ruby text={item.title} /></h1>
@@ -53,7 +52,7 @@ export default async function WisdomToothPage() {
             </ul>
             {reviewNote}
             <p className="detail-note"><Ruby text={w.licence} /> <a href={licence.href} target="_blank" rel="noreferrer">{licence.name}</a>. <Ruby text={w.licenceText} /></p>
-            <Link className="button button-compact" href="/create"><Ruby text={w.makeInfo} /></Link>
+            <a className="button button-compact" href="/create"><Ruby text={w.makeInfo} /></a>
           </section>
 
           <section aria-labelledby="details-title" className="detail-block">
@@ -90,7 +89,7 @@ export default async function WisdomToothPage() {
             <h2 id="report-title"><Ruby text={w.reportHeading} /></h2>
             <p><Ruby text={w.reportText} /></p>
           </div>
-          <Link className="button button-light" href="/report?model=impacted-wisdom-tooth"><Ruby text={t.nav.report} /></Link>
+          <a className="button button-light" href="/report?model=impacted-wisdom-tooth"><Ruby text={t.nav.report} /></a>
         </aside>
       </main>
       <SiteFooter />

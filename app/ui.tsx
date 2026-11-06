@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { THEME_KEY } from './theme';
+import { primaryLinks } from './nav';
 import { disclaimerHref } from './disclaimer-text';
 import { useI18n } from './i18n/context';
 import { format } from './i18n/dictionaries';
@@ -22,14 +23,9 @@ export function MobileNavigation({ furigana }: { furigana: boolean }) {
       </button>
       {open ? (
         <nav className="mobile-nav-panel" aria-label={plain(t.nav.mobile)}>
-          <a href="/models"><Ruby text={t.nav.modelLibrary} /></a>
+          {primaryLinks(t, true).map((link) => <a key={link.href} href={link.href} onClick={link.href.startsWith('#') ? () => setOpen(false) : undefined}><Ruby text={link.href === '/create' ? t.nav.createInfo : link.href === '/learn' ? t.nav.studentsMobile : link.label} /></a>)}
           <a href="#collection" onClick={() => setOpen(false)}><Ruby text={t.nav.tryViewer} /></a>
-          <a href="#how-it-works" onClick={() => setOpen(false)}><Ruby text={t.nav.howItWorks} /></a>
-          <a href="#publications" onClick={() => setOpen(false)}><Ruby text={t.nav.evidence} /></a>
-          <a href="/create"><Ruby text={t.nav.createInfo} /></a>
-          <a href="/about"><Ruby text={t.nav.about} /></a>
           <a href="/report"><Ruby text={t.nav.report} /></a>
-          <a href="/learn"><Ruby text={t.nav.studentsMobile} /></a>
           <a href="#contact" onClick={() => setOpen(false)}><Ruby text={t.contact.heading} /></a>
           {locale === 'ja' ? <LanguageSwitcher furigana={furigana} className="in-menu" furiganaOnly /> : null}
         </nav>

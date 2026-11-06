@@ -36,7 +36,7 @@ const ja: Dictionary = {
     mobile: 'モバイルナビゲーション',
     browseCollection: '{模型|もけい}コレクションを{見|み}る',
     createInfo: '{患者|かんじゃ}{説明|せつめい}{資料|しりょう}をつくる',
-    models: '{模型|もけい}',
+    models: '{模型|もけい}コレクション',
     evidence: '{根拠|こんきょ}',
     about: 'Vivathecaについて',
     report: '{誤|あやま}りを{報告|ほうこく}',
