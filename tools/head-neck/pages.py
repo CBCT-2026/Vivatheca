@@ -545,11 +545,13 @@ def build(slug, P):
     w(f'<meta name="description" content="{esc(P["description"][0])}">\n<meta name="robots" content="noindex">')
     w("<script>\ntry { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}\n</script>")
     w('<link rel="preload" href="/head-neck/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>')
-    w('<link rel="stylesheet" href="/head-neck/style.css">\n<link rel="stylesheet" href="/head-neck/condition.css">\n</head>\n<body>')
-    w('<header class="bar">\n  <div class="bar-left">\n    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>\n    <a class="lang" href="/models" data-i18n="allModels">All models</a>\n'
+    w('<link rel="stylesheet" href="/head-neck/style.css">\n<link rel="stylesheet" href="/head-neck/condition.css">\n<link rel="stylesheet" href="/site-header.css">\n</head>\n<body>')
+    w('<header class="bar">\n  <div class="bar-left">\n'
+      '    <a class="brand-home" href="/" style="display:inline-flex;align-items:center;line-height:0"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="53" height="40" style="height:40px;width:auto;background:#fff;border-radius:6px"></a>\n'
+      '    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>\n    <a class="lang" href="/models" data-i18n="allModels">All models</a>\n'
       '    <a class="lang" href="/head-neck/" data-i18n="hub">Head and neck</a>\n'
       '    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>\n'
-      '  </div>\n  <div class="langs" id="langs" role="group" aria-label="Language"></div>\n</header>\n\n<main>')
+      '  </div>\n  <div class="langs" id="langs" role="group" aria-label="Language"></div>\n</header>\n<script src="/site-header.js"></script>\n\n<main>')
     t('h1', P['h1'][0], P['h1'][1], 'h1')
     t('lede', P['lede'][0], P['lede'][1], 'p', ' class="lede"')
     w('<div class="note"><p data-i18n="viewOnly"><b>3D viewing only for now.</b> Print files are not available yet.</p></div>')

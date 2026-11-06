@@ -100,6 +100,8 @@ model-viewer.labels-off .hotspot, model-viewer.zoomed .hotspot[data-far] { displ
 /* Justified text, as asked. Hyphens help English lines not to stretch too much on phones. */
 main p, main li, figcaption { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 main ul, main ol, .refs li { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+/* Phones: narrow lines leave wide gaps when justified, so align left there (review 2026-11-06). */
+@media (max-width: 600px) { main p, main li, figcaption, main ul, main ol, .refs li { text-align: left; } }
 .controls, .ar-more { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
 .important { background: #fff7e0; border: 2px solid #d9a400; border-radius: 12px; padding: 12px 14px; margin: 12px 0; }
 .important h2 { color: #6b4e00; }
@@ -179,3 +181,13 @@ th { font-size: 12px; color: var(--muted); font-weight: 700; }
 .clin-fig img { display: block; width: 100%; height: auto; border-radius: 10px; background: #000; border: 1px solid var(--line); box-sizing: border-box; }
 .clin-fig figcaption { font-size: 14px; margin-top: 6px; text-align: left; }
 .clin-fig .credit { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; overflow-wrap: anywhere; }
+
+/* Desktop: the 3D viewer breaks out of the text column so the model is large on laptop screens. */
+@media (min-width: 1000px) {
+  main .viewer {
+    width: min(1100px, calc(100vw - 80px));
+    margin-left: calc(50% - min(550px, 50vw - 40px));
+    height: 68vh; max-height: 720px;
+  }
+  main .viewer:fullscreen { margin-left: 0; }
+}

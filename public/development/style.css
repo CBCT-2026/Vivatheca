@@ -100,6 +100,8 @@ model-viewer.labels-off .hotspot, model-viewer.zoomed .hotspot[data-far] { displ
 /* Justified text, as asked. Hyphens help English lines not to stretch too much on phones. */
 main p, main li, figcaption { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 main ul, main ol, .refs li { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+/* Phones: narrow lines leave wide gaps when justified, so align left there (review 2026-11-06). */
+@media (max-width: 600px) { main p, main li, figcaption, main ul, main ol, .refs li { text-align: left; } }
 .controls, .ar-more { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
 .important { background: #fff7e0; border: 2px solid #d9a400; border-radius: 12px; padding: 12px 14px; margin: 12px 0; }
 .important h2 { color: #6b4e00; }
@@ -154,3 +156,14 @@ details.surgical summary { cursor: pointer; min-height: 32px; display: flex; ali
 details.surgical .clin-fig { margin-top: 8px; }
 .clin-fig figcaption, .clin-fig .credit { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
 .clin-fig img { border: 1px solid var(--line); box-sizing: border-box; }
+
+/* Desktop: the 3D viewer breaks out of the 640 px text column so the model is large on laptop screens.
+   Text stays at a readable width. Shared by every static model page that uses this stylesheet. */
+@media (min-width: 1000px) {
+  main > model-viewer {
+    width: min(1100px, calc(100vw - 80px));
+    margin-left: calc(50% - min(550px, 50vw - 40px));
+    height: 68vh; max-height: 720px;
+  }
+  main > model-viewer:fullscreen { margin-left: 0; }
+}

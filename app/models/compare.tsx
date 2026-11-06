@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useI18n } from '../i18n/context';
 import { plain, Ruby } from '../i18n/ruby';
 
@@ -12,6 +12,12 @@ type ModelViewerElement = HTMLElement & { cameraOrbit: string; getCameraOrbit: (
 export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Side }) {
   const { t } = useI18n();
   const c = t.compare;
+  const frame = useRef<HTMLDivElement>(null);
+  const [canFullscreen, setCanFullscreen] = useState(false);
+  const toggleFullscreen = () => {
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else void frame.current?.requestFullscreen?.();
+  };
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [mode, setMode] = useState<Mode>('both');
@@ -21,7 +27,7 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
 
   useEffect(() => {
     let active = true;
-    import('@google/model-viewer').then(() => { if (active) setReady(true); }).catch(() => { if (active) setFailed(true); });
+    import('@google/model-viewer').then(() => { if (active) { setReady(true); setCanFullscreen(Boolean(document.fullscreenEnabled)); } }).catch(() => { if (active) setFailed(true); });
     return () => { active = false; };
   }, []);
 
@@ -62,7 +68,7 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
   });
 
   return (
-    <div className="compare">
+    <div className="compare" ref={frame}>
       <div className="compare-controls">
         <div className="segmented segmented-3" role="group" aria-label={plain(c.which)}>
           <button type="button" aria-pressed={mode === 'both'} onClick={() => setMode('both')}><Ruby text={c.both} /></button>
@@ -74,6 +80,11 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
             <input type="checkbox" checked={linked} onChange={(event) => setLinked(event.target.checked)} />
             <Ruby text={c.together} />
           </label>
+        ) : null}
+        {canFullscreen ? (
+          <button type="button" className="icon-button on-dark compare-fullscreen" onClick={toggleFullscreen} aria-label={plain(t.model.fullscreen)} title={plain(t.model.fullscreen)}>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" /></svg>
+          </button>
         ) : null}
       </div>
       <p className="compare-diff"><strong><Ruby text={c.diffLead} /></strong> <Ruby text={c.diff} /></p>

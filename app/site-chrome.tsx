@@ -6,7 +6,7 @@ import type { Dictionary } from './i18n/dictionaries';
 import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
-import { ThemeToggle } from './ui';
+import { MobileNavigation, ThemeToggle } from './ui';
 import { homeHref, primaryLinks } from './nav';
 
 export async function PageHeader({ current }: { current?: string }) {
@@ -20,6 +20,7 @@ export async function PageHeader({ current }: { current?: string }) {
       <div className="page-header-actions">
         <LanguageSwitcher furigana={furigana} className="always" />
         <ThemeToggle />
+        <MobileNavigation furigana={furigana} onHome={false} />
       </div>
     </header>
   );

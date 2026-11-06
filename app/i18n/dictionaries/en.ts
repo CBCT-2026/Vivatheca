@@ -1023,7 +1023,7 @@ const en = {
     impactedAlt: 'Lower left jaw with an impacted wisdom tooth tilted forward against the second molar. Its roots wrap around the inferior alveolar nerve, shown in red.',
     normalAlt: 'The same lower left jaw with the wisdom tooth erupted and upright, in line with the other molars. The inferior alveolar nerve is shown in red below the roots.',
     download: 'Download',
-    files: ['Impacted · GLB (web and AR)', 'Impacted · STL and print notes (zip, mm)', 'Normal · GLB (web and AR)', 'Normal · STL and print notes (zip, mm)'],
+    files: ['Impacted · GLB (web and AR)', 'Impacted · STL for printing, mm (ZIP with read-me)', 'Normal · GLB (web and AR)', 'Normal · STL for printing, mm (ZIP with read-me)'],
     licence: 'Licence:',
     licenceText: 'You may use, adapt and print these models, including in your own patient materials, if you credit Vivatheca. If you change the model, or images of it, share your changed version under CC BY-SA 4.0.',
     makeInfo: 'Make patient information for this model',
@@ -1055,6 +1055,7 @@ const en = {
     sourcesNote: 'Modelled by Luke Seifert, Vivatheca’s founder. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies.',
     changelogHeading: 'Change log',
     changelog: [
+      { version: '1.2', text: 'Teeth are now tooth-coloured, slightly lighter than the bone, as in every other Vivatheca model. STL files now come in a ZIP with a read-me that holds the review status, the disclaimer and the licence.' },
       { version: '1.1', text: 'Added the matched normal jaw and STL files for both models.' },
       { version: '1.0', text: 'Updated to the coloured model with the nerve in red, from Vivatheca’s wisdom tooth patient information project.' },
     ],
