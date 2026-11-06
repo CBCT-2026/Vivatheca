@@ -19,7 +19,8 @@
     "test:a11y": "playwright test tests/accessibility.spec.ts",
     "tokens": "node tools/tokens/build.mjs",
     "offline:sw": "node tools/offline/build-sw.mjs",
-    "test:pictures": "playwright test -c playwright.pictures.config.ts"
+    "test:pictures": "playwright test -c playwright.pictures.config.ts",
+    "i18n:sheet": "node tools/i18n/review-sheet.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.5.0",

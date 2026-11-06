@@ -8,6 +8,7 @@ extend-exclude = [
   "public/**/vendor/**",
   "public/pagefind/**",
   "public/fonts/**",
+  "review/**",
   "assets/flags/**",
   "LICENSES/**",
   "output/**",
