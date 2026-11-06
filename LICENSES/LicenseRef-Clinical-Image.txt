@@ -1,0 +1,7 @@
+Clinical images (public/images/clinical/)
+
+Each clinical photograph, radiograph or scan on Vivatheca keeps the licence it was
+published under (for example CC BY 4.0 from a journal case report). The licence,
+rights holder, source link, and any changes made are recorded with the image on
+the page that shows it, and in the site's image data (app/data.ts and the static
+page sources). See docs/image-licensing.md for the rules used to accept an image.

@@ -1,0 +1,44 @@
+# Machine-readable licensing for every file (REUSE spec 3.3, https://reuse.software).
+# Checked in CI with `reuse lint`. Later entries override earlier ones for the same path.
+#
+# Summary:
+#   - Website code, build tools and docs: MIT (see LICENSE)
+#   - Vivatheca 3D models, print files, renders and videos: CC BY-SA 4.0 (base meshes from
+#     Z-Anatomy are CC BY-SA 4.0, so everything made from them stays CC BY-SA)
+#   - Clinical images: each keeps its own licence, recorded with the image on its page
+#     (see LICENSES/LicenseRef-Clinical-Image.txt and docs/image-licensing.md)
+#   - Vendored third-party files keep their upstream licence
+version = 1
+SPDX-PackageName = "Vivatheca"
+SPDX-PackageSupplier = "Vivatheca <vivatheca@gmail.com>"
+SPDX-PackageDownloadLocation = "https://github.com/CBCT-2026/Vivatheca"
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Vivatheca"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["public/**/*.glb", "public/**/*.stl", "public/**/*.3mf", "public/**/*.zip", "public/assets/renders/**", "public/videos/**", "public/**/*.webp", "public/**/*.mp4"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Vivatheca"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["public/images/clinical/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "See the attribution recorded with each image on its Vivatheca page"
+SPDX-License-Identifier = "LicenseRef-Clinical-Image"
+
+[[annotations]]
+path = ["public/assets/australian-national-flag.jpg"]
+precedence = "override"
+SPDX-FileCopyrightText = "Commonwealth of Australia"
+SPDX-License-Identifier = "LicenseRef-Australian-Flag"
+
+[[annotations]]
+path = ["public/development/vendor/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Google LLC and the Draco authors"
+SPDX-License-Identifier = "Apache-2.0"

@@ -26,7 +26,7 @@ export function ContactSection({ t }: { t: Dictionary }) {
           return (
             <li key={link.id}>
               {link.href ? (
-                <a href={link.href} {...(link.id === 'email' ? {} : { target: '_blank', rel: 'noreferrer' })} aria-label={plain(format(c.linkLabel, { name: plain(name) }))}>
+                <a href={link.href} {...(link.id === 'email' ? {} : { target: '_blank', rel: 'noreferrer' })} title={plain(format(c.linkLabel, { name: plain(name) }))}>
                   {icon}
                   <span className="contact-name"><Ruby text={name} /></span>
                   <span className="contact-handle">{link.id === 'email' ? link.handle : `@${link.handle}`}</span>

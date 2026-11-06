@@ -41,7 +41,8 @@ export function LanguageSwitcher({ furigana: initialFurigana, className = '', fu
           type="button"
           lang={localeTags[code].html}
           aria-pressed={code === locale}
-          aria-label={localeNames[code]}
+          // Phones show only the short name, so the label carries both (axe label-content-name-mismatch).
+          aria-label={`${localeShortNames[code]} ${localeNames[code]}`}
           onClick={() => choose(code)}
         >
           <span className="lang-full">{localeNames[code]}</span>

@@ -1,0 +1,35 @@
+name: Model files and licences
+
+# Validates every GLB under public/ with the Khronos glTF-Validator (tools/glb/validate.mjs)
+# and checks that every file in the repo has machine-readable licence information (REUSE.toml).
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: models-licences-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  glb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check:glb
+  reuse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: fsfe/reuse-action@v5
