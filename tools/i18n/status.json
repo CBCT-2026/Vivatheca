@@ -1,0 +1,143 @@
+{
+ "dictionary": {
+  "total": 1211,
+  "missing": [],
+  "untranslated": [
+   "learnOac.evidence.3.study",
+   "learnOac.evidence.4.study",
+   "learnSsc.evidence.1.study",
+   "learnSsc.evidence.3.study",
+   "learnCracked.evidence.0.study",
+   "learnCracked.evidence.3.study",
+   "learnCracked.evidence.4.study"
+  ],
+  "byStatus": {
+   "reviewed": 0,
+   "changed": 0,
+   "unreviewed": 1221
+  },
+  "changed": []
+ },
+ "pages": [
+  {
+   "page": "cracked-tooth",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
+   "page": "development",
+   "tracked": true,
+   "file": "i18n.js",
+   "needed": 40,
+   "missing": [],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 40
+   }
+  },
+  {
+   "page": "head-neck",
+   "tracked": true,
+   "file": "i18n.js",
+   "needed": 40,
+   "missing": [],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 40
+   }
+  },
+  {
+   "page": "head-neck/ameloblastoma",
+   "tracked": true,
+   "file": "ja.js",
+   "needed": 43,
+   "missing": [],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 43
+   }
+  },
+  {
+   "page": "head-neck/mec",
+   "tracked": true,
+   "file": "ja.js",
+   "needed": 43,
+   "missing": [],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 43
+   }
+  },
+  {
+   "page": "head-neck/okc",
+   "tracked": true,
+   "file": "ja.js",
+   "needed": 42,
+   "missing": [],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 42
+   }
+  },
+  {
+   "page": "head-neck/scc",
+   "tracked": true,
+   "file": "ja.js",
+   "needed": 41,
+   "missing": [],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 41
+   }
+  },
+  {
+   "page": "oroantral",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
+   "page": "orthognathic",
+   "tracked": true,
+   "file": "ja.js",
+   "needed": 65,
+   "missing": [],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 65
+   }
+  },
+  {
+   "page": "periodontitis",
+   "tracked": true,
+   "file": "ja.js",
+   "needed": 101,
+   "missing": [
+    "t1_6",
+    "t1_7",
+    "t1_8",
+    "t1_9",
+    "t2_6",
+    "t2_7",
+    "t2_9",
+    "t2_11"
+   ],
+   "byStatus": {
+    "reviewed": 0,
+    "changed": 0,
+    "unreviewed": 93
+   }
+  },
+  {
+   "page": "stainless-steel-crown",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  }
+ ]
+}

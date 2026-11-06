@@ -53,3 +53,16 @@ jobs:
       - run: |
           git show HEAD:public/pagefind/vivatheca-pages.json > /tmp/committed-pages.json
           node -e "const a=Object.keys(require('/tmp/committed-pages.json')).sort(), b=Object.keys(require('./public/pagefind/vivatheca-pages.json')).sort(); if (JSON.stringify(a)!==JSON.stringify(b)) { console.error('Search index is stale. Committed:', a, 'Now:', b, '\nRun pnpm build, pnpm start, pnpm search:index and commit public/pagefind'); process.exit(1); }"
+  translations:
+    # Every data-i18n key on a static page needs Japanese text; app dictionaries are typed, so this mostly guards the static pages.
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm i18n:status
