@@ -21,8 +21,10 @@ const pages = [
   '/head-neck/index.html',
   '/head-neck/scc/index.html',
   '/orthognathic/index.html',
+  '/fixation/index.html',
   '/learn/periodontitis',
   '/learn/slices',
+  '/models/averaged-jaw',
 ];
 
 const variants: { name: string; lang: 'en' | 'ja'; theme: 'light' | 'dark' }[] = [
@@ -37,8 +39,9 @@ for (const variant of variants) {
       test(url, async ({ page, context }) => {
         await context.addCookies([{ name: 'vivatheca-lang', value: variant.lang, url: 'http://127.0.0.1:3000' }]);
         await page.addInitScript((theme) => { localStorage.setItem('vivatheca-theme', theme); }, variant.theme);
-        await page.goto(url);
-        await page.waitForLoadState('networkidle');
+        await page.goto(url, { waitUntil: 'load' });
+        // Not 'networkidle': share-tools.js sends a keepalive usage ping that Playwright never counts as finished.
+        await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
         const results = await new AxeBuilder({ page })
           .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
           .exclude('canvas')

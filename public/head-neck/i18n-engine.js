@@ -1,27 +1,29 @@
-// Language engine shared by the head and neck condition pages. Each page defines window.VIVA_JA (its Japanese text) first.
+// Language engine shared by the head and neck condition pages. Each page defines window.VIVA_JA (its Japanese text)
+// and window.VIVA_VI (Vietnamese, same keys, an unreviewed AI draft) first.
 // It reads the same cookie as the rest of the site (vivatheca-lang, see app/i18n/config.ts).
 // English is the text in index.html; Japanese replaces every [data-i18n] element.
 // {漢字|かんじ} marks furigana; {cite:N} becomes a citation link to source N.
 (function () {
   const YEAR = 60 * 60 * 24 * 365;
   const cookie = (name) => (document.cookie.match('(?:^|; )' + name + '=([^;]*)') || [])[1];
-  const lang = cookie('vivatheca-lang') === 'ja' ? 'ja' : 'en';
+  const chosen = cookie('vivatheca-lang');
+  const lang = chosen === 'ja' || chosen === 'vi' ? chosen : 'en';
   const furigana = cookie('vivatheca-furigana') !== 'off';
   const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g,
     '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
   const plain = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g, '$1');
   const cite = (n) => '<sup class="cite"><a href="#ref-' + n + '">' + n + '</a></sup>';
 
-  const ja = window.VIVA_JA || {};
+  const ja = (lang === 'ja' ? window.VIVA_JA : lang === 'vi' ? window.VIVA_VI : null) || {};
   for (const k in ja) ja[k] = ja[k].replace(/\{cite:(\d+)\}/g, (_, n) => cite(n));
 
-  const ui = { en: { label: 'Language', furigana: 'Furigana' }, ja: { label: '言語', furigana: 'ふりがな' } };
+  const ui = { en: { label: 'Language', furigana: 'Furigana' }, ja: { label: '言語', furigana: 'ふりがな' }, vi: { label: 'Ngôn ngữ' } };
 
   window.VIVA_I18N = {
     lang,
     // Text for a key in the visitor's language, or null to keep the English in the page.
     text: (key, values) => {
-      if (lang !== 'ja' || !(key in ja)) return null;
+      if (lang === 'en' || !(key in ja)) return null;
       let s = ja[key];
       for (const k in values || {}) s = s.replace('{' + k + '}', values[k]);
       return s;
@@ -30,8 +32,8 @@
     plain,
   };
 
-  if (lang === 'ja') {
-    document.documentElement.lang = 'ja';
+  if (lang !== 'en') {
+    document.documentElement.lang = lang;
     document.title = plain(ja.title);
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.content = plain(ja.description);
@@ -55,7 +57,7 @@
   if (!box) return;
   box.setAttribute('aria-label', ui[lang].label);
   const set = (name, value) => { document.cookie = name + '=' + value + '; path=/; max-age=' + YEAR + '; samesite=lax'; };
-  [['en', 'English'], ['ja', '日本語']].forEach(([code, name]) => {
+  [['en', 'English'], ['ja', '日本語'], ['vi', 'Tiếng Việt']].forEach(([code, name]) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.lang = code;

@@ -10,49 +10,50 @@
   const doc = document;
   const cookie = (name) => (doc.cookie.match('(?:^|; )' + name + '=([^;]*)') || [])[1];
   const JA = cookie('vivatheca-lang') === 'ja';
+  const VI = cookie('vivatheca-lang') === 'vi';
   const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g, '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
   const plain = (s) => s.replace(/\{([^{}|]+)\|[^{}]+\}/g, '$1');
-  const say = (pair) => ruby(JA ? pair[1] : pair[0]);
+  const say = (pair) => ruby(JA ? pair[1] : VI ? pair[2] : pair[0]);
 
   const TEXT = {
-    heading: ['Take the model apart', '{模型|もけい}を{分|わ}けて{見|み}る'],
-    hint: ['Tap a part to hide it. Tap it again to put it back.', '{部分|ぶぶん}を{押|お}すと{消|き}えます。もう{一度|いちど}{押|お}すと{戻|もど}ります。'],
-    group: ['Parts of the model', '{模型|もけい}の{部分|ぶぶん}'],
-    all: ['Show all parts', 'すべて{表示|ひょうじ}'],
-    gumOff: ['Take off the gum', '{歯|は}ぐきを{外|はず}す'],
-    gumOn: ['Put the gum back', '{歯|は}ぐきを{戻|もど}す'],
-    softOff: ['Take off the soft tissue', 'やわらかい{組織|そしき}を{外|はず}す'],
-    softOn: ['Put the soft tissue back', 'やわらかい{組織|そしき}を{戻|もど}す'],
-    liningOff: ['Take off the lining', '{粘膜|ねんまく}を{外|はず}す'],
-    liningOn: ['Put the lining back', '{粘膜|ねんまく}を{戻|もど}す'],
+    heading: ['Take the model apart', '{模型|もけい}を{分|わ}けて{見|み}る', 'Tách các phần của mô hình'],
+    hint: ['Tap a part to hide it. Tap it again to put it back.', '{部分|ぶぶん}を{押|お}すと{消|き}えます。もう{一度|いちど}{押|お}すと{戻|もど}ります。', 'Chạm vào một phần để ẩn nó. Chạm lần nữa để hiện lại.'],
+    group: ['Parts of the model', '{模型|もけい}の{部分|ぶぶん}', 'Các phần của mô hình'],
+    all: ['Show all parts', 'すべて{表示|ひょうじ}', 'Hiện tất cả các phần'],
+    gumOff: ['Take off the gum', '{歯|は}ぐきを{外|はず}す', 'Ẩn lợi'],
+    gumOn: ['Put the gum back', '{歯|は}ぐきを{戻|もど}す', 'Hiện lại lợi'],
+    softOff: ['Take off the soft tissue', 'やわらかい{組織|そしき}を{外|はず}す', 'Ẩn mô mềm'],
+    softOn: ['Put the soft tissue back', 'やわらかい{組織|そしき}を{戻|もど}す', 'Hiện lại mô mềm'],
+    liningOff: ['Take off the lining', '{粘膜|ねんまく}を{外|はず}す', 'Ẩn niêm mạc'],
+    liningOn: ['Put the lining back', '{粘膜|ねんまく}を{戻|もど}す', 'Hiện lại niêm mạc'],
   };
   // Soft tissue: one button takes all of it off. Order decides the button's words.
   const SOFT = [[/^gum$/, 'gum'], [/^(mucosa|mucosa_kept)$/, 'lining'], [/^soft$/, 'soft']];
-  // Removable parts: [name pattern, English, Japanese]. Names not listed here get no button.
+  // Removable parts: [name pattern, English, Japanese, Vietnamese]. Names not listed here get no button.
   const PARTS = [
-    [/^braces$/, 'Braces', '{矯正|きょうせい}{装置|そうち}'],
-    [/^steel$/, 'Steel crown', '{金属|きんぞく}のかぶせ{物|もの}'],
-    [/^cement$/, 'Cement (glue)', 'セメント（{接着材|せっちゃくざい}）'],
-    [/^crown$/, 'Crown', 'かぶせ{物|もの}'],
-    [/^filling$/, 'Filling', '{詰|つ}め{物|もの}'],
-    [/^(plate|titanium)$/, 'Titanium plate and screws', 'チタンのプレートとネジ'],
-    [/^screw$/, 'Screws', 'ネジ'],
-    [/^fibula$/, 'Fibula (leg bone graft)', 'ひ{骨|こつ}（すねの{骨|ほね}の{移植|いしょく}）'],
-    [/^free_flap$/, 'Free flap', '{遊離|ゆうり}{皮弁|ひべん}'],
-    [/^prf$/, 'PRF (from the patient’s own blood)', 'PRF（{自分|じぶん}の{血液|けつえき}から{作|つく}る）'],
-    [/^cover_plate$/, 'Clear cover plate', '{透明|とうめい}な{保護|ほご}{板|ばん}'],
-    [/^dressing$/, 'Dressing paste', '{傷|きず}を{守|まも}るパック'],
-    [/^flap$/, 'Flap', '{弁|べん}'],
-    [/^fat$/, 'Cheek fat pad', '{頬|ほお}の{脂肪|しぼう}'],
-    [/^clot$/, 'Blood clot', '{血|ち}のかたまり'],
-    [/^decay$/, 'Decay', 'むし{歯|ば}'],
-    [/^baby-teeth$/, 'Baby teeth', '{乳歯|にゅうし}'],
-    [/^premolar$/, 'Adult tooth growing below', '{下|した}で{育|そだ}つ{大人|おとな}の{歯|は}'],
-    [/^teeth$/, 'Teeth', '{歯|は}'],
-    [/^pulp$/, 'Nerve (pulp)', '{歯|は}の{神経|しんけい}'],
-    [/^sinus$/, 'Sinus', '{上顎洞|じょうがくどう}'],
-    [/^lesion$/, 'Disease', '{病変|びょうへん}'],
-    [/^bone$/, 'Bone', '{骨|ほね}'],
+    [/^braces$/, 'Braces', '{矯正|きょうせい}{装置|そうち}', 'Mắc cài'],
+    [/^steel$/, 'Steel crown', '{金属|きんぞく}のかぶせ{物|もの}', 'Mão thép'],
+    [/^cement$/, 'Cement (glue)', 'セメント（{接着材|せっちゃくざい}）', 'Xi măng (keo dán)'],
+    [/^crown$/, 'Crown', 'かぶせ{物|もの}', 'Mão răng'],
+    [/^filling$/, 'Filling', '{詰|つ}め{物|もの}', 'Miếng trám'],
+    [/^(plate|titanium)$/, 'Titanium plate and screws', 'チタンのプレートとネジ', 'Nẹp và vít titan'],
+    [/^screw$/, 'Screws', 'ネジ', 'Vít'],
+    [/^fibula$/, 'Fibula (leg bone graft)', 'ひ{骨|こつ}（すねの{骨|ほね}の{移植|いしょく}）', 'Xương mác (mảnh ghép xương cẳng chân)'],
+    [/^free_flap$/, 'Free flap', '{遊離|ゆうり}{皮弁|ひべん}', 'Vạt tự do'],
+    [/^prf$/, 'PRF (from the patient’s own blood)', 'PRF（{自分|じぶん}の{血液|けつえき}から{作|つく}る）', 'PRF (từ máu của chính bệnh nhân)'],
+    [/^cover_plate$/, 'Clear cover plate', '{透明|とうめい}な{保護|ほご}{板|ばん}', 'Tấm che trong suốt'],
+    [/^dressing$/, 'Dressing paste', '{傷|きず}を{守|まも}るパック', 'Băng phủ vết thương'],
+    [/^flap$/, 'Flap', '{弁|べん}', 'Vạt'],
+    [/^fat$/, 'Cheek fat pad', '{頬|ほお}の{脂肪|しぼう}', 'Khối mỡ má'],
+    [/^clot$/, 'Blood clot', '{血|ち}のかたまり', 'Cục máu đông'],
+    [/^decay$/, 'Decay', 'むし{歯|ば}', 'Sâu răng'],
+    [/^baby-teeth$/, 'Baby teeth', '{乳歯|にゅうし}', 'Răng sữa'],
+    [/^premolar$/, 'Adult tooth growing below', '{下|した}で{育|そだ}つ{大人|おとな}の{歯|は}', 'Răng vĩnh viễn đang mọc bên dưới'],
+    [/^teeth$/, 'Teeth', '{歯|は}', 'Răng'],
+    [/^pulp$/, 'Nerve (pulp)', '{歯|は}の{神経|しんけい}', 'Tủy răng (dây thần kinh)'],
+    [/^sinus$/, 'Sinus', '{上顎洞|じょうがくどう}', 'Xoang'],
+    [/^lesion$/, 'Disease', '{病変|びょうへん}', 'Tổn thương'],
+    [/^bone$/, 'Bone', '{骨|ほね}', 'Xương'],
   ];
   const base = (n) => (n || '').replace(/[._]\d+$/, '');
   const softKind = (n) => { const s = SOFT.find(([re]) => re.test(n)); return s ? s[1] : null; };
@@ -109,13 +110,13 @@
         html += '<div class="vt-row"><button type="button" class="vt-soft" aria-pressed="' + softOff + '">' + say(softOff ? words[1] : words[0]) + '</button></div>';
       }
       if (parts.length) {
-        html += '<div class="vt-row" role="group" aria-label="' + plain(JA ? TEXT.group[1] : TEXT.group[0]) + '">' +
+        html += '<div class="vt-row" role="group" aria-label="' + plain(JA ? TEXT.group[1] : VI ? TEXT.group[2] : TEXT.group[0]) + '">' +
           parts.map((p) => {
             const key = p[0].source;
             const on = !hidden.has(key);
             const colour = adapter.colour ? adapter.colour(names.find((n) => p[0].test(n))) : '';
             return '<button type="button" class="vt-part" data-key="' + key.replace(/"/g, '&quot;') + '" aria-pressed="' + on + '">' +
-              (colour ? '<span class="vt-dot" aria-hidden="true" style="background:' + colour + '"></span>' : '') + ruby(JA ? p[2] : p[1]) + '</button>';
+              (colour ? '<span class="vt-dot" aria-hidden="true" style="background:' + colour + '"></span>' : '') + ruby(JA ? p[2] : VI ? p[3] : p[1]) + '</button>';
           }).join('') +
           (hidden.size ? '<button type="button" class="vt-all">' + say(TEXT.all) + '</button>' : '') + '</div>';
       }

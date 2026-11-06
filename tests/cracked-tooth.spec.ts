@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test.describe('cracked tooth models', () => {
   test('switches tooth, bite and cut views, and shows the model disclaimer', async ({ page }) => {
     await page.goto('/cracked-tooth/index.html');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Cracked tooth');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Cracked mandibular first molar');
     await expect(page.getByText('Not yet clinically reviewed.').first()).toBeVisible();
     await expect(page.getByRole('link', { name: 'Full disclaimer' }).first()).toHaveAttribute('href', '/disclaimer');
     const viewer = page.locator('#mv');
@@ -28,7 +28,7 @@ test.describe('cracked tooth models', () => {
     await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
     await page.goto('/cracked-tooth/index.html');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('亀裂歯');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('亀裂');
     await expect(page.locator('h1 ruby').first()).toBeVisible();
     await expect(page.locator('#stage')).toContainText('健康');
     // The review status and disclaimer show in Japanese only, as on the other model pages.

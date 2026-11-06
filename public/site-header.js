@@ -10,11 +10,13 @@
   if (!header || header.classList.contains('vt-header')) return;
   const cookie = (n) => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
   const ja = cookie('vivatheca-lang') === 'ja';
+  const vi = cookie('vivatheca-lang') === 'vi';
   const furigana = cookie('vivatheca-furigana') !== 'off';
   // {漢字|かな} marks furigana, as in the dictionaries.
   const ruby = (s) => s.replace(/\{([^|}]+)\|([^}]+)\}/g, (_, k, r) => (furigana ? '<ruby>' + k + '<rp aria-hidden="true">(</rp><rt aria-hidden="true">' + r + '</rt><rp aria-hidden="true">)</rp></ruby>' : k));
   const L = ja
     ? { howItWorks: '{使|つか}い{方|かた}', models: '{模型|もけい}コレクション', evidence: '{根拠|こんきょ}', create: '{資料|しりょう}{作成|さくせい}', students: '{学生|がくせい}の{方|かた}へ', about: 'Vivathecaについて', search: '検索', tryViewer: '3Dビューアーを{試|ため}す', report: '{誤|あやま}りを{報告|ほうこく}', contact: 'お{問|と}い{合|あ}わせ', primary: 'メインナビゲーション', open: 'メニューを開く', close: 'メニューを閉じる', crumbs: '現在地' }
+    : vi ? { howItWorks: 'Cách sử dụng', models: 'Bộ sưu tập mô hình', evidence: 'Bằng chứng', create: 'Soạn', students: 'Sinh viên', about: 'Giới thiệu', search: 'Tìm kiếm', tryViewer: 'Dùng thử trình xem 3D', report: 'Báo lỗi', contact: 'Liên hệ', primary: 'Điều hướng chính', open: 'Mở menu', close: 'Đóng menu', crumbs: 'Vị trí hiện tại' }
     : { howItWorks: 'How it works', models: 'Model collection', evidence: 'Evidence', create: 'Create', students: 'Students', about: 'About', search: 'Search', tryViewer: 'Try the 3D viewer', report: 'Report an inaccuracy', contact: 'Contact us', primary: 'Primary navigation', open: 'Open navigation', close: 'Close navigation', crumbs: 'You are here' };
   const primary = [
     ['/#how-it-works', L.howItWorks], ['/models', L.models], ['/#publications', L.evidence],
@@ -104,8 +106,9 @@
     const current = LANGUAGE_MENU.find((item) => item.tag === currentTag);
     // Some pages switch language without a reload, so take the labels from the current choice.
     const inJa = currentTag === 'ja';
-    const soon = inJa ? '準備中' : 'Coming soon';
-    const langLabel = inJa ? '言語' : 'Language';
+    const inVi = currentTag === 'vi';
+    const soon = inJa ? '準備中' : inVi ? 'Sắp ra mắt' : 'Coming soon';
+    const langLabel = inJa ? '言語' : inVi ? 'Ngôn ngữ' : 'Language';
     const menu = document.createElement('div');
     menu.className = 'vt-lang-menu';
     menu.innerHTML = '<button type="button" class="vt-lang-trigger" aria-expanded="false" aria-controls="vt-lang-panel" aria-label="' + langLabel + ': ' + current.name + '">'
@@ -126,7 +129,7 @@
         b = document.createElement('button');
         b.type = 'button'; b.lang = item.tag; b.className = 'vt-soon';
         b.setAttribute('aria-disabled', 'true');
-        b.innerHTML = '<span class="vt-name">' + item.name + '</span>' + flag(item.flag) + '<span class="vt-soon-note" lang="' + (inJa ? 'ja' : 'en') + '">' + (inJa ? ruby('{準備中|じゅんびちゅう}') : soon) + '</span>';
+        b.innerHTML = '<span class="vt-name">' + item.name + '</span>' + flag(item.flag) + '<span class="vt-soon-note" lang="' + (inJa ? 'ja' : inVi ? 'vi' : 'en') + '">' + (inJa ? ruby('{準備中|じゅんびちゅう}') : soon) + '</span>';
       }
       const li = document.createElement('li');
       li.append(b);

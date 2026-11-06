@@ -17,15 +17,18 @@ extend-exclude = [
   "app/i18n/dictionaries/ja.ts",
   "app/i18n/dictionaries/zh.ts",
   "app/i18n/dictionaries/vi.ts",
+  "public/**/vi.js",  # Vietnamese text for the static model pages
 ]
 
 [default]
 # Long random tokens (verification codes, hashes) are not words.
-extend-ignore-re = ["[A-Za-z0-9_-]{30,}"]
+# Vietnamese "thay đổi" (change) / "thay thế" (replace) inside shared page scripts.
+extend-ignore-re = ["[A-Za-z0-9_-]{30,}", "[Tt]hay (đổi|thế)"]
 locale = "en"
 
 [default.extend-words]
 # Author surnames and journal abbreviations in citations
+Comput = "Comput"  # Int J Comput Assist Radiol Surg
 Lew = "Lew"
 Pont = "Pont"
 Atack = "Atack"

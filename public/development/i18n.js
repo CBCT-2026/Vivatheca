@@ -5,7 +5,8 @@
 (function () {
   const YEAR = 60 * 60 * 24 * 365;
   const cookie = (name) => (document.cookie.match('(?:^|; )' + name + '=([^;]*)') || [])[1];
-  const lang = cookie('vivatheca-lang') === 'ja' ? 'ja' : 'en';
+  const chosen = cookie('vivatheca-lang');
+  const lang = chosen === 'ja' || chosen === 'vi' ? chosen : 'en';
   const furigana = cookie('vivatheca-furigana') !== 'off';
   const ruby = (s) => s.replace(/\{([^{}|]+)\|([^{}]+)\}/g,
     '<ruby>$1<rp aria-hidden="true">(</rp><rt aria-hidden="true">$2</rt><rp aria-hidden="true">)</rp></ruby>');
@@ -13,11 +14,12 @@
   const cite = (n) => '<sup class="cite"><a href="#ref-' + n + '">' + n + '</a></sup>';
 
   const ja = {
-    title: '{子|こ}どもの{歯|は}の{育|そだ}ち{方|かた}：6〜12{歳|さい} | Vivatheca',
+    title: '{混合|こんごう}{歯列|しれつ}{期|き}：{永久歯|えいきゅうし}の{発育|はついく}と{萌出|ほうしゅつ}（6.5〜12.5{歳|さい}） | Vivatheca',
     description: '6{歳|さい}から12{歳|さい}までの{子|こ}どもの{歯|は}の{育|そだ}ち{方|かた}を3D{模型|もけい}で。{乳歯|にゅうし}、あごの{中|なか}で{育|そだ}つ{永久歯|えいきゅうし}、{生|は}えかわりの{順番|じゅんばん}。{無料|むりょう}で{見|み}られて3Dプリントもできます。',
     home: 'Vivathecaホーム',
     allModels: '{模型|もけい}{一覧|いちらん}',
-    h1: '{子|こ}どもの{歯|は}の{育|そだ}ち{方|かた}：6〜12{歳|さい}',
+    h1: '<span class="pitk-skip">{混合|こんごう}{歯列|しれつ}{期|き}：{永久歯|えいきゅうし}の{発育|はついく}と{萌出|ほうしゅつ}（6.5〜12.5{歳|さい}）</span>',
+    termsLabel: '{名称|めいしょう}と{分類|ぶんるい}：',
     studentLink: '{歯学|しがく}・{医学|いがく}を{学|まな}んでいる{方|かた}は<a href="/learn/development">{学生|がくせい}{向|む}けガイド</a>（{専門|せんもん}{用語|ようご}、{発育|はついく}{段階|だんかい}の{評価|ひょうか}{法|ほう}、{出典|しゅってん}）をご{覧|らん}ください。',
     alt: '{子|こ}どもの{右側|みぎがわ}の{上|うえ}と{下|した}のあごの3D{模型|もけい}。ほお{側|がわ}の{骨|ほね}を{切|き}り{取|と}って、{乳歯|にゅうし}と{育|そだ}ちつつある{永久歯|えいきゅうし}を{見|み}せています。',
     altAt: '{age}の{子|こ}どもの{右側|みぎがわ}の{上|うえ}と{下|した}のあごの3D{模型|もけい}。ほお{側|がわ}の{骨|ほね}を{切|き}り{取|と}って、{乳歯|にゅうし}と{育|そだ}ちつつある{永久歯|えいきゅうし}を{見|み}せています。',
@@ -98,38 +100,40 @@
       },
     },
   };
+  // Vietnamese (unreviewed AI draft; English prevails) comes from vi.js (window.VIVA_VI), with the same keys.
+  const tr = lang === 'vi' ? (window.VIVA_VI || {}) : ja; // active translation (Japanese above, or Vietnamese from vi.js)
 
-  const ui = { en: { label: 'Language', furigana: 'Furigana' }, ja: { label: '言語', furigana: 'ふりがな' } };
+  const ui = { en: { label: 'Language', furigana: 'Furigana' }, ja: { label: '言語', furigana: 'ふりがな' }, vi: { label: 'Ngôn ngữ' } };
 
   window.VIVA_I18N = {
     lang,
     // Text for a key in the visitor's language, or null to keep the English in the page.
     text: (key, values) => {
-      if (lang !== 'ja' || !(key in ja)) return null;
-      let s = ja[key];
+      if (lang === 'en' || !(key in tr)) return null;
+      let s = tr[key];
       for (const k in values || {}) s = s.replace('{' + k + '}', values[k]);
       return s;
     },
-    stages: lang === 'ja' ? ja.stages : null,
+    stages: lang !== 'en' ? tr.stages || null : null,
     ruby,
     plain,
   };
 
-  if (lang === 'ja') {
-    document.documentElement.lang = 'ja';
-    document.title = plain(ja.title);
+  if (lang !== 'en') {
+    document.documentElement.lang = lang;
+    document.title = plain(tr.title);
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = plain(ja.description);
+    if (meta) meta.content = plain(tr.description);
     document.querySelectorAll('[data-i18n]').forEach((el) => {
-      const s = ja[el.dataset.i18n];
+      const s = tr[el.dataset.i18n];
       if (s) el.innerHTML = ruby(s);
     });
     document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
-      const s = ja[el.dataset.i18nAria];
+      const s = tr[el.dataset.i18nAria];
       if (s) el.setAttribute('aria-label', plain(s));
     });
     const mv = document.getElementById('mv');
-    if (mv) mv.alt = plain(ja.alt);
+    if (mv) mv.alt = plain(tr.alt);
   }
   document.documentElement.dataset.furigana = furigana ? 'on' : 'off';
 
@@ -138,7 +142,7 @@
   if (!box) return;
   box.setAttribute('aria-label', ui[lang].label);
   const set = (name, value) => { document.cookie = name + '=' + value + '; path=/; max-age=' + YEAR + '; samesite=lax'; };
-  [['en', 'English'], ['ja', '日本語']].forEach(([code, name]) => {
+  [['en', 'English'], ['ja', '日本語'], ['vi', 'Tiếng Việt']].forEach(([code, name]) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.lang = code;

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Opening into the sinus after an upper molar is removed (OAC and OAF) | Vivatheca</title>
+<title>Oroantral communication and oroantral fistula after maxillary molar extraction | Vivatheca</title>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -14,7 +14,7 @@
 try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
 // Language and furigana use the same cookies as the rest of the site (app/i18n/config.ts).
 (function () { const c = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
-  if (c('vivatheca-lang') === 'ja') document.documentElement.lang = 'ja';
+  if (c('vivatheca-lang') === 'ja' || c('vivatheca-lang') === 'vi') document.documentElement.lang = c('vivatheca-lang');
   document.documentElement.dataset.furigana = c('vivatheca-furigana') === 'off' ? 'off' : 'on'; })();
 // The models are Draco-compressed; the decoder is served from this site.
 self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
@@ -22,7 +22,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 <link rel="stylesheet" href="../development/style.css">
 <style>
   /* Show only the visitor's language (the language switcher buttons always show). */
-  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button) { display: none !important; }
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button), html[lang="vi"] [lang="ja"]:not(#langs button) { display: none !important; }
   .stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
   .stages + .stages { margin-top: 6px; }
   .stages-head { font-size: 13px; color: var(--muted); margin: 12px 0 0; font-weight: 600; }
@@ -61,7 +61,8 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 <script src="/site-header.js"></script>
 
 <main>
-  <h1><span lang="en">Removing an upper back tooth: when an opening into the sinus forms (OAC and OAF)</span><span lang="ja"><ruby>上<rp aria-hidden="true">(</rp><rt aria-hidden="true">うえ</rt><rp aria-hidden="true">)</rp></ruby>の<ruby>奥歯<rp aria-hidden="true">(</rp><rt aria-hidden="true">おくば</rt><rp aria-hidden="true">)</rp></ruby>を<ruby>抜<rp aria-hidden="true">(</rp><rt aria-hidden="true">ぬ</rt><rp aria-hidden="true">)</rp></ruby>いて<ruby>上顎洞<rp aria-hidden="true">(</rp><rt aria-hidden="true">じょうがくどう</rt><rp aria-hidden="true">)</rp></ruby>に<ruby>穴<rp aria-hidden="true">(</rp><rt aria-hidden="true">あな</rt><rp aria-hidden="true">)</rp></ruby>があくとき（OACとOAF）</span></h1>
+  <h1><span lang="en"><span class="pitk-skip">Oroantral communication and oroantral fistula after maxillary molar extraction</span></span><span lang="ja"><span class="pitk-skip"><ruby>上顎<rp aria-hidden="true">(</rp><rt aria-hidden="true">じょうがく</rt><rp aria-hidden="true">)</rp></ruby><ruby>大臼歯<rp aria-hidden="true">(</rp><rt aria-hidden="true">だいきゅうし</rt><rp aria-hidden="true">)</rp></ruby><ruby>抜歯<rp aria-hidden="true">(</rp><rt aria-hidden="true">ばっし</rt><rp aria-hidden="true">)</rp></ruby><ruby>後<rp aria-hidden="true">(</rp><rt aria-hidden="true">ご</rt><rp aria-hidden="true">)</rp></ruby>の<ruby>口腔<rp aria-hidden="true">(</rp><rt aria-hidden="true">こうくう</rt><rp aria-hidden="true">)</rp></ruby><ruby>上顎洞<rp aria-hidden="true">(</rp><rt aria-hidden="true">じょうがくどう</rt><rp aria-hidden="true">)</rp></ruby><ruby>交通<rp aria-hidden="true">(</rp><rt aria-hidden="true">こうつう</rt><rp aria-hidden="true">)</rp></ruby>と<ruby>口腔<rp aria-hidden="true">(</rp><rt aria-hidden="true">こうくう</rt><rp aria-hidden="true">)</rp></ruby><ruby>上顎洞<rp aria-hidden="true">(</rp><rt aria-hidden="true">じょうがくどう</rt><rp aria-hidden="true">)</rp></ruby><ruby>瘻<rp aria-hidden="true">(</rp><rt aria-hidden="true">ろう</rt><rp aria-hidden="true">)</rp></ruby></span></span></h1>
+  <p class="small term-sources"><span lang="en">Name and classification:</span><span lang="ja"><ruby>名称<rp aria-hidden="true">(</rp><rt aria-hidden="true">めいしょう</rt><rp aria-hidden="true">)</rp></ruby>と<ruby>分類<rp aria-hidden="true">(</rp><rt aria-hidden="true">ぶんるい</rt><rp aria-hidden="true">)</rp></ruby>：</span> <a href="https://doi.org/10.1186/s40729-019-0165-7">Parvini P, Obreja K, Begic A, et al. Decision-making in closure of oroantral communication and fistula. Int J Implant Dent. 2019;5(1):13.</a></p>
 
   <model-viewer id="mv"
     src="models/normal.glb"
@@ -306,6 +307,8 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor
 
   <p class="small"><span lang="en">Version 0.2, 6 November 2026 (palatal flap stage and 3D print files added). Sources found through PubMed.</span><span lang="ja"><ruby>版<rp aria-hidden="true">(</rp><rt aria-hidden="true">はん</rt><rp aria-hidden="true">)</rp></ruby>0.2、2026<ruby>年<rp aria-hidden="true">(</rp><rt aria-hidden="true">ねん</rt><rp aria-hidden="true">)</rp></ruby>11<ruby>月<rp aria-hidden="true">(</rp><rt aria-hidden="true">がつ</rt><rp aria-hidden="true">)</rp></ruby>6<ruby>日<rp aria-hidden="true">(</rp><rt aria-hidden="true">か</rt><rp aria-hidden="true">)</rp></ruby>。<ruby>出典<rp aria-hidden="true">(</rp><rt aria-hidden="true">しゅってん</rt><rp aria-hidden="true">)</rp></ruby>は PubMed で<ruby>検索<rp aria-hidden="true">(</rp><rt aria-hidden="true">けんさく</rt><rp aria-hidden="true">)</rp></ruby>。</span></p>
 </main>
+<script src="vi.js"></script>
+<script src="/inline-vi.js"></script>
 <script src="viewer.js"></script>
 <script src="/contact.js"></script>
 <script src="/model-page.js"></script>

@@ -3,6 +3,8 @@
 Each page follows one published, openly licensed case. English is written into index.html;
 Japanese goes into ja.js (window.VIVA_JA), which ../i18n-engine.js swaps in by data-i18n key.
 Japanese text uses {漢字|かんじ} for furigana and {cite:N} for a citation.
+Vietnamese (window.VIVA_VI, an unreviewed AI draft) is kept by hand in each page's vi.js, with the
+same keys as ja.js; when you add or change a key here, update vi.js too.
 Run: python3 tools/head-neck/pages.py   (after editing the text below)
 """
 import html
@@ -47,7 +49,7 @@ COMMON_JA = {
     'noWebgl': 'このブラウザでは3Dを{表示|ひょうじ}できません（WebGLがオフです）。ブラウザの{設定|せってい}でハードウェアアクセラレーションをオンにするか、{別|べつ}のブラウザで{開|ひら}いてください。',
     'loadFailed': '3D{模型|もけい}を{読|よ}み{込|こ}めませんでした。ページを{再読|さいよ}み{込|こ}みしてください。',
 }
-COMMON_JA['hub'] = '{頭|あたま}と{首|くび}の{一覧|いちらん}'
+COMMON_JA['hub'] = '{頭頸部|とうけいぶ}の{一覧|いちらん}'
 
 ABOUT2_EN = ('Prototype. The model was made to match one published case, but it is not that person’s jaw. '
              'The disease is a simple shape. Where the article gives no number, our modelling choice is stated under “For clinicians”.')
@@ -69,13 +71,14 @@ PAGES = {}
 VERG = 'Vergier V, Czarny K, Brau J-J, Le Pelletier F, Taihi I. Proliferative verrucous leukoplakia presenting as a ring around the collar and cancer: a case report. Cureus. 2024;16(3):e56077'
 VERG_CONSENT = 'The journal states that consent was obtained or waived.'
 PAGES['scc'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-021-01402-9">Muller S, Tilakaratne WM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: tumours of the oral cavity and mobile tongue. Head Neck Pathol. 2022;16(1):54-62.</a> <a href="https://doi.org/10.1016/S1470-2045(15)00310-1">Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.</a>',
     model='/head-neck/models/scc-case.glb', jaw='mandible', side='right', margin=True,
-    title=('Mouth cancer in the lower jaw: part of the jaw rebuilt with leg bone | Vivatheca',
-           '{下|した}あごの{口|くち}のがん：あごの{一部|いちぶ}を{足|あし}の{骨|ほね}で{作|つく}り{直|なお}す | Vivatheca'),
+    title=('Squamous cell carcinoma of the mandibular gingiva: segmental mandibulectomy and fibula free flap reconstruction | Vivatheca',
+           '{下顎|かがく}{歯肉|しにく}{扁平|へんぺい}{上皮|じょうひ}{癌|がん}：{下顎骨|かがくこつ}{区域|くいき}{切除|せつじょ}と{遊離|ゆうり}{腓骨|ひこつ}{皮弁|ひべん}による{再建|さいけん} | Vivatheca'),
     description=('A 3D model that follows one published case of mouth cancer on the right lower gum: what was removed and how the jaw was rebuilt with a fibula flap.',
                  '{右下|みぎした}の{歯|は}ぐきにできた{口|くち}のがんの{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}です。{何|なに}を{取|と}り、ひ{骨|こつ}{皮弁|ひべん}であごをどう{作|つく}り{直|なお}したかを{示|しめ}します。'),
-    h1=('Mouth cancer in the lower jaw <span class="pitk-skip">(squamous cell carcinoma)</span>',
-        '{下|した}あごの{口|くち}のがん<span class="pitk-skip">（へんぺい{上皮|じょうひ}がん）</span>'),
+    h1=('<span class="pitk-skip">Squamous cell carcinoma of the mandibular gingiva: segmental mandibulectomy and fibula free flap reconstruction</span>',
+        '<span class="pitk-skip">{下顎|かがく}{歯肉|しにく}{扁平|へんぺい}{上皮|じょうひ}{癌|がん}：{下顎骨|かがくこつ}{区域|くいき}{切除|せつじょ}と{遊離|ゆうり}{腓骨|ひこつ}{皮弁|ひべん}による{再建|さいけん}</span>'),
     lede=('This 3D model follows one real, published case. A woman aged 72 had a cancer on the gum of her right lower jaw, and it had grown into the bone. '
           'Surgeons took out the right side of her lower jaw and rebuilt it with bone from her leg.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。72{歳|さい}の{女性|じょせい}の{右下|みぎした}の{歯|は}ぐきにがんができ、あごの{骨|ほね}の{中|なか}まで{広|ひろ}がっていました。{外科医|げかい}は{下|した}あごの{右側|みぎがわ}を{取|と}り、{足|あし}の{骨|ほね}で{作|つく}り{直|なお}しました。' + jcite(1)),
@@ -145,6 +148,8 @@ PAGES['scc'] = dict(
     recon2=[
         ('When the jaw bone stays and only soft tissue is removed (gum, cheek lining, floor of the mouth or tongue), a thin flap of skin from the forearm (radial forearm free flap) is often used instead.' + cite(4, 5),
          'あごの{骨|ほね}は{残|のこ}り、{歯|は}ぐき、ほおの{内側|うちがわ}、{舌|した}などのやわらかい{部分|ぶぶん}だけを{取|と}ったときは、{代|か}わりに{腕|うで}の{薄|うす}い{皮膚|ひふ}（とう{骨|こつ}{前腕|ぜんわん}{皮弁|ひべん}）がよく{使|つか}われます。' + jcite(4, 5)),
+        ('Surgeons fix bone with plates and screws in the same few steps each time. Diagram 3 shows them. <a href="/fixation/">See the steps in 3D</a>.' + cite(11),
+         '{外科医|げかい}は{毎回|まいかい}{同|おな}じ{手順|てじゅん}で、プレートとネジで{骨|ほね}を{固定|こてい}します。{図|ず}3にその{手順|てじゅん}を{示|しめ}します。<a href="/fixation/">3Dで{手順|てじゅん}を{見|み}る</a>。' + jcite(11)),
     ],
     diagrams2=[
         dict(file='radial-forearm-flap.svg', w=800, h=420,
@@ -154,6 +159,12 @@ PAGES['scc'] = dict(
                   '3 A skin vein can also be used. (B) One example: the flap stitched into a gap in the roof of the mouth, seen from below with the front teeth at the bottom. 4 The flap. 5 Its vessels run back to the neck.',
                   '<b>{図|ず}2. とう{骨|こつ}{前腕|ぜんわん}{皮弁|ひべん}（やわらかい{部分|ぶぶん}だけ）。</b>（A）{手|て}のひらを{上|うえ}にした{腕|うで}。1 {手首|てくび}{側|がわ}の{薄|うす}い{皮膚|ひふ}をだ{円|えん}{形|けい}に{取|と}ります。2 それを{養|やしな}う{動脈|どうみゃく}と{静脈|じょうみゃく}も{一緒|いっしょ}に{取|と}ります。3 {皮膚|ひふ}の{下|した}の{静脈|じょうみゃく}も{使|つか}えます。'
                   '（B）{例|れい}：{口|くち}の{天井|てんじょう}のすき{間|ま}に{縫|ぬ}いつけた{皮弁|ひべん}。{下|した}から{見|み}て、{前歯|まえば}が{下|した}です。4 {皮弁|ひべん}。5 {血管|けっかん}は{首|くび}へのびます。')),
+        dict(file='/fixation/diagrams/placing-steps.svg', w=800, h=450,
+             alt=('Six numbered drawings of a plate and four screws going onto bone across a cut, from lining up to the last screw.',
+                  '{骨|ほね}の{切|き}り{口|くち}にプレートと4{本|ほん}のスクリューを{付|つ}ける{手順|てじゅん}の、{番号|ばんごう}{付|つ}きの6つの{絵|え}。'),
+             cap=('<b>Diagram 3. How a plate and screws go in.</b> 1 The bone pieces are lined up. 2 The plate is bent to fit the bone. 3 A hole is drilled straight through the plate hole, with cooling water. 4 The depth of the hole is measured. 5 The first screw goes in. 6 The other holes are drilled and screwed.' + cite(11),
+                  '<b>{図|ず}3. プレートとネジの{付|つ}け{方|かた}。</b>1 {骨|ほね}の{部分|ぶぶん}を{合|あ}わせます。2 プレートを{骨|ほね}の{形|かたち}に{曲|ま}げます。3 プレートの{穴|あな}からまっすぐ、{水|みず}で{冷|ひ}やしながら{穴|あな}をあけます。4 {穴|あな}の{深|ふか}さを{測|はか}ります。5 {最初|さいしょ}のネジを{入|い}れます。6 {残|のこ}りの{穴|あな}もあけて、ネジを{入|い}れます。' + jcite(11)),
+        ),
     ],
     clin_h=('For clinicians: how this model was built', '{医療者向|いりょうしゃむ}け：この{模型|もけい}の{作|つく}り{方|かた}'),
     clin=[
@@ -161,8 +172,8 @@ PAGES['scc'] = dict(
          '{症例|しょうれい}：{歯肉|しにく}の{増殖性|ぞうしょくせい}{疣贅性|ゆうぜいせい}{白板症|はくばんしょう}からのがん{化|か}。{右|みぎ}の{頬側|きょうそく}{歯肉|しにく}45〜47のSCCと、42〜43{舌側|ぜっそく}{歯肉|しにく}の{第|だい}2{病変|びょうへん}。PETで{下顎骨|かがくこつ}{浸潤|しんじゅん}、{右|みぎ}{顎下|がくか}リンパ{節|せつ}{腫大|しゅだい}。{右|みぎ}{下顎|かがく}{区域|くいき}{切除|せつじょ}、{左|ひだり}ひ{骨|こつ}{皮弁|ひべん}、{術後|じゅつご}{放射線|ほうしゃせん}{治療|ちりょう}。' + jcite(1)),
         ('Extent is taken from the one-month OPG (Image 2A), because the article gives no operative detail. The fibula runs from the right condylar region to the left incisor region in three segments: ramus, body and parasymphysis. There is no fixation at the upper end, which suggests disarticulation with the condyle removed; we modelled it that way. Brown class IIc.' + cite(1, 3),
          '{論文|ろんぶん}に{手術|しゅじゅつ}の{詳細|しょうさい}がないため、{範囲|はんい}は{術後|じゅつご}1か{月|げつ}のパノラマX{線|せん}（{画像|がぞう}2A）から{決|き}めました。ひ{骨|こつ}は{右|みぎ}の{関節|かんせつ}{突起|とっき}{部|ぶ}から{左|ひだり}{切歯|せっし}{部|ぶ}まで、{下顎枝|かがくし}・{体部|たいぶ}・{正中|せいちゅう}{付近|ふきん}の3{分節|ぶんせつ}です。{上端|じょうたん}に{固定|こてい}がないため、{関節|かんせつ}{突起|とっき}ごと{切除|せつじょ}したと{考|かんが}え、{模型|もけい}もそうしました。Brown{分類|ぶんるい}IIc。' + jcite(1, 3)),
-        ('Model: cut between 31 and 32; teeth removed 41–47 and 31. Specimen 21.7 cm³; 106 mm from condyle to the anterior cut. Fibula in three segments (ramus 39 mm, body 62 mm, parasymphysis 30 mm, measured along the segment axes) joined by closing-wedge osteotomies: at each bend (54° at the angle, 40° at the parasymphysis) the cut faces meet on the plane that bisects the bend, the way the fibula is shaped in the standard technique and in open-source virtual planning software; the model keeps a 0.6 mm gap so the cuts stay visible.' + cite(2, 6) + ' Miniplates as on the OPG: two at the native bone junction, one between the anterior and body segments, an L-plate at the angle (25 screws).',
-         '{模型|もけい}：31と32の{間|あいだ}で{切断|せつだん}。{除去|じょきょ}{歯|し}は41〜47と31。{切除|せつじょ}{骨|こつ}21.7cm³、{関節|かんせつ}{突起|とっき}から{前方|ぜんぽう}{切断|せつだん}{面|めん}まで106mm。ひ{骨|こつ}は3{分節|ぶんせつ}（{下顎枝|かがくし}39mm、{体部|たいぶ}62mm、{正中|せいちゅう}{付近|ふきん}30mm、{分節|ぶんせつ}の{軸|じく}に{沿|そ}って{計測|けいそく}）で、{閉|と}じ{楔|くさび}{骨切|こつき}りでつないでいます。{曲|ま}がり{角|かど}（{下顎角|かがくかく}で54°、{正中|せいちゅう}{付近|ふきん}で40°）ごとに、{切断|せつだん}{面|めん}が{曲|ま}がりを2{等分|とうぶん}する{面|めん}で{合|あ}わさります。これは{標準的|ひょうじゅんてき}な{手技|しゅぎ}とオープンソースの{手術|しゅじゅつ}{計画|けいかく}ソフトと{同|おな}じ{方法|ほうほう}です。{模型|もけい}では{切断|せつだん}{面|めん}が{見|み}えるよう0.6mmの{隙間|すきま}を{残|のこ}しています。' + jcite(2, 6) + 'パノラマX{線|せん}と{同|おな}じく、{残存|ざんぞん}{骨|こつ}との{接合|せつごう}{部|ぶ}に2{枚|まい}、{前方|ぜんぽう}と{体部|たいぶ}{分節|ぶんせつ}の{間|あいだ}に1{枚|まい}、{下顎角|かがくかく}にL{字|じ}プレート（ネジ25{本|ほん}）。'),
+        ('Model: cut between 31 and 32; teeth removed 41–47 and 31. Specimen 21.7 cm³; 106 mm from condyle to the anterior cut. Fibula in three segments (ramus 39 mm, body 62 mm, parasymphysis 30 mm, measured along the segment axes) joined by closing-wedge osteotomies: at each bend (54° at the angle, 40° at the parasymphysis) the cut faces meet on the plane that bisects the bend, the way the fibula is shaped in the standard technique and in open-source virtual planning software; the model keeps a 0.6 mm gap so the cuts stay visible.' + cite(2, 6) + ' Miniplates as on the OPG: two at the native bone junction, one between the anterior and body segments, an L-plate at the angle (24 screws; the two overlapping corner holes of the old L-plate are now one).' + ' Plates and screws follow the Vivatheca fixation standard (<a href="/fixation/">how plates and screws are placed</a>): 2.0 mm miniplates, 1.0 mm thick, with countersunk holes and monocortical 2.0 mm screws along the bone normal, at least two screws on each side of every junction.' + cite(7, 8) + ' Miniplate and reconstruction-plate fixation of fibula flaps are both in use; a meta-analysis found more plate-related complications with miniplates, while other series report fewer plate exposures with miniplates, so the evidence is mixed.' + cite(9, 10),
+         '{模型|もけい}：31と32の{間|あいだ}で{切断|せつだん}。{除去|じょきょ}{歯|し}は41〜47と31。{切除|せつじょ}{骨|こつ}21.7cm³、{関節|かんせつ}{突起|とっき}から{前方|ぜんぽう}{切断|せつだん}{面|めん}まで106mm。ひ{骨|こつ}は3{分節|ぶんせつ}（{下顎枝|かがくし}39mm、{体部|たいぶ}62mm、{正中|せいちゅう}{付近|ふきん}30mm、{分節|ぶんせつ}の{軸|じく}に{沿|そ}って{計測|けいそく}）で、{閉|と}じ{楔|くさび}{骨切|こつき}りでつないでいます。{曲|ま}がり{角|かど}（{下顎角|かがくかく}で54°、{正中|せいちゅう}{付近|ふきん}で40°）ごとに、{切断|せつだん}{面|めん}が{曲|ま}がりを2{等分|とうぶん}する{面|めん}で{合|あ}わさります。これは{標準的|ひょうじゅんてき}な{手技|しゅぎ}とオープンソースの{手術|しゅじゅつ}{計画|けいかく}ソフトと{同|おな}じ{方法|ほうほう}です。{模型|もけい}では{切断|せつだん}{面|めん}が{見|み}えるよう0.6mmの{隙間|すきま}を{残|のこ}しています。' + jcite(2, 6) + 'パノラマX{線|せん}と{同|おな}じく、{残存|ざんぞん}{骨|こつ}との{接合|せつごう}{部|ぶ}に2{枚|まい}、{前方|ぜんぽう}と{体部|たいぶ}{分節|ぶんせつ}の{間|あいだ}に1{枚|まい}、{下顎角|かがくかく}にL{字|じ}プレート（ネジ24{本|ほん}。{古|ふる}いL{字|じ}プレートの{重|かさ}なった{角|かど}の2{穴|あな}を1つにしました）。' + 'プレートとネジはVivathecaの{固定|こてい}{基準|きじゅん}（<a href="/fixation/">プレートとネジの{付|つ}け{方|かた}</a>）に{従|したが}います：{厚|あつ}さ1.0mmの2.0mmミニプレート、{皿|さら}{穴|あな}、{骨|ほね}の{面|めん}に{垂直|すいちょく}な{単皮質|たんひしつ}2.0mmネジ、{各|かく}{接合|せつごう}{部|ぶ}の{両側|りょうがわ}に2{本|ほん}{以上|いじょう}。' + jcite(7, 8) + 'ひ{骨|こつ}{皮弁|ひべん}の{固定|こてい}にはミニプレートと{再建|さいけん}プレートの{両方|りょうほう}が{使|つか}われます。メタ{解析|かいせき}ではミニプレートでプレート{関連|かんれん}の{合併症|がっぺいしょう}が{多|おお}く、{別|べつ}の{報告|ほうこく}ではミニプレートでプレート{露出|ろしゅつ}が{少|すく}なく、{結果|けっか}は{一致|いっち}していません。' + jcite(9, 10)),
         ('Our choices: tumour 24 × 14 × 18 mm at 45–47 and 10 × 6 × 8 mm at 42–43 (sizes not published). The model leaves 8.5 mm of bone between the 42–43 focus and the anterior cut. The case used a left fibula; the model uses a right fibula mesh.',
          '{当方|とうほう}の{設定|せってい}：{腫瘍|しゅよう}は45〜47で24×14×18mm、42〜43で10×6×8mm（{大|おお}きさは{未公表|みこうひょう}）。42〜43の{病変|びょうへん}から{前方|ぜんぽう}{切断|せつだん}{面|めん}までの{骨|ほね}は8.5mm。{症例|しょうれい}では{左|ひだり}のひ{骨|こつ}、{模型|もけい}では{右|みぎ}のひ{骨|こつ}のメッシュを{使用|しよう}。'),
     ],
@@ -173,6 +184,11 @@ PAGES['scc'] = dict(
         ('Soutar DS, Scheker LR, Tanner NS, McGregor IA. The radial forearm flap: a versatile method for intra-oral reconstruction. Br J Plast Surg. 1983;36(1):1-8.', '10.1016/0007-1226(83)90002-4'),
         ('Soutar DS, McGregor IA. The radial forearm flap in intraoral reconstruction: the experience of 60 consecutive cases. Plast Reconstr Surg. 1986;78(1):1-8.', '10.1097/00006534-198607000-00001'),
         ('Maisi S, Dominguez M, Gilong N, et al. In-house virtual surgical planning for mandibular reconstruction with fibula free flap: case series and literature review. Ann 3D Print Med. 2023;10:100109. Software: Slicer BoneReconstructionPlanner (open source, BSD-3).', '10.1016/j.stlm.2023.100109'),
+        ('Champy M, Loddé JP, Schmitt R, Jaeger JH, Muster D. Mandibular osteosynthesis by miniature screwed plates via a buccal approach. J Maxillofac Surg. 1978;6(1):14-21.', '10.1016/s0301-0503(78)80062-9'),
+        ('AO Foundation Technical Commission. Locking Reconstruction Plate 2.4 and Mini Plate 2.0 System (approved solution, 2014). Mini Plate 2.0: 1.0 to 2.0 mm thick, 2.0 mm screws.', 'https://www.aofoundation.org/approved/approvedsolutionsfolder/2014/locking-reconstruction-plate-24-and-mini-plate-20-system'),
+        ('Sobti N, Ahmed KS, Polanco T, et al. Mini-plate versus reconstruction bar fixation for oncologic mandibular reconstruction with free fibula flaps: a systematic review and meta-analysis. J Plast Reconstr Aesthet Surg. 2022;75(8):2691-2701.', '10.1016/j.bjps.2022.04.097'),
+        ('Chang TY, Lai YS, Lin CY, et al. Plate-related complication and health-related quality of life after mandibular reconstruction by fibula flap with reconstruction plate or miniplate versus anterolateral thigh flap with reconstruction plate. Microsurgery. 2023;43(2):131-141.', '10.1002/micr.30893'),
+        ('DePuy Synthes. MatrixMANDIBLE Preformed Reconstruction Plates: instructions for use, SE_530350 AE, 10/2015 (order of steps: line up the bone, contour and position the plate, drill the first hole at a right angle to the plate with irrigation, measure, insert the screw, then drill and place the others).', 'https://ifu.depuysynthes.com/binary/org/DPY_SYN_EMEA/ifu_documents/CMF/MatrixMANDIBLE_Preformed_Reconstruction_Plates%20se_530350_AE_eng.pdf'),
     ],
 )
 
@@ -180,12 +196,14 @@ PAGES['scc'] = dict(
 SIK = 'Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441'
 SIK_CONSENT = 'The article records the patient’s informed consent.'
 PAGES['ameloblastoma'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-021-01404-7">Vered M, Wright JM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: odontogenic and maxillofacial bone tumours. Head Neck Pathol. 2022;16(1):63-75.</a> <a href="https://doi.org/10.1016/S1470-2045(15)00310-1">Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.</a>',
     model='/head-neck/models/ameloblastoma-case.glb', jaw='mandible', side='left', margin=True,
-    title=('Ameloblastoma in the lower jaw: removing the top of the jaw and adding a plate | Vivatheca',
-           '{下|した}あごのエナメル{上皮腫|じょうひしゅ}：あごの{上|うえ}の{部分|ぶぶん}を{取|と}り、プレートで{支|ささ}える | Vivatheca'),
+    title=('Ameloblastoma of the mandible: marginal mandibulectomy | Vivatheca',
+           '{下顎|かがく}エナメル{上皮腫|じょうひしゅ}：{下顎骨|かがくこつ}{辺縁|へんえん}{切除|せつじょ} | Vivatheca'),
     description=('A 3D model that follows one published case of ameloblastoma in the left lower jaw: rim resection of the jaw with four teeth, and a titanium plate.',
                  '{左下|ひだりした}のあごのエナメル{上皮腫|じょうひしゅ}の{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}です。4{本|ほん}の{歯|は}と{一緒|いっしょ}にあごの{上|うえ}の{部分|ぶぶん}を{取|と}り、チタンのプレートで{支|ささ}えます。'),
-    h1=('Ameloblastoma in the lower jaw', '{下|した}あごのエナメル{上皮腫|じょうひしゅ}'),
+    h1=('<span class="pitk-skip">Ameloblastoma of the mandible: marginal mandibulectomy</span>',
+        '<span class="pitk-skip">{下顎|かがく}エナメル{上皮腫|じょうひしゅ}：{下顎骨|かがくこつ}{辺縁|へんえん}{切除|せつじょ}</span>'),
     lede=('This 3D model follows one real, published case. A man aged 32 had an ameloblastoma in the front of his left lower jaw. '
           'It is a growth that is not cancer, but it keeps growing into bone. Surgeons took out the top part of the jaw with four teeth and kept the lower edge. A metal plate keeps the thin edge strong.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。32{歳|さい}の{男性|だんせい}の{左下|ひだりした}のあごの{前|まえ}の{方|ほう}に、エナメル{上皮腫|じょうひしゅ}ができました。がんではありませんが、{骨|ほね}の{中|なか}で{大|おお}きくなり{続|つづ}けます。{外科医|げかい}は4{本|ほん}の{歯|は}と{一緒|いっしょ}にあごの{上|うえ}の{部分|ぶぶん}を{取|と}り、{下|した}のふちを{残|のこ}しました。{薄|うす}いふちは{金属|きんぞく}のプレートで{支|ささ}えます。' + jcite(1)),
@@ -259,6 +277,16 @@ PAGES['ameloblastoma'] = dict(
          ' See the <a href="/head-neck/scc/">mouth cancer page</a> for a diagram of the fibula flap.',
          'もし{病変|びょうへん}が{下|した}のふちまで{届|とど}いていたら、あごの{高|たか}さ{全部|ぜんぶ}を{取|と}ることになります。{著者|ちょしゃ}は、すき{間|ま}が5cmより{短|みじか}ければ{腰|こし}の{骨|ほね}、{長|なが}ければ{足|あし}のひ{骨|こつ}を{使|つか}う{計画|けいかく}でした。' + jcite(1) +
          'ひ{骨|こつ}{皮弁|ひべん}の{図|ず}は<a href="/head-neck/scc/">{口|くち}のがんのページ</a>にあります。'),
+        ('Surgeons fix bone with plates and screws in the same few steps each time. Diagram 2 shows them. <a href="/fixation/">See the steps in 3D</a>.' + cite(5),
+         '{外科医|げかい}は{毎回|まいかい}{同|おな}じ{手順|てじゅん}で、プレートとネジで{骨|ほね}を{固定|こてい}します。{図|ず}2にその{手順|てじゅん}を{示|しめ}します。<a href="/fixation/">3Dで{手順|てじゅん}を{見|み}る</a>。' + jcite(5)),
+    ],
+    diagrams2=[
+        dict(file='/fixation/diagrams/placing-steps.svg', w=800, h=450,
+             alt=('Six numbered drawings of a plate and four screws going onto bone across a cut, from lining up to the last screw.',
+                  '{骨|ほね}の{切|き}り{口|くち}にプレートと4{本|ほん}のスクリューを{付|つ}ける{手順|てじゅん}の、{番号|ばんごう}{付|つ}きの6つの{絵|え}。'),
+             cap=('<b>Diagram 2. How a plate and screws go in.</b> 1 The bone pieces are lined up. 2 The plate is bent to fit the bone. 3 A hole is drilled straight through the plate hole, with cooling water. 4 The depth of the hole is measured. 5 The first screw goes in. 6 The other holes are drilled and screwed.' + cite(5),
+                  '<b>{図|ず}2. プレートとネジの{付|つ}け{方|かた}。</b>1 {骨|ほね}の{部分|ぶぶん}を{合|あ}わせます。2 プレートを{骨|ほね}の{形|かたち}に{曲|ま}げます。3 プレートの{穴|あな}からまっすぐ、{水|みず}で{冷|ひ}やしながら{穴|あな}をあけます。4 {穴|あな}の{深|ふか}さを{測|はか}ります。5 {最初|さいしょ}のネジを{入|い}れます。6 {残|のこ}りの{穴|あな}もあけて、ネジを{入|い}れます。' + jcite(5)),
+        ),
     ],
     clin_h=('For clinicians: how this model was built', '{医療者向|いりょうしゃむ}け：この{模型|もけい}の{作|つく}り{方|かた}'),
     clin=[
@@ -266,14 +294,17 @@ PAGES['ameloblastoma'] = dict(
          '{症例|しょうれい}：32{歳|さい}{男性|だんせい}。33と34の{間|あいだ}の{多房性|たぼうせい}{透過像|とうかぞう}、{臨床|りんしょう}{的|てき}には32〜35（{約|やく}2×3cm）で{頬側|きょうそく}{膨隆|ぼうりゅう}。{叢状|そうじょう}・{濾胞型|ろほうがた}エナメル{上皮腫|じょうひしゅ}。{口内|こうない}と{顎下|がくか}からの{併用|へいよう}アプローチで32〜35の{辺縁|へんえん}{切除|せつじょ}。{残存|ざんぞん}{高|こう}{約|やく}6mmのため、2.0mm・9{穴|あな}のチタン{再建|さいけん}プレートで{補強|ほきょう}。' + jcite(1)),
         ('Context: for solid/multicystic ameloblastoma, recurrence is about 3 times higher after conservative treatment than after resection.' + cite(2) + ' Marginal resection keeps continuity when an adequate inferior border can be preserved; the article does not report margin widths.',
          '{背景|はいけい}：{充実性|じゅうじつせい}・{多嚢胞性|たのうほうせい}エナメル{上皮腫|じょうひしゅ}では、{保存的|ほぞんてき}{治療|ちりょう}の{再発|さいはつ}{率|りつ}は{切除|せつじょ}の{約|やく}3{倍|ばい}です。'.replace('{多嚢胞性|たのうほうせい}', '{多房性|たぼうせい}') + jcite(2) + '{下縁|かえん}を{十分|じゅうぶん}{残|のこ}せるときは{辺縁|へんえん}{切除|せつじょ}で{連続性|れんぞくせい}を{保|たも}てます。{論文|ろんぶん}に{切除|せつじょ}{縁|えん}の{幅|はば}の{記載|きさい}はありません。'),
-        ('Model: vertical cuts at the 31/32 and 35/36 contacts; horizontal floor leaving 6.0–8.4 mm of bone across 32–35 (6.0 mm at 35). Specimen 2.8 cm³. Plate 58 mm, 9 holes at 6.5 mm pitch, 3.2 mm above the lower border; screws in the three end holes on each side.',
-         '{模型|もけい}：31/32と35/36の{接触点|せっしょくてん}で{垂直|すいちょく}に{切断|せつだん}。{水平|すいへい}の{底面|ていめん}で32〜35に6.0〜8.4mmの{骨|ほね}を{残|のこ}す（35で6.0mm）。{切除|せつじょ}{骨|こつ}2.8cm³。プレートは58mm、9{穴|あな}（6.5mm{間隔|かんかく}）、{下縁|かえん}から3.2mm。ネジは{両端|りょうたん}の3{穴|あな}ずつ。'),
+        ('Model: vertical cuts at the 31/32 and 35/36 contacts; horizontal floor leaving 6.0–8.4 mm of bone across 32–35 (6.0 mm at 35). Specimen 2.8 cm³. Plate 58 mm, 9 holes at 6.5 mm pitch, 3.2 mm above the lower border, bent to follow the jaw; screws in the three end holes on each side.' + ' Plate and screws follow the Vivatheca fixation standard (<a href="/fixation/">how plates and screws are placed</a>): a 2.0 mm reconstruction-type plate 1.5 mm thick (our estimate within the 1.0–2.0 mm range of 2.0 mm plates)' + cite(3) + ', countersunk holes, and bicortical 2.0 mm screws 12–15 mm long (bone thickness along each screw on the model plus 1 mm), as reconstruction plates are usually fixed with bicortical screws.' + cite(4) + ' Load-bearing plates need at least 3–4 screws in each segment;' + cite(5) + ' the case used three on each side.',
+         '{模型|もけい}：31/32と35/36の{接触点|せっしょくてん}で{垂直|すいちょく}に{切断|せつだん}。{水平|すいへい}の{底面|ていめん}で32〜35に6.0〜8.4mmの{骨|ほね}を{残|のこ}す（35で6.0mm）。{切除|せつじょ}{骨|こつ}2.8cm³。プレートは58mm、9{穴|あな}（6.5mm{間隔|かんかく}）、{下縁|かえん}から3.2mmで、あごに{沿|そ}って{曲|ま}げています。ネジは{両端|りょうたん}の3{穴|あな}ずつ。' + 'プレートとネジはVivathecaの{固定|こてい}{基準|きじゅん}（<a href="/fixation/">プレートとネジの{付|つ}け{方|かた}</a>）に{従|したが}います：{厚|あつ}さ1.5mmの2.0mm{再建|さいけん}{型|がた}プレート（2.0mmプレートの1.0〜2.0mmの{範囲|はんい}での{当方|とうほう}の{推定|すいてい}）' + jcite(3) + '、{皿|さら}{穴|あな}、{長|なが}さ12〜15mmの{両皮質|りょうひしつ}2.0mmネジ（{模型|もけい}の{骨|ほね}の{厚|あつ}さ＋1mm）。{再建|さいけん}プレートは{通常|つうじょう}{両皮質|りょうひしつ}ネジで{固定|こてい}します。' + jcite(4) + '{荷重|かじゅう}を{支|ささ}えるプレートは{各|かく}{骨片|こっぺん}に3〜4{本|ほん}{以上|いじょう}のネジが{必要|ひつよう}で、' + jcite(5) + 'この{症例|しょうれい}は{両側|りょうがわ}3{本|ほん}ずつでした。'),
         ('Our choices: the growth is four lobules, 15 × 19 × 16 mm in total, kept 2 mm above the floor of the cut. This is smaller than the clinical 2 × 3 cm swelling because the swelling includes the expanded cortex. Screw positions are not published.',
          '{当方|とうほう}の{設定|せってい}：{病変|びょうへん}は4つの{小葉|しょうよう}で{全体|ぜんたい}15×19×16mm、{切断|せつだん}{底面|ていめん}から2mm{上|うえ}。{臨床|りんしょう}{的|てき}な2×3cmのはれは{膨隆|ぼうりゅう}した{皮質|ひしつ}を{含|ふく}むため、それより{小|ちい}さくしました。ネジの{位置|いち}は{未公表|みこうひょう}です。'),
     ],
     refs=[
         (SIK + '.', '10.7759/cureus.104441'),
         ('Almeida RAC, Andrade ESS, Barbalho JC, Vajgel A, Vasconcelos BCE. Recurrence rate following treatment for primary multicystic ameloblastoma: systematic review and meta-analysis. Int J Oral Maxillofac Surg. 2016;45(3):359-367.', '10.1016/j.ijom.2015.12.016'),
+        ('AO Foundation Technical Commission. Locking Reconstruction Plate 2.4 and Mini Plate 2.0 System (approved solution, 2014). Mini Plate 2.0: 1.0 to 2.0 mm thick, 2.0 mm screws.', 'https://www.aofoundation.org/approved/approvedsolutionsfolder/2014/locking-reconstruction-plate-24-and-mini-plate-20-system'),
+        ('Schiel S, Otto S, Pautke C, Cornelius CP, Probst FA. Simplified transoral load-bearing osteosynthesis with preformed mandible reconstruction plates. Craniomaxillofac Trauma Reconstr. 2013;6(3):211-214.', '10.1055/s-0033-1343784'),
+        ('DePuy Synthes. MatrixMANDIBLE Preformed Reconstruction Plates: instructions for use, SE_530350 AE, 10/2015 (minimum 3–4 screws in each segment; plate 2.5 mm thick).', 'https://ifu.depuysynthes.com/binary/org/DPY_SYN_EMEA/ifu_documents/CMF/MatrixMANDIBLE_Preformed_Reconstruction_Plates%20se_530350_AE_eng.pdf'),
     ],
 )
 
@@ -281,13 +312,14 @@ PAGES['ameloblastoma'] = dict(
 ABD = 'Abdelfadil E, Alsharif M, Alsharif AT, Mourad S. Management of a mandibular odontogenic keratocyst with enucleation, piezotome-assisted peripheral ostectomy, and platelet-rich fibrin: a case report. Dent J (Basel). 2025;13(11):536'
 ABD_CONSENT = 'The article records the patient’s written consent.'
 PAGES['okc'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-021-01404-7">Vered M, Wright JM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: odontogenic and maxillofacial bone tumours. Head Neck Pathol. 2022;16(1):63-75.</a>',
     model='/head-neck/models/okc-case.glb', jaw='mandible', side='left', margin=False,
-    title=('Keratocyst in the lower jaw: ways to treat it | Vivatheca',
-           '{下|した}あごの{角化|かくか}のう{胞|ほう}：{治療|ちりょう}の{方法|ほうほう} | Vivatheca'),
+    title=('Odontogenic keratocyst of the mandible: enucleation and peripheral ostectomy | Vivatheca',
+           '{下顎|かがく}の{歯原性|しげんせい}{角化|かくか}{嚢胞|のうほう}：{摘出|てきしゅつ}と{周囲|しゅうい}{骨|こつ}{削除|さくじょ} | Vivatheca'),
     description=('A 3D model that follows one published case of odontogenic keratocyst at the roots of two lower left teeth, with diagrams of eight treatment options and how often each comes back.',
                  '{左下|ひだりした}の2{本|ほん}の{歯|は}の{根|ね}の{先|さき}にできた{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}の{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}と、8つの{治療|ちりょう}{方法|ほうほう}の{図|ず}、{再発|さいはつ}の{割合|わりあい}です。'),
-    h1=('Keratocyst in the lower jaw <span class="pitk-skip">(odontogenic keratocyst)</span>',
-        '{下|した}あごの{角化|かくか}のう{胞|ほう}<span class="pitk-skip">（{歯原性|しげんせい}{角化|かくか}のう{胞|ほう}）</span>'),
+    h1=('<span class="pitk-skip">Odontogenic keratocyst of the mandible: enucleation and peripheral ostectomy</span>',
+        '<span class="pitk-skip">{下顎|かがく}の{歯原性|しげんせい}{角化|かくか}{嚢胞|のうほう}：{摘出|てきしゅつ}と{周囲|しゅうい}{骨|こつ}{削除|さくじょ}</span>'),
     lede=('This 3D model follows one real, published case. A man aged 54 had a keratocyst at the root tips of two lower left teeth (34 and 35). '
           'A keratocyst is a sac in the jaw, filled with thick fluid. It is not cancer, but it often comes back. The surgeon took out the sac, shaved the bone wall and kept the teeth.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。54{歳|さい}の{男性|だんせい}の{左下|ひだりした}の2{本|ほん}の{歯|は}（34と35）の{根|ね}の{先|さき}に、{角化|かくか}のう{胞|ほう}がありました。{角化|かくか}のう{胞|ほう}は、あごの{中|なか}にできる、{濃|こ}い{液|えき}が{入|はい}った{袋|ふくろ}です。がんではありませんが、よく{再発|さいはつ}します。{外科医|げかい}は{袋|ふくろ}を{取|と}り、{骨|ほね}の{壁|かべ}を{削|けず}って、{歯|は}は{残|のこ}しました。' + jcite(1)),
@@ -414,13 +446,14 @@ PAGES['okc'] = dict(
 ELL = 'Ellam M, et al. Mucoepidermoid carcinoma of the hard palate: a case illustrating grading uncertainty and bone-sparing surgical management. Cureus. 2026;18(8):e115250'
 ELL_CONSENT = 'The journal states that consent was obtained or waived. Mouth and lips only; no eyes.'
 PAGES['mec'] = dict(
+    terms='<a href="https://doi.org/10.1007/s12105-022-01420-1">Skálová A, Hyrcza MD, Leivo I. Update from the 5th edition of the World Health Organization classification of head and neck tumors: salivary glands. Head Neck Pathol. 2022;16(1):40-53.</a>',
     model='/head-neck/models/mec-case.glb', jaw='maxilla', side='right', margin=True,
-    title=('Cancer of a small spit gland in the roof of the mouth | Vivatheca',
-           '{口|くち}の{天井|てんじょう}の{小|ちい}さなだ{液|えき}{腺|せん}のがん | Vivatheca'),
+    title=('Low-grade mucoepidermoid carcinoma of the hard palate: wide local excision | Vivatheca',
+           '{硬口蓋|こうこうがい}の{低悪性度|ていあくせいど}{粘表皮癌|ねんぴょうひがん}：{広範|こうはん}{局所|きょくしょ}{切除|せつじょ} | Vivatheca'),
     description=('A 3D model that follows one published case of low-grade mucoepidermoid carcinoma of the hard palate, removed with a cuff of lining while keeping the bone.',
                  '{口|くち}の{天井|てんじょう}にできた{低悪性度|ていあくせいど}の{粘表皮|ねんひょうひ}がんの{公開|こうかい}{症例|しょうれい}に{合|あ}わせた3D{模型|もけい}です。{骨|ほね}を{残|のこ}し、まわりの{粘膜|ねんまく}と{一緒|いっしょ}に{取|と}りました。'),
-    h1=('Cancer of a small spit gland in the roof of the mouth <span class="pitk-skip">(mucoepidermoid carcinoma)</span>',
-        '{口|くち}の{天井|てんじょう}の{小|ちい}さなだ{液|えき}{腺|せん}のがん<span class="pitk-skip">（{粘表皮|ねんひょうひ}がん）</span>'),
+    h1=('<span class="pitk-skip">Low-grade mucoepidermoid carcinoma of the hard palate: wide local excision</span>',
+        '<span class="pitk-skip">{硬口蓋|こうこうがい}の{低悪性度|ていあくせいど}{粘表皮癌|ねんぴょうひがん}：{広範|こうはん}{局所|きょくしょ}{切除|せつじょ}</span>'),
     lede=('This 3D model follows one real, published case. A man aged 42 had a slow-growing lump on the right side of the roof of his mouth. '
           'It was a slow type of cancer that starts in a small spit gland. The surgeon took out the lump with a cuff of normal lining and kept the bone above it.' + cite(1),
           'この3D{模型|もけい}は、{論文|ろんぶん}で{公開|こうかい}された{実際|じっさい}の{症例|しょうれい}に{合|あ}わせて{作|つく}りました。42{歳|さい}の{男性|だんせい}の{口|くち}の{天井|てんじょう}の{右側|みぎがわ}に、ゆっくり{大|おお}きくなるしこりがありました。{小|ちい}さなだ{液|えき}{腺|せん}にできる、{進|すす}みの{遅|おそ}いがんでした。{外科医|げかい}は、まわりの{正常|せいじょう}な{粘膜|ねんまく}と{一緒|いっしょ}にしこりを{取|と}り、{上|うえ}の{骨|ほね}は{残|のこ}しました。' + jcite(1)),
@@ -555,6 +588,9 @@ def build(slug, P):
       '    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>\n'
       '  </div>\n  <div class="langs" id="langs" role="group" aria-label="Language"></div>\n</header>\n<script src="/site-header.js"></script>\n\n<main>')
     t('h1', P['h1'][0], P['h1'][1], 'h1')
+    # Source for the formal clinical name in the title (also in app/models/catalogue.ts, terms).
+    ja['termsLabel'] = '{名称|めいしょう}と{分類|ぶんるい}：'
+    w(f'<p class="small term-sources"><span data-i18n="termsLabel">Name and classification:</span> {P["terms"]}</p>')
     t('lede', P['lede'][0], P['lede'][1], 'p', ' class="lede"')
     w('<div class="note"><p data-i18n="viewOnly"><b>3D viewing only for now.</b> Print files are not available yet.</p></div>')
     side = P.get('side', 'right')
@@ -578,6 +614,7 @@ def build(slug, P):
         w(f'  <p data-for="{key}"{"" if i == 0 else " hidden"} data-i18n="st_{key}">{txt[0]}</p>')
     w('</div>')
 
+    w(f'\n<section class="vt-video" id="video" data-video="head-neck-{slug}"></section>')  # narrated video (PR #78)
     # real case
     w('\n<section id="case">')
     t('caseH', P['case_h'][0], P['case_h'][1], 'h2')
@@ -614,7 +651,7 @@ def build(slug, P):
             key = f'{base}{j}'
             ja[key + 'Alt'] = d['alt'][1]
             ja[key] = d['cap'][1]
-            w(f'<figure class="diagram">\n  <img src="/head-neck/diagrams/{d["file"]}" width="{d["w"]}" height="{d["h"]}" loading="lazy" alt="{esc(d["alt"][0])}" data-i18n-alt="{key}Alt">\n'
+            w(f'<figure class="diagram">\n  <img src="{d["file"] if d["file"].startswith("/") else "/head-neck/diagrams/" + d["file"]}" width="{d["w"]}" height="{d["h"]}" loading="lazy" alt="{esc(d["alt"][0])}" data-i18n-alt="{key}Alt">\n'
               f'  <figcaption data-i18n="{key}">{d["cap"][0]}</figcaption>\n</figure>')
     diagrams(P.get('diagrams', []), 'dg')
     if 'options' in P:
@@ -664,9 +701,9 @@ def build(slug, P):
         w(f'    <li id="ref-{i}">{txt} <a href="{href}">{shown}</a></li>')
     w('  </ol>\n</details>\n</section>')
     w(f'\n<p class="small" data-i18n="version">{VERSION_EN}</p>\n</main>')
-    w('<script src="ja.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
+    w('<script src="ja.js"></script>\n<script src="vi.js"></script>\n<script src="/head-neck/i18n-engine.js"></script>\n<script src="/head-neck/theme.js"></script>')
     w('<script src="/head-neck/vendor/three/three.min.js"></script>\n<script src="/head-neck/vendor/three/GLTFLoader.js"></script>\n<script src="/head-neck/vendor/three/DRACOLoader.js"></script>\n<script src="/head-neck/vendor/three/OrbitControls.js"></script>')
-    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n<script src="/fullscreen.js"></script>\n<script src="/model-parts.js"></script>\n<script src="/clinical-zoom.js"></script>\n<script src="/share-tools.js"></script>\n</body>\n</html>\n')
+    w('<script src="/head-neck/case-viewer.js"></script>\n<script src="/contact.js"></script>\n<script src="/model-page.js"></script>\n<script src="/fullscreen.js"></script>\n<script src="/videos/videos.js"></script>\n<script src="/video-embed.js"></script>\n<script src="/model-parts.js"></script>\n<script src="/clinical-zoom.js"></script>\n<script src="/share-tools.js"></script>\n</body>\n</html>\n')
     d = os.path.join(PUB, slug)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w').write('\n'.join(out))
