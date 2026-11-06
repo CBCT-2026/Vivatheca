@@ -292,7 +292,7 @@
       "id": "hn-ameloblastoma-opg-before",
       "file": "public/images/clinical/head-neck/opg-ameloblastoma-before.jpg",
       "pages": [
-        "/head-neck/ (pending: page is in PR #22)"
+        "/head-neck/"
       ],
       "type": "Panoramic radiograph (OPG)",
       "description": "Pre-operative OPG: ill-defined multilocular radiolucency between lower left canine and first premolar (arrow), 32-year-old man, intraosseous ameloblastoma.",
@@ -311,7 +311,7 @@
       "id": "hn-ameloblastoma-opg-after",
       "file": "public/images/clinical/head-neck/opg-ameloblastoma-after-resection.jpg",
       "pages": [
-        "/head-neck/ (pending: page is in PR #22)"
+        "/head-neck/"
       ],
       "type": "Panoramic radiograph (OPG)",
       "description": "OPG 3 months after marginal mandibulectomy with reconstruction plate reinforcement (residual bone height under 1 cm).",
@@ -330,7 +330,7 @@
       "id": "hn-okc-cbct",
       "file": "public/images/clinical/head-neck/cbct-okc.jpg",
       "pages": [
-        "/head-neck/ (pending: page is in PR #22)"
+        "/head-neck/"
       ],
       "type": "CBCT (sagittal, cross-sectional, axial)",
       "description": "Preoperative CBCT of a well-defined radiolucent odontogenic keratocyst related to lower left teeth 35 and 36.",
