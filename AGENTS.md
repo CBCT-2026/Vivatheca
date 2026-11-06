@@ -65,6 +65,8 @@ Keep global-access data markers, legends and location labels as accessible HTML 
 
 The platform is translated into English (default) and Japanese; the structure is ready for more languages. `app/i18n/config.ts` lists the locales and the cookies (`vivatheca-lang`, `vivatheca-furigana`); `app/i18n/dictionaries/en.ts` is the source text and every other dictionary must match its shape (TypeScript enforces this). Server components call `getI18n()` from `app/i18n/server.ts`; client components use `useI18n()`. Never hard-code visible text in components: add it to `en.ts` and `ja.ts`. `?lang=ja` on any URL sets the cookie and redirects (worker/index.ts).
 
+Security headers are set in `worker/index.ts` (`withSecurityHeaders`): a Content Security Policy that allows only this origin, HSTS, nosniff, Referrer-Policy and Permissions-Policy. Serve every script, decoder, font, image, model and video from this site. If a page must load something from another site, add that host to `CONTENT_SECURITY_POLICY` and check the page for CSP errors in the browser console (build, then `npx wrangler dev -c dist/server/wrangler.json`; `vinext start` does not run the Worker for static pages). Export only `default` and Durable Object classes from `worker/index.ts`: any other export stops the Worker from starting.
+
 Japanese text carries furigana for every kanji word, written inline as `{漢字|かんじ}` and rendered by `<Ruby>` (`app/i18n/ruby.tsx`) as `<ruby>` with `aria-hidden` readings. Use `plain()` for attributes (alt, aria-label, placeholders, metadata). Visitors can hide furigana. Use standard Japanese dental terminology with dental readings (下顎 = かがく, 下歯槽神経 = かしそうしんけい, 智歯 = ちし) and everyday words first in plain-language text (親知らず). The static `/development` page reads the same cookie through `public/development/i18n.js` (`data-i18n` keys). Japanese translations need review by a native-speaking clinician before launch. Until then, every Japanese page says so: `t.disclaimer.translationNote` in the app footers and `.vt-translation-note` from `public/contact.js` on static pages (static pages must load `/contact.js`). In Japanese mode, show the Japanese disclaimer and review status only, and mark the verbatim English versions `lang="en"` so they hide, as on every other page.
 
 ## Student pages (/learn)
@@ -88,6 +90,17 @@ Ideas borrowed from other services (write-up: `audits/ideas-from-other-industrie
 ## Testing Guidelines
 
 Use Playwright for user-visible guarantees and semantic locators. Verify affected routes, mobile layouts, keyboard controls, language direction, model fallbacks, and locally stored favourites. Keep tests independent and place them under `tests/` as `*.spec.ts`.
+
+## Base meshes and model licences (rule from 6 Nov 2026)
+
+This is a standing project rule for every new model and every rebuild.
+
+- **Start from BodyParts3D** for bone and teeth wherever it has the structure. BodyParts3D is CC BY 4.0 (confirmed on the [DBCLS licence page](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html), 6 Nov 2026), so models built only from it and our own work can be released as **CC BY 4.0**, which is easier for clinics to reuse than CC BY-SA. Required credit, verbatim: "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International".
+- **Hand-build what BodyParts3D lacks** (inferior alveolar nerve and artery, other jaw nerves and vessels, parotid gland, maxillary sinus, TMJ disc, third molars, primary teeth, lesions), from cited dimensions (see Evidence and transparency). Hand-built parts keep the model CC BY.
+- **Use Z-Anatomy only when a part cannot reasonably be hand-built.** Any model that contains a Z-Anatomy part, however small, must be released as **CC BY-SA 4.0** with the Z-Anatomy credit.
+- Existing Z-Anatomy-based models (orthognathic, oroantral, stainless steel crown, head and neck cases and others) stay CC BY-SA 4.0. Rebuilding one on BodyParts3D makes it CC BY only if no Z-Anatomy part remains.
+- Every model page, download and print zip states which base was used, its licence and the required credit, and the model's own licence (CC BY 4.0 or CC BY-SA 4.0). Never label a model CC BY if any part came from Z-Anatomy or another share-alike source.
+- Base meshes come from one adult reference body, not from any patient, so the model disclaimer still applies.
 
 ## Evidence and transparency (required for everything)
 

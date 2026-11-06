@@ -90,6 +90,8 @@ export function Builder() {
     setDraft(readStorage(STORAGE.draft) ?? '');
     /* eslint-enable react-hooks/set-state-in-effect */
     fetch('/api/generate').then((r) => (r.ok ? (r.json() as Promise<{ enabled?: boolean }>) : null)).then((d) => setAiEnabled(Boolean(d?.enabled))).catch(() => setAiEnabled(false));
+    // Draco-compressed models: use the decoder this site serves, so no request goes to gstatic.com (blocked in mainland China).
+    (self as unknown as { ModelViewerElement?: object }).ModelViewerElement = { dracoDecoderLocation: '/development/vendor/draco/' };
     import('@google/model-viewer').then(() => setViewerReady(true)).catch(() => undefined);
   }, [b.defaultTopic]);
 
@@ -182,7 +184,7 @@ export function Builder() {
     }
   }
 
-  const draftPrompt = `${systemPrompt}\n\n---\n\n${buildUserPrompt(brief, locale)}`;
+  const draftPrompt = `${systemPrompt}\n\n---\n\n${buildUserPrompt(brief, locale === 'ja' ? 'ja' : 'en')}`; // drafts only in languages pitk can check
   const simplifyPrompt = `${systemPrompt}\n\n---\n\n${buildRefinePrompt('simplify', draft, result.findings.map((f) => `${f.section}: ${f.message}`))}`;
 
   function captureView() {
