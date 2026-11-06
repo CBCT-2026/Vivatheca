@@ -904,3 +904,13 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .clinical-figure figcaption { margin-top: .6rem; color: var(--text-strong); font-size: .95rem; line-height: 1.5; }
 .clinical-credit { display: block; margin-top: .35rem; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
 .clinical-credit a { color: inherit; }
+
+/* Homepage: bone graft stage switcher, mixed model showcase and wisdom tooth case images. */
+.segmented-stages { grid-template-columns: repeat(3,1fr); margin-bottom: .75rem; }
+.segmented-stages button { padding: 0 .4rem; line-height: 1.2; }
+.showcase-section { padding: var(--space-section) clamp(1.25rem,7vw,7rem); background: var(--surface-alt); }
+.showcase-grid { margin-top: 2rem; }
+.showcase-grid h3 { margin: .25rem 0 .5rem; color: var(--heading); font-size: 1.3rem; font-weight: 740; line-height: 1.2; }
+.showcase-section > .prototype-note { margin-top: 1.5rem; color: var(--muted); }
+.wisdom-cases { padding: 0 clamp(1.25rem,7vw,7rem) var(--space-section); background: var(--surface); }
+.wisdom-cases .clinical-images { margin-top: 0; padding-top: 3rem; }

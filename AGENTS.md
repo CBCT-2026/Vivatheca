@@ -7,7 +7,8 @@ The Vivatheca platform is a TypeScript/React application built with Next.js-comp
 - `app/page.tsx` defines the homepage.
 - `app/models/` holds the model library (`/models`), `catalogue.ts` (every model's card data, files, sources, simplifications, change log and citation) and one page per model (e.g. `/models/impacted-wisdom-tooth`, with `compare.tsx` showing the pathology beside its matched normal). Add each new model to `catalogue.ts`; every pathology model needs a matched normal.
 - `app/about/`, `app/privacy/` and `app/report/` (report-an-inaccuracy form that opens a pre-filled email) are plain info pages using `PageHeader` and `SiteFooter` from `app/site-chrome.tsx`.
-- `app/ui.tsx` contains interactive client components, including the 3D viewer and locally stored favourites.
+- `app/ui.tsx` contains interactive client components, including the homepage 3D viewer (`ModelExperience`).
+- Homepage model layout (Luke, 2026-11-06): the impacted wisdom tooth is the hero image at the top; the interactive section (`#collection`) shows the alveolar bone graft series in three stages (models from CBCT-2026/ABG in `public/models/abg/`, own colours kept, Draco decoder from `public/development/vendor/draco/`; stage words in `t.abg`, sources in `app/abg.ts`); `#showcase` shows a mix of other models from `catalogue.ts` (list in `app/page.tsx`, includes dental development); the wisdom tooth X-rays and scans sit under the print section so they stay next to the matching model.
 - `app/data.ts` contains reusable catalogue and navigation content.
 - `app/globals.css` contains the design tokens and shared styles.
 - [`assets/`](./assets/) stores generated landing-page illustrations and [`assets/manifest.json`](./assets/manifest.json) records their purpose, alternative text, and generation provenance.
