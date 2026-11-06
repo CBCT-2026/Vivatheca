@@ -1,6 +1,6 @@
 # Oroantral communication (OAC) and fistula (OAF) model
 
-Seven 3D stages of the right upper jaw, life size, cut front to back through the middle of the upper first molar. Web page: `public/oroantral/` (served at `/oroantral/`). It shares the model viewer, Draco decoder and stylesheet with `public/development/`.
+Eight 3D stages of the right upper jaw, life size, cut front to back through the middle of the upper first molar. Web page: `public/oroantral/` (served at `/oroantral/`). It shares the model viewer, Draco decoder and stylesheet with `public/development/`.
 
 | Stage | File | What it shows |
 | --- | --- | --- |
@@ -11,15 +11,17 @@ Seven 3D stages of the right upper jaw, life size, cut front to back through the
 | Blood clot | `clot.glb` | Clot fills the socket and plugs the opening (small openings) |
 | Cheek flap | `flap.glb` | Buccal advancement flap: cheek-side gum over the socket, clot underneath |
 | Fat pad | `bfp.glb` | Buccal fat pad pedicled from behind the maxilla, spread over the socket |
+| Palate flap | `palatal.glb` | Palatal rotation flap: 7 mm wide, 2.4 mm thick tongue of palatal gum, base at the back (greater palatine artery), swung sideways over the socket; the donor area is bare bone |
 
 ## Rebuild
-Needs Python 3.11 with `trimesh`, `scipy`, `scikit-image`, `fast-simplification`, `matplotlib`, and `npx` for Draco.
+Needs Python 3.11 with `trimesh`, `scipy`, `scikit-image`, `fast-simplification`, `pymeshfix`, `matplotlib`, and `npx` for Draco.
 
-0. Page text: edit `page-src.html` ({漢字|かな} marks furigana), then `python3 gen.py page-src.html ../../public/oroantral/index.html`.
+0. Page text: edit `page-src.html` (kept in sync with the published page) ({漢字|かな} marks furigana), then `python3 gen.py page-src.html ../../public/oroantral/index.html`.
 1. `python -I explore.py`: splits `skull_cranium_with_upper_teeth.stl` (project files, `head-neck-recon/z-anatomy-base/`, smoothed version) into the right maxilla, palatine and zygomatic bones and the right upper first and second molars (`work/*.stl`).
 2. `python -I vox.py`: voxelises them at 0.25 mm (`work/*.npy`).
-3. `python -I build.py work out`: builds the stages as GLB and `labels.json` (label anchor points, copied into `public/oroantral/viewer.js`).
+3. `python -I build.py work out`: builds the stages as GLB, `labels.json` (label anchor points, copied into `public/oroantral/viewer.js`) and STL parts for printing (`out/stl/<stage>/`, one file per material, sinus left out). Parts that simplification leaves non-manifold are repaired with `pymeshfix`; `out/stl/watertight.json` must be all `true`.
 4. `python3 finish_glb.py out public/oroantral/models`: exact colours, then Draco.
+5. `python3 package_stl.py out/stl public/oroantral/downloads 1.0`: one zip per stage with a README (review status, model disclaimer, licence). The 1.5x set (`package_stl.py out/stl <dir> 1.5`, needs trimesh) is kept in project files under `oroantral/print-1.5x/`, not in the repo.
 
 ## Method and limits
 - The Z-Anatomy (BodyParts3D) maxilla has only a small cavity, so the sinus is carved inside the maxilla with a 1.5 mm wall, lateral to the nose and below the orbit floor. Its floor is a bowl, lowest over the molars.
@@ -27,7 +29,8 @@ Needs Python 3.11 with `trimesh`, `scipy`, `scikit-image`, `fast-simplification`
 - The gum is a 2.25 mm layer on the mouth side of the bone, up to 11 mm above the crest.
 - The opening, tunnel, clot, flap and fat pad are illustrations, not measurements. Every post-extraction stage uses the same socket so they can be compared, although in practice small openings are the ones that heal with a clot.
 - Surfaces come from a lightly blurred voxel field (marching cubes), then simplified.
-- Labels in `viewer.js` face the cut face (`data-normal 0 0 1`), except the fat pad stalk, which faces the cheek.
+- The palatal flap's path and donor area are drawn to show the idea. Its base is at the back because the flap is fed by the greater palatine artery (Khandelwal 2017).
+- Labels in `viewer.js` face the cut face (`data-normal 0 0 1`), except the fat pad stalk (faces the cheek) and the palatal flap base and bare bone (face the mouth; seen with "From the mouth").
 
 ## Colours (linear RGB)
 Bone 0.6724, 0.5972, 0.4969 (latest wisdom tooth model). Teeth 0.768, 0.716, 0.651 (slightly lighter, as in the head and neck series). Gum 0.70, 0.25, 0.28. Sinus air 0.18, 0.48, 0.86 at 38% opacity. Swollen lining 0.80, 0.22, 0.16. Fistula lining 0.62, 0.05, 0.10. Clot 0.26, 0.015, 0.02. Flap 0.95, 0.52, 0.42. Fat 0.93, 0.62, 0.08.

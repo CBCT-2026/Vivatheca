@@ -18,6 +18,21 @@ test.describe('oroantral communication model page', () => {
     await expect(page.locator('#stage h2')).toHaveText('A lasting, lined tunnel (OAF)');
     await page.getByRole('button', { name: /Fat pad/ }).click();
     await expect.poll(src).toContain('models/bfp.glb');
+    await page.getByRole('button', { name: /Palate flap/ }).click();
+    await expect.poll(src).toContain('models/palatal.glb');
+    await expect(page.locator('#stage h2')).toContainText('palatal rotation flap');
+  });
+
+  test('offers 3D print files for the chosen stage, with the disclaimer', async ({ page, request }) => {
+    await page.goto('/oroantral/index.html');
+    const link = page.locator('#download');
+    await expect(link).toHaveAttribute('href', 'downloads/vivatheca-oroantral-normal-1.0x.zip');
+    await page.getByRole('button', { name: /3 OAC/ }).click();
+    await expect(link).toHaveAttribute('href', 'downloads/vivatheca-oroantral-oac-1.0x.zip');
+    await expect(page.locator('#print')).toContainText('Not yet clinically reviewed.');
+    await expect(page.locator('#print a[href="/disclaimer"]').first()).toBeVisible();
+    const res = await request.get('/oroantral/downloads/vivatheca-oroantral-oac-1.0x.zip');
+    expect(res.ok()).toBeTruthy();
   });
 
   test('switches to Japanese with furigana, shared with the site language cookie', async ({ page }) => {

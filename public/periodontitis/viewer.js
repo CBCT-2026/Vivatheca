@@ -40,12 +40,15 @@ const stageButtons = document.querySelectorAll('[data-stage]');
 const caption = document.getElementById('stage');
 const download = document.getElementById('download');
 function showStage(id) {
-  const s = STAGES[id];
+  const s = STAGES[id], j = 's_' + id.replace('-', '_') + '_';
+  const T = window.vtT || ((_, en) => en), TP = window.vtTPlain || ((_, en) => en);
+  const title = T(j + 'title', s.title), model = T(j + 'model', s.model);
   mv.src = 'models/' + id + '.glb';
-  mv.alt = '3D model of a lower jaw with teeth: ' + s.title + '. ' + s.model;
-  caption.innerHTML = '<h2>' + s.title + '</h2><p>' + s.text + '</p><p class="small"><b>What this model shows:</b> ' + s.model + '</p>';
+  mv.alt = TP('altPrefix', '3D model of a lower jaw with teeth: ') + TP(j + 'title', s.title) + (document.documentElement.lang === 'ja' ? '。' : '. ') + TP(j + 'model', s.model);
+  caption.innerHTML = '<h2>' + title + '</h2><p>' + T(j + 'text', s.text) + '</p><p class="small"><b>' + T('modelShows', 'What this model shows:') + '</b> ' + model + '</p>';
   download.href = 'downloads/vivatheca-periodontitis-' + id + '-1.0x.zip';
-  download.textContent = 'Download 3D print files: ' + s.title.split(':')[0] + ' (STL, life size)';
+  const short = TP(j + 'title', s.title).split(/[:：]/)[0];
+  download.textContent = TP('downloadFor', 'Download 3D print files: {stage} (STL, life size)').replace('{stage}', short);
   stageButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.stage === id));
   try { history.replaceState(null, '', '#' + id); } catch (e) {}
 }
@@ -91,9 +94,9 @@ function showProblem(text) {
   box.textContent = text;
 }
 const canvas = document.createElement('canvas');
-if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem('This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.');
-mv.addEventListener('error', () => showProblem('The 3D model could not load. Please reload the page.'));
-setTimeout(() => { if (!customElements.get('model-viewer')) showProblem('The 3D model could not load. Please reload the page.'); }, 10000);
+if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) showProblem((window.vtTPlain || ((_, en) => en))('noWebgl', 'This browser cannot show 3D (WebGL is off). Turn on hardware acceleration in the browser settings, or open the page in another browser.'));
+mv.addEventListener('error', () => showProblem((window.vtTPlain || ((_, en) => en))('loadFailed', 'The 3D model could not load. Please reload the page.')));
+setTimeout(() => { if (!customElements.get('model-viewer')) showProblem((window.vtTPlain || ((_, en) => en))('loadFailed', 'The 3D model could not load. Please reload the page.')); }, 10000);
 
 // A tap on a source number opens the closed list of sources first.
 // (Delegated, because the stage text is replaced on every stage change.)

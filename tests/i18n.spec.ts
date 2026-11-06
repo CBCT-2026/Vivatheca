@@ -113,3 +113,15 @@ test('sub-page headers fit a phone in Japanese', async ({ page, context }) => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
   }
 });
+
+test('orthognathic and periodontitis pages switch to Japanese with furigana', async ({ page, context }) => {
+  await context.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: 'http://127.0.0.1:3000' }]);
+  for (const [path, h1] of [['/orthognathic/index.html', '顎矯正'], ['/periodontitis/index.html', '歯周病']]) {
+    await page.goto(path);
+    await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+    await expect(page.locator('h1')).toContainText(h1);
+    await expect(page.locator('h1 rt').first()).toBeAttached();
+    await expect(page.locator('#langs').getByRole('button', { name: 'English' })).toBeVisible();
+    await expect(page.locator('#stage')).toContainText(/[ぁ-ん]/);
+  }
+});
