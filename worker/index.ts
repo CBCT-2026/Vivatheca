@@ -82,16 +82,18 @@ function sameSitePath(url: URL): string {
 // - 'wasm-unsafe-eval' and blob: workers: the Draco decoder runs as WebAssembly, in workers.
 // - frame-ancestors is left open on purpose so model embeds (?embed=1) keep working;
 //   /admin adds frame-ancestors 'none'.
+// - Cloudflare Web Analytics (cookie-free, see /privacy and README): its beacon script comes from
+//   static.cloudflareinsights.com and reports to cloudflareinsights.com (or this site's /cdn-cgi/rum).
 // Before loading anything from another site, add its host here and check every page for CSP errors (see AGENTS.md).
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob:",
+  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob: https://static.cloudflareinsights.com",
   "worker-src 'self' blob:",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
   "media-src 'self' blob:",
-  "connect-src 'self' data: blob:",
+  "connect-src 'self' data: blob: https://cloudflareinsights.com",
   "frame-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",

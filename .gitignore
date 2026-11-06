@@ -47,3 +47,4 @@ tsconfig.tsbuildinfo
 /.pitk/
 /tools/video/build/
 .dev.vars*
+.lighthouseci/

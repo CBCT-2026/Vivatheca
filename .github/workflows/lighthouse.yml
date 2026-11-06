@@ -1,0 +1,37 @@
+name: Lighthouse
+
+# Free page-quality budget on the homepage, collection and four model pages (Lighthouse CI).
+# Accessibility below 90 fails the check; performance, page weight and best practices only warn,
+# because 3D pages are heavy by nature. SEO is not checked while the private preview is set to noindex. Reports are kept as a workflow artifact for 14 days.
+on:
+  pull_request:
+    paths: ['app/**', 'public/**', 'worker/**', 'lighthouserc.json', 'package.json', '.github/workflows/lighthouse.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: npx -y @lhci/cli@0.15.1 autorun
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 14

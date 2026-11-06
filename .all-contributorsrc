@@ -1,0 +1,32 @@
+{
+  "projectName": "Vivatheca",
+  "projectOwner": "CBCT-2026",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 80,
+  "commit": false,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "types": {
+    "review": {
+      "symbol": "🩺",
+      "description": "Clinical review"
+    }
+  },
+  "contributors": [
+    {
+      "login": "CBCT-2026",
+      "name": "Luke Seifert",
+      "profile": "https://github.com/CBCT-2026",
+      "contributions": [
+        "design",
+        "code",
+        "content",
+        "ideas"
+      ]
+    }
+  ]
+}
