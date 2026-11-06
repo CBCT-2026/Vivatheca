@@ -27,6 +27,7 @@ export const catalogue: CatalogueModel[] = [
   { slug: 'head-neck-ameloblastoma', href: '/head-neck/ameloblastoma/', image: '/assets/renders/head-neck-ameloblastoma.webp', version: '1.0', updated: '2026-11-06' },
   { slug: 'head-neck-okc', href: '/head-neck/okc/', image: '/assets/renders/head-neck-okc.webp', version: '1.0', updated: '2026-11-06' },
   { slug: 'head-neck-mec', href: '/head-neck/mec/', image: '/assets/renders/head-neck-mec.webp', version: '1.0', updated: '2026-11-06' },
+  { slug: 'alveolar-bone-graft', href: '/models/alveolar-bone-graft', image: '/assets/renders/alveolar-bone-graft.webp', version: '0.1', updated: '2026-11-06' },
   { slug: 'orthognathic', href: '/orthognathic/', image: '/assets/renders/orthognathic.webp', version: '0.1', updated: '2026-11-05' },
 ];
 

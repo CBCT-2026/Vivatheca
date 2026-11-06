@@ -657,6 +657,12 @@ const en = {
         summary: 'A healthy and a cracked molar under biting force, and how a filling or a crown holds the crack together. Pictured: healthy (left) and cracked (right), cut open.',
         pairing: 'Condition + healthy normal + treatments',
       },
+      'alveolar-bone-graft': {
+        title: 'Bone graft for a cleft in the gum',
+        specialty: 'Cleft care: oral and maxillofacial surgery and orthodontics',
+        summary: 'A child’s upper jaw with a left alveolar cleft, in three stages: before the bone graft, after it with braces, and years later with the eye tooth moved into the gap. Pictured: before (left) and years later (right).',
+        pairing: 'Treatment stages',
+      },
       'stainless-steel-crown': {
         title: 'Stainless steel crown on a baby molar',
         specialty: 'Paediatric dentistry',
