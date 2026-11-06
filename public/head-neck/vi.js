@@ -1,11 +1,12 @@
 // Vietnamese text for the head and neck hub (unreviewed AI draft; English prevails). Same keys as the
 // Japanese text in i18n.js. The case notes for the two palate models are in viewer.js (CASES_VI).
 window.VIVA_VI = {
-  title: 'Đầu và cổ: các ca bệnh thật bằng 3D | Vivatheca',
+  title: 'Đầu và cổ: các ca bệnh đã công bố bằng mô hình 3D | Vivatheca',
   description: 'Mô hình đầu và cổ: bốn ca bệnh đã công bố được dựng lại bằng 3D (ung thư miệng, u nguyên bào men, nang sừng và ung thư tuyến ở vòm miệng), mỗi ca kèm phim X-quang và ảnh thật, cùng hai mô hình vòm miệng điển hình.',
   home: 'Trang chủ Vivatheca',
   allModels: 'Tất cả mô hình',
   h1: 'Đầu và cổ',
+  termsLabel: 'Tên gọi và phân loại:',
   lede: 'Bệnh ở xương hàm và miệng bằng 3D. Mỗi trang trong bốn trang ca bệnh theo một bệnh nhân thật đã được công bố: mô hình 3D khớp với phim X-quang và ảnh của họ, cho thấy phần phẫu thuật viên đã cắt bỏ và cách đóng khuyết hổng, và giải thích lý do.',
   viewOnly: '<b>Hiện chỉ xem 3D.</b> Tệp in sẽ có khi các mô hình được hoàn thiện, nhưng hiện chưa có.',
   groupPalate: 'Vòm miệng',
@@ -38,13 +39,13 @@ window.VIVA_VI = {
     + '<tr><td>U tuyến đa hình (lành tính)</td><td>Cắt rộng tại chỗ</td><td>Viền niêm mạc bình thường cùng màng xương</td><td>Không</td><td>Niêm mạc vòm miệng và màng xương</td><td>Tự lành, hoặc vạt tại chỗ</td></tr>'
     + '<tr><td>Ung thư biểu mô tuyến dạng nang</td><td>Cắt xương hàm trên kèm các mỏm chân bướm</td><td>Ít nhất 10 mm; 20 mm lên trên dọc dây thần kinh</td><td>16–17 cùng xương; 15 nhổ ở đường cắt</td><td>Vòm miệng, lợi và sàn xoang</td><td>Vạt tự do (có thể hiện) hoặc hàm bịt</td></tr>',
   casesH: 'Bốn ca bệnh thật',
-  card_scc: 'Ung thư miệng ở hàm dưới',
+  card_scc: '<span class="pitk-skip">Ung thư biểu mô tế bào vảy nướu hàm dưới: cắt đoạn xương hàm dưới và tái tạo bằng vạt xương mác tự do</span>',
   card_scc_d: 'Cắt bỏ hàm dưới bên phải và tái tạo bằng xương cẳng chân (xương mác), như ở một phụ nữ 72 tuổi.',
-  card_ameloblastoma: 'U nguyên bào men',
+  card_ameloblastoma: '<span class="pitk-skip">U nguyên bào men xương hàm dưới: cắt bờ xương hàm dưới</span>',
   card_ameloblastoma_d: 'Cắt bỏ phần trên hàm dưới bên trái cùng bốn răng; một nẹp giữ cho bờ mỏng còn lại vững chắc.',
-  card_okc: 'Nang sừng',
+  card_okc: '<span class="pitk-skip">Nang sừng do răng xương hàm dưới: bóc nang và mài xương ngoại vi</span>',
   card_okc_d: 'Lấy bỏ túi nang ở chóp hai chân răng và mài thành xương; tám cách điều trị, kèm tỷ lệ tái phát của từng cách.',
-  card_mec: 'Ung thư tuyến nước bọt nhỏ ở vòm miệng',
+  card_mec: '<span class="pitk-skip">Ung thư biểu mô nhầy – biểu bì độ thấp ở khẩu cái cứng: cắt rộng tại chỗ</span>',
   card_mec_d: 'Lấy bỏ khối u cùng một viền niêm mạc; giữ lại xương; lành dưới một tấm che.',
   typicalH: 'Hai mô hình vòm miệng khác',
   typicalP: 'Hai mô hình này thể hiện một ca điển hình dựng theo hướng dẫn đã công bố, không theo một bệnh nhân cụ thể.',

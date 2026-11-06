@@ -2,12 +2,13 @@
 // html maps the English content of each lang="en" element to Vietnamese; when the English changes, update the key
 // too, or that element stays in English.
 window.VT_VI_PAGE = {
- "title": "Mão thép cho răng sau của trẻ | Vivatheca",
+ "title": "Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới | Vivatheca",
  "description": "Mô hình 3D tương tác về một răng sau của trẻ: khỏe mạnh, sâu lớn, trám lớn, mài chuẩn bị bọc mão và có mão thép không gỉ. Kèm bằng chứng về mão răng, có trích dẫn.",
  "html": {
   "Vivatheca home": "Trang chủ Vivatheca",
   "All models": "Tất cả mô hình",
-  "Steel crown on a child's back tooth": "Mão thép cho răng sau của trẻ",
+  "<span class=\"pitk-skip\">Preformed metal (stainless steel) crown on a mandibular second primary molar</span>": "<span class=\"pitk-skip\">Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới</span>",
+  "Name and classification:": "Tên gọi và phân loại:",
   "<span class=\"status\">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href=\"/disclaimer\">Full disclaimer</a>": "<span class=\"status\">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href=\"/disclaimer\">Toàn văn tuyên bố miễn trừ trách nhiệm</a>",
   "Healthy": "Khỏe mạnh",
   "normal": "bình thường",

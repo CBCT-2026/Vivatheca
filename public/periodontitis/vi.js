@@ -1,10 +1,11 @@
 // Vietnamese text for this page (unreviewed AI draft; English prevails). Same keys as ja.js.
 window.VT_VI = {
-  title: 'Bệnh nha chu (viêm nha chu): giai đoạn I đến IV bằng 3D | Vivatheca',
+  title: 'Viêm nha chu giai đoạn I đến IV (phân loại AAP/EFP 2017) (3D) | Vivatheca',
   description: 'Mô hình 3D tương tác của xương hàm dưới khỏe mạnh và viêm nha chu giai đoạn I đến IV, kèm tiêu chí giai đoạn và mức độ của Hội thảo Thế giới 2017 và nguồn tài liệu. Xem và in 3D miễn phí.',
   home: 'Trang chủ Vivatheca',
   allModels: 'Tất cả mô hình',
-  h1: 'Bệnh nha chu (viêm nha chu): giai đoạn I đến IV',
+  h1: '<span class="pitk-skip">Viêm nha chu giai đoạn I đến IV (phân loại AAP/EFP 2017)</span>',
+  termsLabel: 'Tên gọi và phân loại:',
   chooseStage: 'Chọn giai đoạn',
   bHealthy: 'Khỏe mạnh<small>không có bệnh</small>',
   b1: 'Giai đoạn I<small>khởi phát</small>',
