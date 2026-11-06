@@ -1,5 +1,6 @@
 {
   "neutral-wording": [
+    { "file": "public/orthognathic/index.html", "match": "<li id=\"ref-28\">He S,", "reason": "Author surname He (He S et al. 2025) in a reference, not a pronoun." },
     { "file": "app/i18n/dictionaries/en.ts", "match": "What did Hunsuck change", "reason": "Historical surgeon (Hunsuck), named in a cited source; not about Luke or a site user. Pending Luke's decision on case wording." },
     { "file": "app/i18n/dictionaries/en.ts", "match": "as on her X-ray", "reason": "Published SCC case report states the patient's sex. Pending Luke's decision on case wording." },
     { "file": "public/head-neck/ameloblastoma/index.html", "reason": "Published case report states the patient's sex. Pending Luke's decision on case wording." },
