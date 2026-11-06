@@ -80,7 +80,7 @@ export const fullDisclaimer: DisclaimerSection[] = [
   {
     heading: 'Contact',
     paragraphs: [
-      'Questions or errors in a model: hello@vivatheca.com. This disclaimer is governed by the law of South Australia.',
+      'Questions or errors in a model: vivatheca@gmail.com. This disclaimer is governed by the law of South Australia.',
     ],
   },
 ];

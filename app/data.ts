@@ -83,8 +83,8 @@ export function contributionPaths(t: Dictionary) {
   const c = t.contribute;
   return [
     { icon: 'health_and_safety', ...c.report, href: '/report' },
-    { icon: 'school', ...c.join, href: 'mailto:hello@vivatheca.com?subject=Join%20clinical%20review' },
-    { icon: '3d_rotation', ...c.request, href: 'mailto:hello@vivatheca.com?subject=Model%20request' },
+    { icon: 'school', ...c.join, href: 'mailto:vivatheca@gmail.com?subject=Join%20clinical%20review' },
+    { icon: '3d_rotation', ...c.request, href: 'mailto:vivatheca@gmail.com?subject=Model%20request' },
   ];
 }
 

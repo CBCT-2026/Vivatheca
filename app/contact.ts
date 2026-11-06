@@ -3,12 +3,11 @@
 // and copied by hand into the static pages: public/contact.js (most model pages) and the
 // "CONTACT" blocks in public/development/index.html and public/cracked-tooth/index.html.
 //
-// PLACEHOLDERS: Luke has not given the real Instagram and X handles yet, and the email is the
-// address the site already used before this change. Fill them in here. An empty handle shows
+// PLACEHOLDERS: Luke has not given the real Instagram and X handles yet. Fill them in here. An empty handle shows
 // a button with no destination yet, so the site never points at someone else's account.
 export const contact = {
-  /** PLACEHOLDER: confirm this is the address Vivatheca should be contacted on. */
-  email: 'hello@vivatheca.com',
+  /** Confirmed by Luke, 2026-11-06. */
+  email: 'vivatheca@gmail.com',
   /** PLACEHOLDER: Instagram handle without the @, e.g. 'vivatheca'. Empty = not live yet. */
   instagram: '',
   /** PLACEHOLDER: X (Twitter) handle without the @, e.g. 'vivatheca'. Empty = not live yet. */

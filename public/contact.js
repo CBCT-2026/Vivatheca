@@ -2,7 +2,7 @@
 // (the app's single config). When the Instagram/X handles are known, fill them in below:
 // an empty handle shows a button with no destination yet (Luke, 2026-11-06).
 (function () {
-  const contact = { email: 'hello@vivatheca.com', instagram: '', x: '' };
+  const contact = { email: 'vivatheca@gmail.com', instagram: '', x: '' };
 
   const text = {
     en: { h: 'Contact us', intro: 'Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.', email: 'Email',

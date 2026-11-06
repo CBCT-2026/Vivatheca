@@ -39,7 +39,7 @@ export default async function PrivacyPage() {
 
         <section aria-labelledby="contact">
           <h2 id="contact"><Ruby text={p.contactHeading} /></h2>
-          <p><Ruby text={p.contact} /> <a href="mailto:hello@vivatheca.com?subject=Privacy%20question">hello@vivatheca.com</a>.</p>
+          <p><Ruby text={p.contact} /> <a href="mailto:vivatheca@gmail.com?subject=Privacy%20question">vivatheca@gmail.com</a>.</p>
         </section>
       </main>
       <SiteFooter />
