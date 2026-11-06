@@ -1120,3 +1120,9 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .slices-position output { font-variant-numeric: tabular-nums; color: var(--text-strong); }
 .slices-position a { color: var(--accent); }
 @media (max-width: 720px) { .slices-canvas { aspect-ratio: 1 / 1; } }
+
+/* Averaged jaw page (/models/averaged-jaw): one viewer column, provenance table. */
+.averaged-jaw-experience { grid-template-columns: 1fr; min-height: 560px; }
+.averaged-jaw-page .detail-block { margin-top: 2rem; }
+.averaged-jaw-page .detail-block h2 { margin-bottom: .75rem; }
+.averaged-jaw-table td, .averaged-jaw-table th { white-space: nowrap; }

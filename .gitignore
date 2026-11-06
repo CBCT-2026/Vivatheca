@@ -51,3 +51,7 @@ tsconfig.tsbuildinfo
 # Model picture checks (tests/pictures)
 .model-pictures/
 model-pictures-report/
+
+__pycache__/
+*.pyc
+tools/segment/out/

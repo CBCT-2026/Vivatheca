@@ -29,6 +29,7 @@ export const catalogue: CatalogueModel[] = [
   { slug: 'head-neck-okc', href: '/head-neck/okc/', image: '/assets/renders/head-neck-okc.webp', version: '1.0', updated: '2026-11-06', icon: 'head' },
   { slug: 'head-neck-mec', href: '/head-neck/mec/', image: '/assets/renders/head-neck-mec.webp', version: '1.0', updated: '2026-11-06', icon: 'head' },
   { slug: 'alveolar-bone-graft', href: '/models/alveolar-bone-graft', image: '/assets/renders/alveolar-bone-graft.webp', version: '0.1', updated: '2026-11-06', icon: 'general-surgery' },
+  { slug: 'averaged-jaw', href: '/models/averaged-jaw', image: '/assets/renders/averaged-jaw.webp', version: '0.1', updated: '2026-11-06', icon: 'general-surgery' },
   { slug: 'orthognathic', href: '/orthognathic/', image: '/assets/renders/orthognathic.webp', version: '0.3', updated: '2026-11-06', icon: 'braces' },
   { slug: 'fixation', href: '/fixation/', image: '/assets/renders/fixation.webp', version: '0.1', updated: '2026-11-06', icon: 'general-surgery' },
 ];

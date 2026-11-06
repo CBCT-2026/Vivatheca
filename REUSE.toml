@@ -84,3 +84,9 @@ path = ["public/sw.js"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 Vivatheca; Workbox runtime (c) Google LLC"
 SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["public/models/averaged-jaw/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Vivatheca, derived from CC BY CT collections credited in provenance.json"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
