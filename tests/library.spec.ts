@@ -80,3 +80,11 @@ test('every static model page links home and back to the library', async ({ page
     await expect(page.locator(`.library-card a[href="${route}"]`), route).toHaveCount(1);
   }
 });
+
+test('unknown pages show a 404 with the site header, a way back and the disclaimer', async ({ page }) => {
+  const response = await page.goto('/no-such-page');
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole('heading', { level: 1, name: 'We could not find that page' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Browse all models' })).toHaveAttribute('href', '/models');
+  await expect(page.getByText('Vivatheca is for general education only.')).toBeVisible();
+});

@@ -41,6 +41,13 @@
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); renderer.outputEncoding = THREE.sRGBEncoding;
   box.prepend(renderer.domElement);
+  // Screen readers get a text label for the 3D view (the page heading, without furigana readings).
+  (function labelCanvas() {
+    const h = document.querySelector('h1'); if (!h) return;
+    const c = h.cloneNode(true); c.querySelectorAll('rt, rp').forEach((r) => r.remove());
+    renderer.domElement.setAttribute('role', 'img');
+    renderer.domElement.setAttribute('aria-label', (document.documentElement.lang === 'ja' ? '3Dモデル: ' : '3D model: ') + c.textContent.trim());
+  })();
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 4 / 3, 0.005, 5);
   const controls = new THREE.OrbitControls(camera, renderer.domElement);

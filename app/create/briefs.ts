@@ -26,7 +26,7 @@ export const modelBriefs: ModelBrief[] = [
       { plain: 'Jaw nerve', medical: 'inferior alveolar nerve' },
       { plain: 'Chin nerve', medical: 'mental nerve' },
     ],
-    normalComparison: 'A lower jaw where the wisdom tooth has come through fully upright (model planned).',
+    normalComparison: 'The same lower jaw with the wisdom tooth fully through and upright (matched normal model, shown side by side on the model page).',
   },
   {
     id: 'oroantral',

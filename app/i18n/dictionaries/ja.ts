@@ -854,6 +854,14 @@ const ja: Dictionary = {
     helpRequest: '{模型|もけい}をリクエスト',
     helpRequestAfter: '：{患者|かんじゃ}さんへの{説明|せつめい}に{使|つか}いたいもの。',
   },
+  notFound: {
+    title: 'ページが見つかりません — Vivatheca',
+    eyebrow: 'エラー 404',
+    heading: 'このページは{見|み}つかりませんでした',
+    intro: 'リンクが{古|ふる}いか、ページが{移動|いどう}した{可能性|かのうせい}があります。すべての{模型|もけい}は{模型|もけい}ライブラリーにあります。',
+    models: 'すべての{模型|もけい}を{見|み}る',
+    home: 'Vivatheca のホームへ',
+  },
   privacy: {
     title: 'プライバシー — Vivatheca',
     description: 'Vivathecaがサイト利用時に収集する情報と、収集しない情報。',
