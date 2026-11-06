@@ -63,13 +63,17 @@
   "en": "15063d5da27b",
   "ja": "0455a6d5e483"
  },
+ "/models/averaged-jaw": {
+  "en": "a34bedcf4112",
+  "ja": "4afafba2ba20"
+ },
  "/models/impacted-wisdom-tooth": {
   "en": "372f329480b1",
   "ja": "5cc64936b4fe"
  },
  "/models": {
-  "en": "bc0309718a0a",
-  "ja": "e1d56a45e650"
+  "en": "d2e28a9fa34e",
+  "ja": "c2e5353fb45b"
  },
  "/": {
   "en": "9de30f7c3e67",
@@ -92,8 +96,8 @@
   "ja": "a3c5c6083ba7"
  },
  "/used": {
-  "en": "d4b1b9b5cb67",
-  "ja": "70b2f1bd1b4d"
+  "en": "082cfe0c3a4a",
+  "ja": "e6d4a3c04ce8"
  },
  "/cracked-tooth/": {
   "en": "f13466bf3cea",
@@ -109,23 +113,23 @@
  },
  "/head-neck/": {
   "en": "4f1c3f0501d7",
-  "ja": "2d781d35466c"
+  "ja": "6f97be05027f"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "5002a3781b85",
+  "en": "302a05354b28",
   "ja": "84cff96e0bf2"
  },
  "/head-neck/mec/": {
-  "en": "47d73c50489a",
+  "en": "42dca3a1ed97",
   "ja": "7fb5a9e41512"
  },
  "/head-neck/okc/": {
-  "en": "9612a0b0b937",
-  "ja": "30a2ba37b63e"
+  "en": "efcd3f9c9027",
+  "ja": "468a70189a9e"
  },
  "/head-neck/scc/": {
-  "en": "b244ca60aa0e",
-  "ja": "22869c9543a9"
+  "en": "137335bbb063",
+  "ja": "3b49a1f6358f"
  },
  "/oroantral/": {
   "en": "e8d29778c84b",

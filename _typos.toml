@@ -28,6 +28,7 @@ locale = "en"
 
 [default.extend-words]
 # Author surnames and journal abbreviations in citations
+Comput = "Comput"  # Int J Comput Assist Radiol Surg
 Lew = "Lew"
 Pont = "Pont"
 Atack = "Atack"

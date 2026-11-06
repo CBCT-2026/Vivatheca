@@ -1551,6 +1551,9 @@ const vi = withFallback(en, {
     "videoBadge": "Video",
     "watchVideo": "Xem video {s} giây",
     "items": {
+      "averaged-jaw": {
+        "title": "Xương hàm dưới và cung răng dưới trung bình của người trưởng thành: trung bình thống kê từ các phim CT công khai"
+      },
       "fixation": {
         "title": "Cố định trong xương hàm dưới: kết hợp xương bằng nẹp nhỏ và nẹp tái tạo"
       },
