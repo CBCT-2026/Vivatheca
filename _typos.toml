@@ -1,0 +1,45 @@
+# Spell check for page text, docs and code (crate-ci/typos, run in .github/workflows/spelling.yml).
+# typos only flags known misspellings, so it accepts both British and American spelling.
+# Add real words it wrongly flags (author names, journal abbreviations, terms) below.
+
+[files]
+extend-exclude = [
+  "public/vendor/**",
+  "public/**/vendor/**",
+  "public/pagefind/**",
+  "assets/flags/**",
+  "LICENSES/**",
+  "output/**",
+  "*.glb", "*.stl", "*.3mf", "*.zip", "*.nvol", "*.docx", "*.pdf",
+  # Non-English dictionaries: typos only knows English words.
+  "app/i18n/dictionaries/ja.ts",
+  "app/i18n/dictionaries/zh.ts",
+  "app/i18n/dictionaries/vi.ts",
+]
+
+[default]
+# Long random tokens (verification codes, hashes) are not words.
+extend-ignore-re = ["[A-Za-z0-9_-]{30,}"]
+locale = "en"
+
+[default.extend-words]
+# Author surnames and journal abbreviations in citations
+Lew = "Lew"
+Pont = "Pont"
+Atack = "Atack"
+Restor = "Restor"  # J Esthet Restor Dent
+Mak = "Mak"        # BMC Med Inform Decis Mak
+Brach = "Brach"   # Shoemaker SJ, Wolf MS, Brach C (PEMAT)
+technic = "technic" # historic title: "the Le Fort I osteotomy technic"
+# Products, licences and abbreviations
+Canva = "Canva"
+ND = "ND"          # Creative Commons NoDerivatives
+fre = "fre"        # Flesch Reading Ease
+ABD = "ABD"
+MUC = "MUC"
+PN = "PN"
+BA = "BA"
+metalness = "metalness" # glTF material property
+clen = "clen"
+iy = "iy"
+nd = "nd"

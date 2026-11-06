@@ -1,0 +1,23 @@
+name: Spelling
+
+# Flags common misspellings in page text, docs and code (crate-ci/typos, MIT/Apache-2.0).
+# Settings and allowed words: _typos.toml.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: spelling-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  typos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: crate-ci/typos@v1.52.0
