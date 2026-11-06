@@ -10,6 +10,7 @@ import { CopyCitation } from './copy-citation';
 import { disclaimerHref } from '../../disclaimer-text';
 import { localeTags } from '../../i18n/config';
 import { format } from '../../i18n/dictionaries';
+import { ShowActions } from '../../show/quick';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { TermSources } from '../terms';
@@ -44,6 +45,7 @@ export default async function WisdomToothPage() {
           <p className="eyebrow"><Ruby text={item.specialty} /></p>
           <h1><Ruby text={item.title} /></h1>
           <TermSources label={t.library.termsLabel} terms={model.terms} />
+          <ShowActions slug="impacted-wisdom-tooth" />
           <p><Ruby text={item.summary} /></p>
         </div>
 

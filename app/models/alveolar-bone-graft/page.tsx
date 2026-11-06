@@ -7,6 +7,7 @@ import { catalogue, licence } from '../catalogue';
 import { abgCitation, abgFiles } from '../../abg';
 import { disclaimerHref } from '../../disclaimer-text';
 import { CopyCitation } from '../impacted-wisdom-tooth/copy-citation';
+import { ShowActions } from '../../show/quick';
 import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { TermSources } from '../terms';
@@ -42,6 +43,7 @@ export default async function AlveolarBoneGraftPage() {
           <p className="eyebrow"><Ruby text={item.specialty} /></p>
           <h1><Ruby text={item.title} /></h1>
           <TermSources label={t.library.termsLabel} terms={model.terms} />
+          <ShowActions slug="alveolar-bone-graft" />
           <p><Ruby text={item.summary} /></p>
         </div>
         <ModelExperience />
