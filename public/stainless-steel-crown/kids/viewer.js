@@ -97,31 +97,31 @@ const STAGES = {
     },
   },
 };
-// What Sunny (the guide character, original to Vivatheca) says at each step: a peer telling their own
+// What Ashley (the guide character, original to Vivatheca) says at each step: a peer telling their own
 // visit (modelling), showing the stop signal, tell-show-do and descriptive praise (AAPD behaviour guidance).
 const SAY = {
   healthy: {
-    en: 'Hi, I\'m Sunny! This is Bolt, my pangolin friend. Bolt has tough scales, like armour.',
-    ja: 'こんにちは、サニーです！こっちは、センザンコウのボルト。かたいうろこが、よろいみたいなんだ。',
-    vi: 'Chào bạn, mình là Sunny! Đây là Bolt, bạn tê tê của mình. Bolt có lớp vảy cứng như áo giáp.',
+    en: 'Hi, I\'m Ashley! This is Oscar, my pangolin friend. Oscar has tough scales, like armour.',
+    ja: 'こんにちは、アシュリーです！こっちは、センザンコウのオスカー。かたいうろこが、よろいみたいなんだ。',
+    vi: 'Chào bạn, mình là Ashley! Đây là Oscar, bạn tê tê của mình. Oscar có lớp vảy cứng như áo giáp.',
   },
   decay: {
-    en: 'My dentist used a little mirror to show me the holes in my tooth. Bolt saw them too.',
-    ja: '{歯医者|はいしゃ}さんが{小|ちい}さなかがみで、{歯|は}の{穴|あな}を{見|み}せてくれたよ。ボルトも{見|み}たよ。',
-    vi: 'Nha sĩ dùng một chiếc gương nhỏ để cho mình xem lỗ sâu trên răng. Bolt cũng xem nữa.',
+    en: 'My dentist used a little mirror to show me the holes in my tooth. Oscar saw them too.',
+    ja: '{歯医者|はいしゃ}さんが{小|ちい}さなかがみで、{歯|は}の{穴|あな}を{見|み}せてくれたよ。オスカーも{見|み}たよ。',
+    vi: 'Nha sĩ dùng một chiếc gương nhỏ để cho mình xem lỗ sâu trên răng. Oscar cũng xem nữa.',
   },
   prepared: {
-    en: 'I lifted my hand once, and my dentist stopped for a rest, just like we agreed. I held Bolt tight.',
-    ja: '{一回|いっかい}{手|て}をあげたら、{約束|やくそく}どおり{歯医者|はいしゃ}さんが{止|と}まってくれたよ。ボルトをぎゅっとだっこしてたんだ。',
-    vi: 'Mình giơ tay một lần, và nha sĩ dừng lại nghỉ, đúng như đã hẹn. Mình ôm chặt Bolt.',
+    en: 'I lifted my hand once, and my dentist stopped for a rest, just like we agreed. I held Oscar tight.',
+    ja: '{一回|いっかい}{手|て}をあげたら、{約束|やくそく}どおり{歯医者|はいしゃ}さんが{止|と}まってくれたよ。オスカーをぎゅっとだっこしてたんだ。',
+    vi: 'Mình giơ tay một lần, và nha sĩ dừng lại nghỉ, đúng như đã hẹn. Mình ôm chặt Oscar.',
   },
   crown: {
-    en: 'Now my tooth has a shiny crown, like Bolt\'s armour! My dentist said, “Thank you for sitting so still.”',
-    ja: '{歯|は}にぴかぴかのかぶせ{物|もの}がついたよ。ボルトのよろいみたい！「じっとしてくれてありがとう」って{言|い}われたよ。',
-    vi: 'Giờ răng mình có mão sáng bóng, giống áo giáp của Bolt! Nha sĩ nói: “Cảm ơn con đã ngồi yên.”',
+    en: 'Now my tooth has a shiny crown, like Oscar\'s armour! My dentist said, “Thank you for sitting so still.”',
+    ja: '{歯|は}にぴかぴかのかぶせ{物|もの}がついたよ。オスカーのよろいみたい！「じっとしてくれてありがとう」って{言|い}われたよ。',
+    vi: 'Giờ răng mình có mão sáng bóng, giống áo giáp của Oscar! Nha sĩ nói: “Cảm ơn con đã ngồi yên.”',
   },
 };
-const SUNNY = { en: 'Sunny says', ja: 'サニーより', vi: 'Sunny kể' };
+const ASHLEY = { en: 'Ashley says', ja: 'アシュリーより', vi: 'Ashley kể' };
 const STEP = { en: 'Step {n} of 4', ja: '4つのうち{n}つめ', vi: 'Bước {n} / 4' };
 const ALT = {
   en: s => '3D model of ' + s + ', in a block of gum and bone, with the adult tooth (yellow) growing under it.',
@@ -148,7 +148,7 @@ function render() {
   mv.setAttribute('alt', plain(ALT[l](s.alt)));
   caption.innerHTML = '<svg class="pic" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#pic-' + stage + '"/></svg>'
     + '<div><p class="count">' + STEP[l].replace('{n}', n) + '</p><h2>' + ruby(s.title) + '</h2><p>' + ruby(s.text) + '</p>'
-    + '<div class="speech"><svg viewBox="36 14 76 76" role="img" aria-label="' + SUNNY[l] + '"><use href="#sunny-head"/></svg><p>' + ruby(SAY[stage][l]) + '</p></div></div>';
+    + '<div class="speech"><svg viewBox="36 14 76 76" role="img" aria-label="' + ASHLEY[l] + '"><use href="#ashley-head"/></svg><p>' + ruby(SAY[stage][l]) + '</p></div></div>';
   legend.innerHTML = STAGES[stage].legend.map(k => '<li><span class="dot ' + k + '"></span>' + ruby(LEGEND[k][l]) + '</li>').join('');
   stageButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.stage === stage));
   prev.disabled = n === 1;
