@@ -93,7 +93,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/d
 </header>
 <script src="/site-header.js"></script>
 
-<!-- Shared drawings: the guide characters Mika and Bolt the pangolin, and the tooth icons. Original artwork by Vivatheca; teeth not to scale. -->
+<!-- Shared drawings: the guide characters Sunny and Bolt the pangolin, and the tooth icons. Original artwork by Vivatheca; teeth not to scale. -->
 <svg id="kid-art" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f7f9"/><stop offset=".55" stop-color="#c9cbd0"/><stop offset="1" stop-color="#8f9298"/></linearGradient>
@@ -102,7 +102,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/d
     <g id="pic-decay"><use href="#tooth-shape" fill="#5982ce" stroke="#24467f" stroke-width="3" stroke-linejoin="round"/><ellipse fill="#61462b" cx="42" cy="21" rx="7" ry="5"/><ellipse fill="#61462b" cx="77" cy="24" rx="6" ry="5"/><ellipse fill="#61462b" cx="33" cy="48" rx="4" ry="6"/></g>
     <g id="pic-prepared"><use href="#tooth-shape" fill="#5982ce" stroke="#24467f" stroke-width="3" stroke-linejoin="round"/><ellipse fill="#ad98dd" cx="42" cy="21" rx="7" ry="5"/><ellipse fill="#ad98dd" cx="77" cy="24" rx="6" ry="5"/></g>
     <g id="pic-crown"><use href="#tooth-shape" fill="#5982ce" stroke="#24467f" stroke-width="3" stroke-linejoin="round"/><path fill="url(#steel)" stroke="#6d7077" stroke-width="2.5" stroke-linejoin="round" d="M27 22 C27 8 46 5 52 13 C56 17 64 17 68 13 C74 5 93 8 93 22 L95 58 C95 66 89 70 82 70 L38 70 C31 70 25 66 25 58 Z"/></g>
-    <g id="mika-head">
+    <g id="sunny-head">
       <path d="M38 60 C34 28 56 16 74 18 C96 20 110 36 106 62 C105 70 100 76 96 76 C92 62 52 62 48 76 C44 76 39 70 38 60 Z" fill="#2b1d16"/>
       <circle cx="72" cy="58" r="29" fill="#d29a6c"/>
       <path d="M43 52 C44 32 62 24 76 26 C92 28 102 40 101 54 C94 46 86 40 76 42 C70 36 58 38 52 46 C49 49 46 51 43 52 Z" fill="#2b1d16"/>
@@ -112,12 +112,12 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/d
       <circle cx="55" cy="69" r="5" fill="#e88a7a" opacity=".55"/><circle cx="90" cy="69" r="5" fill="#e88a7a" opacity=".55"/>
       <path d="M64 70 Q72.5 80 81 70 Z" fill="#7a2626"/><path d="M66 70.5 L79 70.5 L78 73 L67 73 Z" fill="#fff"/>
     </g>
-    <g id="mika">
+    <g id="sunny">
       <path d="M44 150 L48 104 C50 92 60 86 72 86 C84 86 94 92 96 104 L100 150 Z" fill="#007f8b"/>
       <path d="M62 87 L72 98 L82 87" fill="none" stroke="#e8fbfc" stroke-width="3" stroke-linejoin="round"/>
       <path d="M50 104 C40 116 40 128 50 134" fill="none" stroke="#d29a6c" stroke-width="9" stroke-linecap="round"/>
       <path d="M94 104 C104 112 110 118 116 120" fill="none" stroke="#d29a6c" stroke-width="9" stroke-linecap="round"/>
-      <use href="#mika-head"/>
+      <use href="#sunny-head"/>
     </g>
     <clipPath id="bolt-body-clip"><path d="M118 132 C116 104 140 88 162 92 C182 96 194 114 190 134 Z"/></clipPath>
     <g id="bolt">
@@ -143,11 +143,11 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/d
   <p class="small term-sources pitk-skip"><span lang="en">Dentists call it a preformed metal (stainless steel) crown.</span><span lang="ja">{歯科|しか}では{既製|きせい}{金属|きんぞく}{冠|かん}（ステンレススチールクラウン）と{呼|よ}びます。</span><span lang="vi">Nha sĩ gọi đây là mão kim loại làm sẵn (mão thép không gỉ).</span> <a href="https://doi.org/10.1002/14651858.CD005512.pub3">Innes NPT, et al. Cochrane Database Syst Rev. 2015;(12):CD005512.</a></p>
 
   <div class="hello">
-    <svg class="pic scene" viewBox="30 10 180 145" role="img" aria-labelledby="scene-t"><title id="scene-t">Mika, a child in a teal top, pats Bolt, a friendly pangolin with tough scales.</title><use href="#mika"/><use href="#bolt"/></svg>
+    <svg class="pic scene" viewBox="30 10 180 145" role="img" aria-labelledby="scene-t"><title id="scene-t">Sunny, a child in a teal top, pats Bolt, a friendly pangolin with tough scales.</title><use href="#sunny"/><use href="#bolt"/></svg>
     <div>
-      <p lang="en">Meet Mika and Bolt the pangolin. Mika is getting a crown on a baby tooth, and Bolt is coming too. A crown is like strong silver armour for a tooth. Follow their visit, step by step.</p>
-      <p lang="ja">ミカと、センザンコウのボルトです。ミカは{乳歯|にゅうし}にかぶせ{物|もの}をつけます。ボルトもいっしょに{行|い}きます。かぶせ{物|もの}は、{歯|は}を{守|まも}る{銀色|ぎんいろ}のよろいのようなものです。ふたりといっしょに、{順番|じゅんばん}に{見|み}てみましょう。</p>
-      <p lang="vi">Đây là Mika và bạn tê tê Bolt. Mika sắp được gắn mão lên một chiếc răng sữa, và Bolt cũng đi cùng. Mão răng giống như một bộ áo giáp bạc chắc chắn cho răng. Hãy cùng theo dõi từng bước nhé.</p>
+      <p lang="en">Meet Sunny and Bolt the pangolin. Sunny is getting a crown on a baby tooth, and Bolt is coming too. A crown is like strong silver armour for a tooth. Follow their visit, step by step.</p>
+      <p lang="ja">サニーと、センザンコウのボルトです。サニーは{乳歯|にゅうし}にかぶせ{物|もの}をつけます。ボルトもいっしょに{行|い}きます。かぶせ{物|もの}は、{歯|は}を{守|まも}る{銀色|ぎんいろ}のよろいのようなものです。ふたりといっしょに、{順番|じゅんばん}に{見|み}てみましょう。</p>
+      <p lang="vi">Đây là Sunny và bạn tê tê Bolt. Sunny sắp được gắn mão lên một chiếc răng sữa, và Bolt cũng đi cùng. Mão răng giống như một bộ áo giáp bạc chắc chắn cho răng. Hãy cùng theo dõi từng bước nhé.</p>
     </div>
   </div>
   <a class="grownup-link" href="/stainless-steel-crown/"><span lang="en">For grown-ups: the full page with all the evidence →</span><span lang="ja">{大人|おとな}の{方|かた}へ：{根拠|こんきょ}をすべてのせたページ →</span><span lang="vi">Dành cho người lớn: trang đầy đủ với mọi bằng chứng →</span></a>
@@ -304,13 +304,13 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/d
       </div>
       <div lang="ja">
         <p>{伝|つた}え{方|かた}：AAPDの{基本的|きほんてき}な{行動|こうどう}{誘導|ゆうどう}（テル・ショウ・ドゥ、{来院前|らいいんまえ}の{前向|まえむ}きな{画像|がぞう}、アスク・テル・アスク、ストップの{合図|あいず}、{気|き}そらし、{具体的|ぐたいてき}な{称賛|しょうさん}）。<sup class="cite"><a href="#ref-3">3</a></sup>2023{年|ねん}のAAPD{診療|しんりょう}ガイドライン（{系統的|けいとうてき}レビュー8{件|けん}、GRADE）の{推奨|すいしょう}はすべて{条件付|じょうけんつ}きで、{根拠|こんきょ}の{確実性|かくじつせい}は{多|おお}くが{非常|ひじょう}に{低|ひく}いです。<sup class="cite"><a href="#ref-4">4</a></sup>このページ{自体|じたい}の{効果|こうか}は{検証|けんしょう}されていません。</p>
-        <p>キャラクター：ミカとセンザンコウのボルトはVivathecaのオリジナルです。ミカが{体験|たいけん}を{語|かた}る{形|かたち}は、モデリング（{直接|ちょくせつ}{観察|かんさつ}）にあたります。<sup class="cite"><a href="#ref-3">3</a></sup>2023{年|ねん}のガイドラインでは、{治療|ちりょう}{時|じ}の{不安|ふあん}を{大|おお}きく{減|へ}らしましたが、{根拠|こんきょ}の{確実性|かくじつせい}は{非常|ひじょう}に{低|ひく}いです。<sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <p>キャラクター：サニーとセンザンコウのボルトはVivathecaのオリジナルです。サニーが{体験|たいけん}を{語|かた}る{形|かたち}は、モデリング（{直接|ちょくせつ}{観察|かんさつ}）にあたります。<sup class="cite"><a href="#ref-3">3</a></sup>2023{年|ねん}のガイドラインでは、{治療|ちりょう}{時|じ}の{不安|ふあん}を{大|おお}きく{減|へ}らしましたが、{根拠|こんきょ}の{確実性|かくじつせい}は{非常|ひじょう}に{低|ひく}いです。<sup class="cite"><a href="#ref-4">4</a></sup></p>
         <p>{言葉|ことば}：{発達|はったつ}{段階|だんかい}に{合|あ}う、{怖|こわ}がらせない{表現|ひょうげん}を{使|つか}いました。<sup class="cite"><a href="#ref-3">3</a></sup>{注射|ちゅうしゃ}{針|ばり}やタービンなどの{器具|きぐ}{名|めい}は{出|だ}さず、{歯科医師|しかいし}が{見|み}せる{前提|ぜんてい}です。{無痛|むつう}は{約束|やくそく}せず、ホール・テクニックの{不快感|ふかいかん}と{術後|じゅつご}のしびれを{記載|きさい}しています。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
         <p>モデル：{医療者向|いりょうしゃむ}けページと{同|おな}じ{下顎|かがく}{第二|だいに}{乳臼歯|にゅうきゅうし}（75）と{第二|だいに}{小臼歯|しょうきゅうし}（35）。5{段階|だんかい}のうち4つ（{大|おお}きな{詰|つ}め{物|もの}は{省略|しょうりゃく}）。{色|いろ}だけを{変|か}え、{乳歯|にゅうし}は{青|あお}、{永久歯|えいきゅうし}は{黄色|きいろ}です（{発達|はったつ}モデルと{同|おな}じ{基準|きじゅん}）。{絵|え}はVivathecaが{描|か}いたもので、{縮尺|しゅくしゃく}は{正確|せいかく}ではありません。</p>
       </div>
       <div lang="vi">
         <p>Cách truyền đạt: các kỹ thuật hướng dẫn hành vi cơ bản của AAPD, gồm nói-cho xem-làm, hình ảnh tích cực trước buổi khám, hỏi-nói-hỏi, tăng quyền kiểm soát (tín hiệu dừng), đánh lạc hướng và lời khen cụ thể.<sup class="cite"><a href="#ref-3">3</a></sup> Hướng dẫn thực hành lâm sàng AAPD 2023 (8 tổng quan hệ thống, GRADE) chỉ đưa ra khuyến nghị có điều kiện, phần lớn dựa trên bằng chứng có độ chắc chắn rất thấp.<sup class="cite"><a href="#ref-4">4</a></sup> Chưa có nghiên cứu nào đánh giá trang này.</p>
-        <p>Nhân vật: Mika và bạn tê tê Bolt là nhân vật riêng của Vivatheca, không dùng nhân vật của bên thứ ba. Mika kể lại buổi khám như một bạn đồng trang lứa, tức là một hình thức làm mẫu (quan sát trực tiếp),<sup class="cite"><a href="#ref-3">3</a></sup> cách này giảm lo âu rõ rệt khi điều trị trong hướng dẫn 2023, nhưng bằng chứng có độ chắc chắn rất thấp.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <p>Nhân vật: Sunny và bạn tê tê Bolt là nhân vật riêng của Vivatheca, không dùng nhân vật của bên thứ ba. Sunny kể lại buổi khám như một bạn đồng trang lứa, tức là một hình thức làm mẫu (quan sát trực tiếp),<sup class="cite"><a href="#ref-3">3</a></sup> cách này giảm lo âu rõ rệt khi điều trị trong hướng dẫn 2023, nhưng bằng chứng có độ chắc chắn rất thấp.<sup class="cite"><a href="#ref-4">4</a></sup></p>
         <p>Từ ngữ: phù hợp với mức phát triển của trẻ và không gây sợ hãi, theo khuyến nghị của AAPD.<sup class="cite"><a href="#ref-3">3</a></sup> Không nêu tên dụng cụ (kim tiêm, tay khoan); nha sĩ có thể cho trẻ xem. Trang không hứa hẹn hoàn toàn không đau: có nêu sự khó chịu của kỹ thuật Hall và cảm giác tê sau điều trị.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></p>
         <p>Mô hình: cùng răng cối sữa thứ hai hàm dưới (75) và răng cối nhỏ thứ hai (35) như trang dành cho nhân viên y tế, 4 trong 5 giai đoạn (bỏ phần so sánh miếng trám lớn). Chỉ đổi màu: răng sữa màu xanh dương, răng vĩnh viễn màu vàng, theo chuẩn của mô hình phát triển răng. Hình vẽ do Vivatheca vẽ, không theo tỉ lệ.</p>
       </div>
@@ -322,7 +322,7 @@ self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/d
     <p lang="en"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
     <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
     <p lang="vi" class="small"><strong>Chưa được thẩm định lâm sàng.</strong> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a> Bản tiếng Việt là bản nháp do AI dịch, chưa được người nói tiếng Việt thẩm định; nếu có khác biệt, bản tiếng Anh được ưu tiên.</p>
-    <p class="small"><span lang="en">Prototype, version 0.1 of this view. Same 3D model as the <a href="/stainless-steel-crown/">steel crown page</a>, with the baby tooth in blue and the adult tooth in yellow. Mika and Bolt are made-up characters. The tooth drawings are simple pictures, not real teeth, and not to scale. This page has not yet been tested with children or parents.</span><span lang="ja">この{表示|ひょうじ}のプロトタイプ（{版|はん}0.1）。<a href="/stainless-steel-crown/">{金属|きんぞく}のかぶせ{物|もの}のページ</a>と{同|おな}じ3Dモデルで、{乳歯|にゅうし}を{青|あお}、{大人|おとな}の{歯|は}を{黄色|きいろ}にしています。ミカとボルトは{作|つく}られたキャラクターです。{歯|は}の{絵|え}は{本物|ほんもの}の{歯|は}ではなく、{大|おお}きさも{正確|せいかく}ではありません。このページはまだ{子|こ}どもや{保護者|ほごしゃ}との{試用|しよう}をしていません。</span><span lang="vi">Bản mẫu, phiên bản 0.1 của phần này. Dùng cùng mô hình 3D với <a href="/stainless-steel-crown/">trang mão thép</a>, với răng sữa màu xanh dương và răng người lớn màu vàng. Mika và Bolt là nhân vật hư cấu. Hình vẽ răng chỉ là minh họa đơn giản, không phải răng thật và không theo tỉ lệ. Trang này chưa được thử nghiệm với trẻ em hay phụ huynh.</span></p>
+    <p class="small"><span lang="en">Prototype, version 0.1 of this view. Same 3D model as the <a href="/stainless-steel-crown/">steel crown page</a>, with the baby tooth in blue and the adult tooth in yellow. Sunny and Bolt are made-up characters. The tooth drawings are simple pictures, not real teeth, and not to scale. This page has not yet been tested with children or parents.</span><span lang="ja">この{表示|ひょうじ}のプロトタイプ（{版|はん}0.1）。<a href="/stainless-steel-crown/">{金属|きんぞく}のかぶせ{物|もの}のページ</a>と{同|おな}じ3Dモデルで、{乳歯|にゅうし}を{青|あお}、{大人|おとな}の{歯|は}を{黄色|きいろ}にしています。サニーとボルトは{作|つく}られたキャラクターです。{歯|は}の{絵|え}は{本物|ほんもの}の{歯|は}ではなく、{大|おお}きさも{正確|せいかく}ではありません。このページはまだ{子|こ}どもや{保護者|ほごしゃ}との{試用|しよう}をしていません。</span><span lang="vi">Bản mẫu, phiên bản 0.1 của phần này. Dùng cùng mô hình 3D với <a href="/stainless-steel-crown/">trang mão thép</a>, với răng sữa màu xanh dương và răng người lớn màu vàng. Sunny và Bolt là nhân vật hư cấu. Hình vẽ răng chỉ là minh họa đơn giản, không phải răng thật và không theo tỉ lệ. Trang này chưa được thử nghiệm với trẻ em hay phụ huynh.</span></p>
     <p class="small credit">3D model: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: lower first molar, its pulp and the second premolar extracted, resized and reshaped; decay, filling, trimming, cement, crown, gum and bone added; tooth colours changed for this view. This model is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
   </section>
 

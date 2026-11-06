@@ -97,13 +97,13 @@ const STAGES = {
     },
   },
 };
-// What Mika (the guide character, original to Vivatheca) says at each step: a peer telling their own
+// What Sunny (the guide character, original to Vivatheca) says at each step: a peer telling their own
 // visit (modelling), showing the stop signal, tell-show-do and descriptive praise (AAPD behaviour guidance).
 const SAY = {
   healthy: {
-    en: 'Hi, I\'m Mika! This is Bolt, my pangolin friend. Bolt has tough scales, like armour.',
-    ja: 'こんにちは、ミカです！こっちは、センザンコウのボルト。かたいうろこが、よろいみたいなんだ。',
-    vi: 'Chào bạn, mình là Mika! Đây là Bolt, bạn tê tê của mình. Bolt có lớp vảy cứng như áo giáp.',
+    en: 'Hi, I\'m Sunny! This is Bolt, my pangolin friend. Bolt has tough scales, like armour.',
+    ja: 'こんにちは、サニーです！こっちは、センザンコウのボルト。かたいうろこが、よろいみたいなんだ。',
+    vi: 'Chào bạn, mình là Sunny! Đây là Bolt, bạn tê tê của mình. Bolt có lớp vảy cứng như áo giáp.',
   },
   decay: {
     en: 'My dentist used a little mirror to show me the holes in my tooth. Bolt saw them too.',
@@ -121,7 +121,7 @@ const SAY = {
     vi: 'Giờ răng mình có mão sáng bóng, giống áo giáp của Bolt! Nha sĩ nói: “Cảm ơn con đã ngồi yên.”',
   },
 };
-const MIKA = { en: 'Mika says', ja: 'ミカより', vi: 'Mika kể' };
+const SUNNY = { en: 'Sunny says', ja: 'サニーより', vi: 'Sunny kể' };
 const STEP = { en: 'Step {n} of 4', ja: '4つのうち{n}つめ', vi: 'Bước {n} / 4' };
 const ALT = {
   en: s => '3D model of ' + s + ', in a block of gum and bone, with the adult tooth (yellow) growing under it.',
@@ -148,7 +148,7 @@ function render() {
   mv.setAttribute('alt', plain(ALT[l](s.alt)));
   caption.innerHTML = '<svg class="pic" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#pic-' + stage + '"/></svg>'
     + '<div><p class="count">' + STEP[l].replace('{n}', n) + '</p><h2>' + ruby(s.title) + '</h2><p>' + ruby(s.text) + '</p>'
-    + '<div class="speech"><svg viewBox="36 14 76 76" role="img" aria-label="' + MIKA[l] + '"><use href="#mika-head"/></svg><p>' + ruby(SAY[stage][l]) + '</p></div></div>';
+    + '<div class="speech"><svg viewBox="36 14 76 76" role="img" aria-label="' + SUNNY[l] + '"><use href="#sunny-head"/></svg><p>' + ruby(SAY[stage][l]) + '</p></div></div>';
   legend.innerHTML = STAGES[stage].legend.map(k => '<li><span class="dot ' + k + '"></span>' + ruby(LEGEND[k][l]) + '</li>').join('');
   stageButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.stage === stage));
   prev.disabled = n === 1;
