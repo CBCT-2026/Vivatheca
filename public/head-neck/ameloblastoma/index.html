@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ameloblastoma in the lower jaw: removing the top of the jaw and adding a plate | Vivatheca</title>
+<meta name="description" content="A 3D model that follows one published case of ameloblastoma in the left lower jaw: rim resection of the jaw with four teeth, and a titanium plate.">
+<meta name="robots" content="noindex">
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+</script>
+<link rel="preload" href="/head-neck/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/head-neck/style.css">
+<link rel="stylesheet" href="/head-neck/condition.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="lang" href="/" data-i18n="home">Vivatheca home</a>
+    <a class="lang" href="/models" data-i18n="allModels">All models</a>
+    <a class="lang" href="/head-neck/" data-i18n="hub">Head and neck</a>
+    <button class="theme" id="theme" type="button" data-dark="Dark mode" data-light="Light mode" data-dark-ja="ダークモード" data-light-ja="ライトモード">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+
+<main>
+<h1 data-i18n="h1">Ameloblastoma in the lower jaw</h1>
+<p class="lede" data-i18n="lede">This 3D model follows one real, published case. A man aged 32 had an ameloblastoma in the front of his left lower jaw. It is a growth that is not cancer, but it keeps growing into bone. Surgeons took out the top part of the jaw with four teeth and kept the lower edge. A metal plate keeps the thin edge strong.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+<div class="note"><p data-i18n="viewOnly"><b>3D viewing only for now.</b> Print files are not available yet.</p></div>
+<div class="viewer" id="viewer" data-model="/head-neck/models/ameloblastoma-case.glb" data-jaw="mandible" data-side="left">
+  <div class="problem" id="status" data-i18n="loading">Loading model…</div>
+  <ul class="vlegend" id="legend" aria-live="polite"></ul>
+  <span class="hint" data-i18n="hint">Drag to rotate · pinch or scroll to zoom</span>
+</div>
+<div class="row stages" role="group" aria-label="Stage" data-i18n-aria="stage">
+  <button type="button" data-stage="pre" aria-pressed="true" data-i18n="s_pre">1 · Before surgery</button>
+  <button type="button" data-stage="op" aria-pressed="false" data-i18n="s_op">2 · What is removed</button>
+  <button type="button" data-stage="post" aria-pressed="false" data-i18n="s_post">3 · What is left</button>
+  <button type="button" data-stage="recon" aria-pressed="false" data-i18n="s_recon">4 · Making it strong</button>
+</div>
+<div class="row toggles">
+  <button type="button" id="btn-margin" aria-pressed="false" data-i18n="t_margin">Safety margin</button>
+  <button type="button" id="btn-xray" aria-pressed="false" data-i18n="t_xray">See-through bone</button>
+</div>
+<div class="row views" role="group" aria-label="View" data-i18n-aria="view">
+  <button type="button" data-view="front" data-i18n="v_front">Front</button>
+  <button type="button" data-view="right" data-i18n="v_right">Right side</button>
+  <button type="button" data-view="left" data-i18n="v_left">Left side</button>
+  <button type="button" data-view="under" data-i18n="v_under">From below</button>
+  <button type="button" data-view="above" data-i18n="v_above">From above</button>
+</div>
+<div class="stage-text" id="stage" aria-live="polite">
+  <p data-for="pre" data-i18n="st_pre"><b>Before surgery.</b> The growth (purple) is made of several bubbles. It sits in the bone between the left canine (33) and the first small back tooth (34), under four teeth (32 to 35).</p>
+  <p data-for="op" hidden data-i18n="st_op"><b>What is removed.</b> The top part of the jaw comes out with four teeth (32 to 35) and the growth inside. The lower edge of the jaw is kept, so the jaw stays in one piece.</p>
+  <p data-for="post" hidden data-i18n="st_post"><b>What is left.</b> Only about 6 mm of bone is left under the gap. That is thin, and it could break when chewing.</p>
+  <p data-for="recon" hidden data-i18n="st_recon"><b>Making it strong.</b> A titanium plate with 9 holes runs along the lower edge of the jaw, held by 6 screws. Later, the missing teeth can be replaced.</p>
+</div>
+
+<section id="case">
+<h2 data-i18n="caseH">The real case</h2>
+<p data-i18n="case1">A man aged 32 had a slow swelling in the front of his left lower jaw. An X-ray showed a dark patch made of bubbles between the left canine and the first small back tooth. A 3D X-ray showed that the outer wall of the jaw was pushed out. A biopsy showed ameloblastoma.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+<p data-i18n="case2">The surgeons worked through the mouth and through a cut under the jaw. They took out the growth with four teeth and the top of the jaw, and kept the lower edge. Only about 6 mm of height was left, so they added a plate. Three months later he was healing well.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+<p data-i18n="case3">Ameloblastoma can come back if some is left behind. It comes back more often after smaller operations, so people need X-ray checks for many years.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+</section>
+
+<section id="clinical-images">
+<h2 data-i18n="clinH">Real photos, X-rays and scans from this case</h2>
+<p class="clinical-note" data-i18n="clinNote">These images are from the real patient. The authors published them openly. Each image keeps its own licence, given under it; it is not covered by the model licence.</p>
+<figure class="clin-fig" id="img-1">
+  <img src="/images/clinical/head-neck/ameloblastoma/amelo-before-xray.jpg" width="750" height="355" loading="lazy" alt="An X-ray of the whole mouth. An arrow points to a dark area with several bubbles in the lower jaw, between the left canine and the first small back tooth." data-i18n-alt="img1Alt">
+  <figcaption><span data-i18n="img1"><b>Image 1. Before surgery.</b> An X-ray of the whole mouth. The arrow shows a dark patch made of bubbles between the left canine (33) and the first small back tooth (34). The model puts the growth in the same place.</span>
+    <span class="credit">Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441, Figure 1. <a href="https://doi.org/10.7759/cureus.104441">doi.org/10.7759/cureus.104441</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient’s informed consent.</span></figcaption>
+</figure>
+<figure class="clin-fig" id="img-2">
+  <img src="/images/clinical/head-neck/ameloblastoma/amelo-3d-xray.jpg" width="750" height="1313" loading="lazy" alt="Slices from a 3D X-ray of the left lower jaw, showing a dark, bubbly area and an outer bone wall that bulges outwards." data-i18n-alt="img2Alt">
+  <figcaption><span data-i18n="img2"><b>Image 2. 3D X-ray before surgery.</b> Slices through the jaw. The growth has bubbles inside and pushes the outer bone wall out.</span>
+    <span class="credit">Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441, Figure 2. <a href="https://doi.org/10.7759/cureus.104441">doi.org/10.7759/cureus.104441</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient’s informed consent.</span></figcaption>
+</figure>
+<details class="surgical">
+  <summary data-i18n="surgShow">Show surgery photo (shows blood)</summary>
+<figure class="clin-fig" id="img-3">
+  <img src="/images/clinical/head-neck/ameloblastoma/amelo-surgery.jpg" width="750" height="378" loading="lazy" alt="Six photos from the operation: the cut under the jaw, the exposed jaw bone, the removed piece of bone with teeth, and the titanium plate screwed along the lower edge of the jaw. Only the chin and neck skin are shown." data-i18n-alt="img3Alt">
+  <figcaption><span data-i18n="img3"><b>Image 3. During surgery.</b> The removed piece of jaw with its teeth, and the plate screwed along the lower edge of the jaw.</span>
+    <span class="credit">Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441, Figure 3. <a href="https://doi.org/10.7759/cureus.104441">doi.org/10.7759/cureus.104441</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient’s informed consent. Lower face and neck only; no eyes.</span></figcaption>
+</figure>
+</details>
+<figure class="clin-fig" id="img-4">
+  <img src="/images/clinical/head-neck/ameloblastoma/amelo-after-xray.jpg" width="750" height="399" loading="lazy" alt="An X-ray of the whole mouth three months after surgery. A metal plate held by screws runs along the lower edge of the left lower jaw, under a gap where four teeth are missing." data-i18n-alt="img4Alt">
+  <figcaption><span data-i18n="img4"><b>Image 4. Three months after surgery.</b> The plate runs along the lower edge of the left lower jaw, under the gap. The model shows the same plate.</span>
+    <span class="credit">Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441, Figure 5. <a href="https://doi.org/10.7759/cureus.104441">doi.org/10.7759/cureus.104441</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. The article records the patient’s informed consent.</span></figcaption>
+</figure>
+</section>
+
+<section id="treatment">
+<h2 data-i18n="reconH">How the jaw is kept strong</h2>
+<p data-i18n="recon1">When the lower edge of the jaw can be kept, the surgeon removes only the top part (a rim resection). If the edge left behind is thin, a titanium plate along it stops it breaking.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+<figure class="diagram">
+  <img src="/head-neck/diagrams/ameloblastoma-plate.svg" width="800" height="400" loading="lazy" alt="Diagram of the left lower jaw from the side, front of the face on the right. Left: a bubbly growth under four teeth with a dashed box around the part to remove. Right: that part removed, and a long plate with 9 holes and 6 screws along the lower edge." data-i18n-alt="dg1Alt">
+  <figcaption data-i18n="dg1"><b>Diagram 1. Rim resection and plate</b> (left lower jaw from the side, front of the face on the right). (A) 1 The growth. 2 The cut: the top of the jaw with four teeth. 3 The lower edge is kept. (B) 4 The gap after surgery. 5 A plate with 9 holes along the lower edge. 6 Six screws hold it; the middle holes, over the thinnest bone, are left empty.</figcaption>
+</figure>
+<p data-i18n="reconB1">If the growth had reached the lower edge, the full height of the jaw would be removed. The authors planned bone from the hip for a gap shorter than 5 cm, or a fibula from the leg for a longer gap.<sup class="cite"><a href="#ref-1">1</a></sup> See the <a href="/head-neck/scc/">mouth cancer page</a> for a diagram of the fibula flap.</p>
+</section>
+
+<section class="clin">
+<h2 data-i18n="clinicH">For clinicians: how this model was built</h2>
+<ul>
+  <li data-i18n="cl1">Case: 32-year-old man; multilocular radiolucency between 33 and 34, clinically 32–35 (about 2 × 3 cm) with buccal expansion; plexiform-follicular ameloblastoma. Marginal (rim) mandibulectomy 32–35 by combined intraoral and submandibular approach. About 6 mm residual height, reinforced with a 2.0 mm, 9-hole titanium reconstruction plate.<sup class="cite"><a href="#ref-1">1</a></sup></li>
+  <li data-i18n="cl2">Context: for solid/multicystic ameloblastoma, recurrence is about 3 times higher after conservative treatment than after resection.<sup class="cite"><a href="#ref-2">2</a></sup> Marginal resection keeps continuity when an adequate inferior border can be preserved; the article does not report margin widths.</li>
+  <li data-i18n="cl3">Model: vertical cuts at the 31/32 and 35/36 contacts; horizontal floor leaving 6.0–8.4 mm of bone across 32–35 (6.0 mm at 35). Specimen 2.8 cm³. Plate 58 mm, 9 holes at 6.5 mm pitch, 3.2 mm above the lower border; screws in the three end holes on each side.</li>
+  <li data-i18n="cl4">Our choices: the growth is four lobules, 15 × 19 × 16 mm in total, kept 2 mm above the floor of the cut. This is smaller than the clinical 2 × 3 cm swelling because the swelling includes the expanded cortex. Screw positions are not published.</li>
+</ul>
+</section>
+
+<section class="disclaimer">
+  <h2 data-i18n="aboutH">About this model</h2>
+  <p data-i18n="about1"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+  <p class="small" data-i18n="about2">Prototype. The model was made to match one published case, but it is not that person’s jaw. The disease is a simple shape. Where the article gives no number, our modelling choice is stated under “For clinicians”.</p>
+  <p class="small credit" data-i18n="credit">3D models: made by Vivatheca from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: remeshed, cut, disease and metalwork added, recoloured. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Diagrams: made by Vivatheca, same licence. 3D viewer: three.js (MIT licence). Font: Manrope (SIL Open Font Licence).</p>
+</section>
+
+<section class="refs">
+<details>
+  <summary><h2 data-i18n="sourcesH">Sources</h2></summary>
+  <ol id="refs">
+    <li id="ref-1">Sikri N, Eid S, Mohamed S, Ghosh A. Management of mandibular ameloblastoma: a case report from a Bahrain Government Hospital. Cureus. 2026;18(2):e104441. <a href="https://doi.org/10.7759/cureus.104441">doi.org/10.7759/cureus.104441</a></li>
+    <li id="ref-2">Almeida RAC, Andrade ESS, Barbalho JC, Vajgel A, Vasconcelos BCE. Recurrence rate following treatment for primary multicystic ameloblastoma: systematic review and meta-analysis. Int J Oral Maxillofac Surg. 2016;45(3):359-367. <a href="https://doi.org/10.1016/j.ijom.2015.12.016">doi.org/10.1016/j.ijom.2015.12.016</a></li>
+  </ol>
+</details>
+</section>
+
+<p class="small" data-i18n="version">Version 1.0, 6 November 2026.</p>
+</main>
+<script src="ja.js"></script>
+<script src="/head-neck/i18n-engine.js"></script>
+<script src="/head-neck/theme.js"></script>
+<script src="/head-neck/vendor/three/three.min.js"></script>
+<script src="/head-neck/vendor/three/GLTFLoader.js"></script>
+<script src="/head-neck/vendor/three/OrbitControls.js"></script>
+<script src="/head-neck/case-viewer.js"></script>
+<script src="/contact.js"></script>
+</body>
+</html>

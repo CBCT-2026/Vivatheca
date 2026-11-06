@@ -22,7 +22,11 @@ export const catalogue: CatalogueModel[] = [
   { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '1.1', updated: '2026-11-06' },
   { slug: 'cracked-tooth', href: '/cracked-tooth/', image: '/assets/renders/cracked-tooth.webp', version: '1.0', updated: '2026-11-05' },
   { slug: 'stainless-steel-crown', href: '/stainless-steel-crown/', image: '/assets/renders/stainless-steel-crown.webp', version: '1.0', updated: '2026-11-05' },
-  { slug: 'head-neck', href: '/head-neck/', image: '/assets/renders/head-neck.webp', version: '1.0', updated: '2026-11-05' },
+  { slug: 'head-neck', href: '/head-neck/', image: '/assets/renders/head-neck.webp', version: '1.1', updated: '2026-11-06' },
+  { slug: 'head-neck-scc', href: '/head-neck/scc/', image: '/assets/renders/head-neck-scc.webp', version: '1.0', updated: '2026-11-06' },
+  { slug: 'head-neck-ameloblastoma', href: '/head-neck/ameloblastoma/', image: '/assets/renders/head-neck-ameloblastoma.webp', version: '1.0', updated: '2026-11-06' },
+  { slug: 'head-neck-okc', href: '/head-neck/okc/', image: '/assets/renders/head-neck-okc.webp', version: '1.0', updated: '2026-11-06' },
+  { slug: 'head-neck-mec', href: '/head-neck/mec/', image: '/assets/renders/head-neck-mec.webp', version: '1.0', updated: '2026-11-06' },
   { slug: 'orthognathic', href: '/orthognathic/', image: '/assets/renders/orthognathic.webp', version: '1.0', updated: '2026-11-05' },
 ];
 

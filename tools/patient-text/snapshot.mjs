@@ -41,12 +41,23 @@ function serve() {
   return new Promise((ok) => server.listen(0, '127.0.0.1', () => ok(server)));
 }
 
+// Static pages: public/<name>/index.html, plus one level of sub-pages (public/<name>/<sub>/index.html).
 async function staticPages() {
   const pages = [];
-  for (const name of (await readdir(pub)).sort()) {
+  const isPage = async (dir) => {
     try {
-      if ((await stat(join(pub, name, 'index.html'))).isFile()) pages.push(name);
-    } catch { /* not a page */ }
+      return (await stat(join(pub, dir, 'index.html'))).isFile();
+    } catch {
+      return false;
+    }
+  };
+  for (const name of (await readdir(pub)).sort()) {
+    if (await isPage(name)) pages.push(name);
+    let subs = [];
+    try {
+      if ((await stat(join(pub, name))).isDirectory()) subs = (await readdir(join(pub, name))).sort();
+    } catch { /* not a folder */ }
+    for (const sub of subs) if (await isPage(`${name}/${sub}`)) pages.push(`${name}/${sub}`);
   }
   return pages;
 }
@@ -90,7 +101,7 @@ async function snapshotStatic(browser, base, page, lang) {
     const buttons = groups[level];
     let clicked = false;
     for (let i = 0; i < (await buttons.count()); i += 1) {
-      if (!(await buttons.nth(i).isVisible())) continue;
+      if (!(await buttons.nth(i).isVisible()) || !(await buttons.nth(i).isEnabled())) continue;
       await buttons.nth(i).click();
       clicked = true;
       await walk(level + 1);
@@ -128,7 +139,7 @@ try {
   for (const page of await staticPages()) {
     for (const lang of LANGS) {
       const html = await snapshotStatic(browser, base, page, lang);
-      if (html) files[`${page}.${lang}.html`] = html;
+      if (html) files[`${page.replace('/', '-')}.${lang}.html`] = html;
       else console.log(`${page}: no ${lang} version`);
     }
   }

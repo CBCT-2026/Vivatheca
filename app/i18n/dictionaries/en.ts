@@ -267,7 +267,7 @@ const en = {
     compare: 'Compare it with the matched normal',
     label: 'Interactive model',
     moreHeading: 'Prototype models',
-    moreHeadNeck: 'Jaw and palate surgery: what is removed, and why it differs by disease (6 cases)',
+    moreHeadNeck: 'Head and neck: four real cases in 3D, with their X-rays and photos',
     allModels: 'See every model in the library',
   },
   understanding: {
@@ -656,10 +656,34 @@ const en = {
         pairing: 'Healthy normal + treatment stages',
       },
       'head-neck': {
-        title: 'Jaw and palate surgery: what is removed and why',
+        title: 'Head and neck',
         specialty: 'Oral and maxillofacial surgery (head and neck)',
-        summary: 'Six tumour cases in the jaw and palate, showing how much is removed for each disease and how the jaw is rebuilt. Pictured: ameloblastoma (left) and squamous cell carcinoma (right).',
-        pairing: 'Six conditions',
+        summary: 'Four real, published cases rebuilt in 3D, each with its own page, X-rays and photos, plus two typical palate models. Pictured: the four case models.',
+        pairing: 'Four real cases and two typical models',
+      },
+      'head-neck-scc': {
+        title: 'Mouth cancer in the lower jaw',
+        specialty: 'Oral and maxillofacial surgery (head and neck)',
+        summary: 'One published case: cancer of the right lower gum grown into the bone. The right side of the jaw is removed and rebuilt with leg bone (fibula) in three pieces, as on her X-ray.',
+        pairing: 'Before surgery, what is removed, the gap, and the rebuilt jaw',
+      },
+      'head-neck-ameloblastoma': {
+        title: 'Ameloblastoma in the lower jaw',
+        specialty: 'Oral and maxillofacial surgery (head and neck)',
+        summary: 'One published case: a growth in the front of the left lower jaw. The top of the jaw is removed with four teeth, and a plate keeps the thin lower edge strong.',
+        pairing: 'Before surgery, what is removed, what is left, and the plate',
+      },
+      'head-neck-okc': {
+        title: 'Keratocyst in the lower jaw',
+        specialty: 'Oral and maxillofacial surgery (head and neck)',
+        summary: 'One published case: a cyst at the root tips of two lower left teeth, removed with the bone wall shaved. Diagrams of eight ways to treat it and how often each comes back.',
+        pairing: 'Before surgery, what is removed, the space, and healing',
+      },
+      'head-neck-mec': {
+        title: 'Cancer of a small spit gland in the roof of the mouth',
+        specialty: 'Oral and maxillofacial surgery (head and neck)',
+        summary: 'One published case: a low-grade mucoepidermoid carcinoma on the right of the palate, removed with a cuff of lining while the bone is kept, then healed under a cover plate.',
+        pairing: 'Before surgery, what is removed, the raw area, and healing',
       },
       orthognathic: {
         title: 'Jaw surgery to correct the bite',
