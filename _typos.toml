@@ -22,8 +22,8 @@ extend-exclude = [
 
 [default]
 # Long random tokens (verification codes, hashes) are not words.
-# Vietnamese "thay đổi" (change) / "thay thế" (replace) inside shared page scripts.
-extend-ignore-re = ["[A-Za-z0-9_-]{30,}", "[Tt]hay (đổi|thế)"]
+# Vietnamese "thay đổi" (change) / "thay thế" (replace) / "thả lỏng vai" (relax the shoulders) inside page scripts.
+extend-ignore-re = ["[A-Za-z0-9_-]{30,}", "[Tt]hay (đổi|thế)", "lỏng vai"]
 locale = "en"
 
 [default.extend-words]
@@ -36,6 +36,7 @@ Restor = "Restor"  # J Esthet Restor Dent
 Mak = "Mak"        # BMC Med Inform Decis Mak
 Brach = "Brach"   # Shoemaker SJ, Wolf MS, Brach C (PEMAT)
 Servier = "Servier" # Servier Medical Art
+Ther = "Ther"     # Phys Ther (journal)
 technic = "technic" # historic title: "the Le Fort I osteotomy technic"
 # Products, licences and abbreviations
 Canva = "Canva"
