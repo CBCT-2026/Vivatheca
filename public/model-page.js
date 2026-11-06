@@ -33,7 +33,7 @@
     style.textContent =
       '.vt-skip{position:absolute;left:8px;top:-60px;z-index:100;padding:10px 14px;border-radius:8px;background:var(--heading,#00244d);color:#fff;text-decoration:none}' +
       '.vt-skip:focus{top:8px}' +
-      '.vt-create,.vt-guide{margin:12px 0 16px;padding:10px 14px;border:1px solid var(--line,#cfe1e7);border-radius:12px;font-size:15px;color:var(--text,#06233f);text-align:left}' +
+      '.vt-create,.vt-guide{margin:12px 0 16px;padding:10px 14px;border:1px solid var(--line,#cfe1e7);border-radius:12px;font-size:15px;color:var(--text,#06233f)}' +
       '.vt-create a,.vt-guide a{color:var(--accent,#007f8b);font-weight:600;display:inline-block;min-height:24px}' +
       // Citation numbers were about 12 x 20 px on phones; give them a 24 x 24 px target (WCAG 2.5.8) without changing line spacing.
       'main sup{line-height:0}main sup a{display:inline-block;min-width:24px;min-height:24px;line-height:24px;text-align:center;vertical-align:middle}';

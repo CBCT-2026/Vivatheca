@@ -41,6 +41,8 @@ After every material landing-page change, update `AGENTS.md`, `DESIGN.md`, `PROD
 
 Use two-space indentation, semicolons, and single-quoted imports. Write React function components in PascalCase, variables and hooks in camelCase, and route folders in lowercase kebab-case. Reuse the semantic colour and spacing tokens in `:root` rather than adding isolated values. Use the theme-aware tokens (`--surface`, `--heading`, `--accent` and the rest listed in `DESIGN.md`) for light surfaces and text so new pages work in both light and dark mode; light is the default.
 
+Paragraph text is justified on every page in every language (the Justified-Paragraph Rule in `DESIGN.md`); the global `p` rule lives in `app/globals.css` and `public/site-header.css`, so never left-align paragraphs per page.
+
 Guard client-only APIs such as `localStorage`, Fullscreen, and Clipboard for server rendering. Keep interactive controls keyboard accessible and provide text alternatives for 3D content.
 
 ## UI/UX Direction
