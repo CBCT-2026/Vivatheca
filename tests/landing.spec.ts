@@ -5,8 +5,8 @@ test('production metadata uses the vivatheca.com canonical origin', async ({ pag
 
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://vivatheca.com');
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://vivatheca.com');
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://vivatheca.com/assets/consultation-hero.webp');
-  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', 'https://vivatheca.com/assets/consultation-hero.webp');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://vivatheca.com/assets/og-image.jpg');
+  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', 'https://vivatheca.com/assets/og-image.jpg');
 });
 
 test('visitor can reach and use the featured model explanation', async ({ page }) => {
@@ -16,7 +16,7 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   await expect(page.getByText('Open access', { exact: true })).toBeVisible();
   await expect(page.getByText('View digitally or print', { exact: true })).toBeVisible();
 
-  await page.getByRole('link', { name: /Explore the collection/ }).click();
+  await page.getByRole('link', { name: /Try the 3D viewer/ }).click();
   await expect(page.getByRole('heading', { name: 'See the explanation from every angle.' })).toBeVisible();
   await expect(page.getByText('Interactive Example', { exact: true })).toBeVisible();
   const viewer = page.locator('model-viewer');
@@ -43,10 +43,11 @@ test('homepage navigation, evidence and contribution paths', async ({ page }) =>
   await page.goto('/');
 
   const primaryNavigation = page.getByRole('navigation', { name: 'Primary navigation' });
-  for (const name of ['Browse', 'How it works', 'Publications', 'Contribute', 'Create']) {
+  for (const name of ['Models', 'How it works', 'Evidence', 'Create', 'About']) {
     await expect(primaryNavigation.getByRole('link', { name, exact: true })).toBeVisible();
   }
   await expect(primaryNavigation.getByRole('link', { name: 'Create', exact: true })).toHaveAttribute('href', '/create');
+  await expect(primaryNavigation.getByRole('link', { name: 'Models', exact: true })).toHaveAttribute('href', '/models');
 
   const origin = page.locator('.origin-band');
   await expect(origin.getByText('Founded and operated in Australia.')).toBeVisible();
@@ -55,11 +56,11 @@ test('homepage navigation, evidence and contribution paths', async ({ page }) =>
   const publications = page.locator('#publications');
   await expect(publications.getByRole('heading', { name: 'Evidence for seeing and holding anatomy.' })).toBeVisible();
   await expect(publications.getByRole('link', { name: /Read the peer-reviewed article/ })).toHaveCount(3);
-  await expect(publications.getByText('AI-generated illustration.', { exact: true })).toHaveCount(3);
+  await expect(publications.getByText('AI-generated illustration.', { exact: true })).toHaveCount(0);
 
   const contribute = page.locator('#contribute');
   await expect(contribute.getByRole('heading', { name: 'Help build the collection.' })).toBeVisible();
-  for (const pathway of ['Submit a model', 'Review clinical accuracy']) {
+  for (const pathway of ['Report an inaccuracy', 'Join clinical review', 'Request or submit a model']) {
     await expect(contribute.getByRole('heading', { name: pathway })).toBeVisible();
   }
 });
@@ -69,32 +70,30 @@ test('trust section explains transparent and privacy-preserving clinical review'
   const trust = page.locator('#trust');
 
   await expect(trust.getByRole('heading', { name: 'Trust should be visible, not implied.' })).toBeVisible();
-  await expect(trust).toContainText('approved, rejected or awaiting clinical review');
-  await expect(trust).toContainText('verified privately');
+  await expect(trust).toContainText('peer-reviewed sources');
   await expect(trust).toContainText('title, initials, occupation and country of practice');
-  await expect(trust).toContainText('not asked to provide medical or health advice');
+  await expect(trust).toContainText('change log');
+  await expect(trust).toContainText('Review status today');
+  await expect(trust.getByRole('link', { name: 'Report an inaccuracy' })).toHaveAttribute('href', '/report');
   await expect(trust).toContainText('peer-reviewed research, specialty society guidelines');
-  await expect(trust).toContainText('Prototype governance');
 });
 
 test('print section offers the STL download and sponsorship contact', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'From the screen to something you can hold.' })).toBeVisible();
-  await expect(page.getByRole('link', { name: /Download the wisdom tooth STL/ })).toHaveAttribute('href', '/models/impacted-molar.stl');
+  await expect(page.getByRole('link', { name: /Download both STL files/ })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
   const sponsor = page.locator('#sponsor');
   await expect(sponsor.getByRole('heading', { name: 'Help a model travel further.' })).toBeVisible();
   await expect(sponsor.getByRole('link', { name: /Start a sponsorship conversation/ })).toHaveAttribute('href', /^mailto:hello@vivatheca\.com/);
 });
 
-test('generated landing-page illustrations carry visible disclosure and platform terminology', async ({ page }) => {
+test('landing-page images are model screenshots, not AI illustrations', async ({ page }) => {
   await page.goto('/');
-  // Real clinical images carry their own source and licence credit instead (see the clinical images test).
-  const figures = page.locator('main figure:not(.clinical-figure)');
-  const count = await figures.count();
-  expect(count).toBeGreaterThan(0);
-  for (let i = 0; i < count; i += 1) {
-    await expect(figures.nth(i).getByText('AI-generated illustration.', { exact: true })).toHaveCount(1);
-  }
+  await expect(page.getByText('AI-generated illustration.', { exact: true })).toHaveCount(0);
+  // Real clinical images carry their own source and licence credit; other figures are model screenshots.
+  const sources = await page.locator('main figure:not(.clinical-figure) img').evaluateAll((images) => images.map((image) => image.getAttribute('src')));
+  expect(sources.length).toBeGreaterThan(0);
+  for (const src of sources) expect(src).toMatch(/^\/assets\/renders\//);
   const visibleCopy = await page.locator('body').innerText();
   expect(visibleCopy).not.toMatch(/Vivatheca (site|service)\b/i);
 });
@@ -124,15 +123,16 @@ test('footer gives visitors clear ways to explore, participate and connect', asy
 
   await expect(footer.getByRole('navigation', { name: 'Explore' })).toBeVisible();
   await expect(footer.getByRole('navigation', { name: 'Participate' })).toBeVisible();
-  await expect(footer.getByRole('navigation', { name: 'Connect' })).toBeVisible();
-  await expect(footer.getByRole('link', { name: 'Browse the featured model' })).toHaveAttribute('href', '#collection');
-  await expect(footer.getByRole('link', { name: 'Contact Vivatheca', exact: true })).toHaveAttribute('href', 'mailto:hello@vivatheca.com');
+  await expect(footer.getByRole('navigation', { name: 'About' })).toBeVisible();
+  await expect(footer.getByRole('link', { name: 'Model library' })).toHaveAttribute('href', '/models');
+  await expect(footer.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', 'mailto:hello@vivatheca.com');
+  await expect(footer.getByRole('link', { name: 'Privacy', exact: true }).first()).toHaveAttribute('href', '/privacy');
   await expect(footer).toContainText('Vivatheca is for general education only. It is not medical advice');
   await expect(footer.getByRole('link', { name: 'Disclaimer', exact: true })).toHaveAttribute('href', '/disclaimer');
 });
 
 test('every page ends with a contact section for Instagram, X and email', async ({ page }) => {
-  for (const path of ['/', '/create', '/disclaimer']) {
+  for (const path of ['/', '/create', '/disclaimer', '/models', '/about']) {
     await page.goto(path);
     const contact = page.getByRole('contentinfo').getByRole('region', { name: 'Contact us' });
     await expect(contact).toBeVisible();
