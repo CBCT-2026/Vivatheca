@@ -59,7 +59,7 @@ export default async function ModelsPage() {
                     </ul>
                   </div>
                 </CardLink>
-                {video ? <a className="library-video-link" href={`${model.href}#video`} aria-label={`${plain(format(l.watchVideo, { s: String(video.seconds) }))}: ${plain(item.title)}`}><Ruby text={format(l.watchVideo, { s: String(video.seconds) })} /></a> : null}
+                {video ? <a className="library-video-link" href={`${model.href}#video`}><Ruby text={format(l.watchVideo, { s: String(video.seconds) })} /><span className="visually-hidden">: {plain(item.title)}</span></a> : null}
               </li>
             );
           })}
