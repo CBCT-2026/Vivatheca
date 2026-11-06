@@ -7,6 +7,7 @@ extend-exclude = [
   "public/vendor/**",
   "public/**/vendor/**",
   "public/pagefind/**",
+  "public/fonts/**",
   "assets/flags/**",
   "LICENSES/**",
   "output/**",
@@ -30,6 +31,7 @@ Atack = "Atack"
 Restor = "Restor"  # J Esthet Restor Dent
 Mak = "Mak"        # BMC Med Inform Decis Mak
 Brach = "Brach"   # Shoemaker SJ, Wolf MS, Brach C (PEMAT)
+Servier = "Servier" # Servier Medical Art
 technic = "technic" # historic title: "the Le Fort I osteotomy technic"
 # Products, licences and abbreviations
 Canva = "Canva"
