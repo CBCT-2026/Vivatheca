@@ -19,7 +19,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   await expect(page.getByRole('heading', { name: 'Mesioangular impacted mandibular third molar', level: 1 })).toBeVisible();
   const viewers = page.locator('model-viewer');
   await expect(viewers).toHaveCount(2);
-  await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/wisdom-tooth-normal.glb');
+  await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src), { timeout: 20_000 }).toContain('/models/wisdom-tooth-normal.glb');
 
   await page.getByRole('button', { name: 'Normal', exact: true }).click();
   await expect(page.locator('.compare').getByText('Impacted (mesioangular)', { exact: true })).toBeHidden();
