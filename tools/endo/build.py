@@ -39,17 +39,49 @@ CREST_BELOW_CEJ = 1.5    # alveolar crest below the CEJ, within the healthy rang
 LESION_MESIAL = 5.0      # periapical lesion diameter: CBCTPAI score 4 (>4-8 mm), Estrela et al. 2008
 LESION_DISTAL = 3.5      # CBCTPAI score 3 (>2-4 mm), Estrela et al. 2008
 TRACT_R = 0.5            # DRAWN sinus tract radius (no measured value used)
+# Tooth layers (cut view). The CEJ is at the pulp chamber roof (above).
+ENAMEL = 1.3             # enamel thickness on the crown, tapering to 0 at the CEJ over ENAMEL_TAPER. Mandibular M1
+ENAMEL_TAPER = 2.5       # cusp-tip means 1.16-1.30 mm, lateral 1.43-1.67 mm, average 0.97-1.10 mm: Mahoney 2010
+CEM_CERVICAL, CEM_APICAL = 0.30, 0.50  # DRAWN cementum thickness, about 2-3x real so it can be seen. Measured
+# medians 0.10 mm cervical, 0.16 mm middle, 0.22 mm apical third: Birimisa et al. 2021
 PRINT_SCALE = 2.0
 
 COL = {
     'teeth': (LINEAR['model.tooth'], 0.55), 'bone': (LINEAR['model.bone'], 0.8), 'pulp': (LINEAR['model.pulp'], 0.6),
     'necrotic': (LINEAR['model.necroticPulp'], 0.8), 'decay': (LINEAR['model.decay'], 0.9), 'lesion': (LINEAR['model.abscess'], 0.7),
     'tract': (LINEAR['model.clot'], 0.7), 'tooth_cut': (LINEAR['model.dentineCut'], 0.7), 'bone_cut': (LINEAR['model.boneCut'], 0.9),
+    'enamel_cut': (LINEAR['model.enamelCut'], 0.5), 'cementum': (LINEAR['model.cementum'], 0.8),
+    'cementum_cut': (LINEAR['model.cementum'], 0.8),
 }
 
 # Material names in the GLB. /model-parts.js groups materials by name with a trailing _<n> removed, so the
 # cut faces hide with their part and the dead pulp shares the "Nerve (pulp)" button.
-GLTF_NAME = {'necrotic': 'pulp_1', 'tooth_cut': 'teeth_1', 'bone_cut': 'bone_1'}
+# Tooth layers: teeth = enamel (crown surface), teeth_1 = dentine (cut), teeth_2 = enamel (cut),
+# teeth_3 = cementum (root surface), teeth_4 = cementum (cut).
+GLTF_NAME = {'necrotic': 'pulp_1', 'tooth_cut': 'teeth_1', 'bone_cut': 'bone_1', 'enamel_cut': 'teeth_2',
+             'cementum': 'teeth_3', 'cementum_cut': 'teeth_4'}
+
+
+def layer_labels(G, m, labels, S, cej, apex_z, outer=True):
+    """Colour a tooth mesh by tissue. Outer surface: enamel above the CEJ, cementum below. Cut face: enamel or
+    cementum within their thickness of the outer surface (depth from the uncropped tooth SDF S), dentine elsewhere."""
+    ctr = m.triangles_center
+    z = ctr[:, 2]
+    depth = -ndimage.map_coordinates(S, ((ctr - G.origin) / PITCH).T, order=1, mode='nearest')
+    cej = np.broadcast_to(np.asarray(cej, float), z.shape)        # one CEJ height for the mesh, or one per face
+    apex_z = np.broadcast_to(np.asarray(apex_z, float), z.shape)
+    t_en = ENAMEL * np.clip((z - cej) / ENAMEL_TAPER, 0, 1)
+    t_ce = CEM_CERVICAL + (CEM_APICAL - CEM_CERVICAL) * np.clip((cej - z) / (cej - apex_z), 0, 1)
+    out = []
+    for lab, zz, d, te, tc, cej in zip(labels, z, depth, t_en, t_ce, cej):
+        if lab == 'teeth' and d > 0.15:  # crop face of a neighbour tooth (inside the uncropped tooth): a cut
+            lab = 'tooth_cut'
+        if lab == 'teeth' and outer:  # outer=False keeps the whole outer surface tooth white (cut faces only)
+            lab = 'teeth' if zz >= cej else 'cementum'
+        elif lab == 'tooth_cut':
+            lab = 'enamel_cut' if (zz >= cej and d < te) else 'cementum_cut' if (zz < cej and d < tc) else 'tooth_cut'
+        out.append(lab)
+    return out
 
 
 def load(folder, fj):
@@ -280,6 +312,7 @@ def build(folder, out, zanatomy=None):
     B = sdf(inside_mask(mand, G.xs, G.ys, G.zs), 2.0)
     box = G.full(np.abs(G.X - (lo[0] + hi[0]) / 2) - ((hi[0] - lo[0]) / 2 + 5.5))  # crop mesiodistally
     B = isect(B, box, -T, -N)
+    N_full = N
     N = isect(N, box)
 
     # Pulp chamber: roof CUSP_TO_ROOF below the buccal cusp tip; width shrinks from roof to floor.
@@ -312,6 +345,7 @@ def build(folder, out, zanatomy=None):
 
     # Root apices and furcation (measured on the BodyParts3D tooth).
     apex = {k: p[-1] for k, p in canals.items()}
+    apex_z = float(min(p[2] for p in apex.values()))
     lab_any = [k for k in range(len(G.zs)) if G.zs[k] < floor and ndimage.label(tmask[:, :, k])[1] >= 2]
     furcation = float(G.zs[max(lab_any)]) if lab_any else None
 
@@ -328,10 +362,10 @@ def build(folder, out, zanatomy=None):
     tract = isect(tract, -Lsn, -T)
 
     states = {
-        'sound': {'bone': [('bone', B)], 'teeth': [('teeth', N)], 'tooth': [('teeth', T), ('teeth', -P)],
+        'sound': {'bone': [('bone', B)], 'teeth': [('teeth', N)], 'tooth': [('teeth', T), ('tooth_cut', -P)],
                   'pulp': [('pulp', P)]},
         'abscess': {'bone': [('bone', B), ('bone', -Lsn), ('bone', -tract)], 'teeth': [('teeth', N)],
-                    'tooth': [('teeth', T), ('teeth', -P), ('decay', -D)],
+                    'tooth': [('teeth', T), ('tooth_cut', -P), ('decay', -D)],
                     'decay': [('decay', D), ('decay', T), ('decay', -cavity), ('decay', -P)],
                     'pulp': [('necrotic', P)], 'lesion': [('lesion', Lsn), ('lesion', box)],
                     'tract': [('tract', tract), ('tract', box)]},
@@ -360,6 +394,8 @@ def build(folder, out, zanatomy=None):
                 m, labels = res
                 cutlab = {'bone': 'bone_cut', 'tooth': 'tooth_cut', 'teeth': 'tooth_cut'}.get(part, terms[0][0])
                 labels = [cutlab if l == 'cut' else l for l in labels]
+                if part in ('tooth', 'teeth'):
+                    labels = layer_labels(G, m, labels, T if part == 'tooth' else N_full, roof, apex_z)
                 g.add(names.get(part, part), m, labels)
             g.save(os.path.join(out, f'{st}-{variant}.glb'))
             print(st, variant, os.path.getsize(os.path.join(out, f'{st}-{variant}.glb')) // 1024, 'KB')
@@ -375,6 +411,7 @@ def build(folder, out, zanatomy=None):
         'floor_to_furcation_mm': round(float(floor - furcation), 2) if furcation is not None else None,
         'lesion_mm': {'mesial': LESION_MESIAL, 'distal': LESION_DISTAL},
         'canal_radius_drawn_mm': [CANAL_R_TOP, CANAL_R_APEX],
+        'enamel_mm': ENAMEL, 'enamel_taper_mm': ENAMEL_TAPER, 'cementum_drawn_mm': [CEM_CERVICAL, CEM_APICAL],
     }
     json.dump(report, open(os.path.join(out, 'report.json'), 'w'), indent=1)
     print(json.dumps(report, indent=1))
