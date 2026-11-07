@@ -63,6 +63,8 @@ const zhHans = withFallback(en, {
       print: '3D打印模型',
       impact: '模型的使用情况',
     },
+    use: '使用模型',
+    disciplines: { label: '按专业浏览模型库', all: '全部模型', showing: '正在显示：{name}', items: { 'oral-surgery': '口腔颌面外科', 'head-neck': '头颈部', 'cleft': '唇腭裂治疗', 'orthodontics': '口腔正畸', 'paediatric': '儿童口腔', 'endodontics': '牙体牙髓', 'periodontics': '牙周', 'prosthodontics': '口腔修复' } },
     participate: {
       label: '参与',
       request: '申请新模型',

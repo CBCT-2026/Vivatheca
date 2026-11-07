@@ -290,7 +290,7 @@ export function ModelExperience() {
         <details className="model-sources">
           <summary><Ruby text={m.sources} /></summary>
           <p><Ruby text={a.simplified} /></p>
-          <ol lang="en">{abgSources.map((source) => <li key={source.id} id={`model-ref-${source.id}`}>{source.text} <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}</ol>
+          <ol lang="en">{abgSources.map((source) => <li key={source.id} id={`model-ref-${source.id}`}>{source.text} <a className="url" href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}</ol>
         </details>
         <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
       </div>

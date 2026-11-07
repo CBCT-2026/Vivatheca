@@ -1112,6 +1112,8 @@ const vi = withFallback(en, {
       "print": "In 3D mô hình",
       "impact": "Cách các mô hình được sử dụng"
     },
+    "use": "Sử dụng mô hình",
+    "disciplines": { "label": "Xem bộ sưu tập theo chuyên ngành", "all": "Tất cả mô hình", "showing": "Đang xem: {name}", "items": { "oral-surgery": "Phẫu thuật miệng và hàm mặt", "head-neck": "Đầu và cổ", "cleft": "Điều trị khe hở môi vòm miệng", "orthodontics": "Chỉnh nha", "paediatric": "Răng trẻ em", "endodontics": "Nội nha", "periodontics": "Nha chu", "prosthodontics": "Phục hình răng" } },
     "participate": {
       "label": "Tham gia",
       "request": "Đề xuất mô hình mới",
@@ -1469,6 +1471,7 @@ const vi = withFallback(en, {
     "toConsider": "nên xem xét",
     "possibleDetails": "Có thể có thông tin bệnh nhân: {details}.",
     "exportBlocked": "Không thể xuất vì bản nháp có thể chứa thông tin bệnh nhân ({details}). Hãy xóa chúng để in hoặc tải xuống.",
+    "exportNeedsDraft": "Chưa có gì để xuất. Hãy đưa bản nháp vào bước 2 trước: bấm \"Soạn bằng AI\", hoặc sao chép câu lệnh vào một trò chuyện AI rồi dán câu trả lời vào ô bản nháp.",
     "checksSource": "Các kiểm tra lấy từ bộ công cụ mã nguồn mở patient-education-toolkit, dựa trên các hướng dẫn liệt kê bên dưới công cụ soạn (NHS, ISO 24495-1, CDC, PEMAT, IPDAS). Điểm số chỉ là ước tính.",
     "simplifying": "Đang đơn giản hóa…",
     "simplify": "Viết đơn giản hơn (AI)",

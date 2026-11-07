@@ -55,7 +55,7 @@ export function SourceList({ sources, heading }: { sources: Source[]; heading: s
       <ol lang="en">
         {sources.map((source) => (
           <li key={source.id} id={`src-${source.id}`}>
-            {source.text}{source.href ? <> <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace(/^https:\/\//, '')}</a></> : null}
+            {source.text}{source.href ? <> <a className="url" href={source.href} target="_blank" rel="noreferrer">{source.href.replace(/^https:\/\//, '')}</a></> : null}
           </li>
         ))}
       </ol>
