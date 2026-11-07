@@ -649,44 +649,64 @@
       "checked": "2026-11-07"
     },
     {
-      "id": "pr-krishna-fig2",
-      "file": "public/images/clinical/prosthodontic/ball-abutments.jpg",
+      "id": "pr-shadid-fig2b",
+      "file": "public/images/clinical/prosthodontic/lower-jaw-no-teeth.jpg",
+      "type": "Intraoral photo",
+      "description": "Figure 2b. Preoperative edentulous mandibular arch, 70-year-old.",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12702080.1/japid-17-234-g002.jpg",
+      "changes": "Cropped to panel b (panel a removed); saved as JPEG.",
+      "reasoning": "CC BY 4.0 stated in the article. Author's own case. Match: completely edentulous mandible with a resorbed ridge, as the model's edentulous state.",
+      "source_url": "https://doi.org/10.34172/japid.025.3973",
+      "author": "Shadid RM",
+      "article": "Shadid RM. Full-mouth rehabilitation with implant-supported overdentures in a heavy smoker with multiple sclerosis: A 3-year follow-up case report. J Adv Periodontol Implant Dent. 2025;17(4):234-239. doi:10.34172/japid.025.3973",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "consent": "Article: 'Additional written consent was obtained for publication of this case report and accompanying images' and 'Written informed consent was obtained from the patient for the publication of this case report and any accompanying images.' Intraoral photos and radiograph only.",
+      "nc_limits": false,
+      "checked": "2026-11-07",
       "pages": [
         "/prosthodontic/"
-      ],
-      "type": "Intraoral photo",
-      "description": "Figure 2. Two interforaminal mandibular implants (and two premaxillary implants) with ball attachments.",
-      "source_url": "https://doi.org/10.7759/cureus.23264",
-      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9013260.1/cureus-0014-00000023264-i02.jpg",
-      "author": "Krishna S, Kumar R, Sailasri K",
-      "article": "Krishna S, Kumar R, Sailasri K. Implant-Supported Overdenture Using Ball Attachments in Maxilla and Mandible: A Case Report. Cureus. 2022;14(3):e23264. doi:10.7759/cureus.23264",
-      "licence": "CC BY (version not stated by Cureus)",
-      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
-      "changes": "Cropped to the mouth (nose, eyes and chin removed); saved as JPEG.",
-      "consent": "Article: 'A treatment plan was clearly explained and patient consent was taken.' Cropped so no eyes or nose remain; intraoral view with lips only.",
-      "reasoning": "Cureus CC BY licence stated in the article. Authors' own case. Match: edentulous mandible with a two-implant ball-retained overdenture between the mental foramina, as the model; immediate implants so the ridge is less resorbed than the model's class V ridge, stated in the caption.",
-      "nc_limits": false,
-      "checked": "2026-11-07"
+      ]
     },
     {
-      "id": "pr-krishna-fig6",
-      "file": "public/images/clinical/prosthodontic/overdentures-in-place.jpg",
+      "id": "pr-shadid-fig7",
+      "file": "public/images/clinical/prosthodontic/two-implants-stud-attachments.jpg",
+      "type": "Intraoral photo",
+      "description": "Figure 7. Two mandibular implants with Equator stud attachments.",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12702080.1/japid-17-234-g007.jpg",
+      "changes": "None (PMC open-access figure file).",
+      "reasoning": "Match: two-implant mandibular overdenture (McGill consensus), as the model; stud rather than ball attachment, stated in the caption.",
+      "source_url": "https://doi.org/10.34172/japid.025.3973",
+      "author": "Shadid RM",
+      "article": "Shadid RM. Full-mouth rehabilitation with implant-supported overdentures in a heavy smoker with multiple sclerosis: A 3-year follow-up case report. J Adv Periodontol Implant Dent. 2025;17(4):234-239. doi:10.34172/japid.025.3973",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "consent": "Article: 'Additional written consent was obtained for publication of this case report and accompanying images' and 'Written informed consent was obtained from the patient for the publication of this case report and any accompanying images.' Intraoral photos and radiograph only.",
+      "nc_limits": false,
+      "checked": "2026-11-07",
       "pages": [
         "/prosthodontic/"
-      ],
-      "type": "Clinical photo",
-      "description": "Figure 6. Maxillary and mandibular overdentures inserted over the ball attachments.",
-      "source_url": "https://doi.org/10.7759/cureus.23264",
-      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9013260.1/cureus-0014-00000023264-i06.jpg",
-      "author": "Krishna S, Kumar R, Sailasri K",
-      "article": "Krishna S, Kumar R, Sailasri K. Implant-Supported Overdenture Using Ball Attachments in Maxilla and Mandible: A Case Report. Cureus. 2022;14(3):e23264. doi:10.7759/cureus.23264",
-      "licence": "CC BY (version not stated by Cureus)",
+      ]
+    },
+    {
+      "id": "pr-shadid-fig12",
+      "file": "public/images/clinical/prosthodontic/opg-3-years.jpg",
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 12. OPG 3 years after prosthetic treatment: two mandibular implants, four maxillary implants with bar.",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12702080.1/japid-17-234-g012.jpg",
+      "changes": "None (PMC open-access figure file).",
+      "reasoning": "Match: lower two-implant overdenture; the upper bar is outside the model's scope, stated in the caption.",
+      "source_url": "https://doi.org/10.34172/japid.025.3973",
+      "author": "Shadid RM",
+      "article": "Shadid RM. Full-mouth rehabilitation with implant-supported overdentures in a heavy smoker with multiple sclerosis: A 3-year follow-up case report. J Adv Periodontol Implant Dent. 2025;17(4):234-239. doi:10.34172/japid.025.3973",
+      "licence": "CC BY 4.0",
       "licence_url": "https://creativecommons.org/licenses/by/4.0/",
-      "changes": "Cropped to the teeth and lips (moustache and most of the gloved fingers removed); saved as JPEG.",
-      "consent": "As Figure 2. Teeth and lips only.",
-      "reasoning": "As Figure 2. Matches the model's overdenture state.",
+      "consent": "Article: 'Additional written consent was obtained for publication of this case report and accompanying images' and 'Written informed consent was obtained from the patient for the publication of this case report and any accompanying images.' Intraoral photos and radiograph only.",
       "nc_limits": false,
-      "checked": "2026-11-07"
+      "checked": "2026-11-07",
+      "pages": [
+        "/prosthodontic/"
+      ]
     }
   ]
 }

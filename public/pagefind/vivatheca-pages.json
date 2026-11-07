@@ -60,8 +60,8 @@
   "ja": "d2002058d807"
  },
  "/models/alveolar-bone-graft": {
-  "en": "00c6d4e0fa29",
-  "ja": "7e4500df5229"
+  "en": "943b0ab8b6ca",
+  "ja": "a4f6749400f0"
  },
  "/models/averaged-jaw": {
   "en": "4ba332f69d53",
@@ -136,20 +136,20 @@
   "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "4aee1cebcd12",
-  "ja": "2356600561e1"
+  "en": "2e8f44a6b10e",
+  "ja": "ce5ba09747ea"
  },
  "/head-neck/mec/": {
-  "en": "b8323a2530c0",
+  "en": "ca1f479c1c98",
   "ja": "55b6b31c54a3"
  },
  "/head-neck/okc/": {
-  "en": "010c2329a151",
-  "ja": "cc7b29182595"
+  "en": "45b6cbb9089f",
+  "ja": "e8f8c47c7c9b"
  },
  "/head-neck/scc/": {
-  "en": "414b2ca0e51c",
-  "ja": "c3a9cbe1dd2c"
+  "en": "83885786ec5b",
+  "ja": "19d6875fb22d"
  },
  "/oroantral/": {
   "en": "632056d33a23",
@@ -164,8 +164,8 @@
   "ja": "b8e44d1d454e"
  },
  "/prosthodontic/": {
-  "en": "865ad2792262",
-  "ja": "270a092fc76f"
+  "en": "55bb1ba8ba77",
+  "ja": "3b19542b0dde"
  },
  "/stainless-steel-crown/": {
   "en": "3036adff399b",
