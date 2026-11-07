@@ -16,12 +16,12 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: '/' },
     icons: {
       icon: [
-        { url: '/favicon.ico', sizes: '48x48' },
-        { url: '/favicon.svg', type: 'image/svg+xml' },
+        { url: '/favicon.ico?v=2', sizes: '48x48' },
+        { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
       ],
-      apple: '/apple-touch-icon.png',
+      apple: '/apple-touch-icon.png?v=2',
     },
-    manifest: '/site.webmanifest',
+    manifest: '/site.webmanifest?v=2',
     openGraph: {
       siteName: 'Vivatheca',
       title: t.meta.title,
