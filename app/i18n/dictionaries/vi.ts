@@ -1469,6 +1469,7 @@ const vi = withFallback(en, {
     "toConsider": "nên xem xét",
     "possibleDetails": "Có thể có thông tin bệnh nhân: {details}.",
     "exportBlocked": "Không thể xuất vì bản nháp có thể chứa thông tin bệnh nhân ({details}). Hãy xóa chúng để in hoặc tải xuống.",
+    "exportNeedsDraft": "Chưa có gì để xuất. Hãy đưa bản nháp vào bước 2 trước: bấm \"Soạn bằng AI\", hoặc sao chép câu lệnh vào một trò chuyện AI rồi dán câu trả lời vào ô bản nháp.",
     "checksSource": "Các kiểm tra lấy từ bộ công cụ mã nguồn mở patient-education-toolkit, dựa trên các hướng dẫn liệt kê bên dưới công cụ soạn (NHS, ISO 24495-1, CDC, PEMAT, IPDAS). Điểm số chỉ là ước tính.",
     "simplifying": "Đang đơn giản hóa…",
     "simplify": "Viết đơn giản hơn (AI)",
