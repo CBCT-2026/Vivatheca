@@ -8,10 +8,10 @@ import { withFallback } from './fallback';
 
 const zhHans = withFallback(en, {
   meta: {
-    title: 'Vivatheca — 让临床模型一目了然',
+    title: 'Vivatheca: 让临床模型一目了然',
     description: '免费的口腔与口腔颌面外科3D模型，每个病例都配有正常对照模型，供医生制作患者教育资料。可在线查看、下载和打印。',
     socialDescription: '免费的浏览器3D医学模型，让医患沟通更清楚。',
-    createTitle: '制作患者教育资料 — Vivatheca',
+    createTitle: '制作患者教育资料 - Vivatheca',
     createDescription: '起草、检查和完善与Vivatheca 3D模型配套的患者教育资料。',
   },
   language: { label: '语言' },
@@ -101,7 +101,7 @@ const zhHans = withFallback(en, {
     sourceLabel: '来源 {n}',
   },
   disclaimer: {
-    title: '免责声明 — Vivatheca',
+    title: '免责声明 - Vivatheca',
     description: 'Vivatheca 的模型和信息仅供一般教育用途，不构成医疗建议。',
     heading: '免责声明',
     updated: '最后更新：{date}',
@@ -182,7 +182,7 @@ const zhHans = withFallback(en, {
     ],
   },
   notFound: {
-    title: '找不到页面 — Vivatheca',
+    title: '找不到页面 - Vivatheca',
     heading: '找不到该页面。',
     intro: '该链接可能已过期或输入有误。请浏览模型库或返回首页。',
     models: '浏览模型',
