@@ -96,4 +96,4 @@ export const abgFiles = [
   { glb: { href: '/models/abg/abg-3b-substitution.glb', size: '0.4 MB' }, stl: { href: '/models/abg/vivatheca-abg-3b-substitution-stl.zip', size: '3.2 MB' } },
 ];
 
-export const abgCitation = 'Seifert L. Vivatheca: Alveolar bone graft in cleft lip and palate, version 0.1. 2026. https://vivatheca.com/models/alveolar-bone-graft. Licensed under CC BY-SA 4.0. Accessed [date].';
+export const abgCitation = 'CBCT-2026 (Founder & Director). Vivatheca: Alveolar bone graft in cleft lip and palate, version 0.1. 2026. https://vivatheca.com/models/alveolar-bone-graft. Licensed under CC BY-SA 4.0. Accessed [date].';
