@@ -1088,7 +1088,7 @@ const en = {
     factsLabel: 'Model facts',
     version: 'Version {v}',
     nextHeading: 'Coming next',
-    nextText: 'The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: an upper canine growing towards the palate.',
+    nextText: 'The library is growing to cover each dental specialty, plus oral and maxillofacial surgery, always with a matched normal. Next in line: tooth development from before birth to adulthood.',
     askText: 'Want a particular model, or have one to share?',
     askLink: 'Tell us',
     askGap: ' ',
@@ -1163,6 +1163,12 @@ const en = {
         specialty: 'Orofacial pain (multidisciplinary care)',
         summary: 'The jaw joints, their discs and the four chewing muscles on each side, with five animated jaw exercises that guidelines support, the evidence for each, the care team and a printable patient sheet. Pictured: jaw closed (left) and opened wide (right).',
         pairing: 'Normal anatomy + exercises + patient sheet',
+      },
+      'ectopic-canine': {
+        title: 'Palatally displaced maxillary canine at 10.5 years, with normal canine eruption',
+        specialty: 'Orthodontics',
+        summary: 'A child’s right upper jaw with the adult canine on its normal path, the same jaw with the canine displaced towards the palate and the baby canine still in place, and after the baby canine is taken out. See through the bone to compare. Pictured: normal (left) and palatal (right), seen through the bone.',
+        pairing: 'Condition + healthy normal + treatment option',
       },
       'stainless-steel-crown': {
         title: 'Preformed metal (stainless steel) crown on a mandibular second primary molar',
@@ -1397,7 +1403,6 @@ const en = {
     loading: 'Loading support counts…',
     unavailable: 'Support counts are not switched on yet. You can still email your idea to vivatheca@gmail.com.',
     seeds: {
-      'ectopic-canine': { title: 'Upper canine growing in the wrong place (ectopic canine) beside normal eruption', specialty: 'Orthodontics' },
       'development-extended': { title: 'Tooth development from before birth to adulthood (beyond ages 6 to 12)', specialty: 'Orthodontics and paediatric dentistry' },
       'ortho-variants': { title: 'More jaw surgery cases: facial asymmetry, open bite and chin surgery', specialty: 'Orthodontics and oral and maxillofacial surgery' },
       'oral-lichen-planus': { title: 'Oral lichen planus beside healthy lining of the mouth', specialty: 'Oral medicine' },

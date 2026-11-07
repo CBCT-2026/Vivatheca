@@ -74,6 +74,9 @@ const M = {
   crowns: { id: 'D003442', label: 'Crowns' },
   caries: { id: 'D003731', label: 'Dental Caries' },
   deciduous: { id: 'D014094', label: 'Tooth, Deciduous' },
+  ectopicEruption: { id: 'D014079', label: 'Tooth Eruption, Ectopic' },
+  cuspid: { id: 'D003481', label: 'Cuspid' },
+  interceptive: { id: 'D009972', label: 'Orthodontics, Interceptive' },
   hnNeoplasms: { id: 'D006258', label: 'Head and Neck Neoplasms' },
   hnscc: { id: 'D000077195', label: 'Squamous Cell Carcinoma of Head and Neck' },
   mouthNeoplasms: { id: 'D009062', label: 'Mouth Neoplasms' },
@@ -129,5 +132,6 @@ export const modelCodes: Record<string, ModelCodes> = {
   'averaged-jaw': { subjects: [M.mandible], anatomy: [A.mandible, A.lowerTeeth] },
   orthognathic: { subjects: [M.classII, M.classIII, M.orthognathic, M.leFort, M.bsso, M.genioplasty], anatomy: [A.maxilla, A.mandible, A.chin] },
   fixation: { subjects: [M.bonePlates, M.internalFixation], anatomy: [A.mandible] },
+  'ectopic-canine': { subjects: [M.ectopicEruption, M.cuspid, M.deciduous, M.interceptive, M.mixedDentition], anatomy: [A.maxilla, A.hardPalate, A.deciduousTooth, A.secondaryDentition] },
   'dentigerous-cyst': { subjects: [M.dentigerousCyst, M.dentalSac, M.unerupted, M.thirdMolar], anatomy: [A.mandible, A.lowerThirdMolar, A.dentalFollicle] },
 };

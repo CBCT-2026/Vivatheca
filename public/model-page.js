@@ -18,6 +18,7 @@
     '/vpi/': 'vpi',
     '/prosthodontic/': 'prosthodontic',
     '/tmd/': 'tmd',
+    '/ectopic-canine/': 'ectopic-canine',
     '/dentigerous-cyst/': 'dentigerous-cyst',
     '/head-neck/scc/': 'head-neck-scc',
     '/head-neck/ameloblastoma/': 'head-neck-ameloblastoma',
@@ -32,6 +33,7 @@
     '/head-neck/scc/': ['head-neck-scc', false], '/head-neck/ameloblastoma/': ['head-neck-ameloblastoma', false],
     '/head-neck/okc/': ['head-neck-okc', false], '/head-neck/mec/': ['head-neck-mec', false],
     '/tmd/': ['tmd', false], '/prosthodontic/': ['prosthodontic', true],
+    '/ectopic-canine/': ['ectopic-canine', false],
   };
   const FAV_KEY = 'vivatheca-favourites';
   // Pages with a student guide under /learn get a link to it if they do not have one yet.

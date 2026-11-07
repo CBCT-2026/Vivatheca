@@ -1534,7 +1534,7 @@ const vi = withFallback(en, {
     "factsLabel": "Thông tin mô hình",
     "version": "Phiên bản {v}",
     "nextHeading": "Sắp ra mắt",
-    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: răng nanh hàm trên mọc lệch về phía vòm miệng.",
+    "nextText": "Thư viện đang mở rộng để bao quát từng chuyên ngành nha khoa, cùng phẫu thuật miệng và hàm mặt, luôn có bản bình thường tương ứng. Tiếp theo: sự phát triển của răng từ trước khi sinh đến tuổi trưởng thành.",
     "askText": "Bạn muốn có một mô hình cụ thể, hoặc có mô hình muốn chia sẻ?",
     "askLink": "Hãy cho chúng tôi biết",
     "askGap": " ",
@@ -1615,6 +1615,12 @@ const vi = withFallback(en, {
         "specialty": "Đau vùng miệng mặt (chăm sóc đa chuyên ngành)",
         "summary": "Hai khớp hàm, đĩa khớp và bốn cơ nhai ở mỗi bên, với năm bài tập hàm có hoạt hình được các hướng dẫn ủng hộ, bằng chứng cho từng bài, nhóm chăm sóc và tờ thông tin in được cho bệnh nhân. Trong ảnh: hàm ngậm (trái) và há rộng (phải).",
         "pairing": "Giải phẫu bình thường + bài tập + tờ thông tin cho bệnh nhân"
+      },
+      "ectopic-canine": {
+        "title": "Răng nanh hàm trên lệch về phía vòm miệng ở tuổi 10,5, so với răng nanh mọc bình thường",
+        "specialty": "Chỉnh nha",
+        "summary": "Hàm trên bên phải của một trẻ với răng nanh vĩnh viễn trên đường mọc bình thường, cùng hàm đó với răng nanh lệch về phía vòm miệng và răng nanh sữa còn tồn tại, và sau khi nhổ răng nanh sữa. Nhìn xuyên xương để so sánh. Ảnh: bình thường (trái) và lệch vòm miệng (phải), nhìn xuyên xương.",
+        "pairing": "Bệnh lý + bình thường + một cách điều trị"
       },
       "stainless-steel-crown": {
         "title": "Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới",
@@ -1898,10 +1904,6 @@ const vi = withFallback(en, {
     "loading": "Đang tải số lượt ủng hộ…",
     "unavailable": "Chức năng đếm lượt ủng hộ chưa được bật. Bạn vẫn có thể gửi ý tưởng qua email đến vivatheca@gmail.com.",
     "seeds": {
-      "ectopic-canine": {
-        "title": "Răng nanh hàm trên mọc sai chỗ (răng nanh lạc chỗ) bên cạnh quá trình mọc bình thường",
-        "specialty": "Chỉnh nha"
-      },
       "development-extended": {
         "title": "Sự phát triển của răng từ trước khi sinh đến tuổi trưởng thành (ngoài độ tuổi 6 đến 12)",
         "specialty": "Chỉnh nha và răng trẻ em"

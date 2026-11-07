@@ -61,7 +61,7 @@
  },
  "/models/alveolar-bone-graft": {
   "en": "943b0ab8b6ca",
-  "ja": "7e4500df5229"
+  "ja": "a4f6749400f0"
  },
  "/models/averaged-jaw": {
   "en": "4ba332f69d53",
@@ -72,40 +72,40 @@
   "ja": "fd55de281e07"
  },
  "/models": {
-  "en": "800a9dcbb7a8",
-  "ja": "417439168d71"
+  "en": "6ea6f6693e66",
+  "ja": "e209a217542d"
  },
  "/": {
-  "en": "abcacfcd36ed",
-  "ja": "a25db7a8f1f7"
+  "en": "49b7c7f11d6c",
+  "ja": "c2482adaa400"
  },
  "/print": {
-  "en": "4c10e5cbe5a9",
-  "ja": "a75f05a75ed7"
+  "en": "3bc573dda61a",
+  "ja": "18f6330c4d44"
  },
  "/privacy": {
   "en": "08eaca6dc653",
   "ja": "5dd475060360"
  },
  "/requests": {
-  "en": "691023f055db",
-  "ja": "e3b2ff06a0a8"
+  "en": "72ceee84170d",
+  "ja": "176729139460"
  },
  "/review": {
-  "en": "f0114a119332",
-  "ja": "e5455f51cc89"
+  "en": "1253f4b983ae",
+  "ja": "5ab720a101d9"
  },
  "/survey": {
-  "en": "180a537b6fc0",
-  "ja": "44c957b9d777"
+  "en": "85e793eca049",
+  "ja": "0abd80c7df6a"
  },
  "/templates": {
   "en": "18a38c4cc4a1",
   "ja": "a3c5c6083ba7"
  },
  "/used": {
-  "en": "0e80c0255198",
-  "ja": "ec72afb1793b"
+  "en": "1f2e9dd4cd46",
+  "ja": "ee3378fa9208"
  },
  "/cracked-tooth/": {
   "en": "90f2a65059b0",
@@ -118,6 +118,10 @@
  "/development/": {
   "en": "b4c2463b8ccf",
   "ja": "22f2c59e7bbe"
+ },
+ "/ectopic-canine/": {
+  "en": "668a3270e7ae",
+  "ja": "62c0f46cec9d"
  },
  "/endodontic/": {
   "en": "d42aca1c8bde",
@@ -133,19 +137,19 @@
  },
  "/head-neck/ameloblastoma/": {
   "en": "2e8f44a6b10e",
-  "ja": "ce5ba09747ea"
+  "ja": "435e74637be9"
  },
  "/head-neck/mec/": {
   "en": "4838a76d17c1",
-  "ja": "55b6b31c54a3"
+  "ja": "a70ba3af9a3d"
  },
  "/head-neck/okc/": {
   "en": "5c8d948fbb9d",
-  "ja": "cc7b29182595"
+  "ja": "e8f8c47c7c9b"
  },
  "/head-neck/scc/": {
-  "en": "c36995fca575",
-  "ja": "19d6875fb22d"
+  "en": "851652672800",
+  "ja": "d276eed81525"
  },
  "/oroantral/": {
   "en": "632056d33a23",

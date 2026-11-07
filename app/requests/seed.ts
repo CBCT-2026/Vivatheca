@@ -2,7 +2,6 @@
 // shortlist of next models), shown on /requests so visitors can support them. Words are in
 // t.requests.seeds[id] in both dictionaries. The Worker (worker/store.ts) accepts votes for these ids.
 export const seededRequests = [
-  { id: 'ectopic-canine' },
   { id: 'development-extended' },
   { id: 'ortho-variants' },
   { id: 'oral-lichen-planus' },

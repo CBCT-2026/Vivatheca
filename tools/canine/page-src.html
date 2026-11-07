@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palatally displaced maxillary canine, with normal canine eruption | Vivatheca</title>
+<meta name="description" content="Interactive 3D models of a child’s upper jaw at 10.5 years with the adult canine on its normal path, and the same jaw with the canine displaced towards the palate. See through the bone to compare.">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="robots" content="noindex">
+<!-- Generated from tools/canine/page-src.html by tools/canine/gen.py (kanji|kana pairs in braces mark furigana; lang="vi" twins go to vi.js). Edit the source, not this file. -->
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// Language and furigana use the same cookies as the rest of the site (app/i18n/config.ts).
+(function () { const c = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
+  if (c('vivatheca-lang') === 'ja' || c('vivatheca-lang') === 'vi') document.documentElement.lang = c('vivatheca-lang');
+  document.documentElement.dataset.furigana = c('vivatheca-furigana') === 'off' ? 'off' : 'on'; })();
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('../development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="../development/style.css">
+<style>
+  /* Show only the visitor's language (the language switcher buttons always show). */
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button), html[lang="vi"] [lang="ja"]:not(#langs button) { display: none !important; }
+  .choose { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 12px 0 0; }
+  .choose button { min-height: 48px; padding: 6px 4px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; cursor: pointer; }
+  .choose button small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  .choose button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  .legend li[hidden] { display: none; }
+  .stage { background: var(--card); border-radius: 12px; padding: 12px 14px; margin: 10px 0 0; border: 0; }
+  .stage p { margin: 0; }
+  .dot.adult { background: #f2c94c; } .dot.baby { background: #5b8def; } .dot.bone { background: #e3d3b5; }
+  .choose { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .status { font-weight: 700; color: var(--heading); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  .downloads { list-style: none; padding: 0; display: grid; gap: 6px; }
+  details.clin summary { cursor: pointer; font-weight: 600; color: var(--heading); }
+</style>
+<script type="module" src="../development/vendor/model-viewer/model-viewer.min.js"></script>
+<link rel="stylesheet" href="/site-header.css">
+<!-- vt:jsonld -->
+<!-- /vt:jsonld -->
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="brand-home" href="/" style="display:inline-flex;align-items:center;line-height:0"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="53" height="40" style="height:40px;width:auto;background:#fff;border-radius:6px"></a>
+    <a class="lang" href="/"><span lang="en">Vivatheca home</span><span lang="vi">Trang chủ Vivatheca</span><span lang="ja">Vivatheca ホーム</span></a>
+    <a class="lang" href="/models"><span lang="en">All models</span><span lang="vi">Tất cả mô hình</span><span lang="ja">{模型|もけい}{一覧|いちらん}</span></a>
+    <button class="theme" id="theme" type="button">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+<script src="/site-header.js"></script>
+
+<main>
+  <h1><span lang="en"><span class="pitk-skip">Palatally displaced maxillary canine, with normal canine eruption</span></span><span lang="vi"><span class="pitk-skip">Răng nanh hàm trên lệch về phía vòm miệng, so với răng nanh mọc bình thường</span></span><span lang="ja"><span class="pitk-skip">{口蓋側|こうがいそく}に{転位|てんい}した{上顎|じょうがく}{犬歯|けんし}と、{正常|せいじょう}な{犬歯|けんし}の{萌出|ほうしゅつ}</span></span></h1>
+  <p class="small term-sources"><span lang="en">Name and classification:</span><span lang="vi">Tên gọi và phân loại:</span><span lang="ja">{名称|めいしょう}と{分類|ぶんるい}：</span> <a href="https://doi.org/10.1038/s41415-025-8892-z">Cobourne MT, Seehra J, Papageorgiou SN. The palatal displaced maxillary canine: early diagnosis and interceptive correction - a guideline for the general dental practitioner. Br Dent J. 2025;239(7):463-470.</a></p>
+
+  <model-viewer id="mv"
+    src="models/normal.glb"
+    alt="3D model of the right side of a child’s upper jaw at about 10 and a half years. Baby teeth are blue and adult teeth are yellow. The adult canine is high in the jaw above the baby canine."
+    camera-controls camera-orbit="-40deg 100deg auto" touch-action="pan-y" interaction-prompt="auto"
+    shadow-intensity="0.8" exposure="0.9" loading="eager">
+    <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+  </model-viewer>
+
+  <p class="small"><span lang="en"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></span><span lang="vi"><span class="status">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></span><span lang="ja"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+
+  <div class="choose" role="group" aria-label="Choose a model">
+    <button type="button" data-state="normal" aria-pressed="true"><span lang="en">Normal</span><span lang="vi">Bình thường</span><span lang="ja">{正常|せいじょう}</span><small lang="en">on its way down</small><small lang="vi">đang mọc xuống</small><small lang="ja">{下|した}へ{進|すす}んでいる</small></button>
+    <button type="button" data-state="palatal" aria-pressed="false"><span lang="en">Palate side</span><span lang="vi">Lệch vòm miệng</span><span lang="ja">{上|うわ}あご{側|がわ}</span><small lang="en">growing the wrong way</small><small lang="vi">mọc sai hướng</small><small lang="ja">{違|ちが}う{向|む}きに{育|そだ}つ</small></button>
+    <button type="button" data-state="extracted" aria-pressed="false"><span lang="en">Baby tooth out</span><span lang="vi">Nhổ răng sữa</span><span lang="ja">{乳歯|にゅうし}を{抜|ぬ}く</span><small lang="en">one treatment option</small><small lang="vi">một cách điều trị</small><small lang="ja">{治療|ちりょう}の{一|ひと}つ</small></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model tools">
+    <button type="button" id="xray" aria-pressed="true"><span lang="en">See through the bone</span><span lang="vi">Nhìn xuyên xương</span><span lang="ja">{骨|ほね}を{透|す}かして{見|み}る</span></button>
+  </div>
+  <div class="controls" role="group" aria-label="Model views">
+    <button type="button" data-orbit="-40deg 100deg auto" aria-pressed="true"><span lang="en">Cheek side</span><span lang="vi">Phía má</span><span lang="ja">ほお{側|がわ}</span></button>
+    <button type="button" data-orbit="110deg 115deg auto" aria-pressed="false"><span lang="en">Palate side</span><span lang="vi">Phía vòm miệng</span><span lang="ja">{上|うわ}あご{側|がわ}</span></button>
+    <button type="button" data-orbit="20deg 172deg auto" aria-pressed="false"><span lang="en">From below</span><span lang="vi">Nhìn từ dưới</span><span lang="ja">{下|した}から</span></button>
+  </div>
+  <ul class="legend">
+    <li><span class="dot adult"></span><span lang="en">Adult teeth</span><span lang="vi">Răng vĩnh viễn</span><span lang="ja">{大人|おとな}の{歯|は}</span></li>
+    <li><span class="dot baby"></span><span lang="en">Baby teeth</span><span lang="vi">Răng sữa</span><span lang="ja">{乳歯|にゅうし}</span></li>
+    <li><span class="dot bone"></span><span lang="en">Jaw bone</span><span lang="vi">Xương hàm</span><span lang="ja">{顎|あご}の{骨|ほね}</span></li>
+  </ul>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+
+  <section class="vt-video" id="video" data-video="ectopic-canine"></section>
+
+  <section>
+    <div lang="en">
+      <h2>What the model shows</h2>
+      <p>These models show the right side of a child’s upper jaw at about 10 and a half years. Baby teeth are blue and adult teeth are yellow, as in the Vivatheca tooth development models.</p>
+      <p>The adult canine (eye tooth) grows high in the jaw and has a long way to travel. By about age 10, most children have a bump in the gum on the cheek side. This is where it is coming down.<sup class="cite"><a href="#ref-1">1</a></sup> Sometimes it grows towards the palate (the roof of the mouth) instead. It then often cannot come through by itself.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Tap the buttons to compare the normal path with a canine on the palate side.</p>
+    </div>
+    <div lang="vi">
+      <h2>Mô hình thể hiện gì</h2>
+      <p>Các mô hình này thể hiện bên phải hàm trên của một trẻ khoảng 10 tuổi rưỡi. Răng sữa màu xanh và răng vĩnh viễn màu vàng, giống các mô hình phát triển răng của Vivatheca.</p>
+      <p>Răng nanh vĩnh viễn phát triển ở cao trong xương hàm và phải đi một quãng dài. Khoảng 10 tuổi, đa số trẻ có một chỗ gồ ở lợi phía má, nơi răng đang mọc xuống.<sup class="cite"><a href="#ref-1">1</a></sup> Đôi khi răng lại phát triển về phía vòm miệng. Khi đó răng thường không tự mọc được.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Chạm vào các nút để so sánh đường mọc bình thường với răng nanh lệch về phía vòm miệng.</p>
+    </div>
+    <div lang="ja">
+      <h2>このモデルについて</h2>
+      <p>10{歳|さい}{半|はん}ごろの{子|こ}どもの{上|うえ}あごの{右側|みぎがわ}です。{乳歯|にゅうし}は{青|あお}、{大人|おとな}の{歯|は}は{黄色|きいろ}で、Vivathecaの{歯|は}の{成長|せいちょう}モデルと{同|おな}じ{色|いろ}です。</p>
+      <p>{大人|おとな}の{犬歯|けんし}は、あごの{高|たか}いところで{育|そだ}ち、{長|なが}い{距離|きょり}を{進|すす}んで{生|は}えてきます。10{歳|さい}ごろには、{多|おお}くの{子|こ}どもで、ほお{側|がわ}の{歯|は}ぐきにふくらみを{触|さわ}れます。<sup class="cite"><a href="#ref-1">1</a></sup>ときどき、{上|うわ}あご（{口|くち}の{天井|てんじょう}）の{側|がわ}へ{育|そだ}ってしまうことがあります。そうなると、{自然|しぜん}には{生|は}えてこないことがよくあります。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>ボタンで、{正常|せいじょう}な{進|すす}み{方|かた}と{上|うわ}あご{側|がわ}にずれた{犬歯|けんし}を{比|くら}べられます。</p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>About a canine on the palate side</h2>
+      <p>In one Swedish study, about 2 in 100 people had an upper canine that did not come through. Most of these were on the palate side.<sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>Watch for these signs. After age 10, the dentist cannot feel the canine on the cheek side. The left and right sides differ. Or a teenager still has a firm baby canine.<sup class="cite"><a href="#ref-1">1</a></sup> The dentist then takes X-rays to find the canine.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>A canine on the wrong path can wear away the roots of the front teeth next to it. In one study this happened with about 12 in 100 of these canines.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>Về răng nanh lệch về phía vòm miệng</h2>
+      <p>Trong một nghiên cứu ở Thụy Điển, khoảng 2 trên 100 người có răng nanh hàm trên không mọc được, và phần lớn nằm lệch về phía vòm miệng.<sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>Dấu hiệu là không sờ thấy răng nanh ở phía má sau 10 tuổi, hai bên trái phải khác nhau, hoặc răng nanh sữa vẫn còn chắc ở tuổi thiếu niên.<sup class="cite"><a href="#ref-1">1</a></sup> Khi đó nha sĩ chụp X-quang để tìm vị trí răng nanh.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Răng nanh mọc sai đường có thể làm mòn chân của răng cửa bên cạnh. Trong một nghiên cứu, điều này xảy ra với khoảng 12 trên 100 răng nanh như vậy.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>{上|うわ}あご{側|がわ}にずれた{犬歯|けんし}について</h2>
+      <p>スウェーデンの{研究|けんきゅう}では、{約|やく}100{人|にん}に2{人|ふたり}で{上|うえ}の{犬歯|けんし}が{生|は}えてこず、その{多|おお}くは{上|うわ}あご{側|がわ}にありました。<sup class="cite"><a href="#ref-6">6</a></sup></p>
+      <p>10{歳|さい}を{過|す}ぎてもほお{側|がわ}に{犬歯|けんし}が{触|さわ}れない、{左右|さゆう}で{違|ちが}う、10{代|だい}になっても{乳歯|にゅうし}の{犬歯|けんし}がぐらぐらしない、などがサインです。<sup class="cite"><a href="#ref-1">1</a></sup>その{場合|ばあい}は、レントゲンで{犬歯|けんし}の{位置|いち}を{調|しら}べます。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>{違|ちが}う{道|みち}を{進|すす}む{犬歯|けんし}は、となりの{前歯|まえば}の{根|ね}をすり{減|へ}らすことがあります。ある{研究|けんきゅう}では、このような{犬歯|けんし}の100{本|ぽん}に{約|やく}12{本|ほん}で{起|お}きていました。<sup class="cite"><a href="#ref-4">4</a></sup></p>
+    </div>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>Treatment</h2>
+      <p>At about 10 to 13 years, the dentist may take out the baby canine. This can help the adult canine come down. In one trial, 69 in 100 of these canines came through after this. Without it, 39 in 100 came through.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+      <p>This works best in younger children. It also helps if there is room for the tooth. And it helps if the tooth is not too near the middle of the mouth.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup> The dentist then checks for about 12 months.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>If the canine still does not come through, a surgeon can uncover it. Then a brace slowly pulls it into place.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>Your dentist or orthodontist will talk with you about what suits your child.</p>
+    </div>
+    <div lang="vi">
+      <h2>Điều trị như thế nào</h2>
+      <p>Trong khoảng 10 đến 13 tuổi, nhổ răng nanh sữa có thể giúp răng nanh vĩnh viễn tìm đúng đường. Trong một thử nghiệm, 69 trên 100 răng nanh như vậy mọc được sau khi nhổ răng nanh sữa, so với 39 trên 100 khi không nhổ.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+      <p>Cách này hiệu quả hơn ở trẻ nhỏ hơn, khi có đủ chỗ, và khi răng nanh không quá gần đường giữa miệng.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup> Sau đó nha sĩ theo dõi khoảng 12 tháng.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Nếu răng nanh vẫn không mọc, bác sĩ phẫu thuật có thể bộc lộ răng, và khí cụ chỉnh nha nhẹ nhàng kéo răng về đúng chỗ.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>Nha sĩ hoặc bác sĩ chỉnh nha sẽ trao đổi với bạn về cách phù hợp với con bạn.</p>
+    </div>
+    <div lang="ja">
+      <h2>{治療|ちりょう}について</h2>
+      <p>10{歳|さい}から13{歳|さい}ごろに{乳歯|にゅうし}の{犬歯|けんし}を{抜|ぬ}くと、{大人|おとな}の{犬歯|けんし}が{正|ただ}しい{道|みち}に{戻|もど}りやすくなります。ある{試験|しけん}では、{乳歯|にゅうし}を{抜|ぬ}いた{場合|ばあい}は100{本|ぽん}に69{本|ほん}、{抜|ぬ}かなかった{場合|ばあい}は100{本|ぽん}に39{本|ほん}が{生|は}えてきました。<sup class="cite"><a href="#ref-2">2</a></sup></p>
+      <p>{年齢|ねんれい}が{低|ひく}いほど、すき{間|ま}が{十分|じゅうぶん}あるほど、{犬歯|けんし}が{口|くち}の{真|ま}ん{中|なか}に{近|ちか}すぎないほど、うまくいきやすくなります。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-3">3</a></sup>その{後|あと}{約|やく}12か{月|げつ}{様子|ようす}を{見|み}ます。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>それでも{生|は}えてこない{場合|ばあい}は、{外科的|げかてき}に{歯|は}を{出|だ}し、{矯正|きょうせい}{装置|そうち}でゆっくり{正|ただ}しい{位置|いち}へ{引|ひ}っ{張|ぱ}ります。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-7">7</a></sup></p>
+      <p>お{子|こ}さんに{合|あ}う{方法|ほうほう}を、{歯科医師|しかいし}と{一緒|いっしょ}に{考|かんが}えましょう。</p>
+    </div>
+  </section>
+
+  <section>
+    <details class="clin">
+      <summary><span lang="en">Notes for the clinician: evidence and how the models were made</span><span lang="vi">Ghi chú cho nhân viên y tế: bằng chứng và cách làm các mô hình</span><span lang="ja">{医療者向|いりょうしゃむ}け：{根拠|こんきょ}とモデルの{作|つく}り{方|かた}</span></summary>
+      <div lang="en">
+        <p>Shown: the right maxilla at 10.5 years in the mixed dentition, with 13 on its normal path, and the same jaw with 13 palatally displaced and 53 retained; a third state shows 53 extracted (interceptive extraction).<sup class="cite"><a href="#ref-1">1</a></sup></p>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Value in the model</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Base</td><td>The Vivatheca dental development model at 10.5 years (right maxilla, adult and baby teeth, tooth positions and jaw growth as documented there). Only 13 and the bone over it change.</td><td><a href="/development/">Dental development series</a><sup class="cite"><a href="#ref-9">9</a></sup></td></tr>
+            <tr><td>Normal 13</td><td>Unchanged from the series: crown above 53, long axis 3° from vertical on a panoramic-style view (plane of the arch at the canine).</td><td>Series method<sup class="cite"><a href="#ref-9">9</a></sup></td></tr>
+            <tr><td>Angle of displaced 13</td><td>25° to the midline on the same view, between the 15° used to define canines at risk in one trial and the 30° above which eruption was significantly less likely.</td><td>Cobourne et al. 2025<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+            <tr><td>Position of displaced 13</td><td>Moved bodily towards the palate until the cusp is palatal to the lateral incisor root at the same height, 0.6 mm clear of the incisors (drawn: no resorption shown). Cusp tip 6.1 mm from the midsagittal plane, at the 6 mm cut-off below which canines needed exposure despite extraction of the deciduous canine (11 mm or more: likely spontaneous eruption). Cusp height unchanged (drawn).</td><td>Naoumova et al. 2015<sup class="cite"><a href="#ref-3">3</a></sup>; palatal most common: Ericson and Kurol 1987<sup class="cite"><a href="#ref-4">4</a></sup></td></tr>
+            <tr><td>Bone over it</td><td>Where the moved crown leaves the bone, a 1.73 mm bony wall is added, the value the development series uses for crypt walls (mandibular buccal cortex, children 8 to 10 years).</td><td>Bhattad et al. 2015<sup class="cite"><a href="#ref-8">8</a></sup></td></tr>
+            <tr><td>53</td><td>Retained in the displaced model; removed in the third state.</td><td>Cobourne et al. 2025<sup class="cite"><a href="#ref-1">1</a></sup>; Naoumova et al. 2015<sup class="cite"><a href="#ref-2">2</a></sup></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <ul>
+          <li>Prevalence: non-palpable or unerupted canines in 3% of 11 to 15 year olds in a Swedish longitudinal study;<sup class="cite"><a href="#ref-5">5</a></sup> failure of eruption in 2%, 85% of them palatal.<sup class="cite"><a href="#ref-6">6</a></sup> In 125 ectopic canines, 12.5% had resorbed adjacent incisors.<sup class="cite"><a href="#ref-4">4</a></sup></li>
+          <li>Interceptive extraction of the deciduous canine at 10 to 13 years: 69% vs 39% eruption in a randomised trial;<sup class="cite"><a href="#ref-2">2</a></sup> pooled OR 3.6 (95% CI 2.2-6.2) for eruption across five trials, with low-certainty evidence and a 12-month review recommended.<sup class="cite"><a href="#ref-1">1</a></sup> Surgical exposure and traction: gingival recession in about 10.5%.<sup class="cite"><a href="#ref-7">7</a></sup></li>
+          <li>Routine CBCT is not justified; it is used when conventional radiographs are not enough.<sup class="cite"><a href="#ref-1">1</a></sup></li>
+          <li>Simplifications: right side only; no gum, follicle or periodontal ligament; incisor roots intact; the palatal position is one example within the cited ranges, not a typical or average case.</li>
+          <li>Licence: CC BY-SA 4.0, because the series is made from Z-Anatomy (CC BY-SA 4.0).<sup class="cite"><a href="#ref-9">9</a></sup></li>
+        </ul>
+        <p class="small">Build script with every value and its source: <code>tools/canine/build.py</code> in the Vivatheca repository.</p>
+      </div>
+      <div lang="vi">
+        <p>Mô hình thể hiện hàm trên bên phải ở tuổi 10,5 (bộ răng hỗn hợp), răng 13 trên đường mọc bình thường, và cùng hàm đó với răng 13 lệch về phía vòm miệng, răng 53 còn tồn tại; trạng thái thứ ba là sau khi nhổ răng 53.<sup class="cite"><a href="#ref-1">1</a></sup> Răng 13 lệch nghiêng 25° so với đường giữa<sup class="cite"><a href="#ref-1">1</a></sup> và đỉnh múi cách mặt phẳng dọc giữa 6,1 mm.<sup class="cite"><a href="#ref-3">3</a></sup> Số đo và nguồn chi tiết: xem bảng tiếng Anh (chuyển sang English).</p>
+      </div>
+      <div lang="ja">
+        <ul>
+          <li>{示|しめ}しているもの：10.5{歳|さい}（{混合歯列期|こんごうしれつき}）の{右|みぎ}{上顎|じょうがく}。{正常|せいじょう}な{経路|けいろ}の13と、{口蓋側|こうがいそく}に{転位|てんい}した13（53{残存|ざんそん}）、53{抜去後|ばっきょご}。<sup class="cite"><a href="#ref-1">1</a></sup></li>
+          <li>{転位|てんい}した13は{正中|せいちゅう}に{対|たい}して25°（15°でリスクあり、30°{以上|いじょう}で{萌出|ほうしゅつ}しにくい）。<sup class="cite"><a href="#ref-1">1</a></sup>{尖頭|せんとう}は{正中矢状面|せいちゅうしじょうめん}から6.1 mm（6 mm{未満|みまん}は{乳犬歯|にゅうけんし}{抜去|ばっきょ}でも{開窓|かいそう}が{必要|ひつよう}）。<sup class="cite"><a href="#ref-3">3</a></sup></li>
+          <li>ベースはVivathecaの{歯|は}の{成長|せいちょう}モデル（10.5{歳|さい}）。ライセンスはCC BY-SA 4.0。<sup class="cite"><a href="#ref-9">9</a></sup></li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <div lang="en">
+      <h2>3D printing</h2>
+      <p>Each download is 1.5 times life size, in STL, like the tooth development models. The bone, the adult teeth and the baby teeth are separate parts, so you can print them in different colours.</p>
+    </div>
+    <div lang="vi">
+      <h2>In 3D</h2>
+      <p>Mỗi tệp tải về lớn gấp 1,5 lần kích thước thật, định dạng STL, giống các mô hình phát triển răng. Xương, răng vĩnh viễn và răng sữa là các phần riêng, nên bạn có thể in bằng các màu khác nhau.</p>
+    </div>
+    <div lang="ja">
+      <h2>3Dプリント</h2>
+      <p>{各|かく}ダウンロードは{実物|じつぶつ}の1.5{倍|ばい}のSTLで、{歯|は}の{成長|せいちょう}モデルと{同|おな}じです。{骨|ほね}、{大人|おとな}の{歯|は}、{乳歯|にゅうし}は{別|べつ}パーツなので、{色|いろ}を{分|わ}けて{印刷|いんさつ}できます。</p>
+    </div>
+    <ul class="downloads">
+      <li><a href="downloads/vivatheca-ectopic-canine-normal-1.5x.zip"><span lang="en">Normal canine path (STL, 1.5x)</span><span lang="vi">Răng nanh mọc bình thường (STL, 1,5 lần)</span><span lang="ja">{正常|せいじょう}な{犬歯|けんし}（STL、1.5{倍|ばい}）</span></a></li>
+      <li><a href="downloads/vivatheca-ectopic-canine-palatal-1.5x.zip"><span lang="en">Canine on the palate side (STL, 1.5x)</span><span lang="vi">Răng nanh lệch về phía vòm miệng (STL, 1,5 lần)</span><span lang="ja">{上|うわ}あご{側|がわ}にずれた{犬歯|けんし}（STL、1.5{倍|ばい}）</span></a></li>
+    </ul>
+  </section>
+
+  <section class="disclaimer">
+    <h2><span lang="en">About these models</span><span lang="vi">Về các mô hình này</span><span lang="ja">このモデルについての{注意|ちゅうい}</span></h2>
+    <p lang="en"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p lang="vi"><span class="status">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></p>
+    <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
+    <p class="small"><span lang="en">Prototype, version 0.1. Colours: adult teeth yellow and baby teeth blue, as in every Vivatheca development and orthodontic model.</span><span lang="vi">Bản thử nghiệm, phiên bản 0.1. Màu sắc: răng vĩnh viễn màu vàng và răng sữa màu xanh, như mọi mô hình phát triển và chỉnh nha của Vivatheca. Bản tiếng Việt là bản nháp chưa được thẩm định; bản tiếng Anh được ưu tiên.</span><span lang="ja">プロトタイプ（{版|はん}0.1）。{大人|おとな}の{歯|は}は{黄色|きいろ}、{乳歯|にゅうし}は{青|あお}で、Vivathecaの{成長|せいちょう}・{矯正|きょうせい}モデルと{同|おな}じです。</span></p>
+    <p class="small credit">3D models: made by Vivatheca from the Vivatheca dental development model at 10.5 years, itself made from Z-Anatomy (the libre 3D atlas of anatomy, CC BY-SA 4.0), which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan). Changed: the adult canine turned and moved towards the palate, a bony wall added over it, and the baby canine removed in one version. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details>
+    <summary><h2><span lang="en">Sources</span><span lang="vi">Nguồn</span><span lang="ja">{出典|しゅってん}</span></h2></summary>
+    <ol>
+      <li id="ref-1">Cobourne MT, Seehra J, Papageorgiou SN. The palatal displaced maxillary canine: early diagnosis and interceptive correction - a guideline for the general dental practitioner. Br Dent J. 2025;239(7):463-470. <a href="https://doi.org/10.1038/s41415-025-8892-z">doi.org/10.1038/s41415-025-8892-z</a></li>
+      <li id="ref-2">Naoumova J, Kurol J, Kjellberg H. Extraction of the deciduous canine as an interceptive treatment in children with palatal displaced canines - part I: shall we extract the deciduous canine or not? Eur J Orthod. 2015;37(2):209-218. <a href="https://doi.org/10.1093/ejo/cju040">doi.org/10.1093/ejo/cju040</a></li>
+      <li id="ref-3">Naoumova J, Kürol J, Kjellberg H. Extraction of the deciduous canine as an interceptive treatment in children with palatally displaced canines - part II: possible predictors of success and cut-off points for a spontaneous eruption. Eur J Orthod. 2015;37(2):219-229. <a href="https://doi.org/10.1093/ejo/cju102">doi.org/10.1093/ejo/cju102</a></li>
+      <li id="ref-4">Ericson S, Kurol J. Radiographic examination of ectopically erupting maxillary canines. Am J Orthod Dentofacial Orthop. 1987;91(6):483-492. <a href="https://doi.org/10.1016/0889-5406(87)90005-9">doi.org/10.1016/0889-5406(87)90005-9</a></li>
+      <li id="ref-5">Ericson S, Kurol J. Longitudinal study and analysis of clinical supervision of maxillary canine eruption. Community Dent Oral Epidemiol. 1986;14(3):172-176. <a href="https://doi.org/10.1111/j.1600-0528.1986.tb01526.x">doi.org/10.1111/j.1600-0528.1986.tb01526.x</a></li>
+      <li id="ref-6">Naoumova J. Interceptive treatment of palatally displaced canines. Swed Dent J Suppl. 2014;(234):7-118. <a href="https://pubmed.ncbi.nlm.nih.gov/26688983/">pubmed.ncbi.nlm.nih.gov/26688983</a></li>
+      <li id="ref-7">de Araujo CM, Trannin PD, Schroder AGD, et al. Surgical-periodontal aspects in orthodontic traction of palatally displaced canines: a meta-analysis. Jpn Dent Sci Rev. 2020;56(1):164-176. <a href="https://doi.org/10.1016/j.jdsr.2020.10.001">doi.org/10.1016/j.jdsr.2020.10.001</a></li>
+      <li id="ref-8">Bhattad MS, Baliga S, Vibhute P. A digital volumetric tomography (DVT) study in the mandibular molar region for miniscrew placement during mixed dentition. Dental Press J Orthod. 2015;20(2):55-60. <a href="https://doi.org/10.1590/2176-9451.20.2.055-060.oar">doi.org/10.1590/2176-9451.20.2.055-060.oar</a></li>
+      <li id="ref-9">Vivatheca dental development series, version 0.4, method and sources at <a href="/development/">vivatheca.com/development</a>; made from Z-Anatomy (CC BY-SA 4.0), <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">github.com/Z-Anatomy/Models-of-human-anatomy</a>, which uses BodyParts3D (The Database Center for Life Science, CC BY-SA 2.1 Japan).</li>
+    </ol>
+  </details>
+  </section>
+
+  <p class="small"><span lang="en">Version 0.1, 6 November 2026. Journal sources checked on PubMed. English patient text checked with the patient-education-toolkit rules.</span><span lang="vi">Phiên bản 0.1, ngày 6 tháng 11 năm 2026. Các nguồn tạp chí đã được kiểm tra trên PubMed.</span><span lang="ja">{版|はん}0.1、2026{年|ねん}11{月|がつ}6{日|か}。{論文|ろんぶん}の{出典|しゅってん}は PubMed で{確認|かくにん}。</span></p>
+</main>
+<!-- CONTACT: copy of app/contact.ts. When the Instagram/X handles are known, turn the
+     Instagram / X buttons (no destination yet) into links: add href. -->
+<footer class="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h"><span lang="en">Contact us</span><span lang="vi">Liên hệ</span><span lang="ja">お{問|と}い{合|あ}わせ</span></h2>
+  <p><span lang="en">Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.</span><span lang="vi">Bạn có câu hỏi, góp ý sửa lỗi hay ý tưởng cho một mô hình? Hãy theo dõi Vivatheca hoặc liên hệ với chúng tôi.</span><span lang="ja">{模型|もけい}についてのご{質問|しつもん}、{誤|あやま}りのご{指摘|してき}、アイデアをお{待|ま}ちしています。Vivathecaをフォローするか、お{気軽|きがる}にご{連絡|れんらく}ください。</span></p>
+  <ul>
+    <li><a class="pending" role="link" aria-disabled="true"><b>Instagram</b></a></li>
+    <li><a class="pending" role="link" aria-disabled="true"><b>X</b></a></li>
+    <li><a href="mailto:vivatheca@gmail.com"><b><span lang="en">Email</span><span lang="ja">メール</span></b> vivatheca@gmail.com</a></li>
+  </ul>
+  <p class="small"><span lang="en">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Full disclaimer</a></span><span lang="vi">Vivatheca chỉ nhằm mục đích giáo dục chung. Đây không phải lời khuyên y khoa và không được dùng để chẩn đoán, lập kế hoạch điều trị hoặc hướng dẫn phẫu thuật. Hãy trao đổi với nhân viên y tế có chuyên môn về sức khỏe của chính bạn. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></span><span lang="ja">Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+</footer>
+<script src="vi.js"></script>
+<script src="/inline-vi.js"></script>
+<script src="viewer.js"></script>
+<script src="/contact.js"></script>
+<script src="/model-page.js"></script>
+<script src="/fullscreen.js"></script>
+<script src="/videos/videos.js"></script>
+<script src="/video-embed.js"></script>
+<script src="/model-parts.js"></script>
+<script src="/share-tools.js"></script>
+</body>
+</html>

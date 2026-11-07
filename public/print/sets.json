@@ -451,6 +451,36 @@
    ]
   }
  ],
+ "ectopic-canine": [
+  {
+   "id": "normal",
+   "label": {
+    "en": "Normal",
+    "ja": "{正常|せいじょう}"
+   },
+   "zip": "/ectopic-canine/downloads/vivatheca-ectopic-canine-normal-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "normal-bone.stl",
+    "normal-adult-teeth.stl",
+    "normal-baby-teeth.stl"
+   ]
+  },
+  {
+   "id": "palatal",
+   "label": {
+    "en": "Palate-side flap",
+    "ja": "{口蓋|こうがい}{側|がわ}の{弁|べん}"
+   },
+   "zip": "/ectopic-canine/downloads/vivatheca-ectopic-canine-palatal-1.5x.zip",
+   "scale": 1.5,
+   "files": [
+    "palatal-bone.stl",
+    "palatal-adult-teeth.stl",
+    "palatal-baby-teeth.stl"
+   ]
+  }
+ ],
  "prosthodontic": [
   {
    "id": "dentate",

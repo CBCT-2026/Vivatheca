@@ -523,6 +523,87 @@ window.VT_VIDEOS = {
    ]
   }
  },
+ "ectopic-canine": {
+  "sources": [
+   "Cobourne MT, Seehra J, Papageorgiou SN. The palatal displaced maxillary canine: early diagnosis and interceptive correction - a guideline for the general dental practitioner. Br Dent J. 2025;239(7):463-470. https://doi.org/10.1038/s41415-025-8892-z",
+   "Naoumova J, Kurol J, Kjellberg H. Extraction of the deciduous canine as an interceptive treatment in children with palatal displaced canines - part I: shall we extract the deciduous canine or not? Eur J Orthod. 2015;37(2):209-218. https://doi.org/10.1093/ejo/cju040",
+   "Ericson S, Kurol J. Radiographic examination of ectopically erupting maxillary canines. Am J Orthod Dentofacial Orthop. 1987;91(6):483-492. https://doi.org/10.1016/0889-5406(87)90005-9"
+  ],
+  "en": {
+   "title": "An upper canine growing the wrong way",
+   "seconds": 29,
+   "lines": [
+    {
+     "text": "This is a child’s upper jaw at about 10. Baby teeth are blue and adult teeth are yellow.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "The adult canine is high in the bone. It moves down on the cheek side and takes the baby canine’s place.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "Sometimes it grows towards the palate instead, and the baby canine stays.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "It often cannot come through by itself, and it can wear away the roots of the front teeth.",
+     "cite": [
+      1,
+      3
+     ]
+    },
+    {
+     "text": "Taking out the baby canine at about 10 to 13 years can help it come through.",
+     "cite": [
+      2
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "{違|ちが}う{向|む}きに{育|そだ}つ{上|うえ}の{犬歯|けんし}",
+   "seconds": 33,
+   "lines": [
+    {
+     "text": "10{歳|さい}ごろの{子|こ}どもの{上|うえ}あごです。{乳歯|にゅうし}は{青|あお}、{大人|おとな}の{歯|は}は{黄色|きいろ}です。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{大人|おとな}の{犬歯|けんし}は{骨|ほね}の{高|たか}いところにあり、ほお{側|がわ}を{下|した}へ{進|すす}んで{乳歯|にゅうし}と{入|い}れ{替|か}わります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "ときどき{上|うわ}あご{側|がわ}へ{育|そだ}ってしまい、{乳歯|にゅうし}の{犬歯|けんし}が{残|のこ}ります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{自然|しぜん}には{生|は}えてこないことが{多|おお}く、{前歯|まえば}の{根|ね}をすり{減|へ}らすこともあります。",
+     "cite": [
+      1,
+      3
+     ]
+    },
+    {
+     "text": "10{歳|さい}から13{歳|さい}ごろに{乳歯|にゅうし}の{犬歯|けんし}を{抜|ぬ}くと、{生|は}えてきやすくなります。",
+     "cite": [
+      2
+     ]
+    }
+   ]
+  }
+ },
  "endodontic": {
   "sources": [
    "American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020. https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/",

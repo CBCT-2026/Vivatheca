@@ -146,6 +146,21 @@ export const modelBriefs: ModelBrief[] = [
     normalComparison: 'The same lower first molar, sound, with a living pulp and whole bone around the root tips.',
   },
   {
+    id: 'ectopic-canine',
+    page: '/ectopic-canine/',
+    name: 'Palatally displaced maxillary canine at 10.5 years, with normal canine eruption',
+    glb: '/ectopic-canine/models/palatal.glb',
+    condition: 'An adult upper canine (eye tooth) that grows towards the palate instead of coming down on the cheek side, often with the baby canine still in place. It often cannot come through by itself and can wear away the roots of the front teeth next to it. Taking out the baby canine between about 10 and 13 years can help it come through; if not, a surgeon uncovers it and a brace pulls it into place.',
+    labels: [
+      { plain: 'Upper jaw bone', medical: 'maxilla' },
+      { plain: 'Adult canine (eye tooth)', medical: 'permanent maxillary canine' },
+      { plain: 'Baby canine', medical: 'primary maxillary canine' },
+      { plain: 'Adult teeth', medical: 'permanent teeth' },
+      { plain: 'Baby teeth', medical: 'primary teeth' },
+    ],
+    normalComparison: 'The same child’s jaw with the adult canine on its normal path, high above the baby canine on the cheek side.',
+  },
+  {
     id: 'dentigerous-cyst',
     page: '/dentigerous-cyst/',
     name: 'Dentigerous cyst of an unerupted mandibular third molar, with a normal dental follicle',
