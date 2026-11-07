@@ -38,6 +38,7 @@ Mak = "Mak"        # BMC Med Inform Decis Mak
 Commun = "Commun"  # Int J Lang Commun Disord
 Brach = "Brach"   # Shoemaker SJ, Wolf MS, Brach C (PEMAT)
 Servier = "Servier" # Servier Medical Art
+LAF = "LAF"        # Fernandes LAF (Machado, Oliveira, Fernandes 2009, colour vision simulation)
 Ther = "Ther"     # Phys Ther (journal)
 technic = "technic" # historic title: "the Le Fort I osteotomy technic"
 # Products, licences and abbreviations
