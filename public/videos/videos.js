@@ -1942,5 +1942,112 @@ window.VT_VIDEOS = {
     }
    ]
   }
+ },
+ "vpi": {
+  "sources": [
+   "Perry JL. Anatomy and physiology of the velopharyngeal mechanism. Semin Speech Lang. 2011;32(2):83-92. https://doi.org/10.1055/s-0031-1277712",
+   "Sitzman TJ, Williams JL, Singh DJ, et al. Magnetic resonance imaging of the velopharynx: clinical findings in patients with velopharyngeal insufficiency. Plast Reconstr Surg. 2024;153(6):1155e-1168e. https://doi.org/10.1097/PRS.0000000000010798",
+   "Kummer AW. Speech therapy for errors secondary to cleft palate and velopharyngeal dysfunction. Semin Speech Lang. 2011;32(2):191-198. https://doi.org/10.1055/s-0031-1277721",
+   "de Blacam C, Smith S, Orr D. Surgery for velopharyngeal dysfunction: a systematic review of interventions and outcomes. Cleft Palate Craniofac J. 2018;55(3):405-422. https://doi.org/10.1177/1055665617735102",
+   "Henningsson G, Kuehn DP, Sell D, et al. Universal parameters for reporting speech outcomes in individuals with cleft palate. Cleft Palate Craniofac J. 2008;45(1):1-17. https://doi.org/10.1597/06-086.1"
+  ],
+  "en": {
+   "title": "Why VPI needs surgery and speech therapy",
+   "seconds": 29,
+   "lines": [
+    {
+     "text": "When you speak, a muscle lifts the soft palate against the back of the throat.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "This closes off the nose.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "After a cleft palate repair, the soft palate can be too short to reach.",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "Air leaks into the nose, and speech sounds nasal.",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "Practice cannot close this gap. It needs surgery.",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "Here, a strip of tissue from the throat is joined to the soft palate.",
+     "cite": [
+      4
+     ]
+    },
+    {
+     "text": "A speech pathologist checks speech before and after surgery, and treats sounds learned the wrong way.",
+     "cite": [
+      3,
+      5
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "{鼻咽|びいん}くう{閉鎖|へいさ}{不全|ふぜん}に{手術|しゅじゅつ}と{言語|げんご}{訓練|くんれん}が{必要|ひつよう}な{理由|りゆう}",
+   "seconds": 35,
+   "lines": [
+    {
+     "text": "{話|はな}すとき、{筋肉|きんにく}がやわらかい{上|うわ}あごを{持|も}ち{上|あ}げ、のどの{奥|おく}につけます。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "これで{鼻|はな}への{道|みち}が{閉|と}じます。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{口蓋裂|こうがいれつ}の{手術|しゅじゅつ}の{後|あと}、{上|うわ}あごが{短|みじか}くて{届|とど}かないことがあります。",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "{空気|くうき}が{鼻|はな}へもれ、{声|こえ}が{鼻|はな}にかかります。",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "{練習|れんしゅう}ではこのすき{間|ま}は{閉|と}じません。{手術|しゅじゅつ}が{必要|ひつよう}です。",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "ここでは、のどの{組織|そしき}を{上|うわ}あごにつなげています。",
+     "cite": [
+      4
+     ]
+    },
+    {
+     "text": "{言語|げんご}{聴覚|ちょうかく}{士|し}は{手術|しゅじゅつ}の{前後|ぜんご}に{話|はな}し{方|かた}を{調|しら}べ、{間違|まちが}って{覚|おぼ}えた{音|おと}を{訓練|くんれん}します。",
+     "cite": [
+      3,
+      5
+     ]
+    }
+   ]
+  }
  }
 };

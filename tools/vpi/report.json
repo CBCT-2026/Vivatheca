@@ -1,0 +1,33 @@
+{
+ "base": "BodyParts3D 4.0 (DBCLS), CC BY 4.0: FJ3395, FJ3394, FJ3309, FJ3176, FJ3177, FJ3161, FJ3289, FJ2772, FJ3269, FJ3273, FJ3263, FJ3375, FJ3379, FJ3369, FJ2761, FJ2741 (origin), FJ2753 (origin)",
+ "pns_yz": [
+  -127.72,
+  1477.92
+ ],
+ "ans_yz": [
+  -179.5,
+  1468.1
+ ],
+ "palatal_length_ans_pns_mm": 52.7,
+ "velar_length_mm": 34.85,
+ "effective_velar_length_mm": 13.72,
+ "pharyngeal_depth_mm": 20.92,
+ "velar_thickness_mm": 8.78,
+ "vp_ratio_model": 1.67,
+ "bony_pns_to_atlas_mm": 40.07,
+ "pvst_drawn_mm": {
+  "C1": 6.0,
+  "C2": 4.0,
+  "C3": 5.0
+ },
+ "choanal_half_width_from_pterygoid_plates_mm": 10.38,
+ "vpi_velar_length_drawn_mm": 27.0,
+ "vpi_gap_mm": 7.53,
+ "bp3d_uvular_muscle_behind_pns_mm": [
+  25.32,
+  29.83
+ ],
+ "levator_length_model_mm": 27.54,
+ "flap_half_width_drawn_mm": 6.0,
+ "flap_base_above_palatal_plane_mm": 4.0
+}

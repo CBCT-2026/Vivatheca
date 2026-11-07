@@ -1134,6 +1134,12 @@ const en = {
         summary: 'A child’s upper jaw with a left alveolar cleft, in three stages: before the bone graft, after it with braces, and years later with the eye tooth moved into the gap. Pictured: before (left) and years later (right).',
         pairing: 'Treatment stages',
       },
+      vpi: {
+        title: 'Velopharyngeal insufficiency after cleft palate repair, with normal velopharyngeal closure',
+        specialty: 'Cleft care and speech pathology',
+        summary: 'The throat cut down the middle. In normal speech the soft palate closes off the nose; with VPI a gap lets air leak into the nose. Shows three operations that close the gap and why speech therapy is needed before and after surgery. Pictured: normal closure (left) and VPI (right).',
+        pairing: 'Condition + healthy normal + treatments',
+      },
       prosthodontic: {
         title: 'Atrophic edentulous mandible (Cawood and Howell class V) with a dentate mandible, and complete denture or two-implant overdenture',
         specialty: 'Prosthodontics',

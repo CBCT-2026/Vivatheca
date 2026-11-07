@@ -13,6 +13,12 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1002/cre2.70042": {
+   "url": "https://doi.org/10.1002/cre2.70042",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.1002/jper.17-0721": {
    "url": "https://doi.org/10.1002/jper.17-0721",
    "version": "published",
@@ -25,11 +31,35 @@
    "host": "publisher",
    "licence": null
   },
+  "10.1007/s00784-025-06568-y": {
+   "url": "https://doi.org/10.1007/s00784-025-06568-y",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.1007/s10006-024-01226-1": {
    "url": "https://doi.org/10.1007/s10006-024-01226-1",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
+  },
+  "10.1007/s12105-021-01402-9": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9018914",
+   "version": "published",
+   "host": "repository",
+   "licence": null
+  },
+  "10.1007/s12105-021-01404-7": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9019005",
+   "version": "published",
+   "host": "repository",
+   "licence": null
+  },
+  "10.1007/s12105-022-01420-1": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9018948",
+   "version": "published",
+   "host": "repository",
+   "licence": null
   },
   "10.1007/s12663-025-02855-z": {
    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13415738/",
@@ -48,6 +78,18 @@
    "version": "accepted",
    "host": "repository",
    "licence": null
+  },
+  "10.1016/j.bjps.2022.04.097": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9391286",
+   "version": "accepted",
+   "host": "repository",
+   "licence": null
+  },
+  "10.1016/j.jdent.2024.105130": {
+   "url": "https://doi.org/10.1016/j.jdent.2024.105130",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
   },
   "10.1016/j.joms.2024.06.181": {
    "url": "https://doi.org/10.1016/j.joms.2024.06.181",
@@ -79,6 +121,24 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1044/2020_jslhr-20-00305": {
+   "url": "https://doi.org/10.1044/2020_jslhr-20-00305",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
+  "10.1044/2023_jslhr-23-00279": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/11008425",
+   "version": "published",
+   "host": "repository",
+   "licence": null
+  },
+  "10.1055/s-0033-1343784": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/3773072",
+   "version": "published",
+   "host": "repository",
+   "licence": null
+  },
   "10.1055/s-0039-1699383": {
    "url": "https://doi.org/10.1055/s-0039-1699383",
    "version": "published",
@@ -97,6 +157,24 @@
    "host": "publisher",
    "licence": null
   },
+  "10.1097/gox.0000000000000169": {
+   "url": "https://doi.org/10.1097/gox.0000000000000169",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc-nd"
+  },
+  "10.1097/scs.0000000000003284": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/5218844",
+   "version": "accepted",
+   "host": "repository",
+   "licence": null
+  },
+  "10.1111/j.1365-2591.2006.01180.x": {
+   "url": "https://doi.org/10.1111/j.1365-2591.2006.01180.x",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
   "10.1111/jcpe.12935": {
    "url": "https://doi.org/10.1111/jcpe.12935",
    "version": "published",
@@ -108,6 +186,18 @@
    "version": "published",
    "host": "publisher",
    "licence": "other-oa"
+  },
+  "10.1148/rg.230180": {
+   "url": "https://doi.org/10.1148/rg.230180",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.1148/ryai.230024": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10546353",
+   "version": "published",
+   "host": "repository",
+   "licence": null
   },
   "10.1155/2013/397809": {
    "url": "https://doi.org/10.1155/2013/397809",
@@ -126,6 +216,12 @@
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
+  },
+  "10.1177/1055665617739564": {
+   "url": "https://doi.org/10.1177/1055665617739564",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
   },
   "10.1177/1465312519879934": {
    "url": "https://research-information.bris.ac.uk/en/publications/eb2594aa-f924-4641-8eca-28d3660a225b",
@@ -150,6 +246,12 @@
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
+  },
+  "10.1186/s12903-025-06845-y": {
+   "url": "https://doi.org/10.1186/s12903-025-06845-y",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc-nd"
   },
   "10.1186/s40644-019-0190-z": {
    "url": "https://doi.org/10.1186/s40644-019-0190-z",
@@ -181,6 +283,12 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1590/2176-9451.20.2.055-060.oar": {
+   "url": "https://doi.org/10.1590/2176-9451.20.2.055-060.oar",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc"
+  },
   "10.1590/2177-6709.26.4.e2119247.oar": {
    "url": "https://doi.org/10.1590/2177-6709.26.4.e2119247.oar",
    "version": "published",
@@ -198,6 +306,12 @@
    "version": "published",
    "host": "publisher",
    "licence": null
+  },
+  "10.3174/ajnr.a1307": {
+   "url": "https://doi.org/10.3174/ajnr.a1307",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
   },
   "10.3390/children8100923": {
    "url": "https://doi.org/10.3390/children8100923",
@@ -240,6 +354,12 @@
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
+  },
+  "10.4103/0975-5950.69147": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/3304182",
+   "version": "published",
+   "host": "repository",
+   "licence": "cc-by-nc-sa"
   },
   "10.5037/jomr.2010.1102": {
    "url": "https://doi.org/10.5037/jomr.2010.1102",
