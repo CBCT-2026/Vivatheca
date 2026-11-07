@@ -53,10 +53,14 @@ COL = {
     'implant': (LINEAR['model.hardware'], 0.35), 'bone_cut': (LINEAR['model.boneCut'], 0.9),
     'tooth_cut': (LINEAR['model.dentineCut'], 0.7), 'gum_cut': (LINEAR['model.gum'], 0.9),
     'denture_cut': (LINEAR['model.dentureBase'], 0.8), 'implant_cut': (LINEAR['model.hardware'], 0.6),
+    'enamel_cut': (LINEAR['model.enamelCut'], 0.5), 'cementum': (LINEAR['model.cementum'], 0.8),
+    'cementum_cut': (LINEAR['model.cementum'], 0.8),
 }
 # /model-parts.js groups materials by name with a trailing _<n> removed, so cut faces hide with their part.
 GLTF_NAME = {'bone_cut': 'bone_1', 'tooth_cut': 'teeth_1', 'gum_cut': 'gum_1', 'denture_cut': 'denture_1',
-             'implant_cut': 'implant_1', 'denture_teeth': 'denture_2'}
+             'implant_cut': 'implant_1', 'denture_teeth': 'denture_2',
+             # natural tooth layers as in tools/endo (endo.layer_labels)
+             'enamel_cut': 'teeth_2', 'cementum': 'teeth_3', 'cementum_cut': 'teeth_4'}
 endo.COL, endo.GLTF_NAME = COL, GLTF_NAME
 
 LEFT = ['FJ1254', 'FJ1255', 'FJ1256', 'FJ1257', 'FJ1258', 'FJ1259', 'FJ1260']
@@ -223,6 +227,7 @@ def build(folder, out):
     W = np.interp(t, tooth_t, half_w + 1.0)
     W = np.where(np.isfinite(L) & (t >= tooth_t[0] - 4) & (t <= tooth_t[-1] + 4), W, -5)
     Zc = np.interp(t, tooth_t, cej)
+    Apz = np.interp(t, tooth_t, apex)
     lat = G.full((d - W)[:, :, None])
     top_base = G.full(G.Z - (Zc + 0.8)[:, :, None])
     bot_base = G.full((Lf - FLANGE)[:, :, None] - G.Z)
@@ -259,6 +264,14 @@ def build(folder, out):
                     continue
                 m, labels = res
                 labels = [cutlab[part] if l == 'cut' else l for l in labels]
+                if part == 'teeth':
+                    # enamel / dentine / cementum, with each tooth's own CEJ and apex (nearest along the arch)
+                    ij = ((m.triangles_center[:, :2] - G.origin[:2]) / PITCH).T
+                    cej_f = ndimage.map_coordinates(Zc, ij, order=1, mode='nearest')
+                    apex_f = ndimage.map_coordinates(Apz, ij, order=1, mode='nearest')
+                    labels = endo.layer_labels(G, m, labels, T, cej_f, apex_f, outer=False)
+                    # outer=False: the estimated CEJ sits just above the drawn gum margin, so a cementum band would
+                    # look like gum recession; the outer surface stays tooth white and only the cut face is layered.
                 g.add(part, m, labels)
             g.save(os.path.join(out, f'{st}-{variant}.glb'))
             print(st, variant, os.path.getsize(os.path.join(out, f'{st}-{variant}.glb')) // 1024, 'KB')

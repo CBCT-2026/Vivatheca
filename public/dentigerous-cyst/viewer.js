@@ -76,7 +76,7 @@ function render() {
   caption.innerHTML = '<h2>' + ruby(s.title) + '</h2><p>' + ruby(s.text) + (cut ? ' ' + ruby(s.cut) : '') + '</p>';
   stateButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.state === state));
   document.querySelectorAll('.legend li').forEach(li => {
-    li.hidden = !!li.dataset.show && !li.dataset.show.split(' ').includes(state);
+    li.hidden = (!!li.dataset.show && !li.dataset.show.split(' ').includes(state)) || ('cut' in li.dataset && !cut);
   });
 }
 function show() {

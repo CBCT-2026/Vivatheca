@@ -21,7 +21,6 @@ from scipy import ndimage
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', 'endo'))
-sys.path.insert(0, os.path.join(HERE, '..', 'prosth'))
 sys.path.insert(0, os.path.join(HERE, '..', 'tokens'))
 import build as endo  # noqa: E402  (Grid, SDF helpers, mesher and GLB writer)
 from colours import LINEAR  # noqa: E402
@@ -53,8 +52,13 @@ COL = {
     'follicle': (LINEAR['model.lining'], 0.7), 'cyst': (LINEAR['model.cyst'], 0.45),
     'bone_cut': (LINEAR['model.boneCut'], 0.9), 'tooth_cut': (LINEAR['model.dentineCut'], 0.7),
     'follicle_cut': (LINEAR['model.lining'], 0.9), 'cyst_cut': (LINEAR['model.cyst'], 0.8),
+    'enamel_cut': (LINEAR['model.enamelCut'], 0.5), 'cementum': (LINEAR['model.cementum'], 0.8),
+    'cementum_cut': (LINEAR['model.cementum'], 0.8),
 }
-GLTF_NAME = {'bone_cut': 'bone_1', 'tooth_cut': 'teeth_1', 'follicle_cut': 'follicle_1', 'cyst_cut': 'cyst_1'}
+# Tooth layers as in tools/endo (endo.layer_labels): teeth = enamel surface, teeth_1 = dentine cut,
+# teeth_2 = enamel cut, teeth_3 = cementum surface, teeth_4 = cementum cut.
+GLTF_NAME = {'bone_cut': 'bone_1', 'tooth_cut': 'teeth_1', 'follicle_cut': 'follicle_1', 'cyst_cut': 'cyst_1',
+             'enamel_cut': 'teeth_2', 'cementum': 'teeth_3', 'cementum_cut': 'teeth_4'}
 endo.COL, endo.GLTF_NAME = COL, GLTF_NAME
 
 FDI = {'FJ1254': 36, 'FJ1255': 34, 'FJ1256': 37, 'FJ1257': 35, 'FJ1258': 31, 'FJ1259': 32, 'FJ1260': 33,
@@ -167,6 +171,8 @@ def build(folder, out):
     S = G.full((G.X - c38[0]) * crown_dir[0] + (G.Y - c38[1]) * crown_dir[1] + (G.Z - c38[2]) * crown_dir[2])
     cej38 = float(pc[2])
     apex38 = float(t38.vertices[:, 2].min())
+    apex37 = float(min(teeth[n].vertices[:, 2].min() for n in near))
+    Tall = endo.union(T, T38)
 
     # Crop: the posterior body and the lower ramus, with a smooth front cut in front of 35.
     box = G.full(np.maximum(x_lo + 1.5 - G.X, G.X - (x_hi - 1.5)))
@@ -233,6 +239,11 @@ def build(folder, out):
                     continue
                 m, labels = res
                 labels = [cutlab[part] if l == 'cut' else l for l in labels]
+                if part == 'teeth':
+                    # enamel / dentine / cementum by tooth: 38 has its own CEJ and apex
+                    idx = ((m.triangles_center - G.origin) / PITCH).T
+                    is38 = ndimage.map_coordinates(T38, idx, order=1, mode='nearest') < ndimage.map_coordinates(T, idx, order=1, mode='nearest')
+                    labels = endo.layer_labels(G, m, labels, Tall, np.where(is38, cej38, cej37), np.where(is38, apex38, apex37))
                 g.add(part, m, labels)
             g.save(os.path.join(out, f'{st}-{variant}.glb'))
             print(st, variant, os.path.getsize(os.path.join(out, f'{st}-{variant}.glb')) // 1024, 'KB')

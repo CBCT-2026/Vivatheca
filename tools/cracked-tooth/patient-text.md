@@ -4,7 +4,7 @@
 
 These models show one back tooth from the lower jaw. You can see it healthy, cracked, with a filling and with a crown. Tap **Bite down** to see what happens when you chew. Tap **Cut in half** to see inside the tooth.
 
-The hard outer layer is the enamel. Under it is the dentine (the main body of the tooth). In the middle is the pulp (the nerve and blood vessels).
+The hard outer layer is the enamel. Under it is the dentine (the main body of the tooth). A thin layer called cementum covers the root. In the middle is the pulp (the nerve and blood vessels).
 
 We drew the crack wider than a real one. We also made the bending much bigger than in real life, so you can see it. The filling is blue and the crown is grey so they stand out. Real ones are most often the colour of your teeth.
 
