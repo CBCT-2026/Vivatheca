@@ -1023,6 +1023,7 @@ const en = {
     toConsider: 'to consider',
     possibleDetails: 'Possible patient details: {details}.',
     exportBlocked: 'Export is blocked because the draft may contain patient details ({details}). Remove them to print or download.',
+    exportNeedsDraft: 'Nothing to export yet. Put a draft in step 2 first: press "Draft with AI", or copy the prompt into an AI chat and paste the answer into the draft box.',
     checksSource: 'Checks from the open-source patient-education-toolkit, based on the guidance listed below the builder (NHS, ISO 24495-1, CDC, PEMAT, IPDAS). Scores are estimates.',
     simplifying: 'Simplifying…',
     simplify: 'Make it simpler (AI)',
