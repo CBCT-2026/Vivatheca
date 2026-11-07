@@ -30,6 +30,7 @@ Same text as English (check whether a translation is needed): `learnOac.evidence
 | periodontitis | ja.js | 92 | 0 | 0 | 0 | 92 |
 | prosthodontic | – | – | – | translations live in the page script, not tracked by key | | |
 | stainless-steel-crown | – | – | – | translations live in the page script, not tracked by key | | |
+| stainless-steel-crown/kids | – | – | – | translations live in the page script, not tracked by key | | |
 | tmd | – | – | – | translations live in the page script, not tracked by key | | |
 | tmd/sheet | – | – | – | translations live in the page script, not tracked by key | | |
 | vpi | – | – | – | translations live in the page script, not tracked by key | | |
