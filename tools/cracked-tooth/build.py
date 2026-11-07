@@ -28,6 +28,9 @@ import trimesh
 from scipy import ndimage
 from skimage import measure
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tokens'))
+from colours import LINEAR  # noqa: E402  (tools/tokens/colours.py, built by `pnpm tokens`)
+
 # ---------------------------------------------------------------- parameters (mm, tooth frame)
 CRACK_HALF_WIDTH = 0.12      # drawn 0.24 mm wide so it can be seen; real cracks are far thinner
 CRACK_BOTTOM_MID = 2.6       # crack depth: bottom 2.6 mm above the CEJ in the middle of the tooth
@@ -44,11 +47,14 @@ CROWN_OCCLUSAL = 1.6         # occlusal reduction
 TILT_DEG = 6.0               # exaggerated cusp tipping under load (real movement is microscopic)
 PRINT_SCALE = 3.0
 PRINT_GAP = 0.08             # crown and filling fit clearance at model scale (0.24 mm at 3x)
+CEM_CERVICAL, CEM_APICAL = 0.30, 0.50  # DRAWN cementum thickness (cut view colour zone), about 2-3x real
 
 COL = {
     'tooth': ([0.8963, 0.855, 0.7758, 1], 0.6, 0),
-    'enamel_cut': ([0.86, 0.84, 0.80, 1], 0.6, 0),
-    'dentine_cut': ([0.74, 0.62, 0.42, 1], 0.7, 0),
+    'enamel_cut': (list(LINEAR['model.enamelCut']) + [1], 0.5, 0),
+    'dentine_cut': (list(LINEAR['model.dentineCut']) + [1], 0.7, 0),
+    'cementum': (list(LINEAR['model.cementum']) + [1], 0.8, 0),
+    'cementum_cut': (list(LINEAR['model.cementum']) + [1], 0.8, 0),
     'pulp': ([0.60, 0.10, 0.10, 1], 0.6, 0),
     'crack': ([0.10, 0.045, 0.02, 1], 0.9, 0),
     'filling': ([0.16, 0.42, 0.85, 1], 0.35, 0),
@@ -313,6 +319,11 @@ def build(F, out):
     # enamel: none below the CEJ, about 1.5 mm thick on the cusps
     enamel_t = smoothstep(-0.1, 0.3, F.Z) * (0.15 + smoothstep(0.0, 4.0, F.Z) * 1.35)
     enamel_in = (T + enamel_t + 0 * F.X + 0 * F.Y).astype(np.float32)  # <0 = deeper than enamel
+    # cementum: root surface below the CEJ, DRAWN 0.3 mm at the CEJ to 0.5 mm at the apex (about 2-3x real;
+    # measured medians 0.10 / 0.16 / 0.22 mm cervical / middle / apical third: Birimisa et al. 2021)
+    zmin = float(F.zs[np.nonzero((T < 0).any(axis=(0, 1)))[0][0]])
+    cem_t = (CEM_CERVICAL + (CEM_APICAL - CEM_CERVICAL) * np.clip(F.Z / zmin, 0, 1)) * (F.Z < 0)
+    cem_in = (T + cem_t + 0 * F.X + 0 * F.Y).astype(np.float32)  # <0 = deeper than cementum
 
     # Which parts each state has: list of (mesh name, terms, moves with the bite)
     states = {
@@ -340,7 +351,8 @@ def build(F, out):
                     if part == 'tooth':
                         tt = t2 + [('dentine_cut', neg(Pu))]
                         pieces = [('enamel', tt + [('enamel_cut', neg(enamel_in))]),
-                                  ('dentine', tt + [('dentine_cut', enamel_in)]),
+                                  ('cementum', tt + [('cementum_cut', neg(cem_in))]),
+                                  ('dentine', tt + [('dentine_cut', enamel_in), ('dentine_cut', cem_in)]),
                                   ('pulp', [('pulp', Pu), ('pulp', cut)] + [(l, s) for l, s in terms[1:] if l == 'crack'])]
                     else:
                         pieces = [(part, t2)]
@@ -350,6 +362,8 @@ def build(F, out):
                         continue
                     m, labels = res
                     labels = [fix_label(l, pname, part) for l in labels]
+                    zc = m.triangles_center[:, 2]
+                    labels = ['cementum' if (l == 'tooth' and z < 0) else l for l, z in zip(labels, zc)]
                     delta = None
                     if name in ('cracked', 'composite'):
                         if part == 'filling':
@@ -382,7 +396,7 @@ def build(F, out):
 
 def fix_label(lab, piece, part):
     if lab == 'cutface':
-        return {'enamel': 'enamel_cut', 'dentine': 'dentine_cut', 'pulp': 'pulp'}.get(piece, part if part in COL else 'tooth')
+        return {'enamel': 'enamel_cut', 'dentine': 'dentine_cut', 'cementum': 'cementum_cut', 'pulp': 'pulp'}.get(piece, part if part in COL else 'tooth')
     return lab
 
 

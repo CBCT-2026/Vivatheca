@@ -68,8 +68,8 @@ const STATES = {
   },
 };
 const CUT_ALT = {
-  en: 'The tooth is cut in half from cheek to tongue to show the enamel, dentine and pulp inside.',
-  ja: '{頬側|きょうそく}から{舌側|ぜっそく}へ{半分|はんぶん}に{切|き}り、エナメル{質|しつ}・{象牙質|ぞうげしつ}・{歯髄|しずい}を{見|み}せています。',
+  en: 'The tooth is cut in half from cheek to tongue to show the enamel, dentine, cementum and pulp inside.',
+  ja: '{頬側|きょうそく}から{舌側|ぜっそく}へ{半分|はんぶん}に{切|き}り、エナメル{質|しつ}・{象牙質|ぞうげしつ}・セメント{質|しつ}・{歯髄|しずい}を{見|み}せています。',
 };
 // Vietnamese (from vi.js); English where a translation is missing.
 for (const k in STATES) STATES[k].vi = (VI_PAGE.states || {})[k] || STATES[k].en;
