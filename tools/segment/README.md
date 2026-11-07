@@ -22,7 +22,7 @@ so the site has a "typical adult jaw" that is no one person. Method, sources and
    and `provenance.json`.
 4. Copy `averaged-jaw.glb`, the STL and `provenance.json` to `public/models/averaged-jaw/` and `provenance.json`
    to `app/models/averaged-jaw/` (the page renders the scan table from it), then render
-   `public/assets/renders/averaged-jaw.webp`.
+   `public/assets/renders/averaged-jaw.webp` on the light card background with `node tools/segment/render-card.mjs`.
 
 Requirements: `python3 -m pip install TotalSegmentator dicom2nifti idc-index nibabel trimesh scikit-image scipy`
 (TotalSegmentator installs CPU PyTorch; the model weights download on first run).
