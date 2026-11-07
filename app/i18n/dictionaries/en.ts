@@ -792,6 +792,8 @@ const en = {
       print: '3D print a model',
       impact: 'How the models are used',
     },
+    use: 'Use the models',
+    disciplines: { label: 'Browse the collection by discipline', all: 'All models', showing: 'Showing {name}', items: { 'oral-surgery': 'Oral and maxillofacial surgery', 'head-neck': 'Head and neck', 'cleft': 'Cleft care', 'orthodontics': 'Orthodontics', 'paediatric': 'Paediatric dentistry', 'endodontics': 'Endodontics', 'periodontics': 'Periodontics', 'prosthodontics': 'Prosthodontics' } },
     participate: {
       label: 'Participate',
       request: 'Ask for a new model',

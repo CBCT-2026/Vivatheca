@@ -1112,6 +1112,8 @@ const vi = withFallback(en, {
       "print": "In 3D mô hình",
       "impact": "Cách các mô hình được sử dụng"
     },
+    "use": "Sử dụng mô hình",
+    "disciplines": { "label": "Xem bộ sưu tập theo chuyên ngành", "all": "Tất cả mô hình", "showing": "Đang xem: {name}", "items": { "oral-surgery": "Phẫu thuật miệng và hàm mặt", "head-neck": "Đầu và cổ", "cleft": "Điều trị khe hở môi vòm miệng", "orthodontics": "Chỉnh nha", "paediatric": "Răng trẻ em", "endodontics": "Nội nha", "periodontics": "Nha chu", "prosthodontics": "Phục hình răng" } },
     "participate": {
       "label": "Tham gia",
       "request": "Đề xuất mô hình mới",

@@ -127,6 +127,15 @@ h1, h2, h3, p { margin-top: 0; }
    English hyphenates so gaps stay small; Japanese spreads space between characters. See DESIGN.md. */
 p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 p:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
+/* Long list items, definitions and reference lists follow the same rule (Luke, 2026-11-07).
+   Single-line items look the same either way, because the last line of a justified block stays left. */
+li, dd, blockquote { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+nav li, menu li, li:has(img, picture, video) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* link lists and picture cards stay ragged */
+li :where(h1, h2, h3, h4, h5, h6) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* card titles inside list items */
+li:lang(ja), dd:lang(ja), blockquote:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
+/* A printed web address or DOI cannot hyphenate, so it would leave wide gaps in a justified line:
+   let it break at any character instead. */
+.url { word-break: break-all; hyphens: none; -webkit-hyphens: none; }
 h1, h2, h3 { color: var(--heading); letter-spacing: -.035em; line-height: 1.06; text-wrap: balance; }
 h1 { margin-bottom: 1.5rem; font-size: clamp(3.4rem,6.2vw,5.6rem); font-weight: 780; }
 .hero-title, .hero-lede { width: 100%; max-width: 46rem; }
@@ -357,7 +366,8 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .footer-brand { margin-bottom: 1.25rem; filter: brightness(0) invert(1); }
 .footer-about p { max-width: 38ch; margin: 0 0 1.25rem; color: rgba(255,255,255,.78); }
 .footer-badge { display: inline-flex; align-items: center; min-height: 32px; border: 1px solid rgba(20,201,215,.5); border-radius: 999px; padding: .35rem .75rem; color: var(--cyan-500); font-size: .84rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-.footer-links { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(2rem,5vw,5rem); }
+.footer-links { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: clamp(1.5rem,3vw,3.5rem); }
+@media (max-width: 1200px) and (min-width: 1101px) { .footer-links { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 2rem; } }
 .footer-nav h2 { margin-bottom: 1rem; color: var(--cyan-500); font-size: .84rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .footer-nav ul, .footer-disciplines ul { margin: 0; padding: 0; list-style: none; }
 .footer-nav li + li { margin-top: .3rem; }
@@ -478,11 +488,11 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .builder-header { position: static; }
 .site-header.builder-header { grid-template-columns: auto 1fr auto; }
 .builder-page { max-width: 1240px; margin: 0 auto; padding: 2rem clamp(1rem,4vw,3rem) 5rem; }
-.builder-intro { max-width: 760px; margin-bottom: 1.5rem; }
+.builder-intro { max-width: 760px; margin: 0 auto 1.5rem; }
 .builder-intro h1 { margin: .2rem 0 .6rem; font-size: clamp(2rem,4vw,3rem); line-height: 1.1; color: var(--heading); }
 .builder-intro p { color: var(--muted); }
 .builder, .builder-ack { display: grid; gap: 1.5rem; }
-.builder-ack { max-width: 760px; border: 1px solid color-mix(in srgb, var(--coral-500) 35%, transparent); background: color-mix(in srgb, var(--coral-500) 8%, var(--surface)); border-radius: var(--radius-md); padding: 1.5rem; }
+.builder-ack { width: 100%; max-width: 760px; margin-inline: auto; border: 1px solid color-mix(in srgb, var(--coral-500) 35%, transparent); background: color-mix(in srgb, var(--coral-500) 8%, var(--surface)); border-radius: var(--radius-md); padding: 1.5rem; }
 .builder-ack h2 { margin: 0; color: var(--heading); font-size: clamp(1.5rem,2.4vw,1.9rem); }
 .builder-ack ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .5rem; }
 .builder-ack .button { justify-self: start; }
@@ -556,6 +566,12 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; color: var(--muted); font-size: .88rem; }
 .breadcrumb a { color: var(--heading); font-weight: 700; }
 
+.discipline-filter { margin: 0 0 1.25rem; }
+.discipline-filter ul { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.discipline-filter a { display: inline-flex; align-items: center; min-height: 44px; padding: .45rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--heading); font-weight: 700; font-size: .92rem; text-decoration: none; }
+.discipline-filter a:hover { border-color: var(--accent); color: var(--accent); }
+.discipline-filter a[aria-current='page'] { border-color: var(--heading); background: var(--heading); color: var(--surface); }
+.discipline-showing { margin: 0 0 1.25rem; color: var(--muted); font-weight: 650; }
 .library-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(100%,360px),1fr)); gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
 .library-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-sm); transition: box-shadow 160ms ease, transform 160ms ease; }
 .library-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
@@ -722,10 +738,10 @@ h3 { margin-bottom: .75rem; font-size: clamp(1.35rem,2vw,1.8rem); }
 :root[data-theme='dark'] .hero-visual img, :root[data-theme='dark'] .print-section figure img, :root[data-theme='dark'] .contribute-section figure img { box-shadow: none; }
 @media (max-width: 600px) { .compare-model { height: 270px; } }
 
-.builder-sources { max-width: 72rem; margin: 3rem auto 0; color: var(--text-strong); font-size: .9rem; line-height: 1.6; }
+.builder-sources { max-width: 760px; margin: 3rem auto 0; color: var(--text-strong); font-size: .9rem; line-height: 1.6; }
 .builder-sources h2 { color: var(--heading); font-size: 1.25rem; margin: 0 0 .5rem; }
 .builder-sources ol { padding-left: 1.4em; list-style: decimal; }
-.builder-sources li { margin-bottom: .4rem; overflow-wrap: anywhere; }
+.builder-sources li { margin-bottom: .4rem; }
 .builder-sources a { color: var(--accent); }
 /* Language switcher (app/i18n/switcher.tsx). In the header on wide screens, inside the
    mobile menu on narrow ones. The furigana switch appears only in Japanese. */
@@ -982,7 +998,16 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .video-block video { display: block; width: min(100%, 360px); height: auto; max-height: 80vh; aspect-ratio: 9 / 16; margin: 1rem auto; border-radius: 12px; background: #000; }
 .video-block details summary { cursor: pointer; }
 .video-block details summary h3 { display: inline; font-size: 1rem; }
-.video-block ol { overflow-wrap: anywhere; font-size: .9rem; }
+.video-block ol { font-size: .9rem; }
+/* Wide screens (Luke, 2026-11-07): the upright video sits beside what it says, instead of
+   centred above a left-aligned text column with empty space to its right. */
+@media (min-width: 1000px) {
+  .video-block { display: grid; grid-template-columns: 360px minmax(0,1fr); column-gap: clamp(2rem,4vw,3.5rem); align-items: start; }
+  .video-block > * { grid-column: 2; }
+  .video-block > h2, .video-block > .video-meta { grid-column: 1 / -1; }
+  .video-block > video { grid-column: 1; grid-row: 3 / span 20; width: 100%; margin: .5rem 0 0; }
+  .video-block > h3:first-of-type { margin-top: .5rem; }
+}
 .vt-video-review { margin: 1rem 0 0; color: var(--text-strong); font-size: .8rem; line-height: 1.5; }
 .vt-video-review a { color: inherit; font-weight: 800; }
 /* Model tools under the 3D viewers (homepage ABG viewer, wisdom tooth compare): views, labels, soft tissue,
@@ -1219,6 +1244,14 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .home-my-models:empty { display: none; }
 .hero-actions { flex-wrap: wrap; }
 /* Readable line length (design audit 6 Nov 2026, P2): body text stops at about 70 characters per line.
+   The limit is in rem, not ch (Luke, 2026-11-07): a ch limit made small print (notes, disclaimers)
+   stop short of the paragraph above it, so a column had several ragged right edges. With one rem
+   width every paragraph and list in a column ends on the same line.
    :where() keeps this at zero specificity, so any class rule (wider tables, centred notes) wins. */
-:where(main, section, article, aside, details, footer) :where(p, li, dd, figcaption, blockquote) { max-width: 70ch; }
+:where(main, section, article, aside, details, footer) :where(p, li, dd, figcaption, blockquote) { max-width: 46rem; }
+:where(li, dd, blockquote) :where(p, li) { max-width: none; } /* nested text follows its parent's width */
+/* Space between paragraphs and lists in running text (Luke, 2026-11-07). The reset at the top of the
+   bundled CSS removes every margin, so consecutive paragraphs ran together with no gap. Element-level specificity:
+   any component that sets its own margins keeps them. */
+:where(.prose-page, .detail-block, .library-next, .builder-sources, .learn-uncertain, main section:not([class])) > :where(p, ul, ol, dl, blockquote, details) + :is(p, ul, ol, dl, blockquote, details) { margin-top: .75rem; }
 .model-help, .compare-help, .slices-status { max-width: none; }
