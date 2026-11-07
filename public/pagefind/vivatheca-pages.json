@@ -61,19 +61,19 @@
  },
  "/models/alveolar-bone-graft": {
   "en": "943b0ab8b6ca",
-  "ja": "a4f6749400f0"
+  "ja": "7e4500df5229"
  },
  "/models/averaged-jaw": {
-  "en": "2ae1701ed418",
-  "ja": "53a98c952283"
+  "en": "4ba332f69d53",
+  "ja": "f6938eb5030d"
  },
  "/models/impacted-wisdom-tooth": {
   "en": "49254c01af98",
-  "ja": "fd55de281e07"
+  "ja": "a23010a4b5d0"
  },
  "/models": {
-  "en": "5e716e52b397",
-  "ja": "4b889ff19f85"
+  "en": "77fe01be4ce4",
+  "ja": "e9e513af509e"
  },
  "/": {
   "en": "ba4313c5fccc",
@@ -128,11 +128,11 @@
   "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "2e8f44a6b10e",
-  "ja": "2356600561e1"
+  "en": "4aee1cebcd12",
+  "ja": "ce5ba09747ea"
  },
  "/head-neck/mec/": {
-  "en": "ca1f479c1c98",
+  "en": "4838a76d17c1",
   "ja": "55b6b31c54a3"
  },
  "/head-neck/okc/": {
@@ -141,7 +141,7 @@
  },
  "/head-neck/scc/": {
   "en": "c36995fca575",
-  "ja": "c3a9cbe1dd2c"
+  "ja": "c5155abfab7b"
  },
  "/oroantral/": {
   "en": "632056d33a23",
@@ -168,8 +168,8 @@
   "ja": "a409ae85c3e4"
  },
  "/tmd/": {
-  "en": "9778ecbf0cd6",
-  "ja": "bbc8ea4bab14"
+  "en": "48c1fe74143a",
+  "ja": "79542e65ab9e"
  },
  "/tmd/sheet/": {
   "en": "eeb44ea26ecc",

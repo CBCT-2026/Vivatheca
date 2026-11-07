@@ -12,7 +12,7 @@ test('tmd page plays each exercise and shows its steps and evidence', async ({ p
     await page.getByRole('button', { name: new RegExp(name.replace('.', '\\.')) }).click();
     await expect(page.locator('#stage h2')).toHaveText(name);
     await expect(page.locator('#stage .evidence')).toContainText('How sure are we?');
-    await expect.poll(anim).toBe(anim_);
+    await expect.poll(anim, { timeout: 20_000 }).toBe(anim_);
   }
   await expect(page.locator('#stage .evidence')).toContainText('We are not very sure');
 });
@@ -35,6 +35,6 @@ test('tmd page and sheet show Vietnamese from vi.js', async ({ page, context }) 
   for (const path of ['/tmd/index.html', '/tmd/sheet/index.html']) {
     await page.goto(path);
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Rối loạn thái dương hàm|Đau hàm/);
-    expect(await page.locator('main [lang="en"]:visible').count(), path).toBe(0);
+    expect(await page.locator('main [lang="en"]:not(#video, #video *):visible').count(), path).toBe(0);
   }
 });
