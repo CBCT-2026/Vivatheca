@@ -43,7 +43,7 @@ export default async function CreatePage() {
           <h2 id="builder-sources-title"><Ruby text={t.create.guidanceHeading} /></h2>
           <p><Ruby text={t.create.guidanceIntro} /></p>
           <ol lang="en">
-            {guidanceSources.map((source) => <li key={source.href}>{source.text} <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}
+            {guidanceSources.map((source) => <li key={source.href}>{source.text} <a className="url" href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></li>)}
           </ol>
         </section>
       </main>

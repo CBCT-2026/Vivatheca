@@ -171,6 +171,26 @@ test('every page ends with a contact section for Instagram, X and email', async 
   }
 });
 
+test('footer Explore lists disciplines only, no longer than its neighbours', async ({ page }) => {
+  await page.goto('/about');
+  const footer = page.getByRole('contentinfo');
+  const explore = footer.getByRole('navigation', { name: 'Explore' });
+  await expect(explore.getByRole('link', { name: 'Endodontics' })).toHaveAttribute('href', '/models?discipline=endodontics');
+  const count = async (name: string) => footer.getByRole('navigation', { name, exact: true }).getByRole('link').count();
+  const exploreCount = await count('Explore');
+  expect(exploreCount).toBeLessThanOrEqual((await count('Participate')) + 1);
+  expect(exploreCount).toBeLessThanOrEqual((await count('Use the models')) + 1);
+});
+
+test('collection can be filtered by discipline', async ({ page }) => {
+  await page.goto('/models?discipline=endodontics');
+  const cards = page.locator('.library-grid > li');
+  await expect(cards).toHaveCount(2);
+  await expect(page.locator('.discipline-filter a[aria-current="page"]')).toHaveText('Endodontics');
+  await page.goto('/models');
+  expect(await cards.count()).toBeGreaterThan(10);
+});
+
 test('static model pages end with the contact footer', async ({ page }) => {
   for (const path of ['/head-neck/index.html', '/head-neck/scc/index.html', '/oroantral/index.html', '/orthognathic/index.html', '/periodontitis/index.html']) {
     await page.goto(path);
