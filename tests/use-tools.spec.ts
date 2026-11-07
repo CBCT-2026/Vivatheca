@@ -58,7 +58,7 @@ test('React model pages get the panel too', async ({ page }) => {
 test('request board, posts and counts pages work without the store', async ({ page }) => {
   await page.goto('/requests');
   await expect(page.getByRole('heading', { name: 'Which model should Vivatheca make next?' })).toBeVisible();
-  await expect(page.getByText('Cyst around an unerupted tooth', { exact: false }).first()).toBeVisible();
+  await expect(page.getByText('Tooth development from before birth', { exact: false }).first()).toBeVisible();
   await expect(page.getByText(/not switched on yet/)).toBeVisible();
   await page.goto('/used?model=periodontitis');
   await expect(page.getByRole('heading', { name: 'How people use Vivatheca models' })).toBeVisible();

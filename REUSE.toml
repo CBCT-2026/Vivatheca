@@ -94,7 +94,7 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 # Endodontic pair and VPI models: built from BodyParts3D (DBCLS, CC BY 4.0), so these files are CC BY 4.0, not CC BY-SA.
 [[annotations]]
-path = ["public/endodontic/models/**", "public/endodontic/downloads/**", "public/assets/renders/endodontic.webp", "public/videos/endodontic/**", "public/prosthodontic/models/**", "public/prosthodontic/downloads/**", "public/assets/renders/prosthodontic.webp", "public/videos/prosthodontic/**", "public/vpi/models/**", "public/assets/renders/vpi.webp", "public/videos/vpi/**"]
+path = ["public/endodontic/models/**", "public/endodontic/downloads/**", "public/assets/renders/endodontic.webp", "public/videos/endodontic/**", "public/prosthodontic/models/**", "public/prosthodontic/downloads/**", "public/assets/renders/prosthodontic.webp", "public/videos/prosthodontic/**", "public/vpi/models/**", "public/assets/renders/vpi.webp", "public/videos/vpi/**", "public/dentigerous-cyst/models/**", "public/dentigerous-cyst/downloads/**", "public/assets/renders/dentigerous-cyst.webp", "public/videos/dentigerous-cyst/**"]
 precedence = "override"
 SPDX-FileCopyrightText = ["2026 Vivatheca", "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"]
 SPDX-License-Identifier = "CC-BY-4.0"

@@ -69,47 +69,51 @@
  },
  "/models/impacted-wisdom-tooth": {
   "en": "49254c01af98",
-  "ja": "a23010a4b5d0"
+  "ja": "fd55de281e07"
  },
  "/models": {
-  "en": "77fe01be4ce4",
-  "ja": "e9e513af509e"
+  "en": "800a9dcbb7a8",
+  "ja": "417439168d71"
  },
  "/": {
-  "en": "ba4313c5fccc",
-  "ja": "5ae9723ac3c2"
+  "en": "abcacfcd36ed",
+  "ja": "a25db7a8f1f7"
  },
  "/print": {
-  "en": "f7f3f47e882d",
-  "ja": "916ba7a0b288"
+  "en": "4c10e5cbe5a9",
+  "ja": "a75f05a75ed7"
  },
  "/privacy": {
   "en": "08eaca6dc653",
   "ja": "5dd475060360"
  },
  "/requests": {
-  "en": "9574dcb07722",
-  "ja": "8c541ac715d9"
+  "en": "691023f055db",
+  "ja": "e3b2ff06a0a8"
  },
  "/review": {
-  "en": "cba8a78dc67c",
-  "ja": "4ed073817abc"
+  "en": "f0114a119332",
+  "ja": "e5455f51cc89"
  },
  "/survey": {
-  "en": "d2c9844167a1",
-  "ja": "9f1aedccd546"
+  "en": "180a537b6fc0",
+  "ja": "44c957b9d777"
  },
  "/templates": {
   "en": "18a38c4cc4a1",
   "ja": "a3c5c6083ba7"
  },
  "/used": {
-  "en": "c34d2011999e",
-  "ja": "480f2d3878b5"
+  "en": "0e80c0255198",
+  "ja": "ec72afb1793b"
  },
  "/cracked-tooth/": {
   "en": "90f2a65059b0",
   "ja": "8d94de94817e"
+ },
+ "/dentigerous-cyst/": {
+  "en": "8fb509fccbbd",
+  "ja": "e32c138c8ac0"
  },
  "/development/": {
   "en": "b4c2463b8ccf",
@@ -128,7 +132,7 @@
   "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "4aee1cebcd12",
+  "en": "2e8f44a6b10e",
   "ja": "ce5ba09747ea"
  },
  "/head-neck/mec/": {
@@ -136,12 +140,12 @@
   "ja": "55b6b31c54a3"
  },
  "/head-neck/okc/": {
-  "en": "010c2329a151",
-  "ja": "e8f8c47c7c9b"
+  "en": "5c8d948fbb9d",
+  "ja": "cc7b29182595"
  },
  "/head-neck/scc/": {
   "en": "c36995fca575",
-  "ja": "c5155abfab7b"
+  "ja": "19d6875fb22d"
  },
  "/oroantral/": {
   "en": "632056d33a23",

@@ -18,6 +18,7 @@
     '/vpi/': 'vpi',
     '/prosthodontic/': 'prosthodontic',
     '/tmd/': 'tmd',
+    '/dentigerous-cyst/': 'dentigerous-cyst',
     '/head-neck/scc/': 'head-neck-scc',
     '/head-neck/ameloblastoma/': 'head-neck-ameloblastoma',
     '/head-neck/okc/': 'head-neck-okc',

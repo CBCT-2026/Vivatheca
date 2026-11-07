@@ -443,6 +443,86 @@ window.VT_VIDEOS = {
    ]
   }
  },
+ "dentigerous-cyst": {
+  "sources": [
+   "Soluk-Tekkesin M, Wright JM. The World Health Organization classification of odontogenic lesions: a summary of the changes of the 2022 (5th) edition. Turk Patoloji Derg. 2022;38(2):168-184. https://doi.org/10.5146/tjpath.2022.01573",
+   "Daley TD, Wysocki GP. The small dentigerous cyst. A diagnostic dilemma. Oral Surg Oral Med Oral Pathol Oral Radiol Endod. 1995;79(1):77-81. https://doi.org/10.1016/s1079-2104(05)80078-2",
+   "Telcioğlu NT, Muğlalı M, Çankaya RTA. Differentiation between dental follicle and dentigerous cyst in impacted mandibular third molars: a prospective cohort study. J Oral Maxillofac Surg. 2026;84(9):1487-1494. https://doi.org/10.1016/j.joms.2026.04.008",
+   "Cobo-Vázquez C, Fernández-Gutiérrez L, Pérez-Fernández B, et al. Effectiveness of conservative treatment of dentigerous cyst in the pediatric patient: a systematic review. J Stomatol Oral Maxillofac Surg. 2025;126(4):102115. https://doi.org/10.1016/j.jormas.2024.102115"
+  ],
+  "en": {
+   "title": "A cyst around a wisdom tooth",
+   "seconds": 24,
+   "lines": [
+    {
+     "text": "This wisdom tooth has not come through. It is still inside the jaw bone.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "A thin, soft sac covers its crown. This is normal.",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "Sometimes fluid builds up in the sac, and it grows into a cyst.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "It grows slowly and often does not hurt, so an X-ray often finds it first.",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "Most often, the surgeon takes out the cyst and the tooth together.",
+     "cite": [
+      4
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "{親知|おやし}らずのまわりののう{胞|ほう}",
+   "seconds": 29,
+   "lines": [
+    {
+     "text": "この{親知|おやし}らずはまだ{生|は}えていません。あごの{骨|ほね}の{中|なか}にあります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{歯|は}の{頭|あたま}を{薄|うす}くやわらかい{袋|ふくろ}がおおっています。これは{正常|せいじょう}です。",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "この{袋|ふくろ}に{液|えき}がたまって、のう{胞|ほう}になることがあります。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "ゆっくり{大|おお}きくなり、{痛|いた}みがないことが{多|おお}いので、レントゲンで{見|み}つかることがよくあります。",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "{多|おお}くの{場合|ばあい}、のう{胞|ほう}と{歯|は}を{一緒|いっしょ}に{取|と}り{出|だ}します。",
+     "cite": [
+      4
+     ]
+    }
+   ]
+  }
+ },
  "endodontic": {
   "sources": [
    "American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020. https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/",

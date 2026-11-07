@@ -60,6 +60,8 @@
     [/^air$/, 'Air arrows', '{空気|くうき}の{矢印|やじるし}', 'Mũi tên không khí'],
     [/^leak$/, 'Air escaping through the nose', '{鼻|はな}からもれる{空気|くうき}', 'Không khí thoát ra mũi'],
     [/^lesion$/, 'Disease', '{病変|びょうへん}', 'Tổn thương'],
+    [/^follicle$/, 'Sac around the crown (follicle)', '{歯|は}の{頭|あたま}を{包|つつ}む{袋|ふくろ}', 'Túi quanh thân răng'],
+    [/^cyst$/, 'Cyst', 'のう{胞|ほう}', 'Nang'],
     [/^masseter$/, 'Masseter (cheek chewing muscle)', '{咬筋|こうきん}（ほおのかむ{筋肉|きんにく}）', 'Cơ cắn (cơ nhai ở má)'],
     [/^temporalis$/, 'Temporalis (temple chewing muscle)', '{側頭筋|そくとうきん}（こめかみの{筋肉|きんにく}）', 'Cơ thái dương'],
     [/^lateral_pterygoid$/, 'Lateral pterygoid (pulls the jaw forward)', '{外側翼突筋|がいそくよくとつきん}（あごを{前|まえ}に{引|ひ}く）', 'Cơ chân bướm ngoài (kéo hàm ra trước)'],

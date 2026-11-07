@@ -20,6 +20,7 @@ const SHOTS: Shot[] = [
   { name: 'vpi', path: '/vpi/index.html', kind: 'model-viewer' },
   { name: 'prosthodontic', path: '/prosthodontic/index.html', kind: 'model-viewer' },
   { name: 'tmd', path: '/tmd/index.html', kind: 'model-viewer' },
+  { name: 'dentigerous-cyst', path: '/dentigerous-cyst/index.html', kind: 'model-viewer' },
   { name: 'stainless-steel-crown', path: '/stainless-steel-crown/index.html', kind: 'model-viewer' },
   { name: 'orthognathic', path: '/orthognathic/index.html', kind: 'model-viewer' },
   { name: 'head-neck-scc', path: '/head-neck/scc/index.html', kind: 'three' },

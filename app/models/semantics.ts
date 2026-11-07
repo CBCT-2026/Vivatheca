@@ -17,8 +17,9 @@ export const uberonUrl = (id: string) => `http://purl.obolibrary.org/obo/${id.re
 
 const A = {
   mandible: { id: 'UBERON:0001684', label: 'mandible' },
-  maxilla: { id: 'UBERON:0002397', label: 'maxilla' },
+  dentalFollicle: { id: 'UBERON:0008969', label: 'dental follicle' },
   lowerThirdMolar: { id: 'UBERON:0018580', label: 'lower third secondary molar tooth' },
+  maxilla: { id: 'UBERON:0002397', label: 'maxilla' },
   ian: { id: 'UBERON:0018405', label: 'inferior alveolar nerve' },
   mandibularCanal: { id: 'UBERON:0006673', label: 'mandibular canal' },
   mentalForamen: { id: 'UBERON:0006812', label: 'mental foramen' },
@@ -90,6 +91,9 @@ const M = {
   speechTherapy: { id: 'D013070', label: 'Speech Therapy' },
   abg: { id: 'D064728', label: 'Alveolar Bone Grafting' },
   mandible: { id: 'D008334', label: 'Mandible' },
+  dentigerousCyst: { id: 'D003803', label: 'Dentigerous Cyst' },
+  dentalSac: { id: 'D003795', label: 'Dental Sac' },
+  unerupted: { id: 'D014097', label: 'Tooth, Unerupted' },
   classII: { id: 'D008312', label: 'Malocclusion, Angle Class II' },
   classIII: { id: 'D008313', label: 'Malocclusion, Angle Class III' },
   orthognathic: { id: 'D056948', label: 'Orthognathic Surgical Procedures' },
@@ -125,4 +129,5 @@ export const modelCodes: Record<string, ModelCodes> = {
   'averaged-jaw': { subjects: [M.mandible], anatomy: [A.mandible, A.lowerTeeth] },
   orthognathic: { subjects: [M.classII, M.classIII, M.orthognathic, M.leFort, M.bsso, M.genioplasty], anatomy: [A.maxilla, A.mandible, A.chin] },
   fixation: { subjects: [M.bonePlates, M.internalFixation], anatomy: [A.mandible] },
+  'dentigerous-cyst': { subjects: [M.dentigerousCyst, M.dentalSac, M.unerupted, M.thirdMolar], anatomy: [A.mandible, A.lowerThirdMolar, A.dentalFollicle] },
 };

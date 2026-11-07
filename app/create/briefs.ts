@@ -146,6 +146,20 @@ export const modelBriefs: ModelBrief[] = [
     normalComparison: 'The same lower first molar, sound, with a living pulp and whole bone around the root tips.',
   },
   {
+    id: 'dentigerous-cyst',
+    page: '/dentigerous-cyst/',
+    name: 'Dentigerous cyst of an unerupted mandibular third molar, with a normal dental follicle',
+    glb: '/dentigerous-cyst/models/cyst-whole.glb',
+    condition: 'A fluid-filled sac (cyst) around the crown of a lower wisdom tooth that has not come through. It grows from the thin sac that normally covers the crown, is joined to the tooth at its neck, grows slowly and often causes no pain, so it is often found on an X-ray. Usually the cyst and the tooth are taken out together; a large cyst can first be made smaller by draining it.',
+    labels: [
+      { plain: 'Jaw bone', medical: 'mandible' },
+      { plain: 'Wisdom tooth', medical: 'mandibular third molar' },
+      { plain: 'Normal sac around the crown', medical: 'dental follicle' },
+      { plain: 'Cyst', medical: 'dentigerous cyst' },
+    ],
+    normalComparison: 'The same unerupted wisdom tooth with only a thin normal sac (follicle) over its crown.',
+  },
+  {
     id: 'vpi',
     page: '/vpi/',
     name: 'Velopharyngeal insufficiency after cleft palate repair, with normal velopharyngeal closure',

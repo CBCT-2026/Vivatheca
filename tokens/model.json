@@ -13,6 +13,7 @@
     "pulp":         { "$value": "#B83A3A", "$description": "Healthy (vital) dental pulp" },
     "necroticPulp": { "$value": "#6B5A3E", "$description": "Dead (necrotic) dental pulp" },
     "abscess":      { "$value": "#CDBB6E", "$description": "Pus and inflamed tissue of an abscess or periapical lesion" },
+    "cyst":         { "$value": "#ECD27A", "$description": "Cyst (odontogenic cysts; matches the head and neck diagrams)" },
     "dentineCut":   { "$value": "#E2CFA8", "$description": "Cut face of a tooth in sectioned views" },
     "boneCut":      { "$value": "#C9B48E", "$description": "Cut face of bone in sectioned views" },
     "airflow":      { "$value": "#3E8FD1", "$description": "Airflow arrows: air going the normal way" },
