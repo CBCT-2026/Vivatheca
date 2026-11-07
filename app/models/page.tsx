@@ -3,6 +3,7 @@ import { JsonLd } from './json-ld';
 import { collectionJsonLd } from './jsonld';
 import { PageHeader, SiteFooter } from '../site-chrome';
 import { catalogue, licence } from './catalogue';
+import { sortBySpecialty } from './sort';
 import { disclaimerHref } from '../disclaimer-text';
 import { format } from '../i18n/dictionaries';
 import { getI18n } from '../i18n/server';
@@ -47,7 +48,7 @@ export default async function ModelsPage() {
         <p className="quick-more"><a className="text-link" href="/show"><Ruby text={t.show.homeHeading} /> <img aria-hidden="true" className="ui-icon" src="/icons/arrow_forward.svg" width="20" height="20" alt="" /></a></p>
 
         <ul className="library-grid" aria-label={plain(l.listLabel)}>
-          {catalogue.map((model) => {
+          {sortBySpecialty(catalogue, l.items, locale).map((model) => {
             const item = l.items[model.slug];
             const reviewed = currentReview(model.slug);
             const video = videos[model.slug]?.[locale === 'ja' ? 'ja' : 'en'];
