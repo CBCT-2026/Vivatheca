@@ -1,0 +1,414 @@
+{
+ "slug": "tmd",
+ "models": {
+  "m": "/tmd/models/tmd.glb"
+ },
+ "anchors": {
+  "masseter": {
+   "node": "^masseter_right$",
+   "at": [
+    0.0,
+    0.35,
+    0.5
+   ]
+  },
+  "temporalis": {
+   "node": "^temporalis_right$",
+   "at": [
+    0.0,
+    0.75,
+    0.5
+   ]
+  },
+  "joint": {
+   "node": "^disc_right$",
+   "at": [
+    0.0,
+    0.6,
+    0.5
+   ]
+  },
+  "lateral": {
+   "node": "^lateral_pterygoid_right$",
+   "at": [
+    0.0,
+    0.5,
+    0.6
+   ]
+  },
+  "medial": {
+   "node": "^medial_pterygoid_right$",
+   "at": [
+    0.2,
+    0.25,
+    0.4
+   ]
+  },
+  "jaw": {
+   "node": "^mandible_joint$",
+   "at": [
+    0.5,
+    0.3,
+    0.6
+   ]
+  }
+ },
+ "scenes": {
+  "intro": {
+   "from": [
+    -60,
+    10,
+    2.5
+   ],
+   "to": [
+    -85,
+    8,
+    2.4
+   ],
+   "labels": [
+    [
+     "temporalis",
+     "r",
+     230
+    ],
+    [
+     "masseter",
+     "l",
+     560
+    ]
+   ]
+  },
+  "deep": {
+   "from": [
+    -85,
+    0,
+    1.9
+   ],
+   "to": [
+    -100,
+    -5,
+    1.9
+   ],
+   "target": "jaw",
+   "hide": "^(skull|masseter_right|temporalis_right)$",
+   "labels": [
+    [
+     "joint",
+     "r",
+     200
+    ],
+    [
+     "lateral",
+     "l",
+     330
+    ],
+    [
+     "medial",
+     "l",
+     540
+    ]
+   ]
+  },
+  "rest": {
+   "from": [
+    -80,
+    5,
+    2.1
+   ],
+   "to": [
+    -80,
+    5,
+    2.1
+   ],
+   "anim": "rest",
+   "chip": "rest",
+   "labels": [],
+   "target": [
+    0,
+    -0.045,
+    0.02
+   ]
+  },
+  "stretch": {
+   "from": [
+    -80,
+    5,
+    2.1
+   ],
+   "to": [
+    -75,
+    6,
+    2.1
+   ],
+   "anim": "opening-stretch",
+   "chip": "stretch",
+   "labels": [
+    [
+     "masseter",
+     "l",
+     560
+    ]
+   ],
+   "target": [
+    0,
+    -0.045,
+    0.02
+   ]
+  },
+  "side": {
+   "from": [
+    0,
+    4,
+    2.2
+   ],
+   "to": [
+    0,
+    4,
+    2.2
+   ],
+   "anim": "side-to-side",
+   "chip": "side",
+   "labels": [],
+   "target": [
+    0,
+    -0.045,
+    0.02
+   ]
+  },
+  "team": {
+   "from": [
+    -75,
+    6,
+    2.4
+   ],
+   "to": [
+    -50,
+    10,
+    2.5
+   ],
+   "anim": "tongue-up-opening",
+   "labels": []
+  }
+ },
+ "sources": [
+  "Busse JW, Casassus R, Carrasco-Labra A, et al. Management of chronic pain associated with temporomandibular disorders: a clinical practice guideline. BMJ. 2023;383:e076227. https://doi.org/10.1136/bmj-2023-076227",
+  "Ooi K, Nishiyama A, Yuasa H, et al. Clinical practice guidelines in primary treatment for temporomandibular disorders: The Japanese Society for the Temporomandibular Joint, 2023 edition. J Prosthodont Res. 2025;69(4):608-617. https://doi.org/10.2186/jpr.JPR_D_24_00168",
+  "Schiffman E, Ohrbach R, Truelove E, et al. Diagnostic Criteria for Temporomandibular Disorders (DC/TMD) for Clinical and Research Applications. J Oral Facial Pain Headache. 2014;28(1):6-27. https://doi.org/10.11607/jop.1151",
+  "Idáñez-Robles AM, Obrero-Gaitán E, Lomas-Vega R, et al. Exercise therapy improves pain and mouth opening in temporomandibular disorders: a systematic review with meta-analysis. Clin Rehabil. 2023;37(4):443-461. https://doi.org/10.1177/02692155221133523",
+  "Shimada A, Ogawa T, Sammour SR, et al. Effectiveness of exercise therapy on pain relief and jaw mobility in patients with pain-related temporomandibular disorders: a systematic review. Front Oral Health. 2023;4:1170966. https://doi.org/10.3389/froh.2023.1170966",
+  "Standring S, ed. Gray's Anatomy: The Anatomical Basis of Clinical Practice. 42nd ed. Elsevier; 2020. (Muscles of mastication; temporomandibular joint.)"
+ ],
+ "en": {
+  "title": "Jaw pain: moves that can help",
+  "chips": {
+   "rest": "1. Resting jaw",
+   "stretch": "3. Opening stretch",
+   "side": "4. Side to side"
+  },
+  "labels": {
+   "temporalis": [
+    "Temple muscle",
+    "temporalis"
+   ],
+   "masseter": [
+    "Cheek muscle",
+    "masseter"
+   ],
+   "joint": [
+    "Jaw joint and disc",
+    "temporomandibular joint"
+   ],
+   "lateral": [
+    "Deep muscle",
+    "lateral pterygoid"
+   ],
+   "medial": [
+    "Deep muscle",
+    "medial pterygoid"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "intro",
+    "sentences": [
+     {
+      "text": "TMD is pain in the jaw joints or the muscles you chew with.",
+      "cite": [
+       3
+      ]
+     },
+     {
+      "text": "You can feel two of these muscles, in the cheek and the temple.",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "deep",
+    "sentences": [
+     {
+      "text": "Two more lie deep inside, near the jaw joint and its small disc.",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "rest",
+    "sentences": [
+     {
+      "text": "Rest your jaw: lips together, teeth apart, tongue on the roof of your mouth.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "stretch",
+    "sentences": [
+     {
+      "text": "Gentle opening stretches can ease pain and help you open wider.",
+      "cite": [
+       1,
+       2,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "side",
+    "sentences": [
+     {
+      "text": "Side to side moves may help, but we are less sure.",
+      "cite": [
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "team",
+    "sentences": [
+     {
+      "text": "A dentist, physio and psychologist can work together to help you.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "あごの{痛|いた}みに{役立|やくだ}つ{運動|うんどう}",
+  "speed": 1.1,
+  "chips": {
+   "rest": "1. あごを{休|やす}める",
+   "stretch": "3. {口|くち}を{開|あ}けるストレッチ",
+   "side": "4. {左右|さゆう}に{動|うご}かす"
+  },
+  "labels": {
+   "temporalis": [
+    "こめかみの{筋肉|きんにく}",
+    "{側頭筋|そくとうきん}"
+   ],
+   "masseter": [
+    "ほおの{筋肉|きんにく}",
+    "{咬筋|こうきん}"
+   ],
+   "joint": [
+    "あごの{関節|かんせつ}と{円板|えんばん}",
+    "{顎関節|がくかんせつ}"
+   ],
+   "lateral": [
+    "{奥|おく}の{筋肉|きんにく}",
+    "{外側翼突筋|がいそくよくとつきん}"
+   ],
+   "medial": [
+    "{奥|おく}の{筋肉|きんにく}",
+    "{内側翼突筋|ないそくよくとつきん}"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "intro",
+    "sentences": [
+     {
+      "text": "{顎関節症|がくかんせつしょう}は、あごの{関節|かんせつ}やかむ{筋肉|きんにく}の{痛|いた}みです。",
+      "cite": [
+       3
+      ]
+     },
+     {
+      "text": "ほおとこめかみの{筋肉|きんにく}は{触|さわ}ってわかります。",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "deep",
+    "sentences": [
+     {
+      "text": "{奥|おく}には、あごの{関節|かんせつ}と{小|ちい}さな{円板|えんばん}の{近|ちか}くに、2つの{筋肉|きんにく}があります。",
+      "cite": [
+       6
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "rest",
+    "sentences": [
+     {
+      "text": "{唇|くちびる}を{閉|と}じ、{歯|は}を{離|はな}し、{舌|した}を{上|うわ}あごにつけて、あごを{休|やす}めます。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "stretch",
+    "sentences": [
+     {
+      "text": "ゆっくり{口|くち}を{開|あ}けるストレッチで、{痛|いた}みが{和|やわ}らぎ、{大|おお}きく{開|あ}くようになります。",
+      "cite": [
+       1,
+       2,
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "side",
+    "sentences": [
+     {
+      "text": "{左右|さゆう}に{動|うご}かす{運動|うんどう}も{役立|やくだ}つかもしれませんが、{根拠|こんきょ}は{弱|よわ}いです。",
+      "cite": [
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "team",
+    "sentences": [
+     {
+      "text": "{歯科医師|しかいし}、{理学療法士|りがくりょうほうし}、{心理|しんり}の{専門家|せんもんか}が{協力|きょうりょく}して{助|たす}けます。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

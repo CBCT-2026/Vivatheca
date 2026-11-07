@@ -5,6 +5,7 @@ window.VT_VI_PAGE = {
  "title": "Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới | Vivatheca",
  "description": "Mô hình 3D tương tác về một răng sau của trẻ: khỏe mạnh, sâu lớn, trám lớn, mài chuẩn bị bọc mão và có mão thép không gỉ. Kèm bằng chứng về mão răng, có trích dẫn.",
  "html": {
+  "For kids: a simple, friendly page": "Dành cho trẻ em: trang đơn giản, thân thiện",
   "Vivatheca home": "Trang chủ Vivatheca",
   "All models": "Tất cả mô hình",
   "<span class=\"pitk-skip\">Preformed metal (stainless steel) crown on a mandibular second primary molar</span>": "<span class=\"pitk-skip\">Mão kim loại làm sẵn (mão thép không gỉ) trên răng cối sữa thứ hai hàm dưới</span>",

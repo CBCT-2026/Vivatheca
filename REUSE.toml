@@ -87,21 +87,21 @@ SPDX-FileCopyrightText = "2026 Vivatheca; Workbox runtime (c) Google LLC"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
-path = ["public/models/averaged-jaw/**"]
+path = ["public/models/averaged-jaw/**", "public/videos/averaged-jaw/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 Vivatheca, derived from CC BY CT collections credited in provenance.json"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
-# Endodontic pair: built from BodyParts3D (DBCLS, CC BY 4.0), so these files are CC BY 4.0, not CC BY-SA.
+# Endodontic pair and VPI models: built from BodyParts3D (DBCLS, CC BY 4.0), so these files are CC BY 4.0, not CC BY-SA.
 [[annotations]]
-path = ["public/endodontic/models/**", "public/endodontic/downloads/**", "public/assets/renders/endodontic.webp", "public/videos/endodontic/**", "public/prosthodontic/models/**", "public/prosthodontic/downloads/**", "public/assets/renders/prosthodontic.webp", "public/videos/prosthodontic/**"]
+path = ["public/endodontic/models/**", "public/endodontic/downloads/**", "public/assets/renders/endodontic.webp", "public/videos/endodontic/**", "public/prosthodontic/models/**", "public/prosthodontic/downloads/**", "public/assets/renders/prosthodontic.webp", "public/videos/prosthodontic/**", "public/vpi/models/**", "public/assets/renders/vpi.webp", "public/videos/vpi/**", "public/dentigerous-cyst/models/**", "public/dentigerous-cyst/downloads/**", "public/assets/renders/dentigerous-cyst.webp", "public/videos/dentigerous-cyst/**"]
 precedence = "override"
 SPDX-FileCopyrightText = ["2026 Vivatheca", "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"]
 SPDX-License-Identifier = "CC-BY-4.0"
 
 # TMD jaw joints and chewing muscles: built from BodyParts3D (DBCLS, CC BY 4.0) with muscles and discs made by Vivatheca, so CC BY 4.0.
 [[annotations]]
-path = ["public/tmd/models/**", "public/tmd/sheet/img/**", "public/assets/renders/tmd.webp"]
+path = ["public/tmd/models/**", "public/tmd/sheet/img/**", "public/assets/renders/tmd.webp", "public/videos/tmd/**"]
 precedence = "override"
 SPDX-FileCopyrightText = ["2026 Vivatheca", "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"]
 SPDX-License-Identifier = "CC-BY-4.0"

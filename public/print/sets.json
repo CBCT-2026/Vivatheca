@@ -386,6 +386,36 @@
    ]
   }
  ],
+ "dentigerous-cyst": [
+  {
+   "id": "normal",
+   "label": {
+    "en": "Normal",
+    "ja": "{正常|せいじょう}"
+   },
+   "zip": "/dentigerous-cyst/downloads/vivatheca-dentigerous-cyst-normal-1x.zip",
+   "scale": 1,
+   "files": [
+    "normal-bone.stl",
+    "normal-teeth.stl",
+    "normal-follicle.stl"
+   ]
+  },
+  {
+   "id": "cyst",
+   "label": {
+    "en": "Cyst",
+    "ja": "Cyst"
+   },
+   "zip": "/dentigerous-cyst/downloads/vivatheca-dentigerous-cyst-cyst-1x.zip",
+   "scale": 1,
+   "files": [
+    "cyst-bone.stl",
+    "cyst-teeth.stl",
+    "cyst-cyst.stl"
+   ]
+  }
+ ],
  "endodontic": [
   {
    "id": "sound",

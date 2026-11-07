@@ -1134,6 +1134,12 @@ const en = {
         summary: 'A child’s upper jaw with a left alveolar cleft, in three stages: before the bone graft, after it with braces, and years later with the eye tooth moved into the gap. Pictured: before (left) and years later (right).',
         pairing: 'Treatment stages',
       },
+      vpi: {
+        title: 'Velopharyngeal insufficiency after cleft palate repair, with normal velopharyngeal closure',
+        specialty: 'Cleft care and speech pathology',
+        summary: 'The throat cut down the middle. In normal speech the soft palate closes off the nose; with VPI a gap lets air leak into the nose. Shows three operations that close the gap and why speech therapy is needed before and after surgery. Pictured: normal closure (left) and VPI (right).',
+        pairing: 'Condition + healthy normal + treatments',
+      },
       prosthodontic: {
         title: 'Atrophic edentulous mandible (Cawood and Howell class V) with a dentate mandible, and complete denture or two-implant overdenture',
         specialty: 'Prosthodontics',
@@ -1144,6 +1150,12 @@ const en = {
         title: 'Pulp necrosis with chronic apical abscess in a mandibular first molar, with a sound tooth',
         specialty: 'Endodontics',
         summary: 'A lower first molar whose pulp has died from deep decay, with infection at both root tips and a drainage channel to the gum, beside the same tooth when sound. Cut open to compare. Pictured: sound (left) and abscess (right), cut open.',
+        pairing: 'Condition + healthy normal',
+      },
+      'dentigerous-cyst': {
+        title: 'Dentigerous cyst of an unerupted mandibular third molar, with a normal dental follicle',
+        specialty: 'Oral and maxillofacial pathology',
+        summary: 'A lower wisdom tooth still inside the bone, with the thin normal sac over its crown, beside the same tooth with a cyst grown from that sac. Cut them open to see the crown inside the cyst. Pictured: normal (left) and cyst (right).',
         pairing: 'Condition + healthy normal',
       },
       tmd: {
@@ -1391,7 +1403,6 @@ const en = {
     loading: 'Loading support counts…',
     unavailable: 'Support counts are not switched on yet. You can still email your idea to vivatheca@gmail.com.',
     seeds: {
-      'dentigerous-cyst': { title: 'Cyst around an unerupted tooth (dentigerous cyst) beside a normal unerupted tooth', specialty: 'Oral and maxillofacial pathology' },
       'development-extended': { title: 'Tooth development from before birth to adulthood (beyond ages 6 to 12)', specialty: 'Orthodontics and paediatric dentistry' },
       'ortho-variants': { title: 'More jaw surgery cases: facial asymmetry, open bite and chin surgery', specialty: 'Orthodontics and oral and maxillofacial surgery' },
       'oral-lichen-planus': { title: 'Oral lichen planus beside healthy lining of the mouth', specialty: 'Oral medicine' },

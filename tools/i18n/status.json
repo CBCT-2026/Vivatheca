@@ -1,6 +1,6 @@
 {
  "dictionary": {
-  "total": 1678,
+  "total": 1684,
   "extraInJa": [
    "builder.models.oroantral",
    "builder.models.periodontitis",
@@ -26,13 +26,18 @@
   "byStatus": {
    "reviewed": 0,
    "changed": 0,
-   "unreviewed": 1688
+   "unreviewed": 1694
   },
   "changed": []
  },
  "pages": [
   {
    "page": "cracked-tooth",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
+   "page": "dentigerous-cyst",
    "tracked": false,
    "note": "translations live in the page script, not tracked by key"
   },
@@ -170,12 +175,22 @@
    "note": "translations live in the page script, not tracked by key"
   },
   {
+   "page": "stainless-steel-crown/kids",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
    "page": "tmd",
    "tracked": false,
    "note": "translations live in the page script, not tracked by key"
   },
   {
    "page": "tmd/sheet",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
+   "page": "vpi",
    "tracked": false,
    "note": "translations live in the page script, not tracked by key"
   }

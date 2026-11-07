@@ -1,0 +1,373 @@
+{
+ "slug": "vpi",
+ "models": {
+  "speech-cut": "/vpi/models/speech-cut.glb",
+  "vpi-cut": "/vpi/models/vpi-cut.glb",
+  "flap-cut": "/vpi/models/flap-cut.glb"
+ },
+ "anchors": {
+  "velum": {
+   "model": "speech-cut",
+   "node": "^soft$",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  "wall": {
+   "model": "speech-cut",
+   "node": "^mucosa$",
+   "at": [
+    0.5,
+    0.3,
+    0.05
+   ]
+  },
+  "leak": {
+   "model": "vpi-cut",
+   "node": "^leak$",
+   "at": [
+    0.5,
+    0.95,
+    0.6
+   ]
+  },
+  "short": {
+   "model": "vpi-cut",
+   "node": "^soft$",
+   "at": [
+    0.5,
+    0.05,
+    0.25
+   ]
+  },
+  "flap": {
+   "model": "flap-cut",
+   "node": "^flap$",
+   "at": [
+    0.5,
+    0.5,
+    0.5
+   ]
+  }
+ },
+ "scenes": {
+  "speech": {
+   "model": "speech-cut",
+   "from": [
+    -80,
+    8,
+    3.4
+   ],
+   "to": [
+    -95,
+    5,
+    3.3
+   ],
+   "chip": "normal",
+   "labels": [
+    [
+     "velum",
+     "r",
+     300
+    ],
+    [
+     "wall",
+     "l",
+     560
+    ]
+   ]
+  },
+  "vpi": {
+   "model": "vpi-cut",
+   "from": [
+    -95,
+    5,
+    3.3
+   ],
+   "to": [
+    -85,
+    8,
+    3.3
+   ],
+   "chip": "vpi",
+   "labels": [
+    [
+     "short",
+     "r",
+     560
+    ],
+    [
+     "leak",
+     "r",
+     260
+    ]
+   ]
+  },
+  "therapy": {
+   "model": "vpi-cut",
+   "from": [
+    -85,
+    8,
+    3.3
+   ],
+   "to": [
+    -90,
+    5,
+    3.1
+   ],
+   "chip": "vpi",
+   "labels": [
+    [
+     "short",
+     "r",
+     560
+    ]
+   ]
+  },
+  "flap": {
+   "model": "flap-cut",
+   "from": [
+    -90,
+    5,
+    3.3
+   ],
+   "to": [
+    -80,
+    10,
+    3.3
+   ],
+   "chip": "flap",
+   "labels": [
+    [
+     "flap",
+     "l",
+     300
+    ]
+   ]
+  },
+  "slp": {
+   "model": "flap-cut",
+   "from": [
+    -80,
+    10,
+    3.3
+   ],
+   "to": [
+    -95,
+    5,
+    3.4
+   ],
+   "chip": "flap",
+   "labels": []
+  }
+ },
+ "sources": [
+  "Perry JL. Anatomy and physiology of the velopharyngeal mechanism. Semin Speech Lang. 2011;32(2):83-92. https://doi.org/10.1055/s-0031-1277712",
+  "Sitzman TJ, Williams JL, Singh DJ, et al. Magnetic resonance imaging of the velopharynx: clinical findings in patients with velopharyngeal insufficiency. Plast Reconstr Surg. 2024;153(6):1155e-1168e. https://doi.org/10.1097/PRS.0000000000010798",
+  "Kummer AW. Speech therapy for errors secondary to cleft palate and velopharyngeal dysfunction. Semin Speech Lang. 2011;32(2):191-198. https://doi.org/10.1055/s-0031-1277721",
+  "de Blacam C, Smith S, Orr D. Surgery for velopharyngeal dysfunction: a systematic review of interventions and outcomes. Cleft Palate Craniofac J. 2018;55(3):405-422. https://doi.org/10.1177/1055665617735102",
+  "Henningsson G, Kuehn DP, Sell D, et al. Universal parameters for reporting speech outcomes in individuals with cleft palate. Cleft Palate Craniofac J. 2008;45(1):1-17. https://doi.org/10.1597/06-086.1"
+ ],
+ "en": {
+  "title": "Why VPI needs surgery and speech therapy",
+  "chips": {
+   "normal": "Normal speech",
+   "vpi": "VPI",
+   "flap": "After a pharyngeal flap"
+  },
+  "labels": {
+   "velum": [
+    "Soft palate",
+    "lifted"
+   ],
+   "wall": [
+    "Back of the throat",
+    ""
+   ],
+   "short": [
+    "Soft palate too short",
+    ""
+   ],
+   "leak": [
+    "Air leaking into the nose",
+    ""
+   ],
+   "flap": [
+    "Pharyngeal flap",
+    "tissue from the throat"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "speech",
+    "sentences": [
+     {
+      "text": "When you speak, a muscle lifts the soft palate against the back of the throat.",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "This closes off the nose.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "vpi",
+    "sentences": [
+     {
+      "text": "After a cleft palate repair, the soft palate can be too short to reach.",
+      "cite": [
+       2
+      ]
+     },
+     {
+      "text": "Air leaks into the nose, and speech sounds nasal.",
+      "cite": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "therapy",
+    "sentences": [
+     {
+      "text": "Practice cannot close this gap. It needs surgery.",
+      "cite": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "flap",
+    "sentences": [
+     {
+      "text": "Here, a strip of tissue from the throat is joined to the soft palate.",
+      "cite": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "slp",
+    "sentences": [
+     {
+      "text": "A speech pathologist checks speech before and after surgery, and treats sounds learned the wrong way.",
+      "cite": [
+       3,
+       5
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "{鼻咽|びいん}くう{閉鎖|へいさ}{不全|ふぜん}に{手術|しゅじゅつ}と{言語|げんご}{訓練|くんれん}が{必要|ひつよう}な{理由|りゆう}",
+  "chips": {
+   "normal": "{正常|せいじょう}",
+   "vpi": "{閉鎖|へいさ}{不全|ふぜん}",
+   "flap": "{咽頭弁|いんとうべん}の{手術|しゅじゅつ}{後|ご}"
+  },
+  "labels": {
+   "velum": [
+    "やわらかい{上|うわ}あご",
+    "{軟口蓋|なんこうがい}"
+   ],
+   "wall": [
+    "のどの{奥|おく}の{壁|かべ}",
+    ""
+   ],
+   "short": [
+    "{短|みじか}い{軟口蓋|なんこうがい}",
+    ""
+   ],
+   "leak": [
+    "{鼻|はな}へもれる{空気|くうき}",
+    ""
+   ],
+   "flap": [
+    "{咽頭弁|いんとうべん}",
+    "のどの{組織|そしき}"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "speech",
+    "sentences": [
+     {
+      "text": "{話|はな}すとき、{筋肉|きんにく}がやわらかい{上|うわ}あごを{持|も}ち{上|あ}げ、のどの{奥|おく}につけます。",
+      "cite": [
+       1
+      ]
+     },
+     {
+      "text": "これで{鼻|はな}への{道|みち}が{閉|と}じます。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "vpi",
+    "sentences": [
+     {
+      "text": "{口蓋裂|こうがいれつ}の{手術|しゅじゅつ}の{後|あと}、{上|うわ}あごが{短|みじか}くて{届|とど}かないことがあります。",
+      "cite": [
+       2
+      ]
+     },
+     {
+      "text": "{空気|くうき}が{鼻|はな}へもれ、{声|こえ}が{鼻|はな}にかかります。",
+      "cite": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "therapy",
+    "sentences": [
+     {
+      "text": "{練習|れんしゅう}ではこのすき{間|ま}は{閉|と}じません。{手術|しゅじゅつ}が{必要|ひつよう}です。",
+      "cite": [
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "flap",
+    "sentences": [
+     {
+      "text": "ここでは、のどの{組織|そしき}を{上|うわ}あごにつなげています。",
+      "cite": [
+       4
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "slp",
+    "sentences": [
+     {
+      "text": "{言語|げんご}{聴覚|ちょうかく}{士|し}は{手術|しゅじゅつ}の{前後|ぜんご}に{話|はな}し{方|かた}を{調|しら}べ、{間違|まちが}って{覚|おぼ}えた{音|おと}を{訓練|くんれん}します。",
+      "cite": [
+       3,
+       5
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,51 @@
+{
+  "slug": "dentigerous-cyst",
+  "models": {
+    "normal": "/dentigerous-cyst/models/normal-whole.glb",
+    "normal-cut": "/dentigerous-cyst/models/normal-cut.glb",
+    "cyst": "/dentigerous-cyst/models/cyst-whole.glb",
+    "cyst-cut": "/dentigerous-cyst/models/cyst-cut.glb"
+  },
+  "anchors": {
+    "sac": {"model": "normal-cut", "node": "^follicle$", "at": [0.5, 1.0, 0.5]},
+    "cyst": {"model": "cyst-cut", "node": "^cyst$", "at": [0.6, 0.8, 0.5]},
+    "bulge": {"model": "cyst", "node": "^bone$", "at": [0.62, 0.55, 0.0]}
+  },
+  "scenes": {
+    "normal": {"model": "normal", "from": [-20, 20, 3.0], "to": [0, 15, 3.0], "chip": "normal", "labels": []},
+    "sac": {"model": "normal-cut", "from": [0, 10, 2.8], "to": [10, 10, 2.6], "chip": "normal", "labels": [["sac", "r", 300]]},
+    "cyst": {"model": "cyst-cut", "from": [10, 10, 2.6], "to": [0, 10, 2.6], "chip": "cyst", "labels": [["cyst", "r", 300]]},
+    "bulge": {"model": "cyst", "from": [0, 15, 2.8], "to": [-20, 20, 2.9], "chip": "cyst", "labels": []},
+    "treat": {"model": "cyst-cut", "from": [0, 10, 2.8], "to": [15, 15, 2.9], "chip": "cyst", "labels": [["cyst", "r", 300]]}
+  },
+  "sources": [
+    "Soluk-Tekkesin M, Wright JM. The World Health Organization classification of odontogenic lesions: a summary of the changes of the 2022 (5th) edition. Turk Patoloji Derg. 2022;38(2):168-184. https://doi.org/10.5146/tjpath.2022.01573",
+    "Daley TD, Wysocki GP. The small dentigerous cyst. A diagnostic dilemma. Oral Surg Oral Med Oral Pathol Oral Radiol Endod. 1995;79(1):77-81. https://doi.org/10.1016/s1079-2104(05)80078-2",
+    "Telcioğlu NT, Muğlalı M, Çankaya RTA. Differentiation between dental follicle and dentigerous cyst in impacted mandibular third molars: a prospective cohort study. J Oral Maxillofac Surg. 2026;84(9):1487-1494. https://doi.org/10.1016/j.joms.2026.04.008",
+    "Cobo-Vázquez C, Fernández-Gutiérrez L, Pérez-Fernández B, et al. Effectiveness of conservative treatment of dentigerous cyst in the pediatric patient: a systematic review. J Stomatol Oral Maxillofac Surg. 2025;126(4):102115. https://doi.org/10.1016/j.jormas.2024.102115"
+  ],
+  "en": {
+    "title": "A cyst around a wisdom tooth",
+    "chips": {"normal": "Normal", "cyst": "Cyst"},
+    "labels": {"sac": ["Normal sac", "covers the crown"], "cyst": ["Cyst", "filled with fluid"]},
+    "paragraphs": [
+      {"scene": "normal", "sentences": [{"text": "This wisdom tooth has not come through. It is still inside the jaw bone.", "cite": [1]}]},
+      {"scene": "sac", "sentences": [{"text": "A thin, soft sac covers its crown. This is normal.", "cite": [2]}]},
+      {"scene": "cyst", "sentences": [{"text": "Sometimes fluid builds up in the sac, and it grows into a cyst.", "cite": [1]}]},
+      {"scene": "bulge", "sentences": [{"text": "It grows slowly and often does not hurt, so an X-ray often finds it first.", "cite": [3]}]},
+      {"scene": "treat", "sentences": [{"text": "Most often, the surgeon takes out the cyst and the tooth together.", "cite": [4]}]}
+    ]
+  },
+  "ja": {
+    "title": "{親知|おやし}らずのまわりののう{胞|ほう}",
+    "chips": {"normal": "{正常|せいじょう}", "cyst": "のう{胞|ほう}"},
+    "labels": {"sac": ["{正常|せいじょう}な{袋|ふくろ}", "{歯|は}の{頭|あたま}をおおう"], "cyst": ["のう{胞|ほう}", "{液|えき}がたまった{袋|ふくろ}"]},
+    "paragraphs": [
+      {"scene": "normal", "sentences": [{"text": "この{親知|おやし}らずはまだ{生|は}えていません。あごの{骨|ほね}の{中|なか}にあります。", "tts": "このおやしらずは、まだはえていません。あごのほねのなかにあります。", "cite": [1]}]},
+      {"scene": "sac", "sentences": [{"text": "{歯|は}の{頭|あたま}を{薄|うす}くやわらかい{袋|ふくろ}がおおっています。これは{正常|せいじょう}です。", "tts": "はのあたまを、うすくやわらかいふくろがおおっています。これはせいじょうです。", "cite": [2]}]},
+      {"scene": "cyst", "sentences": [{"text": "この{袋|ふくろ}に{液|えき}がたまって、のう{胞|ほう}になることがあります。", "tts": "このふくろにえきがたまって、のうほうになることがあります。", "cite": [1]}]},
+      {"scene": "bulge", "sentences": [{"text": "ゆっくり{大|おお}きくなり、{痛|いた}みがないことが{多|おお}いので、レントゲンで{見|み}つかることがよくあります。", "tts": "ゆっくりおおきくなり、いたみがないことがおおいので、レントゲンでみつかることがよくあります。", "cite": [3]}]},
+      {"scene": "treat", "sentences": [{"text": "{多|おお}くの{場合|ばあい}、のう{胞|ほう}と{歯|は}を{一緒|いっしょ}に{取|と}り{出|だ}します。", "tts": "おおくのばあい、のうほうと、はを、いっしょにとりだします。", "cite": [4]}]}
+    ]
+  }
+}

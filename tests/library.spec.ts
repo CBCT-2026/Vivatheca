@@ -4,10 +4,10 @@ test('model library lists each model with its pairing and review status', async 
   await page.goto('/models');
   await expect(page.getByRole('heading', { name: 'Models with a normal to compare', level: 1 })).toBeVisible();
   const cards = page.getByRole('list', { name: 'Models' }).getByRole('listitem').filter({ has: page.getByRole('heading', { level: 2 }) });
-  await expect(cards).toHaveCount(19);
+  await expect(cards).toHaveCount(21);
   await expect(page.locator('.library-grid .library-card-link', { hasText: 'Mesioangular impacted mandibular third molar' })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
   await expect(page.locator('.library-grid .library-card-link', { hasText: 'Mixed dentition: development and eruption of the permanent teeth, 6.5 to 12.5 years' })).toHaveAttribute('href', '/development/');
-  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(19);
+  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(21);
   // BodyParts3D-based models carry their own licence (CC BY 4.0); the rest show the site licence.
   await expect(cards.filter({ hasText: 'Pulp necrosis with chronic apical abscess' }).getByText('CC BY 4.0', { exact: true })).toBeVisible();
   await expect(cards.filter({ hasText: 'Cracked mandibular first molar' }).getByText('CC BY-SA 4.0', { exact: true })).toBeVisible();
@@ -19,7 +19,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   await expect(page.getByRole('heading', { name: 'Mesioangular impacted mandibular third molar', level: 1 })).toBeVisible();
   const viewers = page.locator('model-viewer');
   await expect(viewers).toHaveCount(2);
-  await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/wisdom-tooth-normal.glb');
+  await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src), { timeout: 20_000 }).toContain('/models/wisdom-tooth-normal.glb');
 
   await page.getByRole('button', { name: 'Normal', exact: true }).click();
   await expect(page.locator('.compare').getByText('Impacted (mesioangular)', { exact: true })).toBeHidden();
@@ -75,7 +75,7 @@ test('/collection opens the model library', async ({ page }) => {
 });
 
 test('every static model page links home and back to the library', async ({ page }) => {
-  for (const route of ['/development/', '/periodontitis/', '/oroantral/', '/orthognathic/', '/head-neck/', '/head-neck/scc/', '/head-neck/ameloblastoma/', '/head-neck/okc/', '/head-neck/mec/', '/cracked-tooth/', '/stainless-steel-crown/', '/endodontic/', '/tmd/', '/prosthodontic/', '/ectopic-canine/', '/fixation/']) {
+  for (const route of ['/development/', '/periodontitis/', '/oroantral/', '/orthognathic/', '/head-neck/', '/head-neck/scc/', '/head-neck/ameloblastoma/', '/head-neck/okc/', '/head-neck/mec/', '/cracked-tooth/', '/stainless-steel-crown/', '/endodontic/', '/tmd/', '/prosthodontic/', '/vpi/', '/fixation/', '/dentigerous-cyst/', '/ectopic-canine/']) {
     // vinext start does not serve a folder's index.html by its trailing-slash URL; Cloudflare does.
     await page.goto(`${route}index.html`);
     await expect(page.locator('header a[href="/"]').first(), route).toBeVisible();

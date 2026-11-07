@@ -10,6 +10,7 @@ const SOURCES = [
   { slug: 'periodontitis', dir: 'public/periodontitis/downloads', match: /^vivatheca-periodontitis-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'oroantral', dir: 'public/oroantral/downloads', match: /^vivatheca-oroantral-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'cracked-tooth', dir: 'public/cracked-tooth/downloads', match: /^vivatheca-cracked-tooth-(.+)-([\d.]+)x\.zip$/ },
+  { slug: 'dentigerous-cyst', dir: 'public/dentigerous-cyst/downloads', match: /^vivatheca-dentigerous-cyst-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'endodontic', dir: 'public/endodontic/downloads', match: /^vivatheca-endodontic-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'ectopic-canine', dir: 'public/ectopic-canine/downloads', match: /^vivatheca-ectopic-canine-(.+)-([\d.]+)x\.zip$/ },
   { slug: 'prosthodontic', dir: 'public/prosthodontic/downloads', match: /^vivatheca-prosthodontic-(.+)-([\d.]+)x\.zip$/ },

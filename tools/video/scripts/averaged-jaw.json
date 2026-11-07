@@ -1,0 +1,306 @@
+{
+ "slug": "averaged-jaw",
+ "models": {
+  "m": "/models/averaged-jaw/averaged-jaw.glb"
+ },
+ "anchors": {
+  "jaw": {
+   "node": "^mandible$",
+   "at": [
+    0.15,
+    0.3,
+    0.5
+   ]
+  },
+  "teeth": {
+   "node": "^teeth_lower$",
+   "at": [
+    0.5,
+    0.9,
+    0.9
+   ]
+  },
+  "condyle": {
+   "node": "^mandible$",
+   "at": [
+    0.05,
+    0.95,
+    0.15
+   ]
+  }
+ },
+ "scenes": {
+  "intro": {
+   "from": [
+    25,
+    25,
+    3.13
+   ],
+   "to": [
+    5,
+    25,
+    3.13
+   ],
+   "labels": [
+    [
+     "teeth",
+     "r",
+     230
+    ],
+    [
+     "jaw",
+     "l",
+     560
+    ]
+   ]
+  },
+  "scans": {
+   "from": [
+    5,
+    25,
+    3.13
+   ],
+   "to": [
+    -45,
+    20,
+    2.99
+   ],
+   "chip": "scans",
+   "labels": []
+  },
+  "average": {
+   "from": [
+    -45,
+    20,
+    2.99
+   ],
+   "to": [
+    -85,
+    12,
+    2.86
+   ],
+   "chip": "average",
+   "labels": [
+    [
+     "condyle",
+     "r",
+     210
+    ]
+   ]
+  },
+  "limits": {
+   "from": [
+    -85,
+    12,
+    2.86
+   ],
+   "to": [
+    -40,
+    40,
+    2.99
+   ],
+   "labels": [
+    [
+     "teeth",
+     "r",
+     250
+    ]
+   ]
+  },
+  "use": {
+   "from": [
+    -40,
+    40,
+    2.99
+   ],
+   "to": [
+    20,
+    25,
+    3.13
+   ],
+   "labels": []
+  }
+ },
+ "sources": [
+  "Wasserthal J, Breit HC, Meyer MT, et al. TotalSegmentator: robust segmentation of 104 anatomic structures in CT images. Radiol Artif Intell. 2023;5(5):e230024. https://doi.org/10.1148/ryai.230024",
+  "Fedorov A, Longabaugh WJR, Pot D, et al. National Cancer Institute Imaging Data Commons: toward transparency, reproducibility, and scalability in imaging artificial intelligence. Radiographics. 2023;43(12):e230180. https://doi.org/10.1148/rg.230180",
+  "Besl PJ, McKay ND. A method for registration of 3-D shapes. IEEE Trans Pattern Anal Mach Intell. 1992;14(2):239-256. https://doi.org/10.1109/34.121791",
+  "Raith S, Wolff S, Steiner T, et al. Planning of mandibular reconstructions based on statistical shape models. Int J Comput Assist Radiol Surg. 2017;12(1):99-112. https://doi.org/10.1007/s11548-016-1451-y",
+  "Vivatheca. tools/segment/segment.py and average.py; public/models/averaged-jaw/provenance.json lists every scan. https://github.com/CBCT-2026/Vivatheca/tree/main/tools/segment"
+ ],
+ "en": {
+  "title": "A jaw that belongs to nobody",
+  "chips": {
+   "scans": "6 open CT scans",
+   "average": "The average"
+  },
+  "labels": {
+   "jaw": [
+    "Lower jaw",
+    "mandible"
+   ],
+   "teeth": [
+    "Lower teeth",
+    ""
+   ],
+   "condyle": [
+    "Jaw joint end",
+    "condyle"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "intro",
+    "sentences": [
+     {
+      "text": "This lower jaw is not from any one person.",
+      "cite": [
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "scans",
+    "sentences": [
+     {
+      "text": "It comes from six CT scans that people shared openly, with names removed.",
+      "cite": [
+       2,
+       5
+      ]
+     },
+     {
+      "text": "A computer found the jaw and teeth in each scan.",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "average",
+    "sentences": [
+     {
+      "text": "The jaws were lined up, and we kept the shape that at least half of them share.",
+      "cite": [
+       3,
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "limits",
+    "sentences": [
+     {
+      "text": "So it is smoother than a real jaw, and some teeth are thin.",
+      "cite": [
+       4,
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "use",
+    "sentences": [
+     {
+      "text": "Use it as a typical jaw to compare with the other models.",
+      "cite": [
+       5
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "title": "だれのものでもないあご",
+  "speed": 1.1,
+  "chips": {
+   "scans": "6つの{公開|こうかい}CT",
+   "average": "{平均|へいきん}"
+  },
+  "labels": {
+   "jaw": [
+    "{下|した}あごの{骨|ほね}",
+    "{下顎骨|かがくこつ}"
+   ],
+   "teeth": [
+    "{下|した}の{歯|は}",
+    ""
+   ],
+   "condyle": [
+    "あごの{関節|かんせつ}の{先|さき}",
+    "{下顎頭|かがくとう}"
+   ]
+  },
+  "paragraphs": [
+   {
+    "scene": "intro",
+    "sentences": [
+     {
+      "text": "この{下|した}あごは、{特定|とくてい}のだれかのものではありません。",
+      "cite": [
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "scans",
+    "sentences": [
+     {
+      "text": "{名前|なまえ}を{消|け}して{公開|こうかい}された6つのCTから{作|つく}りました。",
+      "cite": [
+       2,
+       5
+      ]
+     },
+     {
+      "text": "コンピューターが{各|かく}CTのあごと{歯|は}を{見|み}つけました。",
+      "cite": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "average",
+    "sentences": [
+     {
+      "text": "あごを{重|かさ}ね{合|あ}わせ、{半分|はんぶん}{以上|いじょう}に{共通|きょうつう}する{形|かたち}を{残|のこ}しました。",
+      "cite": [
+       3,
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "limits",
+    "sentences": [
+     {
+      "text": "そのため{本物|ほんもの}よりなめらかで、{細|ほそ}い{歯|は}もあります。",
+      "cite": [
+       4,
+       5
+      ]
+     }
+    ]
+   },
+   {
+    "scene": "use",
+    "sentences": [
+     {
+      "text": "ほかのモデルと{比|くら}べる、{一般的|いっぱんてき}なあごとして{使|つか}ってください。",
+      "cite": [
+       5
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

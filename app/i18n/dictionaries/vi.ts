@@ -1586,6 +1586,12 @@ const vi = withFallback(en, {
         "summary": "Hàm trên của một trẻ có khe hở cung hàm bên trái, qua ba giai đoạn: trước khi ghép xương, sau ghép có mắc cài, và nhiều năm sau khi răng nanh đã được đưa vào chỗ trống. Trong ảnh: trước (trái) và nhiều năm sau (phải).",
         "pairing": "Các giai đoạn điều trị"
       },
+      "vpi": {
+        "title": "Thiểu năng vòm hầu sau phẫu thuật khe hở vòm miệng, so với đóng vòm hầu bình thường",
+        "specialty": "Điều trị khe hở môi vòm miệng và âm ngữ trị liệu",
+        "summary": "Họng được cắt dọc ở giữa. Khi nói bình thường, vòm miệng mềm đóng đường lên mũi; khi có VPI, một khe hở để không khí thoát lên mũi. Mô hình cho thấy ba phẫu thuật đóng khe hở và vì sao cần trị liệu ngôn ngữ trước và sau phẫu thuật. Trong ảnh: đóng bình thường (trái) và VPI (phải).",
+        "pairing": "Bệnh lý + bản bình thường khỏe mạnh + các cách điều trị"
+      },
       "prosthodontic": {
         "title": "Hàm dưới mất răng teo xương (Cawood và Howell loại V) so với hàm dưới còn răng, kèm hàm giả toàn phần hoặc hàm giả phủ trên hai implant",
         "specialty": "Phục hình",
@@ -1596,6 +1602,12 @@ const vi = withFallback(en, {
         "title": "Hoại tử tủy kèm áp xe quanh chóp mạn tính ở răng cối lớn thứ nhất hàm dưới, so với răng lành",
         "specialty": "Nội nha",
         "summary": "Một răng cối lớn thứ nhất hàm dưới có tủy đã chết do sâu răng sâu, nhiễm trùng ở cả hai chóp chân răng và đường rò ra lợi, đặt cạnh chính răng đó khi lành. Cắt mở để so sánh. Trong ảnh: răng lành (trái) và áp xe (phải), đã cắt mở.",
+        "pairing": "Bệnh lý + răng bình thường lành mạnh"
+      },
+      "dentigerous-cyst": {
+        "title": "Nang thân răng của răng cối lớn thứ ba hàm dưới chưa mọc, so với túi răng bình thường",
+        "specialty": "Bệnh học miệng và hàm mặt",
+        "summary": "Một răng khôn hàm dưới vẫn nằm trong xương, với túi mỏng bình thường bọc thân răng, bên cạnh cùng răng đó có nang phát triển từ túi này. Cắt mở để thấy thân răng nằm trong nang. Trong ảnh: bình thường (trái) và có nang (phải).",
         "pairing": "Bệnh lý + răng bình thường lành mạnh"
       },
       "tmd": {
@@ -1892,10 +1904,6 @@ const vi = withFallback(en, {
     "loading": "Đang tải số lượt ủng hộ…",
     "unavailable": "Chức năng đếm lượt ủng hộ chưa được bật. Bạn vẫn có thể gửi ý tưởng qua email đến vivatheca@gmail.com.",
     "seeds": {
-      "dentigerous-cyst": {
-        "title": "Nang quanh một răng chưa mọc (nang thân răng) bên cạnh một răng chưa mọc bình thường",
-        "specialty": "Bệnh học miệng và hàm mặt"
-      },
       "development-extended": {
         "title": "Sự phát triển của răng từ trước khi sinh đến tuổi trưởng thành (ngoài độ tuổi 6 đến 12)",
         "specialty": "Chỉnh nha và răng trẻ em"
