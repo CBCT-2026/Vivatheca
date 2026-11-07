@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getI18n();
   const item = t.library.items[model.slug];
   return {
-    title: `${plain(item.title)} — Vivatheca`,
+    title: `${plain(item.title)} - Vivatheca`,
     description: plain(item.summary),
     alternates: { canonical: model.href },
     openGraph: { url: model.href, images: [model.image] },

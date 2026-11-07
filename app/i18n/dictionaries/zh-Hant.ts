@@ -8,10 +8,10 @@ import { withFallback } from './fallback';
 
 const zhHant = withFallback(en, {
   meta: {
-    title: 'Vivatheca — 讓臨床模型一目了然',
+    title: 'Vivatheca: 讓臨床模型一目了然',
     description: '免費的牙科與口腔顎顏面外科3D模型，每個病例都附有正常對照模型，供醫師製作衛教資料。可線上檢視、下載與列印。',
     socialDescription: '免費的瀏覽器3D醫學模型，讓醫病溝通更清楚。',
-    createTitle: '製作衛教資料 — Vivatheca',
+    createTitle: '製作衛教資料 - Vivatheca',
     createDescription: '草擬、檢查並完善與Vivatheca 3D模型搭配的衛教資料。',
   },
   language: { label: '語言' },
@@ -101,7 +101,7 @@ const zhHant = withFallback(en, {
     sourceLabel: '來源 {n}',
   },
   disclaimer: {
-    title: '免責聲明 — Vivatheca',
+    title: '免責聲明 - Vivatheca',
     description: 'Vivatheca 的模型與資訊僅供一般教育用途，不構成醫療建議。',
     heading: '免責聲明',
     updated: '最後更新：{date}',
@@ -182,7 +182,7 @@ const zhHant = withFallback(en, {
     ],
   },
   notFound: {
-    title: '找不到頁面 — Vivatheca',
+    title: '找不到頁面 - Vivatheca',
     heading: '找不到這個頁面。',
     intro: '此連結可能已過期或輸入錯誤。請瀏覽模型庫或回到首頁。',
     models: '瀏覽模型',

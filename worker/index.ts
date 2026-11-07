@@ -42,10 +42,10 @@ const GATE_PAGE = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vivatheca</title>
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="manifest" href="/site.webmanifest?v=2">
 </head>
 <body><p>This preview of Vivatheca is password protected.</p></body>
 </html>
