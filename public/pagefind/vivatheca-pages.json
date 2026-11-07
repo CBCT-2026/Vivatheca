@@ -61,7 +61,7 @@
  },
  "/models/alveolar-bone-graft": {
   "en": "00c6d4e0fa29",
-  "ja": "a4f6749400f0"
+  "ja": "7e4500df5229"
  },
  "/models/averaged-jaw": {
   "en": "4ba332f69d53",
@@ -132,23 +132,23 @@
   "ja": "8cc3fdc99b9b"
  },
  "/head-neck/": {
-  "en": "5a4cc4c192e9",
-  "ja": "e20810ed666f"
+  "en": "ad3f0ba17511",
+  "ja": "0dedaa635bb7"
  },
  "/head-neck/ameloblastoma/": {
   "en": "2e8f44a6b10e",
-  "ja": "2356600561e1"
+  "ja": "435e74637be9"
  },
  "/head-neck/mec/": {
   "en": "4838a76d17c1",
-  "ja": "55b6b31c54a3"
+  "ja": "a70ba3af9a3d"
  },
  "/head-neck/okc/": {
   "en": "010c2329a151",
   "ja": "fbd0d2c0015a"
  },
  "/head-neck/scc/": {
-  "en": "c36995fca575",
+  "en": "dc91d115e522",
   "ja": "19d6875fb22d"
  },
  "/oroantral/": {
