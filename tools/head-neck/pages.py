@@ -576,7 +576,7 @@ def build(slug, P):
     ja['description'] = P['description'][1]
     w('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">')
     w(f'<title>{esc(P["title"][0])}</title>')
-    w('<link rel="icon" href="/favicon.ico" sizes="48x48">\n<link rel="icon" href="/favicon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n<link rel="manifest" href="/site.webmanifest">')
+    w('<link rel="icon" href="/favicon.ico?v=2" sizes="48x48">\n<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">\n<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">\n<link rel="manifest" href="/site.webmanifest?v=2">')
     w(f'<meta name="description" content="{esc(P["description"][0])}">\n<meta name="robots" content="noindex">')
     w("<script>\ntry { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}\n</script>")
     w('<link rel="preload" href="/head-neck/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>')

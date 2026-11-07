@@ -63,6 +63,8 @@ const zhHant = withFallback(en, {
       print: '3D列印模型',
       impact: '模型的使用情形',
     },
+    use: '使用模型',
+    disciplines: { label: '依專科瀏覽模型庫', all: '全部模型', showing: '正在顯示：{name}', items: { 'oral-surgery': '口腔顎面外科', 'head-neck': '頭頸部', 'cleft': '唇顎裂治療', 'orthodontics': '齒顎矯正', 'paediatric': '兒童牙科', 'endodontics': '牙髓病', 'periodontics': '牙周病', 'prosthodontics': '補綴' } },
     participate: {
       label: '參與',
       request: '申請新模型',

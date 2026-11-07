@@ -1,4 +1,4 @@
-import { catalogue } from './models/catalogue';
+import { disciplineHref, disciplines } from './models/disciplines';
 import type { Dictionary } from './i18n/dictionaries';
 import { mailto } from './contact';
 
@@ -8,12 +8,15 @@ export function footerGroups(t: Dictionary) {
   const f = t.footer;
   return [
     {
+      // Disciplines only (Luke, 2026-11-07): one link per discipline, so this list stays as short as its neighbours.
       label: f.explore.label,
+      links: disciplines.map((d) => ({ label: f.disciplines.items[d], href: disciplineHref(d) })),
+    },
+    {
+      label: f.use,
       links: [
         { label: f.library, href: '/models' },
         { label: t.show.eyebrow, href: '/show' },
-        // Every model in the catalogue (head and neck cases are reached from their hub page).
-        ...catalogue.filter((m) => !m.slug.startsWith('head-neck-')).map((m) => ({ label: t.library.items[m.slug as keyof typeof t.library.items].title, href: m.href })),
         { label: t.nav.createInfo, href: '/create' },
         { label: f.explore.students, href: '/learn' },
         { label: f.explore.templates, href: '/templates' },

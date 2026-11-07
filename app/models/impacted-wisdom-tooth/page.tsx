@@ -88,7 +88,7 @@ export default async function WisdomToothPage() {
 
             <h3><Ruby text={w.sourcesHeading} /></h3>
             {w.sourcesNote ? <p className="detail-note"><Ruby text={w.sourcesNote} /></p> : null}
-            <ol className="source-list" lang="en">{wisdomTooth.sources.map((source, index) => <li key={source.text} id={`src-${index + 1}`}>{source.text}{source.href ? <> <a href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></> : null}</li>)}</ol>
+            <ol className="source-list" lang="en">{wisdomTooth.sources.map((source, index) => <li key={source.text} id={`src-${index + 1}`}>{source.text}{source.href ? <> <a className="url" href={source.href} target="_blank" rel="noreferrer">{source.href.replace('https://', '')}</a></> : null}</li>)}</ol>
 
             <h3><Ruby text={w.changelogHeading} /></h3>
             <ul className="plain-list">{w.changelog.map((entry) => <li key={entry.version}><strong>{entry.version}</strong> ({date(wisdomTooth.changelogDates[entry.version])}): <Ruby text={entry.text} /></li>)}</ul>

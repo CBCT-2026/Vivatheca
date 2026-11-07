@@ -567,6 +567,146 @@
       "nc_limits": false,
       "reasoning": "MDPI article under CC BY 4.0 (licence statement in the article; copyright held by the authors). Figures are the authors' own case. Same tooth and side as the model (75). The cause differs (hypomineralisation, not decay), and the page says so; AAPD lists developmental defects as an SSC indication.",
       "checked": "2026-11-06"
+    },
+    {
+      "id": "ec-alhamawi-fig2",
+      "file": "public/images/clinical/ectopic-canine/opg-before.jpg",
+      "pages": [
+        "/ectopic-canine/"
+      ],
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 2. Pretreatment OPG, 9-year-old girl; CBCT (not shown) confirmed bilateral palatal impaction of 13 and 23 (sector 3, alpha 60 degrees), deciduous canines retained.",
+      "source_url": "https://doi.org/10.1155/crid/1080772",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13347833.1/CRID-2026-1080772-g003.jpg",
+      "author": "Alhamawi D, Gary L, Baakdah R",
+      "article": "Alhamawi D, Gary L, Baakdah R. Early Interceptive Management of Bilateral Canine Impaction With Anterior Crossbite Using Double Extraction and a 2 × 4 Appliance. Case Reports in Dentistry. 2026;2026:1080772. doi:10.1155/crid/1080772",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (PMC open-access figure file).",
+      "consent": "Article states: 'Written informed consent was obtained from the patient's parent/guardian for publication of this case report.' Radiographs and intraoral photos only; no names, dates or record numbers.",
+      "reasoning": "CC BY 4.0 stated in the article. Authors' own case. Match: right palatally displaced 13 with retained 53 in mixed dentition, as the model (10.5 y, right side); angle steeper than the model (60 vs 25 degrees), stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "ec-alhamawi-fig3a",
+      "file": "public/images/clinical/ectopic-canine/after-extraction.jpg",
+      "pages": [
+        "/ectopic-canine/"
+      ],
+      "type": "Intraoral photos",
+      "description": "Figure 3A. Post-extraction views after removal of 53, 54, 63, 64.",
+      "source_url": "https://doi.org/10.1155/crid/1080772",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13347833.1/CRID-2026-1080772-g002.jpg",
+      "author": "Alhamawi D, Gary L, Baakdah R",
+      "article": "Alhamawi D, Gary L, Baakdah R. Early Interceptive Management of Bilateral Canine Impaction With Anterior Crossbite Using Double Extraction and a 2 × 4 Appliance. Case Reports in Dentistry. 2026;2026:1080772. doi:10.1155/crid/1080772",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Cropped to panel A (panel B and its label removed); saved as JPEG.",
+      "consent": "Article states: 'Written informed consent was obtained from the patient's parent/guardian for publication of this case report.' Radiographs and intraoral photos only; no names, dates or record numbers.",
+      "reasoning": "As Figure 2. Matches the model's third state (deciduous canine extracted).",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "ec-alhamawi-fig5",
+      "file": "public/images/clinical/ectopic-canine/opg-24-months.jpg",
+      "pages": [
+        "/ectopic-canine/"
+      ],
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 5. 24-month OPG: both canines erupted, no lateral incisor root resorption reported.",
+      "source_url": "https://doi.org/10.1155/crid/1080772",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13347833.1/CRID-2026-1080772-g001.jpg",
+      "author": "Alhamawi D, Gary L, Baakdah R",
+      "article": "Alhamawi D, Gary L, Baakdah R. Early Interceptive Management of Bilateral Canine Impaction With Anterior Crossbite Using Double Extraction and a 2 × 4 Appliance. Case Reports in Dentistry. 2026;2026:1080772. doi:10.1155/crid/1080772",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (PMC open-access figure file).",
+      "consent": "Article states: 'Written informed consent was obtained from the patient's parent/guardian for publication of this case report.' Radiographs and intraoral photos only; no names, dates or record numbers.",
+      "reasoning": "As Figure 2. Outcome of the treatment shown in the model.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "dc-wushou-fig2",
+      "file": "public/images/clinical/dentigerous-cyst/opg-before-after.jpg",
+      "pages": [
+        "/dentigerous-cyst/"
+      ],
+      "type": "Panoramic radiographs (OPG), 3 panels",
+      "description": "Figure 2. Left mandibular third molar dentigerous cyst: (A) pre-op, (B) 1 week after enucleation + extraction + autogenous tooth sticky bone graft, (C) 6 months.",
+      "source_url": "https://doi.org/10.1186/s12903-023-03673-w",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10771700.1/12903_2023_3673_Fig2_HTML.jpg",
+      "author": "Wushou A, Luo Y, Cheng QT, Yang ZC",
+      "article": "Wushou A, Luo Y, Cheng QT, Yang ZC. Using autogenous tooth sticky bone graft repair mandibular third molar dentigerous cyst osseous defects. BMC Oral Health. 2024;24(1):39. doi:10.1186/s12903-023-03673-w",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (PMC open-access figure file).",
+      "consent": "Article: IRB-approved study; all patients signed an informed consent form; images retrieved from the image database. Radiographs only, no identifiers visible.",
+      "reasoning": "CC BY 4.0 stated in the article (BMC). Authors' own series. Match: lower left 38 with pericoronal radiolucency (model: lower left 38, Pell and Gregory B). Tooth is slightly mesially tilted vs the vertical model; stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "pr-shadid-fig2b",
+      "file": "public/images/clinical/prosthodontic/lower-jaw-no-teeth.jpg",
+      "type": "Intraoral photo",
+      "description": "Figure 2b. Preoperative edentulous mandibular arch, 70-year-old.",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12702080.1/japid-17-234-g002.jpg",
+      "changes": "Cropped to panel b (panel a removed); saved as JPEG.",
+      "reasoning": "CC BY 4.0 stated in the article. Author's own case. Match: completely edentulous mandible with a resorbed ridge, as the model's edentulous state.",
+      "source_url": "https://doi.org/10.34172/japid.025.3973",
+      "author": "Shadid RM",
+      "article": "Shadid RM. Full-mouth rehabilitation with implant-supported overdentures in a heavy smoker with multiple sclerosis: A 3-year follow-up case report. J Adv Periodontol Implant Dent. 2025;17(4):234-239. doi:10.34172/japid.025.3973",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "consent": "Article: 'Additional written consent was obtained for publication of this case report and accompanying images' and 'Written informed consent was obtained from the patient for the publication of this case report and any accompanying images.' Intraoral photos and radiograph only.",
+      "nc_limits": false,
+      "checked": "2026-11-07",
+      "pages": [
+        "/prosthodontic/"
+      ]
+    },
+    {
+      "id": "pr-shadid-fig7",
+      "file": "public/images/clinical/prosthodontic/two-implants-stud-attachments.jpg",
+      "type": "Intraoral photo",
+      "description": "Figure 7. Two mandibular implants with Equator stud attachments.",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12702080.1/japid-17-234-g007.jpg",
+      "changes": "None (PMC open-access figure file).",
+      "reasoning": "Match: two-implant mandibular overdenture (McGill consensus), as the model; stud rather than ball attachment, stated in the caption.",
+      "source_url": "https://doi.org/10.34172/japid.025.3973",
+      "author": "Shadid RM",
+      "article": "Shadid RM. Full-mouth rehabilitation with implant-supported overdentures in a heavy smoker with multiple sclerosis: A 3-year follow-up case report. J Adv Periodontol Implant Dent. 2025;17(4):234-239. doi:10.34172/japid.025.3973",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "consent": "Article: 'Additional written consent was obtained for publication of this case report and accompanying images' and 'Written informed consent was obtained from the patient for the publication of this case report and any accompanying images.' Intraoral photos and radiograph only.",
+      "nc_limits": false,
+      "checked": "2026-11-07",
+      "pages": [
+        "/prosthodontic/"
+      ]
+    },
+    {
+      "id": "pr-shadid-fig12",
+      "file": "public/images/clinical/prosthodontic/opg-3-years.jpg",
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 12. OPG 3 years after prosthetic treatment: two mandibular implants, four maxillary implants with bar.",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12702080.1/japid-17-234-g012.jpg",
+      "changes": "None (PMC open-access figure file).",
+      "reasoning": "Match: lower two-implant overdenture; the upper bar is outside the model's scope, stated in the caption.",
+      "source_url": "https://doi.org/10.34172/japid.025.3973",
+      "author": "Shadid RM",
+      "article": "Shadid RM. Full-mouth rehabilitation with implant-supported overdentures in a heavy smoker with multiple sclerosis: A 3-year follow-up case report. J Adv Periodontol Implant Dent. 2025;17(4):234-239. doi:10.34172/japid.025.3973",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "consent": "Article: 'Additional written consent was obtained for publication of this case report and accompanying images' and 'Written informed consent was obtained from the patient for the publication of this case report and any accompanying images.' Intraoral photos and radiograph only.",
+      "nc_limits": false,
+      "checked": "2026-11-07",
+      "pages": [
+        "/prosthodontic/"
+      ]
     }
   ]
 }

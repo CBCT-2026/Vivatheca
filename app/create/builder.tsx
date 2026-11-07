@@ -405,6 +405,7 @@ ${markdownToHtml(stripClinicianNotes(draft))}
           <button className="button button-secondary" type="button" disabled={exportBlocked} onClick={() => download(`${slug()}.html`, exportHtml(), 'text/html')}><Ruby text={b.downloadHtml} /></button>
           <button className="button button-secondary" type="button" disabled={exportBlocked} onClick={() => download(`${slug()}.md`, markdownExport(), 'text/markdown')}><Ruby text={b.downloadMarkdown} /></button>
         </div>
+        {!draft ? <p className="builder-hint"><Ruby text={b.exportNeedsDraft} /></p> : null}
         {draftDetails.length ? <p className="builder-alert" role="alert"><Ruby text={format(b.exportBlocked, { details: draftDetails.join(', ') })} /></p> : null}
         {draft ? (
           <div className="builder-preview" aria-label={plain(b.preview)}>
