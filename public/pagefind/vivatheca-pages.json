@@ -60,7 +60,7 @@
   "ja": "d2002058d807"
  },
  "/models/alveolar-bone-graft": {
-  "en": "00c6d4e0fa29",
+  "en": "943b0ab8b6ca",
   "ja": "a4f6749400f0"
  },
  "/models/averaged-jaw": {
@@ -125,23 +125,23 @@
  },
  "/head-neck/": {
   "en": "5a4cc4c192e9",
-  "ja": "ea9786f7e721"
+  "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
   "en": "2e8f44a6b10e",
   "ja": "2356600561e1"
  },
  "/head-neck/mec/": {
-  "en": "4838a76d17c1",
-  "ja": "a70ba3af9a3d"
+  "en": "ca1f479c1c98",
+  "ja": "55b6b31c54a3"
  },
  "/head-neck/okc/": {
-  "en": "5c8d948fbb9d",
-  "ja": "cc7b29182595"
+  "en": "010c2329a151",
+  "ja": "e8f8c47c7c9b"
  },
  "/head-neck/scc/": {
-  "en": "974cc93387e6",
-  "ja": "2837ee82412f"
+  "en": "c36995fca575",
+  "ja": "c3a9cbe1dd2c"
  },
  "/oroantral/": {
   "en": "632056d33a23",
@@ -160,8 +160,12 @@
   "ja": "cb24e44f44e5"
  },
  "/stainless-steel-crown/": {
-  "en": "31c8e77ccd69",
-  "ja": "54c23eff6529"
+  "en": "3036adff399b",
+  "ja": "9b692b8ff490"
+ },
+ "/stainless-steel-crown/kids/": {
+  "en": "49a62eedd5dd",
+  "ja": "a409ae85c3e4"
  },
  "/tmd/": {
   "en": "9778ecbf0cd6",
