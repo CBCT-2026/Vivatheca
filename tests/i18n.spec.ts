@@ -158,3 +158,31 @@ test('Japanese pages say the translation is not yet reviewed; English pages do n
   // The model disclaimer shows in Japanese only.
   await expect(page.getByText('Educational model only.').first()).toBeHidden();
 });
+
+// A first-time visitor whose browser asks for English (here New Zealand) must get English on every
+// kind of page, even straight after someone else on the same server chose Japanese: the language
+// comes only from the visitor's own cookie, and pages are never stored in a shared cache.
+test('a first-time English-speaking visitor always gets English', async ({ browser, baseURL }) => {
+  const japanese = await browser.newContext({ locale: 'ja-JP' });
+  await japanese.addCookies([{ name: 'vivatheca-lang', value: 'ja', url: baseURL! }]);
+  const jaPage = await japanese.newPage();
+  await jaPage.goto('/');
+  await expect(jaPage.locator('html')).toHaveAttribute('lang', 'ja');
+  await japanese.close();
+
+  const fresh = await browser.newContext({ locale: 'en-NZ', timezoneId: 'Pacific/Auckland', extraHTTPHeaders: { 'Accept-Language': 'en-NZ,en;q=0.9' } });
+  const page = await fresh.newPage();
+  // Server-rendered pages: English, and marked so no shared cache keeps a copy.
+  for (const path of ['/', '/models', '/show', '/disclaimer']) {
+    const response = await page.goto(path);
+    await expect(page.locator('html'), path).toHaveAttribute('lang', 'en');
+    expect(response?.headers()['cache-control'], path).toContain('no-store');
+  }
+  // Static model pages (translated in the browser from the same cookie).
+  for (const path of ['/development/', '/head-neck/', '/oroantral/']) {
+    await page.goto(path);
+    await expect(page.locator('html'), path).toHaveAttribute('lang', 'en');
+  }
+  expect(await fresh.cookies()).toEqual([]);
+  await fresh.close();
+});

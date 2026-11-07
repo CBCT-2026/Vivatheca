@@ -1,6 +1,6 @@
 {
  "dictionary": {
-  "total": 1681,
+  "total": 1680,
   "extraInJa": [
    "builder.models.oroantral",
    "builder.models.periodontitis",
@@ -26,7 +26,7 @@
   "byStatus": {
    "reviewed": 0,
    "changed": 0,
-   "unreviewed": 1691
+   "unreviewed": 1690
   },
   "changed": []
  },
@@ -176,6 +176,11 @@
   },
   {
    "page": "tmd/sheet",
+   "tracked": false,
+   "note": "translations live in the page script, not tracked by key"
+  },
+  {
+   "page": "vpi",
    "tracked": false,
    "note": "translations live in the page script, not tracked by key"
   }

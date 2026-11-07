@@ -4,10 +4,10 @@ test('model library lists each model with its pairing and review status', async 
   await page.goto('/models');
   await expect(page.getByRole('heading', { name: 'Models with a normal to compare.', level: 1 })).toBeVisible();
   const cards = page.getByRole('list', { name: 'Models' }).getByRole('listitem').filter({ has: page.getByRole('heading', { level: 2 }) });
-  await expect(cards).toHaveCount(18);
+  await expect(cards).toHaveCount(19);
   await expect(page.locator('.library-grid .library-card-link', { hasText: 'Mesioangular impacted mandibular third molar' })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
   await expect(page.locator('.library-grid .library-card-link', { hasText: 'Mixed dentition: development and eruption of the permanent teeth, 6.5 to 12.5 years' })).toHaveAttribute('href', '/development/');
-  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(18);
+  await expect(page.getByText('Not yet clinically reviewed', { exact: true })).toHaveCount(19);
   // BodyParts3D-based models carry their own licence (CC BY 4.0); the rest show the site licence.
   await expect(cards.filter({ hasText: 'Pulp necrosis with chronic apical abscess' }).getByText('CC BY 4.0', { exact: true })).toBeVisible();
   await expect(cards.filter({ hasText: 'Cracked mandibular first molar' }).getByText('CC BY-SA 4.0', { exact: true })).toBeVisible();
@@ -75,7 +75,7 @@ test('/collection opens the model library', async ({ page }) => {
 });
 
 test('every static model page links home and back to the library', async ({ page }) => {
-  for (const route of ['/development/', '/periodontitis/', '/oroantral/', '/orthognathic/', '/head-neck/', '/head-neck/scc/', '/head-neck/ameloblastoma/', '/head-neck/okc/', '/head-neck/mec/', '/cracked-tooth/', '/stainless-steel-crown/', '/endodontic/', '/tmd/', '/prosthodontic/', '/fixation/']) {
+  for (const route of ['/development/', '/periodontitis/', '/oroantral/', '/orthognathic/', '/head-neck/', '/head-neck/scc/', '/head-neck/ameloblastoma/', '/head-neck/okc/', '/head-neck/mec/', '/cracked-tooth/', '/stainless-steel-crown/', '/endodontic/', '/tmd/', '/prosthodontic/', '/vpi/', '/fixation/']) {
     // vinext start does not serve a folder's index.html by its trailing-slash URL; Cloudflare does.
     await page.goto(`${route}index.html`);
     await expect(page.locator('header a[href="/"]').first(), route).toBeVisible();

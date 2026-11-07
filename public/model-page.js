@@ -15,6 +15,7 @@
     '/cracked-tooth/': 'cracked-tooth',
     '/stainless-steel-crown/': 'stainless-steel-crown',
     '/endodontic/': 'endodontic',
+    '/vpi/': 'vpi',
     '/prosthodontic/': 'prosthodontic',
     '/tmd/': 'tmd',
     '/head-neck/scc/': 'head-neck-scc',
