@@ -5,10 +5,10 @@ import { disclaimerUpdated, fullDisclaimer, modelDisclaimer, siteDisclaimer } fr
 
 const en = {
   meta: {
-    title: 'Vivatheca — Clinical models made clear',
+    title: 'Vivatheca: Clinical models made clear',
     description: 'Free 3D dental and oral surgery models, each with a matched normal, for clinicians making patient education materials. View, download and print.',
     socialDescription: 'Explore free, browser-based 3D medical models designed for clearer clinical conversations.',
-    createTitle: 'Create patient information — Vivatheca',
+    createTitle: 'Create patient information - Vivatheca',
     createDescription: 'Draft, check and refine patient education materials that match Vivatheca 3D models.',
   },
   language: {
@@ -66,7 +66,7 @@ const en = {
   },
   // Student hub (/learn).
   learn: {
-    metaTitle: 'For dental and medical students — Vivatheca',
+    metaTitle: 'For dental and medical students - Vivatheca',
     metaDescription: 'Study guides that use Vivatheca 3D models with technical terms, staging systems and the primary literature, kept separate from patient pages.',
     sectionNav: 'Site sections',
     forClinicians: 'For clinicians',
@@ -146,7 +146,7 @@ const en = {
   },
   // Student guide: dental development (/learn/development). [n] marks a source in app/learn/sources.ts.
   learnDev: {
-    metaTitle: 'Dental development, ages 6 to 12: student guide — Vivatheca',
+    metaTitle: 'Dental development, ages 6 to 12: student guide - Vivatheca',
     metaDescription: 'Mixed dentition, tooth formation staging (Nolla, Moorrees, Demirjian), eruption charts and jaw growth, with sources, for dental and medical students.',
     eyebrow: 'Student guide',
     heading: 'Dental development, ages 6 to 12',
@@ -209,7 +209,7 @@ const en = {
   },
   // Student guide: orthognathic surgery (/learn/orthognathic). [n] marks a source in orthoSources (app/learn/sources.ts).
   learnOrtho: {
-    metaTitle: 'Orthognathic surgery: Class I, II and III — student guide — Vivatheca',
+    metaTitle: 'Orthognathic surgery: Class I, II and III: student guide - Vivatheca',
     metaDescription: 'Angle classes, skeletal discrepancy, BSSO and Le Fort I osteotomies, the stability hierarchy and how the Vivatheca models were built, with sources, for dental and medical students.',
     eyebrow: 'Student guide',
     heading: 'Orthognathic surgery: Class I, II and III',
@@ -265,7 +265,7 @@ const en = {
   },
   // Student guide: oroantral communication and fistula (/learn/oroantral). [n] marks a source in oroantralSources (app/learn/sources.ts).
   learnOac: {
-    metaTitle: 'Oroantral communication and fistula (OAC and OAF) — student guide — Vivatheca',
+    metaTitle: 'Oroantral communication and fistula (OAC and OAF): student guide - Vivatheca',
     metaDescription: 'Root–sinus anatomy, risk factors, OAC versus OAF, closure options and the evidence comparing them, with sources, for dental and medical students.',
     eyebrow: 'Student guide',
     heading: 'Oroantral communication and fistula (OAC and OAF)',
@@ -325,7 +325,7 @@ const en = {
   },
   // Student guide: preformed metal crowns on primary molars (/learn/steel-crown). [n] marks a source in steelCrownSources (app/learn/sources.ts).
   learnSsc: {
-    metaTitle: 'Preformed metal crowns on primary molars — student guide — Vivatheca',
+    metaTitle: 'Preformed metal crowns on primary molars: student guide - Vivatheca',
     metaDescription: 'Indications for stainless steel crowns, conventional preparation versus the Hall Technique, and the outcome evidence against intracoronal restorations, with sources, for dental students.',
     eyebrow: 'Student guide',
     heading: 'Preformed metal crowns on primary molars',
@@ -379,7 +379,7 @@ const en = {
   },
   // Student guide: head and neck cases (/learn/head-neck). [n] marks a source in headNeckSources (app/learn/sources.ts).
   learnHn: {
-    metaTitle: 'Head and neck: resection and reconstruction in four cases — student guide — Vivatheca',
+    metaTitle: 'Head and neck: resection and reconstruction in four cases: student guide - Vivatheca',
     metaDescription: 'Segmental and marginal mandibulectomy, the Brown defect classification, free flap reconstruction, and recurrence evidence for ameloblastoma, odontogenic keratocyst and palatal mucoepidermoid carcinoma, with sources.',
     eyebrow: 'Student guide',
     heading: 'Head and neck: resection and reconstruction in four cases',
@@ -438,7 +438,7 @@ const en = {
   // Student guide: cracked tooth (/learn/cracked-tooth). [n] marks a source in crackedSources (app/learn/sources.ts).
   // Student tool: virtual CBCT slice viewer (/learn/slices). [n] marks a source in slicesSources (app/learn/sources.ts).
   learnSlices: {
-    metaTitle: 'Read CBCT slices against the 3D model — student tool — Vivatheca',
+    metaTitle: 'Read CBCT slices against the 3D model: student tool - Vivatheca',
     metaDescription: 'Axial, coronal and sagittal slices of virtual cone-beam CT scans made from Vivatheca’s own 3D models, with a volume render, for students learning to read dental and jaw imaging.',
     eyebrow: 'Student tool',
     heading: 'Read slices against the model',
@@ -538,7 +538,7 @@ const en = {
   },
   // Student guide: periodontitis stages (/learn/periodontitis). [n] marks a source in perioSources (app/learn/sources.ts).
   learnPerio: {
-    metaTitle: 'Periodontitis: staging and grading — student guide — Vivatheca',
+    metaTitle: 'Periodontitis: staging and grading: student guide - Vivatheca',
     metaDescription: 'The 2017 AAP/EFP staging and grading of periodontitis, how the Vivatheca stage models were built, and the EFP stepwise treatment guideline, with sources, for dental students.',
     eyebrow: 'Student guide',
     heading: 'Periodontitis: staging and grading',
@@ -595,7 +595,7 @@ const en = {
     ],
   },
   learnCracked: {
-    metaTitle: 'Cracked tooth: crown versus direct restoration — student guide — Vivatheca',
+    metaTitle: 'Cracked tooth: crown versus direct restoration: student guide - Vivatheca',
     metaDescription: 'Longitudinal tooth fractures, cuspal flexure, and the evidence on cuspal coverage for cracked teeth, with sources, for dental students.',
     eyebrow: 'Student guide',
     heading: 'Cracked tooth: crown versus direct restoration',
@@ -926,7 +926,7 @@ const en = {
   },
   // The English disclaimer wording lives in app/disclaimer-text.ts (single source of truth).
   disclaimer: {
-    title: 'Disclaimer — Vivatheca',
+    title: 'Disclaimer - Vivatheca',
     description: 'Vivatheca models and information are for general education only and are not medical advice.',
     heading: 'Disclaimer',
     updated: 'Last updated {date}',
@@ -1077,7 +1077,7 @@ const en = {
     english: '',
   },
   library: {
-    title: 'Model library — Vivatheca',
+    title: 'Model library - Vivatheca',
     description: 'Free 3D models of dental and oral and maxillofacial conditions, each paired with normal anatomy, with GLB and STL downloads.',
     eyebrow: 'Model library',
     heading: 'Models with a normal to compare',
@@ -1227,7 +1227,7 @@ const en = {
     } as Record<string, { title: string; specialty: string; summary: string; pairing: string }>,
   },
   wisdom: {
-    title: 'Mesioangular impacted mandibular third molar and matched normal — Vivatheca',
+    title: 'Mesioangular impacted mandibular third molar and matched normal - Vivatheca',
     description: 'Free 3D model of an impacted lower wisdom tooth near the inferior alveolar nerve, with a matched normal jaw. GLB and STL downloads, sources and licence.',
     breadcrumb: 'Breadcrumb',
     impactedAlt: 'Lower left jaw with an impacted wisdom tooth tilted forward against the second molar. Its roots wrap around the inferior alveolar nerve, shown in yellow.',
@@ -1324,7 +1324,7 @@ const en = {
     note: 'The search index is built when the site is published, so a page added today appears after the next publish.',
   },
   about: {
-    title: 'About — Vivatheca',
+    title: 'About - Vivatheca',
     description: 'Why Vivatheca exists, who runs it and how it is governed as a not-for-profit.',
     eyebrow: 'About',
     heading: 'Clear 3D models for the conversation in the chair',
@@ -1360,7 +1360,7 @@ const en = {
     helpRequestAfter: 'you would use with patients.',
   },
   privacy: {
-    title: 'Privacy — Vivatheca',
+    title: 'Privacy - Vivatheca',
     description: 'What Vivatheca collects when you use the site, and what it does not.',
     eyebrow: 'Privacy',
     heading: 'Privacy',
@@ -1381,14 +1381,14 @@ const en = {
     contact: 'Privacy questions:',
   },
   notFound: {
-    title: 'Page not found — Vivatheca',
+    title: 'Page not found - Vivatheca',
     heading: 'We could not find that page.',
     intro: 'The link may be old or mistyped. Try the model collection or go back to the homepage.',
     models: 'Browse the models',
     home: 'Vivatheca home',
   },
   requests: {
-    title: 'Model requests — Vivatheca',
+    title: 'Model requests - Vivatheca',
     description: 'Support the models you would use, or suggest a new one. Ideas with the most support go to a reviewed shortlist.',
     eyebrow: 'Model requests',
     heading: 'Which model should Vivatheca make next?',
@@ -1430,7 +1430,7 @@ const en = {
     makeItLink: 'Submit or request a model',
   },
   used: {
-    title: 'How people use the models — Vivatheca',
+    title: 'How people use the models - Vivatheca',
     description: 'Handouts, lectures and printed models: how clinicians, teachers and students have used Vivatheca models.',
     eyebrow: 'Used it',
     heading: 'How people use Vivatheca models',
@@ -1465,7 +1465,7 @@ const en = {
     privacy: 'Posts are stored on Vivatheca’s server (Cloudflare). Ask us at any time to remove yours.',
   },
   review: {
-    title: 'Clinical review — Vivatheca',
+    title: 'Clinical review - Vivatheca',
     description: 'How qualified clinicians check Vivatheca models, and the sign-off record for each model version.',
     eyebrow: 'Clinical review',
     heading: 'Clinical review of the models',
@@ -1502,7 +1502,7 @@ const en = {
     joinLink: 'Email to join clinical review',
   },
   survey: {
-    title: 'Clinician survey — Vivatheca',
+    title: 'Clinician survey - Vivatheca',
     description: 'A two-minute survey for clinicians and teachers: are Vivatheca models accurate and useful enough to use with patients?',
     eyebrow: 'Clinician survey',
     heading: 'Would you use these models with your patients?',
@@ -1540,7 +1540,7 @@ const en = {
     link: 'Clinicians: rate the models (2 minutes)',
   },
   impact: {
-    title: 'Model use — Vivatheca',
+    title: 'Model use - Vivatheca',
     description: 'How often each Vivatheca model is viewed, downloaded, shared and used.',
     eyebrow: 'Impact',
     heading: 'How the models are used',
@@ -1554,7 +1554,7 @@ const en = {
     method: 'How counting works: a page view is counted once per browser tab session. Each click on a download link counts once. Robots and repeat clicks may still be counted, so treat the numbers as rough.',
   },
   admin: {
-    title: 'Moderation — Vivatheca',
+    title: 'Moderation - Vivatheca',
     description: 'Approve or remove new model suggestions and posts.',
     heading: 'Moderation',
     intro: 'Approve or remove new model suggestions and “used it” posts before they appear on the site, and read the clinician survey answers.',
@@ -1585,7 +1585,7 @@ const en = {
     },
   },
   templates: {
-    title: 'Handout and slide templates — Vivatheca',
+    title: 'Handout and slide templates - Vivatheca',
     description: 'Editable handout and slide templates with Vivatheca model pictures, credit and disclaimer already in place.',
     eyebrow: 'Templates',
     heading: 'Handout and slide templates',
@@ -1607,7 +1607,7 @@ const en = {
     licence: 'Templates are licensed under CC BY-SA 4.0, like the models.',
   },
   printing: {
-    title: '3D print a model — Vivatheca',
+    title: '3D print a model - Vivatheca',
     description: 'Download Vivatheca models as 3MF files with named, coloured parts, or customise the print with a base, label and magnet holes.',
     eyebrow: '3D printing',
     heading: '3D print a model',
@@ -1646,7 +1646,7 @@ const en = {
     credit: 'Made from the Vivatheca model “{title}” (CC BY-SA 4.0, vivatheca.com). Customised prints stay under CC BY-SA 4.0.',
   },
   report: {
-    title: 'Report an inaccuracy — Vivatheca',
+    title: 'Report an inaccuracy - Vivatheca',
     description: 'Tell Vivatheca about anatomy, labels or text that do not look right in a model.',
     eyebrow: 'Clinical accuracy',
     heading: 'Report an inaccuracy',
@@ -1675,7 +1675,7 @@ const en = {
   submitModel: {
     board: 'Want to see which models others have asked for, and support them?',
     boardLink: 'Go to the model request board',
-    title: 'Submit or request a model — Vivatheca',
+    title: 'Submit or request a model - Vivatheca',
     description: 'Share a 3D model you made for review, or ask Vivatheca to build one.',
     eyebrow: 'Contribute',
     heading: 'Submit or request a model',
@@ -1748,7 +1748,7 @@ const en = {
     sourcesHeading: 'Sources',
   },
   show: {
-    title: 'Show a patient — Vivatheca',
+    title: 'Show a patient - Vivatheca',
     description: 'Open any Vivatheca model full screen in one tap, with simple controls, ready to show a patient.',
     eyebrow: 'Show a patient',
     heading: 'Pick a model and show it.',

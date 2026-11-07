@@ -10,10 +10,10 @@ import { withFallback } from './fallback';
 
 const vi = withFallback(en, {
   "meta": {
-    "title": "Vivatheca — Mô hình lâm sàng dễ hiểu",
+    "title": "Vivatheca: Mô hình lâm sàng dễ hiểu",
     "description": "Mô hình 3D miễn phí về nha khoa và phẫu thuật miệng, mỗi mô hình bệnh đều có mô hình bình thường để so sánh, giúp nhân viên y tế làm tài liệu giáo dục bệnh nhân. Xem, tải về và in.",
     "socialDescription": "Mô hình y học 3D miễn phí trên trình duyệt, giúp trao đổi lâm sàng rõ ràng hơn.",
-    "createTitle": "Soạn tài liệu cho bệnh nhân — Vivatheca",
+    "createTitle": "Soạn tài liệu cho bệnh nhân - Vivatheca",
     "createDescription": "Soạn, kiểm tra và hoàn thiện tài liệu giáo dục bệnh nhân đi kèm mô hình 3D của Vivatheca."
   },
   "language": {
@@ -69,7 +69,7 @@ const vi = withFallback(en, {
     "note": "Trang cho bệnh nhân và trang cho sinh viên được tách riêng, để lời văn cho bệnh nhân luôn đơn giản và lời văn cho sinh viên có thể chính xác."
   },
   "learn": {
-    "metaTitle": "Dành cho sinh viên nha khoa và y khoa — Vivatheca",
+    "metaTitle": "Dành cho sinh viên nha khoa và y khoa - Vivatheca",
     "metaDescription": "Tài liệu học tập dùng mô hình 3D của Vivatheca, kèm thuật ngữ chuyên môn, hệ thống phân giai đoạn và nghiên cứu gốc, tách riêng khỏi trang cho bệnh nhân.",
     "sectionNav": "Các phần của trang web",
     "forClinicians": "Dành cho nhân viên y tế",
@@ -158,7 +158,7 @@ const vi = withFallback(en, {
     "citeLabel": "Nguồn {n}"
   },
   "learnDev": {
-    "metaTitle": "Sự phát triển của răng, từ 6 đến 12 tuổi: tài liệu cho sinh viên — Vivatheca",
+    "metaTitle": "Sự phát triển của răng, từ 6 đến 12 tuổi: tài liệu cho sinh viên - Vivatheca",
     "metaDescription": "Bộ răng hỗn hợp, phân giai đoạn hình thành răng (Nolla, Moorrees, Demirjian), biểu đồ mọc răng và sự tăng trưởng xương hàm, kèm nguồn tài liệu, cho sinh viên nha khoa và y khoa.",
     "eyebrow": "Tài liệu cho sinh viên",
     "heading": "Sự phát triển của răng, từ 6 đến 12 tuổi",
@@ -257,7 +257,7 @@ const vi = withFallback(en, {
     ]
   },
   "learnOrtho": {
-    "metaTitle": "Phẫu thuật chỉnh hình xương hàm: loại I, II và III — tài liệu cho sinh viên — Vivatheca",
+    "metaTitle": "Phẫu thuật chỉnh hình xương hàm: loại I, II và III: tài liệu cho sinh viên - Vivatheca",
     "metaDescription": "Phân loại Angle, bất hài hòa xương, phẫu thuật BSSO và Le Fort I, thứ bậc độ ổn định và cách làm các mô hình Vivatheca, kèm nguồn tài liệu, cho sinh viên nha khoa và y khoa.",
     "eyebrow": "Tài liệu cho sinh viên",
     "heading": "Phẫu thuật chỉnh hình xương hàm: loại I, II và III",
@@ -353,7 +353,7 @@ const vi = withFallback(en, {
     ]
   },
   "learnOac": {
-    "metaTitle": "Thông và rò xoang hàm - miệng (OAC và OAF) — tài liệu cho sinh viên — Vivatheca",
+    "metaTitle": "Thông và rò xoang hàm - miệng (OAC và OAF): tài liệu cho sinh viên - Vivatheca",
     "metaDescription": "Giải phẫu chân răng và xoang, yếu tố nguy cơ, phân biệt OAC với OAF, các cách đóng lỗ thông và bằng chứng so sánh, kèm nguồn tài liệu, cho sinh viên nha khoa và y khoa.",
     "eyebrow": "Tài liệu cho sinh viên",
     "heading": "Thông và rò xoang hàm - miệng (OAC và OAF)",
@@ -460,7 +460,7 @@ const vi = withFallback(en, {
     ]
   },
   "learnSsc": {
-    "metaTitle": "Mão kim loại làm sẵn trên răng hàm sữa — tài liệu cho sinh viên — Vivatheca",
+    "metaTitle": "Mão kim loại làm sẵn trên răng hàm sữa: tài liệu cho sinh viên - Vivatheca",
     "metaDescription": "Chỉ định mão thép không gỉ, mài răng thông thường so với kỹ thuật Hall, và bằng chứng về kết quả so với phục hồi trong thân răng, kèm nguồn tài liệu, cho sinh viên nha khoa.",
     "eyebrow": "Tài liệu cho sinh viên",
     "heading": "Mão kim loại làm sẵn trên răng hàm sữa",
@@ -551,7 +551,7 @@ const vi = withFallback(en, {
     ]
   },
   "learnHn": {
-    "metaTitle": "Đầu và cổ: cắt bỏ và tái tạo trong bốn ca bệnh — tài liệu cho sinh viên — Vivatheca",
+    "metaTitle": "Đầu và cổ: cắt bỏ và tái tạo trong bốn ca bệnh: tài liệu cho sinh viên - Vivatheca",
     "metaDescription": "Cắt đoạn và cắt bờ xương hàm dưới, phân loại khuyết hổng theo Brown, tái tạo bằng vạt tự do, và bằng chứng về tái phát của u nguyên bào men, nang sừng do răng và ung thư biểu mô nhầy - biểu bì ở vòm miệng, kèm nguồn tài liệu.",
     "eyebrow": "Tài liệu cho sinh viên",
     "heading": "Đầu và cổ: cắt bỏ và tái tạo trong bốn ca bệnh",
@@ -653,7 +653,7 @@ const vi = withFallback(en, {
     ]
   },
   "learnSlices": {
-    "metaTitle": "Đọc lát cắt CBCT đối chiếu với mô hình 3D — công cụ cho sinh viên — Vivatheca",
+    "metaTitle": "Đọc lát cắt CBCT đối chiếu với mô hình 3D: công cụ cho sinh viên - Vivatheca",
     "metaDescription": "Các lát cắt ngang, đứng ngang và đứng dọc của phim CT chùm tia hình nón ảo tạo từ chính các mô hình 3D của Vivatheca, kèm hình dựng khối, cho sinh viên học đọc hình ảnh răng và xương hàm.",
     "eyebrow": "Công cụ cho sinh viên",
     "heading": "Đọc lát cắt đối chiếu với mô hình",
@@ -739,7 +739,7 @@ const vi = withFallback(en, {
     "how": "Lưới GLB của mỗi mô hình được lấy mẫu lên lưới voxel 0,4 đến 0,5 mm (tools/cbct/voxelize.py), mỗi phần được gán giá trị trong bảng, rồi ghi thành khối NIfTI. Trình xem là NiiVue, một trình xem ảnh y khoa WebGL2 mã nguồn mở.[5][6]"
   },
   "learnPerio": {
-    "metaTitle": "Viêm nha chu: phân giai đoạn và phân độ — tài liệu cho sinh viên — Vivatheca",
+    "metaTitle": "Viêm nha chu: phân giai đoạn và phân độ: tài liệu cho sinh viên - Vivatheca",
     "metaDescription": "Phân giai đoạn và phân độ viêm nha chu theo AAP/EFP 2017, cách làm các mô hình giai đoạn của Vivatheca, và hướng dẫn điều trị từng bước của EFP, kèm nguồn tài liệu, cho sinh viên nha khoa.",
     "eyebrow": "Tài liệu cho sinh viên",
     "heading": "Viêm nha chu: phân giai đoạn và phân độ",
@@ -837,7 +837,7 @@ const vi = withFallback(en, {
     ]
   },
   "learnCracked": {
-    "metaTitle": "Răng nứt: mão răng hay phục hồi trực tiếp — tài liệu cho sinh viên — Vivatheca",
+    "metaTitle": "Răng nứt: mão răng hay phục hồi trực tiếp: tài liệu cho sinh viên - Vivatheca",
     "metaDescription": "Nứt răng theo chiều dọc, sự uốn của múi răng, và bằng chứng về phủ múi cho răng nứt, kèm nguồn tài liệu, cho sinh viên nha khoa.",
     "eyebrow": "Tài liệu cho sinh viên",
     "heading": "Răng nứt: mão răng hay phục hồi trực tiếp",
@@ -1308,7 +1308,7 @@ const vi = withFallback(en, {
     "changes": "Thay đổi"
   },
   "disclaimer": {
-    "title": "Tuyên bố miễn trừ trách nhiệm — Vivatheca",
+    "title": "Tuyên bố miễn trừ trách nhiệm - Vivatheca",
     "description": "Mô hình và thông tin của Vivatheca chỉ nhằm mục đích giáo dục chung, không phải lời khuyên y tế.",
     "heading": "Tuyên bố miễn trừ trách nhiệm",
     "updated": "Cập nhật lần cuối: {date}",
@@ -1523,7 +1523,7 @@ const vi = withFallback(en, {
     "english": "Xem bằng tiếng Anh"
   },
   "library": {
-    "title": "Thư viện mô hình — Vivatheca",
+    "title": "Thư viện mô hình - Vivatheca",
     "description": "Mô hình 3D miễn phí về các bệnh lý răng miệng và hàm mặt, mỗi mô hình đi kèm giải phẫu bình thường, có tải GLB và STL.",
     "eyebrow": "Thư viện mô hình",
     "heading": "Mô hình có bản bình thường để so sánh",
@@ -1667,7 +1667,7 @@ const vi = withFallback(en, {
     }
   },
   "wisdom": {
-    "title": "Răng cối lớn thứ ba hàm dưới mọc ngầm nghiêng gần và mô hình bình thường tương ứng — Vivatheca",
+    "title": "Răng cối lớn thứ ba hàm dưới mọc ngầm nghiêng gần và mô hình bình thường tương ứng - Vivatheca",
     "description": "Mô hình 3D miễn phí của răng khôn hàm dưới mọc ngầm gần dây thần kinh huyệt răng dưới, kèm xương hàm bình thường tương ứng. Tải GLB và STL, nguồn tài liệu và giấy phép.",
     "breadcrumb": "Đường dẫn",
     "impactedAlt": "Hàm dưới bên trái có răng khôn mọc ngầm nghiêng ra trước vào răng hàm lớn thứ hai. Chân răng ôm quanh dây thần kinh huyệt răng dưới, màu vàng.",
@@ -1777,7 +1777,7 @@ const vi = withFallback(en, {
     "note": "Chỉ mục tìm kiếm được tạo khi trang web được xuất bản, nên trang thêm hôm nay sẽ xuất hiện sau lần xuất bản tiếp theo."
   },
   "about": {
-    "title": "Giới thiệu — Vivatheca",
+    "title": "Giới thiệu - Vivatheca",
     "description": "Vì sao Vivatheca ra đời, ai điều hành và cách tổ chức phi lợi nhuận này được quản lý.",
     "eyebrow": "Giới thiệu",
     "heading": "Mô hình 3D rõ ràng cho cuộc trò chuyện bên ghế nha",
@@ -1825,7 +1825,7 @@ const vi = withFallback(en, {
     "helpRequestAfter": "mà bạn sẽ dùng với bệnh nhân."
   },
   "privacy": {
-    "title": "Quyền riêng tư — Vivatheca",
+    "title": "Quyền riêng tư - Vivatheca",
     "description": "Vivatheca thu thập gì khi bạn dùng trang web, và không thu thập gì.",
     "eyebrow": "Quyền riêng tư",
     "heading": "Quyền riêng tư",
@@ -1882,14 +1882,14 @@ const vi = withFallback(en, {
     "contact": "Câu hỏi về quyền riêng tư:"
   },
   "notFound": {
-    "title": "Không tìm thấy trang — Vivatheca",
+    "title": "Không tìm thấy trang - Vivatheca",
     "heading": "Chúng tôi không tìm thấy trang này.",
     "intro": "Liên kết có thể đã cũ hoặc bị gõ sai. Hãy xem bộ sưu tập mô hình hoặc quay lại trang chủ.",
     "models": "Xem các mô hình",
     "home": "Trang chủ Vivatheca"
   },
   "requests": {
-    "title": "Đề xuất mô hình — Vivatheca",
+    "title": "Đề xuất mô hình - Vivatheca",
     "description": "Ủng hộ những mô hình bạn sẽ dùng, hoặc đề xuất mô hình mới. Các ý tưởng được ủng hộ nhiều nhất sẽ vào danh sách rút gọn để xem xét.",
     "eyebrow": "Đề xuất mô hình",
     "heading": "Vivatheca nên làm mô hình nào tiếp theo?",
@@ -1946,7 +1946,7 @@ const vi = withFallback(en, {
     "makeItLink": "Gửi hoặc yêu cầu một mô hình"
   },
   "used": {
-    "title": "Cách mọi người dùng mô hình — Vivatheca",
+    "title": "Cách mọi người dùng mô hình - Vivatheca",
     "description": "Tờ hướng dẫn, bài giảng và mô hình in: cách nhân viên y tế, giảng viên và sinh viên đã dùng mô hình Vivatheca.",
     "eyebrow": "Đã sử dụng",
     "heading": "Cách mọi người dùng mô hình Vivatheca",
@@ -1981,7 +1981,7 @@ const vi = withFallback(en, {
     "privacy": "Bài đăng được lưu trên máy chủ của Vivatheca (Cloudflare). Bạn có thể yêu cầu xóa bài của mình bất cứ lúc nào."
   },
   "review": {
-    "title": "Thẩm định lâm sàng — Vivatheca",
+    "title": "Thẩm định lâm sàng - Vivatheca",
     "description": "Cách bác sĩ có chuyên môn kiểm tra các mô hình Vivatheca, và hồ sơ xác nhận cho từng phiên bản mô hình.",
     "eyebrow": "Thẩm định lâm sàng",
     "heading": "Thẩm định lâm sàng các mô hình",
@@ -2018,7 +2018,7 @@ const vi = withFallback(en, {
     "joinLink": "Gửi email để tham gia thẩm định lâm sàng"
   },
   "survey": {
-    "title": "Khảo sát dành cho nhân viên y tế — Vivatheca",
+    "title": "Khảo sát dành cho nhân viên y tế - Vivatheca",
     "description": "Khảo sát hai phút cho bác sĩ và giảng viên: mô hình Vivatheca có đủ chính xác và hữu ích để dùng với bệnh nhân không?",
     "eyebrow": "Khảo sát nhân viên y tế",
     "heading": "Bạn có dùng các mô hình này với bệnh nhân không?",
@@ -2056,7 +2056,7 @@ const vi = withFallback(en, {
     "link": "Dành cho nhân viên y tế: đánh giá mô hình (2 phút)"
   },
   "impact": {
-    "title": "Lượt sử dụng mô hình — Vivatheca",
+    "title": "Lượt sử dụng mô hình - Vivatheca",
     "description": "Mỗi mô hình Vivatheca được xem, tải, chia sẻ và sử dụng bao nhiêu lần.",
     "eyebrow": "Tác động",
     "heading": "Các mô hình được sử dụng thế nào",
@@ -2080,7 +2080,7 @@ const vi = withFallback(en, {
     "method": "Cách đếm: mỗi lượt xem trang được đếm một lần cho mỗi phiên thẻ trình duyệt. Mỗi lần bấm vào đường dẫn tải được đếm một lần. Robot và các lần bấm lặp lại vẫn có thể bị đếm, nên hãy xem các con số là ước lượng."
   },
   "admin": {
-    "title": "Kiểm duyệt — Vivatheca",
+    "title": "Kiểm duyệt - Vivatheca",
     "description": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng mới.",
     "heading": "Kiểm duyệt",
     "intro": "Duyệt hoặc xóa các đề xuất mô hình và bài đăng “đã sử dụng” mới trước khi chúng hiện trên trang, và đọc câu trả lời khảo sát nhân viên y tế.",
@@ -2111,7 +2111,7 @@ const vi = withFallback(en, {
     }
   },
   "templates": {
-    "title": "Mẫu tờ hướng dẫn và trang chiếu — Vivatheca",
+    "title": "Mẫu tờ hướng dẫn và trang chiếu - Vivatheca",
     "description": "Mẫu tờ hướng dẫn và trang chiếu có thể chỉnh sửa, đã có sẵn hình mô hình Vivatheca, ghi công và tuyên bố miễn trừ trách nhiệm.",
     "eyebrow": "Mẫu",
     "heading": "Mẫu tờ hướng dẫn và trang chiếu",
@@ -2136,7 +2136,7 @@ const vi = withFallback(en, {
     "licence": "Các mẫu được cấp phép theo CC BY-SA 4.0, giống như các mô hình."
   },
   "printing": {
-    "title": "In 3D một mô hình — Vivatheca",
+    "title": "In 3D một mô hình - Vivatheca",
     "description": "Tải mô hình Vivatheca dưới dạng tệp 3MF với các phần đã đặt tên và tô màu, hoặc tùy chỉnh bản in với đế, nhãn và lỗ nam châm.",
     "eyebrow": "In 3D",
     "heading": "In 3D một mô hình",
@@ -2175,7 +2175,7 @@ const vi = withFallback(en, {
     "credit": "Làm từ mô hình Vivatheca “{title}” (CC BY-SA 4.0, vivatheca.com). Bản in tùy chỉnh vẫn theo giấy phép CC BY-SA 4.0."
   },
   "report": {
-    "title": "Báo cáo điểm chưa chính xác — Vivatheca",
+    "title": "Báo cáo điểm chưa chính xác - Vivatheca",
     "description": "Báo cho Vivatheca về giải phẫu, nhãn hoặc nội dung trông chưa đúng trong một mô hình.",
     "eyebrow": "Độ chính xác lâm sàng",
     "heading": "Báo cáo điểm chưa chính xác",
@@ -2219,7 +2219,7 @@ const vi = withFallback(en, {
   "submitModel": {
     "board": "Bạn muốn xem những mô hình người khác đã đề xuất và ủng hộ chúng?",
     "boardLink": "Đến bảng đề xuất mô hình",
-    "title": "Gửi hoặc yêu cầu một mô hình — Vivatheca",
+    "title": "Gửi hoặc yêu cầu một mô hình - Vivatheca",
     "description": "Chia sẻ mô hình 3D bạn đã làm để được xem xét, hoặc đề nghị Vivatheca dựng một mô hình.",
     "eyebrow": "Đóng góp",
     "heading": "Gửi hoặc yêu cầu một mô hình",
@@ -2309,7 +2309,7 @@ const vi = withFallback(en, {
     "sourcesHeading": "Nguồn"
   },
   "show": {
-    "title": "Cho bệnh nhân xem — Vivatheca",
+    "title": "Cho bệnh nhân xem - Vivatheca",
     "description": "Mở bất kỳ mô hình Vivatheca nào toàn màn hình chỉ với một lần chạm, điều khiển đơn giản, sẵn sàng cho bệnh nhân xem.",
     "eyebrow": "Cho bệnh nhân xem",
     "heading": "Chọn một mô hình và cho xem ngay.",
