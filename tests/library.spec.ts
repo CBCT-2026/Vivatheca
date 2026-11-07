@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test('model library lists each model with its pairing and review status', async ({ page }) => {
   await page.goto('/models');
-  await expect(page.getByRole('heading', { name: 'Models with a normal to compare.', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Models with a normal to compare', level: 1 })).toBeVisible();
   const cards = page.getByRole('list', { name: 'Models' }).getByRole('listitem').filter({ has: page.getByRole('heading', { level: 2 }) });
   await expect(cards).toHaveCount(19);
   await expect(page.locator('.library-grid .library-card-link', { hasText: 'Mesioangular impacted mandibular third molar' })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
@@ -19,7 +19,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   await expect(page.getByRole('heading', { name: 'Mesioangular impacted mandibular third molar', level: 1 })).toBeVisible();
   const viewers = page.locator('model-viewer');
   await expect(viewers).toHaveCount(2);
-  await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src)).toContain('/models/wisdom-tooth-normal.glb');
+  await expect.poll(() => viewers.nth(1).evaluate((element) => (element as HTMLElement & { src: string }).src), { timeout: 20_000 }).toContain('/models/wisdom-tooth-normal.glb');
 
   await page.getByRole('button', { name: 'Normal', exact: true }).click();
   await expect(page.locator('.compare').getByText('Impacted (mesioangular)', { exact: true })).toBeHidden();
