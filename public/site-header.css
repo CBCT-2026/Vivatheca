@@ -112,3 +112,12 @@
    Every static page loads this file, so the rule lives here (the app pages use app/globals.css). See DESIGN.md. */
 p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 p:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
+/* Long list items, definitions and reference lists follow the same rule (Luke, 2026-11-07).
+   Single-line items look the same either way, because the last line of a justified block stays left. */
+li, dd, blockquote { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+nav li, menu li, li:has(img, picture, video) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* link lists and picture cards stay ragged */
+li :where(h1, h2, h3, h4, h5, h6) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* card titles inside list items */
+li:lang(ja), dd:lang(ja), blockquote:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
+/* A printed web address or DOI cannot hyphenate, so it would leave wide gaps in a justified line:
+   let it break at any character instead. */
+.url { word-break: break-all; hyphens: none; -webkit-hyphens: none; }

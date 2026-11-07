@@ -42,7 +42,7 @@ export async function VideoSection({ slug }: { slug: string }) {
         <ol>
           {video.sources.map((src, i) => {
             const url = src.match(/https?:\/\/\S+$/)?.[0];
-            return <li key={i} id={`vsrc-${i + 1}`}>{url ? <>{src.slice(0, -url.length)}<a href={url}>{url.replace(/^https?:\/\//, '')}</a></> : src}</li>;
+            return <li key={i} id={`vsrc-${i + 1}`}>{url ? <>{src.slice(0, -url.length)}<a className="url" href={url}>{url.replace(/^https?:\/\//, '')}</a></> : src}</li>;
           })}
         </ol>
       </details>
