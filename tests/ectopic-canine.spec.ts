@@ -20,7 +20,7 @@ test('ectopic canine page switches between normal, palatal and baby tooth out', 
 
 test('ectopic canine page states its CC BY-SA licence, the Z-Anatomy credit and the model disclaimer', async ({ page }) => {
   await page.goto('/ectopic-canine/index.html');
-  const credit = page.locator('.credit');
+  const credit = page.locator('p.credit');
   await expect(credit).toContainText('Z-Anatomy');
   await expect(credit.getByRole('link', { name: 'CC BY-SA 4.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by-sa/4.0/');
   await expect(page.getByText('Educational model only. It shows typical anatomy or disease, not any real patient').first()).toBeVisible();

@@ -567,6 +567,126 @@
       "nc_limits": false,
       "reasoning": "MDPI article under CC BY 4.0 (licence statement in the article; copyright held by the authors). Figures are the authors' own case. Same tooth and side as the model (75). The cause differs (hypomineralisation, not decay), and the page says so; AAPD lists developmental defects as an SSC indication.",
       "checked": "2026-11-06"
+    },
+    {
+      "id": "ec-alhamawi-fig2",
+      "file": "public/images/clinical/ectopic-canine/opg-before.jpg",
+      "pages": [
+        "/ectopic-canine/"
+      ],
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 2. Pretreatment OPG, 9-year-old girl; CBCT (not shown) confirmed bilateral palatal impaction of 13 and 23 (sector 3, alpha 60 degrees), deciduous canines retained.",
+      "source_url": "https://doi.org/10.1155/crid/1080772",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13347833.1/CRID-2026-1080772-g003.jpg",
+      "author": "Alhamawi D, Gary L, Baakdah R",
+      "article": "Alhamawi D, Gary L, Baakdah R. Early Interceptive Management of Bilateral Canine Impaction With Anterior Crossbite Using Double Extraction and a 2 × 4 Appliance. Case Reports in Dentistry. 2026;2026:1080772. doi:10.1155/crid/1080772",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (PMC open-access figure file).",
+      "consent": "Article states: 'Written informed consent was obtained from the patient's parent/guardian for publication of this case report.' Radiographs and intraoral photos only; no names, dates or record numbers.",
+      "reasoning": "CC BY 4.0 stated in the article. Authors' own case. Match: right palatally displaced 13 with retained 53 in mixed dentition, as the model (10.5 y, right side); angle steeper than the model (60 vs 25 degrees), stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "ec-alhamawi-fig3a",
+      "file": "public/images/clinical/ectopic-canine/after-extraction.jpg",
+      "pages": [
+        "/ectopic-canine/"
+      ],
+      "type": "Intraoral photos",
+      "description": "Figure 3A. Post-extraction views after removal of 53, 54, 63, 64.",
+      "source_url": "https://doi.org/10.1155/crid/1080772",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13347833.1/CRID-2026-1080772-g002.jpg",
+      "author": "Alhamawi D, Gary L, Baakdah R",
+      "article": "Alhamawi D, Gary L, Baakdah R. Early Interceptive Management of Bilateral Canine Impaction With Anterior Crossbite Using Double Extraction and a 2 × 4 Appliance. Case Reports in Dentistry. 2026;2026:1080772. doi:10.1155/crid/1080772",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Cropped to panel A (panel B and its label removed); saved as JPEG.",
+      "consent": "Article states: 'Written informed consent was obtained from the patient's parent/guardian for publication of this case report.' Radiographs and intraoral photos only; no names, dates or record numbers.",
+      "reasoning": "As Figure 2. Matches the model's third state (deciduous canine extracted).",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "ec-alhamawi-fig5",
+      "file": "public/images/clinical/ectopic-canine/opg-24-months.jpg",
+      "pages": [
+        "/ectopic-canine/"
+      ],
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 5. 24-month OPG: both canines erupted, no lateral incisor root resorption reported.",
+      "source_url": "https://doi.org/10.1155/crid/1080772",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13347833.1/CRID-2026-1080772-g001.jpg",
+      "author": "Alhamawi D, Gary L, Baakdah R",
+      "article": "Alhamawi D, Gary L, Baakdah R. Early Interceptive Management of Bilateral Canine Impaction With Anterior Crossbite Using Double Extraction and a 2 × 4 Appliance. Case Reports in Dentistry. 2026;2026:1080772. doi:10.1155/crid/1080772",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (PMC open-access figure file).",
+      "consent": "Article states: 'Written informed consent was obtained from the patient's parent/guardian for publication of this case report.' Radiographs and intraoral photos only; no names, dates or record numbers.",
+      "reasoning": "As Figure 2. Outcome of the treatment shown in the model.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "dc-wushou-fig2",
+      "file": "public/images/clinical/dentigerous-cyst/opg-before-after.jpg",
+      "pages": [
+        "/dentigerous-cyst/"
+      ],
+      "type": "Panoramic radiographs (OPG), 3 panels",
+      "description": "Figure 2. Left mandibular third molar dentigerous cyst: (A) pre-op, (B) 1 week after enucleation + extraction + autogenous tooth sticky bone graft, (C) 6 months.",
+      "source_url": "https://doi.org/10.1186/s12903-023-03673-w",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10771700.1/12903_2023_3673_Fig2_HTML.jpg",
+      "author": "Wushou A, Luo Y, Cheng QT, Yang ZC",
+      "article": "Wushou A, Luo Y, Cheng QT, Yang ZC. Using autogenous tooth sticky bone graft repair mandibular third molar dentigerous cyst osseous defects. BMC Oral Health. 2024;24(1):39. doi:10.1186/s12903-023-03673-w",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (PMC open-access figure file).",
+      "consent": "Article: IRB-approved study; all patients signed an informed consent form; images retrieved from the image database. Radiographs only, no identifiers visible.",
+      "reasoning": "CC BY 4.0 stated in the article (BMC). Authors' own series. Match: lower left 38 with pericoronal radiolucency (model: lower left 38, Pell and Gregory B). Tooth is slightly mesially tilted vs the vertical model; stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "pr-krishna-fig2",
+      "file": "public/images/clinical/prosthodontic/ball-abutments.jpg",
+      "pages": [
+        "/prosthodontic/"
+      ],
+      "type": "Intraoral photo",
+      "description": "Figure 2. Two interforaminal mandibular implants (and two premaxillary implants) with ball attachments.",
+      "source_url": "https://doi.org/10.7759/cureus.23264",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9013260.1/cureus-0014-00000023264-i02.jpg",
+      "author": "Krishna S, Kumar R, Sailasri K",
+      "article": "Krishna S, Kumar R, Sailasri K. Implant-Supported Overdenture Using Ball Attachments in Maxilla and Mandible: A Case Report. Cureus. 2022;14(3):e23264. doi:10.7759/cureus.23264",
+      "licence": "CC BY (version not stated by Cureus)",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Cropped to the mouth (nose, eyes and chin removed); saved as JPEG.",
+      "consent": "Article: 'A treatment plan was clearly explained and patient consent was taken.' Cropped so no eyes or nose remain; intraoral view with lips only.",
+      "reasoning": "Cureus CC BY licence stated in the article. Authors' own case. Match: edentulous mandible with a two-implant ball-retained overdenture between the mental foramina, as the model; immediate implants so the ridge is less resorbed than the model's class V ridge, stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
+    },
+    {
+      "id": "pr-krishna-fig6",
+      "file": "public/images/clinical/prosthodontic/overdentures-in-place.jpg",
+      "pages": [
+        "/prosthodontic/"
+      ],
+      "type": "Clinical photo",
+      "description": "Figure 6. Maxillary and mandibular overdentures inserted over the ball attachments.",
+      "source_url": "https://doi.org/10.7759/cureus.23264",
+      "figure_source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9013260.1/cureus-0014-00000023264-i06.jpg",
+      "author": "Krishna S, Kumar R, Sailasri K",
+      "article": "Krishna S, Kumar R, Sailasri K. Implant-Supported Overdenture Using Ball Attachments in Maxilla and Mandible: A Case Report. Cureus. 2022;14(3):e23264. doi:10.7759/cureus.23264",
+      "licence": "CC BY (version not stated by Cureus)",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Cropped to the teeth and lips (moustache and most of the gloved fingers removed); saved as JPEG.",
+      "consent": "As Figure 2. Teeth and lips only.",
+      "reasoning": "As Figure 2. Matches the model's overdenture state.",
+      "nc_limits": false,
+      "checked": "2026-11-07"
     }
   ]
 }

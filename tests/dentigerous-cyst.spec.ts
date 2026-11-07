@@ -17,7 +17,7 @@ test('dentigerous cyst page switches between the normal sac and the cyst, and cu
 
 test('dentigerous cyst page states its CC BY licence, the BodyParts3D credit and the model disclaimer', async ({ page }) => {
   await page.goto('/dentigerous-cyst/index.html');
-  const credit = page.locator('.credit');
+  const credit = page.locator('p.credit');
   await expect(credit).toContainText('BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International');
   await expect(credit.getByRole('link', { name: 'CC BY 4.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/4.0/');
   await expect(page.getByText('Educational model only. It shows typical anatomy or disease, not any real patient').first()).toBeVisible();

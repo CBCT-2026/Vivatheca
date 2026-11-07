@@ -60,8 +60,8 @@
   "ja": "d2002058d807"
  },
  "/models/alveolar-bone-graft": {
-  "en": "943b0ab8b6ca",
-  "ja": "a4f6749400f0"
+  "en": "00c6d4e0fa29",
+  "ja": "7e4500df5229"
  },
  "/models/averaged-jaw": {
   "en": "4ba332f69d53",
@@ -112,16 +112,16 @@
   "ja": "8d94de94817e"
  },
  "/dentigerous-cyst/": {
-  "en": "8fb509fccbbd",
-  "ja": "e32c138c8ac0"
+  "en": "993ba6b9d8fa",
+  "ja": "de781bf9d96c"
  },
  "/development/": {
   "en": "b4c2463b8ccf",
   "ja": "22f2c59e7bbe"
  },
  "/ectopic-canine/": {
-  "en": "668a3270e7ae",
-  "ja": "62c0f46cec9d"
+  "en": "64b9ea7c305e",
+  "ja": "b52fd6c91e71"
  },
  "/endodontic/": {
   "en": "d42aca1c8bde",
@@ -136,20 +136,20 @@
   "ja": "e20810ed666f"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "2e8f44a6b10e",
-  "ja": "435e74637be9"
+  "en": "4aee1cebcd12",
+  "ja": "2356600561e1"
  },
  "/head-neck/mec/": {
-  "en": "4838a76d17c1",
-  "ja": "a70ba3af9a3d"
+  "en": "b8323a2530c0",
+  "ja": "55b6b31c54a3"
  },
  "/head-neck/okc/": {
-  "en": "5c8d948fbb9d",
-  "ja": "e8f8c47c7c9b"
+  "en": "010c2329a151",
+  "ja": "cc7b29182595"
  },
  "/head-neck/scc/": {
-  "en": "851652672800",
-  "ja": "d276eed81525"
+  "en": "414b2ca0e51c",
+  "ja": "c3a9cbe1dd2c"
  },
  "/oroantral/": {
   "en": "632056d33a23",
@@ -164,8 +164,8 @@
   "ja": "b8e44d1d454e"
  },
  "/prosthodontic/": {
-  "en": "0c2ec7b5cc49",
-  "ja": "cb24e44f44e5"
+  "en": "865ad2792262",
+  "ja": "270a092fc76f"
  },
  "/stainless-steel-crown/": {
   "en": "3036adff399b",
