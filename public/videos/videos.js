@@ -132,6 +132,105 @@ window.VT_VIDEOS = {
    ]
   }
  },
+ "averaged-jaw": {
+  "sources": [
+   "Wasserthal J, Breit HC, Meyer MT, et al. TotalSegmentator: robust segmentation of 104 anatomic structures in CT images. Radiol Artif Intell. 2023;5(5):e230024. https://doi.org/10.1148/ryai.230024",
+   "Fedorov A, Longabaugh WJR, Pot D, et al. National Cancer Institute Imaging Data Commons: toward transparency, reproducibility, and scalability in imaging artificial intelligence. Radiographics. 2023;43(12):e230180. https://doi.org/10.1148/rg.230180",
+   "Besl PJ, McKay ND. A method for registration of 3-D shapes. IEEE Trans Pattern Anal Mach Intell. 1992;14(2):239-256. https://doi.org/10.1109/34.121791",
+   "Raith S, Wolff S, Steiner T, et al. Planning of mandibular reconstructions based on statistical shape models. Int J Comput Assist Radiol Surg. 2017;12(1):99-112. https://doi.org/10.1007/s11548-016-1451-y",
+   "Vivatheca. tools/segment/segment.py and average.py; public/models/averaged-jaw/provenance.json lists every scan. https://github.com/CBCT-2026/Vivatheca/tree/main/tools/segment"
+  ],
+  "en": {
+   "title": "A jaw that belongs to nobody",
+   "seconds": 25,
+   "lines": [
+    {
+     "text": "This lower jaw is not from any one person.",
+     "cite": [
+      5
+     ]
+    },
+    {
+     "text": "It comes from six CT scans that people shared openly, with names removed.",
+     "cite": [
+      2,
+      5
+     ]
+    },
+    {
+     "text": "A computer found the jaw and teeth in each scan.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "The jaws were lined up, and we kept the shape that at least half of them share.",
+     "cite": [
+      3,
+      5
+     ]
+    },
+    {
+     "text": "So it is smoother than a real jaw, and some teeth are thin.",
+     "cite": [
+      4,
+      5
+     ]
+    },
+    {
+     "text": "Use it as a typical jaw to compare with the other models.",
+     "cite": [
+      5
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "だれのものでもないあご",
+   "seconds": 28,
+   "lines": [
+    {
+     "text": "この{下|した}あごは、{特定|とくてい}のだれかのものではありません。",
+     "cite": [
+      5
+     ]
+    },
+    {
+     "text": "{名前|なまえ}を{消|け}して{公開|こうかい}された6つのCTから{作|つく}りました。",
+     "cite": [
+      2,
+      5
+     ]
+    },
+    {
+     "text": "コンピューターが{各|かく}CTのあごと{歯|は}を{見|み}つけました。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "あごを{重|かさ}ね{合|あ}わせ、{半分|はんぶん}{以上|いじょう}に{共通|きょうつう}する{形|かたち}を{残|のこ}しました。",
+     "cite": [
+      3,
+      5
+     ]
+    },
+    {
+     "text": "そのため{本物|ほんもの}よりなめらかで、{細|ほそ}い{歯|は}もあります。",
+     "cite": [
+      4,
+      5
+     ]
+    },
+    {
+     "text": "ほかのモデルと{比|くら}べる、{一般的|いっぱんてき}なあごとして{使|つか}ってください。",
+     "cite": [
+      5
+     ]
+    }
+   ]
+  }
+ },
  "cracked-tooth": {
   "sources": [
    "American Association of Endodontists. Cracked teeth (patient information). https://www.aae.org/patients/dental-symptoms/cracked-teeth/",
@@ -1809,6 +1908,223 @@ window.VT_VIDEOS = {
      "text": "2{年|ねん}{後|ご}、かぶせ{物|もの}は100{本|ぽん}{中|ちゅう}{約|やく}93{本|ほん}、{大|おお}きな{詰|つ}め{物|もの}は80{本|ほん}がうまくいっていました。",
      "cite": [
       4
+     ]
+    }
+   ]
+  }
+ },
+ "tmd": {
+  "sources": [
+   "Busse JW, Casassus R, Carrasco-Labra A, et al. Management of chronic pain associated with temporomandibular disorders: a clinical practice guideline. BMJ. 2023;383:e076227. https://doi.org/10.1136/bmj-2023-076227",
+   "Ooi K, Nishiyama A, Yuasa H, et al. Clinical practice guidelines in primary treatment for temporomandibular disorders: The Japanese Society for the Temporomandibular Joint, 2023 edition. J Prosthodont Res. 2025;69(4):608-617. https://doi.org/10.2186/jpr.JPR_D_24_00168",
+   "Schiffman E, Ohrbach R, Truelove E, et al. Diagnostic Criteria for Temporomandibular Disorders (DC/TMD) for Clinical and Research Applications. J Oral Facial Pain Headache. 2014;28(1):6-27. https://doi.org/10.11607/jop.1151",
+   "Idáñez-Robles AM, Obrero-Gaitán E, Lomas-Vega R, et al. Exercise therapy improves pain and mouth opening in temporomandibular disorders: a systematic review with meta-analysis. Clin Rehabil. 2023;37(4):443-461. https://doi.org/10.1177/02692155221133523",
+   "Shimada A, Ogawa T, Sammour SR, et al. Effectiveness of exercise therapy on pain relief and jaw mobility in patients with pain-related temporomandibular disorders: a systematic review. Front Oral Health. 2023;4:1170966. https://doi.org/10.3389/froh.2023.1170966",
+   "Standring S, ed. Gray's Anatomy: The Anatomical Basis of Clinical Practice. 42nd ed. Elsevier; 2020. (Muscles of mastication; temporomandibular joint.)"
+  ],
+  "en": {
+   "title": "Jaw pain: moves that can help",
+   "seconds": 30,
+   "lines": [
+    {
+     "text": "TMD is pain in the jaw joints or the muscles you chew with.",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "You can feel two of these muscles, in the cheek and the temple.",
+     "cite": [
+      6
+     ]
+    },
+    {
+     "text": "Two more lie deep inside, near the jaw joint and its small disc.",
+     "cite": [
+      6
+     ]
+    },
+    {
+     "text": "Rest your jaw: lips together, teeth apart, tongue on the roof of your mouth.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "Gentle opening stretches can ease pain and help you open wider.",
+     "cite": [
+      1,
+      2,
+      4
+     ]
+    },
+    {
+     "text": "Side to side moves may help, but we are less sure.",
+     "cite": [
+      5
+     ]
+    },
+    {
+     "text": "A dentist, physio and psychologist can work together to help you.",
+     "cite": [
+      1
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "あごの{痛|いた}みに{役立|やくだ}つ{運動|うんどう}",
+   "seconds": 37,
+   "lines": [
+    {
+     "text": "{顎関節症|がくかんせつしょう}は、あごの{関節|かんせつ}やかむ{筋肉|きんにく}の{痛|いた}みです。",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "ほおとこめかみの{筋肉|きんにく}は{触|さわ}ってわかります。",
+     "cite": [
+      6
+     ]
+    },
+    {
+     "text": "{奥|おく}には、あごの{関節|かんせつ}と{小|ちい}さな{円板|えんばん}の{近|ちか}くに、2つの{筋肉|きんにく}があります。",
+     "cite": [
+      6
+     ]
+    },
+    {
+     "text": "{唇|くちびる}を{閉|と}じ、{歯|は}を{離|はな}し、{舌|した}を{上|うわ}あごにつけて、あごを{休|やす}めます。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "ゆっくり{口|くち}を{開|あ}けるストレッチで、{痛|いた}みが{和|やわ}らぎ、{大|おお}きく{開|あ}くようになります。",
+     "cite": [
+      1,
+      2,
+      4
+     ]
+    },
+    {
+     "text": "{左右|さゆう}に{動|うご}かす{運動|うんどう}も{役立|やくだ}つかもしれませんが、{根拠|こんきょ}は{弱|よわ}いです。",
+     "cite": [
+      5
+     ]
+    },
+    {
+     "text": "{歯科医師|しかいし}、{理学療法士|りがくりょうほうし}、{心理|しんり}の{専門家|せんもんか}が{協力|きょうりょく}して{助|たす}けます。",
+     "cite": [
+      1
+     ]
+    }
+   ]
+  }
+ },
+ "vpi": {
+  "sources": [
+   "Perry JL. Anatomy and physiology of the velopharyngeal mechanism. Semin Speech Lang. 2011;32(2):83-92. https://doi.org/10.1055/s-0031-1277712",
+   "Sitzman TJ, Williams JL, Singh DJ, et al. Magnetic resonance imaging of the velopharynx: clinical findings in patients with velopharyngeal insufficiency. Plast Reconstr Surg. 2024;153(6):1155e-1168e. https://doi.org/10.1097/PRS.0000000000010798",
+   "Kummer AW. Speech therapy for errors secondary to cleft palate and velopharyngeal dysfunction. Semin Speech Lang. 2011;32(2):191-198. https://doi.org/10.1055/s-0031-1277721",
+   "de Blacam C, Smith S, Orr D. Surgery for velopharyngeal dysfunction: a systematic review of interventions and outcomes. Cleft Palate Craniofac J. 2018;55(3):405-422. https://doi.org/10.1177/1055665617735102",
+   "Henningsson G, Kuehn DP, Sell D, et al. Universal parameters for reporting speech outcomes in individuals with cleft palate. Cleft Palate Craniofac J. 2008;45(1):1-17. https://doi.org/10.1597/06-086.1"
+  ],
+  "en": {
+   "title": "Why VPI needs surgery and speech therapy",
+   "seconds": 29,
+   "lines": [
+    {
+     "text": "When you speak, a muscle lifts the soft palate against the back of the throat.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "This closes off the nose.",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "After a cleft palate repair, the soft palate can be too short to reach.",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "Air leaks into the nose, and speech sounds nasal.",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "Practice cannot close this gap. It needs surgery.",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "Here, a strip of tissue from the throat is joined to the soft palate.",
+     "cite": [
+      4
+     ]
+    },
+    {
+     "text": "A speech pathologist checks speech before and after surgery, and treats sounds learned the wrong way.",
+     "cite": [
+      3,
+      5
+     ]
+    }
+   ]
+  },
+  "ja": {
+   "title": "{鼻咽|びいん}くう{閉鎖|へいさ}{不全|ふぜん}に{手術|しゅじゅつ}と{言語|げんご}{訓練|くんれん}が{必要|ひつよう}な{理由|りゆう}",
+   "seconds": 35,
+   "lines": [
+    {
+     "text": "{話|はな}すとき、{筋肉|きんにく}がやわらかい{上|うわ}あごを{持|も}ち{上|あ}げ、のどの{奥|おく}につけます。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "これで{鼻|はな}への{道|みち}が{閉|と}じます。",
+     "cite": [
+      1
+     ]
+    },
+    {
+     "text": "{口蓋裂|こうがいれつ}の{手術|しゅじゅつ}の{後|あと}、{上|うわ}あごが{短|みじか}くて{届|とど}かないことがあります。",
+     "cite": [
+      2
+     ]
+    },
+    {
+     "text": "{空気|くうき}が{鼻|はな}へもれ、{声|こえ}が{鼻|はな}にかかります。",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "{練習|れんしゅう}ではこのすき{間|ま}は{閉|と}じません。{手術|しゅじゅつ}が{必要|ひつよう}です。",
+     "cite": [
+      3
+     ]
+    },
+    {
+     "text": "ここでは、のどの{組織|そしき}を{上|うわ}あごにつなげています。",
+     "cite": [
+      4
+     ]
+    },
+    {
+     "text": "{言語|げんご}{聴覚|ちょうかく}{士|し}は{手術|しゅじゅつ}の{前後|ぜんご}に{話|はな}し{方|かた}を{調|しら}べ、{間違|まちが}って{覚|おぼ}えた{音|おと}を{訓練|くんれん}します。",
+     "cite": [
+      3,
+      5
      ]
     }
    ]

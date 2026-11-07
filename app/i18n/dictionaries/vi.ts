@@ -1586,6 +1586,12 @@ const vi = withFallback(en, {
         "summary": "Hàm trên của một trẻ có khe hở cung hàm bên trái, qua ba giai đoạn: trước khi ghép xương, sau ghép có mắc cài, và nhiều năm sau khi răng nanh đã được đưa vào chỗ trống. Trong ảnh: trước (trái) và nhiều năm sau (phải).",
         "pairing": "Các giai đoạn điều trị"
       },
+      "vpi": {
+        "title": "Thiểu năng vòm hầu sau phẫu thuật khe hở vòm miệng, so với đóng vòm hầu bình thường",
+        "specialty": "Điều trị khe hở môi vòm miệng và âm ngữ trị liệu",
+        "summary": "Họng được cắt dọc ở giữa. Khi nói bình thường, vòm miệng mềm đóng đường lên mũi; khi có VPI, một khe hở để không khí thoát lên mũi. Mô hình cho thấy ba phẫu thuật đóng khe hở và vì sao cần trị liệu ngôn ngữ trước và sau phẫu thuật. Trong ảnh: đóng bình thường (trái) và VPI (phải).",
+        "pairing": "Bệnh lý + bản bình thường khỏe mạnh + các cách điều trị"
+      },
       "prosthodontic": {
         "title": "Hàm dưới mất răng teo xương (Cawood và Howell loại V) so với hàm dưới còn răng, kèm hàm giả toàn phần hoặc hàm giả phủ trên hai implant",
         "specialty": "Phục hình",

@@ -32,6 +32,8 @@ window.VT_COLOURS = {
     "cyst": "#ECD27A",
     "dentineCut": "#E2CFA8",
     "boneCut": "#C9B48E",
+    "airflow": "#3E8FD1",
+    "airLeak": "#E4772B",
     "filling": "#7FA7C4",
     "steel": "#B8BEC6",
     "cement": "#7FB8A6",
