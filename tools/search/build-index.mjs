@@ -43,7 +43,13 @@ async function staticPages() {
     if (await isPage(name)) pages.push(`/${name}/`);
     let subs = [];
     try { if ((await stat(join(pub, name))).isDirectory()) subs = (await readdir(join(pub, name))).sort(); } catch { /* file */ }
-    for (const sub of subs) if (await isPage(`${name}/${sub}`)) pages.push(`/${name}/${sub}/`);
+    for (const sub of subs) {
+      if (await isPage(`${name}/${sub}`)) pages.push(`/${name}/${sub}/`);
+      // Two levels down too, e.g. /models/impacted-wisdom-tooth/options/.
+      let subs2 = [];
+      try { if ((await stat(join(pub, name, sub))).isDirectory()) subs2 = (await readdir(join(pub, name, sub))).sort(); } catch { /* file */ }
+      for (const sub2 of subs2) if (!['vendor'].includes(sub) && await isPage(`${name}/${sub}/${sub2}`)) pages.push(`/${name}/${sub}/${sub2}/`);
+    }
   }
   return pages;
 }

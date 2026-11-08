@@ -235,7 +235,8 @@
       "id": "wisdom-cbct-nerve",
       "file": "public/images/clinical/wisdom-tooth/cbct-nerve-between-roots.jpg",
       "pages": [
-        "/models/impacted-wisdom-tooth"
+        "/models/impacted-wisdom-tooth",
+        "/models/impacted-wisdom-tooth/options/"
       ],
       "type": "CBCT (cross-sections)",
       "description": "Preoperative CBCT: the inferior alveolar nerve runs between the roots of a deeply impacted lower third molar.",
@@ -887,6 +888,63 @@
       "reasoning": "CC BY 4.0. The ABG model stage 1 is a left-sided alveolar cleft in mixed dentition before grafting; the article states the occlusal radiograph shows the cleft on the left side in a nine-year-old with mixed dentition, matching the side and stage. The child also has a constricted arch and an oronasal fistula, which the model does not show; the caption mentions the narrow arch.",
       "nc_limits": false,
       "checked": "2026-11-08"
+    },
+    {
+      "id": "wisdom-coronectomy-opg-2-5y",
+      "file": "public/images/clinical/wisdom-tooth-options/coronectomy-opg-2-and-5-years.jpg",
+      "pages": [
+        "/models/impacted-wisdom-tooth/options/"
+      ],
+      "type": "Panoramic radiographs (2 and 5 years)",
+      "description": "Panoramic radiographs 2 years (a) and 5 years (b) after coronectomy of a lower left third molar: retained roots in bone, no pathology.",
+      "source_url": "https://doi.org/10.1155/crid/7010729",
+      "author": "Pellegrino G, Tayeb S, Vignudelli E, Angelino C, Barausse C, Felice P",
+      "article": "Pellegrino G, Tayeb S, Vignudelli E, et al. Dynamic Navigation-Assisted Coronectomy of a Deeply Impacted Mandibular Third Molar: A 5-Year Case Follow-Up. Case Rep Dent. 2025;2025:7010729. Figure 4.",
+      "consent": "Article states the patient gave informed consent (same case as wisdom-cbct-nerve).",
+      "reasoning": "CC BY 4.0; consent stated; radiographs only. Match: same patient, side (lower left) and treatment (coronectomy, IAN between the roots) as the model's coronectomy option; the real tooth was vertical and deeper than the mesioangular model tooth (said in the caption).",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "nc_limits": false,
+      "checked": "2026-11-08",
+      "changes": "Unchanged (original JPEG from the PMC open-access figure files)."
+    },
+    {
+      "id": "wisdom-removal-steps",
+      "file": "public/images/clinical/wisdom-tooth-options/removal-surgical-steps.jpg",
+      "pages": [
+        "/models/impacted-wisdom-tooth/options/"
+      ],
+      "type": "Intraoral photographs (surgical steps)",
+      "description": "Surgical removal of a lower left third molar: flap, vestibulo-distal ostectomy, odontotomy (sectioning), suturing.",
+      "source_url": "https://doi.org/10.1155/crid/8934034",
+      "author": "Pellegrini M, Creminelli G, Guerrieri P, Scribante A, Fraticelli D, Creminelli L",
+      "article": "Pellegrini M, Creminelli G, Guerrieri P, Scribante A, Fraticelli D, Creminelli L. Clinical and Radiographic Features of Mandibular Third Molar Gemination: A Case Report and Literature Review. Case Rep Dent. 2025;2025:8934034. Figure 7.",
+      "consent": "Article states written informed consent, including for publication of the images.",
+      "reasoning": "CC BY 4.0; consent stated; intraoral only, no face. Match: lower left third molar removed with bone removal and sectioning, as the model's removal option; the tooth was geminated and not mesioangular (said in the caption).",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "nc_limits": false,
+      "checked": "2026-11-08",
+      "changes": "Unchanged (original JPEG from the PMC open-access figure files)."
+    },
+    {
+      "id": "wisdom-removal-opg-3m",
+      "file": "public/images/clinical/wisdom-tooth-options/removal-opg-3-months.jpg",
+      "pages": [
+        "/models/impacted-wisdom-tooth/options/"
+      ],
+      "type": "Panoramic radiograph (3 months)",
+      "description": "Panoramic radiograph 3 months after surgical removal of a lower left third molar: healed socket.",
+      "source_url": "https://doi.org/10.1155/crid/8934034",
+      "author": "Pellegrini M, Creminelli G, Guerrieri P, Scribante A, Fraticelli D, Creminelli L",
+      "article": "Pellegrini M, Creminelli G, Guerrieri P, Scribante A, Fraticelli D, Creminelli L. Clinical and Radiographic Features of Mandibular Third Molar Gemination: A Case Report and Literature Review. Case Rep Dent. 2025;2025:8934034. Figure 11.",
+      "consent": "Article states written informed consent, including for publication of the images.",
+      "reasoning": "CC BY 4.0; consent stated; radiograph only. Match: same patient and side as wisdom-removal-steps; shows the after state of the removal option.",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "nc_limits": false,
+      "checked": "2026-11-08",
+      "changes": "Unchanged (original JPEG from the PMC open-access figure files)."
     }
   ]
 }

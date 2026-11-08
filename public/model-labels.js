@@ -28,6 +28,7 @@
     mesh: ['National Library of Medicine. Medical Subject Headings (MeSH).', 'https://meshb.nlm.nih.gov/'],
     aae: ['American Association of Endodontists. Glossary of Endodontic Terms. 10th ed. 2020.', 'https://www.aae.org/specialty/clinical-resources/glossary-endodontic-terms/'],
     gpt: ['The Glossary of Prosthodontic Terms 2023: Tenth Edition. J Prosthet Dent. 2023;130(4 Suppl 1):e7-e126.', 'https://doi.org/10.1016/j.prosdent.2023.03.002'],
+    rcsM3: ['Faculty of Dental Surgery, Royal College of Surgeons of England. Parameters of care for patients undergoing mandibular third molar surgery. 2020.', 'https://www.rcseng.ac.uk/-/media/Files/RCS/FDS/3rd-molar-guidelines--April-2021-v3.pdf'],
     pap: ['Papapanou PN, Sanz M, Buduneli N, et al. Periodontitis: consensus report of workgroup 2 of the 2017 World Workshop on the Classification of Periodontal and Peri-Implant Diseases and Conditions. J Periodontol. 2018;89 Suppl 1:S173-S182.', 'https://doi.org/10.1002/JPER.17-0721'],
     whoOdonto: ['Vered M, Wright JM. Update from the 5th edition of the World Health Organization classification of head and neck tumors: odontogenic and maxillofacial bone tumours. Head Neck Pathol. 2022;16(1):63-75.', 'https://doi.org/10.1007/s12105-021-01404-7'],
     whoDc: ['Soluk-Tekkesin M, Wright JM. The World Health Organization classification of odontogenic lesions: a summary of the changes of the 2022 (5th) edition. Turk Patoloji Derg. 2022;38(2):168-184.', 'https://doi.org/10.5146/tjpath.2022.01573'],
@@ -68,6 +69,10 @@
     babyCanine: T(['Maxillary deciduous canine', '{上顎|じょうがく}{乳犬歯|にゅうけんし}', 'Răng nanh sữa hàm trên'], ['Baby eye tooth', '{乳歯|にゅうし}の{犬歯|けんし}', 'Răng nanh sữa'], ['ta2', 'taj', 'cob']),
     ian: T(['Inferior alveolar nerve (in the mandibular canal)', '{下歯槽神経|かしそうしんけい}（{下顎管|かがくかん}の{中|なか}）', 'Dây thần kinh huyệt răng dưới (trong ống hàm dưới)'], ['Nerve for feeling in the lower teeth, lip and chin', '{下|した}の{歯|は}・くちびる・あごの{感覚|かんかく}の{神経|しんけい}', 'Dây thần kinh cảm giác của răng dưới, môi và cằm'], ['ta2', 'taj', 'juodNerve']),
     m3Impacted: T(['Mandibular third molar (impacted, mesioangular)', '{下顎|かがく}{第三大臼歯|だいさんだいきゅうし}（{埋伏|まいふく}・{近心傾斜|きんしんけいしゃ}）', 'Răng cối lớn thứ ba hàm dưới (mọc ngầm, nghiêng gần)'], ['Wisdom tooth stuck against the tooth in front', '{前|まえ}の{歯|は}にひっかかった{親知|おやし}らず', 'Răng khôn bị kẹt vào răng phía trước'], ['ta2', 'taj', 'juod']),
+    m3Crown: T(['Crown of the mandibular third molar (sectioned)', '{下顎|かがく}{第三大臼歯|だいさんだいきゅうし}の{歯冠|しかん}（{分割|ぶんかつ}）', 'Thân răng cối lớn thứ ba hàm dưới (đã cắt)'], ['Top of the wisdom tooth, cut off', '{切|き}り{離|はな}した{親知|おやし}らずの{頭|あたま}', 'Phần trên của răng khôn, đã cắt rời'], ANAT),
+    m3Root: T(['Root of the mandibular third molar (sectioned)', '{下顎|かがく}{第三大臼歯|だいさんだいきゅうし}の{歯根|しこん}（{分割|ぶんかつ}）', 'Chân răng cối lớn thứ ba hàm dưới (đã cắt)'], ['Wisdom tooth root, cut apart to take out', '{取|と}り{出|だ}すために{分|わ}けた{親知|おやし}らずの{根|ね}', 'Chân răng khôn, cắt rời để lấy ra'], ANAT),
+    m3RootsKept: T(['Retained roots after coronectomy', 'コロネクトミー{後|ご}に{残|のこ}した{歯根|しこん}', 'Chân răng giữ lại sau khi cắt thân răng'], ['Wisdom tooth roots left in the bone', '{骨|ほね}に{残|のこ}した{親知|おやし}らずの{根|ね}', 'Chân răng khôn để lại trong xương'], ['ta2', 'taj', 'rcsM3']),
+    ostectomy: T(['Ostectomy (bone removal)', '{骨|こつ}{削除|さくじょ}', 'Cắt bỏ xương'], ['Bone drilled away to reach the tooth', '{歯|は}を{取|と}り{出|だ}すために{削|けず}る{骨|ほね}', 'Xương được khoan bỏ để lấy răng'], ['mesh', 'dentj']),
     m3Erupted: T(['Mandibular third molar (erupted)', '{下顎|かがく}{第三大臼歯|だいさんだいきゅうし}（{萌出|ほうしゅつ}）', 'Răng cối lớn thứ ba hàm dưới (đã mọc)'], ['Wisdom tooth that has come through normally', 'ふつうに{生|は}えた{親知|おやし}らず', 'Răng khôn đã mọc bình thường'], ['ta2', 'taj', 'juod']),
     boneLoss: T(['Alveolar bone loss', '{歯槽骨|しそうこつ}の{吸収|きゅうしゅう}', 'Tiêu xương ổ răng'], ['Bone lost around the teeth', '{歯|は}のまわりで{失|うしな}われた{骨|ほね}', 'Phần xương bị mất quanh răng'], ['pap']),
     pulp: T(['Dental pulp', '{歯髄|しずい}', 'Tủy răng'], ['Living nerve and blood vessels inside the tooth', '{歯|は}の{中|なか}の{神経|しんけい}と{血管|けっかん}', 'Dây thần kinh và mạch máu sống trong răng'], ['ta2', 'taj', 'aae']),
@@ -148,6 +153,7 @@
 
   // ---- Which parts get a label, by GLB path (node or material name -> term). Order = priority when labels overlap.
   const SETS = [
+    [/^\/models\/impacted-wisdom-tooth\/options\//, { 'wisdom tooth crown': 'm3Crown', 'wisdom tooth roots': 'm3RootsKept', 'wisdom tooth mesial root': 'm3Root', 'removed bone': 'ostectomy', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
     [/^\/models\/impacted-molar\.glb$/, { 'wisdom tooth': 'm3Impacted', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
     [/^\/models\/wisdom-tooth-normal\.glb$/, { 'wisdom tooth (erupted)': 'm3Erupted', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
     [/^\/models\/averaged-jaw\//, { mandible: 'mandible', teeth_lower: 'teethLower' }],

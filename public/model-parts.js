@@ -70,6 +70,8 @@
     [/^medial_pterygoid$/, 'Medial pterygoid (inner chewing muscle)', '{内側翼突筋|ないそくよくとつきん}（{内側|うちがわ}のかむ{筋肉|きんにく}）', 'Cơ chân bướm trong (cơ nhai phía trong)'],
     [/^disc$/, 'Jaw joint disc', '{関節円板|かんせつえんばん}', 'Đĩa khớp hàm'],
     [/^skull$/, 'Skull', '{頭|ず}{蓋|がい}{骨|こつ}', 'Hộp sọ'],
+    [/^wisdom tooth$/, 'Wisdom tooth', '{親知|おやし}らず', 'Răng khôn'],
+    [/^removed-bone$/, 'Bone the surgeon removes', '{削|けず}る{骨|ほね}', 'Phần xương bác sĩ bỏ đi'],
     [/^bone$/, 'Bone', '{骨|ほね}', 'Xương'],
   ];
   const base = (n) => (n || '').replace(/[._]\d+$/, '');

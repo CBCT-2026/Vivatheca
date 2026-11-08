@@ -42,7 +42,8 @@ function serve() {
   return new Promise((ok) => server.listen(0, '127.0.0.1', () => ok(server)));
 }
 
-// Static pages: public/<name>/index.html, plus one level of sub-pages (public/<name>/<sub>/index.html).
+// Static pages: public/<name>/index.html, plus two levels of sub-pages (public/<name>/<sub>/index.html and
+// public/<name>/<sub>/<sub2>/index.html, e.g. /models/impacted-wisdom-tooth/options/).
 async function staticPages() {
   const pages = [];
   const isPage = async (dir) => {
@@ -58,7 +59,14 @@ async function staticPages() {
     try {
       if ((await stat(join(pub, name))).isDirectory()) subs = (await readdir(join(pub, name))).sort();
     } catch { /* not a folder */ }
-    for (const sub of subs) if (await isPage(`${name}/${sub}`)) pages.push(`${name}/${sub}`);
+    for (const sub of subs) {
+      if (await isPage(`${name}/${sub}`)) pages.push(`${name}/${sub}`);
+      let subs2 = [];
+      try {
+        if ((await stat(join(pub, name, sub))).isDirectory()) subs2 = (await readdir(join(pub, name, sub))).sort();
+      } catch { /* not a folder */ }
+      for (const sub2 of subs2) if (await isPage(`${name}/${sub}/${sub2}`)) pages.push(`${name}/${sub}/${sub2}`);
+    }
   }
   return pages;
 }
@@ -66,6 +74,9 @@ async function staticPages() {
 // Runs in the page: visible main text, then every stage caption.
 function capture() {
   const main = document.querySelector('main') || document.body;
+  // Step captions of side-by-side option viewers (.option .step, e.g. /models/impacted-wisdom-tooth/options/) are
+  // all patient text, though only the current step shows.
+  main.querySelectorAll('.option .step[hidden]').forEach((el) => { el.hidden = false; });
   for (const el of main.querySelectorAll('*')) {
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.visibility === 'hidden') el.setAttribute('data-pitk-hidden', '');
@@ -169,7 +180,7 @@ try {
       const t0 = Date.now();
       const html = await snapshotStatic(browser, base, page, lang);
       console.log(`${page} ${lang}: ${((Date.now() - t0) / 1000).toFixed(1)} s`);
-      if (html) files[`${page.replace('/', '-')}.${lang}.html`] = html;
+      if (html) files[`${page.replaceAll('/', '-')}.${lang}.html`] = html;
       else console.log(`${page}: no ${lang} version`);
     }
   }

@@ -55,6 +55,11 @@ export default async function WisdomToothPage() {
         <div data-vt-share="" data-vt-scope=".compare" />
         <AfterHydration src="/share-tools.js" />
         <div className="model-disclaimer">{reviewNote}</div>
+        <section aria-labelledby="options-title" className="detail-block">
+          <h2 id="options-title"><Ruby text={w.optionsHeading} /></h2>
+          <p><Ruby text={w.optionsText} /></p>
+          <a className="button button-compact" href="/models/impacted-wisdom-tooth/options/"><Ruby text={w.optionsLink} /></a>
+        </section>
         <VideoSection slug="impacted-wisdom-tooth" />
         <WisdomClinicalImages t={t} />
 
