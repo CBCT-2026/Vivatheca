@@ -29,9 +29,18 @@ const files = [];
   }
 })('public');
 
+// Crossref records with known metadata errors, checked against PubMed. The site keeps the
+// citation as published; this only stops the author/year warning. Add the evidence for each entry.
+const METADATA_ERRORS = {
+  // Crossref lists an extra first author "Spiotto"; PubMed 24422029 and the article list Juodzbalys G, Daugela P.
+  '10.5037/jomr.2013.4201': { family: 'Juodzbalys' },
+};
+// HTML pages escape the < > in old SICI DOIs; turn them into the URL form the DOI pattern reads.
+const unescape = (s) => s.replace(/&lt;/g, '%3C').replace(/&gt;/g, '%3E').replace(/&amp;/g, '&');
+
 const cites = new Map(); // doi -> [{ file, line, text }]
 for (const file of files) {
-  const lines = readFileSync(join(root, file), 'utf8').split('\n');
+  const lines = unescape(readFileSync(join(root, file), 'utf8')).split('\n');
   lines.forEach((text, i) => {
     for (const m of text.matchAll(/10\.\d{4,9}\/(?:[^\s"'<>()\]`]|\([^\s"'<>()]*\))+/g)) {
       const doi = decodeURIComponent(m[0]).replace(/[.,;]+$/, '').toLowerCase();
@@ -73,13 +82,15 @@ for (let i = 0; i < dois.length; i += 5) {
       bad.push(`${doi}: not found in Crossref or doi.org (mistyped?) — ${at}`);
       return;
     }
+    const near = fold(where.map((w) => w.text).join(' '));
     for (const u of m['updated-by'] || []) {
+      // A correction cited beside the original (on any page citing it) is acknowledged: no warning.
+      if (!SERIOUS.test(u.type || '') && u.DOI && near.includes(fold(u.DOI))) continue;
       const line = `${doi}: ${u.type || 'update'} ${u.DOI ? `(${u.DOI})` : ''} — ${at}`;
       if (SERIOUS.test(u.type || '')) bad.push(line); else warn.push(line);
     }
     const years = [...new Set(['issued', 'published', 'published-print', 'published-online'].map((k) => m[k]?.['date-parts']?.[0]?.[0]).filter(Boolean).map(String))];
-    const family = m.author?.find((a) => a.sequence === 'first')?.family || m.author?.[0]?.family;
-    const near = fold(where.map((w) => w.text).join(' '));
+    const family = METADATA_ERRORS[doi]?.family || m.author?.find((a) => a.sequence === 'first')?.family || m.author?.[0]?.family;
     const missing = [];
     if (family && !near.includes(fold(family))) missing.push(`first author ${family}`);
     if (years.length && !years.some((y) => near.includes(y))) missing.push(`year ${years.join('/')}`);

@@ -97,7 +97,6 @@ export function SlicesUI({ volumes, views, windows, labels }: Props) {
     if (!nv) return;
     const chosen = volumes.find((v) => v.id === volume) || volumes[0];
     const [centre, width] = WINDOWS[windowName];
-    setStatus('loading');
     nv.loadVolumes([{ url: chosen.file, name: `${chosen.id}.nii.gz`, colormap: 'gray', cal_min: centre - width / 2, cal_max: centre + width / 2 }])
       .then(() => { nv.setInterpolation(false); applyView(nv, view); setStatus('ready'); })
       .catch((e) => { console.error(e); setStatus('failed'); });
@@ -111,7 +110,7 @@ export function SlicesUI({ volumes, views, windows, labels }: Props) {
       <div className="slices-controls">
         <label>
           <span>{labels.volume}</span>
-          <select value={volume} onChange={(e) => setVolume(e.target.value)}>
+          <select value={volume} onChange={(e) => { setStatus('loading'); setVolume(e.target.value); }}>
             {volumes.map((v) => <option key={v.id} value={v.id}>{v.label}</option>)}
           </select>
         </label>

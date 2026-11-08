@@ -10,7 +10,7 @@
 
   const REFS = [
     ['Brown JS, Barry C, Ho M, Shaw R. A new classification for mandibular defects after oncological resection. Lancet Oncol. 2016;17(1):e23-e30.', '10.1016/S1470-2045(15)00310-1'],
-    ['Sauerbier S, Gutwald R, Schmelzeisen R, et al. Resection of oral cancer involving the mandible. In: Advanced Craniomaxillofacial Surgery. Thieme.', '10.1055/b-0040-178440'],
+    ['Ablative and reconstructive surgery of the mandible. In: Ehrenfeld M, Futran ND, Manson PN, Prein J, eds. Advanced Craniomaxillofacial Surgery. Stuttgart: Thieme; 2020. Chapter 2.', '10.1055/b-0040-178440'],
     ['Mücke T, Hölzle F, Wagenpfeil S, Wolff KD, Kesting M. The role of tumor invasion into the mandible of oral squamous cell carcinoma. J Cancer Res Clin Oncol. 2011;137(1):165-171.', '10.1007/s00432-010-0870-3'],
     ['Shi Y, Ren X, Zhi K. Key strategies for determining surgical resection margins in OSCC (letter). Int J Surg. 2025.', '10.1097/JS9.0000000000002704'],
     ['Castagnola R, Rupe C, Gioco G, et al. Clinical outcomes of teeth adjacent to the site of mandibulotomy or mandibulectomy in patients with head and neck cancer. BMC Oral Health. 2023;23:357.', '10.1186/s12903-023-03050-7'],
