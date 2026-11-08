@@ -6,6 +6,7 @@ import { useI18n } from '../i18n/context';
 import { format } from '../i18n/dictionaries';
 import { plain, Ruby } from '../i18n/ruby';
 import { showPart, type ModelViewerElement } from '../model-parts';
+import { AfterHydration } from '../script-mount';
 import { currentReview } from '../models/reviews';
 import { FavouriteStar } from './quick';
 import type { ShowSpec, ShowView } from './models';
@@ -105,6 +106,8 @@ export function ShowViewer({ slug, spec, pageHref, initialView }: { slug: string
 
   return (
     <div className="show-frame" ref={frame}>
+      {/* Labels on the model: public/model-labels.js (same labels as the static model pages). */}
+      <AfterHydration src="/model-labels.js" />
       <header className="show-bar">
         <a className="show-brand" href="/" aria-label={plain(t.common.home)}><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="53" height="40" /></a>
         <h1 className="show-title"><Ruby text={item?.title ?? slug} /></h1>

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useI18n } from '../i18n/context';
 import { plain, Ruby } from '../i18n/ruby';
 import { PartsPanel, type ModelViewerElement as PartsViewer } from '../model-parts';
+import { AfterHydration } from '../script-mount';
 
 type Side = { glb: string; alt: string };
 type Mode = 'both' | 'impacted' | 'normal';
@@ -86,6 +87,8 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
 
   return (
     <div className="compare" ref={frame}>
+      {/* Labels on the model: public/model-labels.js (same labels as the static model pages). */}
+      <AfterHydration src="/model-labels.js" />
       <div className="compare-controls">
         <div className="segmented segmented-3" role="group" aria-label={plain(c.which)}>
           <button type="button" aria-pressed={mode === 'both'} onClick={() => setMode('both')}><Ruby text={c.both} /></button>
