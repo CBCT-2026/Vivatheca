@@ -68,7 +68,7 @@ export function publications(t: Dictionary) {
     {
       title: 'Impact of 3D-Printed Anatomical Models on Doctor-Patient Communication in Orthopedic Consultations',
       authors: 'Sanchez AU, Dos Anjos GQ, de Oliveira DGC, et al.',
-      doi: '10.7759/cureus.70822',
+      doi: '10.7759/cureus.70822', // Cureus. 2024;16(10):e70822 (year shown via t.publications.orthopedic.journal)
       ...p.orthopedic,
       href: 'https://pubmed.ncbi.nlm.nih.gov/39493008/',
     },
@@ -82,7 +82,7 @@ export function publications(t: Dictionary) {
     {
       title: 'Impact of a Virtual Three-Dimensional Thyroid Model on Patient Communication in Thyroid Surgery',
       authors: 'Cao Z, Zhang Q, Yan S, Qian Z, Xu X, Liu Z.',
-      doi: '10.3390/cancers18020241',
+      doi: '10.3390/cancers18020241', // Cancers. 2026;18(2):241 (year shown via t.publications.thyroid.journal)
       ...p.thyroid,
       href: 'https://pubmed.ncbi.nlm.nih.gov/41595161/',
     },

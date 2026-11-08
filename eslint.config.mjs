@@ -21,7 +21,15 @@ const eslintConfig = defineConfig([
     '.impeccable/**',
     'next-env.d.ts',
     'public/**/vendor/**',
+    // Generated: Pagefind search bundle (pnpm search:index) and the Workbox service worker (pnpm offline:sw).
+    'public/pagefind/**',
+    'public/sw.js',
   ]),
+  {
+    // Node CommonJS scripts (tools/**/*.cjs) use require() by design.
+    files: ['**/*.cjs'],
+    rules: { '@typescript-eslint/no-require-imports': 'off' },
+  },
 ]);
 
 export default eslintConfig;

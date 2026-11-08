@@ -37,3 +37,8 @@ This workflow replaces any plan from earlier chats. The PRD and repository guide
 7. Run the Impeccable detector once, fix mechanical findings in one batch, and record any remaining limitations.
 8. Publish only after the validated source and generated assets are complete.
 9. Keep `AGENTS.md`, `DESIGN.md`, `PRODUCT.md`, and `Vivatheca PRD.docx` aligned with accepted design, terminology, provenance, evidence, origin, and sustainability changes.
+
+## Local review notes
+
+- `vinext start` serves the React pages only. The static model pages (`public/*/index.html`, e.g. `/oroantral/`) are served by the Worker's assets binding, so review them with `pnpm build && npx wrangler dev --local`. On the live Worker, `/oroantral` redirects (307) to `/oroantral/`.
+- After adding a page, run `pnpm sitemap` and commit `public/sitemap.xml` (CI checks it). `public/robots.txt` disallows crawling while the site is password-gated; change it at public launch.

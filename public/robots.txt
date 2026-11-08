@@ -1,0 +1,7 @@
+# Vivatheca is password-gated and shown to colleagues only, so crawling is off for now.
+# At public launch: replace "Disallow: /" with "Allow: /", and remove the noindex meta tags
+# from the static model pages (tools/*/page-src.html). The sitemap is kept up to date by `pnpm sitemap`.
+User-agent: *
+Disallow: /
+
+Sitemap: https://vivatheca.com/sitemap.xml

@@ -39,22 +39,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const designContract = `
-THESIS: Put a working clinical teaching model at the centre and refuse the generic medical charity brochure.
-OWN-WORLD: Deep navy consultation-light-table surfaces, cyan illuminated anatomy, warm paper fields, coral only for affected anatomy, Manrope, fine rules and layered teaching-film imagery.
-STORY: Understand the model, trust its limits and review state, then explore, share, print or contribute.
-FIRST VIEWPORT: Plain-language promise and two actions on the left; a human consultation illustration occupies the right and leads directly into the working 3D model.
-FORM: Consultation light table, grounded direction five, seed a6eca7a4.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
-`;
-
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const { locale, furigana } = await getI18n();
   return (
     <html lang={localeTags[locale].html} data-furigana={furigana ? 'on' : 'off'} suppressHydrationWarning>
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <span hidden aria-hidden="true" dangerouslySetInnerHTML={{ __html: `<!-- ${designContract.replaceAll('--', '—')} -->` }} />
         <I18nProvider locale={locale}>{children}</I18nProvider>
         {/* Free full-text notes beside cited DOIs (public/oa-links.js). */}
         <AfterHydration src="/oa-links.js" />
