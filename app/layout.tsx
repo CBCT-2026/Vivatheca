@@ -48,6 +48,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <I18nProvider locale={locale}>{children}</I18nProvider>
         {/* Free full-text notes beside cited DOIs (public/oa-links.js). */}
         <AfterHydration src="/oa-links.js" />
+        {/* Pause 3D auto-rotate while the page scrolls, so scrolling stays smooth (public/scroll-pause.js). */}
+        <AfterHydration src="/scroll-pause.js" />
       </body>
     </html>
   );
