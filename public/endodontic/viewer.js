@@ -13,20 +13,20 @@ const STATES = {
   sound: {
     en: {
       title: 'Sound tooth',
-      alt: '3D model of a sound lower back tooth (first molar) in its bone, with the teeth on each side.',
-      text: 'A healthy back tooth from the lower jaw (first molar), in its bone. The pulp (nerve) is alive. The bone around the root tips is whole. Compare the abscess with this one.',
+      alt: '3D model of a sound lower back tooth (first molar) in its bone and gum, with the teeth on each side.',
+      text: 'A healthy back tooth from the lower jaw (first molar), in its bone. Pink gum covers the bone. The pulp (nerve) is alive. The bone around the root tips is whole. Compare the abscess with this one.',
       cut: 'Cut open, you can see the layers of the tooth: white enamel on the crown, yellow dentine making up most of the tooth, a thin brown layer of cementum on the root surface, and the red pulp in the middle with thin canals running down each root.',
     },
     ja: {
       title: '{健康|けんこう}な{歯|は}',
       alt: '{骨|ほね}に{入|はい}った{健康|けんこう}な{下|した}の{奥歯|おくば}（{第一大臼歯|だいいちだいきゅうし}）と{両隣|りょうどなり}の{歯|は}の3Dモデル。',
-      text: '{骨|ほね}に{入|はい}った{健康|けんこう}な{下|した}の{奥歯|おくば}（{第一大臼歯|だいいちだいきゅうし}）です。{歯髄|しずい}（{神経|しんけい}）は{生|い}きていて、{根|ね}の{先|さき}のまわりの{骨|ほね}もそろっています。のうようと{比|くら}べてください。',
+      text: '{骨|ほね}に{入|はい}った{健康|けんこう}な{下|した}の{奥歯|おくば}（{第一大臼歯|だいいちだいきゅうし}）です。ピンクの{歯|は}ぐきが{骨|ほね}をおおっています。{歯髄|しずい}（{神経|しんけい}）は{生|い}きていて、{根|ね}の{先|さき}のまわりの{骨|ほね}もそろっています。のうようと{比|くら}べてください。',
       cut: '{切|き}って{開|ひら}くと、{歯|は}の{層|そう}が{見|み}えます。{歯冠|しかん}の{白|しろ}いエナメル{質|しつ}、{歯|は}の{大部分|だいぶぶん}をつくる{黄色|きいろ}い{象牙質|ぞうげしつ}、{根|ね}の{表面|ひょうめん}の{薄|うす}い{茶色|ちゃいろ}のセメント{質|しつ}、そして{中心|ちゅうしん}の{赤|あか}い{歯髄|しずい}と、{根|ね}の{中|なか}を{下|した}へ{続|つづ}く{細|ほそ}い{根管|こんかん}です。',
     },
     vi: {
       title: 'Răng lành',
       alt: 'Mô hình 3D của một răng sau hàm dưới lành (răng cối lớn thứ nhất) nằm trong xương, cùng các răng hai bên.',
-      text: 'Một răng sau khỏe mạnh ở hàm dưới (răng cối lớn thứ nhất), nằm trong xương. Tủy răng (dây thần kinh) còn sống. Xương quanh chóp chân răng còn nguyên. Hãy so sánh răng áp xe với răng này.',
+      text: 'Một răng sau khỏe mạnh ở hàm dưới (răng cối lớn thứ nhất), nằm trong xương. Lợi màu hồng phủ lên xương. Tủy răng (dây thần kinh) còn sống. Xương quanh chóp chân răng còn nguyên. Hãy so sánh răng áp xe với răng này.',
       cut: 'Khi cắt mở, bạn thấy các lớp của răng: men răng trắng ở thân răng, ngà răng màu vàng chiếm phần lớn răng, lớp xê măng mỏng màu nâu trên bề mặt chân răng, và tủy màu đỏ ở giữa với các ống tủy nhỏ chạy xuống mỗi chân răng.',
     },
   },
@@ -34,19 +34,19 @@ const STATES = {
     en: {
       title: 'Tooth with an abscess',
       alt: '3D model of the same tooth with a dark hole of decay on top, yellow-green areas of infection around the root tips, and a thin channel through the bone towards the gum on the cheek side.',
-      text: 'Decay (dark brown) has reached the pulp, and the pulp has died (dark grey). Germs have spread out of the root tips. The bone there has worn away (yellow-green). A thin channel (red) lets pus drain to the gum.',
+      text: 'Decay (dark brown) has reached the pulp, and the pulp has died (dark grey). Germs have spread out of the root tips. The bone there has worn away (yellow-green). A thin channel (red) lets pus drain out through a small lump on the gum (a gum boil). Take off the gum to see the channel in the bone.',
       cut: 'Cut open, you can see the decay reaching the pulp, the dead pulp down the canals, and the infection around both root tips.',
     },
     ja: {
       title: 'のうようのある{歯|は}',
       alt: '{上|うえ}に{黒|くろ}いむし{歯|ば}の{穴|あな}、{根|ね}の{先|さき}のまわりに{黄緑色|きみどりいろ}の{感染|かんせん}の{部分|ぶぶん}、{骨|ほね}を{通|とお}って{頬側|きょうそく}の{歯|は}ぐきへ{向|む}かう{細|ほそ}い{通|とお}り{道|みち}がある{同|おな}じ{歯|は}の3Dモデル。',
-      text: 'むし{歯|ば}（{濃|こ}い{茶色|ちゃいろ}）が{歯髄|しずい}に{届|とど}き、{歯髄|しずい}が{死|し}んでいます（{濃|こ}い{灰色|はいいろ}）。{細菌|さいきん}が{根|ね}の{先|さき}から{広|ひろ}がり、そこの{骨|ほね}がなくなっています（{黄緑色|きみどりいろ}）。{細|ほそ}い{通|とお}り{道|みち}（{赤|あか}）からうみが{歯|は}ぐきへ{出|で}ます。',
+      text: 'むし{歯|ば}（{濃|こ}い{茶色|ちゃいろ}）が{歯髄|しずい}に{届|とど}き、{歯髄|しずい}が{死|し}んでいます（{濃|こ}い{灰色|はいいろ}）。{細菌|さいきん}が{根|ね}の{先|さき}から{広|ひろ}がり、そこの{骨|ほね}がなくなっています（{黄緑色|きみどりいろ}）。{細|ほそ}い{通|とお}り{道|みち}（{赤|あか}）を{通|とお}って、うみが{歯|は}ぐきの{小|ちい}さなおできから{出|で}ます。{歯|は}ぐきを{外|はず}すと、{骨|ほね}の{中|なか}の{通|とお}り{道|みち}が{見|み}えます。',
       cut: '{切|き}って{開|ひら}くと、{歯髄|しずい}に{届|とど}いたむし{歯|ば}、{根管|こんかん}の{中|なか}の{死|し}んだ{歯髄|しずい}、{両方|りょうほう}の{根|ね}の{先|さき}のまわりの{感染|かんせん}が{見|み}えます。',
     },
     vi: {
       title: 'Răng có áp xe',
       alt: 'Mô hình 3D của cùng răng đó với một lỗ sâu sẫm màu ở mặt trên, các vùng nhiễm trùng màu xanh vàng quanh chóp chân răng, và một đường nhỏ xuyên qua xương về phía lợi bên má.',
-      text: 'Sâu răng (nâu sẫm) đã lan đến tủy, và tủy đã chết (màu xám sẫm). Vi khuẩn đã lan ra khỏi chóp chân răng. Xương ở đó bị tiêu đi (màu xanh vàng). Một đường nhỏ (màu đỏ) cho mủ thoát ra lợi.',
+      text: 'Sâu răng (nâu sẫm) đã lan đến tủy, và tủy đã chết (màu xám sẫm). Vi khuẩn đã lan ra khỏi chóp chân răng. Xương ở đó bị tiêu đi (màu xanh vàng). Một đường nhỏ (màu đỏ) cho mủ thoát ra qua một mụn nhỏ trên lợi. Ẩn lợi để xem đường rò trong xương.',
       cut: 'Khi cắt mở, bạn thấy sâu răng lan đến tủy, tủy chết trong các ống tủy, và vùng nhiễm trùng quanh cả hai chóp chân răng.',
     },
   },
