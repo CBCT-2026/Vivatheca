@@ -19,6 +19,7 @@ export function ReportForm({ initialModel }: { initialModel?: string }) {
   const [source, setSource] = useState('');
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const modelTitle = plain(dictionaries.en.library.items[model]?.title ?? model);
   const body = [
@@ -46,6 +47,8 @@ export function ReportForm({ initialModel }: { initialModel?: string }) {
       return;
     }
     window.location.href = url;
+    // Many clinic computers have no email app, so the mailto link silently does nothing: say what to do.
+    setSent(true);
   }
 
   async function copy() {
@@ -88,6 +91,7 @@ export function ReportForm({ initialModel }: { initialModel?: string }) {
         <button className="button" type="submit"><Ruby text={r.open} /></button>
         <button className="button button-secondary" type="button" onClick={copy}><Ruby text={copied ? r.copied : r.copy} /></button>
       </div>
+      {sent ? <p className="form-note" role="status"><Ruby text={r.mailHint} /></p> : null}
       <span className="visually-hidden" aria-live="polite">{copied ? plain(r.copiedLive) : ''}</span>
     </form>
   );

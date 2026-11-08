@@ -15,6 +15,7 @@ import { getI18n } from '../../i18n/server';
 import { plain, Ruby } from '../../i18n/ruby';
 import { TermSources } from '../terms';
 import { VideoSection } from '../../video-section';
+import { WisdomClinicalImages } from '../../clinical-images';
 
 const model = catalogue.find((item) => item.slug === 'impacted-wisdom-tooth')!;
 
@@ -55,6 +56,7 @@ export default async function WisdomToothPage() {
         <AfterHydration src="/share-tools.js" />
         <div className="model-disclaimer">{reviewNote}</div>
         <VideoSection slug="impacted-wisdom-tooth" />
+        <WisdomClinicalImages t={t} />
 
         <div className="model-details">
           <section aria-labelledby="downloads-title" className="detail-block detail-downloads">

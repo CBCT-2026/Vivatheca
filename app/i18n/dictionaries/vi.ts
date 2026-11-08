@@ -1289,9 +1289,15 @@ const vi = withFallback(en, {
     ]
   },
   "clinical": {
+    "abgHeading": "Khe hở xương ổ răng trên phim X-quang thật",
+    "abgNote": "Đây là phim X-quang của một trẻ thật. Các tác giả đã chia sẻ theo giấy phép mở, ghi bên dưới hình. Đó không phải là giấy phép của mô hình.",
     "heading": "Răng khôn mọc kẹt (mọc ngầm) trên phim X-quang và phim chụp thật",
     "note": "Những hình này là của người thật. Các tác giả đã chia sẻ chúng theo giấy phép mở. Giấy phép của từng hình ghi bên dưới hình đó, không phải giấy phép của mô hình.",
     "images": {
+      "abgOcclusal": {
+        "alt": "Phim X-quang răng hàm trên chụp từ phía dưới. Một đường cong màu đỏ chạy theo cung răng, và một mũi tên đỏ chỉ vào khe tối trong xương cạnh các răng cửa.",
+        "caption": "Hình 1. Khe hở xương ổ răng trước khi ghép xương, ở một trẻ 9 tuổi có khe hở bên trái, như giai đoạn 1 của mô hình. Mũi tên đỏ chỉ vào khe hở. Đường đỏ do các tác giả vẽ, cho thấy cung hàm trên hẹp. Trẻ có cả răng sữa và răng vĩnh viễn."
+      },
       "opgLow": {
         "alt": "Phim X-quang toàn cảnh. Răng khôn hàm dưới bên trái nằm sâu trong xương hàm, thấp phía sau răng hàm lớn thứ hai.",
         "caption": "Hình 1. Một răng khôn hàm dưới nằm sâu trong xương hàm, sát chân của răng phía trước. Răng nằm ở bên phải hình, tức là bên trái của người bệnh."
@@ -2219,7 +2225,8 @@ const vi = withFallback(en, {
     "open": "Mở trong ứng dụng email",
     "copy": "Sao chép nội dung báo cáo",
     "copied": "Đã sao chép",
-    "copiedLive": "Đã sao chép nội dung báo cáo"
+    "copiedLive": "Đã sao chép nội dung báo cáo",
+    "mailHint": "Ứng dụng email của bạn sẽ mở với tin nhắn sẵn sàng để gửi. Nếu không có gì mở ra, hãy sao chép tin nhắn và gửi email đến vivatheca@gmail.com."
   },
   "submitModel": {
     "board": "Bạn muốn xem những mô hình người khác đã đề xuất và ủng hộ chúng?",
@@ -2309,6 +2316,7 @@ const vi = withFallback(en, {
     "copy": "Sao chép nội dung tin nhắn",
     "copied": "Đã sao chép",
     "copiedLive": "Đã sao chép nội dung tin nhắn",
+    "mailHint": "Ứng dụng email của bạn sẽ mở với tin nhắn sẵn sàng để gửi. Nếu không có gì mở ra, hãy sao chép tin nhắn và gửi email đến vivatheca@gmail.com.",
     "emailNote": "Tin nhắn của bạn sẽ mở trong ứng dụng email, gửi đến vivatheca@gmail.com, để bạn kiểm tra trước khi gửi.",
     "reviewLead": "Mô hình được chấp nhận bắt đầu với nhãn “Chưa được thẩm định lâm sàng”.",
     "sourcesHeading": "Nguồn"
@@ -2325,6 +2333,8 @@ const vi = withFallback(en, {
     "searchLabel": "Tìm mô hình",
     "searchPlaceholder": "Nhập tên bệnh, ví dụ răng khôn",
     "noResults": "Không có mô hình nào khớp với tìm kiếm.",
+    "showAll": "Xem tất cả {n} mô hình",
+    "showFewer": "Thu gọn",
     "listLabel": "Mô hình để cho xem",
     "myModels": "Mô hình của tôi",
     "myModelsEmpty": "Chạm vào ngôi sao trên một mô hình để lưu ở đây.",

@@ -5,7 +5,7 @@ import { Ruby } from '../i18n/ruby';
 import { format } from '../i18n/dictionaries';
 import { catalogue } from '../models/catalogue';
 import { currentReview, reviewsOf } from '../models/reviews';
-import { mailto } from '../contact';
+import { contact, mailto } from '../contact';
 
 // Clinical review (unbuilt-features #6): how sign-off works, the checklist, and the sign-off record
 // for every catalogue model (records in app/models/reviews.ts; procedure in docs/clinical-review.md).
@@ -62,6 +62,8 @@ export default async function ReviewPage() {
         <h2><Ruby text={r.joinHeading} /></h2>
         <p><Ruby text={r.joinText} /></p>
         <p><a className="button" href={mailto('Join clinical review')}><Ruby text={r.joinLink} /></a></p>
+        {/* The address as text too, for computers with no email app. */}
+        <p className="detail-note"><span lang="en" className="url">{contact.email}</span></p>
       </section>
     </InfoShell>
   );

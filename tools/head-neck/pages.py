@@ -694,7 +694,7 @@ def build(slug, P):
     w('  <p data-i18n="about1"><strong>Not yet clinically reviewed.</strong> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>')
     w(f'  <p class="small" data-i18n="about2">{ABOUT2_EN}</p>')
     w(f'  <p class="small credit" data-i18n="credit">{CREDIT_EN}</p>\n</section>')
-    w('\n<section class="refs">\n<details>\n  <summary><h2 data-i18n="sourcesH">Sources</h2></summary>\n  <ol id="refs">')
+    w('\n<section class="refs">\n<details open>\n  <summary><h2 data-i18n="sourcesH">Sources</h2></summary>\n  <ol id="refs">')
     for i, (txt, link) in enumerate(P['refs'], 1):
         href = link if link.startswith('http') else 'https://doi.org/' + link
         shown = link.replace('https://', '') if link.startswith('http') else 'doi.org/' + link

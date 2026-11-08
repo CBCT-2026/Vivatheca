@@ -42,7 +42,9 @@ export function Cited({ text, label }: { text: string; label: string }) {
         const match = /^\[(\d+)\]$/.exec(part);
         if (!match) return part ? <Fragment key={index}><Ruby text={part} /></Fragment> : null;
         const n = match[1];
-        return <sup key={index} className="cite"><a href={`#src-${n}`} aria-label={plain(label.replace('{n}', n))}>{n}</a></sup>;
+        // A comma only when this number follows another with nothing between ("[1][2]" splits with an empty part).
+        const more = index >= 2 && parts[index - 1] === '' && /^\[\d+\]$/.test(parts[index - 2]);
+        return <sup key={index} className={more ? 'cite cite-more' : 'cite'}><a href={`#src-${n}`} aria-label={plain(label.replace('{n}', n))}>{n}</a></sup>;
       })}
     </>
   );

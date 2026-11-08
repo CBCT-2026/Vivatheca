@@ -28,8 +28,8 @@ test('every print download carries the review status, model disclaimer and licen
 test('disclaimer page and links are present on every main route', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.footer-legal').getByText(/not medical advice/)).toBeVisible();
-  // The interactive model and the model showcase each show the review status and model disclaimer.
-  for (const section of ['#collection', '#showcase']) {
+  // The interactive model and the show-a-patient picker each show the review status and model disclaimer.
+  for (const section of ['#collection', '#quick-show']) {
     await expect(page.locator(`${section} .prototype-note`).getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
   }
 

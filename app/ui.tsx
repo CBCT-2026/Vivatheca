@@ -41,7 +41,7 @@ export function MobileNavigation({ furigana, onHome = true }: { furigana: boolea
 }
 
 function Cites({ ids, label }: { ids: number[]; label: string }) {
-  return <>{ids.map((id) => <sup key={id} className="cite"><a href={`#model-ref-${id}`} aria-label={plain(format(label, { n: id }))} onClick={() => document.querySelector('.model-sources')?.setAttribute('open', '')}>{id}</a></sup>)}</>;
+  return <>{ids.map((id, i) => <sup key={id} className={i ? 'cite cite-more' : 'cite'}><a href={`#model-ref-${id}`} aria-label={plain(format(label, { n: id }))} onClick={() => document.querySelector('.model-sources')?.setAttribute('open', '')}>{id}</a></sup>)}</>;
 }
 
 // Homepage interactive section: the alveolar bone graft series, three stages (models from CBCT-2026/ABG).

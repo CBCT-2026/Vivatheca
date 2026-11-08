@@ -454,11 +454,13 @@
         '</div><div class="vt-box vt-qr" hidden></div><div class="vt-box vt-credit" hidden></div><div class="vt-box vt-embedbox" hidden></div>' +
         '<p class="vt-status" role="status" aria-live="polite"></p>' +
         '<ul class="vt-links" aria-label="' + esc(sayPlain('more')) + '">' +
-        '<li><a href="/print?model=' + slug + '">' + say('print') + ' →</a></li>' +
+        '<li class="vt-print-link" hidden><a href="/print?model=' + slug + '">' + say('print') + ' →</a></li>' +
         '<li><a href="/templates#' + slug + '">' + say('templates') + ' →</a></li>' +
         '<li><a href="/used?model=' + slug + '">' + say('used') + ' →</a></li>' +
         '<li><a href="/requests">' + say('request') + ' →</a></li>' +
         '<li><a href="/survey?model=' + slug + '">' + say('survey') + ' →</a></li></ul>';
+      // Offer the 3D print link only for models that have print files (public/print/sets.json).
+      fetch('/print/sets.json').then((r) => r.json()).then((sets) => { if (sets[slug]) panel.querySelector('.vt-print-link').hidden = false; }).catch(() => {});
       const status = panel.querySelector('.vt-status');
       const tell = (k, v) => { status.innerHTML = v ? esc(fill(sayPlain(k), v)) : say(k); };
       const viewUrl = () => { const u = new URL(location.href); u.hash = ''; u.searchParams.delete('embed'); u.searchParams.set('view', enc(readState(group))); return u.toString(); };

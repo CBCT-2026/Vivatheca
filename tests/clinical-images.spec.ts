@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 // Every real clinical image must show its source and licence next to it (docs/image-licensing.md).
-const pages = ['/', '/periodontitis/index.html', '/oroantral/index.html', '/orthognathic/index.html', '/development/index.html', '/cracked-tooth/index.html', '/head-neck/scc/index.html', '/head-neck/ameloblastoma/index.html', '/head-neck/okc/index.html', '/head-neck/mec/index.html', '/ectopic-canine/index.html', '/dentigerous-cyst/index.html', '/prosthodontic/index.html', '/stainless-steel-crown/index.html', '/vpi/index.html', '/tmd/index.html', '/endodontic/index.html'];
+const pages = ['/models/impacted-wisdom-tooth', '/periodontitis/index.html', '/oroantral/index.html', '/orthognathic/index.html', '/development/index.html', '/cracked-tooth/index.html', '/head-neck/scc/index.html', '/head-neck/ameloblastoma/index.html', '/head-neck/okc/index.html', '/head-neck/mec/index.html', '/ectopic-canine/index.html', '/dentigerous-cyst/index.html', '/prosthodontic/index.html', '/stainless-steel-crown/index.html', '/vpi/index.html', '/tmd/index.html', '/endodontic/index.html', '/fixation/index.html', '/models/alveolar-bone-graft'];
 const licence = /creativecommons\.org\/(licenses|publicdomain)\//;
 
 for (const path of pages) {
@@ -9,7 +9,8 @@ for (const path of pages) {
     await page.goto(path);
     // Surgical photos sit behind a click-to-show warning; open them so their images load.
     await page.locator('details.surgical').evaluateAll((items) => items.forEach((d) => d.setAttribute('open', '')));
-    const figures = page.locator('figure.clin-fig, figure.clinical-figure');
+    // Vivatheca's own diagrams can share the figure style; real clinical images carry img-N ids.
+    const figures = page.locator('figure.clin-fig[id^="img-"], figure.clinical-figure');
     const count = await figures.count();
     expect(count).toBeGreaterThan(0);
     for (let i = 0; i < count; i += 1) {

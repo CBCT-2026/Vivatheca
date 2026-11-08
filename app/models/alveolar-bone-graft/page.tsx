@@ -13,6 +13,7 @@ import { plain, Ruby } from '../../i18n/ruby';
 import { TermSources } from '../terms';
 import { ModelExperience } from '../../ui';
 import { VideoSection } from '../../video-section';
+import { AbgClinicalImages } from '../../clinical-images';
 
 // Collection page for the alveolar bone graft series (the same viewer as the homepage interactive section).
 const model = catalogue.find((item) => item.slug === 'alveolar-bone-graft')!;
@@ -48,6 +49,7 @@ export default async function AlveolarBoneGraftPage() {
         </div>
         <ModelExperience />
         <VideoSection slug="alveolar-bone-graft" />
+        <AbgClinicalImages t={t} />
         {/* "Use this model" panel: links to a view, pictures, tour, credit, embed (public/share-tools.js). */}
         <div data-vt-share="" data-vt-scope=".model-experience" />
         <AfterHydration src="/share-tools.js" />

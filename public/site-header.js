@@ -151,3 +151,19 @@
     });
   }
 })();
+
+// Source numbers: put a comma only between numbers that sit next to each other ("roots.2,6"),
+// never before the first number after a sentence. CSS sibling selectors skip text, so mark runs here.
+(function () {
+  const mark = () => {
+    document.querySelectorAll('sup.cite').forEach((sup) => {
+      let prev = sup.previousSibling;
+      while (prev && prev.nodeType === 3 && !prev.textContent.trim()) prev = prev.previousSibling;
+      sup.classList.toggle('cite-more', !!(prev && prev.nodeType === 1 && prev.matches('sup.cite')));
+    });
+  };
+  let queued = false;
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; mark(); }); } };
+  const start = () => { mark(); new MutationObserver(queue).observe(document.body, { childList: true, subtree: true }); };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();

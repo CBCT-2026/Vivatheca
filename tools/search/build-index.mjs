@@ -72,6 +72,10 @@ try {
       await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {}); // pages that keep polling never go idle
       const { html, text } = await page.evaluate((lang) => {
         document.querySelectorAll('script, style, noscript, header, footer, nav, model-viewer, canvas, dialog, [aria-hidden="true"], [aria-live], [role="status"], .skip-link, .cite, sup.cite').forEach((el) => el.remove());
+        // Static pages carry every language inline and hide the others: drop hidden text in other languages,
+        // and give each heading only its rendered text, so result titles are in one language.
+        document.querySelectorAll('[lang]').forEach((el) => { if (!el.lang.startsWith(lang) && el !== document.documentElement && !el.getClientRects().length) el.remove(); });
+        document.querySelectorAll('main h1, main h2, main h3').forEach((h) => { if (h.getClientRects().length) h.textContent = h.innerText.replace(/\s+/g, ' ').trim(); });
         document.documentElement.lang = lang;
         const main = document.querySelector('main') || document.body;
         return { html: '<!doctype html>' + document.documentElement.outerHTML, text: main.textContent.replace(/\s+/g, ' ').trim() };
