@@ -35,7 +35,7 @@
   --heading: var(--navy-900);
   --text-strong: var(--navy-800);
   --accent: var(--cyan-600);
-  --header-bg: rgba(247,250,251,.96);
+  --header-bg: #f7fafb;
   --danger: #b23a2c;
   color-scheme: light;
 }
@@ -52,7 +52,7 @@
   --ink: #eaf3f7;
   --muted: #a7bccb;
   --line: #1f4266;
-  --header-bg: rgba(0,26,55,.96);
+  --header-bg: #001a37;
   --danger: #ff9a8c;
   color-scheme: dark;
 }
@@ -86,7 +86,7 @@ img { display: block; max-width: 100%; }
 .site-header {
   position: sticky; z-index: 100; top: 0; display: grid; grid-template-columns: auto 1fr auto; align-items: center;
   min-height: 76px; border-bottom: 1px solid rgba(0,36,77,.1); background: var(--header-bg);
-  padding: .65rem clamp(1rem,4vw,4rem); backdrop-filter: blur(14px);
+  padding: .65rem clamp(1rem,4vw,4rem);
 }
 .brand { display: inline-flex; align-items: center; width: 164px; height: 54px; overflow: hidden; }
 .brand img { width: 164px; height: auto; }

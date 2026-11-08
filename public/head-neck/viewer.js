@@ -285,8 +285,12 @@
   document.getElementById('btn-xray').addEventListener('click', () => { state.xray = !state.xray; apply(); });
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Only draw while the viewer is on screen, so scrolling the rest of the page stays smooth.
+  let onScreen = true;
+  new IntersectionObserver((e) => { onScreen = e[e.length - 1].isIntersecting; }).observe(box);
   (function loop() {
     requestAnimationFrame(loop);
+    if (!onScreen) return;
     offset += (target - offset) * (reduce ? 1 : 0.12);
     if (cur) cur.parts.forEach((o) => { if (MOVE.test(o.userData.n)) o.position.y = o.userData.y0 + offset; });
     controls.update(); renderer.render(scene, camera);

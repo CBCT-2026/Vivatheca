@@ -167,3 +167,10 @@
   const start = () => { mark(); new MutationObserver(queue).observe(document.body, { childList: true, subtree: true }); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
+
+// Pause 3D auto-rotate while the page scrolls (public/scroll-pause.js).
+(function () {
+  if (!document.querySelector('script[src="/scroll-pause.js"]')) {
+    const s = document.createElement('script'); s.src = '/scroll-pause.js'; s.async = true; document.head.appendChild(s);
+  }
+})();

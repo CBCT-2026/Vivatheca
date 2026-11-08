@@ -2,17 +2,17 @@
    (app/globals.css .site-header / .page-header) and uses Vivatheca core colours. */
 .vt-header {
   --vt-heading: #00244d; --vt-accent: #007f8b; --vt-line: #cfe1e7; --vt-surface: #ffffff; --vt-tint: #effcfc; --vt-muted: #4d6378;
-  --vt-bg: rgba(247,250,251,.96);
+  --vt-bg: #f7fafb;
   position: sticky; z-index: 100; top: 0;
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .25rem 1rem;
   min-height: 76px; margin: 0; border-bottom: 1px solid var(--vt-line); background: var(--vt-bg);
-  padding: .65rem clamp(1rem,4vw,4rem); backdrop-filter: blur(14px);
+  padding: .65rem clamp(1rem,4vw,4rem);
   font-family: "Manrope Variable", "Manrope", system-ui, sans-serif; color: var(--vt-heading);
   max-width: none; box-sizing: border-box;
 }
 :root[data-theme="dark"] .vt-header {
   --vt-heading: #ffffff; --vt-accent: #14c9d7; --vt-line: #1f4266; --vt-surface: #00244d; --vt-tint: #062e58; --vt-muted: #a7bccb;
-  --vt-bg: rgba(0,26,55,.96);
+  --vt-bg: #001a37;
 }
 .vt-header .brand-home { display: inline-flex; align-items: center; width: 164px; height: 54px; overflow: hidden; line-height: 0; }
 .vt-header .brand-home img { width: 164px; height: auto; background: none; border-radius: 0; }
