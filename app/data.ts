@@ -33,6 +33,7 @@ export function footerGroups(t: Dictionary) {
         { label: f.participate.survey, href: '/survey' },
         { label: f.participate.review, href: '/review' },
         { label: f.participate.contribute, href: '/contribute' },
+        { label: f.participate.volunteer, href: '/standards#editors' },
         { label: f.participate.sponsor, href: '/#sponsor' },
       ],
     },
@@ -40,6 +41,7 @@ export function footerGroups(t: Dictionary) {
       label: f.aboutGroup.label,
       links: [
         { label: f.aboutGroup.about, href: '/about' },
+        { label: f.aboutGroup.standards, href: '/standards' },
         { label: f.aboutGroup.privacy, href: '/privacy' },
         { label: f.aboutGroup.contact, href: mailto() },
       ],
