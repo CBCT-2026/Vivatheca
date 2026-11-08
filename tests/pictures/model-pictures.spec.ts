@@ -65,6 +65,26 @@ for (const shot of SHOTS) {
       }, null, { timeout: 90_000 });
       target = page.locator('.viewer canvas').first();
     }
+    // Pin the viewer to one fixed size, so a page layout change (a wider text column, a different
+    // breakpoint) does not read as a model change. The check is about the model, not the page.
+    const box = shot.kind === 'model-viewer' ? target : page.locator('.viewer').first();
+    await box.evaluate((el: HTMLElement) => {
+      Object.assign(el.style, { width: '960px', height: '600px', maxWidth: 'none', maxHeight: 'none', minHeight: '0', marginLeft: '0' });
+    });
+    // Hide everything drawn over or beside the model (labels, buttons, a side panel), so page text and
+    // layout changes don't count either. Only the model itself and its background stay visible.
+    await box.evaluate((keep: HTMLElement) => {
+      const style = document.createElement('style');
+      style.textContent = '[data-pictures-hide]{visibility:hidden!important}';
+      document.head.append(style);
+      for (const el of document.body.querySelectorAll<HTMLElement>('*')) {
+        if (el === keep || el.contains(keep) || (keep.contains(el) && el.tagName === 'CANVAS')) continue;
+        el.setAttribute('data-pictures-hide', '');
+      }
+      keep.setAttribute('data-pictures-keep', '');
+      style.textContent += '[data-pictures-keep]{visibility:visible!important}[data-pictures-keep] [data-pictures-hide]{visibility:hidden!important}';
+    });
+    await page.waitForTimeout(500);
     await target.scrollIntoViewIfNeeded();
     // Snap the model to whole pixels. Text above it (a longer title, an extra line) can leave it at a
     // fractional offset, which shifts every edge by part of a pixel and reads as a model change.
