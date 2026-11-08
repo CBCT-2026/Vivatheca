@@ -16,7 +16,7 @@ test('endodontic page switches between the sound tooth and the abscess and cuts 
 
 test('endodontic page states its CC BY licence, the BodyParts3D credit and the model disclaimer', async ({ page }) => {
   await page.goto('/endodontic/index.html');
-  const credit = page.locator('.credit');
+  const credit = page.locator('p.credit'); // the clinical image caption also has a .credit span
   await expect(credit).toContainText('BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International');
   await expect(credit.getByRole('link', { name: 'CC BY 4.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/4.0/');
   await expect(page.getByText('Educational model only. It shows typical anatomy or disease, not any real patient').first()).toBeVisible();
@@ -37,7 +37,7 @@ test('endodontic models have a removable gum layer with the gum boil on the absc
   await page.goto('/endodontic/index.html');
   await expect(page.locator('.legend li', { hasText: 'Gum (soft tissue)' })).toBeVisible();
   const off = page.getByRole('button', { name: 'Take off the gum' });
-  await expect(off).toBeVisible();
+  await expect(off).toBeVisible({ timeout: 20_000 }); // the parts panel appears once the model has loaded
   await off.click();
   await expect(page.getByRole('button', { name: 'Put the gum back' })).toBeVisible();
   await page.getByRole('button', { name: /Abscess/ }).click();
