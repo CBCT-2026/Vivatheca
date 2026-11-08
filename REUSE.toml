@@ -27,6 +27,12 @@ SPDX-FileCopyrightText = "2026 Vivatheca"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
+path = ["review/layout-*/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Vivatheca"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
 path = ["public/images/clinical/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "See the attribution recorded with each image on its Vivatheca page"
