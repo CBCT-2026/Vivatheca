@@ -111,3 +111,9 @@ path = ["public/tmd/models/**", "public/tmd/sheet/img/**", "public/assets/render
 precedence = "override"
 SPDX-FileCopyrightText = ["2026 Vivatheca", "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"]
 SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["public/head-neck/vendor/three/GLTFExporter.js"]
+precedence = "override"
+SPDX-FileCopyrightText = "three.js authors (three 0.147.0, examples/js/exporters/GLTFExporter.js)"
+SPDX-License-Identifier = "MIT"
