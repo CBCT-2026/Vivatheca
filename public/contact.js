@@ -6,11 +6,14 @@
 
   const text = {
     en: { h: 'Contact us', intro: 'Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.', email: 'Email',
-      site: 'Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health.', full: 'Full disclaimer' },
+      site: 'Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health.', full: 'Full disclaimer',
+      legal: 'Legal and accessibility', disclaimer: 'Disclaimer', privacy: 'Privacy', report: 'Report an inaccuracy', access: 'Accessibility feedback' },
     ja: { h: 'お{問|と}い{合|あ}わせ', intro: '{模型|もけい}についてのご{質問|しつもん}、{誤|あやま}りのご{指摘|してき}、アイデアをお{待|ま}ちしています。Vivathecaをフォローするか、お{気軽|きがる}にご{連絡|れんらく}ください。', email: 'メール',
-      site: 'Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。', full: '{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}' },
+      site: 'Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。', full: '{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}',
+      legal: '{法務|ほうむ}とアクセシビリティ', disclaimer: '{免責|めんせき}{事項|じこう}', privacy: 'プライバシー', report: '{誤|あやま}りを{報告|ほうこく}', access: 'アクセシビリティへのご{意見|いけん}' },
     vi: { h: 'Liên hệ', intro: 'Bạn có câu hỏi, góp ý sửa lỗi hoặc ý tưởng cho một mô hình? Hãy theo dõi Vivatheca hoặc liên hệ với chúng tôi.', email: 'Email',
-      site: 'Vivatheca chỉ nhằm mục đích giáo dục chung. Đây không phải lời khuyên y khoa và không được dùng để chẩn đoán, lập kế hoạch điều trị hoặc hướng dẫn phẫu thuật. Hãy trao đổi với nhân viên y tế có chuyên môn về sức khỏe của chính bạn.', full: 'Toàn văn tuyên bố miễn trừ trách nhiệm' },
+      site: 'Vivatheca chỉ nhằm mục đích giáo dục chung. Đây không phải lời khuyên y khoa và không được dùng để chẩn đoán, lập kế hoạch điều trị hoặc hướng dẫn phẫu thuật. Hãy trao đổi với nhân viên y tế có chuyên môn về sức khỏe của chính bạn.', full: 'Toàn văn tuyên bố miễn trừ trách nhiệm',
+      legal: 'Pháp lý và khả năng tiếp cận', disclaimer: 'Miễn trừ trách nhiệm', privacy: 'Quyền riêng tư', report: 'Báo lỗi', access: 'Góp ý về khả năng tiếp cận' },
   };
   // Icons: copy of app/contact-icons.ts (official Instagram glyph, official X logo in black/white only,
   // generic envelope for email because Google does not allow the Gmail logo without permission).
@@ -29,9 +32,22 @@
     '.vt-ic-email{color:var(--accent,#007f8b)}:root[data-theme="dark"] .vt-ic-email{color:var(--accent,#14c9d7)}' +
     'footer.contact li>a{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}';
 
+  // Same legal links as the app footer (app/site-chrome.tsx): disclaimer, privacy, report, accessibility.
+  function legalNav(t) {
+    const nav = document.createElement('nav');
+    nav.className = 'vt-legal';
+    nav.setAttribute('aria-label', t.legal.replace(/\{([^{}|]+)\|[^{}]+\}/g, '$1'));
+    nav.innerHTML = '<a href="/disclaimer">' + ruby(t.disclaimer) + '</a><a href="/privacy">' + ruby(t.privacy) + '</a><a href="/report">' + ruby(t.report) +
+      '</a><a href="mailto:' + contact.email + '?subject=' + encodeURIComponent('Accessibility feedback') + '">' + ruby(t.access) + '</a>';
+    return nav;
+  }
+  const legalCss =
+    '.vt-legal{display:flex;flex-wrap:wrap;gap:4px 18px;margin:12px 0 0;font-size:14px}' +
+    '.vt-legal a{display:inline-flex;align-items:center;min-height:32px;color:var(--accent,#007f8b)}';
+
   function render() {
     const style = document.createElement('style');
-    style.textContent = iconCss;
+    style.textContent = iconCss + legalCss;
     document.head.appendChild(style);
     // Pages with a hand-copied contact footer (Instagram, X, email in that order): add the icons only.
     const copied = document.querySelector('footer.contact');
@@ -40,6 +56,7 @@
         const a = copied.querySelectorAll('ul > li > a')[i];
         if (a && !a.querySelector('.vt-ic')) a.insertAdjacentHTML('afterbegin', icon(id));
       });
+      if (!copied.querySelector('.vt-legal')) copied.appendChild(legalNav(text[document.documentElement.lang.slice(0, 2)] || text.en));
       return;
     }
     if (document.querySelector('footer.vt-contact')) return;
@@ -64,6 +81,7 @@
       '.vt-contact b{color:var(--heading,#00244d)}' +
       '.vt-contact .vt-pending{cursor:default}' +
       '.vt-contact .vt-site{font-size:14px;color:var(--muted,#4d6378)}.vt-contact .vt-site a{color:var(--accent,#007f8b)}';
+    footer.appendChild(legalNav(t));
     document.body.appendChild(footer);
   }
   // Japanese and Vietnamese pages: say the translation is not yet reviewed (shown only in that language).

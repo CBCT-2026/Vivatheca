@@ -45,7 +45,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
 
 test('report form builds an email with the chosen model and requires a description', async ({ page }) => {
   await page.goto('/report?model=dental-development');
-  await expect(page.getByLabel('Model')).toHaveValue('dental-development');
+  await expect(page.getByRole('combobox', { name: /^Model/ })).toHaveValue('dental-development');
   await page.getByRole('button', { name: 'Open in my email app' }).click();
   await expect(page.getByRole('alert')).toContainText('Please describe what is wrong');
 });
@@ -113,9 +113,9 @@ test('bone graft page offers CC BY-SA downloads with the review status and credi
   await expect(page.locator('.licence-note').getByRole('link', { name: 'Downloads and licence' })).toHaveAttribute('href', '/models/alveolar-bone-graft#downloads');
 });
 
-test('collection and homepage showcase are sorted by specialty, then title', async ({ page }) => {
+test('the collection is sorted by specialty, then title', async ({ page }) => {
   const collator = new Intl.Collator('en', { sensitivity: 'base', numeric: true, ignorePunctuation: true });
-  for (const [route, grid, heading] of [['/models', '.library-grid:not(.showcase-grid)', 'h2'], ['/', '.showcase-grid', 'h3']] as const) {
+  for (const [route, grid, heading] of [['/models', '.library-grid:not(.showcase-grid)', 'h2']] as const) {
     await page.goto(route);
     const rows = await page.locator(`${grid} > .library-card`).evaluateAll((cards, h) => cards.map((card) => [card.querySelector('.library-meta')?.textContent?.trim() ?? '', card.querySelector(h)?.textContent?.trim() ?? '']), heading);
     expect(rows.length, route).toBeGreaterThan(1);

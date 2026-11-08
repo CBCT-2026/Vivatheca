@@ -906,9 +906,15 @@ const en = {
     ],
   },
   clinical: {
+    abgHeading: 'A cleft in the gum bone on a real X-ray',
+    abgNote: 'This X-ray is of a real child. The authors shared it under an open licence, given under it. It is not the model licence.',
     heading: 'Stuck (impacted) wisdom teeth on real X-rays and scans',
     note: 'These pictures are from real people. The authors shared them under open licences. Each licence is given under its picture. It is not the model licence.',
     images: {
+      abgOcclusal: {
+        alt: 'X-ray of the upper teeth taken from below. A red curved line follows the arch of the teeth, and a red arrow points to a dark gap in the bone beside the front teeth.',
+        caption: 'Image 1. A gap in the gum bone (alveolar cleft), before any bone graft. This child, aged 9, has a cleft on the left side, as in stage 1 of the model. The red arrow points to the gap. The red line, drawn by the authors, shows the narrow shape of the upper jaw. Baby teeth and adult teeth are both there.',
+      },
       opgLow: {
         alt: 'Panoramic X-ray. The lower left wisdom tooth lies deep in the jaw, low down behind the second molar.',
         caption: 'Image 1. A lower wisdom tooth deep in the jaw, close to the roots of the tooth in front. It is on the right of the picture, which is the person’s left side.',
@@ -1673,6 +1679,7 @@ const en = {
     copy: 'Copy report text',
     copied: 'Copied',
     copiedLive: 'Report text copied',
+    mailHint: 'Your email app should open with the message ready to send. If nothing opens, copy the message and email it to vivatheca@gmail.com.',
   },
   // Submit or request a model (/contribute).
   submitModel: {
@@ -1746,6 +1753,7 @@ const en = {
     copy: 'Copy message text',
     copied: 'Copied',
     copiedLive: 'Message text copied',
+    mailHint: 'Your email app should open with the message ready to send. If nothing opens, copy the message and email it to vivatheca@gmail.com.',
     emailNote: 'Your message opens in your email app, addressed to vivatheca@gmail.com, so you can check it before you send it.',
     reviewLead: 'Accepted models start as “Not yet clinically reviewed”.',
     sourcesHeading: 'Sources',
@@ -1762,6 +1770,8 @@ const en = {
     searchLabel: 'Find a model',
     searchPlaceholder: 'Type a condition, such as wisdom tooth',
     noResults: 'No model matches that search.',
+    showAll: 'Show all {n} models',
+    showFewer: 'Show fewer',
     listLabel: 'Models to show',
     myModels: 'My models',
     myModelsEmpty: 'Tap the star on any model to keep it here.',

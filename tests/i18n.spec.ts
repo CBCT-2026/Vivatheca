@@ -95,13 +95,13 @@ test('the disclaimer is translated, with a note that the English version prevail
   await expect(page.locator('h1')).toHaveText('免責(めんせき)事項(じこう)');
   await expect(page.locator('main')).toContainText('英語(えいご)版(ばん)が優先(ゆうせん)します');
   await page.goto('/');
-  await expect(page.locator('#showcase .prototype-note')).toContainText('臨床(りんしょう)レビュー未実施(みじっし)');
+  await expect(page.locator('#quick-show .prototype-note')).toContainText('臨床(りんしょう)レビュー未実施(みじっし)');
 });
 
 test('model library, model page, About, Privacy and Report are translated', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   for (const [route, heading] of [
-    ['/models?lang=ja', '正常と比べられる模型。'],
+    ['/models?lang=ja', '正常と比べられる模型'],
     ['/models/impacted-wisdom-tooth?lang=ja', '下顎第三大臼歯の近心傾斜埋伏'],
     ['/about?lang=ja', '診療チェアでの会話のための、わかりやすい3D模型。'],
     ['/privacy?lang=ja', 'プライバシー'],

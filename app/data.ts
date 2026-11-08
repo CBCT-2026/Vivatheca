@@ -98,7 +98,7 @@ export function contributionPaths(t: Dictionary) {
   ];
 }
 
-// Real radiographs and scans shown under the homepage wisdom tooth model.
+// Real radiographs and scans shown on the wisdom tooth model page.
 // Licences and consent reasoning: assets/clinical-images/manifest.json and docs/image-licensing.md.
 // Credits stay in English, the language the sources were published in.
 export const clinicalImages = [
@@ -131,5 +131,19 @@ export const clinicalImages = [
     href: 'https://doi.org/10.1155/crid/7010729',
     licence: { name: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
     changes: 'None.',
+  },
+] as const;
+
+// Alveolar bone graft page: the cleft before grafting (left side, mixed dentition), as in stage 1.
+export const abgClinicalImages = [
+  {
+    key: 'abgOcclusal',
+    src: '/images/clinical/alveolar-bone-graft/left-alveolar-cleft-occlusal.jpg',
+    width: 394,
+    height: 276,
+    credit: 'Kaiser J, Kamble R, Atole S. Comprehensive cleft care in a nine-year-old with unilateral cleft lip and palate using Coffin spring expansion and surgical intervention. Cureus. 2024;16(7):e64939, Figure 3B (pre-treatment maxillary occlusal radiograph, cleft on the left side). The journal states that consent was obtained or waived.',
+    href: 'https://doi.org/10.7759/cureus.64939',
+    licence: { name: 'CC BY 4.0', href: 'https://creativecommons.org/licenses/by/4.0/' },
+    changes: 'Cropped to panel B; the arrow and arch line were drawn by the authors.',
   },
 ] as const;

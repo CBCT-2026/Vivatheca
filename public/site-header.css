@@ -121,3 +121,8 @@ li:lang(ja), dd:lang(ja), blockquote:lang(ja) { text-justify: inter-character; h
 /* A printed web address or DOI cannot hyphenate, so it would leave wide gaps in a justified line:
    let it break at any character instead. */
 .url { word-break: break-all; hyphens: none; -webkit-hyphens: none; }
+/* Source numbers: a comma between adjacent numbers only (class set by site-header.js). */
+sup.cite.cite-more::before { content: ","; }
+/* Reference lines (name sources, image credits) are citations, not prose: justifying their long
+   unbreakable titles and DOIs leaves wide gaps, so they start-align. Body paragraphs stay justified. */
+.term-sources, .credit, .clinical-credit { text-align: start; hyphens: manual; -webkit-hyphens: manual; }

@@ -61,15 +61,19 @@ export function MyModels({ empty = false }: { empty?: boolean }) {
 }
 
 // Every model as a one-tap tile, with a filter box. Used on the homepage and /show.
-export function QuickPick({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) {
+// `limit` shows only the first few tiles until the visitor asks for all (the filter always searches all).
+export function QuickPick({ headingLevel = 2, limit }: { headingLevel?: 2 | 3; limit?: number }) {
   const { t } = useI18n();
   const [query, setQuery] = useState('');
+  const [all, setAll] = useState(false);
   const words = useMemo(() => catalogue.map((m) => {
     const item = t.library.items[m.slug];
     return { slug: m.slug, text: plain(`${item?.title ?? ''} ${item?.specialty ?? ''} ${item?.summary ?? ''} ${item?.pairing ?? ''}`).toLowerCase() };
   }), [t]);
   const q = query.trim().toLowerCase();
-  const shown = q ? words.filter((w) => q.split(/\s+/).every((part) => w.text.includes(part))) : words;
+  const matches = q ? words.filter((w) => q.split(/\s+/).every((part) => w.text.includes(part))) : words;
+  const cut = Boolean(limit && !q && !all && matches.length > limit);
+  const shown = cut ? matches.slice(0, limit) : matches;
   const Heading = `h${headingLevel}` as 'h2' | 'h3';
   return (
     <div className="quick-pick">
@@ -80,6 +84,11 @@ export function QuickPick({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) {
         <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={plain(t.show.searchPlaceholder)} autoComplete="off" />
       </label>
       {shown.length ? <ul className="quick-grid" aria-label={plain(t.show.listLabel)}>{shown.map((w) => <QuickTile key={w.slug} slug={w.slug} />)}</ul> : <p className="quick-empty" role="status"><Ruby text={t.show.noResults} /></p>}
+      {limit && !q && words.length > limit ? (
+        <button type="button" className="button button-secondary quick-toggle" aria-expanded={!cut} onClick={() => setAll(cut)}>
+          <Ruby text={cut ? format(t.show.showAll, { n: words.length }) : t.show.showFewer} />
+        </button>
+      ) : null}
     </div>
   );
 }

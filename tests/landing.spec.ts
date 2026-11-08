@@ -14,8 +14,8 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   test.setTimeout(120_000);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Clinical models made clear.' })).toBeVisible();
-  await expect(page.locator('.hero-title .hero-line')).toHaveText(['Clinical models', 'made clear.']);
+  await expect(page.getByRole('heading', { name: /Clinical models\s*made clear/ })).toBeVisible();
+  await expect(page.locator('.hero-title .hero-line')).toHaveText(['Clinical models', 'made clear']);
   await expect(page.getByText('Open access', { exact: true })).toBeVisible();
   await expect(page.getByText('View digitally or print', { exact: true })).toBeVisible();
 
@@ -62,11 +62,13 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   await parts.getByRole('button', { name: 'Show all parts' }).click();
   await expect(parts.getByRole('button', { name: 'Bone', exact: true })).toHaveAttribute('aria-pressed', 'true');
 
-  // The wisdom tooth stays the hero; a mix of other models, including dental development, follows.
+  // The wisdom tooth stays the hero; the picker shows eight models first, with a button for the rest.
   await expect(page.locator('.hero-visual img')).toHaveAttribute('src', '/assets/renders/wisdom-tooth-hero.webp');
-  const showcase = page.locator('#showcase');
-  await expect(showcase.getByRole('link', { name: /Mixed dentition: development and eruption/ })).toHaveAttribute('href', '/development/');
-  await expect(showcase.locator('.library-card')).toHaveCount(6);
+  const quick = page.locator('#quick-show');
+  await expect(quick.locator('.quick-grid > li')).toHaveCount(8);
+  await quick.getByRole('button', { name: /Show all/ }).click();
+  await expect(quick.locator('.quick-grid > li').nth(8)).toBeVisible();
+  await expect(quick.getByRole('link', { name: 'See every model in the library' })).toHaveAttribute('href', '/models');
 });
 
 test('homepage navigation, evidence and contribution paths', async ({ page }) => {
@@ -83,12 +85,12 @@ test('homepage navigation, evidence and contribution paths', async ({ page }) =>
   await expect(origin.getByRole('img', { name: 'Australian National Flag' })).toBeVisible();
 
   const publications = page.locator('#publications');
-  await expect(publications.getByRole('heading', { name: 'Evidence for seeing and holding anatomy.' })).toBeVisible();
+  await expect(publications.getByRole('heading', { name: 'Research on 3D models in patient communication' })).toBeVisible();
   await expect(publications.getByRole('link', { name: /Read the peer-reviewed article/ })).toHaveCount(3);
   await expect(publications.getByText('AI-generated illustration.', { exact: true })).toHaveCount(0);
 
   const contribute = page.locator('#contribute');
-  await expect(contribute.getByRole('heading', { name: 'Help build the collection.' })).toBeVisible();
+  await expect(contribute.getByRole('heading', { name: 'Help build the collection' })).toBeVisible();
   for (const pathway of ['Report an inaccuracy', 'Join clinical review', 'Request or submit a model']) {
     await expect(contribute.getByRole('heading', { name: pathway })).toBeVisible();
   }
@@ -98,7 +100,7 @@ test('trust section explains transparent and privacy-preserving clinical review'
   await page.goto('/');
   const trust = page.locator('#trust');
 
-  await expect(trust.getByRole('heading', { name: 'Trust should be visible, not implied.' })).toBeVisible();
+  await expect(trust.getByRole('heading', { name: 'How models are checked' })).toBeVisible();
   await expect(trust).toContainText('peer-reviewed sources');
   await expect(trust).toContainText('title, initials, occupation and country of practice');
   await expect(trust).toContainText('change log');
@@ -109,10 +111,10 @@ test('trust section explains transparent and privacy-preserving clinical review'
 
 test('print section offers the STL download and sponsorship contact', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'From the screen to something you can hold.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Print a model on a desktop 3D printer' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Download both STL files/ })).toHaveAttribute('href', '/models/impacted-wisdom-tooth');
   const sponsor = page.locator('#sponsor');
-  await expect(sponsor.getByRole('heading', { name: 'Help a model travel further.' })).toBeVisible();
+  await expect(sponsor.getByRole('heading', { name: 'Sponsor a model' })).toBeVisible();
   await expect(sponsor.getByRole('link', { name: /Start a sponsorship conversation/ })).toHaveAttribute('href', /^mailto:vivatheca@gmail\.com/);
 });
 
@@ -142,7 +144,7 @@ test('landing page remains usable on mobile', async ({ page }) => {
   await expect(mobileNavigation).toBeVisible();
   await expect(mobileNavigation.getByRole('link', { name: 'Create', exact: true })).toHaveAttribute('href', '/create');
   await mobileNavigation.getByRole('link', { name: 'How it works', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'One model. More ways to understand.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'What a model page includes' })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
 });
 

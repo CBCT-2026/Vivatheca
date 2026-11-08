@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 // for Japanese results (the worker turns ?lang= into the language cookie).
 
 declare global {
-  interface Window { PagefindUI?: new (options: Record<string, unknown>) => unknown }
+  interface Window { PagefindUI?: new (options: Record<string, unknown>) => { triggerSearch?: (term: string) => void } }
 }
 
 export function SearchUI({ locale, translations }: { locale: string; translations: Record<string, string> }) {
@@ -25,7 +25,7 @@ export function SearchUI({ locale, translations }: { locale: string; translation
     script.onload = () => {
       if (cancelled || !window.PagefindUI) return;
       element.replaceChildren();
-      new window.PagefindUI({
+      const ui = new window.PagefindUI({
         element,
         showSubResults: true,
         showImages: false,
@@ -44,6 +44,9 @@ export function SearchUI({ locale, translations }: { locale: string; translation
       });
       const input = element.querySelector('input');
       if (input) input.focus();
+      // /search?q=… opens with that search already run, so a search can be linked or bookmarked.
+      const q = new URLSearchParams(window.location.search).get('q')?.trim();
+      if (q && ui && typeof ui.triggerSearch === 'function') ui.triggerSearch(q);
     };
     document.head.append(script);
     return () => { cancelled = true; script.remove(); css.remove(); };

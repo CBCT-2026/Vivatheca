@@ -197,7 +197,7 @@
       "id": "wisdom-opg-low",
       "file": "public/images/clinical/wisdom-tooth/opg-low-impacted-lower-third-molar.jpg",
       "pages": [
-        "/"
+        "/models/impacted-wisdom-tooth"
       ],
       "type": "Panoramic radiograph (OPG)",
       "description": "Deeply (low-level) impacted lower left third molar, roots close to the second molar.",
@@ -216,7 +216,7 @@
       "id": "wisdom-ct-canal",
       "file": "public/images/clinical/wisdom-tooth/ct-third-molar-canal.jpg",
       "pages": [
-        "/"
+        "/models/impacted-wisdom-tooth"
       ],
       "type": "CT (sagittal sections)",
       "description": "CT sections: the impacted lower third molar sits just above the mandibular canal (nerve canal).",
@@ -235,7 +235,7 @@
       "id": "wisdom-cbct-nerve",
       "file": "public/images/clinical/wisdom-tooth/cbct-nerve-between-roots.jpg",
       "pages": [
-        "/"
+        "/models/impacted-wisdom-tooth"
       ],
       "type": "CBCT (cross-sections)",
       "description": "Preoperative CBCT: the inferior alveolar nerve runs between the roots of a deeply impacted lower third molar.",
@@ -845,6 +845,46 @@
       "changes": "None (Figure 1 as published).",
       "consent": "Article: 'All procedures in this study were carried out with the full understanding and written consent of the subjects.' CBCT slices only.",
       "reasoning": "BMC Oral Health, CC BY 4.0. Shows the model’s normal side of the pair (thin follicle around an unerupted lower third molar, roughly upright). Side not reported; the caption says so. Searched 8 Nov 2026 for a second openly licensed dentigerous cyst image of a vertical lower left third molar: none found (candidates were right-sided, canines, mesioangular, screen photos, or mixed pathology).",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "fixation-chittoria-fig7",
+      "file": "public/images/clinical/fixation/left-mandible-miniplate-opg.jpg",
+      "pages": [
+        "/fixation/"
+      ],
+      "type": "Orthopantomogram (postoperative, 4 weeks)",
+      "description": "Left mandibular body fracture between 34 and 35, fixed with a single 2 mm five-hole miniplate at the inferior border region.",
+      "source_url": "https://doi.org/10.7759/cureus.66735",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11392524/",
+      "author": "Chittoria A, Kumar R, Malviya Y, Adurti A, Agarwal AA",
+      "article": "Chittoria A, Kumar R, Malviya Y, Adurti A, Agarwal AA. Exploring incision options for mandibular fractures: a review of vestibular and crevicular approach. Cureus. 2024;16(8):e66735. doi:10.7759/cureus.66735",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (Figure 7 as published).",
+      "consent": "Cureus statement that consent for treatment and open access publication was obtained or waived. Radiograph only; no name, date or record number burned in (only R/L markers and the machine model).",
+      "reasoning": "CC BY 4.0. The fixation demo model is the left mandibular body with a 2.0 mm miniplate monocortically fixed; this OPG shows the same side and bone with a 2 mm miniplate. Difference: the fracture is between the premolars, the model's cut is between the first and second molars; the caption says so.",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "abg-kaiser-fig3b",
+      "file": "public/images/clinical/alveolar-bone-graft/left-alveolar-cleft-occlusal.jpg",
+      "pages": [
+        "/models/alveolar-bone-graft"
+      ],
+      "type": "Maxillary occlusal radiograph (pre-treatment)",
+      "description": "Unilateral alveolar cleft on the left side before secondary alveolar bone grafting, mixed dentition, nine-year-old; authors' arrow marks the cleft and a red line traces the constricted arch.",
+      "source_url": "https://doi.org/10.7759/cureus.64939",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11330666/",
+      "author": "Kaiser J, Kamble R, Atole S",
+      "article": "Kaiser J, Kamble R, Atole S. Comprehensive cleft care in a nine-year-old with unilateral cleft lip and palate using Coffin spring expansion and surgical intervention. Cureus. 2024;16(7):e64939. doi:10.7759/cureus.64939",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Cropped to panel B of Figure 3 (cephalogram and OPG panels removed).",
+      "consent": "Cureus statement that consent was obtained or waived by all participants. Occlusal radiograph only, no name, date or record number; the facial photos in the article (Figure 1) are not used.",
+      "reasoning": "CC BY 4.0. The ABG model stage 1 is a left-sided alveolar cleft in mixed dentition before grafting; the article states the occlusal radiograph shows the cleft on the left side in a nine-year-old with mixed dentition, matching the side and stage. The child also has a constricted arch and an oronasal fistula, which the model does not show; the caption mentions the narrow arch.",
       "nc_limits": false,
       "checked": "2026-11-08"
     }

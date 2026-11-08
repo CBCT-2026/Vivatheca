@@ -25,6 +25,7 @@ export function ContributeForm({ initialKind = 0 }: { initialKind?: number }) {
   const [confirms, setConfirms] = useState([false, false, false]);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+  const [sent, setSent] = useState(false);
   const submitting = kind === 0;
 
   const subject = `${submitting ? 'Model submission' : 'Model request'}: ${condition.trim() || 'untitled'}`;
@@ -67,6 +68,8 @@ export function ContributeForm({ initialKind = 0 }: { initialKind?: number }) {
     }
     setError('');
     window.location.href = url;
+    // Many clinic computers have no email app, so the mailto link silently does nothing: say what to do.
+    setSent(true);
   }
 
   async function copy() {
@@ -145,6 +148,7 @@ export function ContributeForm({ initialKind = 0 }: { initialKind?: number }) {
         <button className="button" type="submit"><Ruby text={c.open} /></button>
         <button className="button button-secondary" type="button" onClick={copy}><Ruby text={copied ? c.copied : c.copy} /></button>
       </div>
+      {sent ? <p className="form-note" role="status"><Ruby text={c.mailHint} /></p> : null}
       <span className="visually-hidden" aria-live="polite">{copied ? plain(c.copiedLive) : ''}</span>
     </form>
   );

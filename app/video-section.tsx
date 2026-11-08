@@ -30,7 +30,7 @@ export async function VideoSection({ slug }: { slug: string }) {
         {v.lines.map((line, i) => (
           <span key={i}>
             <Ruby text={line.text} />
-            {line.cite.map((n) => <sup key={n} className="cite"><a href={`#vsrc-${n}`}>{n}</a></sup>)}{' '}
+            {line.cite.map((n, j) => <sup key={n} className={j ? 'cite cite-more' : 'cite'}><a href={`#vsrc-${n}`}>{n}</a></sup>)}{' '}
           </span>
         ))}
       </p>

@@ -81,8 +81,8 @@ model-viewer.labels-off .hotspot, model-viewer.zoomed .hotspot[data-far] { displ
 .cite { font-size: .7em; line-height: 0; margin-left: 1px; }
 .cite a { text-decoration: none; }
 /* Bigger tap area for source numbers on screens (the printed sheet keeps its spacing). */
-@media screen { .cite a { display: inline-block; line-height: 1; padding: 4px 3px; margin: -4px -1px; } }
-.cite + .cite::before { content: ","; }
+@media screen { .cite a { display: inline-block; line-height: 1; padding: 6px 4px; margin: -6px -2px; } }
+.cite.cite-more::before { content: ","; }
 .xray, .areas { margin: 12px 0; }
 .areas img { width: 100%; height: auto; border-radius: 10px; display: block; background: #fff; }
 .areas figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; }
@@ -104,7 +104,7 @@ main ul, main ol, .refs li { text-align: justify; hyphens: auto; -webkit-hyphens
 .controls, .ar-more { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
 .important { background: #fff7e0; border: 2px solid #d9a400; border-radius: 12px; padding: 12px 14px; margin: 12px 0; }
 .important h2 { color: #6b4e00; }
-.important p { margin: 0; color: #06233f; text-align: center; text-align-last: center; }
+.important p { margin: 0; color: #06233f; text-align: justify; }
 
 .symptoms { margin: 8px 0; }
 .symptoms img { display: block; width: 100%; max-width: 520px; background: #fff; border-radius: 10px; }

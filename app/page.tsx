@@ -1,21 +1,15 @@
-import { clinicalImages, contributionPaths, publications, trustItems, understandingPaths } from './data';
+import { contributionPaths, publications, trustItems, understandingPaths } from './data';
 import { JsonLd } from './models/json-ld';
 import { siteJsonLd } from './models/jsonld';
 import { SiteFooter } from './site-chrome';
 import { homeHref, primaryLinks } from './nav';
 import { mailto } from './contact';
-import { catalogue } from './models/catalogue';
-import { sortBySpecialty } from './models/sort';
 import { disclaimerHref } from './disclaimer-text';
 import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
 import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
 import { MyModels, QuickPick } from './show/quick';
-
-// A mix of other models (app/models/catalogue.ts), shown sorted by specialty then title. The wisdom tooth is the hero; the bone graft series is the interactive section.
-const showcaseSlugs = ['dental-development', 'orthognathic', 'periodontitis', 'head-neck', 'oroantral', 'cracked-tooth'];
-const showcase = showcaseSlugs.map((slug) => catalogue.find((model) => model.slug === slug)).filter((model) => model !== undefined);
 
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <img aria-hidden="true" className="ui-icon" src={`/icons/${name}.svg`} width={size} height={size} alt="" />;
@@ -36,7 +30,6 @@ export default async function Home() {
           <a className="search-link" href="/search" aria-label={plain(t.nav.search)} title={plain(t.nav.search)}><img src="/icons/search.svg" alt="" width="22" height="22" /></a>
           <LanguageSwitcher furigana={furigana} />
           <ThemeToggle />
-          <a className="button button-compact" href="#sponsor"><Ruby text={t.nav.sponsor} /></a>
           <MobileNavigation furigana={furigana} />
         </div>
       </header>
@@ -66,7 +59,12 @@ export default async function Home() {
           <div className="quick-inner">
             <h2 id="quick-show-title"><Ruby text={t.show.homeHeading} /></h2>
             <p className="quick-intro"><Ruby text={t.show.homeText} /></p>
-            <QuickPick headingLevel={3} />
+            {/* The first eight tiles, with a button for the rest, keep the homepage short on phones. */}
+            <QuickPick headingLevel={3} limit={8} />
+            <div className="prototype-links">
+              <a className="text-link" href="/models"><Ruby text={t.collection.allModels} /> <Icon name="arrow_forward" /></a>
+              <a className="text-link" href="/head-neck/"><Ruby text={t.collection.moreHeadNeck} /> <Icon name="arrow_forward" /></a>
+            </div>
             <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
           </div>
         </section>
@@ -111,40 +109,6 @@ export default async function Home() {
           <ModelExperience />
         </section>
 
-        <section className="showcase-section" id="showcase" aria-labelledby="showcase-title">
-          <div className="section-heading split-heading">
-            <div><h2 id="showcase-title"><Ruby text={t.showcase.heading} /></h2><p><Ruby text={t.showcase.text} /></p></div>
-            <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.showcase.label} /></div>
-          </div>
-          <ul className="library-grid showcase-grid" aria-label={plain(t.showcase.label)}>
-            {sortBySpecialty(showcase, t.library.items, locale).map((model) => {
-              const item = t.library.items[model.slug];
-              return (
-                <li key={model.slug} className="library-card">
-                  <a href={model.href} className="library-card-link">
-                    <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
-                    <div className="library-card-body">
-                      <p className="library-meta"><Ruby text={item.specialty} /></p>
-                      <h3><Ruby text={item.title} /></h3>
-                      <p><Ruby text={item.summary} /></p>
-                      <ul className="library-tags" aria-label={plain(t.library.factsLabel)}>
-                        <li><Ruby text={item.pairing} /></li>
-                        <li><Ruby text={t.library.notReviewed} /></li>
-                      </ul>
-                    </div>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <p className="prototype-note"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <a href={disclaimerHref}><Ruby text={t.disclaimer.full} /></a></p>
-          <div className="prototype-links">
-            <h3><Ruby text={t.collection.moreHeading} /></h3>
-            <a className="text-link" href="/head-neck/"><Ruby text={t.collection.moreHeadNeck} /> <Icon name="arrow_forward" /></a>
-            <a className="text-link" href="/models"><Ruby text={t.collection.allModels} /> <Icon name="arrow_forward" /></a>
-          </div>
-        </section>
-
         <section className="understanding-section" id="how-it-works">
           <div className="section-heading compact-heading"><h2><Ruby text={t.understanding.heading} /></h2><p><Ruby text={t.understanding.text} /></p></div>
           <div className="understanding-paths">
@@ -157,27 +121,6 @@ export default async function Home() {
         <section className="print-section">
           <figure className="print-compare"><div className="print-compare-images"><img src="/assets/renders/wisdom-tooth-print-buccal.webp" alt={plain(t.print.imageAlt)} width="1616" height="500" /><img src="/assets/renders/wisdom-tooth-print-lingual.webp" alt={plain(t.print.imageAltLingual)} width="1616" height="500" loading="lazy" /></div><figcaption className="figure-note"><Ruby text={t.print.caption} /></figcaption></figure>
           <div className="print-copy"><h2><Ruby text={t.print.heading} /></h2><p><Ruby text={t.print.text} /></p><a className="text-link" href="/models/impacted-wisdom-tooth"><Ruby text={t.print.download} /> <Icon name="download" /></a></div>
-        </section>
-
-        <section className="wisdom-cases">
-          <div className="clinical-images" id="clinical-images">
-            <h3><Ruby text={t.clinical.heading} /></h3>
-            <p className="clinical-note"><Ruby text={t.clinical.note} /></p>
-            <div className="clinical-grid">
-              {clinicalImages.map((image, index) => {
-                const text = t.clinical.images[image.key];
-                return (
-                  <figure key={image.key} className="clinical-figure" id={`img-${index + 1}`}>
-                    <img src={image.src} width={image.width} height={image.height} loading="lazy" alt={plain(text.alt)} />
-                    <figcaption>
-                      <Ruby text={text.caption} />
-                      <span className="clinical-credit">{plain(t.clinical.credit)}: <span lang="en">{image.credit} <a className="url" href={image.href} target="_blank" rel="noreferrer">{image.href.replace('https://', '')}</a>.</span> {plain(t.clinical.licence)}: <a href={image.licence.href} target="_blank" rel="noreferrer" lang="en">{image.licence.name}</a>. {plain(t.clinical.changes)}: <span lang="en">{image.changes}</span></span>
-                    </figcaption>
-                  </figure>
-                );
-              })}
-            </div>
-          </div>
         </section>
 
         <section className="trust-section" id="trust">

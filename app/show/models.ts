@@ -14,7 +14,7 @@ const ortho = '/orthognathic/models/';
 const abgOptions = ['option-implant', 'option-bridge', 'option-denture'];
 
 export const showSpecs: Record<string, ShowSpec> = {
-  'impacted-wisdom-tooth': { views: [
+  'impacted-wisdom-tooth': { orbit: '90deg 80deg auto', views: [
     { id: 'impacted', glb: '/models/impacted-molar.glb', label: 'impacted' },
     { id: 'normal', glb: '/models/wisdom-tooth-normal.glb', label: 'normal' },
   ] },
