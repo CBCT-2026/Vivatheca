@@ -28,7 +28,9 @@
     if (ja.title) document.title = plain(ja.title);
     const meta = document.querySelector('meta[name="description"]');
     if (meta && ja.description) meta.content = plain(ja.description);
-    document.querySelectorAll('[data-i18n]').forEach((el) => { const s = ja[el.dataset.i18n]; if (s) el.innerHTML = ruby(s); });
+    // Text not yet translated stays English: mark it lang="en" so it hyphenates (small gaps in justified
+    // lines) and screen readers read it in English.
+    document.querySelectorAll('[data-i18n]').forEach((el) => { const s = ja[el.dataset.i18n]; if (s) el.innerHTML = ruby(s); else el.lang = 'en'; });
     document.querySelectorAll('[data-i18n-aria]').forEach((el) => { const s = ja[el.dataset.i18nAria]; if (s) el.setAttribute('aria-label', plain(s)); });
     document.querySelectorAll('[data-i18n-alt]').forEach((el) => { const s = ja[el.dataset.i18nAlt]; if (s) el.setAttribute('alt', plain(s)); });
   }

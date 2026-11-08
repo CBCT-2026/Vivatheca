@@ -82,7 +82,8 @@ for (const file of css) {
     const selectors = m[1].split(',').map((s) => s.trim());
     if (!/text-align\s*:\s*(left|start)\b/.test(m[2])) continue;
     for (const sel of selectors) {
-      if (/(^|[\s>+~])p$/.test(sel) && !allowed('justify', file)) fail(file, 'justify', `"${sel}" left-aligns paragraphs; paragraph text must be justified`);
+      // Running text: paragraphs, figure captions, name sources and credits (pnpm check:justify checks the rendered pages).
+      if (/(^|[\s>+~])(p|figcaption|\.term-sources|\.credit|\.clinical-credit|\.figure-note)$/.test(sel) && !allowed('justify', file)) fail(file, 'justify', `"${sel}" left-aligns paragraphs; paragraph text must be justified`);
     }
   }
 }
@@ -99,7 +100,9 @@ for (const file of css) {
 }
 
 for (const base of ['app/globals.css', 'public/site-header.css']) {
-  if (!/(^|[\s,}])p\s*\{[^}]*text-align\s*:\s*justify/.test(read(base))) fail(base, 'justify', 'base rule "p { text-align: justify }" is missing');
+  const src = read(base).replace(/\/\*[\s\S]*?\*\//g, '');
+  const ok = [...src.matchAll(/([^{}]+)\{([^{}]*)\}/g)].some((m) => /text-align\s*:\s*justify/.test(m[2]) && m[1].split(',').some((s) => s.trim() === 'p'));
+  if (!ok) fail(base, 'justify', 'base rule "p { text-align: justify }" is missing');
 }
 
 // --- Neutral wording: no gendered pronouns in English site text

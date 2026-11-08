@@ -15,6 +15,7 @@
     "check:glb": "node tools/glb/validate.mjs",
     "check:rules": "node tools/rules/check.mjs",
     "check:dois": "node tools/rules/dois.mjs",
+    "check:justify": "node tools/rules/justify.mjs",
     "sitemap": "node tools/seo/sitemap.mjs",
     "jsonld": "node tools/jsonld/build.mjs",
     "check:codes": "node tools/jsonld/build.mjs --verify",

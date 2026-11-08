@@ -108,21 +108,22 @@
 }
 @media print { .vt-header { position: static; } .vt-menu, .vt-actions { display: none; } }
 
-/* Site rule (2026-11-06): all paragraph text is justified, on every page and in every language.
+/* Site rule (2026-11-06, made complete 2026-11-08): ALL running text is justified, on every page, in every
+   language and theme: paragraphs, list items, definitions, quotes, figure captions, name sources and
+   image credits. Never set text-align: start/left on running text. pnpm check:justify enforces it in CI.
    Every static page loads this file, so the rule lives here (the app pages use app/globals.css). See DESIGN.md. */
-p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-p:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
-/* Long list items, definitions and reference lists follow the same rule (Luke, 2026-11-07).
-   Single-line items look the same either way, because the last line of a justified block stays left. */
-li, dd, blockquote { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+p, li, dd, blockquote, figcaption, .figure-note, .term-sources, .credit, .clinical-credit {
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+  /* Hyphenate words of 6+ letters (2 before, 3 after the break) so phone lines keep small gaps. */
+  hyphenate-limit-chars: 6 2 3; overflow-wrap: break-word;
+  text-wrap: pretty; /* Safari balances the whole paragraph, which also evens out word gaps */
+}
+:where(p, li, dd, blockquote, figcaption, .figure-note, .term-sources, .credit, .clinical-credit):lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
 nav li, menu li, li:has(img, picture, video) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* link lists and picture cards stay ragged */
 li :where(h1, h2, h3, h4, h5, h6) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* card titles inside list items */
-li:lang(ja), dd:lang(ja), blockquote:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
 /* A printed web address or DOI cannot hyphenate, so it would leave wide gaps in a justified line:
-   let it break at any character instead. */
+   let it break at any character instead. Links inside citations and credits do the same. */
 .url { word-break: break-all; hyphens: none; -webkit-hyphens: none; }
+:where(.term-sources, .credit, .clinical-credit, .figure-note) a { overflow-wrap: anywhere; }
 /* Source numbers: a comma between adjacent numbers only (class set by site-header.js). */
 sup.cite.cite-more::before { content: ","; }
-/* Reference lines (name sources, image credits) are citations, not prose: justifying their long
-   unbreakable titles and DOIs leaves wide gaps, so they start-align. Body paragraphs stay justified. */
-.term-sources, .credit, .clinical-credit { text-align: start; hyphens: manual; -webkit-hyphens: manual; }

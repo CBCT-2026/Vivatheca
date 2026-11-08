@@ -185,7 +185,7 @@ th { font-size: 12px; color: var(--muted); font-weight: 700; }
 .clinical-note { font-size: 14px; color: var(--muted); }
 .clin-fig { margin: 14px 0 0; }
 .clin-fig img { display: block; width: 100%; height: auto; border-radius: 10px; background: #000; border: 1px solid var(--line); box-sizing: border-box; }
-.clin-fig figcaption { font-size: 14px; margin-top: 6px; text-align: left; }
+.clin-fig figcaption { font-size: 14px; margin-top: 6px; }
 .clin-fig .credit { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; overflow-wrap: anywhere; }
 
 /* Desktop: the 3D viewer breaks out of the text column so the model is large on laptop screens. */

@@ -1,0 +1,36 @@
+name: Justified text
+
+# Justified-Paragraph Rule (DESIGN.md): every block of running text on every page is justified.
+# Builds the site, starts it, and checks every page in public/sitemap.xml (plus unlisted app routes)
+# in English, Japanese and Vietnamese, at desktop and phone width, in light and dark theme.
+# Free: Chromium on a GitHub runner, no API calls.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: justified-text-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  justify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm build
+      - run: |
+          pnpm start > /tmp/server.log 2>&1 &
+          npx -y wait-on@8.0.3 -t 120000 http://127.0.0.1:3000/
+      - run: pnpm check:justify

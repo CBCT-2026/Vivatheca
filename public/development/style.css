@@ -153,7 +153,7 @@ rt { font-size: .5em; font-weight: 500; line-height: 1; user-select: none; }
 details.surgical { margin: 14px 0 0; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
 details.surgical summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; font-size: 15px; color: var(--accent); }
 details.surgical .clin-fig { margin-top: 8px; }
-.clin-fig figcaption, .clin-fig .credit { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
+/* figure captions and credits follow the site-wide justified rule (public/site-header.css) */
 .clin-fig img { border: 1px solid var(--line); box-sizing: border-box; }
 
 /* Desktop: the 3D viewer breaks out of the 640 px text column so the model is large on laptop screens.
