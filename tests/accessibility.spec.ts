@@ -27,6 +27,7 @@ const pages = [
   '/learn/periodontitis',
   '/learn/slices',
   '/models/averaged-jaw',
+  '/visit-pack',
 ];
 
 const variants: { name: string; lang: 'en' | 'ja'; theme: 'light' | 'dark' }[] = [

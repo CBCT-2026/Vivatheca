@@ -137,6 +137,14 @@ async function appText() {
     const c = d.clinical;
     const captions = Object.values(c.images).map((img) => `<p>${ruby(img.caption)}</p>`).join('\n');
     files[`app-wisdom-tooth-images.${lang}.html`] = doc(lang, 'Wisdom tooth X-rays and scans (homepage)', `<h2>${ruby(c.heading)}</h2>\n<p>${ruby(c.note)}</p>\n${captions}`);
+    // Visit pack take-home text (/visit-pack, app/visit-pack/page.tsx): what the patient takes home.
+    for (const [slug, mt] of Object.entries(d.visitPack.models)) {
+      const cite = (t) => ruby(t).replace(/\[(\d+)\]/g, '<sup class="cite">$1</sup>');
+      files[`app-visit-pack-${slug}.${lang}.html`] = doc(lang, `Visit pack: ${slug}`,
+        `<h2>${ruby(d.visitPack.picturesHeading)}</h2>\n<h2>${ruby(mt.heading)}</h2>\n${mt.text.map((t) => `<p>${cite(t)}</p>`).join('\n')}\n<p>${ruby(mt.note)}</p>\n` +
+        `<h3>${ruby(mt.questionsHeading)}</h3>\n<ul>${mt.questions.map((q) => `<li>${ruby(q)}</li>`).join('')}</ul>\n<p>${cite(mt.questionsSource)}</p>\n` +
+        `<h3>${ruby(d.visitPack.qrHeading)}</h3>\n<p>${ruby(d.visitPack.qrText)}</p>`);
+    }
     // Narrated videos on the app model pages (app/video-section.tsx). Static pages show theirs through
     // public/video-embed.js, so the static snapshots above already hold those words.
     const { videos } = await import(pathToFileURL(join(root, 'app/videos.ts')).href);

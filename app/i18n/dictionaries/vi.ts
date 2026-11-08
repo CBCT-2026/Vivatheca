@@ -2491,6 +2491,53 @@ const vi = withFallback(en, {
       "class3After": "Loại III sau",
       "class3Genio": "Loại III sau, có phẫu thuật cằm"
     }
+  },
+  "visitPack": {
+    "title": "Tài liệu mang về - Vivatheca",
+    "description": "Tạo một trang ngắn để bệnh nhân mang về: tối đa bốn góc nhìn đã lưu của mô hình Vivatheca, phần giải thích dễ hiểu có nguồn, và mã QR mở mô hình 3D.",
+    "eyebrow": "Dành cho nhân viên y tế",
+    "heading": "Tài liệu mang về",
+    "intro": "Tạo một trang ngắn để bệnh nhân mang về: tối đa bốn góc nhìn đã lưu của mô hình, phần giải thích dễ hiểu có nguồn, và mã QR mở mô hình 3D. Bắt đầu với mô hình răng khôn.",
+    "howHeading": "Cách tạo tài liệu mang về",
+    "how": [
+      "Mở mô hình răng khôn và xoay đến góc nhìn bạn muốn cho bệnh nhân xem.",
+      "Trong mục “Dùng mô hình này”, nhấn “Thêm góc nhìn vào tài liệu mang về”. Hoặc nhấn “Vẽ lên hình” để thêm mũi tên, vòng tròn hoặc nét vẽ trước, rồi nhấn “Thêm vào tài liệu mang về”.",
+      "Thêm từ hai đến bốn góc nhìn, rồi mở tài liệu mang về và in ra hoặc lưu thành PDF."
+    ],
+    "privacy": "Các ảnh chỉ nằm trong thẻ trình duyệt này và sẽ bị xóa khi bạn đóng thẻ. Không có gì được gửi đến Vivatheca và không lưu thông tin nào về bệnh nhân. Không viết hoặc vẽ bất cứ điều gì có thể nhận ra bệnh nhân.",
+    "preview": "Trong thời gian Vivatheca còn xem trước riêng tư, mã QR chỉ mở được với người có mật khẩu của trang.",
+    "empty": "Tài liệu mang về đang trống.",
+    "emptyLink": "Mở mô hình răng khôn",
+    "count": "{n} trên {max} góc nhìn",
+    "print": "In hoặc lưu thành PDF",
+    "clear": "Xóa hết tài liệu mang về",
+    "remove": "Bỏ góc nhìn {n}",
+    "picturesHeading": "Hình ảnh từ buổi khám của bạn",
+    "drawn": "có hình vẽ",
+    "qrHeading": "Xem mô hình 3D tại nhà",
+    "qrText": "Quét mã để xoay mô hình trên điện thoại hoặc máy tính xách tay.",
+    "qrAlt": "Mã QR mở mô hình 3D trên Vivatheca",
+    "sourcesHeading": "Nguồn",
+    "citeLabel": "Nguồn {n}",
+    "madeWith": "Tạo bằng Vivatheca, mô hình 3D giáo dục miễn phí.",
+    "models": {
+      "impacted-wisdom-tooth": {
+        "heading": "Răng khôn hàm dưới của bạn",
+        "text": [
+          "Răng khôn là răng cuối cùng ở phía trong cùng của miệng. Đôi khi răng không mọc lên hết được, vì răng bị nghiêng hoặc không đủ chỗ. Nha sĩ gọi đây là răng khôn mọc kẹt (mọc ngầm).[1]",
+          "Có một dây thần kinh chạy bên trong xương hàm dưới, bên dưới các răng hàm. Dây thần kinh này cho cảm giác ở môi dưới và cằm. Ở một số người, chân răng khôn nằm gần dây thần kinh này.[2][3]",
+          "Không phải răng khôn mọc ngầm nào cũng cần nhổ. Nha sĩ sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[4]"
+        ],
+        "note": "Các hình là mô hình 3D, không phải phim X-quang hay ảnh chụp của chính bạn.",
+        "questionsHeading": "Những câu bạn có thể hỏi",
+        "questions": [
+          "Tôi có những lựa chọn nào?",
+          "Mỗi lựa chọn có thể có lợi ích và tác hại gì?",
+          "Khả năng những lợi ích và tác hại đó xảy ra với tôi là bao nhiêu?"
+        ],
+        "questionsSource": "Ba câu hỏi này đến từ một nghiên cứu cho thấy chúng giúp người bệnh nhận được thông tin tốt hơn về các lựa chọn của mình.[5]"
+      }
+    }
   }
 });
 

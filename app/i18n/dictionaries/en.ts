@@ -1924,6 +1924,53 @@ const en = {
       class3Genio: 'Class III after, with chin surgery',
     },
   },
+  visitPack: {
+    title: 'Visit pack - Vivatheca',
+    description: 'Make one short take-home page for a patient: up to four saved views of a Vivatheca model, plain-language notes with sources, and a QR code to the 3D model.',
+    eyebrow: 'For clinicians',
+    heading: 'Visit pack',
+    intro: 'Make one short page for a patient to take home: up to four saved views of a model, plain-language notes with their sources, and a QR code that opens the 3D model. It starts with the wisdom tooth model.',
+    howHeading: 'How to make a visit pack',
+    how: [
+      'Open the wisdom tooth model and turn it to the view you want to show.',
+      'Under “Use this model”, press “Add view to visit pack”. Or press “Draw on it” to add arrows, circles or lines first, then “Add to visit pack”.',
+      'Add two to four views, then open the visit pack and print it or save it as a PDF.',
+    ],
+    privacy: 'The pictures stay only in this browser tab and are deleted when you close it. Nothing is sent to Vivatheca and nothing about the patient is stored. Do not write or draw anything that could identify the patient.',
+    preview: 'While Vivatheca is in private preview, the QR code only opens for people who have the site password.',
+    empty: 'The visit pack is empty.',
+    emptyLink: 'Open the wisdom tooth model',
+    count: '{n} of {max} views',
+    print: 'Print or save as PDF',
+    clear: 'Empty the visit pack',
+    remove: 'Remove view {n}',
+    picturesHeading: 'Pictures from your visit',
+    drawn: 'with drawing',
+    qrHeading: 'See the 3D model at home',
+    qrText: 'Scan the code to turn the model around on a phone or laptop.',
+    qrAlt: 'QR code that opens the 3D model on Vivatheca',
+    sourcesHeading: 'Sources',
+    citeLabel: 'Source {n}',
+    madeWith: 'Made with Vivatheca, free educational 3D models.',
+    models: {
+      'impacted-wisdom-tooth': {
+        heading: 'Your lower wisdom tooth',
+        text: [
+          'A wisdom tooth is the last tooth at the back of the mouth. Sometimes it cannot come through all the way, because it leans over or there is not enough room. Dentists call this a stuck (impacted) wisdom tooth.[1]',
+          'A nerve runs inside the lower jaw, below the back teeth. It gives feeling to the lower lip and chin. In some people, the roots of the wisdom tooth are close to this nerve.[2][3]',
+          'Not every stuck wisdom tooth needs to come out. Your dentist will talk with you about the choices and what each one could mean for you.[4]',
+        ],
+        note: 'The pictures show a 3D model, not your own X-ray or scan.',
+        questionsHeading: 'Questions you can ask',
+        questions: [
+          'What are my options?',
+          'What are the possible benefits and harms of those options?',
+          'How likely are each of those benefits and harms to happen to me?',
+        ],
+        questionsSource: 'These three questions come from a study. It found that they help people get better facts about their choices.[5]',
+      },
+    },
+  },
 };
 
 type Widen<T> = T extends string ? string : T extends readonly (infer U)[] ? Widen<U>[] : { [K in keyof T]: Widen<T[K]> };

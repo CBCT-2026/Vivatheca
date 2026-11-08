@@ -10,7 +10,7 @@ import { join } from 'node:path';
 
 const root = process.cwd();
 const ORIGIN = 'https://vivatheca.com';
-const SKIP = new Set(['/admin', '/collection', '/search', '/create', '/show', '/print']);
+const SKIP = new Set(['/admin', '/collection', '/search', '/create', '/show', '/print', '/visit-pack']);
 
 const routes = new Set();
 (function walk(dir) {
