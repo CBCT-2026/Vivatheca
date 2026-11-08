@@ -266,10 +266,10 @@ def build(folder, out):
                 labels = [cutlab[part] if l == 'cut' else l for l in labels]
                 if part == 'teeth':
                     # enamel / dentine / cementum, with each tooth's own CEJ and apex (nearest along the arch)
-                    ij = ((m.triangles_center[:, :2] - G.origin[:2]) / PITCH).T
-                    cej_f = ndimage.map_coordinates(Zc, ij, order=1, mode='nearest')
-                    apex_f = ndimage.map_coordinates(Apz, ij, order=1, mode='nearest')
-                    labels = endo.layer_labels(G, m, labels, T, cej_f, apex_f, outer=False)
+                    ij = lambda p: ((p[:, :2] - G.origin[:2]) / PITCH).T
+                    cej_f = lambda p: ndimage.map_coordinates(Zc, ij(p), order=1, mode='nearest')
+                    apex_f = lambda p: ndimage.map_coordinates(Apz, ij(p), order=1, mode='nearest')
+                    m, labels = endo.layer_labels(G, m, labels, T, cej_f, apex_f, outer=False)
                     # outer=False: the estimated CEJ sits just above the drawn gum margin, so a cementum band would
                     # look like gum recession; the outer surface stays tooth white and only the cut face is layered.
                 g.add(part, m, labels)
