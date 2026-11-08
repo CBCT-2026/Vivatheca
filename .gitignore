@@ -57,3 +57,4 @@ __pycache__/
 tools/segment/out/
 .lighthouseci/
 /build/tmd/
+/build/wisdom-options/

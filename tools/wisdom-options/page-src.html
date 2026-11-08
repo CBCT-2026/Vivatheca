@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wisdom tooth close to the nerve: surgical removal or coronectomy | Vivatheca</title>
+<meta name="description" content="Two ways to treat a lower wisdom tooth whose roots are close to the nerve, side by side: surgical removal and coronectomy, each with a 3D model and cited benefits and harms.">
+<link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="manifest" href="/site.webmanifest?v=2">
+<meta name="robots" content="noindex">
+<!-- Generated from tools/wisdom-options/page-src.html by tools/wisdom-options/gen.py (kanji|kana pairs in braces mark furigana; lang="vi" twins go to vi.js). Edit the source, not this file. -->
+<script>
+try { if (localStorage.getItem('vivatheca-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}
+// Language and furigana use the same cookies as the rest of the site (app/i18n/config.ts).
+(function () { const c = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1];
+  if (c('vivatheca-lang') === 'ja' || c('vivatheca-lang') === 'vi') document.documentElement.lang = c('vivatheca-lang');
+  document.documentElement.dataset.furigana = c('vivatheca-furigana') === 'off' ? 'off' : 'on'; })();
+// The models are Draco-compressed; the decoder is served from this site (shared with /development/).
+self.ModelViewerElement = { dracoDecoderLocation: new URL('/development/vendor/draco/', location.href).href };
+</script>
+<link rel="stylesheet" href="/development/style.css">
+<style>
+  /* Show only the visitor's language (the language switcher buttons always show). */
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button), html[lang="vi"] [lang="ja"]:not(#langs button) { display: none !important; }
+  main { max-width: 1120px; }
+  main > section, main > p, main > h1, .intro { max-width: 760px; }
+  main > section.options, main > section.compare-wrap { max-width: none; }
+  .options { display: grid; grid-template-columns: 1fr; gap: 0 28px; }
+  @media (min-width: 900px) { .options { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .option { border: 0; padding: 0 0 18px; min-width: 0; }
+  .option h2 { margin-top: 6px; }
+  .option .kicker { margin: 0 0 8px; color: var(--muted); font-size: 15px; }
+  .option model-viewer { height: 46vh; min-height: 300px; max-height: 460px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 6px; margin: 10px 0 0; }
+  .steps button { min-height: 48px; padding: 6px 6px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; cursor: pointer; }
+  .steps button small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .steps button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  .step { background: var(--card); border-radius: 12px; padding: 10px 14px; margin: 10px 0 0; }
+  .step p { margin: 0; }
+  .step .alt { display: none !important; }
+  .views { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 6px; }
+  .views button { min-height: 44px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--accent); font: inherit; font-size: 15px; cursor: pointer; }
+  .views button[aria-pressed="true"] { background: var(--card); border-color: var(--accent); }
+  .dot.tooth { background: #e5dac6; } .dot.bone { background: #ab987f; } .dot.nerve { background: #e28a08; }
+  .dot.cut { background: #ecd7ae; } .dot.removed { background: rgba(232, 120, 40, .6); }
+  .legend .dot { border: 1px solid rgba(0, 0, 0, .25); }
+  .status { font-weight: 700; color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 8px 0; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { color: var(--heading); background: var(--card); }
+  tbody th { color: var(--heading); font-weight: 600; width: 22%; }
+  td.num { font-variant-numeric: tabular-nums; }
+  .think li { margin: 4px 0; }
+  .clin-fig { margin: 14px 0; }
+  .clin-fig img { width: 100%; height: auto; border-radius: 10px; background: #000; display: block; }
+  .clin-figs { display: grid; grid-template-columns: 1fr; gap: 0 24px; }
+  @media (min-width: 900px) { .clin-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  details.clin summary { cursor: pointer; font-weight: 600; color: var(--heading); }
+</style>
+<script type="module" src="/development/vendor/model-viewer/model-viewer.min.js"></script>
+<link rel="stylesheet" href="/site-header.css">
+<!-- vt:jsonld -->
+<!-- /vt:jsonld -->
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <a class="brand-home" href="/" style="display:inline-flex;align-items:center;line-height:0"><img src="/brand/vivatheca-logo-primary.svg" alt="Vivatheca" width="53" height="40" style="height:40px;width:auto;background:#fff;border-radius:6px"></a>
+    <a class="lang" href="/"><span lang="en">Vivatheca home</span><span lang="vi">Trang chủ Vivatheca</span><span lang="ja">Vivatheca ホーム</span></a>
+    <a class="lang" href="/models"><span lang="en">All models</span><span lang="vi">Tất cả mô hình</span><span lang="ja">{模型|もけい}{一覧|いちらん}</span></a>
+    <button class="theme" id="theme" type="button">Dark mode</button>
+  </div>
+  <div class="langs" id="langs" role="group" aria-label="Language"></div>
+</header>
+<script src="/site-header.js"></script>
+
+<main>
+  <p class="small"><a href="/models/impacted-wisdom-tooth"><span lang="en">Impacted wisdom tooth model</span><span lang="vi">Mô hình răng khôn mọc ngầm</span><span lang="ja">{埋伏|まいふく}した{親知|おやし}らずの{模型|もけい}</span></a> /</p>
+  <h1><span lang="en"><span class="pitk-skip">Mandibular third molar close to the inferior alveolar nerve: surgical removal or coronectomy</span></span><span lang="vi"><span class="pitk-skip">Răng cối lớn thứ ba hàm dưới sát dây thần kinh huyệt răng dưới: phẫu thuật nhổ hay cắt thân răng</span></span><span lang="ja"><span class="pitk-skip">{下歯槽神経|かしそうしんけい}に{近|ちか}い{下顎|かがく}{第三大臼歯|だいさんだいきゅうし}：{抜歯|ばっし}か{歯冠|しかん}{切除|せつじょ}（コロネクトミー）か</span></span></h1>
+  <p class="small term-sources"><span lang="en">Terms:</span><span lang="vi">Thuật ngữ:</span><span lang="ja">{用語|ようご}：</span> <a href="https://www.rcseng.ac.uk/-/media/Files/RCS/FDS/3rd-molar-guidelines--April-2021-v3.pdf">Faculty of Dental Surgery, Royal College of Surgeons of England. Parameters of care for patients undergoing mandibular third molar surgery. 2020.</a></p>
+
+  <div class="intro">
+    <div lang="en">
+      <p>This page is for a lower wisdom tooth that needs to come out. An X-ray or scan shows its roots close to the nerve. That nerve gives feeling to your lower lip and chin.<sup class="cite"><a href="#ref-14">14</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Your surgeon may offer two ways to treat it. In surgical removal, the whole tooth comes out. In coronectomy, only the top of the tooth (the crown) comes out, and the roots stay.<sup class="cite"><a href="#ref-1">1</a></sup> Here you can see the two side by side, with a 3D model for each. Use them to talk it through with your surgeon. This page does not choose for you.</p>
+    </div>
+    <div lang="vi">
+      <p>Trang này dành cho một răng khôn hàm dưới cần lấy đi, khi phim X-quang hoặc phim chụp cho thấy chân răng nằm sát dây thần kinh. Dây thần kinh này cho cảm giác ở môi dưới và cằm của bạn.<sup class="cite"><a href="#ref-14">14</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Bác sĩ phẫu thuật có thể đưa ra hai cách điều trị. Khi phẫu thuật nhổ răng, cả chiếc răng được lấy ra. Khi cắt thân răng, chỉ phần trên của răng (thân răng) được lấy ra, còn chân răng được giữ lại.<sup class="cite"><a href="#ref-1">1</a></sup> Hai cách được đặt cạnh nhau ở đây, mỗi cách có một mô hình 3D, để giúp bạn trao đổi với bác sĩ. Trang này không chọn thay cho bạn.</p>
+    </div>
+    <div lang="ja">
+      <p>このページは、{抜|ぬ}く{必要|ひつよう}がある{下|した}の{親知|おやし}らずで、レントゲンやCTで{根|ね}が{神経|しんけい}に{近|ちか}い{場合|ばあい}のためのものです。この{神経|しんけい}は、{下|した}くちびるとあごの{感覚|かんかく}を{伝|つた}えます。<sup class="cite"><a href="#ref-14">14</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>{治療|ちりょう}の{方法|ほうほう}は2つあります。1つは{歯|は}を{全部|ぜんぶ}{抜|ぬ}く{方法|ほうほう}です。もう1つはコロネクトミーで、{歯|は}の{頭|あたま}だけを{取|と}り、{根|ね}は{残|のこ}します。<sup class="cite"><a href="#ref-1">1</a></sup>ここでは2つを3Dモデルで{並|なら}べました。{担当|たんとう}の{先生|せんせい}と{話|はな}し{合|あ}うための{資料|しりょう}で、どちらがよいかを{決|き}めるものではありません。</p>
+    </div>
+  </div>
+
+  <p class="small"><span lang="en"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></span><span lang="vi"><span class="status">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></span><span lang="ja"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+
+  <div class="views" role="group" aria-label="Turn both models to">
+    <button type="button" data-orbit="75deg 70deg 0.17m" aria-pressed="true"><span lang="en">Cheek side</span><span lang="vi">Phía má</span><span lang="ja">ほお{側|がわ}</span></button>
+    <button type="button" data-orbit="40deg 35deg 0.18m" aria-pressed="false"><span lang="en">From above</span><span lang="vi">Nhìn từ trên</span><span lang="ja">{上|うえ}から</span></button>
+    <button type="button" data-orbit="-110deg 70deg 0.17m" aria-pressed="false"><span lang="en">Tongue side</span><span lang="vi">Phía lưỡi</span><span lang="ja">{舌|した}{側|がわ}</span></button>
+    <button type="button" data-orbit="75deg 75deg 0.3m" aria-pressed="false"><span lang="en">Whole jaw</span><span lang="vi">Cả hàm</span><span lang="ja">あご{全体|ぜんたい}</span></button>
+  </div>
+
+  <section class="options" aria-label="The two options">
+    <section class="option" id="removal" aria-labelledby="removal-h">
+      <h2 id="removal-h"><span lang="en">Option 1: surgical removal</span><span lang="vi">Cách 1: phẫu thuật nhổ răng</span><span lang="ja">{方法|ほうほう}1：{歯|は}を{全部|ぜんぶ}{抜|ぬ}く</span></h2>
+      <p class="kicker"><span lang="en">The whole tooth comes out.</span><span lang="vi">Cả chiếc răng được lấy ra.</span><span lang="ja">{歯|は}を{全部|ぜんぶ}{取|と}り{出|だ}します。</span></p>
+      <model-viewer src="/models/impacted-molar.glb" alt="Lower left jaw seen from the cheek side, with the wisdom tooth tilted forward against the tooth in front. The yellow nerve runs between its roots."
+        camera-controls camera-target="-0.033m -0.010m -0.060m" camera-orbit="75deg 70deg 0.17m" min-camera-orbit="auto auto 0.03m" touch-action="pan-y" interaction-prompt="auto"
+        shadow-intensity="0.8" exposure="0.9" loading="eager">
+        <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+      </model-viewer>
+      <div class="steps" role="group" aria-label="Steps of surgical removal">
+        <button type="button" data-src="/models/impacted-molar.glb" aria-pressed="true"><span lang="en">Before</span><span lang="vi">Trước</span><span lang="ja">{前|まえ}</span><small lang="en">roots around the nerve</small><small lang="vi">chân răng quanh dây thần kinh</small><small lang="ja">{根|ね}が{神経|しんけい}を{囲|かこ}む</small></button>
+        <button type="button" data-src="models/removal-during.glb" aria-pressed="false"><span lang="en">During</span><span lang="vi">Trong khi làm</span><span lang="ja">{手術|しゅじゅつ}{中|ちゅう}</span><small lang="en">bone removed, tooth cut</small><small lang="vi">bỏ bớt xương, cắt răng</small><small lang="ja">{骨|ほね}を{削|けず}り{歯|は}を{分|わ}ける</small></button>
+        <button type="button" data-src="models/removal-after.glb" aria-pressed="false"><span lang="en">After</span><span lang="vi">Sau</span><span lang="ja">{後|あと}</span><small lang="en">whole tooth out</small><small lang="vi">cả răng đã lấy ra</small><small lang="ja">{歯|は}はすべてない</small></button>
+      </div>
+      <div class="step" data-step="0" aria-live="polite">
+        <p lang="en">The wisdom tooth is tilted forward against the tooth in front. Its roots lie around the nerve (yellow). Part of the cheek-side bone is cut away in this model so you can see inside.</p>
+        <p lang="vi">Răng khôn nghiêng về phía trước, tựa vào răng phía trước. Chân răng nằm quanh dây thần kinh (màu vàng). Trong mô hình này, một phần xương phía má được cắt bỏ để bạn nhìn thấy bên trong.</p>
+        <p lang="ja">{親知|おやし}らずは{前|まえ}の{歯|は}にもたれるように{傾|かたむ}いています。{根|ね}は{神経|しんけい}（{黄色|きいろ}）を{囲|かこ}んでいます。{中|なか}が{見|み}えるよう、ほお{側|がわ}の{骨|ほね}の{一部|いちぶ}を{取|と}り{除|のぞ}いて{表示|ひょうじ}しています。</p>
+        <span class="alt" lang="en">Lower left jaw seen from the cheek side, with the wisdom tooth tilted forward against the tooth in front. The yellow nerve runs between its roots.</span>
+        <span class="alt" lang="ja">ほお{側|がわ}から{見|み}た{左下|ひだりした}のあご。{親知|おやし}らずが{前|まえ}の{歯|は}にもたれて{傾|かたむ}き、{黄色|きいろ}の{神経|しんけい}が{根|ね}のあいだを{通|とお}っています。</span>
+      </div>
+      <div class="step" data-step="1" aria-live="polite" hidden>
+        <p lang="en">The surgeon opens the gum and drills away some bone around the crown (orange). Then the tooth is cut into pieces: the crown, and the roots one by one. Each piece comes out on its own, so less force is needed.<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></p>
+        <p lang="vi">Bác sĩ mở lợi và khoan bỏ một ít xương quanh thân răng (màu cam). Sau đó răng được cắt thành nhiều mảnh: thân răng, rồi từng chân răng. Mỗi mảnh được lấy ra riêng, nên cần ít lực hơn.<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></p>
+        <p lang="ja">{歯|は}ぐきを{開|ひら}き、{歯|は}の{頭|あたま}のまわりの{骨|ほね}（オレンジ）を{少|すこ}し{削|けず}ります。{次|つぎ}に{歯|は}を{頭|あたま}と{根|ね}に{分|わ}け、{一|ひと}つずつ{取|と}り{出|だ}します。<sup class="cite"><a href="#ref-10">10</a></sup><sup class="cite"><a href="#ref-11">11</a></sup></p>
+        <span class="alt" lang="en">The same jaw during surgery. A see-through orange shape marks the bone removed around the crown. The crown has been cut off and lifted out, and the two roots are cut apart.</span>
+        <span class="alt" lang="ja">{手術|しゅじゅつ}{中|ちゅう}の{同|おな}じあご。{歯|は}の{頭|あたま}のまわりの{削|けず}る{骨|ほね}を{透明|とうめい}なオレンジで{示|しめ}しています。{頭|あたま}は{切|き}り{離|はな}されて{持|も}ち{上|あ}がり、2{本|ほん}の{根|ね}も{分|わ}かれています。</span>
+      </div>
+      <div class="step" data-step="2" aria-live="polite" hidden>
+        <p lang="en">All of the tooth is out. Nothing is left near the nerve, so there is nothing to check later. The gum is stitched, and the space fills with bone over the next months.<sup class="cite"><a href="#ref-11">11</a></sup></p>
+        <p lang="vi">Toàn bộ chiếc răng đã được lấy ra. Không còn gì sát dây thần kinh, nên sau này không cần theo dõi phần còn lại. Lợi được khâu lại, và chỗ trống được xương lấp đầy trong những tháng sau.<sup class="cite"><a href="#ref-11">11</a></sup></p>
+        <p lang="ja">{歯|は}はすべて{取|と}り{出|だ}されました。{神経|しんけい}の{近|ちか}くには{何|なに}も{残|のこ}りません。{歯|は}ぐきを{縫|ぬ}い、{数|すう}か{月|げつ}で{穴|あな}は{骨|ほね}で{埋|う}まります。<sup class="cite"><a href="#ref-11">11</a></sup></p>
+        <span class="alt" lang="en">The same jaw after surgery, with no wisdom tooth. The nerve runs alone where the roots were. The orange shape still marks the bone that was removed.</span>
+        <span class="alt" lang="ja">{手術|しゅじゅつ}{後|ご}の{同|おな}じあご。{親知|おやし}らずはなく、{根|ね}があったところを{神経|しんけい}だけが{通|とお}っています。{削|けず}った{骨|ほね}はオレンジのままです。</span>
+      </div>
+    </section>
+
+    <section class="option" id="coronectomy" aria-labelledby="coronectomy-h">
+      <h2 id="coronectomy-h"><span lang="en">Option 2: coronectomy</span><span lang="vi">Cách 2: cắt thân răng (coronectomy)</span><span lang="ja">{方法|ほうほう}2：コロネクトミー（{歯冠|しかん}だけを{取|と}る）</span></h2>
+      <p class="kicker"><span lang="en">The crown comes out. The roots stay in the bone.</span><span lang="vi">Thân răng được lấy ra. Chân răng ở lại trong xương.</span><span lang="ja">{歯|は}の{頭|あたま}を{取|と}り、{根|ね}は{骨|ほね}の{中|なか}に{残|のこ}します。</span></p>
+      <model-viewer src="/models/impacted-molar.glb" alt="Lower left jaw seen from the cheek side, with the wisdom tooth tilted forward against the tooth in front. The yellow nerve runs between its roots."
+        camera-controls camera-target="-0.033m -0.010m -0.060m" camera-orbit="75deg 70deg 0.17m" min-camera-orbit="auto auto 0.03m" touch-action="pan-y" interaction-prompt="auto"
+        shadow-intensity="0.8" exposure="0.9" loading="eager">
+        <div class="progress" slot="progress-bar"><div class="progress-fill"></div></div>
+      </model-viewer>
+      <div class="steps" role="group" aria-label="Steps of coronectomy">
+        <button type="button" data-src="/models/impacted-molar.glb" aria-pressed="true"><span lang="en">Before</span><span lang="vi">Trước</span><span lang="ja">{前|まえ}</span><small lang="en">roots around the nerve</small><small lang="vi">chân răng quanh dây thần kinh</small><small lang="ja">{根|ね}が{神経|しんけい}を{囲|かこ}む</small></button>
+        <button type="button" data-src="models/coronectomy-during.glb" aria-pressed="false"><span lang="en">During</span><span lang="vi">Trong khi làm</span><span lang="ja">{手術|しゅじゅつ}{中|ちゅう}</span><small lang="en">crown cut off</small><small lang="vi">cắt bỏ thân răng</small><small lang="ja">{頭|あたま}を{切|き}り{取|と}る</small></button>
+        <button type="button" data-src="models/coronectomy-after.glb" aria-pressed="false"><span lang="en">After</span><span lang="vi">Sau</span><span lang="ja">{後|あと}</span><small lang="en">roots left in place</small><small lang="vi">chân răng giữ lại</small><small lang="ja">{根|ね}は{残|のこ}る</small></button>
+        <button type="button" data-src="models/coronectomy-later.glb" aria-pressed="false"><span lang="en">Later</span><span lang="vi">Về sau</span><span lang="ja">{数年後|すうねんご}</span><small lang="en">roots move up</small><small lang="vi">chân răng nhích lên</small><small lang="ja">{根|ね}が{上|うえ}へ{動|うご}く</small></button>
+      </div>
+      <div class="step" data-step="0" aria-live="polite">
+        <p lang="en">The same tooth as in option 1. Its roots lie around the nerve (yellow). Part of the cheek-side bone is cut away in this model so you can see inside.</p>
+        <p lang="vi">Cùng chiếc răng như ở cách 1. Chân răng nằm quanh dây thần kinh (màu vàng). Trong mô hình này, một phần xương phía má được cắt bỏ để bạn nhìn thấy bên trong.</p>
+        <p lang="ja">{方法|ほうほう}1と{同|おな}じ{歯|は}です。{根|ね}は{神経|しんけい}（{黄色|きいろ}）を{囲|かこ}んでいます。{中|なか}が{見|み}えるよう、ほお{側|がわ}の{骨|ほね}の{一部|いちぶ}を{取|と}り{除|のぞ}いて{表示|ひょうじ}しています。</p>
+        <span class="alt" lang="en">Lower left jaw seen from the cheek side, with the wisdom tooth tilted forward against the tooth in front. The yellow nerve runs between its roots.</span>
+        <span class="alt" lang="ja">ほお{側|がわ}から{見|み}た{左下|ひだりした}のあご。{親知|おやし}らずが{前|まえ}の{歯|は}にもたれて{傾|かたむ}き、{黄色|きいろ}の{神経|しんけい}が{根|ね}のあいだを{通|とお}っています。</span>
+      </div>
+      <div class="step" data-step="1" aria-live="polite" hidden>
+        <p lang="en">The surgeon cuts across the tooth just below the crown and lifts the crown out, with all of its enamel. The roots are not moved, so they do not press on the nerve.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <p lang="vi">Bác sĩ cắt ngang răng ngay dưới thân răng và lấy thân răng ra, cùng toàn bộ men răng. Chân răng không bị di chuyển, nên không đè vào dây thần kinh.<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <p lang="ja">{歯|は}の{頭|あたま}のすぐ{下|した}で{歯|は}を{切|き}り、エナメル{質|しつ}ごと{頭|あたま}を{取|と}り{出|だ}します。{根|ね}は{動|うご}かさないので、{神経|しんけい}を{押|お}しません。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <span class="alt" lang="en">The same jaw during coronectomy. The crown of the wisdom tooth has been cut off and lifted out. The roots stay in place around the yellow nerve.</span>
+        <span class="alt" lang="ja">コロネクトミー{中|ちゅう}の{同|おな}じあご。{親知|おやし}らずの{頭|あたま}は{切|き}り{取|と}られて{持|も}ち{上|あ}がり、{根|ね}は{黄色|きいろ}の{神経|しんけい}のまわりにそのまま{残|のこ}っています。</span>
+      </div>
+      <div class="step" data-step="2" aria-live="polite" hidden>
+        <p lang="en">The roots stay in the bone. The surgeon trims their top to at least 3 mm below the top of the bone. Then the gum is closed over them.<sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <p lang="vi">Chân răng ở lại trong xương. Phần trên của chân răng được mài thấp hơn đỉnh xương ít nhất 3 mm, và lợi được khâu phủ lên.<sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <p lang="ja">{根|ね}は{骨|ほね}の{中|なか}に{残|のこ}ります。{根|ね}の{上|うえ}の{端|はし}は{骨|ほね}の{上|うえ}の{縁|ふち}より3 mm{以上|いじょう}{低|ひく}く{削|けず}り、{歯|は}ぐきを{縫|ぬ}って{閉|と}じます。<sup class="cite"><a href="#ref-7">7</a></sup><sup class="cite"><a href="#ref-4">4</a></sup></p>
+        <span class="alt" lang="en">The same jaw after coronectomy. Only the roots of the wisdom tooth are left, low in the bone, around the yellow nerve. The cut top of the roots is shown in pale yellow.</span>
+        <span class="alt" lang="ja">コロネクトミー{後|ご}の{同|おな}じあご。{親知|おやし}らずの{根|ね}だけが{骨|ほね}の{低|ひく}いところに{残|のこ}り、{黄色|きいろ}の{神経|しんけい}を{囲|かこ}んでいます。{根|ね}の{切|き}り{口|くち}はうすい{黄色|きいろ}です。</span>
+      </div>
+      <div class="step" data-step="3" aria-live="polite" hidden>
+        <p lang="en">Most roots move up a little, away from the nerve. In one study they moved 2.8 mm on average over 3 years, mostly in the first year.<sup class="cite"><a href="#ref-8">8</a></sup> A few roots come up to the gum and need a second, smaller operation.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></p>
+        <p lang="vi">Phần lớn chân răng nhích lên một chút, xa dây thần kinh hơn. Trong một nghiên cứu, chân răng nhích trung bình 2,8 mm trong 3 năm, phần lớn trong năm đầu.<sup class="cite"><a href="#ref-8">8</a></sup> Một số ít chân răng nhô lên tới lợi và cần một ca phẫu thuật thứ hai, nhỏ hơn.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></p>
+        <p lang="ja">{多|おお}くの{根|ね}は{少|すこ}し{上|うえ}へ{動|うご}き、{神経|しんけい}から{離|はな}れます。ある{研究|けんきゅう}では3{年|ねん}で{平均|へいきん}2.8 mm{動|うご}き、ほとんどは{最初|さいしょ}の1{年|ねん}でした。<sup class="cite"><a href="#ref-8">8</a></sup>{根|ね}が{歯|は}ぐきまで{出|で}てきて、2{回目|かいめ}の{小|ちい}さな{手術|しゅじゅつ}が{要|い}ることもあります。<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-9">9</a></sup></p>
+        <span class="alt" lang="en">The same jaw some years after coronectomy. The roots have moved up a little, so there is a gap between them and the yellow nerve.</span>
+        <span class="alt" lang="ja">コロネクトミーの{数年後|すうねんご}の{同|おな}じあご。{根|ね}が{少|すこ}し{上|うえ}へ{動|うご}き、{黄色|きいろ}の{神経|しんけい}とのあいだにすき{間|ま}ができています。</span>
+      </div>
+    </section>
+  </section>
+
+  <ul class="legend">
+    <li><span class="dot tooth"></span><span lang="en">Teeth</span><span lang="vi">Răng</span><span lang="ja">{歯|は}</span></li>
+    <li><span class="dot bone"></span><span lang="en">Jaw bone</span><span lang="vi">Xương hàm</span><span lang="ja">あごの{骨|ほね}</span></li>
+    <li><span class="dot nerve"></span><span lang="en">Nerve for the lower lip and chin</span><span lang="vi">Dây thần kinh của môi dưới và cằm</span><span lang="ja">{下|した}くちびるとあごの{神経|しんけい}</span></li>
+    <li><span class="dot cut"></span><span lang="en">Cut surface of the tooth</span><span lang="vi">Mặt cắt của răng</span><span lang="ja">{歯|は}の{切|き}り{口|くち}</span></li>
+    <li><span class="dot removed"></span><span lang="en">Bone the surgeon removes</span><span lang="vi">Phần xương bác sĩ bỏ đi</span><span lang="ja">{削|けず}る{骨|ほね}</span></li>
+  </ul>
+
+  <section class="compare-wrap" aria-labelledby="compare-h">
+    <h2 id="compare-h"><span lang="en">The two options side by side</span><span lang="vi">So sánh hai cách</span><span lang="ja">2つの{方法|ほうほう}をくらべる</span></h2>
+    <div lang="en">
+      <p>The numbers are for wisdom teeth with roots close to the nerve. Most come from one randomised trial of 349 teeth in Hong Kong.<sup class="cite"><a href="#ref-2">2</a></sup> Other studies found different numbers, given in the same row.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">What you may want to know</th><th scope="col">Surgical removal</th><th scope="col">Coronectomy</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">What is taken out</th><td>The whole tooth.</td><td>The crown. The roots stay in the bone.<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+          <tr><th scope="row">Numb lip or chin after surgery (nerve injury)</th><td class="num">5 in 100.<sup class="cite"><a href="#ref-2">2</a></sup> In a second trial, 19 in 100.<sup class="cite"><a href="#ref-3">3</a></sup></td><td class="num">Fewer than 1 in 100.<sup class="cite"><a href="#ref-2">2</a></sup> In a second trial, 0 in 100.<sup class="cite"><a href="#ref-3">3</a></sup> Reviews of many studies found far fewer nerve injuries than with removal.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></td></tr>
+          <tr><th scope="row">Numbness that lasted more than a year</th><td class="num">2 in 100 (3 of the 9 people with numbness).<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></td><td class="num">0 in 100. The one person with numbness got better within a year.<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+          <tr><th scope="row">Numb tongue (another nerve)</th><td>Can happen.</td><td>Less often than with removal, in a review of 34 studies.<sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">Pain one week after surgery</th><td class="num">57 in 100.<sup class="cite"><a href="#ref-4">4</a></sup></td><td class="num">42 in 100.<sup class="cite"><a href="#ref-4">4</a></sup></td></tr>
+          <tr><th scope="row">Dry socket (a painful socket a few days after)</th><td class="num">3 in 100.<sup class="cite"><a href="#ref-4">4</a></sup> In a second trial, 10 in 100.<sup class="cite"><a href="#ref-3">3</a></sup></td><td class="num">0 in 100.<sup class="cite"><a href="#ref-4">4</a></sup> In a second trial, 12 in 100.<sup class="cite"><a href="#ref-3">3</a></sup> The trials disagree. Reviews found less dry socket with it.<sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">Infection</th><td class="num">7 in 100.<sup class="cite"><a href="#ref-4">4</a></sup></td><td class="num">6 in 100. About the same as removal.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">The plan changes during surgery</th><td>Does not apply.</td><td class="num">9 in 100: the roots came loose, so the whole tooth was taken out.<sup class="cite"><a href="#ref-2">2</a></sup> Studies range from 3 to 38 in 100.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></td></tr>
+          <tr><th scope="row">Roots move afterwards</th><td>Does not apply.</td><td>Most roots move up a little, 2.8 mm on average over 3 years.<sup class="cite"><a href="#ref-8">8</a></sup></td></tr>
+          <tr><th scope="row">Second operation to take out the roots</th><td>Not needed.</td><td class="num">4 in 100 in a review of 34 studies.<sup class="cite"><a href="#ref-5">5</a></sup> 15 in 100 over 10 years or more in one study. None had nerve damage from it.<sup class="cite"><a href="#ref-9">9</a></sup></td></tr>
+          <tr><th scope="row">Check-ups</th><td>Usual follow-up after surgery.</td><td>You need to be able to come back if the roots cause pain or infection.<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div lang="vi">
+      <p>Các con số dành cho răng khôn có chân răng sát dây thần kinh. Phần lớn số liệu lấy từ một thử nghiệm ngẫu nhiên trên 349 răng ở Hồng Kông.<sup class="cite"><a href="#ref-2">2</a></sup> Các nghiên cứu khác cho số khác, ghi trong cùng một dòng.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Điều bạn có thể muốn biết</th><th scope="col">Phẫu thuật nhổ răng</th><th scope="col">Cắt thân răng</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Lấy ra phần nào</th><td>Cả chiếc răng.</td><td>Thân răng. Chân răng ở lại trong xương.<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+          <tr><th scope="row">Tê môi hoặc cằm sau mổ (tổn thương thần kinh)</th><td class="num">5 trên 100.<sup class="cite"><a href="#ref-2">2</a></sup> Trong một thử nghiệm khác, 19 trên 100.<sup class="cite"><a href="#ref-3">3</a></sup></td><td class="num">Dưới 1 trên 100.<sup class="cite"><a href="#ref-2">2</a></sup> Trong một thử nghiệm khác, 0 trên 100.<sup class="cite"><a href="#ref-3">3</a></sup> Các tổng quan nhiều nghiên cứu thấy tổn thương thần kinh ít hơn khoảng 9 trên 10 so với nhổ răng.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></td></tr>
+          <tr><th scope="row">Tê kéo dài quá một năm</th><td class="num">2 trên 100 (3 trong 9 người bị tê).<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></td><td class="num">0 trên 100. Người duy nhất bị tê đã khỏi trong vòng một năm.<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+          <tr><th scope="row">Tê lưỡi (một dây thần kinh khác)</th><td>Có thể xảy ra.</td><td>Ít gặp hơn so với nhổ răng, theo một tổng quan 34 nghiên cứu.<sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">Đau một tuần sau mổ</th><td class="num">57 trên 100.<sup class="cite"><a href="#ref-4">4</a></sup></td><td class="num">42 trên 100.<sup class="cite"><a href="#ref-4">4</a></sup></td></tr>
+          <tr><th scope="row">Viêm ổ răng khô (ổ răng đau vài ngày sau)</th><td class="num">3 trên 100.<sup class="cite"><a href="#ref-4">4</a></sup> Trong một thử nghiệm khác, 10 trên 100.<sup class="cite"><a href="#ref-3">3</a></sup></td><td class="num">0 trên 100.<sup class="cite"><a href="#ref-4">4</a></sup> Trong một thử nghiệm khác, 12 trên 100.<sup class="cite"><a href="#ref-3">3</a></sup> Các thử nghiệm không thống nhất. Các tổng quan thấy ít viêm ổ răng khô hơn sau cắt thân răng.<sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">Nhiễm trùng</th><td class="num">7 trên 100.<sup class="cite"><a href="#ref-4">4</a></sup></td><td class="num">6 trên 100. Gần như nhổ răng.<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">Kế hoạch thay đổi trong khi mổ</th><td>Không áp dụng.</td><td class="num">9 trên 100: chân răng bị lung lay nên cả răng được lấy ra.<sup class="cite"><a href="#ref-2">2</a></sup> Các nghiên cứu dao động từ 3 đến 38 trên 100.<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></td></tr>
+          <tr><th scope="row">Chân răng di chuyển về sau</th><td>Không áp dụng.</td><td>Phần lớn chân răng nhích lên một chút, trung bình 2,8 mm trong 3 năm.<sup class="cite"><a href="#ref-8">8</a></sup></td></tr>
+          <tr><th scope="row">Mổ lần hai để lấy chân răng</th><td>Không cần.</td><td class="num">4 trên 100 theo một tổng quan 34 nghiên cứu.<sup class="cite"><a href="#ref-5">5</a></sup> 15 trên 100 trong 10 năm trở lên ở một nghiên cứu. Không ai bị tổn thương thần kinh do lần mổ này.<sup class="cite"><a href="#ref-9">9</a></sup></td></tr>
+          <tr><th scope="row">Tái khám</th><td>Theo dõi thông thường sau mổ.</td><td>Bạn cần có thể quay lại khám nếu chân răng gây đau hoặc nhiễm trùng.<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div lang="ja">
+      <p>{数字|すうじ}は、{根|ね}が{神経|しんけい}に{近|ちか}い{親知|おやし}らずのものです。{多|おお}くは{香港|ほんこん}の349{本|ほん}の{歯|は}のランダム{化|か}{試験|しけん}からです。<sup class="cite"><a href="#ref-2">2</a></sup>ほかの{研究|けんきゅう}で{違|ちが}う{数字|すうじ}が{出|で}たものは、{同|おな}じ{行|ぎょう}に{書|か}いています。</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">{知|し}りたいこと</th><th scope="col">{全部|ぜんぶ}{抜|ぬ}く</th><th scope="col">コロネクトミー</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">{取|と}るところ</th><td>{歯|は}{全部|ぜんぶ}。</td><td>{歯|は}の{頭|あたま}。{根|ね}は{骨|ほね}に{残|のこ}ります。<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+          <tr><th scope="row">{手術|しゅじゅつ}{後|ご}のくちびるやあごのしびれ（{神経|しんけい}の{傷|きず}）</th><td class="num">100{人|にん}{中|ちゅう}5{人|にん}。<sup class="cite"><a href="#ref-2">2</a></sup>{別|べつ}の{試験|しけん}では100{人|にん}{中|ちゅう}19{人|にん}。<sup class="cite"><a href="#ref-3">3</a></sup></td><td class="num">100{人|にん}{中|ちゅう}1{人|にん}{未満|みまん}。<sup class="cite"><a href="#ref-2">2</a></sup>{別|べつ}の{試験|しけん}では100{人|にん}{中|ちゅう}0{人|にん}。<sup class="cite"><a href="#ref-3">3</a></sup>{多|おお}くの{研究|けんきゅう}をまとめると、{神経|しんけい}の{傷|きず}は{全部|ぜんぶ}{抜|ぬ}くより{約|やく}9{割|わり}{少|すく}ないです。<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup></td></tr>
+          <tr><th scope="row">1{年|ねん}{以上|いじょう}{続|つづ}いたしびれ</th><td class="num">100{人|にん}{中|ちゅう}2{人|にん}（しびれた9{人|にん}のうち3{人|にん}）。<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-1">1</a></sup></td><td class="num">100{人|にん}{中|ちゅう}0{人|にん}。しびれた1{人|ひとり}は1{年|ねん}{以内|いない}に{治|なお}りました。<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+          <tr><th scope="row">{舌|した}のしびれ（{別|べつ}の{神経|しんけい}）</th><td>{起|お}こることがあります。</td><td>34の{研究|けんきゅう}のまとめでは、{全部|ぜんぶ}{抜|ぬ}くより{少|すく}ないです。<sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">{手術|しゅじゅつ}1{週間|しゅうかん}{後|ご}の{痛|いた}み</th><td class="num">100{人|にん}{中|ちゅう}57{人|にん}。<sup class="cite"><a href="#ref-4">4</a></sup></td><td class="num">100{人|にん}{中|ちゅう}42{人|にん}。<sup class="cite"><a href="#ref-4">4</a></sup></td></tr>
+          <tr><th scope="row">ドライソケット（{数日後|すうじつご}に{穴|あな}が{強|つよ}く{痛|いた}む）</th><td class="num">100{人|にん}{中|ちゅう}3{人|にん}。<sup class="cite"><a href="#ref-4">4</a></sup>{別|べつ}の{試験|しけん}では100{人|にん}{中|ちゅう}10{人|にん}。<sup class="cite"><a href="#ref-3">3</a></sup></td><td class="num">100{人|にん}{中|ちゅう}0{人|にん}。<sup class="cite"><a href="#ref-4">4</a></sup>{別|べつ}の{試験|しけん}では100{人|にん}{中|ちゅう}12{人|にん}。<sup class="cite"><a href="#ref-3">3</a></sup>{試験|しけん}の{結果|けっか}は{一致|いっち}しません。まとめの{研究|けんきゅう}では、コロネクトミーの{方|ほう}が{少|すく}ないです。<sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">{感染|かんせん}</th><td class="num">100{人|にん}{中|ちゅう}7{人|にん}。<sup class="cite"><a href="#ref-4">4</a></sup></td><td class="num">100{人|にん}{中|ちゅう}6{人|にん}。{全部|ぜんぶ}{抜|ぬ}く{場合|ばあい}とほぼ{同|おな}じです。<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup></td></tr>
+          <tr><th scope="row">{手術|しゅじゅつ}{中|ちゅう}に{方法|ほうほう}が{変|か}わる</th><td>ありません。</td><td class="num">100{人|にん}{中|ちゅう}9{人|にん}。{根|ね}がぐらついたため、{歯|は}を{全部|ぜんぶ}{抜|ぬ}きました。<sup class="cite"><a href="#ref-2">2</a></sup>{研究|けんきゅう}により100{人|にん}{中|ちゅう}3〜38{人|にん}です。<sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-3">3</a></sup></td></tr>
+          <tr><th scope="row">その{後|ご}の{根|ね}の{動|うご}き</th><td>ありません。</td><td>{多|おお}くの{根|ね}が{少|すこ}し{上|うえ}へ{動|うご}きます。3{年|ねん}で{平均|へいきん}2.8 mmです。<sup class="cite"><a href="#ref-8">8</a></sup></td></tr>
+          <tr><th scope="row">{根|ね}を{取|と}る2{回目|かいめ}の{手術|しゅじゅつ}</th><td>{要|い}りません。</td><td class="num">34の{研究|けんきゅう}のまとめで100{人|にん}{中|ちゅう}4{人|にん}。<sup class="cite"><a href="#ref-5">5</a></sup>ある{研究|けんきゅう}では10{年|ねん}{以上|いじょう}で100{人|にん}{中|ちゅう}15{人|にん}。その{手術|しゅじゅつ}で{神経|しんけい}を{傷|きず}つけた{人|ひと}はいません。<sup class="cite"><a href="#ref-9">9</a></sup></td></tr>
+          <tr><th scope="row">{通院|つういん}</th><td>{手術|しゅじゅつ}{後|ご}のふつうの{通院|つういん}。</td><td>{根|ね}が{痛|いた}みや{感染|かんせん}を{起|お}こしたら、また{来|こ}られることが{必要|ひつよう}です。<sup class="cite"><a href="#ref-1">1</a></sup></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="who-h">
+    <div lang="en">
+      <h2 id="who-h">When coronectomy is not used</h2>
+      <p>It is only for a healthy tooth with roots close to the nerve. A guideline lists teeth it is not used for.<sup class="cite"><a href="#ref-1">1</a></sup> These include a tooth that has died inside or has deep decay. They also include a loose tooth, or one with infection at the root tip.<sup class="cite"><a href="#ref-1">1</a></sup> It is not used for some cysts and growths either.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>The same guideline asks for care if you have a weak immune system or diabetes.<sup class="cite"><a href="#ref-1">1</a></sup> The same is true if you have had radiotherapy to the head and neck. It is also true if you cannot easily come back when there is a problem.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>You can also ask about not treating the tooth for now. Your surgeon can tell you the risks of waiting for your own tooth.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+    <div lang="vi">
+      <h2>Khi nào không dùng cách cắt thân răng</h2>
+      <p>Cắt thân răng chỉ dành cho răng khỏe có chân răng sát dây thần kinh. Một hướng dẫn liệt kê những răng không dùng cách này: răng có tủy đã chết, sâu răng có thể lan tới tủy, răng lung lay, hoặc nhiễm trùng ở chóp chân răng.<sup class="cite"><a href="#ref-1">1</a></sup> Cách này cũng không dùng cho một số nang và khối u.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Cùng hướng dẫn đó yêu cầu thận trọng với một số người: người có hệ miễn dịch yếu, người đã xạ trị vùng đầu và cổ, người bị tiểu đường, và người khó quay lại khám nếu có vấn đề.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>Bạn cũng có thể hỏi về việc chưa điều trị răng lúc này. Bác sĩ có thể cho bạn biết những rủi ro khi chờ đợi đối với chính chiếc răng của bạn.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+    <div lang="ja">
+      <h2>コロネクトミーを{行|おこな}わない{場合|ばあい}</h2>
+      <p>コロネクトミーは、{根|ね}が{神経|しんけい}に{近|ちか}い{健康|けんこう}な{歯|は}だけに{行|おこな}います。<sup class="cite"><a href="#ref-1">1</a></sup>{歯|は}の{中|なか}の{神経|しんけい}が{死|し}んでいる{歯|は}には{行|おこな}いません。<sup class="cite"><a href="#ref-1">1</a></sup>{歯|は}の{中|なか}の{神経|しんけい}まで{届|とど}きそうなむし{歯|ば}、ぐらつく{歯|は}、{根|ね}の{先|さき}の{感染|かんせん}も{同|おな}じです。<sup class="cite"><a href="#ref-1">1</a></sup>{一部|いちぶ}ののう{胞|ほう}や{腫瘍|しゅよう}でも{行|おこな}いません。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>{同|おな}じガイドラインは、{次|つぎ}の{人|ひと}には{注意|ちゅうい}が{必要|ひつよう}としています。{免疫|めんえき}が{弱|よわ}い{人|ひと}、{頭|あたま}や{首|くび}に{放射線|ほうしゃせん}{治療|ちりょう}を{受|う}けた{人|ひと}、{糖尿病|とうにょうびょう}の{人|ひと}です。<sup class="cite"><a href="#ref-1">1</a></sup>{問題|もんだい}が{起|お}きたときにすぐ{来|こ}られない{人|ひと}も{同|おな}じです。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <p>しばらく{治療|ちりょう}しないという{選択|せんたく}について{聞|き}くこともできます。{待|ま}つ{場合|ばあい}の{危険|きけん}は、{先生|せんせい}がご{自分|じぶん}の{歯|は}について{説明|せつめい}します。<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="think-h">
+    <div lang="en">
+      <h2 id="think-h">Questions to think about</h2>
+      <p>Good decision aids help you weigh what matters most to you.<sup class="cite"><a href="#ref-15">15</a></sup> These questions may help before you talk with your surgeon.</p>
+      <ul class="think">
+        <li>How much would a numb lip or chin matter to you?</li>
+        <li>Would you accept a small chance of a second operation later, to keep the nerve safer now?</li>
+        <li>If you keep the roots, can you come back for check-ups and X-rays?</li>
+        <li>Is your own tooth right for keeping the roots?</li>
+      </ul>
+    </div>
+    <div lang="vi">
+      <h2>Những câu hỏi để cân nhắc</h2>
+      <p>Công cụ hỗ trợ quyết định tốt giúp bạn cân nhắc điều quan trọng nhất với bạn.<sup class="cite"><a href="#ref-15">15</a></sup> Những câu hỏi này có thể giúp bạn trước khi trao đổi với bác sĩ.</p>
+      <ul class="think">
+        <li>Việc bị tê môi hoặc cằm quan trọng với bạn đến mức nào?</li>
+        <li>Bạn có chấp nhận một khả năng nhỏ phải mổ lần hai về sau, để dây thần kinh an toàn hơn bây giờ?</li>
+        <li>Bạn có thể quay lại tái khám và chụp X-quang sau khi cắt thân răng không?</li>
+        <li>Chiếc răng của bạn có đáp ứng các điều kiện để cắt thân răng không?</li>
+      </ul>
+    </div>
+    <div lang="ja">
+      <h2>{考|かんが}えておきたいこと</h2>
+      <p>よい{意思|いし}{決定|けってい}の{資料|しりょう}は、あなたにとって{大切|たいせつ}なことを{考|かんが}える{助|たす}けになります。<sup class="cite"><a href="#ref-15">15</a></sup>{先生|せんせい}と{話|はな}す{前|まえ}に、{次|つぎ}のことを{考|かんが}えてみてください。</p>
+      <ul class="think">
+        <li>くちびるやあごのしびれは、あなたにとってどれくらい{困|こま}りますか。</li>
+        <li>{今|いま}{神経|しんけい}を{守|まも}るために、{後|あと}で2{回目|かいめ}の{手術|しゅじゅつ}になるかもしれないことを{受|う}け{入|い}れられますか。</li>
+        <li>コロネクトミーの{後|あと}、{検査|けんさ}やレントゲンのために{通|かよ}えますか。</li>
+        <li>あなたの{歯|は}は、コロネクトミーができる{条件|じょうけん}に{合|あ}っていますか。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="clinical-images" aria-labelledby="img-h">
+    <h2 id="img-h"><span lang="en">Real X-rays and photos</span><span lang="vi">Phim X-quang và ảnh thật</span><span lang="ja">{実際|じっさい}のレントゲンと{写真|しゃしん}</span></h2>
+    <p class="clinical-note" lang="en">These images are of real people. Their authors shared them openly, with consent. Each image keeps its own licence, given under it, apart from the model licence.</p>
+    <p class="clinical-note" lang="vi">Các hình ảnh này là của bệnh nhân thật. Tác giả đã công bố chúng công khai, có sự đồng ý của bệnh nhân. Mỗi hình giữ giấy phép riêng, ghi bên dưới; hình không thuộc giấy phép của mô hình.</p>
+    <p class="clinical-note" lang="ja">これらは{実際|じっさい}の{患者|かんじゃ}さんの{画像|がぞう}で、{著者|ちょしゃ}が{患者|かんじゃ}さんの{同意|どうい}を{得|え}てオープンに{公開|こうかい}したものです。{画像|がぞう}ごとのライセンスは{下|した}に{書|か}いてあり、{模型|もけい}のライセンスとは{別|べつ}です。</p>
+    <div class="clin-figs">
+    <figure class="clin-fig" id="img-1">
+      <img src="/images/clinical/wisdom-tooth/cbct-nerve-between-roots.jpg" width="732" height="985" loading="lazy" alt="Grey 3D X-ray slices of a lower wisdom tooth. A small dark circle, the nerve canal, sits between its roots.">
+      <figcaption><span lang="en">Before: a 3D X-ray (CBCT) of a lower left wisdom tooth. The nerve runs between its roots, as in the model. This tooth was upright and deeper than the tilted tooth in the model. This person chose to keep the roots (see the next X-rays).</span><span lang="vi">Trước: phim X-quang 3D (CBCT) của một răng khôn hàm dưới bên trái. Dây thần kinh đi giữa các chân răng, như trong mô hình. Răng này thẳng đứng và nằm sâu hơn chiếc răng nghiêng trong mô hình. Cùng bệnh nhân này đã được cắt thân răng (xem phim sau).</span><span lang="ja">{前|まえ}：{左下|ひだりした}の{親知|おやし}らずの3Dレントゲン（CBCT）。{模型|もけい}と{同|おな}じく、{神経|しんけい}が{根|ね}のあいだを{通|とお}っています。この{歯|は}は{模型|もけい}と{違|ちが}い、まっすぐで、より{深|ふか}い{位置|いち}にあります。{同|おな}じ{患者|かんじゃ}さんがコロネクトミーを{受|う}けました。</span>
+        <span class="credit">Pellegrino G, Tayeb S, Vignudelli E, Angelino C, Barausse C, Felice P. Dynamic navigation-assisted coronectomy of a deeply impacted mandibular third molar: a 5-year case follow-up. Case Rep Dent. 2025;2025:7010729, Figure 1. <a href="https://doi.org/10.1155/crid/7010729">doi.org/10.1155/crid/7010729</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. Radiograph only; the article states the patient gave informed consent.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-2">
+      <img src="/images/clinical/wisdom-tooth-options/coronectomy-opg-2-and-5-years.jpg" width="765" height="831" loading="lazy" alt="Two X-rays of all the teeth, labelled a and b. On the right of each, behind the last lower back tooth, only the wisdom tooth roots remain.">
+      <figcaption><span lang="en">Coronectomy, after: the same patient 2 years (a) and 5 years (b) later. The roots of the lower left wisdom tooth (on the right of each picture) are still in the bone. The authors saw no disease and new bone behind the tooth in front.<sup class="cite"><a href="#ref-12">12</a></sup></span><span lang="vi">Cắt thân răng, sau: cùng bệnh nhân 2 năm (a) và 5 năm (b) sau. Chân răng khôn hàm dưới bên trái (bên phải mỗi hình) vẫn ở trong xương. Các tác giả không thấy bệnh lý và thấy xương mới phía sau răng phía trước.<sup class="cite"><a href="#ref-12">12</a></sup></span><span lang="ja">コロネクトミーの{後|あと}：{同|おな}じ{患者|かんじゃ}さんの2{年後|ねんご}（a）と5{年後|ねんご}（b）。{左下|ひだりした}の{親知|おやし}らずの{根|ね}（{画像|がぞう}の{右側|みぎがわ}）は{骨|ほね}の{中|なか}に{残|のこ}っています。{病気|びょうき}はなく、{前|まえ}の{歯|は}の{後|うし}ろに{新|あたら}しい{骨|ほね}ができていました。<sup class="cite"><a href="#ref-12">12</a></sup></span>
+        <span class="credit">Pellegrino G, Tayeb S, Vignudelli E, Angelino C, Barausse C, Felice P. Dynamic navigation-assisted coronectomy of a deeply impacted mandibular third molar: a 5-year case follow-up. Case Rep Dent. 2025;2025:7010729, Figure 4. <a href="https://doi.org/10.1155/crid/7010729">doi.org/10.1155/crid/7010729</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. Radiographs only; the article states the patient gave informed consent.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-3">
+      <img src="/images/clinical/wisdom-tooth-options/removal-surgical-steps.jpg" width="599" height="623" loading="lazy" alt="Four photos inside a mouth, a to d: gum folded back, bone drilled away beside the wisdom tooth, a cut across the tooth, and black stitches.">
+      <figcaption><span lang="en">Removal, during. (a) The surgeon folds back the gum. (b) Bone is drilled away beside and behind the tooth. (c) The tooth is cut. (d) The gum is stitched. This lower left wisdom tooth had an unusual double shape. It was not tilted like the model, but the steps are the same.<sup class="cite"><a href="#ref-11">11</a></sup></span><span lang="vi">Phẫu thuật nhổ răng, trong khi làm: (a) lật lợi ra, (b) bỏ xương ở phía má và phía sau răng, (c) cắt răng, (d) khâu lợi. Răng khôn hàm dưới bên trái này có hình dạng kép bất thường và không nghiêng như mô hình, nhưng các bước là như nhau.<sup class="cite"><a href="#ref-11">11</a></sup></span><span lang="ja">{全部|ぜんぶ}{抜|ぬ}く{手術|しゅじゅつ}の{途中|とちゅう}。（a）{歯|は}ぐきを{開|ひら}く。（b）ほお{側|がわ}と{後|うし}ろの{骨|ほね}を{削|けず}る。（c）{歯|は}を{切|き}る。（d）{歯|は}ぐきを{縫|ぬ}う。この{左下|ひだりした}の{親知|おやし}らずは{形|かたち}が{珍|めずら}しく、{模型|もけい}のように{傾|かたむ}いていませんが、{手順|てじゅん}は{同|おな}じです。<sup class="cite"><a href="#ref-11">11</a></sup></span>
+        <span class="credit">Pellegrini M, Creminelli G, Guerrieri P, Scribante A, Fraticelli D, Creminelli L. Clinical and radiographic features of mandibular third molar gemination: a case report and literature review. Case Rep Dent. 2025;2025:8934034, Figure 7. <a href="https://doi.org/10.1155/crid/8934034">doi.org/10.1155/crid/8934034</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. Intraoral photos with no face; the article states written informed consent, including for publication of the images.</span></figcaption>
+    </figure>
+    <figure class="clin-fig" id="img-4">
+      <img src="/images/clinical/wisdom-tooth-options/removal-opg-3-months.jpg" width="709" height="370" loading="lazy" alt="An X-ray of all the teeth. On the right, behind the last lower back tooth, there is no wisdom tooth and the bone looks filled in.">
+      <figcaption><span lang="en">Removal, after: the same patient 3 months later. The lower left wisdom tooth (on the right of the picture) is gone. The authors report that bone filled the hole.<sup class="cite"><a href="#ref-11">11</a></sup></span><span lang="vi">Phẫu thuật nhổ răng, sau: cùng bệnh nhân 3 tháng sau. Răng khôn hàm dưới bên trái (bên phải hình) đã được lấy ra, và các tác giả cho biết ổ răng đã được xương lấp đầy.<sup class="cite"><a href="#ref-11">11</a></sup></span><span lang="ja">{全部|ぜんぶ}{抜|ぬ}いた{後|あと}：{同|おな}じ{患者|かんじゃ}さんの3か{月後|げつご}。{左下|ひだりした}の{親知|おやし}らず（{画像|がぞう}の{右側|みぎがわ}）はなく、{穴|あな}は{骨|ほね}で{埋|う}まったと{報告|ほうこく}されています。<sup class="cite"><a href="#ref-11">11</a></sup></span>
+        <span class="credit">Pellegrini M, Creminelli G, Guerrieri P, Scribante A, Fraticelli D, Creminelli L. Clinical and radiographic features of mandibular third molar gemination: a case report and literature review. Case Rep Dent. 2025;2025:8934034, Figure 11. <a href="https://doi.org/10.1155/crid/8934034">doi.org/10.1155/crid/8934034</a>. Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: none. Radiograph only; the article states written informed consent, including for publication of the images.</span></figcaption>
+    </figure>
+    </div>
+  </section>
+
+  <section>
+    <details class="clin">
+      <summary><span lang="en">For clinicians: evidence, model method and limits</span><span lang="vi">Dành cho bác sĩ: bằng chứng, cách làm mô hình và giới hạn</span><span lang="ja">{医療者|いりょうしゃ}{向|む}け：{根拠|こんきょ}、{模型|もけい}の{作|つく}り{方|かた}、{限界|げんかい}</span></summary>
+      <div lang="en">
+        <h3>Evidence</h3>
+        <ul>
+          <li>IAN injury: Leung and Cheung RCT (349 teeth with radiographic signs of proximity), 9/178 (5.1%) after total removal vs 1/155 successful coronectomies (0.6%); 3 of the 9 after removal persisted beyond 12 months.<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-1">1</a></sup> Renton et al. RCT: 19% after extraction, 0% after successful and 8% after failed coronectomy.<sup class="cite"><a href="#ref-3">3</a></sup> Pooled RR 0.1 (95% CI 0.0-0.2; 34 observational studies, 7,115 teeth)<sup class="cite"><a href="#ref-5">5</a></sup> and RR 0.09 for paraesthesia (RCT meta-analysis).<sup class="cite"><a href="#ref-6">6</a></sup></li>
+          <li>Lingual nerve RR 0.2 (95% CI 0.0-0.7), dry socket RR 0.4, infection RR 1.0; reintervention 3.63%, root exposure 2.66%, failure 2.79%.<sup class="cite"><a href="#ref-5">5</a></sup> Failure (root mobilisation, total removal) 9.4% (16/171)<sup class="cite"><a href="#ref-2">2</a></sup> to 38% (36/94).<sup class="cite"><a href="#ref-3">3</a></sup></li>
+          <li>Pain at 1 week 57.3% vs 41.9%; dry socket 2.8% vs 0%; infection 6.7% vs 5.8% (Leung and Cheung, as tabulated by Martin et al.).<sup class="cite"><a href="#ref-4">4</a></sup> Renton et al.: dry socket 9.6% vs 12% (successful coronectomy).<sup class="cite"><a href="#ref-3">3</a></sup></li>
+          <li>Root migration: mean 2.8 mm (SD 1.4) at 36 months, mostly within 12 months, none after 24 months; 3% root eruption needing removal.<sup class="cite"><a href="#ref-8">8</a></sup> Over 10 or more years, 15.2% (55/362) reoperation (exposed roots 8.0%, pain 3.9%, infection 1.9%); no nerve deficit after reoperation.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+          <li>Certainty: GRADE very low to moderate in the RCT meta-analysis.<sup class="cite"><a href="#ref-6">6</a></sup> The Cochrane review of surgical techniques found no usable trial data on coronectomy for its primary outcomes.<sup class="cite"><a href="#ref-13">13</a></sup> Across all lower third molar removals, reported IAN injury is 0.35 to 8.4%, and permanent injury is rare.<sup class="cite"><a href="#ref-19">19</a></sup></li>
+          <li>Selection and contraindications follow the FDS RCS England parameters of care (Appendix 7).<sup class="cite"><a href="#ref-1">1</a></sup> Radiographic signs of proximity: Rood and Shehab.<sup class="cite"><a href="#ref-14">14</a></sup></li>
+          <li>This page follows the IPDAS ideas of presenting options, outcome probabilities with the same denominator and values clarification,<sup class="cite"><a href="#ref-15">15</a></sup> but it has not been tested or certified as a patient decision aid.</li>
+        </ul>
+        <h3>Model method</h3>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Feature</th><th scope="col">In the model</th><th scope="col">Source</th></tr></thead>
+          <tbody>
+            <tr><td>Base</td><td>The collection's impacted wisdom tooth model (mesioangular 38, IAN passing between the roots), modelled from scratch by Vivatheca, about 1.7 times life size. Jaw, other teeth and nerve unchanged.</td><td><a href="/models/impacted-wisdom-tooth">Impacted wisdom tooth model</a></td></tr>
+            <tr><td>CEJ</td><td>7.0 mm from the cusp tip along the long axis (model tooth 17.6 mm long, life size).</td><td>Wheeler's Dental Anatomy<sup class="cite"><a href="#ref-16">16</a></sup></td></tr>
+            <tr><td>Surgical removal</td><td>Crown sectioned at the CEJ, roots separated along the plane between their centres (4.2 mm apart), pieces drawn 2 mm apart and the crown lifted 6 mm (drawn). Bone removal drawn as a 2 mm shell around the crown on the buccal and distal sides, down to 1 mm below the CEJ (not measured; no source gives a width).</td><td>Flap, ostectomy, crown and root sectioning: Sánchez-Torres et al.<sup class="cite"><a href="#ref-10">10</a></sup>; buccal and distal ostectomy: Pellegrini et al.<sup class="cite"><a href="#ref-11">11</a></sup></td></tr>
+            <tr><td>Coronectomy</td><td>Cut 1.5 mm below the CEJ, perpendicular to the long axis, so all enamel is removed; the retained roots lie well over 3 mm below the surrounding bone (here the anterior ramus). Real sections are often angled at about 25°.</td><td>Crown and all enamel removed: FDS RCS England<sup class="cite"><a href="#ref-1">1</a></sup>; at least 3 mm below the crest: Pogrel et al.<sup class="cite"><a href="#ref-7">7</a></sup>; angle: Gaballah et al.<sup class="cite"><a href="#ref-18">18</a></sup></td></tr>
+            <tr><td>Root migration</td><td>2.8 mm, straight up (occlusal). Real roots also move mainly mesially.</td><td>Leung and Cheung 2012<sup class="cite"><a href="#ref-8">8</a></sup>; direction: Yeung et al.<sup class="cite"><a href="#ref-17">17</a></sup></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <ul>
+          <li>Simplifications: buccal bone is cut away throughout the base model, so bone removal is shown as an overlay, not as a defect; no flap, gum, sutures, socket healing or bone fill over the retained roots; the IAN is a tube without the canal; the lingual nerve is not shown.</li>
+          <li>Licence: CC BY-SA 4.0, as the base model. Build script with every value: <code>tools/wisdom-options/build.py</code>.</li>
+        </ul>
+      </div>
+      <div lang="vi">
+        <p>Bằng chứng chính: hai thử nghiệm ngẫu nhiên<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-3">3</a></sup>, các tổng quan hệ thống<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup> và hướng dẫn của FDS RCS England.<sup class="cite"><a href="#ref-1">1</a></sup> Mức độ chắc chắn (GRADE) từ rất thấp đến trung bình.<sup class="cite"><a href="#ref-6">6</a></sup> Mô hình dựa trên mô hình răng khôn mọc ngầm của bộ sưu tập; đường men-xê măng đặt ở 7,0 mm từ đỉnh múi<sup class="cite"><a href="#ref-16">16</a></sup>; cắt thân răng thấp hơn đường này 1,5 mm<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-7">7</a></sup>; chân răng nhích lên 2,8 mm.<sup class="cite"><a href="#ref-8">8</a></sup> Phần xương bỏ đi được vẽ, không đo. Chi tiết số liệu và nguồn: xem bản tiếng Anh (chuyển sang English). Giấy phép CC BY-SA 4.0.</p>
+      </div>
+      <div lang="ja">
+        <ul>
+          <li>{主|おも}な{根拠|こんきょ}：2つのランダム{化|か}{比較|ひかく}{試験|しけん}<sup class="cite"><a href="#ref-2">2</a></sup><sup class="cite"><a href="#ref-3">3</a></sup>、{系統的|けいとうてき}レビュー<sup class="cite"><a href="#ref-4">4</a></sup><sup class="cite"><a href="#ref-5">5</a></sup><sup class="cite"><a href="#ref-6">6</a></sup>、FDS RCS Englandのガイドライン。<sup class="cite"><a href="#ref-1">1</a></sup>エビデンスの{確実性|かくじつせい}（GRADE）は{非常|ひじょう}に{低|ひく}い〜{中|ちゅう}{等度|とうど}。<sup class="cite"><a href="#ref-6">6</a></sup></li>
+          <li>{模型|もけい}：コレクションの{埋伏|まいふく}{智歯|ちし}{模型|もけい}をもとに、CEJを{咬頭頂|こうとうちょう}から7.0 mmに{設定|せってい}。<sup class="cite"><a href="#ref-16">16</a></sup>コロネクトミーはCEJの1.5 mm{根尖|こんせん}{側|がわ}で{切断|せつだん}。<sup class="cite"><a href="#ref-1">1</a></sup><sup class="cite"><a href="#ref-7">7</a></sup>{歯根|しこん}{移動|いどう}は2.8 mm。<sup class="cite"><a href="#ref-8">8</a></sup>{削除|さくじょ}{骨|こつ}の{範囲|はんい}は{描画|びょうが}で、{実測|じっそく}ではありません。{詳細|しょうさい}は{英語|えいご}{版|ばん}の{表|ひょう}を{参照|さんしょう}。ライセンスはCC BY-SA 4.0。</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section class="disclaimer">
+    <h2><span lang="en">About these models</span><span lang="vi">Về các mô hình này</span><span lang="ja">このモデルについての{注意|ちゅうい}</span></h2>
+    <p lang="en"><span class="status">Not yet clinically reviewed.</span> Educational model only. It shows typical anatomy or disease, not any real patient, and is simplified and may contain errors. Not for diagnosis, treatment planning, surgical guides or use in or on the body. <a href="/disclaimer">Full disclaimer</a></p>
+    <p lang="vi"><span class="status">Chưa được thẩm định lâm sàng.</span> Mô hình chỉ dùng cho giáo dục. Mô hình thể hiện giải phẫu hoặc bệnh lý điển hình, không phải của bệnh nhân thật nào, đã được đơn giản hóa và có thể có sai sót. Không dùng để chẩn đoán, lập kế hoạch điều trị, làm máng hướng dẫn phẫu thuật hoặc dùng trong hay trên cơ thể. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></p>
+    <p lang="ja" class="small"><strong>{臨床|りんしょう}レビュー{未実施|みじっし}。</strong>{教育用|きょういくよう}の{模型|もけい}です。{特定|とくてい}の{患者|かんじゃ}ではなく{一般的|いっぱんてき}な{解剖|かいぼう}や{疾患|しっかん}を{示|しめ}したもので、{簡略化|かんりゃくか}されており{誤|あやま}りを{含|ふく}む{可能性|かのうせい}があります。{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイド、{体内|たいない}・{体表|たいひょう}での{使用|しよう}には{用|もち}いないでください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a>　この{日本語|にほんご}{訳|やく}は{参考|さんこう}{訳|やく}です。{英語|えいご}{版|ばん}と{内容|ないよう}が{異|こと}なる{場合|ばあい}は、{英語|えいご}{版|ばん}が{優先|ゆうせん}します。このページの{日本語|にほんご}はまだ{日本語|にほんご}を{母語|ぼご}とする{医療者|いりょうしゃ}の{確認|かくにん}を{受|う}けていません。</p>
+    <p lang="en" class="small">Vietnamese on this page is an unreviewed draft; the English version prevails.</p>
+    <p class="small credit">3D models: made by Vivatheca from its impacted wisdom tooth model (modelled from scratch; no third-party mesh). Changed: the wisdom tooth is cut, moved or removed, and a shape marking the removed bone is added. These models are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Downloads of the base model: <a href="/models/impacted-wisdom-tooth">impacted wisdom tooth page</a>.</p>
+  </section>
+
+  <section class="refs">
+  <details open>
+    <summary><h2><span lang="en">Sources</span><span lang="vi">Nguồn</span><span lang="ja">{出典|しゅってん}</span></h2></summary>
+    <ol>
+      <li id="ref-1">Faculty of Dental Surgery, Royal College of Surgeons of England. Parameters of care for patients undergoing mandibular third molar surgery. London: RCS England; 2020 (April 2021 revision). Executive summary and Appendix 7: Considerations in prescribing coronectomy. <a href="https://www.rcseng.ac.uk/-/media/Files/RCS/FDS/3rd-molar-guidelines--April-2021-v3.pdf">rcseng.ac.uk (PDF)</a></li>
+      <li id="ref-2">Leung YY, Cheung LK. Safety of coronectomy versus excision of wisdom teeth: a randomized controlled trial. Oral Surg Oral Med Oral Pathol Oral Radiol Endod. 2009;108(6):821-827. <a href="https://doi.org/10.1016/j.tripleo.2009.07.004">doi.org/10.1016/j.tripleo.2009.07.004</a></li>
+      <li id="ref-3">Renton T, Hankins M, Sproate C, McGurk M. A randomised controlled clinical trial to compare the incidence of injury to the inferior alveolar nerve as a result of coronectomy and removal of mandibular third molars. Br J Oral Maxillofac Surg. 2005;43(1):7-12. <a href="https://doi.org/10.1016/j.bjoms.2004.09.002">doi.org/10.1016/j.bjoms.2004.09.002</a></li>
+      <li id="ref-4">Martin A, Perinetti G, Costantinides F, Maglione M. Coronectomy as a surgical approach to impacted mandibular third molars: a systematic review. Head Face Med. 2015;11:9. <a href="https://doi.org/10.1186/s13005-015-0068-7">doi.org/10.1186/s13005-015-0068-7</a></li>
+      <li id="ref-5">Kang F, Yuan Y, Li Y, et al. Coronectomy in lower third molar surgery: a systematic review and meta-analysis. J Oral Maxillofac Surg. 2025;83(5):601-615. <a href="https://doi.org/10.1016/j.joms.2025.01.014">doi.org/10.1016/j.joms.2025.01.014</a></li>
+      <li id="ref-6">Lira GA, Veras AC, Gomes MP, et al. Complications in coronectomy procedures for removal of lower third molars in contact with the mandibular canal: systematic review and meta-analysis of clinical trials. Oral Surg Oral Med Oral Pathol Oral Radiol. 2025;140(5):513-527. <a href="https://doi.org/10.1016/j.oooo.2025.05.004">doi.org/10.1016/j.oooo.2025.05.004</a></li>
+      <li id="ref-7">Pogrel MA, Lee JS, Muff DF. Coronectomy: a technique to protect the inferior alveolar nerve. J Oral Maxillofac Surg. 2004;62(12):1447-1452. <a href="https://doi.org/10.1016/j.joms.2004.08.003">doi.org/10.1016/j.joms.2004.08.003</a></li>
+      <li id="ref-8">Leung YY, Cheung LK. Coronectomy of the lower third molar is safe within the first 3 years. J Oral Maxillofac Surg. 2012;70(7):1515-1522. <a href="https://doi.org/10.1016/j.joms.2011.12.029">doi.org/10.1016/j.joms.2011.12.029</a></li>
+      <li id="ref-9">Li JTW, Leung YY. Ten-year-plus follow-up study on coronectomy of the mandibular third molar. Int J Oral Maxillofac Surg. 2026;55(5):592-598. <a href="https://doi.org/10.1016/j.ijom.2025.11.004">doi.org/10.1016/j.ijom.2025.11.004</a></li>
+      <li id="ref-10">Sánchez-Torres A, Sabreen E, Arias-Huerta X, Camps-Font O, Figueiredo R, Valmaseda-Castellón E. Learning curve in the extraction of impacted lower third molars: a prospective cohort study. Eur J Dent Educ. 2025;29(2):266-276. <a href="https://doi.org/10.1111/eje.13066">doi.org/10.1111/eje.13066</a></li>
+      <li id="ref-11">Pellegrini M, Creminelli G, Guerrieri P, Scribante A, Fraticelli D, Creminelli L. Clinical and radiographic features of mandibular third molar gemination: a case report and literature review. Case Rep Dent. 2025;2025:8934034. <a href="https://doi.org/10.1155/crid/8934034">doi.org/10.1155/crid/8934034</a></li>
+      <li id="ref-12">Pellegrino G, Tayeb S, Vignudelli E, Angelino C, Barausse C, Felice P. Dynamic navigation-assisted coronectomy of a deeply impacted mandibular third molar: a 5-year case follow-up. Case Rep Dent. 2025;2025:7010729. <a href="https://doi.org/10.1155/crid/7010729">doi.org/10.1155/crid/7010729</a></li>
+      <li id="ref-13">Bailey E, Kashbour W, Shah N, Worthington HV, Renton TF, Coulthard P. Surgical techniques for the removal of mandibular wisdom teeth. Cochrane Database Syst Rev. 2020;7(7):CD004345. <a href="https://doi.org/10.1002/14651858.CD004345.pub3">doi.org/10.1002/14651858.CD004345.pub3</a></li>
+      <li id="ref-14">Rood JP, Shehab BA. The radiological prediction of inferior alveolar nerve injury during third molar surgery. Br J Oral Maxillofac Surg. 1990;28(1):20-25. <a href="https://doi.org/10.1016/0266-4356(90)90005-6">doi.org/10.1016/0266-4356(90)90005-6</a></li>
+      <li id="ref-15">Elwyn G, O'Connor A, Stacey D, et al. Developing a quality criteria framework for patient decision aids: online international Delphi consensus process. BMJ. 2006;333(7565):417. <a href="https://doi.org/10.1136/bmj.38926.629329.AE">doi.org/10.1136/bmj.38926.629329.AE</a></li>
+      <li id="ref-16">Nelson SJ. Wheeler's Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. (Mandibular third molar: crown 7.0 mm, root 11 mm.)</li>
+      <li id="ref-17">Yeung AWK, Wong NSM, Bornstein MM, Leung YY. Three-dimensional radiographic evaluation of root migration patterns 4-8.5 years after lower third molar coronectomy: a cone beam computed tomography study. Int J Oral Maxillofac Surg. 2018;47(9):1145-1152. <a href="https://doi.org/10.1016/j.ijom.2018.03.014">doi.org/10.1016/j.ijom.2018.03.014</a></li>
+      <li id="ref-18">Gaballah K, Shetty SR, Kamath V, Talaat W, Renton T. Establishing universal sectioning depth and angle for surgical coronectomy of impacted mandibular third molars: an imaging-based study. Front Oral Health. 2024;5:1466076. <a href="https://doi.org/10.3389/froh.2024.1466076">doi.org/10.3389/froh.2024.1466076</a></li>
+      <li id="ref-19">Sarikov R, Juodzbalys G. Inferior alveolar nerve injury after mandibular third molar extraction: a literature review. J Oral Maxillofac Res. 2014;5(4):e1. <a href="https://doi.org/10.5037/jomr.2014.5401">doi.org/10.5037/jomr.2014.5401</a></li>
+    </ol>
+  </details>
+  </section>
+
+</main>
+<!-- CONTACT: copy of app/contact.ts. When the Instagram/X handles are known, turn the
+     Instagram / X buttons (no destination yet) into links: add href. -->
+<footer class="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h"><span lang="en">Contact us</span><span lang="vi">Liên hệ</span><span lang="ja">お{問|と}い{合|あ}わせ</span></h2>
+  <p><span lang="en">Questions, corrections or ideas for a model? Follow Vivatheca or get in touch.</span><span lang="vi">Bạn có câu hỏi, góp ý sửa lỗi hay ý tưởng cho một mô hình? Hãy theo dõi Vivatheca hoặc liên hệ với chúng tôi.</span><span lang="ja">{模型|もけい}についてのご{質問|しつもん}、{誤|あやま}りのご{指摘|してき}、アイデアをお{待|ま}ちしています。Vivathecaをフォローするか、お{気軽|きがる}にご{連絡|れんらく}ください。</span></p>
+  <ul>
+    <li><a class="pending" role="link" aria-disabled="true"><b>Instagram</b></a></li>
+    <li><a class="pending" role="link" aria-disabled="true"><b>X</b></a></li>
+    <li><a href="mailto:vivatheca@gmail.com"><b><span lang="en">Email</span><span lang="ja">メール</span></b> vivatheca@gmail.com</a></li>
+  </ul>
+  <p class="small"><span lang="en">Vivatheca is for general education only. It is not medical advice and must not be used for diagnosis, treatment planning or surgical guidance. Talk to a qualified health professional about your own health. <a href="/disclaimer">Full disclaimer</a></span><span lang="vi">Vivatheca chỉ nhằm mục đích giáo dục chung. Đây không phải lời khuyên y khoa và không được dùng để chẩn đoán, lập kế hoạch điều trị hoặc hướng dẫn phẫu thuật. Hãy trao đổi với nhân viên y tế có chuyên môn về sức khỏe của chính bạn. <a href="/disclaimer">Toàn văn tuyên bố miễn trừ trách nhiệm</a></span><span lang="ja">Vivathecaは{一般的|いっぱんてき}な{教育|きょういく}のみを{目的|もくてき}としています。{医療上|いりょうじょう}の{助言|じょげん}ではなく、{診断|しんだん}、{治療|ちりょう}{計画|けいかく}、{手術|しゅじゅつ}ガイドには{使用|しよう}できません。ご{自身|じしん}の{健康|けんこう}については、{資格|しかく}のある{医療|いりょう}{専門家|せんもんか}にご{相談|そうだん}ください。<a href="/disclaimer">{免責|めんせき}{事項|じこう}の{全文|ぜんぶん}</a></span></p>
+</footer>
+<script src="vi.js"></script>
+<script src="/inline-vi.js"></script>
+<script src="viewer.js"></script>
+<script src="/contact.js"></script>
+<script src="/fullscreen.js"></script>
+<script src="/model-parts.js"></script>
+<script src="/model-labels.js"></script>
+<script src="/share-tools.js"></script>
+</body>
+</html>

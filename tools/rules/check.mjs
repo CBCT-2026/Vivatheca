@@ -68,7 +68,7 @@ for (const file of pages) {
     if (!/clinically reviewed/i.test(t)) fail(file, 'review-status', 'no review status (e.g. "Not yet clinically reviewed.")');
     // A sub-view of a catalogued model (for example /stainless-steel-crown/kids/) counts if it links back to that model's page.
     const parent = [...hrefs].find((h) => h !== '/' && route !== h && route.startsWith(h));
-    const linked = parent && html.includes(`href="${parent}"`);
+    const linked = parent && (html.includes(`href="${parent}"`) || html.includes(`href="${parent.slice(0, -1)}"`));
     if (!hrefs.has(route) && !linked) fail(file, 'collection', `model page ${route} is not in app/models/catalogue.ts`);
   }
   if (/z-anatomy/i.test(t) && !/CC BY-SA/.test(t)) fail(file, 'licence', 'uses Z-Anatomy but does not say CC BY-SA 4.0');
