@@ -26,7 +26,7 @@ STAGES = [
     ('abg-3b-substitution', 'Stage 3, long term (adult), canine substitution: the canine moved into the gap and reshaped.'),
 ]
 
-CITATION = ('Seifert L. Vivatheca: Alveolar bone graft in cleft lip and palate, version 0.1. 2026. '
+CITATION = ('CBCT-2026 (Founder & Director). Vivatheca: Alveolar bone graft in cleft lip and palate, version 0.1. 2026. '
             f'{PAGE}. Licensed under CC BY-SA 4.0. Accessed [date].')
 
 DISCLAIMER = (
@@ -96,7 +96,7 @@ def main():
             'and have no print fittings (pegs or gaps), so repair them in your slicer before printing.\n\n'
             f'{DISCLAIMER}\n'
             f'What the model shows, what is simplified, and its sources: {PAGE}\n\n'
-            'Made by Luke Seifert, Vivatheca, for a patient education research study. Licence: CC BY-SA 4.0 '
+            'Made by CBCT-2026 (Founder & Director), Vivatheca, for a patient education research study. Licence: CC BY-SA 4.0 '
             '(https://creativecommons.org/licenses/by-sa/4.0/). If you share a changed version, share it under CC BY-SA 4.0.\n'
             f'How to credit: {CITATION}\n'
         )

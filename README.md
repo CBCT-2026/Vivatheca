@@ -56,7 +56,7 @@ Vivatheca credits everyone who helps, by role, using the [all-contributors](http
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 | Contributor | Roles |
 | --- | --- |
-| Luke Seifert ([CBCT-2026](https://github.com/CBCT-2026)) | 3D models, code, content, ideas |
+| [CBCT-2026](https://github.com/CBCT-2026) (Founder & Director) | 3D models, code, content, ideas |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 To add someone, comment on a pull request or issue: `@all-contributors please add <github-name> for review` (needs the free [all-contributors app](https://github.com/apps/allcontributors) installed on this repository), or edit `.all-contributorsrc` and this table by hand.

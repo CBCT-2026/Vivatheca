@@ -692,7 +692,7 @@ const en = {
   print: {
     imageAlt: 'Cheek-side view of the impacted wisdom tooth model: on the left the digital model, on the right a photo of the same model 3D printed, with a ruler. Both show grey-beige bone and teeth and the nerve in red.',
     imageAltLingual: 'Tongue-side view of the same digital model and 3D print, with a ruler.',
-    caption: 'Top: cheek side. Bottom: tongue side. Left: digital model, shown here in the print’s colours (grey-beige, nerve in red). Right: the same model 3D printed (version 10.1). Photos by Luke Seifert, Vivatheca.',
+    caption: 'Top: cheek side. Bottom: tongue side. Left: digital model, shown here in the print’s colours (grey-beige, nerve in red). Right: the same model 3D printed (version 10.1). Photos by CBCT-2026 (Founder & Director), Vivatheca.',
     heading: 'Print a model on a desktop 3D printer',
     text: 'Most models come with a free STL file in millimetres, with its print scale stated on the model page, that you can print on a desktop 3D printer, so the explanation can move from the screen to the patient’s hands. Print files for the jaw and palate surgery models will follow once those models are finalised.',
     download: 'Download both STL files',
@@ -875,7 +875,7 @@ const en = {
     filesNote: 'The STL parts come from the web model. They have no print fittings, so repair them in your slicer before printing. In stage 3, print one way to fill the gap at a time, as those parts overlap.',
     licence: 'Licence:',
     licenceText: 'You may use, adapt and print these models, including in your own patient materials, if you credit Vivatheca. If you change the model, or images of it, share your changed version under CC BY-SA 4.0.',
-    credit: 'Modelled by Luke Seifert, Vivatheca.',
+    credit: 'Modelled by CBCT-2026 (Founder & Director), Vivatheca.',
     citeHeading: 'How to credit',
     simplified: 'One example: a cleft on the left side with no lateral incisor on that side. Real clefts vary in width and in which teeth are missing, and graft results vary. Tooth ages and positions follow the sources below; colours show the parts apart and are not real tissue colours.',
     stages: [
@@ -1265,7 +1265,7 @@ const en = {
     ],
     sourcesHeading: 'Published sources',
     citeLabel: 'Source {n}',
-    sourcesNote: 'Modelled from scratch by Luke Seifert, Vivatheca’s founder; no third-party or library mesh was used. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies.',
+    sourcesNote: 'Modelled from scratch by CBCT-2026, Vivatheca’s Founder & Director; no third-party or library mesh was used. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies.',
     changelogHeading: 'Change log',
     changelog: [
       { version: '1.3', text: 'Teeth are now a realistic white tooth colour and the inferior alveolar nerve is yellow. The bone colour is unchanged.' },
@@ -1348,8 +1348,8 @@ const en = {
     reviewLabel: 'Review status:',
     reviewText: 'no model has been independently clinically reviewed yet.',
     founderHeading: 'Who runs it',
-    founderName: 'Luke Seifert, Founder & Director.',
-    founder: 'Vivatheca was founded in Australia by Luke, a dental professional who models and 3D prints anatomy. They build each model, check it against published sources and test-print it on a Bambu P1S 3D printer. It is currently a one-person project. Clinicians are being invited to review models and suggest new ones.',
+    founderName: 'CBCT-2026, Founder & Director.',
+    founder: 'Vivatheca was founded in Australia by CBCT-2026, a dental professional who models and 3D prints anatomy. They build each model, check it against published sources and test-print it on a Bambu P1S 3D printer. It is currently a one-person project. Clinicians are being invited to review models and suggest new ones.',
     noSponsor: 'Vivatheca has no commercial sponsor and earns no money from the models.',
     planHeading: 'Not-for-profit plan',
     plan: 'Vivatheca is run as a not-for-profit project. The plan is to form Vivatheca Ltd, an Australian company limited by guarantee, and apply to register it as a charity with the Australian Charities and Not-for-profits Commission (ACNC). Neither step is complete yet. Any future funding will pay for model development, hosting and printed models for clinics, never for profit.',

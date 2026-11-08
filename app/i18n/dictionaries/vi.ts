@@ -993,7 +993,7 @@ const vi = withFallback(en, {
   "print": {
     "imageAlt": "Mặt phía má của mô hình răng khôn mọc ngầm: bên trái là mô hình số, bên phải là ảnh chụp chính mô hình đó đã in 3D, kèm thước kẻ. Cả hai đều có xương và răng màu be xám, dây thần kinh màu đỏ.",
     "imageAltLingual": "Mặt phía lưỡi của cùng mô hình số và bản in 3D, kèm thước kẻ.",
-    "caption": "Trên: phía má. Dưới: phía lưỡi. Trái: mô hình số, hiển thị theo màu của bản in (be xám, dây thần kinh màu đỏ). Phải: cùng mô hình đó đã in 3D (phiên bản 10.1). Ảnh: Luke Seifert, Vivatheca.",
+    "caption": "Trên: phía má. Dưới: phía lưỡi. Trái: mô hình số, hiển thị theo màu của bản in (be xám, dây thần kinh màu đỏ). Phải: cùng mô hình đó đã in 3D (phiên bản 10.1). Ảnh: CBCT-2026 (Nhà sáng lập kiêm Giám đốc), Vivatheca.",
     "heading": "In mô hình bằng máy in 3D để bàn",
     "text": "Hầu hết các mô hình có kèm tệp STL miễn phí tính bằng milimét, tỉ lệ in ghi trên trang mô hình, để bạn in bằng máy in 3D để bàn, giúp lời giải thích đi từ màn hình đến tay bệnh nhân. Tệp in cho các mô hình phẫu thuật xương hàm và vòm miệng sẽ có khi các mô hình đó hoàn thiện.",
     "download": "Tải cả hai tệp STL"
@@ -1258,7 +1258,7 @@ const vi = withFallback(en, {
     "filesNote": "Các phần STL lấy từ mô hình web. Chúng không có khớp nối để in, nên hãy sửa trong phần mềm cắt lớp trước khi in. Ở giai đoạn 3, mỗi lần chỉ in một cách lấp khoảng trống, vì các phần đó chồng lên nhau.",
     "licence": "Giấy phép:",
     "licenceText": "Bạn có thể dùng, chỉnh sửa và in các mô hình này, kể cả trong tài liệu cho bệnh nhân của mình, nếu ghi công Vivatheca. Nếu bạn thay đổi mô hình hoặc hình ảnh của nó, hãy chia sẻ bản đã thay đổi theo giấy phép CC BY-SA 4.0.",
-    "credit": "Mô hình do Luke Seifert, Vivatheca, thực hiện.",
+    "credit": "Mô hình do CBCT-2026 (Nhà sáng lập kiêm Giám đốc), Vivatheca, thực hiện.",
     "citeHeading": "Cách ghi công",
     "simplified": "Một ví dụ: khe hở bên trái, không có răng cửa bên ở bên đó. Khe hở thật khác nhau về độ rộng và răng nào bị thiếu, và kết quả ghép xương cũng khác nhau. Tuổi và vị trí răng theo các nguồn bên dưới; màu sắc chỉ để phân biệt các phần, không phải màu thật của mô.",
     "stages": [
@@ -1712,7 +1712,7 @@ const vi = withFallback(en, {
     ],
     "sourcesHeading": "Nguồn đã công bố",
     "citeLabel": "Nguồn {n}",
-    "sourcesNote": "Được Luke Seifert, người sáng lập Vivatheca, dựng từ đầu; không dùng lưới mô hình của bên thứ ba hay thư viện nào. Các nguồn dưới đây hỗ trợ giải phẫu và thuật ngữ mà mô hình thể hiện; mô hình không được làm từ phim chụp bệnh nhân hay từ số đo trong các nghiên cứu này.",
+    "sourcesNote": "Được CBCT-2026, Nhà sáng lập kiêm Giám đốc Vivatheca, dựng từ đầu; không dùng lưới mô hình của bên thứ ba hay thư viện nào. Các nguồn dưới đây hỗ trợ giải phẫu và thuật ngữ mà mô hình thể hiện; mô hình không được làm từ phim chụp bệnh nhân hay từ số đo trong các nghiên cứu này.",
     "changelogHeading": "Nhật ký thay đổi",
     "changelog": [
       {
@@ -1815,8 +1815,8 @@ const vi = withFallback(en, {
     "reviewLabel": "Tình trạng thẩm định:",
     "reviewText": "chưa có mô hình nào được thẩm định lâm sàng độc lập.",
     "founderHeading": "Ai điều hành",
-    "founderName": "Luke Seifert, Nhà sáng lập kiêm Giám đốc.",
-    "founder": "Vivatheca được Luke, một người làm nghề nha khoa chuyên dựng mô hình và in 3D giải phẫu, thành lập tại Úc. Luke dựng từng mô hình, đối chiếu với các nguồn đã công bố và in thử trên máy in 3D Bambu P1S. Hiện đây là dự án một người. Các nhân viên y tế đang được mời thẩm định mô hình và đề xuất mô hình mới.",
+    "founderName": "CBCT-2026, Nhà sáng lập kiêm Giám đốc.",
+    "founder": "Vivatheca được CBCT-2026, một người làm nghề nha khoa chuyên dựng mô hình và in 3D giải phẫu, thành lập tại Úc. CBCT-2026 dựng từng mô hình, đối chiếu với các nguồn đã công bố và in thử trên máy in 3D Bambu P1S. Hiện đây là dự án một người. Các nhân viên y tế đang được mời thẩm định mô hình và đề xuất mô hình mới.",
     "noSponsor": "Vivatheca không có nhà tài trợ thương mại và không thu tiền từ các mô hình.",
     "planHeading": "Kế hoạch phi lợi nhuận",
     "plan": "Vivatheca được điều hành như một dự án phi lợi nhuận. Kế hoạch là thành lập Vivatheca Ltd, một công ty trách nhiệm hữu hạn bằng bảo lãnh tại Úc, và đăng ký làm tổ chức từ thiện với Ủy ban Tổ chức Từ thiện và Phi lợi nhuận Úc (ACNC). Cả hai bước đều chưa hoàn tất. Mọi khoản tài trợ trong tương lai sẽ dùng cho việc phát triển mô hình, lưu trữ web và mô hình in cho phòng khám, không bao giờ vì lợi nhuận.",

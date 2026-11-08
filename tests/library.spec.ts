@@ -105,7 +105,7 @@ test('bone graft page offers CC BY-SA downloads with the review status and credi
   await expect(downloads.getByText('Not yet clinically reviewed.', { exact: true })).toBeVisible();
   await expect(downloads.getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
   await expect(downloads.getByRole('link', { name: 'CC BY-SA 4.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by-sa/4.0/');
-  await expect(downloads).toContainText('Modelled by Luke Seifert, Vivatheca.');
+  await expect(downloads).toContainText('Modelled by CBCT-2026 (Founder & Director), Vivatheca.');
   for (const href of await downloads.locator('a[download]').evaluateAll((links) => links.map((link) => link.getAttribute('href')!))) {
     expect((await request.head(href)).status(), href).toBe(200);
   }
