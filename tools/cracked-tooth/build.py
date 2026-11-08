@@ -30,6 +30,19 @@ from skimage import measure
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tokens'))
 from colours import LINEAR  # noqa: E402  (tools/tokens/colours.py, built by `pnpm tokens`)
+import importlib.util  # noqa: E402
+_spec = importlib.util.spec_from_file_location(
+    'endo_build', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'endo', 'build.py'))
+endo = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(endo)  # split_along: clean colour boundaries (shared with the BodyParts3D models)
+
+
+def split_labelled(m, labels, f):
+    """endo.split_along, keeping each face's label on the pieces it is cut into."""
+    s = f >= 0
+    cross = s[m.faces].any(1) & ~s[m.faces].all(1)
+    lab = np.array(labels, dtype=object)
+    return endo.split_along(m, f), list(np.concatenate([lab[~cross], np.repeat(lab[cross], 3)]))
 
 # ---------------------------------------------------------------- parameters (mm, tooth frame)
 CRACK_HALF_WIDTH = 0.12      # drawn 0.24 mm wide so it can be seen; real cracks are far thinner
@@ -158,10 +171,17 @@ def mesh_solid(F, terms, target=60000):
     m = trimesh.Trimesh(v, f, process=True)
     if m.volume < 0:  # make normals point outward
         m.invert()
-    cen = m.triangles_center
-    idx = (cen - [F.xs[0], F.ys[0], F.zs[0]]) / F.pitch
-    vals = np.stack([ndimage.map_coordinates(t[1], idx.T, order=1, mode='nearest') for t in terms])
-    lab = np.argmin(np.abs(vals), axis=0)
+    o = np.array([F.xs[0], F.ys[0], F.zs[0]])
+    vals = lambda p: np.abs(np.stack([ndimage.map_coordinates(t[1], ((p - o) / F.pitch).T, order=1, mode='nearest')
+                                      for t in terms]))
+    if len(terms) > 1:
+        # cut along the boundaries between terms so colour edges are clean lines, not saw-tooth triangle edges
+        for k in range(len(terms)):
+            v = vals(m.vertices)
+            m = endo.split_along(m, v[k] - np.delete(v, k, axis=0).min(0))
+        lab = np.argmin(vals(m.vertices)[:, m.faces].mean(2), axis=0)
+    else:
+        lab = np.zeros(len(m.faces), int)
     return m, [terms[i][0] for i in lab]
 
 
@@ -257,16 +277,17 @@ class Glb:
     def add_mesh(self, name, mesh, labels, delta=None):
         prims = []
         labels = np.array(labels)
+        N = endo.group_normals(mesh, labels)
         for lab in dict.fromkeys(labels):
-            sub = mesh.submesh([np.nonzero(labels == lab)[0]], append=True)
-            v = to_gltf(sub.vertices)
-            n = to_gltf(sub.vertex_normals)
+            u, inv = np.unique(mesh.faces[labels == lab], return_inverse=True)
+            v = to_gltf(mesh.vertices[u])
+            n = to_gltf(N[u])
             p = {'attributes': {'POSITION': self._acc(v, 'VEC3', 34962, True),
                                 'NORMAL': self._acc(n, 'VEC3', 34962)},
-                 'indices': self._acc(sub.faces.astype(np.uint32).ravel(), 'SCALAR', 34963),
+                 'indices': self._acc(inv.reshape(-1).astype(np.uint32), 'SCALAR', 34963),
                  'material': self.material(lab)}
             if delta is not None:
-                dv = to_gltf(delta(sub.vertices))
+                dv = to_gltf(delta(mesh.vertices[u]))
                 p['targets'] = [{'POSITION': self._acc(dv, 'VEC3', 34962, True)}]
             prims.append(p)
         m = {'name': name, 'primitives': prims}
@@ -362,7 +383,8 @@ def build(F, out):
                         continue
                     m, labels = res
                     labels = [fix_label(l, pname, part) for l in labels]
-                    zc = m.triangles_center[:, 2]
+                    m, labels = split_labelled(m, labels, m.vertices[:, 2])   # clean line at the CEJ (z = 0)
+                    zc = m.vertices[:, 2][m.faces].mean(1)
                     labels = ['cementum' if (l == 'tooth' and z < 0) else l for l, z in zip(labels, zc)]
                     delta = None
                     if name in ('cracked', 'composite'):
