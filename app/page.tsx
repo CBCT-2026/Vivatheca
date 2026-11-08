@@ -160,7 +160,7 @@ export default async function Home() {
         </section>
 
         <section className="sponsor-section" id="sponsor">
-          <div className="sponsor-intro"><div><h2><Ruby text={t.sponsor.heading} /></h2><p><Ruby text={t.sponsor.text} /></p></div><a className="button button-light" href={mailto('Sponsor a Vivatheca model')}><Ruby text={t.sponsor.cta} /> <Icon name="arrow_forward" /></a></div>
+          <div className="sponsor-intro"><div><h2><Ruby text={t.sponsor.heading} /></h2><p><Ruby text={t.sponsor.text} /> <a href="/standards#funding"><Ruby text={t.sponsor.policy} /></a></p></div><a className="button button-light" href={mailto('Sponsor a Vivatheca model')}><Ruby text={t.sponsor.cta} /> <Icon name="arrow_forward" /></a></div>
         </section>
       </main>
 

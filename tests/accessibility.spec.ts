@@ -10,6 +10,7 @@ const pages = [
   '/models',
   '/learn',
   '/about',
+  '/standards',
   '/disclaimer',
   '/contribute',
   '/report',

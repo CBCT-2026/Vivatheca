@@ -45,7 +45,7 @@ export default async function AboutPage() {
         <section aria-labelledby="founder-title">
           <h2 id="founder-title"><Ruby text={a.founderHeading} /></h2>
           <p><strong><Ruby text={a.founderName} /></strong> <Ruby text={a.founder} /></p>
-          <p><Ruby text={a.noSponsor} /></p>
+          <p><Ruby text={a.noSponsor} /> <a href="/standards#funding"><Ruby text={a.standardsLink} /></a></p>
         </section>
 
         <section aria-labelledby="governance-title">

@@ -662,6 +662,12 @@ sup.cite.cite-more::before { content: ","; }
 .prose-page section { border-top: 1px solid var(--line); padding: 1.75rem 0; }
 .prose-page section h2 { margin: 0 0 .6rem; color: var(--heading); font-size: 1.4rem; }
 .prose-page a { color: var(--accent); font-weight: 700; }
+/* Buttons keep their own colours inside info pages (the link colour above would put accent text on the button). */
+.standards-list { padding-left: 1.4em; }
+ul.standards-list { list-style: disc; }
+ol.standards-list { list-style: decimal; }
+.standards-list li { margin-bottom: .35rem; }
+.prose-page a.button:not(.button-secondary):not(.button-light) { color: var(--white); }
 .principle-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,230px),1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
 .principle-list li { border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); padding: 1.1rem 1.25rem; }
 .principle-list h3 { margin: 0 0 .35rem; color: var(--heading); font-size: 1.05rem; }
@@ -1054,6 +1060,9 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .compare-parts { padding: .75rem 1.25rem 0; }
 .option-note { border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-tint); padding: .6rem .8rem; color: var(--text-strong); font-size: .98rem; line-height: 1.6; }
 .option-note .cite { font-size: .7em; line-height: 0; margin-left: 1px; }
+.prose-page .cite { font-size: .7em; line-height: 0; margin-left: 1px; }
+.prose-page .cite a { color: var(--accent); text-decoration: none; font-weight: 700; }
+.sponsor-section p a { color: inherit; text-decoration: underline; }
 .option-note .cite a { color: var(--accent); text-decoration: none; font-weight: 700; }
 /* Labels on the model (hotspots with a leader line), as on the CBCT-2026/ABG pages. */
 .hotspot { --len: 34px; position: relative; width: 9px; height: 9px; padding: 0; border: 2px solid #fff; border-radius: 50%; background: #1b1d21; pointer-events: none; }

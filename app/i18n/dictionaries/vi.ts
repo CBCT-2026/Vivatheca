@@ -1084,7 +1084,8 @@ const vi = withFallback(en, {
   "sponsor": {
     "heading": "Tài trợ một mô hình",
     "text": "Tài trợ có thể hỗ trợ phát triển mô hình và sau này gửi mô hình in tới các phòng khám không tự in được. Vivatheca chưa phải là tổ chức từ thiện đã đăng ký, nên khoản tài trợ không được khấu trừ thuế.",
-    "cta": "Bắt đầu trao đổi về tài trợ"
+    "cta": "Bắt đầu trao đổi về tài trợ",
+    "policy": "Đọc chính sách tài chính và xung đột lợi ích."
   },
   "footer": {
     "backToTop": "Về đầu trang Vivatheca",
@@ -1098,6 +1099,7 @@ const vi = withFallback(en, {
     "aboutGroup": {
       "label": "Giới thiệu",
       "about": "Về Vivatheca",
+      "standards": "Tiêu chuẩn nội dung và nguồn tài chính",
       "privacy": "Quyền riêng tư",
       "contact": "Liên hệ"
     },
@@ -1121,7 +1123,8 @@ const vi = withFallback(en, {
       "survey": "Khảo sát nhân viên y tế",
       "contribute": "Đóng góp mô hình",
       "review": "Tham gia thẩm định lâm sàng",
-      "sponsor": "Tài trợ mô hình"
+      "sponsor": "Tài trợ mô hình",
+      "volunteer": "Tình nguyện làm biên tập viên hoặc trưởng nhóm ngôn ngữ"
     },
     "connect": {
       "label": "Kết nối",
@@ -1824,6 +1827,7 @@ const vi = withFallback(en, {
     "founderName": "CBCT-2026, Nhà sáng lập kiêm Giám đốc.",
     "founder": "Vivatheca được CBCT-2026, một người làm nghề nha khoa chuyên dựng mô hình và in 3D giải phẫu, thành lập tại Úc. CBCT-2026 dựng từng mô hình, đối chiếu với các nguồn đã công bố và in thử trên máy in 3D Bambu P1S. Hiện đây là dự án một người. Các nhân viên y tế đang được mời thẩm định mô hình và đề xuất mô hình mới.",
     "noSponsor": "Vivatheca không có nhà tài trợ thương mại và không thu tiền từ các mô hình.",
+    "standardsLink": "Đọc tiêu chuẩn nội dung và chính sách tài chính.",
     "planHeading": "Kế hoạch phi lợi nhuận",
     "plan": "Vivatheca được điều hành như một dự án phi lợi nhuận. Kế hoạch là thành lập Vivatheca Ltd, một công ty trách nhiệm hữu hạn bằng bảo lãnh tại Úc, và đăng ký làm tổ chức từ thiện với Ủy ban Tổ chức Từ thiện và Phi lợi nhuận Úc (ACNC). Cả hai bước đều chưa hoàn tất. Mọi khoản tài trợ trong tương lai sẽ dùng cho việc phát triển mô hình, lưu trữ web và mô hình in cho phòng khám, không bao giờ vì lợi nhuận.",
     "planUpdate": "Trang này sẽ được cập nhật thông tin đăng ký khi có.",
@@ -2027,6 +2031,96 @@ const vi = withFallback(en, {
     "joinHeading": "Trở thành người thẩm định",
     "joinText": "Nếu bạn là nha sĩ, bác sĩ phẫu thuật hàm mặt hoặc bác sĩ có đăng ký hành nghề trong lĩnh vực liên quan và muốn thẩm định một mô hình, vui lòng gửi email cho chúng tôi. Tên người thẩm định chỉ được ghi trên trang này nếu họ đồng ý.",
     "joinLink": "Gửi email để tham gia thẩm định lâm sàng"
+  },
+  "standards": {
+    "title": "Tiêu chuẩn nội dung và nguồn tài chính - Vivatheca",
+    "description": "Các nguồn tài liệu mỗi mô hình Vivatheca cần có, cách chọn số liệu giải phẫu, ai thẩm định nội dung, biên tập viên chuyên mục và trưởng nhóm ngôn ngữ tình nguyện, và chính sách tài chính và xung đột lợi ích.",
+    "eyebrow": "Tiêu chuẩn nội dung",
+    "heading": "Tiêu chuẩn nội dung và nguồn tài chính",
+    "intro": "Nhân viên y tế cần thấy rõ mỗi mô hình và trang được làm và kiểm tra thế nào, và ai trả tiền cho việc đó. Mọi mô hình và trang của Vivatheca đều tuân theo các quy tắc dưới đây.",
+    "updated": "Cập nhật lần cuối ngày 8 tháng 11 năm 2026.",
+    "citeLabel": "Nguồn {n}",
+    "sourcesHeading": "Nguồn tài liệu mỗi mô hình cần có",
+    "sources": [
+      "Mỗi mô hình trích dẫn ít nhất ba nguồn độc lập, chất lượng cao, và mỗi kích thước, hình dạng hay vị trí mà nhân viên y tế có thể kiểm tra đều có nguồn riêng.",
+      "Thứ tự ưu tiên của nguồn: tổng quan hệ thống và phân tích gộp; hướng dẫn của các hội chuyên khoa (như AAP/EFP, AAPD, AAE, AAOMS và NCCN) và của cơ quan nhà nước; nghiên cứu lâm sàng có bình duyệt; và sách giáo khoa chuẩn cho giải phẫu cơ bản. Luôn dùng mức bằng chứng cao nhất hiện có [1].",
+      "Không bao giờ dùng blog, tài liệu quảng cáo của công ty, trang web không có nguồn hay văn bản do AI tạo ra làm bằng chứng.",
+      "Mỗi nguồn được hiển thị trên trang với tác giả, năm, tên bài hoặc tổ chức, và đường liên kết nếu có. DOI được kiểm tra tự động để chắc chắn là có thật và chưa bị rút lại.",
+      "Một số phần mềm giải phẫu thương mại công bố mức tối thiểu ba nguồn cho mỗi mô hình [2]. Vivatheca dùng cùng mức tối thiểu đó và còn trích nguồn cho từng số liệu."
+    ],
+    "figuresHeading": "Cách chọn số liệu giải phẫu",
+    "figures": [
+      "Kích thước, khoảng cách và vị trí lấy từ nghiên cứu lâm sàng đã công bố hoặc thực hành bình thường được công nhận, không bao giờ là con số do người làm mô hình tự chọn.",
+      "Khi các nghiên cứu không thống nhất, trang sẽ nói rõ và mô hình dùng giá trị thận trọng hơn. Khi không có nghiên cứu nào đưa ra giá trị, trang cũng nói rõ điều đó.",
+      "Mỗi mô hình liệt kê những gì được đơn giản hóa hoặc lược bỏ, cùng phiên bản và lịch sử thay đổi."
+    ],
+    "reviewHeading": "Ai kiểm tra nội dung",
+    "reviewSteps": [
+      "Trước khi mô hình được đưa lên, người làm mô hình đối chiếu mọi số liệu và nhận định với nguồn. Các bước kiểm tra tự động miễn phí kiểm tra tuyên bố miễn trừ trách nhiệm, giấy phép, liên kết nguồn và văn bản dễ hiểu cho bệnh nhân.",
+      "Thẩm định lâm sàng: một bác sĩ đã đăng ký hành nghề trong chuyên khoa phù hợp kiểm tra phiên bản hiện tại và xác nhận bằng tên của mình. Hồ sơ nằm ở trang thẩm định lâm sàng.",
+      "Khi có chuyên gia tham gia, biên tập viên chuyên mục (bên dưới) sẽ phụ trách thẩm định trong từng chuyên khoa.",
+      "Bản dịch: một nhân viên y tế thông thạo ngôn ngữ đó, là trưởng nhóm ngôn ngữ, xác nhận từng ngôn ngữ (bên dưới). Cho đến lúc đó, bản dịch được ghi là bản nháp chưa thẩm định."
+    ],
+    "statusHeading": "“Chưa được thẩm định lâm sàng” nghĩa là gì",
+    "status": "Người làm mô hình đã đối chiếu mô hình với nguồn, nhưng chưa có bác sĩ độc lập nào xác nhận phiên bản này, nên mô hình có thể có sai sót. Một phiên bản mới luôn trở lại trạng thái “Chưa được thẩm định lâm sàng” cho đến khi được thẩm định lại. Thẩm định chỉ kiểm tra độ chính xác cho mục đích giáo dục. Thẩm định không bao giờ làm cho mô hình phù hợp để dùng trong lâm sàng.",
+    "reviewLink": "Xem hồ sơ thẩm định lâm sàng",
+    "editorsHeading": "Biên tập viên chuyên mục",
+    "editorsIntro": "Mỗi chuyên khoa sẽ có một biên tập viên chuyên mục tình nguyện: một bác sĩ chuyên khoa đã đăng ký hoặc bác sĩ giàu kinh nghiệm, thẩm định mô hình mới và các thay đổi trong lĩnh vực của mình và xác nhận các phiên bản mô hình. Một ban biên tập nhỏ sẽ giám sát các biên tập viên. Cách làm này theo mô hình biên tập viên tình nguyện của Radiopaedia, nơi ban biên tập thẩm định mọi chỉnh sửa [3].",
+    "sectionCol": "Chuyên mục",
+    "editorCol": "Biên tập viên chuyên mục",
+    "boardLabel": "Ban biên tập",
+    "pending": "Đang chờ chuyên gia tham gia",
+    "named": "{name} ({credentials}), từ {since}",
+    "dutiesHeading": "Vai trò gồm những gì",
+    "editorDuties": [
+      "Thẩm định mô hình mới và các thay đổi trong chuyên mục dựa trên nguồn và danh mục kiểm tra thẩm định lâm sàng.",
+      "Xem các báo cáo lỗi của chuyên mục và quyết định điều gì cần sửa.",
+      "Khai báo lợi ích của mình (xem bên dưới) và không tham gia quyết định nào mà mình có lợi ích liên quan.",
+      "Là bác sĩ đã đăng ký hành nghề. Ưu tiên bác sĩ chuyên khoa cho các chủ đề chuyên khoa."
+    ],
+    "editorsJoin": "Gửi email để làm biên tập viên chuyên mục",
+    "leadsHeading": "Trưởng nhóm ngôn ngữ",
+    "leadsIntro": "Mỗi ngôn ngữ sẽ có một trưởng nhóm ngôn ngữ tình nguyện: một nhân viên y tế thông thạo ngôn ngữ đó, kiểm tra bản dịch có cùng nội dung với bản tiếng Anh, duyệt các người dịch tình nguyện khác và xác nhận văn bản. Khan Academy cũng dịch nội dung qua các Language Advocates tình nguyện theo cách tương tự [4].",
+    "languageCol": "Ngôn ngữ",
+    "leadCol": "Trưởng nhóm ngôn ngữ",
+    "languages": {
+      "ja": "Tiếng Nhật",
+      "vi": "Tiếng Việt",
+      "zh": "Tiếng Trung (giản thể và phồn thể)"
+    },
+    "open": "Đang tìm tình nguyện viên",
+    "later": "Sau tiếng Nhật và tiếng Việt",
+    "leadDuties": [
+      "Đọc từng trang bằng ngôn ngữ của mình bên cạnh bản tiếng Anh và sửa nghĩa, thuật ngữ lâm sàng và giọng văn.",
+      "Nhờ một người đọc thông thạo thứ hai kiểm tra tuyên bố miễn trừ trách nhiệm và câu chữ về an toàn, như thực hành dịch thuật tốt khuyến nghị [5].",
+      "Duyệt các người dịch tình nguyện khác và xác nhận phần việc của họ.",
+      "Là nha sĩ, bác sĩ hoặc nhân viên chăm sóc sức khỏe răng miệng đã đăng ký hành nghề, thông thạo ngôn ngữ đó và tiếng Anh."
+    ],
+    "leadsJoin": "Gửi email để làm trưởng nhóm ngôn ngữ",
+    "volunteerHeading": "Điều kiện tình nguyện",
+    "volunteer": [
+      "Tất cả các vai trò này đều không được trả công. Vivatheca không trả phí, lương hay thù lao và không hoàn trả chi phí.",
+      "Tên tình nguyện viên chỉ được ghi trên trang này nếu họ đồng ý, với tên và chức danh họ chọn. Mỗi vai trò có mô tả bằng văn bản, và ai cũng có thể thôi bất cứ lúc nào. Mô tả vai trò, tuyển chọn và ghi nhận theo National Standards for Volunteer Involvement [6].",
+      "Tình nguyện viên đồng ý rằng các chỉnh sửa và bản dịch của mình có thể được công bố theo giấy phép của trang hoặc mô hình mà họ làm việc."
+    ],
+    "fundingHeading": "Nguồn tài chính và xung đột lợi ích",
+    "fundingNow": "Vivatheca không có nguồn tài trợ, nhà tài trợ hay nhân viên được trả lương. Người sáng lập tự trả chi phí lưu trữ và làm mô hình không công. Chính sách này được đặt ra trước khi nhận bất kỳ khoản tiền nào, để nguồn tài chính sau này không thể thay đổi nội dung.",
+    "policy": [
+      "Nội dung chỉ được quyết định bởi bằng chứng và quy trình thẩm định ở trên. Không nhà tài trợ, đơn vị tài trợ hay đối tác nào được chọn, duyệt, sửa hay chặn bất kỳ mô hình, văn bản hay nguồn nào.",
+      "Không nhận tiền từ các công ty sản xuất hoặc bán sản phẩm nha khoa hay y tế cho bất kỳ mô hình hay trang nào trong lĩnh vực sản phẩm của họ.",
+      "Không quảng cáo sản phẩm lồng ghép: mô hình và trang chỉ thể hiện dụng cụ và vật liệu chung, không bao giờ thể hiện thương hiệu hay sản phẩm của một công ty cụ thể.",
+      "Không có quảng cáo, và không có vị trí trả tiền trong kết quả tìm kiếm hay bộ sưu tập.",
+      "Nhà tài trợ không bao giờ được hiển thị cạnh tài liệu theo giấy phép phi thương mại (NC).",
+      "Tiền tài trợ dùng cho phát triển mô hình, lưu trữ, thẩm định và mô hình in cho phòng khám, không bao giờ vì lợi nhuận. Sau khi đăng ký, Vivatheca Ltd sẽ tuân theo các tiêu chuẩn quản trị của ACNC, bao gồm nghĩa vụ công khai và quản lý xung đột lợi ích [7]."
+    ],
+    "supportersHeading": "Nhà tài trợ và đơn vị tài trợ",
+    "supporters": "Chưa có. Mọi nhà tài trợ, đơn vị tài trợ và người hỗ trợ bằng hiện vật sẽ được liệt kê ở đây, cùng với việc khoản hỗ trợ được dùng vào đâu. Người quyên góp cá nhân chỉ được liệt kê nếu họ đồng ý.",
+    "interestsHeading": "Khai báo lợi ích",
+    "interests": "Người sáng lập, biên tập viên chuyên mục, trưởng nhóm ngôn ngữ và người thẩm định lâm sàng đều khai báo mọi lợi ích tài chính hoặc phi tài chính có thể ảnh hưởng, hoặc có vẻ ảnh hưởng, đến công việc của họ: ví dụ các khoản thanh toán, cổ phần, việc nói chuyện hoặc tư vấn có trả tiền cho công ty, hoặc lợi ích nghề nghiệp lớn gắn với một phương pháp điều trị. Việc khai báo theo các nhóm của ICMJE [8] và được công bố trên trang này bên cạnh vai trò của từng người. Người có lợi ích liên quan không tham gia quyết định đó, như NHMRC khuyến nghị cho các hội đồng xây dựng hướng dẫn [9].",
+    "founderInterest": "Bản khai báo của người sáng lập sẽ được công bố ở đây trước khi nhận bất kỳ khoản tài trợ nào.",
+    "draft": "Chính sách này là bản dự thảo. Hội đồng quản trị sẽ xem xét và thông qua khi Vivatheca Ltd được thành lập.",
+    "sponsorLink": "Hỏi về việc tài trợ một mô hình",
+    "sourcesListHeading": "Nguồn tài liệu"
   },
   "survey": {
     "title": "Khảo sát dành cho nhân viên y tế - Vivatheca",

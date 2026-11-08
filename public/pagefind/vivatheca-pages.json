@@ -1,7 +1,7 @@
 {
  "/about": {
-  "en": "639ed70261bd",
-  "ja": "d46907d568fa"
+  "en": "02b11d7b2bca",
+  "ja": "eeaab920d169"
  },
  "/admin": {
   "en": "61b545c66456",
@@ -76,8 +76,8 @@
   "ja": "9fe019956248"
  },
  "/": {
-  "en": "86a8f4a7c25e",
-  "ja": "ef7f592fbc51"
+  "en": "c72a80259211",
+  "ja": "001710eecf70"
  },
  "/print": {
   "en": "3bc573dda61a",
@@ -94,6 +94,10 @@
  "/review": {
   "en": "5d2e13438398",
   "ja": "6da1ca4082fa"
+ },
+ "/standards": {
+  "en": "e8b4a4679fb1",
+  "ja": "1274d0dab169"
  },
  "/survey": {
   "en": "85e793eca049",
@@ -132,24 +136,24 @@
   "ja": "442708c654f6"
  },
  "/head-neck/": {
-  "en": "9efa32bb59cf",
-  "ja": "c2091d7b9f42"
+  "en": "c96bf076a83d",
+  "ja": "12fe0a510b94"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "2e8f44a6b10e",
-  "ja": "2356600561e1"
+  "en": "eefee21b79b9",
+  "ja": "068c3efa5233"
  },
  "/head-neck/mec/": {
-  "en": "4838a76d17c1",
-  "ja": "a70ba3af9a3d"
+  "en": "959b897b4763",
+  "ja": "09745de9dd47"
  },
  "/head-neck/okc/": {
-  "en": "5c8d948fbb9d",
-  "ja": "e8f8c47c7c9b"
+  "en": "6945f75fe7e7",
+  "ja": "6cee698d6b39"
  },
  "/head-neck/scc/": {
-  "en": "dc91d115e522",
-  "ja": "2837ee82412f"
+  "en": "580f41e6bd6b",
+  "ja": "0b35fd4ef3d6"
  },
  "/oroantral/": {
   "en": "25c46f65492a",
