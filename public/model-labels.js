@@ -1,6 +1,7 @@
-// Labels on the 3D models: a dot on each part with a short leader line and the part's name, as on the
-// CBCT-2026/ABG pages. Works on every <model-viewer> on the site (static pages and app pages) and on the
-// three.js head and neck viewers (#viewer, which set box.vtLabels; see public/head-neck/case-viewer.js).
+// Labels on the 3D models: a dot on each part and a leader line out to the part's name, which sits in the empty
+// space around the model (never on another label), as on the CBCT-2026/ABG pages. On narrow viewers (phones) a
+// label shows the short term; tap it for the full term and plain words. Works on every <model-viewer> on the site
+// (static pages and app pages) and on the three.js head and neck viewers (#viewer, which set box.vtLabels; see public/head-neck/case-viewer.js).
 // - Where each label sits and where it can be seen from: public/model-labels/<GLB path>.json, made by
 //   tools/labels/anchors.mjs from the GLB files.
 // - What each label says: TERMS below (formal term + plain words, in English, Japanese with furigana and
@@ -205,21 +206,29 @@
 
   const style = doc.createElement('style');
   style.textContent = [
-    // Label colours stay light in both themes: they sit on the 3D view, like the homepage model's labels.
-    '.vt-hotspot{--len:30px;position:absolute;width:9px;height:9px;padding:0;margin:0;border:2px solid #fff;border-radius:50%;background:#1b1d21;box-shadow:0 0 0 1px rgba(0,0,0,.35);pointer-events:none;transition:opacity .2s;box-sizing:border-box}',
+    // The dots on the model are invisible probes (model-viewer hotspots, or points on the three.js layer): the
+    // visible dot, leader line and label are drawn on one layer (.vt-callouts) so they never fight over the
+    // stacking order. Label colours stay light in both themes: they sit on the 3D view.
+    '.vt-hotspot{position:absolute;width:2px;height:2px;padding:0;margin:0;border:0;opacity:0;pointer-events:none}',
     'model-viewer .vt-hotspot{position:relative}',
-    '.vt-hotspot[data-show="false"]{opacity:0}',
-    '.vt-hotspot::after{content:"";position:absolute;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.35)}',
-    '.vt-hotspot-label{position:absolute;width:max-content;max-width:240px;padding:.2rem .5rem;border-radius:6px;background:rgba(255,255,255,.95);color:#1b1d21;font:700 12px/1.25 system-ui,sans-serif;text-align:center;white-space:normal;box-shadow:0 1px 3px rgba(0,0,0,.25)}',
-    '.vt-hotspot-label small{display:block;font-size:11px;font-weight:500;white-space:normal}',
-    '.vt-hotspot-label rt{font-size:.6em;font-weight:500}',
-    '.vt-hotspot[data-side="left"]::after{right:100%;top:50%;height:1.5px;width:var(--len)}',
-    '.vt-hotspot[data-side="left"] .vt-hotspot-label{right:calc(100% + var(--len));top:50%;transform:translateY(calc(-50% + var(--dy,0px)))}',
-    '.vt-hotspot[data-side="right"]::after{left:100%;top:50%;height:1.5px;width:var(--len)}',
-    '.vt-hotspot[data-side="right"] .vt-hotspot-label{left:calc(100% + var(--len));top:50%;transform:translateY(calc(-50% + var(--dy,0px)))}',
-    '.vt-labels-off .vt-hotspot{display:none}',
-    '.vt-label-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}',
     '.vt-label-layer .vt-hotspot{transform:translate(-50%,-50%)}',
+    '.vt-callouts{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:4}',
+    '.vt-leaders{position:absolute;inset:0;width:100%;height:100%;overflow:visible}',
+    '.vt-leaders .halo{stroke:rgba(0,0,0,.45);stroke-width:3.5;fill:none}',
+    '.vt-leaders .line{stroke:#fff;stroke-width:1.5;fill:none}',
+    '.vt-leaders circle{fill:#1b1d21;stroke:#fff;stroke-width:2}',
+    '.vt-callout{position:absolute;left:0;top:0;width:max-content;max-width:220px;margin:0;padding:.2rem .5rem;border:0;border-radius:6px;background:rgba(255,255,255,.95);color:#1b1d21;font:700 12px/1.25 system-ui,sans-serif;text-align:left;white-space:normal;box-shadow:0 1px 3px rgba(0,0,0,.3);pointer-events:auto;cursor:default}',
+    '.vt-callout[data-side="right"]{text-align:right}',
+    '.vt-callout small{display:block;font-size:11px;font-weight:500}',
+    '.vt-callout rt{font-size:.6em;font-weight:500}',
+    '.vt-callout .vt-short{display:none}',
+    '.vt-callout:focus-visible{outline:3px solid var(--accent,#0a7c86);outline-offset:2px}',
+    // Narrow viewers (phones): the short term only; tap a label for the full term and plain words.
+    '.vt-compact .vt-callout{cursor:pointer;font-size:11.5px;padding:.15rem .4rem}',
+    '.vt-compact .vt-callout:not(.open) .vt-term,.vt-compact .vt-callout:not(.open) small{display:none}',
+    '.vt-compact .vt-callout:not(.open) .vt-short{display:inline}',
+    '.vt-labels-off .vt-hotspot,.vt-labels-off .vt-callouts{display:none}',
+    '.vt-label-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}',
     // The head and neck viewers have their drag hint at the bottom left, so the button goes to the top left there.
     '#viewer > .vt-label-toggle{top:10px;bottom:auto}',
     '.vt-label-toggle{position:absolute;left:10px;bottom:10px;z-index:5;min-height:40px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;border-radius:10px;border:1px solid var(--line,#cfe3e5);background:var(--bg,var(--surface,#fff));color:var(--heading,#0b2340);font:600 14px/1 system-ui,sans-serif;cursor:pointer}',
@@ -233,7 +242,6 @@
     '.vt-label-sources h3{font-size:15px;margin:10px 0 4px}',
     '.vt-label-sources ul,.vt-label-sources ol{margin:4px 0 0;padding-left:1.4em}',
     '.vt-label-sources a{color:var(--accent,inherit);overflow-wrap:anywhere}',
-    '@media (max-width:560px){.vt-hotspot-label small{display:none}}',
   ].join('');
   doc.head.appendChild(style);
 
@@ -283,9 +291,11 @@
     });
   }
 
+  // Short term for narrow viewers: the formal term without its bracketed qualifier ("Mandibular third molar").
+  const short = (t) => t.replace(/\s*[（(][^（）()]*[）)]\s*$/, '') || t;
   function labelHtml(key) {
-    const term = TERMS[key];
-    return '<span class="vt-hotspot-label"><span class="vt-term">' + say(term.t) + '</span><small>' + say(term.n) + '</small></span>';
+    const term = TERMS[key], t = term.t[lang()] || term.t[0];
+    return '<span class="vt-term">' + ruby(t) + '</span><span class="vt-short">' + ruby(short(t)) + '</span><small>' + say(term.n) + '</small>';
   }
 
   // ---- Sources list under the first viewer: the terms shown on this page and where they come from.
@@ -320,46 +330,137 @@
     sourcesBox.open = wasOpen;
   }
 
-  // Fit labels inside the viewer and spread overlapping ones: each label goes on the side of its dot with more room
-  // (and wraps to fit); later (lower priority) labels move down, or hide if there is no room.
-  // A label that would cover another label's dot goes on the other side instead, if there is room (so leaders don't cross).
-  function declutter(spots, frame) {
-    const placed = [];
-    const dots = spots.filter((h) => h.dataset.show !== 'false').map((h) => { const d = h.getBoundingClientRect(); return [h, d.left + d.width / 2, d.top + d.height / 2]; });
-    const coversDot = (h, r) => dots.some(([o, x, y]) => o !== h && x > r.left - 4 && x < r.right + 4 && y > r.top - 4 && y < r.bottom + 4);
-    spots.forEach((h) => {
-      h.style.setProperty('--dy', '0px');
-      if (h.dataset.show === 'false') return;
-      const dot = h.getBoundingClientRect();
-      const x = dot.left + dot.width / 2, y = dot.top + dot.height / 2;
-      if (x < frame.left || x > frame.right || y < frame.top || y > frame.bottom) { h.dataset.show = 'false'; return; }
-      const len = parseFloat(h.style.getPropertyValue('--len')) || 30;
-      const roomL = x - frame.left - len - 10, roomR = frame.right - x - len - 10;
-      h.dataset.side = roomL > roomR ? 'left' : 'right';
-      const room = Math.min(240, Math.max(roomL, roomR));
-      if (room < 80) { h.dataset.show = 'false'; return; }
-      const label = h.querySelector('.vt-hotspot-label');
-      label.style.maxWidth = room + 'px';
-      let r = label.getBoundingClientRect();
-      const other = h.dataset.side === 'left' ? 'right' : 'left';
-      if (coversDot(h, r) && Math.min(240, other === 'left' ? roomL : roomR) >= 80) {
-        h.dataset.side = other;
-        label.style.maxWidth = Math.min(240, other === 'left' ? roomL : roomR) + 'px';
-        const r2 = label.getBoundingClientRect();
-        if (coversDot(h, r2)) { h.dataset.side = other === 'left' ? 'right' : 'left'; label.style.maxWidth = room + 'px'; } else r = r2;
+  // ---- Callouts: each label is placed, one by one in priority order, where it covers the least of the model
+  // (from the model's outline samples, projected to the screen), never on another label or the viewer's buttons,
+  // and joined to its spot by a leader line that avoids crossing other labels and lines. Labels keep their place
+  // while the model turns unless a much better place opens up, so they do not jump about.
+  const NS = 'http://www.w3.org/2000/svg';
+  function board(host) {
+    const layer = doc.createElement('div');
+    layer.className = 'vt-callouts';
+    const svg = doc.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'vt-leaders'); svg.setAttribute('aria-hidden', 'true');
+    layer.appendChild(svg);
+    host.appendChild(layer);
+    return { host, layer, svg, items: [], pts: [] };
+  }
+  function addCallout(b, key, dot, prio) {
+    const c = doc.createElement('button');
+    c.type = 'button'; c.className = 'vt-callout'; c.dataset.key = key;
+    c.innerHTML = labelHtml(key);
+    c.addEventListener('click', () => {
+      if (!b.layer.classList.contains('vt-compact')) return;
+      const open = !c.classList.contains('open');
+      b.items.forEach((it) => { it.c.classList.remove('open'); it.c.setAttribute('aria-expanded', 'false'); });
+      c.classList.toggle('open', open); c.setAttribute('aria-expanded', String(open));
+    });
+    // A tap on a label is not a drag of the model.
+    c.addEventListener('pointerdown', (e) => e.stopPropagation());
+    const g = doc.createElementNS(NS, 'g');
+    g.innerHTML = '<polyline class="halo"/><polyline class="line"/><circle r="4"/>';
+    b.svg.appendChild(g); b.layer.appendChild(c);
+    b.items.push({ c, g, dot, prio, off: null });
+  }
+  function clearBoard(b) { b.items.forEach((it) => { it.c.remove(); it.g.remove(); }); b.items = []; b.pts = []; }
+  const hideItem = (it) => { it.c.style.display = 'none'; it.g.style.display = 'none'; it.off = null; };
+  const hit = (a, r, m) => a.x < r.x + r.w + m && a.x + a.w > r.x - m && a.y < r.y + r.h + m && a.y + a.h > r.y - m;
+  // Nearest point of a rectangle to (x, y): where the leader line meets the label.
+  const near = (r, x, y) => [Math.max(r.x, Math.min(r.x + r.w, x)), Math.max(r.y, Math.min(r.y + r.h, y))];
+  const ccw = (a, b, c) => (c[1] - a[1]) * (b[0] - a[0]) > (b[1] - a[1]) * (c[0] - a[0]);
+  const cross2 = (a, b, c, d) => ccw(a, c, d) !== ccw(b, c, d) && ccw(a, b, c) !== ccw(a, b, d);
+  const segRect = (a, b, r) => {
+    const q = [[r.x, r.y], [r.x + r.w, r.y], [r.x + r.w, r.y + r.h], [r.x, r.y + r.h]];
+    return q.some((p, k) => cross2(a, b, p, q[(k + 1) % 4]));
+  };
+  const ANG = Array.from({ length: 16 }, (_, k) => [Math.cos(k * Math.PI / 8), Math.sin(k * Math.PI / 8)]);
+  const DIST = [36, 60, 90, 125, 165, 210];
+
+  function layout(b) {
+    const host = b.host, W = host.clientWidth, H = host.clientHeight;
+    if (!W || !H || off) return;
+    const R = host.getBoundingClientRect();
+    if (R.bottom < 0 || R.top > innerHeight) return; // off screen
+    const compact = W < 480;
+    b.layer.classList.toggle('vt-compact', compact);
+    const pad = 6;
+    const colW = compact ? Math.max(90, Math.min(150, W * 0.4)) : Math.min(230, W * 0.32);
+    // The viewer's own controls (Labels and full screen buttons, captions laid over the view) are kept clear.
+    const blocks = [];
+    const rel = (r) => ({ x: r.left - R.left, y: r.top - R.top, w: r.width, h: r.height });
+    host.querySelectorAll(':scope > button:not(.vt-callout), :scope > .vt-fs, :scope > [class*="hint"]').forEach((e) => { const r = e.getBoundingClientRect(); if (r.width) blocks.push(rel(r)); });
+    [...(host.parentElement ? host.parentElement.children : [])].forEach((e) => {
+      if (e === host || !/absolute|fixed/.test(getComputedStyle(e).position)) return;
+      const r = e.getBoundingClientRect(); if (r.width && hit(rel(r), { x: 0, y: 0, w: W, h: H }, 0)) blocks.push(rel(r));
+    });
+    // Where the model is on screen: a grid of 10 px cells, filled around each outline sample.
+    const S = 10, gw = Math.ceil(W / S), gh = Math.ceil(H / S), occ = new Uint8Array(gw * gh);
+    b.pts.forEach(([x, y]) => {
+      const cx = Math.floor(x / S), cy = Math.floor(y / S);
+      for (let i = -2; i <= 2; i++) for (let j = -2; j <= 2; j++) {
+        const gx = cx + i, gy = cy + j; if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && i * i + j * j <= 5) occ[gy * gw + gx] = 1;
       }
-      let dy = 0;
-      for (let tries = 0; tries < 6; tries++) {
-        const hit = placed.find((p) => r.left < p.right + 2 && r.right > p.left - 2 && r.top < p.bottom + 2 && r.bottom > p.top - 2);
-        if (!hit) break;
-        const move = hit.bottom + 4 - r.top;
-        dy += move;
-        r = { left: r.left, right: r.right, top: r.top + move, bottom: r.bottom + move };
-      }
-      const clash = placed.some((p) => r.left < p.right && r.right > p.left && r.top < p.bottom && r.bottom > p.top);
-      if (clash || dy > 60 || r.bottom > frame.bottom - 4 || r.top < frame.top + 4) { h.dataset.show = 'false'; return; }
-      h.style.setProperty('--dy', dy + 'px');
-      placed.push(r);
+    });
+    const cover = (r) => {
+      let n = 0, t = 0;
+      for (let gy = Math.max(0, Math.floor(r.y / S)); gy <= Math.min(gh - 1, Math.floor((r.y + r.h) / S)); gy++)
+        for (let gx = Math.max(0, Math.floor(r.x / S)); gx <= Math.min(gw - 1, Math.floor((r.x + r.w) / S)); gx++) { t++; n += occ[gy * gw + gx]; }
+      return t ? n / t : 0;
+    };
+    const live = [];
+    b.items.forEach((it) => {
+      if (it.dot.dataset.show === 'false' || !it.dot.isConnected) { hideItem(it); return; }
+      const d = it.dot.getBoundingClientRect();
+      it.x = d.left + d.width / 2 - R.left; it.y = d.top + d.height / 2 - R.top;
+      if (it.x < 2 || it.x > W - 2 || it.y < 2 || it.y > H - 2) { hideItem(it); return; }
+      it.c.style.maxWidth = (it.c.classList.contains('open') ? Math.min(W - 2 * pad, Math.max(colW, 240)) : colW) + 'px';
+      live.push(it);
+    });
+    // Nothing moved since last time: leave the labels where they are.
+    const sig = W + ',' + H + ',' + lang() + ',' + b.pts.length + ';' + live.map((it) => Math.round(it.x) + ',' + Math.round(it.y) + (it.c.classList.contains('open') ? 'o' : '')).join(';');
+    if (sig === b.sig) return;
+    b.sig = sig;
+    live.forEach((it) => { it.c.style.display = ''; it.g.style.display = ''; });
+    live.forEach((it) => { it.w = it.c.offsetWidth; it.h = it.c.offsetHeight; });
+    // An opened label (tapped on a phone) is placed first, so it gets the room it needs.
+    const rank = (it) => (it.c.classList.contains('open') ? -1 : it.prio);
+    live.sort((a, c) => rank(a) - rank(c));
+    const placed = [], lines = [];
+    live.forEach((it) => {
+      const { x, y, w, h } = it;
+      const cands = [];
+      ANG.forEach(([dx, dy]) => DIST.forEach((dist) => {
+        const qx = x + dx * dist, qy = y + dy * dist;
+        if (dx > 0.38) cands.push({ x: qx, y: qy - h / 2 });
+        else if (dx < -0.38) cands.push({ x: qx - w, y: qy - h / 2 });
+        else cands.push({ x: qx - w / 2, y: dy < 0 ? qy - h : qy });
+      }));
+      // Columns along both sides, as a fallback when the space around the spot is taken.
+      for (let cy = pad; cy + h <= H - pad; cy += 12) { cands.push({ x: pad, y: cy }); cands.push({ x: W - pad - w, y: cy }); }
+      let best = null;
+      cands.forEach((r) => {
+        r.w = w; r.h = h;
+        if (r.x < pad || r.y < pad || r.x + w > W - pad || r.y + h > H - pad) return;
+        if (blocks.some((o) => hit(r, o, 4)) || placed.some((o) => hit(r, o, 4))) return;
+        const a = [x, y], e = near(r, x, y);
+        const len = Math.hypot(e[0] - x, e[1] - y);
+        if (len < 24) return;
+        let cost = cover(r) * 400 + len * 0.35;
+        live.forEach((o) => { if (o !== it && o.x > r.x - 4 && o.x < r.x + w + 4 && o.y > r.y - 4 && o.y < r.y + h + 4) cost += 300; });
+        placed.forEach((o) => { if (segRect(a, e, o)) cost += 250; });
+        lines.forEach(([p, q]) => { if (cross2(a, e, p, q)) cost += 120; });
+        // Stay near the last place (relative to the spot) unless somewhere is clearly better.
+        if (it.off) cost += Math.min(80, Math.hypot(r.x - x - it.off[0], r.y - y - it.off[1]) * 0.6);
+        if (!best || cost < best.cost) best = { r, e, cost };
+      });
+      if (!best) { hideItem(it); return; }
+      const { r, e } = best;
+      it.off = [r.x - x, r.y - y];
+      placed.push(r); lines.push([[x, y], e]);
+      it.c.dataset.side = r.x + w / 2 < x ? 'left' : 'right';
+      it.c.style.transform = 'translate(' + Math.round(r.x) + 'px,' + Math.round(r.y) + 'px)';
+      const pts = e[0] + ',' + e[1] + ' ' + x + ',' + y;
+      it.g.children[0].setAttribute('points', pts); it.g.children[1].setAttribute('points', pts);
+      it.g.children[2].setAttribute('cx', x); it.g.children[2].setAttribute('cy', y);
     });
   }
 
@@ -370,9 +471,51 @@
   function setupModelViewer(mv) {
     if (mv.dataset.vtLabels) return;
     mv.dataset.vtLabels = '1';
-    let spots = [], current = null;
+    let spots = [], current = null, b = null;
+    const alpha = (name) => {
+      const mats = (mv.model && mv.model.materials) || [];
+      const own = mats.filter((m) => base(m.name) === name);
+      return own.length ? Math.max(...own.map((m) => m.pbrMetallicRoughness.baseColorFactor[3])) : 1;
+    };
+    // The outline samples on screen. model-viewer does not give its camera matrix, so the samples are put in camera
+    // space from the orbit and target, and the screen scale and centre are fitted to where model-viewer drew the
+    // label spots (whose 3D places are known).
+    function project() {
+      if (!current || !current.shape || !spots.length) return [];
+      let o, t;
+      try { o = mv.getCameraOrbit(); t = mv.getCameraTarget(); } catch { return []; }
+      const th = o.theta - (mv.turntableRotation || 0), ph = o.phi;
+      const z = [Math.sin(ph) * Math.sin(th), Math.cos(ph), Math.sin(ph) * Math.cos(th)];
+      const xl = Math.hypot(z[2], z[0]) || 1, xv = [z[2] / xl, 0, -z[0] / xl];
+      const yv = [z[1] * xv[2] - z[2] * xv[1], z[2] * xv[0] - z[0] * xv[2], z[0] * xv[1] - z[1] * xv[0]];
+      const uv = (x, y, zz) => {
+        const r = [x - t.x, y - t.y, zz - t.z], d = o.radius - (r[0] * z[0] + r[1] * z[1] + r[2] * z[2]);
+        return d > 1e-6 ? [(r[0] * xv[0] + r[1] * xv[1] + r[2] * xv[2]) / d, (r[0] * yv[0] + r[1] * yv[1] + r[2] * yv[2]) / d] : null;
+      };
+      const R = mv.getBoundingClientRect();
+      const obs = [];
+      spots.forEach((h) => {
+        const r = h.getBoundingClientRect(); if (!r.width && !r.height && !r.left) return;
+        const p = h.dataset.position.split(' ').map(parseFloat), q = uv(p[0], p[1], p[2]);
+        if (q) obs.push([q[0], q[1], r.left + r.width / 2 - R.left, r.top + r.height / 2 - R.top]);
+      });
+      if (!obs.length) return [];
+      const n = obs.length, sum = (f) => obs.reduce((a, x) => a + f(x), 0);
+      const su = sum((x) => x[0]), sv = sum((x) => x[1]), sX = sum((x) => x[2]), sY = sum((x) => x[3]);
+      const den = sum((x) => x[0] * x[0] + x[1] * x[1]) - (su * su + sv * sv) / n;
+      let f = den > 1e-9 ? (sum((x) => x[0] * x[2] - x[1] * x[3]) - sX * su / n + sY * sv / n) / den : 0;
+      if (!(f > 0)) { let fov = 30; try { fov = mv.getFieldOfView(); } catch { /* default */ } f = R.height / 2 / Math.tan(fov * Math.PI / 360); }
+      const cx = (sX - f * su) / n, cy = (sY + f * sv) / n;
+      const out = [], sh = current.shape, hidden = current.mats.map((m) => alpha(m) <= 0.02);
+      for (let i = 0; i < sh.length; i += 4) {
+        if (hidden[sh[i + 3]]) continue;
+        const q = uv(sh[i], sh[i + 1], sh[i + 2]); if (q) out.push([cx + f * q[0], cy - f * q[1]]);
+      }
+      return out;
+    }
     async function render() {
       spots.forEach((h) => h.remove()); spots = []; current = null;
+      if (b) clearBoard(b);
       const path = pathOf(mv.src || mv.getAttribute('src') || '');
       if (!path || ownLabels(path, mv)) return;
       const set = setFor(path); if (!set) return;
@@ -381,6 +524,7 @@
       current = file;
       const at = file.parts;
       addToggle(mv);
+      if (!b) b = board(mv);
       Object.entries(set).forEach(([part, key], i) => {
         const a = at[part]; if (!a || !TERMS[key]) return;
         const h = doc.createElement('div');
@@ -388,11 +532,10 @@
         h.dataset.position = a.at[0].p.map((v) => v + 'm').join(' ');
         h.dataset.normal = a.at[0].n.join(' ');
         h.dataset.spot = '0';
-        h.dataset.mat = a.m; h.dataset.part = part; h.dataset.side = 'right'; h.dataset.show = 'true';
+        h.dataset.mat = a.m; h.dataset.part = part; h.dataset.show = 'true';
         h.dataset.key = key;
-        h.style.setProperty('--len', (22 + (i % 3) * 12) + 'px');
-        h.innerHTML = labelHtml(key);
         mv.appendChild(h); spots.push(h); used.add(key);
+        addCallout(b, key, h, i);
       });
       placeSources(mv); paintSources();
       tick();
@@ -404,8 +547,6 @@
       // Auto-rotate turns the model (turntable), so the camera's angle to the model is theta minus that turn.
       const theta = orbit.theta - (mv.turntableRotation || 0);
       const view = [Math.sin(orbit.phi) * Math.sin(theta), Math.cos(orbit.phi), Math.sin(orbit.phi) * Math.cos(theta)];
-      const mats = (mv.model && mv.model.materials) || [];
-      const alpha = (name) => { const own = mats.filter((m) => base(m.name) === name); return own.length ? Math.max(...own.map((m) => m.pbrMetallicRoughness.baseColorFactor[3])) : 1; };
       const clearMat = (name) => alpha(name) < 0.6;
       spots.forEach((h) => {
         const a = current && current.parts[h.dataset.part];
@@ -417,12 +558,15 @@
         }
         h.dataset.show = String(k >= 0 && alpha(h.dataset.mat) > 0.02);
       });
-      declutter(spots, mv.getBoundingClientRect());
     }
     mv.addEventListener('load', render);
     mv.addEventListener('camera-change', tick);
     // Auto-rotate and turntable resets do not fire camera-change, so check a few times a second.
     setInterval(tick, 250);
+    // The labels follow their spots every other frame (model-viewer moves the spots itself).
+    let n = 0;
+    const follow = () => { requestAnimationFrame(follow); if (b && b.items.length && !off && ++n % 2 === 0) { b.pts = project(); layout(b); } };
+    requestAnimationFrame(follow);
     if (mv.loaded) render();
   }
 
@@ -433,24 +577,24 @@
     const layer = doc.createElement('div');
     layer.className = 'vt-label-layer';
     box.appendChild(layer);
+    const b = board(box);
     let spots = [], counter = 0, current = null;
     async function render() {
       const api = box.vtLabels; if (!api) return;
       const path = api.path(); const set = setFor(path);
       const file = set ? await anchors(path) : null;
       if (api !== box.vtLabels) return; // another case was picked while loading
-      layer.innerHTML = ''; spots = []; current = file;
+      layer.innerHTML = ''; spots = []; current = file; clearBoard(b);
       if (!file) return;
       addToggle(box);
       const at = file.parts;
       Object.entries(set).forEach(([part, key], i) => {
         const a = at[part]; if (!a || !TERMS[key]) return;
         const h = doc.createElement('div');
-        h.className = 'vt-hotspot'; h.dataset.side = 'right'; h.dataset.show = 'false'; h.dataset.key = key;
-        h.style.setProperty('--len', (22 + (i % 3) * 12) + 'px');
-        h.innerHTML = labelHtml(key);
+        h.className = 'vt-hotspot'; h.dataset.show = 'false'; h.dataset.key = key;
         layer.appendChild(h); used.add(key);
         spots.push({ h, a, part });
+        addCallout(b, key, h, i);
       });
       placeSources(box); paintSources();
     }
@@ -479,7 +623,19 @@
         const skip = api.skip ? api.skip(part) : false;
         h.dataset.show = String(!skip && (!meshes.length || live.length > 0) && inView && k >= 0);
       });
-      declutter(spots.map((x) => x.h), box.getBoundingClientRect());
+      // The outline samples on screen (parts the viewer has hidden are left out).
+      b.pts = [];
+      const sh = current && current.shape;
+      if (sh) {
+        const hidden = current.mats.map((m) => { const ms = parts.filter((o) => base(o.material && o.material.name) === m); return ms.length > 0 && ms.every((o) => !o.visible); });
+        const v = new THREE.Vector3();
+        for (let i = 0; i < sh.length; i += 4) {
+          if (hidden[sh[i + 3]]) continue;
+          root.localToWorld(v.set(sh[i], sh[i + 1], sh[i + 2])).project(cam);
+          if (v.z < 1) b.pts.push([(v.x + 1) / 2 * w, (1 - v.y) / 2 * hgt]);
+        }
+      }
+      layout(b);
     }
     box.addEventListener('vt-labels', render);
     if (box.vtLabels) render();
@@ -496,7 +652,7 @@
 
   // Language switch without a reload (static pages and the app): repaint the words.
   new MutationObserver(() => {
-    doc.querySelectorAll('.vt-hotspot').forEach((h) => { if (TERMS[h.dataset.key]) h.innerHTML = labelHtml(h.dataset.key); });
+    doc.querySelectorAll('.vt-callout').forEach((c) => { if (TERMS[c.dataset.key]) c.innerHTML = labelHtml(c.dataset.key); });
     paintToggles(); paintSources();
   }).observe(doc.documentElement, { attributes: true, attributeFilter: ['lang'] });
 })();

@@ -6,6 +6,7 @@
 // label can show from whichever side the model is turned to. For each direction the file stores -1 (spot faces
 // away), 0 (clear view) or a bitmask of the materials in the way, so the label can show when the page hides those
 // parts or makes them see-through. Parts seen from no direction (inside another part, e.g. the pulp) get in: 1.
+// Also stores 400 outline samples (shape) so labels can sit in the empty space around the model.
 // Usage: node tools/labels/anchors.mjs   (writes public/model-labels/<same path as the GLB>.json)
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
@@ -153,6 +154,22 @@ async function anchors(file) {
     const f = (v) => v.map((x) => +x.toFixed(5));
     out.parts[name] = { m: g.mat, at: chosen.map((cd) => ({ p: f(cd.p), n: f(norm(cd.nn)), v: cd.v.join(',') })) };
     if (!chosen.some((cd) => cd.v.includes(0))) out.parts[name].in = 1;
+  }
+  // Outline samples: 400 points spread over the surface by area (triangle middles), [x, y, z, material index, ...],
+  // so the page can see where the model is on screen and put labels in the empty space around it.
+  const areas = tris.map(([a, b, c]) => len(cross(sub(b, a), sub(c, a))) / 2);
+  const total = areas.reduce((s, x) => s + x, 0);
+  out.shape = [];
+  if (total > 0) {
+    const N = 400; let acc = 0, k = 0;
+    tris.forEach((t, ti) => {
+      acc += areas[ti];
+      while (k < N && (k + 0.5) / N * total <= acc) {
+        const m = [0, 1, 2].map((j) => (t[0][j] + t[1][j] + t[2][j]) / 3);
+        out.shape.push(...m.map((x) => +x.toFixed(4)), t[4]);
+        k++;
+      }
+    });
   }
   return out;
 }
