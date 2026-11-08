@@ -26,6 +26,8 @@ jobs:
         with:
           node-version-file: .node-version
       - run: node tools/rules/check.mjs
+      # public/sitemap.xml must list every page (run `pnpm sitemap` after adding one).
+      - run: node tools/seo/sitemap.mjs --check
       # schema.org JSON-LD in static model pages must match the catalogue and codes (run `pnpm jsonld`).
       - run: node tools/jsonld/build.mjs --check
   glb:
