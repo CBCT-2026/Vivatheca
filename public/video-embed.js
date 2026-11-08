@@ -68,6 +68,14 @@ html[lang="ja"] .vt-video .vt-video-review span[lang="en"] { display: none; }
 .vt-video details summary { cursor: pointer; }
 .vt-video details summary h3 { display: inline; font-size: 1rem; }
 .vt-video ol { font-size: 14px; overflow-wrap: anywhere; }
+/* Wide screens (2026-11-08): the upright video sits beside what it says, so the section fills the page column. */
+@media (min-width: 1000px) {
+  .vt-video { display: grid; grid-template-columns: 360px minmax(0,1fr); column-gap: clamp(2rem,4vw,3.5rem); align-items: start; }
+  .vt-video > * { grid-column: 2; }
+  .vt-video > h2, .vt-video > .vt-video-meta { grid-column: 1 / -1; }
+  .vt-video > video { grid-column: 1; grid-row: 3 / span 20; width: 100%; margin: 0; }
+  .vt-video .vt-video-says { margin-top: 0; }
+}
 @media (prefers-reduced-motion: no-preference) { .vt-video video { transition: box-shadow .2s; } }`;
     document.head.appendChild(css);
   }

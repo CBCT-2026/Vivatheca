@@ -191,8 +191,7 @@ th { font-size: 12px; color: var(--muted); font-weight: 700; }
 /* Desktop: the 3D viewer breaks out of the text column so the model is large on laptop screens. */
 @media (min-width: 1000px) {
   main .viewer {
-    width: min(1100px, calc(100vw - 80px));
-    margin-left: calc(50% - min(550px, 50vw - 40px));
+    width: 100%; margin-left: 0; /* same width as the text column (2026-11-08) */
     height: 68vh; max-height: 720px;
   }
   main .viewer:fullscreen { margin-left: 0; }
@@ -202,5 +201,10 @@ th { font-size: 12px; color: var(--muted); font-weight: 700; }
    :where() keeps this at zero specificity, so any class rule (wider tables, centred notes) wins. */
 /* One line length for every paragraph, list and note (Luke, 2026-11-07): a 70ch limit per element
    made small print stop short of the text above it. */
-:where(main, section, article, aside, details, footer) :where(p, li, dd, figcaption, blockquote) { max-width: 48rem; }
+/* One content column for every page (Luke, 2026-11-08): the same 70rem width and left edge as the app
+   pages, shared by the 3D viewer, the text and every box. Text runs the full width of the column. */
+@media (min-width: 700px) {
+  main { max-width: 70rem; box-sizing: content-box; padding-left: clamp(16px,4vw,48px); padding-right: clamp(16px,4vw,48px); }
+  .contact { box-sizing: border-box; max-width: none; width: min(70rem, calc(100% - 2 * clamp(16px,4vw,48px))); margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; }
+}
 .important p { max-width: none; }
