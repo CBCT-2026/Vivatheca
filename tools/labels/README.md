@@ -1,7 +1,7 @@
 # Labels on the 3D models
 
-Every 3D viewer on the site shows labels pinned to the model's parts (a dot, a short line and the part's
-name), on by default with a "Labels" button to turn them off. One script does it for all viewers:
+Every 3D viewer on the site shows labels pinned to the model's parts (a dot on the part and a leader line out to
+its name), on by default with a "Labels" button to turn them off. One script does it for all viewers:
 `public/model-labels.js`.
 
 - **Static model pages** load `<script src="/model-labels.js"></script>` after `/model-parts.js`.
@@ -32,6 +32,18 @@ whether each spot can be seen (`-1` faces away, `0` clear, else a bitmask of the
 script shows a label at the first of its spots that can be seen from the current camera; a spot behind
 another part shows only when the page hides that part or makes it see-through (x-ray, gum off, cut view).
 Spots are placed by the script from the model's shape, not by a clinician.
+
+The JSON also holds `shape`: 400 points spread over the model's surface (`x, y, z, material index`, repeated).
+
+## Keeping labels clear (no crowding)
+
+Each label is placed on its own, in `SETS` priority order, at the free place nearest its spot that covers the
+least of the model: the `shape` points are projected to the screen every other frame (parts the page has hidden
+are left out) and candidate places are tried around the spot and down both sides of the viewer. A label never
+sits on another label or on the viewer's buttons and captions, its leader line avoids crossing other labels and
+lines, and it keeps its place while the model turns unless a much better place opens up. On viewers narrower
+than 480 px (phones) a label shows the term without its bracketed qualifier; tapping it shows the full term and
+the plain words. A label is left out only when the viewer is too small to fit it anywhere.
 
 **After changing or adding a GLB, run `node tools/labels/anchors.mjs` and commit `public/model-labels/`.**
 For a new model page, add its parts to `SETS` (and any new words to `TERMS`, with sources) and load the script.
