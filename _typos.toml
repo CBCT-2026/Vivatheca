@@ -31,6 +31,8 @@ locale = "en"
 # Author surnames and journal abbreviations in citations
 Comput = "Comput"  # Int J Comput Assist Radiol Surg
 Lew = "Lew"
+Karam = "Karam"  # Karam K, author (Hegab 2026, TMD clinical image)
+nam = "nam"  # Vietnamese: "nam châm" (magnet)
 Pont = "Pont"
 Atack = "Atack"
 Restor = "Restor"  # J Esthet Restor Dent

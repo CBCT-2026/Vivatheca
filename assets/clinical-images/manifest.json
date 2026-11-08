@@ -707,6 +707,146 @@
       "pages": [
         "/prosthodontic/"
       ]
+    },
+    {
+      "id": "vpi-freitas-fig2",
+      "file": "public/images/clinical/vpi/mri-soft-palate-rest-speech.jpg",
+      "pages": [
+        "/vpi/"
+      ],
+      "type": "Real-time MRI, midsagittal",
+      "description": "Healthy adult volunteer: midsagittal MRI with the velum relaxed (left) and elevated against the posterior pharyngeal wall (right); labels by the authors.",
+      "source_url": "https://doi.org/10.1371/journal.pone.0153322",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4830548/",
+      "author": "Freitas AC, Wylezinska M, Birch MJ, Petersen SE, Miquel ME",
+      "article": "Freitas AC, Wylezinska M, Birch MJ, Petersen SE, Miquel ME. Comparison of Cartesian and Non-Cartesian Real-Time MRI Sequences at 1.5T to Assess Velar Motion and Velopharyngeal Closure during Speech. PLoS One. 2016;11(4):e0153322. doi:10.1371/journal.pone.0153322",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (Figure 2 as published, 733 x 312 px).",
+      "consent": "Article: 'All volunteers gave informed written consent according to ethics approval of NHS research ethics committee (LREC 08/H0701/30).' MRI only; the face is a low-resolution MRI profile, not a photograph.",
+      "reasoning": "PLOS ONE, CC BY 4.0 stated in the article; figure is the authors’ own data. Matches the model’s normal Breathing and Speaking midsagittal states (same view and orientation, adult anatomy like the model). Healthy volunteer, so it shows normal closure, not VPI; the caption says so.",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "vpi-park-fig1",
+      "file": "public/images/clinical/vpi/short-soft-palate-after-cleft-repair.jpg",
+      "pages": [
+        "/vpi/"
+      ],
+      "type": "Clinical photo (intraoral)",
+      "description": "14-year-old with repaired bilateral complete cleft lip and palate and persistent VPI: (A) short soft palate; (B) hard-soft palate junction marked before palatal lengthening.",
+      "source_url": "https://doi.org/10.1186/s40902-025-00464-x",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12149031/",
+      "author": "Park TH, Baek JA, Ko SO",
+      "article": "Park TH, Baek JA, Ko SO. Clinical outcomes of using bilateral buccinator myomucosal flaps in cleft lip and palate patient with velopharyngeal insufficiency: case report. Maxillofac Plast Reconstr Surg. 2025;47(1):13. doi:10.1186/s40902-025-00464-x",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (Figure 1 as published).",
+      "consent": "Article: 'Written informed consent was obtained from parent of patient for the publication of this case report and accompanying images.' Intraoral view only; lips retracted, no face.",
+      "reasoning": "Springer Open, CC BY 4.0. Authors’ own case. Matches the VPI state of the model (structural VPI after cleft palate repair with a short velum). The buccinator flap lengthening shown in panel B is not one of the modelled operations; the caption says so.",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "tmd-hegab-fig3",
+      "file": "public/images/clinical/tmd/normal-jaw-joint-closed-open.jpg",
+      "pages": [
+        "/tmd/"
+      ],
+      "type": "Lateral TMJ radiographs and oblique sagittal T1 MRI",
+      "description": "Stage 0 TMJ: condyle translates to directly below the eminence tip on opening; normal condyle-disc-fossa relationship closed and open (A, B radiographs; C, D MRI).",
+      "source_url": "https://doi.org/10.1038/s41598-026-36461-x",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12905186/",
+      "author": "Hegab AF, Shuman M, Al Hameed HA, Karam K",
+      "article": "Hegab AF, Shuman M, Al Hameed HA, Karam K. Classification of temporomandibular joint hypermobility based on lateral TMJ, and magnetic resonance imaging contributing to a nonsurgical treatment protocol. Sci Rep. 2026;16:6345. doi:10.1038/s41598-026-36461-x",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (Figure 3 as published).",
+      "consent": "Article: IRB approval (Al-Azhar University School of Dentistry) and 'Written informed consent was obtained from all patients enrolled in the study.' Radiographs and MRI only.",
+      "reasoning": "Scientific Reports, CC BY 4.0. The TMD model shows a normal joint and disc (myalgia has no imaging sign, DC/TMD); this is the paper’s normal stage, closed and open, matching the model’s opening movement. The patient was in a TMD study, which the caption states. Side not reported in the article; the caption says so.",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "endo-sarsam-fig1",
+      "file": "public/images/clinical/endodontic/46-sinus-tract-tracing.jpg",
+      "pages": [
+        "/endodontic/"
+      ],
+      "type": "Clinical photos (intraoral) and periapical radiograph",
+      "description": "Lower right: (a) sinus tract opening beside 47; (b) size 20 gutta-percha point in the tract; (c) periapical radiograph tracing it to the periradicular lesion of 46.",
+      "source_url": "https://doi.org/10.1038/s41415-025-8511-z",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11991906/",
+      "author": "Sarsam W, Davies J, Al-Salehi SK",
+      "article": "Sarsam W, Davies J, Al-Salehi SK. The role of imaging in endodontics. Br Dent J. 2025;238(7):448-457. doi:10.1038/s41415-025-8511-z",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (Figure 1 as published).",
+      "consent": "No case-specific consent statement in the article. The figure is the authors’ own case (author contributions: WS and SAS contributed the clinical cases; no ‘courtesy of’ credit on this figure, unlike Figs 14, 16 and 21) published open access by the journal under CC BY, which the project rule accepts for clinical photos. Close-up intraoral photos of teeth and gum and a radiograph; no face or identifiers.",
+      "reasoning": "British Dental Journal (Springer Nature), CC BY 4.0. Same tooth and side as the model (46, lower right) with a periapical lesion and sinus tract, the model’s chronic apical abscess state. Difference stated on the page: the tract opens beside 47, while the model’s tract opens over 46. Left-side (36) alternatives were rejected under the match rule.",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "ssc-ramadan-fig2",
+      "file": "public/images/clinical/stainless-steel-crown/ssc-75-hall-photos.jpg",
+      "pages": [
+        "/stainless-steel-crown/"
+      ],
+      "type": "Clinical photos (intraoral, occlusal)",
+      "description": "Tooth 75 with ICDAS 4 caries: preoperative, immediately after a Hall technique stainless steel crown, and at 1, 3, 6 and 12 months.",
+      "source_url": "https://doi.org/10.1007/s00784-026-07156-4",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13690905/",
+      "author": "Ramadan Y, Baraka M, Dean JA, Wahba NA",
+      "article": "Ramadan Y, Baraka M, Dean JA, Wahba NA. Clinical and radiographic success of bioflex versus stainless steel crowns using the hall technique in primary molars: a 12-month randomized controlled trial. Clin Oral Investig. 2026;30(11):544. doi:10.1007/s00784-026-07156-4",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Converted from WebP to JPEG (quality 88); otherwise unchanged.",
+      "consent": "Article: written informed consent from parents/guardians before enrolment (RCT, NCT06847646). Close-ups of teeth only, no face.",
+      "reasoning": "Clinical Oral Investigations (Springer), CC BY 4.0. Same tooth and side as the model (75), with decay, and a stainless steel crown. Hall technique (no trimming), which the page already explains next to the model’s conventional Shaped stage; the caption says so.",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "ssc-ramadan-fig4",
+      "file": "public/images/clinical/stainless-steel-crown/ssc-75-hall-xrays.jpg",
+      "pages": [
+        "/stainless-steel-crown/"
+      ],
+      "type": "Periapical radiographs",
+      "description": "Tooth 75 with a Hall technique stainless steel crown: preoperative, immediately after, 6 and 12 months; successor premolar visible below.",
+      "source_url": "https://doi.org/10.1007/s00784-026-07156-4",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13690905/",
+      "author": "Ramadan Y, Baraka M, Dean JA, Wahba NA",
+      "article": "Ramadan Y, Baraka M, Dean JA, Wahba NA. Clinical and radiographic success of bioflex versus stainless steel crowns using the hall technique in primary molars: a 12-month randomized controlled trial. Clin Oral Investig. 2026;30(11):544. doi:10.1007/s00784-026-07156-4",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Converted from WebP to JPEG (quality 88); otherwise unchanged.",
+      "consent": "As for ssc-ramadan-fig2 (parental written consent, RCT). Radiographs only.",
+      "reasoning": "Same source and licence as ssc-ramadan-fig2. Same tooth (75) and shows the developing second premolar below, as in the model. The article does not say whether Figures 2 and 4 are the same child; the caption says so.",
+      "nc_limits": false,
+      "checked": "2026-11-08"
+    },
+    {
+      "id": "cyst-li-fig1",
+      "file": "public/images/clinical/dentigerous-cyst/cbct-normal-follicle.jpg",
+      "pages": [
+        "/dentigerous-cyst/"
+      ],
+      "type": "CBCT (coronal, sagittal, axial)",
+      "description": "Asymptomatic impacted mandibular third molar: measurement of the maximum dental follicle width in three planes.",
+      "source_url": "https://doi.org/10.1186/s12903-022-02681-6",
+      "figure_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9791750/",
+      "author": "Li K, Xu W, Zhou T, Chen J, He Y",
+      "article": "Li K, Xu W, Zhou T, Chen J, He Y. The radiological and histological investigation of the dental follicle of asymptomatic impacted mandibular third molars. BMC Oral Health. 2022;22(1):642. doi:10.1186/s12903-022-02681-6",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None (Figure 1 as published).",
+      "consent": "Article: 'All procedures in this study were carried out with the full understanding and written consent of the subjects.' CBCT slices only.",
+      "reasoning": "BMC Oral Health, CC BY 4.0. Shows the model’s normal side of the pair (thin follicle around an unerupted lower third molar, roughly upright). Side not reported; the caption says so. Searched 8 Nov 2026 for a second openly licensed dentigerous cyst image of a vertical lower left third molar: none found (candidates were right-sided, canines, mesioangular, screen photos, or mixed pathology).",
+      "nc_limits": false,
+      "checked": "2026-11-08"
     }
   ]
 }

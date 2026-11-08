@@ -1,5 +1,6 @@
 {
   "neutral-wording": [
+    { "file": "public/dentigerous-cyst/index.html", "match": "Li K, Xu W, Zhou T, Chen J, He Y.", "reason": "Author surname He (Li K, ... He Y 2022) in an image credit, not a pronoun." },
     { "file": "public/orthognathic/index.html", "match": "<li id=\"ref-28\">He S,", "reason": "Author surname He (He S et al. 2025) in a reference, not a pronoun." },
     { "file": "app/i18n/dictionaries/en.ts", "match": "What did Hunsuck change", "reason": "Historical surgeon (Hunsuck), named in a cited source; not about Luke or a site user. Allowed permanently: Luke's decision D1 (6 Nov 2026) limits the rule to people who make, publish or direct Vivatheca; patients in published cases and historical or cited people may be described as the source does." },
     { "file": "app/i18n/dictionaries/en.ts", "match": "as on her X-ray", "reason": "Published SCC case report states the patient's sex. Allowed permanently: Luke's decision D1 (6 Nov 2026) limits the rule to people who make, publish or direct Vivatheca; patients in published cases and historical or cited people may be described as the source does." },
