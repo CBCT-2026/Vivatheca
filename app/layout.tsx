@@ -50,6 +50,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <AfterHydration src="/oa-links.js" />
         {/* Pause 3D auto-rotate while the page scrolls, so scrolling stays smooth (public/scroll-pause.js). */}
         <AfterHydration src="/scroll-pause.js" />
+        {/* "View on your desk" phone AR button on every 3D viewer, disclaimer first (public/model-ar.js). */}
+        <AfterHydration src="/model-ar.js" />
       </body>
     </html>
   );
