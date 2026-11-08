@@ -5,6 +5,7 @@ import { SiteFooter } from './site-chrome';
 import { homeHref, primaryLinks } from './nav';
 import { mailto } from './contact';
 import { catalogue } from './models/catalogue';
+import { sortBySpecialty } from './models/sort';
 import { disclaimerHref } from './disclaimer-text';
 import { getI18n } from './i18n/server';
 import { plain, Ruby } from './i18n/ruby';
@@ -12,7 +13,7 @@ import { LanguageSwitcher } from './i18n/switcher';
 import { MobileNavigation, ModelExperience, ThemeToggle } from './ui';
 import { MyModels, QuickPick } from './show/quick';
 
-// A mix of other models (app/models/catalogue.ts). The wisdom tooth is the hero; the bone graft series is the interactive section.
+// A mix of other models (app/models/catalogue.ts), shown sorted by specialty then title. The wisdom tooth is the hero; the bone graft series is the interactive section.
 const showcaseSlugs = ['dental-development', 'orthognathic', 'periodontitis', 'head-neck', 'oroantral', 'cracked-tooth'];
 const showcase = showcaseSlugs.map((slug) => catalogue.find((model) => model.slug === slug)).filter((model) => model !== undefined);
 
@@ -21,7 +22,7 @@ function Icon({ name, size = 20 }: { name: string; size?: number }) {
 }
 
 export default async function Home() {
-  const { t, furigana } = await getI18n();
+  const { t, locale, furigana } = await getI18n();
   return (
     <>
       <JsonLd data={siteJsonLd()} />
@@ -116,7 +117,7 @@ export default async function Home() {
             <div className="section-label"><Icon name="3d_rotation" size={24} /><Ruby text={t.showcase.label} /></div>
           </div>
           <ul className="library-grid showcase-grid" aria-label={plain(t.showcase.label)}>
-            {showcase.map((model) => {
+            {sortBySpecialty(showcase, t.library.items, locale).map((model) => {
               const item = t.library.items[model.slug];
               return (
                 <li key={model.slug} className="library-card">

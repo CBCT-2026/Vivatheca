@@ -1548,10 +1548,12 @@ const vi = withFallback(en, {
     "watchVideo": "Xem video {s} giây",
     "items": {
       "averaged-jaw": {
-        "title": "Xương hàm dưới và cung răng dưới trung bình của người trưởng thành: trung bình thống kê từ các phim CT công khai"
+        "title": "Xương hàm dưới và cung răng dưới trung bình của người trưởng thành: trung bình thống kê từ các phim CT công khai",
+        "specialty": "Phẫu thuật miệng và hàm mặt · giải phẫu tham chiếu"
       },
       "fixation": {
-        "title": "Cố định trong xương hàm dưới: kết hợp xương bằng nẹp nhỏ và nẹp tái tạo"
+        "title": "Cố định trong xương hàm dưới: kết hợp xương bằng nẹp nhỏ và nẹp tái tạo",
+        "specialty": "Phẫu thuật miệng và hàm mặt"
       },
       "impacted-wisdom-tooth": {
         "title": "Răng cối lớn thứ ba hàm dưới mọc ngầm nghiêng gần",

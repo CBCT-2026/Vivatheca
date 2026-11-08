@@ -3,6 +3,7 @@ import { JsonLd } from './json-ld';
 import { collectionJsonLd } from './jsonld';
 import { PageHeader, SiteFooter } from '../site-chrome';
 import { catalogue, licence } from './catalogue';
+import { sortBySpecialty } from './sort';
 import { disclaimerHref } from '../disclaimer-text';
 import { format } from '../i18n/dictionaries';
 import { getI18n } from '../i18n/server';
@@ -61,7 +62,7 @@ export default async function ModelsPage({ searchParams }: { searchParams?: Prom
         {active ? <p className="discipline-showing" role="status"><Ruby text={format(d.showing, { name: d.items[active] })} /></p> : null}
 
         <ul className="library-grid" aria-label={plain(l.listLabel)}>
-          {shown.map((model) => {
+          {sortBySpecialty(shown, l.items, locale).map((model) => {
             const item = l.items[model.slug];
             const reviewed = currentReview(model.slug);
             const video = videos[model.slug]?.[locale === 'ja' ? 'ja' : 'en'];
