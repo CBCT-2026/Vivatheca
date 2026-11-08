@@ -44,6 +44,13 @@ ENAMEL = 1.3             # enamel thickness on the crown, tapering to 0 at the C
 ENAMEL_TAPER = 2.5       # cusp-tip means 1.16-1.30 mm, lateral 1.43-1.67 mm, average 0.97-1.10 mm: Mahoney 2010
 CEM_CERVICAL, CEM_APICAL = 0.30, 0.50  # DRAWN cementum thickness, about 2-3x real so it can be seen. Measured
 # medians 0.10 mm cervical, 0.16 mm middle, 0.22 mm apical third: Birimisa et al. 2021
+# Soft tissue (gingiva and the lining mucosa over the jaw), a removable layer in the viewer.
+GINGIVA = 1.0            # gum thickness. Mean mid-buccal and mid-lingual gingival thickness 0.99 mm (ultrasound):
+# Müller et al. 1999. Mandibular means by tooth 0.8 mm (canines) to 1.5 mm (second molars): Eger et al. 1996.
+GUM_TAPER = 1.0          # DRAWN: the free gingiva thins to 0.3 mm at the margin over its top 1 mm
+SULCUS, EPI_ATTACH, CT_ATTACH = 0.69, 0.97, 1.07  # sulcus depth, epithelial and connective tissue attachment:
+# Gargiulo et al. 1961. Gingival margin = alveolar crest + 0.69 + 0.97 + 1.07 = 2.73 mm.
+PARULIS_R = 1.2          # DRAWN radius of the small lump (parulis) at the sinus tract opening; buccal site: Slutzky-Goldberg et al. 2009
 PRINT_SCALE = 2.0
 
 COL = {
@@ -52,6 +59,7 @@ COL = {
     'tract': (LINEAR['model.clot'], 0.7), 'tooth_cut': (LINEAR['model.dentineCut'], 0.7), 'bone_cut': (LINEAR['model.boneCut'], 0.9),
     'enamel_cut': (LINEAR['model.enamelCut'], 0.5), 'cementum': (LINEAR['model.cementum'], 0.8),
     'cementum_cut': (LINEAR['model.cementum'], 0.8),
+    'gum': (LINEAR['model.gum'], 0.7), 'gum_cut': (LINEAR['model.gum'], 0.9),
 }
 
 # Material names in the GLB. /model-parts.js groups materials by name with a trailing _<n> removed, so the
@@ -59,7 +67,7 @@ COL = {
 # Tooth layers: teeth = enamel (crown surface), teeth_1 = dentine (cut), teeth_2 = enamel (cut),
 # teeth_3 = cementum (root surface), teeth_4 = cementum (cut).
 GLTF_NAME = {'necrotic': 'pulp_1', 'tooth_cut': 'teeth_1', 'bone_cut': 'bone_1', 'enamel_cut': 'teeth_2',
-             'cementum': 'teeth_3', 'cementum_cut': 'teeth_4'}
+             'cementum': 'teeth_3', 'cementum_cut': 'teeth_4', 'gum_cut': 'gum_1'}
 
 
 def split_along(m, f):
@@ -430,7 +438,12 @@ def build(folder, out, zanatomy=None):
     print('grid', G.shape)
     T = sdf(inside_mask(t46, G.xs, G.ys, G.zs))
     N = sdf(inside_mask(t45, G.xs, G.ys, G.zs) | inside_mask(t47, G.xs, G.ys, G.zs))
-    B = sdf(inside_mask(mand, G.xs, G.ys, G.zs), 2.0)
+    Bm = inside_mask(mand, G.xs, G.ys, G.zs)
+    # BodyParts3D's tooth sockets are wider than its teeth, which left the roots in an empty gap between the
+    # buccal and lingual bone plates. Fill each buccolingual line between its outer plates so the roots sit in
+    # solid bone (the teeth are cut back out below), as in a real jaw.
+    Bm = np.maximum.accumulate(Bm, axis=1) & np.maximum.accumulate(Bm[:, ::-1], axis=1)[:, ::-1]
+    B = sdf(Bm, 2.0)
     box = G.full(np.abs(G.X - (lo[0] + hi[0]) / 2) - ((hi[0] - lo[0]) / 2 + 5.5))  # crop mesiodistally
     B = isect(B, box, -T, -N)
     N_full = N
@@ -479,17 +492,34 @@ def build(folder, out, zanatomy=None):
     D = G.ellipsoid([xd, cy, roof + 2.6], [2.8, 2.3, 3.3])
     cavity = isect(D, -(T + 0.9))                # outer 0.9 mm of the decayed area has broken away
     exit_pt = am + [0, -lingual * 9.0, 4.5]      # buccal and towards the gum
-    tract = G.tube(np.array([am, am + [0, -lingual * 3.5, 2.0], exit_pt]), np.full(3, TRACT_R))
-    tract = isect(tract, -Lsn, -T)
+    tract_pts = np.array([am, am + [0, -lingual * 3.5, 2.0], exit_pt])
+
+    # Soft tissue: gum and lining mucosa, GINGIVA thick over the bone and the tooth necks, up to the gingival
+    # margin (crest + supracrestal tissue, Gargiulo et al. 1961), thinning to an edge over its top GUM_TAPER.
+    margin = crest + SULCUS + EPI_ATTACH + CT_ATTACH
+    U = union(B, T, N)
+    thick = G.full(GINGIVA * np.clip((margin - G.Z) / GUM_TAPER, 0.3, 1.0))
+    gum_out = ndimage.gaussian_filter(isect(U - thick, G.full(G.Z - margin)), 1.0)
+    # Sinus tract: carry the tract on along its last leg until it comes out of the gum; a small lump there.
+    d = (tract_pts[-1] - tract_pts[-2]) / np.linalg.norm(tract_pts[-1] - tract_pts[-2])
+    probe = [tract_pts[-2] + d * s for s in np.arange(0, 20, PITCH)]
+    val = ndimage.map_coordinates(gum_out, ((np.array(probe) - G.origin) / PITCH).T, order=1, mode='nearest')
+    opening = probe[int(np.argmax((val > 0) & (np.arange(len(val)) > 0)))]
+    tract_ext = G.tube(np.vstack([tract_pts[:-1], opening + d * 0.6]), np.full(len(tract_pts), TRACT_R))
+    parulis = G.ellipsoid(opening - d * 0.4, [PARULIS_R] * 3)
+    gum_out_ab = union(gum_out, isect(parulis, G.full(G.Z - margin)))
+    gum_sound = [('gum', gum_out), ('gum', -U), ('gum', box)]
+    gum_ab = [('gum', gum_out_ab), ('gum', -U), ('gum', box), ('gum', -tract_ext)]
+    tract = isect(tract_ext, -Lsn, -T, gum_out_ab)
 
     states = {
         'sound': {'bone': [('bone', B)], 'teeth': [('teeth', N)], 'tooth': [('teeth', T), ('tooth_cut', -P)],
-                  'pulp': [('pulp', P)]},
+                  'pulp': [('pulp', P)], 'gum': gum_sound},
         'abscess': {'bone': [('bone', B), ('bone', -Lsn), ('bone', -tract)], 'teeth': [('teeth', N)],
                     'tooth': [('teeth', T), ('tooth_cut', -P), ('decay', -D)],
                     'decay': [('decay', D), ('decay', T), ('decay', -cavity), ('decay', -P)],
                     'pulp': [('necrotic', P)], 'lesion': [('lesion', Lsn), ('lesion', box)],
-                    'tract': [('tract', tract), ('tract', box)]},
+                    'tract': [('tract', tract), ('tract', box)], 'gum': gum_ab},
     }
     # Cut view: a curved vertical cut that runs along the distal canal in the distal half and the
     # mesiolingual canal in the mesial half, keeping the lingual side, so the cut face looks buccal and
@@ -509,11 +539,13 @@ def build(folder, out, zanatomy=None):
             g = Glb()
             for part, terms in parts.items():
                 tt = terms + ([('cut', -keep)] if variant == 'cut' else [])
-                res = mesh(G, tt, 60000 if part in ('bone', 'tooth') else 25000)
+                res = mesh(G, tt, 60000 if part in ('bone', 'tooth', 'gum') else 25000)
+                if part == 'gum':
+                    res = drop_slivers(res)
                 if res is None:
                     continue
                 m, labels = res
-                cutlab = {'bone': 'bone_cut', 'tooth': 'tooth_cut', 'teeth': 'tooth_cut'}.get(part, terms[0][0])
+                cutlab = {'bone': 'bone_cut', 'tooth': 'tooth_cut', 'teeth': 'tooth_cut', 'gum': 'gum_cut'}.get(part, terms[0][0])
                 labels = [cutlab if l == 'cut' else l for l in labels]
                 if part in ('tooth', 'teeth'):
                     m, labels = layer_labels(G, m, labels, T if part == 'tooth' else N_full, roof, apex_z)
@@ -532,6 +564,9 @@ def build(folder, out, zanatomy=None):
         'floor_to_furcation_mm': round(float(floor - furcation), 2) if furcation is not None else None,
         'lesion_mm': {'mesial': LESION_MESIAL, 'distal': LESION_DISTAL},
         'canal_radius_drawn_mm': [CANAL_R_TOP, CANAL_R_APEX],
+        'gingiva_mm': GINGIVA, 'gingival_margin_above_crest_mm': round(SULCUS + EPI_ATTACH + CT_ATTACH, 2),
+        'gingival_margin_above_cej_mm': round(SULCUS + EPI_ATTACH + CT_ATTACH - CREST_BELOW_CEJ, 2),
+        'sinus_tract_opening_above_apex_mm': round(float(opening[2] - am[2]), 2), 'parulis_radius_drawn_mm': PARULIS_R,
         'enamel_mm': ENAMEL, 'enamel_taper_mm': ENAMEL_TAPER, 'cementum_drawn_mm': [CEM_CERVICAL, CEM_APICAL],
     }
     json.dump(report, open(os.path.join(out, 'report.json'), 'w'), indent=1)
@@ -540,12 +575,32 @@ def build(folder, out, zanatomy=None):
         compare(zanatomy, t46, R, c, out)
 
 
+def drop_slivers(res, min_faces=50):
+    """Drop loose bits of a few triangles that decimation leaves where the thin gum edge meets itself."""
+    if res is None:
+        return None
+    m, labels = res
+    comp = trimesh.graph.connected_component_labels(m.face_adjacency, node_count=len(m.faces))
+    keep = np.isin(comp, np.nonzero(np.bincount(comp) >= min_faces)[0])
+    if keep.all():
+        return res
+    sub = m.submesh([np.nonzero(keep)[0]], append=True)
+    return sub, [l for l, k in zip(labels, keep) if k]
+
+
 def write_print(G, st, parts, out):
     zp = os.path.join(out, f'vivatheca-endodontic-{st}-2x.zip')
     with zipfile.ZipFile(zp, 'w', zipfile.ZIP_DEFLATED) as z:
         for part, terms in parts.items():
             for target in (80000, 160000, 10 ** 9):
                 res = mesh(G, terms, target)
+                if part == 'gum':
+                    res = drop_slivers(res)
+                    if res is not None and not res[0].is_watertight:
+                        trimesh.repair.fill_holes(res[0])
+                    # The abscess gum keeps a few open edges where the drainage channel leaves it at every
+                    # resolution; slicers close those, and the full-resolution mesh would be ~36 MB, so stop here.
+                    break
                 if res is None or res[0].is_watertight:
                     break
             if res is None:
@@ -583,6 +638,7 @@ Educational model only. It shows typical anatomy or disease, not any real patien
 See https://vivatheca.com/disclaimer
 Not yet clinically reviewed.
 Root canals and the drainage channel are drawn wider than real so they can be seen and printed.
+The gum (soft tissue) is a separate STL; leave it off to see the bone and roots.
 Licence: CC BY 4.0. Made by Vivatheca from BodyParts3D, (c) The Database Center for Life Science licensed under CC Attribution 4.0 International.
 """
 

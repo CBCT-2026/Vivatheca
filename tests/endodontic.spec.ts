@@ -32,3 +32,15 @@ test('endodontic page shows Vietnamese from vi.js', async ({ page, context }) =>
   // every English block on the page has a Vietnamese twin (the video is English-only, and says so)
   expect(await page.locator('main [lang="en"]:not(#video):visible').count()).toBe(0);
 });
+
+test('endodontic models have a removable gum layer with the gum boil on the abscess', async ({ page }) => {
+  await page.goto('/endodontic/index.html');
+  await expect(page.locator('.legend li', { hasText: 'Gum (soft tissue)' })).toBeVisible();
+  const off = page.getByRole('button', { name: 'Take off the gum' });
+  await expect(off).toBeVisible();
+  await off.click();
+  await expect(page.getByRole('button', { name: 'Put the gum back' })).toBeVisible();
+  await page.getByRole('button', { name: /Abscess/ }).click();
+  await expect(page.locator('.legend li', { hasText: 'Drainage channel and gum boil' })).toBeVisible();
+  await expect(page.locator('#stage')).toContainText('gum boil');
+});
