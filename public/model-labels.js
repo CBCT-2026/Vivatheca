@@ -40,6 +40,9 @@
     cob: ['Cobourne MT, Seehra J, Papageorgiou SN. The palatal displaced maxillary canine: early diagnosis and interceptive correction - a guideline for the general dental practitioner. Br Dent J. 2025;239(7):463-470.', 'https://doi.org/10.1038/s41415-025-8892-z'],
     juod: ['Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1.', 'https://doi.org/10.5037/jomr.2013.4201'],
     juodNerve: ['Juodzbalys G, Wang HL, Sabalys G. Anatomy of mandibular vital structures. Part I: mandibular canal and inferior alveolar neurovascular bundle in relation with dental implantology. J Oral Maxillofac Res. 2010;1(1):e2.', 'https://doi.org/10.5037/jomr.2010.1102'],
+    bergland: ['Bergland O, Semb G, Abyholm FE. Elimination of the residual alveolar cleft by secondary bone grafting and subsequent orthodontic treatment. Cleft Palate J. 1986;23(3):175-205.', 'https://pubmed.ncbi.nlm.nih.gov/3524905/'],
+    parvini: ['Parvini P, Obreja K, Begic A, et al. Decision-making in closure of oroantral communication and fistula. Int J Implant Dent. 2019;5(1):13.', 'https://doi.org/10.1186/s40729-019-0165-7'],
+    egyedi: ['Egyedi P. Utilization of the buccal fat pad for closure of oro-antral and/or oro-nasal communications. J Maxillofac Surg. 1977;5(4):241-244.', 'https://doi.org/10.1016/s0301-0503(77)80117-3'],
   };
   const ANAT = ['ta2', 'taj'];
 
@@ -129,6 +132,17 @@
     palMucosa: T(['Palatal mucosa', '{口蓋|こうがい}{粘膜|ねんまく}', 'Niêm mạc vòm miệng'], ['Lining of the roof of the mouth', '{口|くち}の{天井|てんじょう}の{粘膜|ねんまく}', 'Lớp niêm mạc vòm miệng'], ANAT),
     mucoperiosteum: T(['Excised mucoperiosteum', '{切除|せつじょ}する{粘膜骨膜|ねんまくこつまく}', 'Niêm mạc màng xương được cắt bỏ'], ['Lining and the thin layer on the bone, removed with the tumour', '{腫瘍|しゅよう}と{一緒|いっしょ}に{取|と}る{粘膜|ねんまく}と{骨膜|こつまく}', 'Niêm mạc và màng xương cắt bỏ cùng khối u'], ['ta2', 'mesh']),
     gpn: T(['Greater palatine nerve (path)', '{大口蓋神経|だいこうがいしんけい}（{走行|そうこう}）', 'Dây thần kinh khẩu cái lớn (đường đi)'], ['Nerve path the cancer can follow', 'がんが{沿|そ}って{広|ひろ}がりうる{神経|しんけい}の{通|とお}り{道|みち}', 'Đường dây thần kinh mà ung thư có thể lan theo'], ['ta2', 'taj', 'whoSal']),
+    // Show mode (/show) only: the ABG and oroantral pages keep their own hand-placed labels (OWN below).
+    cleftMaxilla: T(['Maxilla with alveolar cleft', '{顎裂|がくれつ}のある{上顎骨|じょうがくこつ}', 'Xương hàm trên có khe hở xương ổ răng'], ['Upper jaw bone with a gap from the cleft', '{裂|さ}け{目|め}によるすき{間|ま}がある{上|うわ}あごの{骨|ほね}', 'Xương hàm trên có khe hở do tật khe hở'], ['ta2', 'taj', 'bergland']),
+    abgGraft: T(['Secondary alveolar bone graft', '{二次的|にじてき}{顎裂部骨移植|がくれつぶこついしょく}', 'Ghép xương ổ răng thì hai'], ['New bone placed in the cleft gap', '{裂|さ}け{目|め}のすき{間|ま}に{入|い}れた{骨|ほね}', 'Xương mới đặt vào khe hở'], ['bergland', 'acpa']),
+    braces: T(['Fixed orthodontic appliance', '{固定式|こていしき}{矯正装置|きょうせいそうち}', 'Khí cụ chỉnh nha cố định'], ['Braces', '{歯|は}の{矯正装置|きょうせいそうち}', 'Mắc cài niềng răng'], ['mesh', 'bergland']),
+    sinusMax: T(['Maxillary sinus', '{上顎洞|じょうがくどう}', 'Xoang hàm trên'], ['Air space above the upper back teeth', '{上|うえ}の{奥歯|おくば}の{上|うえ}にある{空気|くうき}の{部屋|へや}', 'Khoang khí phía trên răng hàm trên'], ANAT),
+    sinusMucosa: T(['Maxillary sinus mucosa (thickened)', '{上顎洞粘膜|じょうがくどうねんまく}（{肥厚|ひこう}）', 'Niêm mạc xoang hàm trên (dày lên)'], ['Swollen lining of the sinus', '{腫|は}れた{上顎洞|じょうがくどう}の{粘膜|ねんまく}', 'Lớp niêm mạc xoang bị sưng'], ['ta2', 'taj', 'parvini']),
+    oafTract: T(['Oroantral fistula', '{口腔上顎洞瘻|こうくうじょうがくどうろう}', 'Rò miệng - xoang'], ['Lined tunnel between mouth and sinus', '{口|くち}と{上顎洞|じょうがくどう}をつなぐトンネル', 'Đường hầm có lót niêm mạc giữa miệng và xoang'], ['parvini', 'mesh']),
+    clot: T(['Blood clot in the socket', '{抜歯窩|ばっしか}の{血餅|けっぺい}', 'Cục máu đông trong ổ răng'], ['Clot that seals a small opening', '{小|ちい}さな{穴|あな}をふさぐ{血|ち}のかたまり', 'Cục máu đông bịt lỗ nhỏ'], ['parvini']),
+    buccalFlap: T(['Buccal advancement flap', '{頬側|きょうそく}{前進|ぜんしん}{弁|べん}', 'Vạt trượt phía má'], ['Gum tissue from the cheek side stretched over the opening', 'ほお{側|がわ}の{歯|は}ぐきをのばして{穴|あな}をおおう', 'Mô lợi phía má được kéo phủ lên lỗ'], ['parvini']),
+    palatalFlap: T(['Palatal rotation flap', '{口蓋|こうがい}{回転|かいてん}{弁|べん}', 'Vạt xoay khẩu cái'], ['Roof-of-mouth tissue turned over the opening', '{上|うわ}あごの{粘膜|ねんまく}を{回|まわ}して{穴|あな}をおおう', 'Mô vòm miệng được xoay phủ lên lỗ'], ['parvini']),
+    bfp: T(['Buccal fat pad flap', '{頬脂肪体|きょうしぼうたい}{弁|べん}', 'Vạt mỡ má'], ['Fat from inside the cheek moved over the opening', 'ほおの{中|なか}の{脂肪|しぼう}を{移|うつ}して{穴|あな}をおおう', 'Mỡ trong má được chuyển phủ lên lỗ'], ['ta2', 'egyedi', 'parvini']),
   };
 
   // ---- Which parts get a label, by GLB path (node or material name -> term). Order = priority when labels overlap.
@@ -161,9 +175,15 @@
     [/^\/head-neck\/models\/mec/, { lesion: 'mec', margin: 'margin', excised_mucoperiosteum: 'mucoperiosteum', mucosa: 'palMucosa', bone: 'maxilla', teeth: 'teethUpper' }],
     [/^\/head-neck\/models\/pa\b/, { lesion: 'pa', excised_mucoperiosteum: 'mucoperiosteum', bone: 'maxilla', teeth: 'teethUpper' }],
     [/^\/head-neck\/models\/acc/, { lesion: 'acc', nerve_path: 'gpn', margin: 'margin', specimen_bone: 'specimen', free_flap: 'freeFlap', bone: 'maxilla', teeth: 'teethUpper' }],
+    [/^\/models\/abg\/abg-1/, { canine: 'canineMax', bone: 'cleftMaxilla', gum: 'gingiva', teeth: 'teethUpper' }],
+    [/^\/models\/abg\//, { graft: 'abgGraft', braces: 'braces', bone: 'maxilla', gum: 'gingiva', teeth: 'teethUpper' }],
+    [/^\/oroantral\/models\/palatal/, { flap: 'palatalFlap', clot: 'clot', sinus: 'sinusMax', bone: 'maxilla', teeth: 'teethUpper' }],
+    [/^\/oroantral\//, { tract: 'oafTract', lining: 'sinusMucosa', fat: 'bfp', flap: 'buccalFlap', clot: 'clot', sinus: 'sinusMax', bone: 'maxilla', teeth: 'teethUpper', gum: 'gingiva' }],
   ];
   // Viewers that already have their own labels (homepage and /models/alveolar-bone-graft, /oroantral/).
+  // Show mode (/show) has no hand-placed labels, so these models get the sets above there.
   const OWN = /^\/(models\/abg|oroantral)\//;
+  const ownLabels = (path, el) => OWN.test(path) && !el.closest('.show-frame');
   const setFor = (path) => (SETS.find(([re]) => re.test(path)) || [])[1];
 
   const UI = {
@@ -302,8 +322,11 @@
 
   // Fit labels inside the viewer and spread overlapping ones: each label goes on the side of its dot with more room
   // (and wraps to fit); later (lower priority) labels move down, or hide if there is no room.
+  // A label that would cover another label's dot goes on the other side instead, if there is room (so leaders don't cross).
   function declutter(spots, frame) {
     const placed = [];
+    const dots = spots.filter((h) => h.dataset.show !== 'false').map((h) => { const d = h.getBoundingClientRect(); return [h, d.left + d.width / 2, d.top + d.height / 2]; });
+    const coversDot = (h, r) => dots.some(([o, x, y]) => o !== h && x > r.left - 4 && x < r.right + 4 && y > r.top - 4 && y < r.bottom + 4);
     spots.forEach((h) => {
       h.style.setProperty('--dy', '0px');
       if (h.dataset.show === 'false') return;
@@ -318,6 +341,13 @@
       const label = h.querySelector('.vt-hotspot-label');
       label.style.maxWidth = room + 'px';
       let r = label.getBoundingClientRect();
+      const other = h.dataset.side === 'left' ? 'right' : 'left';
+      if (coversDot(h, r) && Math.min(240, other === 'left' ? roomL : roomR) >= 80) {
+        h.dataset.side = other;
+        label.style.maxWidth = Math.min(240, other === 'left' ? roomL : roomR) + 'px';
+        const r2 = label.getBoundingClientRect();
+        if (coversDot(h, r2)) { h.dataset.side = other === 'left' ? 'right' : 'left'; label.style.maxWidth = room + 'px'; } else r = r2;
+      }
       let dy = 0;
       for (let tries = 0; tries < 6; tries++) {
         const hit = placed.find((p) => r.left < p.right + 2 && r.right > p.left - 2 && r.top < p.bottom + 2 && r.bottom > p.top - 2);
@@ -344,7 +374,7 @@
     async function render() {
       spots.forEach((h) => h.remove()); spots = []; current = null;
       const path = pathOf(mv.src || mv.getAttribute('src') || '');
-      if (!path || OWN.test(path)) return;
+      if (!path || ownLabels(path, mv)) return;
       const set = setFor(path); if (!set) return;
       const file = await anchors(path); if (!file) return;
       if (pathOf(mv.src || mv.getAttribute('src') || '') !== path) return; // the model changed while loading

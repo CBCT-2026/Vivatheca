@@ -59,6 +59,11 @@ export default async function Home() {
           <div className="quick-inner">
             <h2 id="quick-show-title"><Ruby text={t.show.homeHeading} /></h2>
             <p className="quick-intro"><Ruby text={t.show.homeText} /></p>
+            {/* Says plainly that these are quick, simplified views, so visitors go on to the full collection. */}
+            <div className="quick-full">
+              <p><Ruby text={t.show.homeFullNote} /></p>
+              <a className="button" href="/models"><Ruby text={t.show.homeFullLink} /> <Icon name="arrow_forward" /></a>
+            </div>
             {/* The first eight tiles, with a button for the rest, keep the homepage short on phones. */}
             <QuickPick headingLevel={3} limit={8} />
             <div className="prototype-links">

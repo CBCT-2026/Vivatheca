@@ -33,3 +33,22 @@ test('wisdom tooth compare viewer labels the nerve on both models', async ({ pag
   await page.locator('model-viewer').first().scrollIntoViewIfNeeded();
   await expect(page.locator('model-viewer .vt-hotspot[data-key="ian"]')).toHaveCount(2, { timeout: 30_000 });
 });
+
+test('show mode labels the models whose full pages have their own labels, on by default with a toggle', async ({ page }) => {
+  await page.goto('/show?model=oroantral&view=normal');
+  await expect(page.locator('model-viewer .vt-hotspot[data-key="sinusMax"]')).toHaveAttribute('data-show', 'true', { timeout: 30_000 });
+  const toggle = page.locator('model-viewer .vt-label-toggle');
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+  await toggle.click();
+  await expect(page.locator('model-viewer .vt-hotspot').first()).toBeHidden();
+  await toggle.click();
+  await page.goto('/show?model=alveolar-bone-graft&view=before');
+  await expect(page.locator('model-viewer .vt-hotspot[data-key="cleftMaxilla"]')).toHaveAttribute('data-show', 'true', { timeout: 30_000 });
+});
+
+test('homepage show section says it is the short version and links to the full collection', async ({ page }) => {
+  await page.goto('/');
+  const note = page.locator('#quick-show .quick-full');
+  await expect(note).toContainText('short version');
+  await expect(note.locator('a[href="/models"]')).toBeVisible();
+});

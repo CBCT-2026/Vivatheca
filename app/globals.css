@@ -1199,6 +1199,9 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .quick-inner { margin: 0; }
 .quick-section h2 { margin: 0 0 .5rem; color: var(--heading); font-size: clamp(1.6rem,3vw,2.2rem); }
 .quick-section .quick-intro { margin-bottom: 1.25rem; color: var(--muted); }
+.quick-full { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin: 0 0 1.5rem; padding: 1rem 1.25rem; border: 1px solid var(--accent); border-radius: var(--radius-md); background: var(--surface-tint-strong); }
+.quick-full p { flex: 1 1 22rem; margin: 0; color: var(--text-strong); text-align: justify; hyphens: auto; }
+.quick-full .button { flex: 0 0 auto; }
 .quick-pick { display: grid; gap: 1rem; }
 .quick-search { display: flex; align-items: center; gap: .6rem; max-width: 520px; min-height: 48px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); padding: 0 1rem; }
 .quick-search img { flex: none; opacity: .7; }
