@@ -372,6 +372,11 @@
     const q = [[r.x, r.y], [r.x + r.w, r.y], [r.x + r.w, r.y + r.h], [r.x, r.y + r.h]];
     return q.some((p, k) => cross2(a, b, p, q[(k + 1) % 4]));
   };
+  const segDist = (a, b, x, y) => {
+    const dx = b[0] - a[0], dy = b[1] - a[1], l = dx * dx + dy * dy;
+    const t = l ? Math.max(0, Math.min(1, ((x - a[0]) * dx + (y - a[1]) * dy) / l)) : 0;
+    return Math.hypot(a[0] + t * dx - x, a[1] + t * dy - y);
+  };
   const ANG = Array.from({ length: 16 }, (_, k) => [Math.cos(k * Math.PI / 8), Math.sin(k * Math.PI / 8)]);
   const DIST = [36, 60, 90, 125, 165, 210];
 
@@ -448,6 +453,8 @@
         live.forEach((o) => { if (o !== it && o.x > r.x - 4 && o.x < r.x + w + 4 && o.y > r.y - 4 && o.y < r.y + h + 4) cost += 300; });
         placed.forEach((o) => { if (segRect(a, e, o)) cost += 250; });
         lines.forEach(([p, q]) => { if (cross2(a, e, p, q)) cost += 120; });
+        // A line that runs close past another spot reads as pointing at it.
+        live.forEach((o) => { if (o !== it && segDist(a, e, o.x, o.y) < 10) cost += 150; });
         // Stay near the last place (relative to the spot) unless somewhere is clearly better.
         if (it.off) cost += Math.min(80, Math.hypot(r.x - x - it.off[0], r.y - y - it.off[1]) * 0.6);
         if (!best || cost < best.cost) best = { r, e, cost };
