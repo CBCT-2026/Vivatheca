@@ -62,26 +62,101 @@ GLTF_NAME = {'necrotic': 'pulp_1', 'tooth_cut': 'teeth_1', 'bone_cut': 'bone_1',
              'cementum': 'teeth_3', 'cementum_cut': 'teeth_4'}
 
 
+def split_along(m, f):
+    """Cut every triangle that the field f (one value per vertex) changes sign across, along f = 0 (linear on each
+    edge), so a colour boundary follows a smooth curve instead of the saw-tooth edge of whole triangles."""
+    V, F = m.vertices, m.faces
+    s = f >= 0
+    cross = np.nonzero(s[F].any(1) & ~s[F].all(1))[0]
+    if len(cross) == 0:
+        return m
+    newv, cache = [], {}
+
+    def pt(a, b):
+        k = (a, b) if a < b else (b, a)
+        if k not in cache:
+            t = f[a] / (f[a] - f[b])
+            cache[k] = len(V) + len(newv)
+            newv.append(V[a] + (V[b] - V[a]) * t)
+        return cache[k]
+    tris = []
+    for fi in cross:
+        a, b, c = F[fi]
+        # rotate so a is the vertex alone on its side
+        if s[b] != s[a] and s[b] != s[c]:
+            a, b, c = b, c, a
+        elif s[c] != s[a] and s[c] != s[b]:
+            a, b, c = c, a, b
+        ab, ac = pt(a, b), pt(a, c)
+        tris += [(a, ab, ac), (ab, b, c), (ab, c, ac)]
+    keep = np.ones(len(F), bool)
+    keep[cross] = False
+    return trimesh.Trimesh(np.vstack([V, newv]), np.vstack([F[keep], tris]), process=False)
+
+
+def field_at(G, a, p):
+    return ndimage.map_coordinates(a, ((p - G.origin) / PITCH).T, order=1, mode='nearest')
+
+
+_DEPTH = {}
+
+
+def surface_depth(G, S):
+    """Depth below the outer surface of the uncut tooth (the S = 0 surface): exact distance to a dense sample
+    of that surface, positive inside. Smoother than reading S off the grid, so thin layers (enamel, cementum)
+    get clean, even edges on a cut face."""
+    if id(S) not in _DEPTH:
+        from scipy.spatial import cKDTree
+        pad = np.pad(S, 1, constant_values=1.0)
+        v, f, _, _ = measure.marching_cubes(pad, 0.0, spacing=(PITCH,) * 3)
+        surf = trimesh.Trimesh(v - PITCH + G.origin, f, process=False)
+        n = int(min(4e6, surf.area / 0.02 ** 2))
+        pts, _ = trimesh.sample.sample_surface(surf, n)
+        _DEPTH[id(S)] = (S, cKDTree(np.vstack([pts, surf.vertices])))
+    tree = _DEPTH[id(S)][1]
+    return lambda p: tree.query(p, workers=-1)[0] * np.where(field_at(G, S, p) < 0, 1.0, -1.0)
+
+
 def layer_labels(G, m, labels, S, cej, apex_z, outer=True):
     """Colour a tooth mesh by tissue. Outer surface: enamel above the CEJ, cementum below. Cut face: enamel or
-    cementum within their thickness of the outer surface (depth from the uncropped tooth SDF S), dentine elsewhere."""
-    ctr = m.triangles_center
-    z = ctr[:, 2]
-    depth = -ndimage.map_coordinates(S, ((ctr - G.origin) / PITCH).T, order=1, mode='nearest')
-    cej = np.broadcast_to(np.asarray(cej, float), z.shape)        # one CEJ height for the mesh, or one per face
-    apex_z = np.broadcast_to(np.asarray(apex_z, float), z.shape)
-    t_en = ENAMEL * np.clip((z - cej) / ENAMEL_TAPER, 0, 1)
-    t_ce = CEM_CERVICAL + (CEM_APICAL - CEM_CERVICAL) * np.clip((cej - z) / (cej - apex_z), 0, 1)
+    cementum within their thickness of the outer surface (depth from the uncropped tooth SDF S), dentine elsewhere.
+    cej and apex_z are numbers or functions of position. The mesh is first cut along every tissue boundary
+    (split_along), so it returns a new mesh with its labels: (mesh, labels)."""
+    as_fn = lambda v: v if callable(v) else (lambda p: np.full(len(p), float(v)))
+    cej_fn, apex_fn = as_fn(cej), as_fn(apex_z)
+    lab0 = np.array(labels, dtype=object)
+    depth = surface_depth(G, S)
+
+    def fields(p):
+        z = p[:, 2]
+        c, ap = cej_fn(p), apex_fn(p)
+        d = depth(p)
+        te = ENAMEL * np.clip((z - c) / ENAMEL_TAPER, 0, 1)
+        tc = CEM_CERVICAL + (CEM_APICAL - CEM_CERVICAL) * np.clip((c - z) / np.maximum(c - ap, 1e-3), 0, 1)
+        return z - c, d - 0.15, d - te, d - tc
+    # mesh() already cut along the surface / cut-face boundary; each face keeps its label through the splits.
+    for k in range(4):
+        n0 = len(m.faces)
+        m2 = split_along(m, fields(m.vertices)[k])
+        if len(m2.faces) != n0:
+            V, F = m.vertices, m.faces
+            s = fields(V)[k] >= 0
+            cross = s[F].any(1) & ~s[F].all(1)
+            lab0 = np.concatenate([lab0[~cross], np.repeat(lab0[cross], 3)])
+        m = m2
+    # Label by the mean of the vertex values: after the splits every face lies on one side of each boundary,
+    # so this agrees with the cut lines (a centre sample can fall on the other side on long thin faces).
+    fz, fn, fe, fc = (f[m.faces].mean(1) for f in fields(m.vertices))
     out = []
-    for lab, zz, d, te, tc, cej in zip(labels, z, depth, t_en, t_ce, cej):
-        if lab == 'teeth' and d > 0.15:  # crop face of a neighbour tooth (inside the uncropped tooth): a cut
+    for lab, zc, dn, de, dc in zip(lab0, fz, fn, fe, fc):
+        if lab == 'teeth' and dn > 0:  # crop face of a neighbour tooth (inside the uncropped tooth): a cut
             lab = 'tooth_cut'
         if lab == 'teeth' and outer:  # outer=False keeps the whole outer surface tooth white (cut faces only)
-            lab = 'teeth' if zz >= cej else 'cementum'
+            lab = 'teeth' if zc >= 0 else 'cementum'
         elif lab == 'tooth_cut':
-            lab = 'enamel_cut' if (zz >= cej and d < te) else 'cementum_cut' if (zz < cej and d < tc) else 'tooth_cut'
+            lab = 'enamel_cut' if (zc >= 0 and de < 0) else 'cementum_cut' if (zc < 0 and dc < 0) else 'tooth_cut'
         out.append(lab)
-    return out
+    return m, out
 
 
 def load(folder, fj):
@@ -195,10 +270,52 @@ def mesh(G, terms, target=50000):
     m = trimesh.Trimesh(v, f, process=True)
     if m.volume < 0:
         m.invert()
-    idx = (m.triangles_center - G.origin) / PITCH
-    vals = np.stack([ndimage.map_coordinates(t[1], idx.T, order=1, mode='nearest') for t in terms])
-    lab = np.argmin(np.abs(vals), axis=0)
+    vals = lambda p: np.abs(np.stack([field_at(G, t[1], p) for t in terms]))
+    if len(terms) > 1:
+        # Snap the vertices of the cut face onto the cut surface, so it is truly flat and its rim is a sharp
+        # crease (marching cubes and simplification leave a rounded, streaky rim there).
+        V = m.vertices.copy()
+        flab = np.argmin(vals(m.triangles_center), axis=0)
+        h = PITCH * 0.5
+        for k in [k for k, t in enumerate(terms) if t[0] == 'cut']:
+            vk = np.unique(m.faces[flab == k])
+            p = V[vk]
+            for _ in range(3):
+                f = field_at(G, terms[k][1], p)
+                g = np.stack([(field_at(G, terms[k][1], p + h * e) - field_at(G, terms[k][1], p - h * e)) / (2 * h)
+                              for e in np.eye(3)], 1)
+                p = p - (f / np.maximum((g * g).sum(1), 1e-6))[:, None] * g
+            mv = p - V[vk]
+            n = np.linalg.norm(mv, axis=1, keepdims=True)
+            V[vk] = V[vk] + mv * np.minimum(1, PITCH / np.maximum(n, 1e-9))   # never more than one voxel
+        m = trimesh.Trimesh(V, m.faces, process=False)
+        # Cut along the boundary between the terms (where two of them are equally near the surface) so the
+        # boundary between, say, a tooth's surface and its cut face is a clean line, then label by face centre.
+        for k in range(len(terms)):
+            v = vals(m.vertices)
+            m = split_along(m, v[k] - np.delete(v, k, axis=0).min(0))
+    lab = np.argmin(vals(m.vertices)[:, m.faces].mean(2), axis=0) if len(terms) > 1 else np.zeros(len(m.faces), int)
     return m, [terms[i][0] for i in lab]
+
+
+def group_normals(m, labels):
+    """Vertex normals, area-weighted (so the tiny slivers left by split_along do not tilt them) and smoothed
+    separately over cut faces and outer surfaces: smooth across a colour boundary on one surface, sharp where a
+    cut meets the outer surface."""
+    cut = np.array([str(l).endswith('cut') or str(l) == 'cutface' for l in labels])
+    N = np.zeros_like(m.vertices)
+    V = m.vertices
+    for grp in (cut, ~cut):
+        F = m.faces[grp]
+        if len(F) == 0:
+            continue
+        fn = np.cross(V[F[:, 1]] - V[F[:, 0]], V[F[:, 2]] - V[F[:, 0]])
+        acc = np.zeros_like(V)
+        for k in range(3):
+            np.add.at(acc, F[:, k], fn)
+        u = np.unique(F)
+        N[u] = acc[u] / np.maximum(np.linalg.norm(acc[u], axis=1, keepdims=True), 1e-12)
+    return N
 
 
 # ---------------------------------------------------------------- GLB writer (tooth frame z up -> glTF y up)
@@ -239,12 +356,16 @@ class Glb:
 
     def add(self, name, m, labels):
         labels = np.array(labels)
+        # Normals are smoothed across colour boundaries on the same surface (enamel to cementum, dentine to
+        # enamel on a cut face) so no shading seam shows there, but not across the crease where a cut meets
+        # the outer surface.
+        N = group_normals(m, labels)
         prims = []
         for lab in dict.fromkeys(labels):
-            sub = m.submesh([np.nonzero(labels == lab)[0]], append=True)
-            prims.append({'attributes': {'POSITION': self._acc(to_gltf(sub.vertices), 'VEC3', 34962, True),
-                                         'NORMAL': self._acc(to_gltf(sub.vertex_normals), 'VEC3', 34962)},
-                          'indices': self._acc(sub.faces.astype(np.uint32).ravel(), 'SCALAR', 34963),
+            u, inv = np.unique(m.faces[labels == lab], return_inverse=True)
+            prims.append({'attributes': {'POSITION': self._acc(to_gltf(m.vertices[u]), 'VEC3', 34962, True),
+                                         'NORMAL': self._acc(to_gltf(N[u]), 'VEC3', 34962)},
+                          'indices': self._acc(inv.reshape(-1).astype(np.uint32), 'SCALAR', 34963),
                           'material': self.material(lab)})
         self.j['meshes'].append({'name': name, 'primitives': prims})
         self.j['nodes'].append({'name': name, 'mesh': len(self.j['meshes']) - 1})
@@ -395,7 +516,7 @@ def build(folder, out, zanatomy=None):
                 cutlab = {'bone': 'bone_cut', 'tooth': 'tooth_cut', 'teeth': 'tooth_cut'}.get(part, terms[0][0])
                 labels = [cutlab if l == 'cut' else l for l in labels]
                 if part in ('tooth', 'teeth'):
-                    labels = layer_labels(G, m, labels, T if part == 'tooth' else N_full, roof, apex_z)
+                    m, labels = layer_labels(G, m, labels, T if part == 'tooth' else N_full, roof, apex_z)
                 g.add(names.get(part, part), m, labels)
             g.save(os.path.join(out, f'{st}-{variant}.glb'))
             print(st, variant, os.path.getsize(os.path.join(out, f'{st}-{variant}.glb')) // 1024, 'KB')

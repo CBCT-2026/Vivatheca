@@ -17,7 +17,7 @@ Needs Python 3.11+ with `trimesh`, `rtree`, `scipy`, `scikit-image`, `fast-simpl
 All dimensions are constants at the top of `build.py` and are listed on the page ("For clinicians"). Crack width (0.24 mm) and the bite movement (6 degrees each side) are exaggerated so they can be seen. Cavity, crown preparation and enamel thickness are typical teaching values, not taken from one source. The crown and filling print parts are 0.08 mm (0.24 mm at 3x) smaller than their space so they lift out.
 
 ## Colours
-Tooth: linear (0.770, 0.718, 0.648), the lighter tooth tint used with the wisdom tooth bone colour. Filling blue, crown grey-blue, pulp red, crack near-black brown, force arrows orange, crown "holds" arrows teal. Cut faces (2026-11-07, shared tokens in `tokens/model.json`): enamel bluish white (`enamelCut`), dentine yellow (`dentineCut`), cementum tan brown (`cementum`, also the root surface below the CEJ, drawn 0.3 to 0.5 mm thick). Basis and contrast check are cited on the page.
+Tooth: linear (0.770, 0.718, 0.648), the lighter tooth tint used with the wisdom tooth bone colour. Filling blue, crown grey-blue, pulp red, crack near-black brown, force arrows orange, crown "holds" arrows teal. Cut faces (2026-11-07, shared tokens in `tokens/model.json`): enamel bluish white (`enamelCut`), dentine pale yellow (`dentineCut`), cementum dull light ochre (`cementum`, 2026-11-08; also the root surface below the CEJ, drawn 0.3 to 0.5 mm thick). Basis and contrast check are cited on the page.
 
 ## Licence
 Derived from Z-Anatomy (CC BY-SA 4.0), which uses BodyParts3D (CC BY-SA 2.1 Japan). The models are CC BY-SA 4.0.
