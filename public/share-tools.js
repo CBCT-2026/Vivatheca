@@ -78,6 +78,29 @@
     licensed: ['Licensed under', 'ライセンス：', 'Cấp phép theo'],
     changes: ['Changes: none (or describe your changes).', '{変更|へんこう}：なし（{変更|へんこう}した{場合|ばあい}はその{内容|ないよう}）。', 'Thay đổi: không có (hoặc mô tả các thay đổi của bạn).'],
     model: ['Model', '{模型|もけい}', 'Mô hình'],
+    // Chairside pen and visit pack (anatomy apps review #7 and #8, 8 Nov 2026). Wisdom tooth first: PEN_PACK.
+    pen: ['Draw on it', '{書|か}き{込|こ}む', 'Vẽ lên hình'],
+    penTitle: ['Draw on the model', '{模型|もけい}に{書|か}き{込|こ}む', 'Vẽ lên mô hình'],
+    penHelp: ['Draw with a finger, stylus or mouse on a still picture of this view. Do not write anything that could identify the patient.', 'この{表示|ひょうじ}の{静止|せいし}{画|が}に、{指|ゆび}・ペン・マウスで{書|か}き{込|こ}めます。{患者|かんじゃ}さんがわかることは{書|か}かないでください。', 'Vẽ bằng ngón tay, bút cảm ứng hoặc chuột lên ảnh tĩnh của góc nhìn này. Không viết bất cứ điều gì có thể nhận ra bệnh nhân.'],
+    penTools: ['Drawing tool', '{書|か}き{込|こ}みの{道具|どうぐ}', 'Công cụ vẽ'],
+    penFree: ['Pen', 'ペン', 'Bút'],
+    penArrow: ['Arrow', '{矢印|やじるし}', 'Mũi tên'],
+    penCircle: ['Circle', '{丸|まる}', 'Vòng tròn'],
+    penColours: ['Colour', '{色|いろ}', 'Màu'],
+    red: ['Red', '{赤|あか}', 'Đỏ'],
+    blue: ['Blue', '{青|あお}', 'Xanh dương'],
+    black: ['Black', '{黒|くろ}', 'Đen'],
+    undo: ['Undo', '{一|ひと}つ{戻|もど}す', 'Hoàn tác'],
+    clearPen: ['Clear drawing', '{書|か}き{込|こ}みを{消|け}す', 'Xóa nét vẽ'],
+    close: ['Close', '{閉|と}じる', 'Đóng'],
+    penCanvas: ['Picture of the model to draw on', '{書|か}き{込|こ}み{用|よう}の{模型|もけい}の{画像|がぞう}', 'Ảnh mô hình để vẽ lên'],
+    packAdd: ['Add view to visit pack', 'この{表示|ひょうじ}をお{持|も}ち{帰|かえ}り{資料|しりょう}に{追加|ついか}', 'Thêm góc nhìn vào tài liệu mang về'],
+    packAddDrawing: ['Add to visit pack', 'お{持|も}ち{帰|かえ}り{資料|しりょう}に{追加|ついか}', 'Thêm vào tài liệu mang về'],
+    packAdded: ['Added to the visit pack ({n} of {max}).', 'お{持|も}ち{帰|かえ}り{資料|しりょう}に{追加|ついか}しました（{max}{枚|まい}{中|ちゅう}{n}{枚|まい}）。', 'Đã thêm vào tài liệu mang về ({n} trên {max}).'],
+    packFull: ['The visit pack already has {max} views. Open it to remove one.', 'お{持|も}ち{帰|かえ}り{資料|しりょう}はもう{max}{枚|まい}です。{開|ひら}いて1{枚|まい}{外|はず}してください。', 'Tài liệu mang về đã có {max} góc nhìn. Hãy mở và bỏ bớt một.'],
+    packNoStore: ['This browser cannot keep the visit pack. Private browsing or blocked site data can stop it.', 'このブラウザではお{持|も}ち{帰|かえ}り{資料|しりょう}を{保存|ほぞん}できません。プライベートモードなどが{原因|げんいん}かもしれません。', 'Trình duyệt này không giữ được tài liệu mang về. Chế độ duyệt riêng tư hoặc chặn dữ liệu trang có thể là nguyên nhân.'],
+    packOpen: ['Open visit pack ({n})', 'お{持|も}ち{帰|かえ}り{資料|しりょう}を{開|ひら}く（{n}）', 'Mở tài liệu mang về ({n})'],
+    drawn: ['with drawing', '{書|か}き{込|こ}みあり', 'có hình vẽ'],
   };
   const say = (k) => ruby(T[k][JA ? 1 : VI ? 2 : 0]);
   const sayPlain = (k) => plain(T[k][JA ? 1 : VI ? 2 : 0]);
@@ -157,7 +180,11 @@
       set: (v) => { mv.cameraOrbit = v.o; mv.cameraTarget = v.t; if (v.f) mv.fieldOfView = v.f; if (mv.jumpCameraToGoal) mv.jumpCameraToGoal(); },
       visible: () => mv.offsetParent !== null && !mv.closest('[hidden]'),
       capture: async () => {
-        const blob = await mv.toBlob({ mimeType: 'image/png', idealAspect: false });
+        // On a slow device model-viewer lowers its render scale (a static on the element class), and toBlob
+        // then returns a cropped, off-centre picture. Render at full scale for the capture, then restore it.
+        const C = mv.constructor, scale = C.minimumRenderScale;
+        if (scale !== 1) { C.minimumRenderScale = 1; if (mv.jumpCameraToGoal) mv.jumpCameraToGoal(); await sleep(400); }
+        const blob = await mv.toBlob({ mimeType: 'image/png', idealAspect: false }).finally(() => { if (scale === undefined) delete C.minimumRenderScale; else C.minimumRenderScale = scale; });
         return await createImageBitmap(blob);
       },
     };
@@ -343,6 +370,102 @@
     return c;
   }
 
+  // ---- visit pack (sessionStorage, this tab only; nothing about the patient) ----
+  // Models with the chairside pen and visit pack. Luke (8 Nov 2026): start with the wisdom tooth.
+  const PEN_PACK = ['impacted-wisdom-tooth'];
+  const PACK_KEY = 'vivatheca-visit-pack', PACK_MAX = 4;
+  const readPack = () => { try { const v = JSON.parse(sessionStorage.getItem(PACK_KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } };
+  // Label for a saved view: the pressed button of the viewer's first choice group (e.g. "Both").
+  function viewLabel(group) {
+    const b = [...group.scope.querySelectorAll('[role="group"] button[aria-pressed="true"]')].find(outside);
+    if (!b) return '';
+    const c = b.cloneNode(true); c.querySelectorAll('rt, rp').forEach((r) => r.remove());
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  }
+  // Stores a JPEG copy (at most 1200 px wide) with the link to the view. Returns the new count, 0 when full, -1 on failure.
+  function addToPack(src, item) {
+    const pack = readPack();
+    if (pack.length >= PACK_MAX) return 0;
+    const k = Math.min(1, 1200 / src.width);
+    const c = doc.createElement('canvas'); c.width = Math.round(src.width * k); c.height = Math.round(src.height * k);
+    const ctx = c.getContext('2d'); ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, c.width, c.height); ctx.drawImage(src, 0, 0, c.width, c.height);
+    pack.push({ ...item, img: c.toDataURL('image/jpeg', 0.85), added: Date.now() });
+    try { sessionStorage.setItem(PACK_KEY, JSON.stringify(pack)); } catch (e) { return -1; }
+    return pack.length;
+  }
+
+  // ---- chairside pen: draw arrows, circles and free lines on a still of the current view ----
+  const PEN_COLOURS = [['red', '#d1002a'], ['blue', '#0057b8'], ['black', '#111111']];
+  async function openPen(group, m, opener, after) {
+    const shot = await captureVisible(group);
+    const k = Math.min(1, 1600 / shot.width);
+    const base = doc.createElement('canvas'); base.width = Math.round(shot.width * k); base.height = Math.round(shot.height * k);
+    const bctx = base.getContext('2d'); bctx.fillStyle = '#ffffff'; bctx.fillRect(0, 0, base.width, base.height); bctx.drawImage(shot, 0, 0, base.width, base.height);
+    const label = viewLabel(group);
+    const view = after.viewUrl();
+    const box = doc.createElement('div');
+    box.className = 'vt-pen';
+    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-labelledby', 'vt-pen-title');
+    const tools = [['free', 'penFree'], ['arrow', 'penArrow'], ['circle', 'penCircle']];
+    box.innerHTML = '<div class="vt-pen-inner"><h2 id="vt-pen-title">' + say('penTitle') + '</h2><p>' + say('penHelp') + '</p>' +
+      '<div class="vt-row"><div class="vt-tabs" role="group" aria-label="' + esc(sayPlain('penTools')) + '">' + tools.map(([id, w], i) => '<button type="button" data-tool="' + id + '" aria-pressed="' + (i === 0) + '">' + say(w) + '</button>').join('') + '</div>' +
+      '<div class="vt-tabs" role="group" aria-label="' + esc(sayPlain('penColours')) + '">' + PEN_COLOURS.map(([id, hex], i) => '<button type="button" data-colour="' + hex + '" aria-pressed="' + (i === 0) + '"><span class="vt-swatch" style="background:' + hex + '" aria-hidden="true"></span>' + say(id) + '</button>').join('') + '</div></div>' +
+      '<div class="vt-pen-stage"><canvas role="img" aria-label="' + esc(sayPlain('penCanvas')) + '"></canvas></div>' +
+      '<div class="vt-row"><button type="button" class="vt-pen-undo">' + say('undo') + '</button><button type="button" class="vt-pen-clear">' + say('clearPen') + '</button>' +
+      '<button type="button" class="vt-pen-save">' + say('picture') + '</button><button type="button" class="vt-pen-pack">' + say('packAddDrawing') + '</button>' +
+      '<button type="button" class="vt-pen-close">' + say('close') + '</button></div><p class="vt-status" role="status" aria-live="polite"></p></div>';
+    doc.body.appendChild(box);
+    const canvas = box.querySelector('canvas');
+    canvas.width = base.width; canvas.height = base.height;
+    const ctx = canvas.getContext('2d');
+    const status = box.querySelector('.vt-status');
+    const lw = Math.max(4, Math.round(base.width / 220));
+    let tool = 'free', colour = PEN_COLOURS[0][1], cur = null;
+    const shapes = [];
+    function draw(sh) {
+      ctx.strokeStyle = sh.colour; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      const [a, b] = [sh.pts[0], sh.pts[sh.pts.length - 1]];
+      ctx.beginPath();
+      if (sh.tool === 'free') { sh.pts.forEach((p, i) => (i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]))); if (sh.pts.length === 1) ctx.lineTo(a[0] + 0.1, a[1]); }
+      else if (sh.tool === 'arrow') {
+        const ang = Math.atan2(b[1] - a[1], b[0] - a[0]), h = lw * 5;
+        ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]);
+        ctx.moveTo(b[0] - h * Math.cos(ang - 0.45), b[1] - h * Math.sin(ang - 0.45)); ctx.lineTo(b[0], b[1]); ctx.lineTo(b[0] - h * Math.cos(ang + 0.45), b[1] - h * Math.sin(ang + 0.45));
+      } else ctx.ellipse((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, Math.max(1, Math.abs(b[0] - a[0]) / 2), Math.max(1, Math.abs(b[1] - a[1]) / 2), 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    const redraw = () => { ctx.drawImage(base, 0, 0); shapes.forEach(draw); if (cur) draw(cur); };
+    redraw();
+    const at = (e) => { const r = canvas.getBoundingClientRect(); return [(e.clientX - r.left) * canvas.width / r.width, (e.clientY - r.top) * canvas.height / r.height]; };
+    canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); canvas.setPointerCapture(e.pointerId); cur = { tool, colour, pts: [at(e)] }; redraw(); });
+    canvas.addEventListener('pointermove', (e) => { if (!cur) return; const p = at(e); if (cur.tool === 'free') cur.pts.push(p); else cur.pts[1] = p; redraw(); });
+    const end = () => { if (!cur) return; if (cur.tool === 'free' || cur.pts.length > 1) shapes.push(cur); cur = null; redraw(); };
+    canvas.addEventListener('pointerup', end); canvas.addEventListener('pointercancel', end);
+    const press = (sel, attr, set) => box.querySelectorAll(sel).forEach((x) => { x.onclick = () => { box.querySelectorAll(sel).forEach((y) => y.setAttribute('aria-pressed', String(y === x))); set(x.getAttribute(attr)); }; });
+    press('[data-tool]', 'data-tool', (v) => { tool = v; });
+    press('[data-colour]', 'data-colour', (v) => { colour = v; });
+    box.querySelector('.vt-pen-undo').onclick = () => { shapes.pop(); redraw(); };
+    box.querySelector('.vt-pen-clear').onclick = () => { shapes.length = 0; redraw(); };
+    box.querySelector('.vt-pen-save').onclick = async () => {
+      try { await readableFonts(Object.values(creditLines(m)).join(' ')); await download(compose([canvas], m, false), 'vivatheca-' + m.model.slug + '-drawing.png'); status.innerHTML = say('pictureDone'); count('image'); } catch (err) { status.innerHTML = say('failed'); }
+    };
+    box.querySelector('.vt-pen-pack').onclick = () => {
+      const n = addToPack(canvas, { slug: m.model.slug, href: m.model.href, view, label, drawn: shapes.length > 0 });
+      status.textContent = n > 0 ? fill(sayPlain('packAdded'), { n, max: PACK_MAX }) : fill(sayPlain(n === 0 ? 'packFull' : 'packNoStore'), { max: PACK_MAX });
+      if (n > 0) { count('share'); after.refresh(); }
+    };
+    const close = () => { box.remove(); doc.removeEventListener('keydown', onKey, true); opener.focus(); };
+    const onKey = (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      const f = [...box.querySelectorAll('button')]; const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); last.focus(); } else if (!e.shiftKey && doc.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+    doc.addEventListener('keydown', onKey, true);
+    box.querySelector('.vt-pen-close').onclick = close;
+    box.querySelector('[data-tool]').focus();
+  }
+
   // ---- the panel ----
   const style = doc.createElement('style');
   style.textContent = [
@@ -367,6 +490,21 @@
     '.vt-tourbar p{margin:0;flex:1 1 200px;font-size:14px;color:#fff}',
     '.vt-tourbar .vt-tour-buttons{display:flex;gap:6px;flex-wrap:wrap}',
     '.vt-tourbar button{min-height:40px;padding:6px 12px;background:#fff;color:#00244d;border-color:#fff}',
+    // Chairside pen (full-screen dialog over the page).
+    '.vt-pen{position:fixed;inset:0;z-index:1000;overflow:auto;padding:12px;background:rgba(0,20,40,.72);text-align:left}',
+    '.vt-pen-inner{max-width:1200px;margin:0 auto;padding:14px;border-radius:14px;background:var(--surface,#fff);color:var(--text,#06233f)}',
+    '.vt-pen h2{margin:0 0 4px;font-size:18px;color:var(--heading,#00244d)}',
+    '.vt-pen p{margin:0 0 8px;font-size:14px;text-align:justify;hyphens:auto}',
+    '.vt-pen .vt-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}',
+    '.vt-pen button{min-height:44px;padding:8px 14px;border-radius:999px;border:1px solid var(--line,#cfe1e7);background:var(--bg,var(--surface,#fff));color:var(--text,#06233f);font:inherit;font-size:15px;cursor:pointer}',
+    '.vt-pen .vt-tabs{display:flex;flex-wrap:wrap;gap:6px}',
+    '.vt-pen button[aria-pressed="true"]{border-color:var(--accent,#007f8b);color:var(--accent,#007f8b);font-weight:700;box-shadow:inset 0 0 0 1px var(--accent,#007f8b)}',
+    '.vt-pen button:focus-visible{outline:3px solid var(--accent,#007f8b);outline-offset:2px}',
+    '.vt-pen .vt-swatch{display:inline-block;width:14px;height:14px;margin-right:6px;border-radius:50%;vertical-align:-2px}',
+    '.vt-pen-stage{display:flex;justify-content:center;background:#fff;border-radius:10px;border:1px solid var(--line,#cfe1e7)}',
+    '.vt-pen canvas{display:block;max-width:100%;max-height:calc(100vh - 260px);height:auto;touch-action:none;cursor:crosshair}',
+    '.vt-pen .vt-status{min-height:1.2em;margin:4px 0 0;color:var(--accent,#007f8b)}',
+    '.vt-share .vt-pack-open[hidden]{display:none}',
     // Embedded view (?embed=1): only the viewer, its controls and a bar with the credit and disclaimer.
     'html.vt-embed [data-vt-embed="hide"]{display:none!important}',
     'html.vt-embed body{padding-bottom:0;margin:0}',
@@ -442,6 +580,7 @@
       if (!m || !m.model) { panel.remove(); return; }
       const slug = m.model.slug;
       const hasTour = tourSteps(group).length >= 2;
+      const penPack = PEN_PACK.includes(slug);
       panel.innerHTML = '<h2>' + say('heading') + '</h2><p>' + say('lead') + '</p>' +
         '<div class="vt-row">' +
         '<button type="button" class="vt-link">' + say('link') + '</button>' +
@@ -451,6 +590,7 @@
         (hasTour ? '<button type="button" class="vt-tour">' + say('tour') + '</button><button type="button" class="vt-steps">' + say('steps') + '</button>' : '') +
         '<button type="button" class="vt-credit-btn" aria-expanded="false">' + say('credit') + '</button>' +
         '<button type="button" class="vt-embed-btn" aria-expanded="false">' + say('embed') + '</button>' +
+        (penPack ? '<button type="button" class="vt-pen-btn">' + say('pen') + '</button><button type="button" class="vt-pack-add">' + say('packAdd') + '</button><a class="vt-pack-open" href="/visit-pack" hidden></a>' : '') +
         '</div><div class="vt-box vt-qr" hidden></div><div class="vt-box vt-credit" hidden></div><div class="vt-box vt-embedbox" hidden></div>' +
         '<p class="vt-status" role="status" aria-live="polite"></p>' +
         '<ul class="vt-links" aria-label="' + esc(sayPlain('more')) + '">' +
@@ -536,6 +676,25 @@
             tell('stepsDone'); count('steps');
           } catch (err) { tell('failed'); }
           await applyState(group, before);
+          b.disabled = false;
+        };
+      }
+      if (penPack) {
+        const openLink = panel.querySelector('.vt-pack-open');
+        const refresh = () => { const n = readPack().length; openLink.hidden = n === 0; openLink.innerHTML = esc(fill(sayPlain('packOpen'), { n })) + ' →'; };
+        refresh();
+        panel.querySelector('.vt-pen-btn').onclick = async (e) => {
+          const b = e.currentTarget; b.disabled = true;
+          try { await openPen(group, m, b, { viewUrl, refresh }); } catch (err) { tell('failed'); }
+          b.disabled = false;
+        };
+        panel.querySelector('.vt-pack-add').onclick = async (e) => {
+          const b = e.currentTarget; b.disabled = true;
+          try {
+            const n = addToPack(await captureVisible(group), { slug, href: m.model.href, view: viewUrl(), label: viewLabel(group), drawn: false });
+            if (n > 0) { tell('packAdded', { n, max: PACK_MAX }); count('share'); } else tell(n === 0 ? 'packFull' : 'packNoStore', { max: PACK_MAX });
+            refresh();
+          } catch (err) { tell('failed'); }
           b.disabled = false;
         };
       }

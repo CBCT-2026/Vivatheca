@@ -15,7 +15,7 @@ const BASE = (process.env.BASE || 'http://127.0.0.1:3000').replace(/\/$/, '');
 const sitemap = readFileSync(new URL('../../public/sitemap.xml', import.meta.url), 'utf8');
 const listed = [...sitemap.matchAll(/<loc>https:\/\/vivatheca\.com([^<]*)<\/loc>/g)].map((m) => m[1] || '/');
 // Routes the sitemap leaves out on purpose but visitors still see.
-const extra = ['/collection', '/search', '/create', '/show', '/print', '/models?discipline=oral-and-maxillofacial-surgery'];
+const extra = ['/collection', '/search', '/create', '/show', '/print', '/visit-pack', '/models?discipline=oral-and-maxillofacial-surgery'];
 let routes = [...new Set([...listed, ...extra])];
 if (process.env.ONLY) routes = routes.filter((r) => process.env.ONLY.split(',').includes(r));
 
