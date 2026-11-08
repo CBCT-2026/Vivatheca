@@ -1256,3 +1256,17 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
    any component that sets its own margins keeps them. */
 :where(.prose-page, .detail-block, .library-next, .builder-sources, .learn-uncertain, main section:not([class])) > :where(p, ul, ol, dl, blockquote, details) + :is(p, ul, ol, dl, blockquote, details) { margin-top: .75rem; }
 .model-help, .compare-help, .slices-status { max-width: none; }
+
+/* Model cards line up across a row (Luke, 2026-11-08). Each card spans seven rows of the shared grid and
+   passes them down with subgrid, so the picture, discipline, title, summary, tags, term sources and video
+   link start at the same height in every card of a row, whatever their lengths. Rows a card leaves empty
+   (no video, homepage cards without sources) take no height. Browsers without subgrid keep the stacked card. */
+@supports (grid-template-rows: subgrid) {
+  .library-grid { row-gap: 1.5rem; }
+  .library-card { display: grid; grid-row: span 7; grid-template-rows: subgrid; row-gap: 0; }
+  .library-card-link { grid-row: 1 / span 5; height: auto; grid-template-rows: subgrid; row-gap: 0; }
+  .library-card-body { display: grid; grid-row: 2 / span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .library-card-body > .library-tags { align-self: start; }
+  .library-card > .term-sources { grid-row: 6; align-self: start; }
+  .library-card > .library-video-link { grid-row: 7; align-self: end; }
+}
