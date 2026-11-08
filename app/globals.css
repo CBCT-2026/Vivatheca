@@ -128,19 +128,23 @@ img { display: block; max-width: 100%; }
 }
 .hero-copy { position: relative; z-index: 2; width: 100%; max-width: 46rem; }
 h1, h2, h3, p { margin-top: 0; }
-/* Site rule (2026-11-06): all paragraph text is justified, on every page and in every language.
+/* Site rule (2026-11-06, made complete 2026-11-08): ALL running text is justified, on every page, in every
+   language and theme: paragraphs, list items, definitions, quotes, figure captions, name sources and
+   image credits. Never set text-align: start/left on running text. pnpm check:justify enforces it in CI.
    English hyphenates so gaps stay small; Japanese spreads space between characters. See DESIGN.md. */
-p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-p:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
-/* Long list items, definitions and reference lists follow the same rule (Luke, 2026-11-07).
-   Single-line items look the same either way, because the last line of a justified block stays left. */
-li, dd, blockquote { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+p, li, dd, blockquote, figcaption, .figure-note, .term-sources, .credit, .clinical-credit {
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+  /* Hyphenate words of 6+ letters (2 before, 3 after the break) so phone lines keep small gaps. */
+  hyphenate-limit-chars: 6 2 3; overflow-wrap: break-word;
+  text-wrap: pretty; /* Safari balances the whole paragraph, which also evens out word gaps */
+}
+:where(p, li, dd, blockquote, figcaption, .figure-note, .term-sources, .credit, .clinical-credit):lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
 nav li, menu li, li:has(img, picture, video) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* link lists and picture cards stay ragged */
 li :where(h1, h2, h3, h4, h5, h6) { text-align: start; hyphens: manual; -webkit-hyphens: manual; } /* card titles inside list items */
-li:lang(ja), dd:lang(ja), blockquote:lang(ja) { text-justify: inter-character; hyphens: manual; -webkit-hyphens: manual; }
 /* A printed web address or DOI cannot hyphenate, so it would leave wide gaps in a justified line:
-   let it break at any character instead. */
+   let it break at any character instead. Links inside citations and credits do the same. */
 .url { word-break: break-all; hyphens: none; -webkit-hyphens: none; }
+:where(.term-sources, .credit, .clinical-credit, .figure-note) a { overflow-wrap: anywhere; }
 h1, h2, h3 { color: var(--heading); letter-spacing: -.035em; line-height: 1.06; text-wrap: balance; }
 h1 { margin-bottom: 1.5rem; font-size: clamp(3.4rem,6.2vw,5.6rem); font-weight: 780; }
 .hero-title, .hero-lede { width: 100%; max-width: 46rem; }
@@ -573,7 +577,9 @@ sup.cite.cite-more::before { content: ","; }
 .info-page { margin: 0; padding: clamp(2rem,5vw,4rem) var(--pad-x) var(--space-section); }
 .info-intro { margin-bottom: clamp(2rem,4vw,3rem); }
 .info-intro h1 { margin: .3rem 0 .9rem; color: var(--heading); font-size: clamp(2.2rem,4.6vw,3.6rem); font-weight: 760; letter-spacing: -.03em; line-height: 1.08; }
-.info-intro > p:not(.eyebrow) { color: var(--muted); font-size: 1.1rem; }
+.info-intro > p:not(.eyebrow, .term-sources) { color: var(--muted); font-size: 1.1rem; }
+/* Phones: body size, so justified lines hold more words and keep small gaps. */
+@media (max-width: 600px) { .info-intro > p:not(.eyebrow, .term-sources) { font-size: 1rem; } }
 .eyebrow { margin: 0; color: var(--accent); font-size: .8rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; color: var(--muted); font-size: .88rem; }
 .breadcrumb a { color: var(--heading); font-weight: 700; }
@@ -976,7 +982,7 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .clinical-figure { margin: 0; }
 .clinical-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); background: #000; border: 1px solid var(--line); box-sizing: border-box; }
 .clinical-figure figcaption { margin-top: .6rem; color: var(--text-strong); font-size: .95rem; line-height: 1.5; }
-.clinical-credit { display: block; text-align: start; margin-top: .35rem; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
+.clinical-credit { display: block; margin-top: .35rem; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
 .clinical-credit a { color: inherit; }
 
 /* Inner pages on phones and tablets: the same menu button as the homepage instead of wrapped rows of links. */
@@ -1158,7 +1164,7 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 @media (max-width: 720px) { .slices-canvas { aspect-ratio: 1 / 1; } }
 
 /* Source for a model's formal clinical name (app/models/terms.tsx; static pages use p.term-sources too). */
-.term-sources { margin: .25rem 0 .75rem; font-size: .8rem; line-height: 1.45; color: var(--muted); text-align: start; hyphens: manual; }
+.term-sources { margin: .25rem 0 .75rem; font-size: .8rem; line-height: 1.45; color: var(--muted); }
 .library-card > .term-sources { margin: auto 1.4rem 1rem; padding-top: .75rem; border-top: 1px solid var(--line); } /* pinned to the card bottom so the grid lines up */
 .term-sources a { color: inherit; text-underline-offset: .2em; overflow-wrap: anywhere; }
 
@@ -1193,7 +1199,7 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .fav-star:disabled { cursor: default; opacity: .6; }
 .library-card { position: relative; }
 .library-card > .fav-star { position: absolute; top: .75rem; right: .75rem; z-index: 2; box-shadow: var(--shadow-sm); }
-.show-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin: 1rem 0 0; }
+.show-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin: 1rem 0 1.5rem; }
 
 .quick-section { padding: clamp(2.5rem,6vw,4.5rem) var(--pad-x); background: var(--surface-tint); }
 .quick-inner { margin: 0; }
