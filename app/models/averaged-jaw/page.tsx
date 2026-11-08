@@ -29,7 +29,7 @@ export const averagedJawFiles = {
   stl: { href: '/models/averaged-jaw/averaged-jaw-mandible.stl', size: provenance.files.stl },
   provenance: { href: '/models/averaged-jaw/provenance.json' },
 };
-export const averagedJawCitation = `Seifert L. Vivatheca: Mean adult mandible and mandibular dentition (statistical average of open CT scans), version ${model.version}. 2026. https://vivatheca.com/models/averaged-jaw. Licensed under CC BY-SA 4.0. Accessed [date].`;
+export const averagedJawCitation = `CBCT-2026 (Founder & Director). Vivatheca: Mean adult mandible and mandibular dentition (statistical average of open CT scans), version ${model.version}. 2026. https://vivatheca.com/models/averaged-jaw. Licensed under CC BY-SA 4.0. Accessed [date].`;
 
 const scanRow = (s: Scan) => {
   const c = collections[s.collection_id] ?? { name: s.collection_id, doi: '', licence: s.license_short_name ?? '' };
