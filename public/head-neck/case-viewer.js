@@ -95,7 +95,7 @@
       else if (RECON.test(n)) vis = s === 'recon';
       else if (MOVE.test(n) && (s === 'post' || s === 'recon')) vis = false;
       o.userData.stageVis = vis; o.visible = vis && !hiddenParts.has(partGroup(n));
-      const xr = state.xray && /^(bone|sphenoid|specimen_bone|mucosa)/.test(n);
+      const xr = state.xray && /^(bone|sphenoid|specimen_bone|removed_bone|mucosa)/.test(n); // all bone goes see-through, incl. the bone to be removed
       o.material.transparent = xr || o.userData.tr; o.material.opacity = xr ? 0.28 : o.userData.op;
       o.material.depthWrite = !o.material.transparent; o.material.needsUpdate = true;
     });
@@ -134,6 +134,10 @@
     });
     g.position.sub(new THREE.Box3().setFromObject(g).getCenter(new THREE.Vector3()));
     scene.add(g); status.style.display = 'none';
+    // Labels on the model (/model-labels.js): anchors are in glTF coordinates of this file, under g.
+    // Before surgery the parts that will be removed look like normal bone, teeth or lining, so they get no label yet.
+    box.vtLabels = { THREE, camera, root: () => g, parts: () => parts, path: () => new URL(box.dataset.model, location.href).pathname, skip: (n) => state.stage === 'pre' && /^(specimen|removed|root_tips|excised)/.test(n) };
+    box.dispatchEvent(new Event('vt-labels'));
     apply(); setView(START[JAW]);
   }, undefined, () => say('loadFailed', 'The 3D model could not load. Reload the page to try again.'));
 

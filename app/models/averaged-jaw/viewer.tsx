@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useI18n } from '../../i18n/context';
 import { Ruby } from '../../i18n/ruby';
 import { type ModelViewerElement, PartsPanel } from '../../model-parts';
+import { AfterHydration } from '../../script-mount';
 
 // The averaged jaw in model-viewer, with the shared take-apart tools (one material per part in the GLB).
 export const averagedJawParts = ['mandible', 'teeth_lower'];
@@ -62,6 +63,8 @@ export function AveragedJawViewer({ src, alt }: { src: string; alt: string }) {
 
   return (
     <div className="model-experience averaged-jaw-experience">
+      {/* Labels on the model: public/model-labels.js (same labels as the static model pages). */}
+      <AfterHydration src="/model-labels.js" />
       <div className="model-stage">
         <div className="model-stage-topline">
           <span className="status-chip"><span className="status-dot" /><Ruby text={t.disclaimer.notReviewed} /></span>

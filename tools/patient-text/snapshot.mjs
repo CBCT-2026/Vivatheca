@@ -73,7 +73,7 @@ function capture() {
   const copy = main.cloneNode(true);
   // .vt-create and .vt-guide (public/model-page.js) link clinicians to /create and students to /learn; not patient text.
   // .vt-share (public/share-tools.js) is the clinicians' "Use this model" toolbox (links, credit, embed); not patient text.
-  copy.querySelectorAll('[data-pitk-hidden], script, style, model-viewer, button, [role="group"], #stage, nav, .vt-create, .vt-guide, .vt-share, .vt-tourbar, .vt-embedbar').forEach((el) => el.remove());
+  copy.querySelectorAll('[data-pitk-hidden], script, style, model-viewer, button, [role="group"], #stage, nav, .vt-label-sources, .vt-label-layer, .vt-create, .vt-guide, .vt-share, .vt-tourbar, .vt-embedbar').forEach((el) => el.remove());
   return copy.innerHTML;
 }
 

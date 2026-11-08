@@ -273,6 +273,10 @@
     load(key).then((m) => {
       if (my !== token) return;
       cur = { key, parts: m.parts }; root = m.g; scene.add(root); status.style.display = 'none';
+      // Labels on the model (/model-labels.js): anchors are in glTF coordinates of this file, under root.
+      // Before surgery the parts that will be removed look like normal bone, teeth or lining, so they get no label yet.
+      box.vtLabels = { THREE, camera, root: () => root, parts: () => (cur ? cur.parts : []), path: () => new URL('models/' + key + '.glb', location.href).pathname, skip: (n) => state.stage === 'pre' && /^(specimen|removed|root_tips|excised)/.test(n) };
+      box.dispatchEvent(new Event('vt-labels'));
       if (state.stage === 'recon' && !CASES[key].recon) state.stage = 'post';
       apply(); setView(START[CASES[key].jaw]);
     }).catch(() => { if (my === token) say('loadFailed', 'The 3D model could not load. Reload the page to try again.'); });
