@@ -62,12 +62,17 @@ test('visitor can reach and use the featured model explanation', async ({ page }
   await parts.getByRole('button', { name: 'Show all parts' }).click();
   await expect(parts.getByRole('button', { name: 'Bone', exact: true })).toHaveAttribute('aria-pressed', 'true');
 
-  // The wisdom tooth stays the hero; the picker shows eight models first, with a button for the rest.
+  // The wisdom tooth stays the hero; the picker shows at least eight models first, rounded up to
+  // whole rows of the grid (no half-empty last row), with a button for the rest.
   await expect(page.locator('.hero-visual img')).toHaveAttribute('src', '/assets/renders/wisdom-tooth-hero.webp');
   const quick = page.locator('#quick-show');
-  await expect(quick.locator('.quick-grid > li')).toHaveCount(8);
+  const tiles = quick.locator('.quick-grid > li');
+  const columns = () => quick.locator('.quick-grid').evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length);
+  await expect.poll(async () => (await tiles.count()) % (await columns())).toBe(0);
+  const firstCount = await tiles.count();
+  expect(firstCount).toBeGreaterThanOrEqual(8);
   await quick.getByRole('button', { name: /Show all/ }).click();
-  await expect(quick.locator('.quick-grid > li').nth(8)).toBeVisible();
+  await expect(tiles.nth(firstCount)).toBeVisible();
   await expect(quick.getByRole('link', { name: 'See every model in the library' })).toHaveAttribute('href', '/models');
 });
 
