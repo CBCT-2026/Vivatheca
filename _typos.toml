@@ -22,9 +22,9 @@ extend-exclude = [
 
 [default]
 # Long random tokens (verification codes, hashes) are not words.
-# Vietnamese "thay đổi" / "thay thế" / "thay cho" / "thay chỗ" (replace) / "thay vì" (instead of), "vai trò" (role),
+# Vietnamese "thay đổi" / "thay thế" / "thay cho" / "thay chỗ" / "thay mới" (replace) / "thay vì" (instead of), "vai trò" (role),
 # "tham gia" (take part) and "thả lỏng vai" (relax the shoulders) inside page scripts and page sources.
-extend-ignore-re = ["[A-Za-z0-9_-]{30,}", "[Tt]hay (đổi|thế|cho|chỗ|vì)", "[Vv]ai trò", "[Tt]ham gia", "lỏng vai"]
+extend-ignore-re = ["[A-Za-z0-9_-]{30,}", "[Tt]hay (đổi|thế|cho|chỗ|vì|mới)", "[Vv]ai trò", "[Tt]ham gia", "lỏng vai"]
 locale = "en"
 
 [default.extend-words]
