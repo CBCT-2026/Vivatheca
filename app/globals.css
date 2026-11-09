@@ -1232,7 +1232,10 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .quick-tile-link:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
 .quick-tile img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--surface-tint); }
 .quick-tile-text { display: grid; gap: .2rem; padding: .65rem .8rem .8rem; }
-.quick-tile-title { color: var(--heading); font-size: .95rem; font-weight: 750; line-height: 1.25; }
+.quick-tile-text { grid-template-rows: auto 1fr; }
+/* Long formal titles are clamped to 3 lines so tiles in a row stay even; the full title is in the
+   DOM (screen readers), the hover tooltip and on the model page. */
+.quick-tile-title { display: -webkit-box; min-height: calc(3 * 1.25em); overflow: hidden; color: var(--heading); font-size: .95rem; font-weight: 750; line-height: 1.25; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; }
 .quick-tile-meta { color: var(--accent); font-size: .75rem; font-weight: 700; }
 .quick-tile > .fav-star { position: absolute; top: .4rem; right: .4rem; width: 40px; height: 40px; }
 .quick-empty, .my-models-empty { color: var(--muted); }
