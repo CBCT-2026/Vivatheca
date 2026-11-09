@@ -1,0 +1,40 @@
+/* Shared styles for the treatment-options pages (first used by /models/impacted-wisdom-tooth/options/, which keeps its own inline copy). Page-specific legend dot colours live in each page. */
+  /* Show only the visitor's language (the language switcher buttons always show). */
+  html[lang="en"] [lang="ja"]:not(#langs button), html[lang="ja"] [lang="en"]:not(#langs button), html[lang="vi"] [lang="ja"]:not(#langs button) { display: none !important; }
+  main { max-width: 1120px; }
+  main > section, main > p, main > h1, .intro { max-width: 760px; }
+  main > section.options, main > section.compare-wrap { max-width: none; }
+  .options { display: grid; grid-template-columns: 1fr; gap: 0 28px; }
+  @media (min-width: 900px) { .options { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .option { border: 0; padding: 0 0 18px; min-width: 0; }
+  .option h2 { margin-top: 6px; }
+  .option .kicker { margin: 0 0 8px; color: var(--muted); font-size: 15px; }
+  .option model-viewer { height: 46vh; min-height: 300px; max-height: 460px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 6px; margin: 10px 0 0; }
+  .steps button { min-height: 48px; padding: 6px 6px; border-radius: 10px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); font: 600 15px/1.15 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; cursor: pointer; }
+  .steps button small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .steps button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+  .step { background: var(--card); border-radius: 12px; padding: 10px 14px; margin: 10px 0 0; }
+  .step p { margin: 0; }
+  .step .alt { display: none !important; }
+  .views { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 6px; }
+  .views button { min-height: 44px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--accent); font: inherit; font-size: 15px; cursor: pointer; }
+  .views button[aria-pressed="true"] { background: var(--card); border-color: var(--accent); }
+  .legend .dot { border: 1px solid rgba(0, 0, 0, .25); }
+  .status { font-weight: 700; color: var(--heading); }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 8px 0; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { color: var(--heading); background: var(--card); }
+  tbody th { color: var(--heading); font-weight: 600; width: 22%; }
+  td.num { font-variant-numeric: tabular-nums; }
+  .think li { margin: 4px 0; }
+  .clin-fig { margin: 14px 0; }
+  .clin-fig img { width: 100%; height: auto; border-radius: 10px; background: #000; display: block; }
+  .clin-figs { display: grid; grid-template-columns: 1fr; gap: 0 24px; }
+  @media (min-width: 900px) { .clin-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  details.clin summary { cursor: pointer; font-weight: 600; color: var(--heading); }
+</style>
+<script type="module" src="/development/vendor/model-viewer/model-viewer.min.js"></script>
+<link rel="stylesheet" href="/site-header.css">

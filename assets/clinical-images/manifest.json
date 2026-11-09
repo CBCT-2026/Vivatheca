@@ -633,7 +633,8 @@
       "id": "dc-wushou-fig2",
       "file": "public/images/clinical/dentigerous-cyst/opg-before-after.jpg",
       "pages": [
-        "/dentigerous-cyst/"
+        "/dentigerous-cyst/",
+        "/dentigerous-cyst/options/"
       ],
       "type": "Panoramic radiographs (OPG), 3 panels",
       "description": "Figure 2. Left mandibular third molar dentigerous cyst: (A) pre-op, (B) 1 week after enucleation + extraction + autogenous tooth sticky bone graft, (C) 6 months.",
@@ -773,7 +774,8 @@
       "id": "endo-sarsam-fig1",
       "file": "public/images/clinical/endodontic/46-sinus-tract-tracing.jpg",
       "pages": [
-        "/endodontic/"
+        "/endodontic/",
+        "/endodontic/options/"
       ],
       "type": "Clinical photos (intraoral) and periapical radiograph",
       "description": "Lower right: (a) sinus tract opening beside 47; (b) size 20 gutta-percha point in the tract; (c) periapical radiograph tracing it to the periradicular lesion of 46.",
@@ -945,6 +947,106 @@
       "nc_limits": false,
       "checked": "2026-11-08",
       "changes": "Unchanged (original JPEG from the PMC open-access figure files)."
+    },
+    {
+      "id": "dc-abumostafa-fig3",
+      "file": "public/images/clinical/dentigerous-cyst/marsupialisation-38-stages.jpg",
+      "pages": [
+        "/dentigerous-cyst/options/"
+      ],
+      "type": "Panoramic radiographs (OPG), intraoral photo and histology, 5 panels",
+      "description": "Figure 3, case 2. (a) Pre-op OPG: dentigerous cyst around a deeply impacted lower left third molar (38) near the inferior alveolar canal, 36-year-old adult; (b) marsupialisation window behind 37; (c) histology of the lining; (d) OPG at 8 months, cyst shrunk; (e) OPG 14 months after extraction and enucleation of the residual lining, bone healed.",
+      "source_url": "https://doi.org/10.7759/cureus.23772",
+      "figure_source": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/6a9e/9067614/9b82ec3e82f8/cureus-0014-00000023772-i03.jpg",
+      "author": "Abu-Mostafa N",
+      "article": "Abu-Mostafa N. Marsupialization of dentigerous cysts followed by enucleation and extraction of deeply impacted third molars: a report of two cases. Cureus. 2022;14(4):e23772. doi:10.7759/cureus.23772",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 750 px wide; saved as JPEG.",
+      "consent": "Article: 'Consent was obtained or waived by all participants in this study. Institutional Review Board, Riyadh Elm University issued approval FRP/2021/376/592/566.' Radiographs, one intraoral close-up and histology; no identifiers.",
+      "reasoning": "Cureus, CC BY 4.0 (PMC licence statement). Author's own case. Match: lower left 38 dentigerous cyst treated by marsupialisation then extraction, the sequence shown in option 2 of the model; the tooth is mesioangular and deeper than the vertical model tooth, stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-09"
+    },
+    {
+      "id": "endo-mejia-fig2",
+      "file": "public/images/clinical/endodontic/46-after-extraction-graft.jpg",
+      "pages": [
+        "/endodontic/options/"
+      ],
+      "type": "Periapical radiograph",
+      "description": "Figure 2. Periapical radiograph immediately after atraumatic extraction of tooth #30 (46) and ridge preservation with a bovine bone graft and collagen membrane; 44-year-old adult, previously root-filled tooth with persistent periapical lesion.",
+      "source_url": "https://doi.org/10.7759/cureus.112009",
+      "figure_source": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8912/13429237/8ed77672e21a/cureus-0018-00000112009-i02.jpg",
+      "author": "Mejia Ocampo EM, Mora V, Romero M, Perez Quevedo M, De la Roche IC",
+      "article": "Mejia Ocampo EM, Mora V, Romero M, Perez Quevedo M, De la Roche IC. Radiographic documentation of implant-supported rehabilitation following endodontic failure of a mandibular first molar: a case report. Cureus. 2026;18:e112009. doi:10.7759/cureus.112009",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 750 px wide; saved as JPEG.",
+      "consent": "Article: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Radiographs only; no identifiers.",
+      "reasoning": "Cureus, CC BY 4.0. Authors' own case. Match: lower right first molar (46) extracted for a persistent periapical lesion, the extraction option of the model; the socket was grafted (not drawn in the model), stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-09"
+    },
+    {
+      "id": "endo-mejia-fig7",
+      "file": "public/images/clinical/endodontic/46-implant-crown-6-months.jpg",
+      "pages": [
+        "/endodontic/options/"
+      ],
+      "type": "Periapical radiograph",
+      "description": "Figure 7. Periapical radiograph of the implant-supported crown at site #30 (46), about six months after extraction.",
+      "source_url": "https://doi.org/10.7759/cureus.112009",
+      "figure_source": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8912/13429237/27cda059f6da/cureus-0018-00000112009-i07.jpg",
+      "author": "Mejia Ocampo EM, Mora V, Romero M, Perez Quevedo M, De la Roche IC",
+      "article": "Mejia Ocampo EM, Mora V, Romero M, Perez Quevedo M, De la Roche IC. Radiographic documentation of implant-supported rehabilitation following endodontic failure of a mandibular first molar: a case report. Cureus. 2026;18:e112009. doi:10.7759/cureus.112009",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Resized to 750 px wide; saved as JPEG.",
+      "consent": "As endo-mejia-fig2.",
+      "reasoning": "As endo-mejia-fig2. Shows one way the gap after extraction can be filled, as stated on the page (the model does not draw the implant).",
+      "nc_limits": false,
+      "checked": "2026-11-09"
+    },
+    {
+      "id": "ec-saini-fig5",
+      "file": "public/images/clinical/ectopic-canine/palatal-exposure-traction-sequence.jpg",
+      "pages": [
+        "/ectopic-canine/options/"
+      ],
+      "type": "Intraoral photos, 13 panels",
+      "description": "Figure 5 A-M. Bilateral palatally impacted maxillary canines, 21-year-old adult: surgical marking, electrosurgical exposure of both crowns, attachment bonding, extraction of the deciduous canines, ballista-spring traction, and the aligned canines.",
+      "source_url": "https://doi.org/10.7759/cureus.115563",
+      "figure_source": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4960/13629738/45782c287027/cureus-0018-00000115563-i05.webp",
+      "author": "Saini P, Vadher V, Singh GB, Barapatre C, Sahu N",
+      "article": "Saini P, Vadher V, Singh GB, Barapatre C, Sahu N. Guided eruption of bilateral palatally impacted maxillary canines using a ballista spring: a case report. Cureus. 2026;18:e115563. doi:10.7759/cureus.115563",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Converted from WebP to JPEG; resized to 900 px wide.",
+      "consent": "Article: 'Informed consent for treatment and open access publication was obtained or waived by all participants in this study.' Intraoral close-ups only; no face or identifiers.",
+      "reasoning": "Cureus, CC BY 4.0. Authors' own case. Match: palatally displaced upper canine with retained deciduous canine (bilateral, so it includes the right side of the model) treated by exposure, attachment and traction, the sequence of option 1; the patient is an adult while the model is a child, stated in the caption.",
+      "nc_limits": false,
+      "checked": "2026-11-09"
+    },
+    {
+      "id": "ec-saini-fig6",
+      "file": "public/images/clinical/ectopic-canine/opg-mid-treatment.jpg",
+      "pages": [
+        "/ectopic-canine/options/"
+      ],
+      "type": "Panoramic radiograph (OPG)",
+      "description": "Figure 6. Mid-treatment OPG: both maxillary canines under traction, part-way to the arch, with attachments and chains visible.",
+      "source_url": "https://doi.org/10.7759/cureus.115563",
+      "figure_source": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4960/13629738/3267a2d40abc/cureus-0018-00000115563-i06.webp",
+      "author": "Saini P, Vadher V, Singh GB, Barapatre C, Sahu N",
+      "article": "Saini P, Vadher V, Singh GB, Barapatre C, Sahu N. Guided eruption of bilateral palatally impacted maxillary canines using a ballista spring: a case report. Cureus. 2026;18:e115563. doi:10.7759/cureus.115563",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Converted from WebP to JPEG; resized to 900 px wide.",
+      "consent": "As ec-saini-fig5.",
+      "reasoning": "As ec-saini-fig5. Matches the model's 'months later' step (canine half-way, attachment on).",
+      "nc_limits": false,
+      "checked": "2026-11-09"
     }
   ]
 }

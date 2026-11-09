@@ -132,6 +132,11 @@
     margin: T(['Surgical margin', '{切除|せつじょ}{安全域|あんぜんいき}', 'Rìa phẫu thuật'], ['Cuff of normal tissue removed around the tumour', '{腫瘍|しゅよう}のまわりにつけて{取|と}る{正常|せいじょう}な{組織|そしき}', 'Viền mô lành cắt bỏ quanh khối u'], ['mesh']),
     fibula: T(['Fibula free flap', '{遊離|ゆうり}{腓骨|ひこつ}{皮弁|ひべん}', 'Vạt xương mác tự do'], ['Leg bone moved to rebuild the jaw', 'あごを{作|つく}り{直|なお}すために{移|うつ}したすねの{骨|ほね}', 'Xương cẳng chân chuyển lên để tái tạo hàm'], ['ta2', 'mesh']),
     freeFlap: T(['Free flap', '{遊離|ゆうり}{皮弁|ひべん}', 'Vạt tự do'], ['Soft tissue moved from elsewhere to close the gap', 'ほかの{場所|ばしょ}から{移|うつ}して{穴|あな}をふさぐやわらかい{組織|そしき}', 'Mô mềm chuyển từ nơi khác đến để bịt lỗ hổng'], ['mesh']),
+    newBone: T(['Bone regeneration (healed defect)', '{骨|こつ}{再生|さいせい}（{治|なお}った{骨|ほね}）', 'Xương tái tạo (chỗ khuyết đã lành)'], ['New bone that has filled the space', '{空|あ}いたところを{埋|う}めた{新|あたら}しい{骨|ほね}', 'Xương mới lấp đầy khoảng trống'], ['mesh']),
+    rootFilling: T(['Root canal filling', '{根管|こんかん}{充|じゅう}てん', 'Trám bít ống tủy'], ['Material filling the cleaned root canals', 'きれいにした{根|ね}の{管|くだ}を{詰|つ}めた{材料|ざいりょう}', 'Vật liệu trám đầy các ống tủy đã làm sạch'], ['aae', 'mesh']),
+    fullCrown: T(['Complete crown', '{全部|ぜんぶ}{被覆|ひふく}{冠|かん}', 'Mão toàn phần'], ['Cap covering the whole tooth', '{歯|は}{全体|ぜんたい}をおおうかぶせ{物|もの}', 'Mão bọc toàn bộ răng'], ['gpt', 'dentj']),
+    attachment: T(['Orthodontic attachment with gold chain', 'ゴールドチェーン{付|つ}き{矯正|きょうせい}アタッチメント', 'Khí cụ gắn chỉnh nha kèm xích vàng'], ['Button glued to the tooth, with a chain to pull it', '{歯|は}に{接着|せっちゃく}した{金具|かなぐ}と、{引|ひ}っぱるためのくさり', 'Nút dán lên răng với xích để kéo'], ['mesh', 'cob']),
+    m3Unerupted: T(['Unerupted mandibular third molar', '{埋伏|まいふく}{下顎|かがく}{第三大臼歯|だいさんだいきゅうし}', 'Răng cối lớn thứ ba hàm dưới chưa mọc'], ['Lower wisdom tooth that has not come through', '{生|は}えてこなかった{下|した}の{親知|おやし}らず', 'Răng khôn hàm dưới chưa mọc'], ['mesh', 'ta2']),
     removedBone: T(['Bone removed', '{除去|じょきょ}する{骨|ほね}', 'Phần xương được lấy bỏ'], ['Bone taken away to reach the cyst', 'のう{胞|ほう}に{届|とど}くために{取|と}る{骨|ほね}', 'Xương được lấy đi để tiếp cận nang'], ['mesh']),
     rootTips: T(['Root apices (resected)', '{切除|せつじょ}する{根尖|こんせん}', 'Chóp chân răng (được cắt bỏ)'], ['Root tips cut off', '{切|き}り{取|と}る{根|ね}の{先|さき}', 'Phần chóp chân răng bị cắt'], ['ta2', 'taj']),
     prf: T(['Platelet-rich fibrin (PRF)', '{多血小板|たけっしょうばん}フィブリン（PRF）', 'Fibrin giàu tiểu cầu (PRF)'], ['Gel made from the patient’s own blood', '{自分|じぶん}の{血液|けつえき}から{作|つく}るゲル', 'Gel làm từ máu của chính bệnh nhân'], ['mesh']),
@@ -153,6 +158,10 @@
 
   // ---- Which parts get a label, by GLB path (node or material name -> term). Order = priority when labels overlap.
   const SETS = [
+    [/^\/dentigerous-cyst\/options\//, { cyst: 'dentigerous', 'third molar crown': 'm3Unerupted', 'removed bone': 'removedBone', 'new bone': 'newBone', bone: 'mandible', teeth: 'teethLower' }],
+    [/^\/endodontic\/options\//, { lesion: 'abscess', pulp: 'necrosis', decay: 'caries', 'root filling': 'rootFilling', filling: 'composite', crown: 'fullCrown', 'new bone': 'newBone', 'first molar teeth': 'm1', gum: 'gingiva', bone: 'alveolar', teeth: 'teethLower' }],
+    [/^\/ectopic-canine\/options\/models\/ortho-after/, { canine: 'canineMax', 'baby-canine': 'babyCanine', 'baby-teeth': 'deciduous', teeth: 'teethUpper', bone: 'maxilla' }],
+    [/^\/ectopic-canine\/options\//, { canine: 'caninePdc', attachment: 'attachment', 'removed bone': 'removedBone', 'baby-canine': 'babyCanine', 'baby-teeth': 'deciduous', teeth: 'teethUpper', bone: 'maxilla' }],
     [/^\/models\/impacted-wisdom-tooth\/options\//, { 'wisdom tooth crown': 'm3Crown', 'wisdom tooth roots': 'm3RootsKept', 'wisdom tooth mesial root': 'm3Root', 'removed bone': 'ostectomy', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
     [/^\/models\/impacted-molar\.glb$/, { 'wisdom tooth': 'm3Impacted', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
     [/^\/models\/wisdom-tooth-normal\.glb$/, { 'wisdom tooth (erupted)': 'm3Erupted', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
