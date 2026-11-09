@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { toggleFavourite, useFavourites } from '../favourites';
 import { useI18n } from '../i18n/context';
 import { format } from '../i18n/dictionaries';
@@ -33,7 +33,7 @@ function QuickTile({ slug }: { slug: string }) {
       <a href={quickHref(slug)} className="quick-tile-link">
         <img src={model.image} alt="" width="1200" height="800" loading="lazy" />
         <span className="quick-tile-text">
-          <span className="quick-tile-title"><Ruby text={item.title} /></span>
+          <span className="quick-tile-title" title={plain(item.title)}><Ruby text={item.title} /></span>
           <span className="quick-tile-meta"><Ruby text={item.specialty} />{direct ? null : <span className="visually-hidden">. {plain(t.show.opensPage)}</span>}</span>
         </span>
       </a>
@@ -62,18 +62,49 @@ export function MyModels({ empty = false }: { empty?: boolean }) {
 
 // Every model as a one-tap tile, with a filter box. Used on the homepage and /show.
 // `limit` shows only the first few tiles until the visitor asks for all (the filter always searches all).
+// When the list is cut, these models come first so the shortened grid spans the
+// specialties (surgery, development, perio, restorative, endo, cleft, prostho,
+// orthognathic, head and neck pathology, paediatric, cysts). The rest follow in catalogue order.
+const featured = [
+  'impacted-wisdom-tooth', 'dental-development', 'periodontitis', 'oroantral', 'cracked-tooth',
+  'endodontic', 'vpi', 'prosthodontic', 'orthognathic', 'head-neck-okc',
+  'stainless-steel-crown', 'dentigerous-cyst',
+];
+const featuredFirst = [...catalogue].sort((a, b) => {
+  const rank = (slug: string) => { const i = featured.indexOf(slug); return i < 0 ? featured.length : i; };
+  return rank(a.slug) - rank(b.slug);
+});
+
+// Number of columns the grid currently lays out, so a cut list can fill whole rows.
+function useColumns(el: HTMLUListElement | null) {
+  const [columns, setColumns] = useState(0);
+  useEffect(() => {
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const measure = () => setColumns(getComputedStyle(el).gridTemplateColumns.split(' ').filter(Boolean).length);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [el]);
+  return columns;
+}
+
 export function QuickPick({ headingLevel = 2, limit }: { headingLevel?: 2 | 3; limit?: number }) {
   const { t } = useI18n();
   const [query, setQuery] = useState('');
   const [all, setAll] = useState(false);
-  const words = useMemo(() => catalogue.map((m) => {
+  const [grid, setGrid] = useState<HTMLUListElement | null>(null);
+  const columns = useColumns(grid);
+  // Round the limit up to whole rows (8 tiles in 5 columns becomes 10) so no row is left half empty.
+  const rowLimit = limit && columns > 0 ? Math.ceil(limit / columns) * columns : limit;
+  const words = useMemo(() => (limit ? featuredFirst : catalogue).map((m) => {
     const item = t.library.items[m.slug];
     return { slug: m.slug, text: plain(`${item?.title ?? ''} ${item?.specialty ?? ''} ${item?.summary ?? ''} ${item?.pairing ?? ''}`).toLowerCase() };
-  }), [t]);
+  }), [t, limit]);
   const q = query.trim().toLowerCase();
   const matches = q ? words.filter((w) => q.split(/\s+/).every((part) => w.text.includes(part))) : words;
-  const cut = Boolean(limit && !q && !all && matches.length > limit);
-  const shown = cut ? matches.slice(0, limit) : matches;
+  const cut = Boolean(rowLimit && !q && !all && matches.length > rowLimit);
+  const shown = cut ? matches.slice(0, rowLimit) : matches;
   const Heading = `h${headingLevel}` as 'h2' | 'h3';
   return (
     <div className="quick-pick">
@@ -83,8 +114,8 @@ export function QuickPick({ headingLevel = 2, limit }: { headingLevel?: 2 | 3; l
         <img aria-hidden="true" src="/icons/search.svg" alt="" width="22" height="22" />
         <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={plain(t.show.searchPlaceholder)} autoComplete="off" />
       </label>
-      {shown.length ? <ul className="quick-grid" aria-label={plain(t.show.listLabel)}>{shown.map((w) => <QuickTile key={w.slug} slug={w.slug} />)}</ul> : <p className="quick-empty" role="status"><Ruby text={t.show.noResults} /></p>}
-      {limit && !q && words.length > limit ? (
+      {shown.length ? <ul ref={setGrid} className="quick-grid" aria-label={plain(t.show.listLabel)}>{shown.map((w) => <QuickTile key={w.slug} slug={w.slug} />)}</ul> : <p className="quick-empty" role="status"><Ruby text={t.show.noResults} /></p>}
+      {rowLimit && !q && words.length > rowLimit ? (
         <button type="button" className="button button-secondary quick-toggle" aria-expanded={!cut} onClick={() => setAll(cut)}>
           <Ruby text={cut ? format(t.show.showAll, { n: words.length }) : t.show.showFewer} />
         </button>
