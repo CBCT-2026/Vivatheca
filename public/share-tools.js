@@ -78,7 +78,7 @@
     licensed: ['Licensed under', 'ライセンス：', 'Cấp phép theo'],
     changes: ['Changes: none (or describe your changes).', '{変更|へんこう}：なし（{変更|へんこう}した{場合|ばあい}はその{内容|ないよう}）。', 'Thay đổi: không có (hoặc mô tả các thay đổi của bạn).'],
     model: ['Model', '{模型|もけい}', 'Mô hình'],
-    // Chairside pen and visit pack (anatomy apps review #7 and #8, 8 Nov 2026). Wisdom tooth first: PEN_PACK.
+    // Chairside pen and visit pack (anatomy apps review #7 and #8, 8 Nov 2026). Models: PEN_PACK.
     pen: ['Draw on it', '{書|か}き{込|こ}む', 'Vẽ lên hình'],
     penTitle: ['Draw on the model', '{模型|もけい}に{書|か}き{込|こ}む', 'Vẽ lên mô hình'],
     penHelp: ['Draw with a finger, stylus or mouse on a still picture of this view. Do not write anything that could identify the patient.', 'この{表示|ひょうじ}の{静止|せいし}{画|が}に、{指|ゆび}・ペン・マウスで{書|か}き{込|こ}めます。{患者|かんじゃ}さんがわかることは{書|か}かないでください。', 'Vẽ bằng ngón tay, bút cảm ứng hoặc chuột lên ảnh tĩnh của góc nhìn này. Không viết bất cứ điều gì có thể nhận ra bệnh nhân.'],
@@ -371,8 +371,11 @@
   }
 
   // ---- visit pack (sessionStorage, this tab only; nothing about the patient) ----
-  // Models with the chairside pen and visit pack. Luke (8 Nov 2026): start with the wisdom tooth.
-  const PEN_PACK = ['impacted-wisdom-tooth'];
+  // Models with the chairside pen and visit pack: every catalogue model (Luke, 8 Nov 2026: wisdom tooth first; 9 Nov 2026: all of
+  // them). A model listed here also needs visitPack.models text in the dictionaries and sources in app/visit-pack/sources.ts.
+  const PEN_PACK = ['impacted-wisdom-tooth', 'dental-development', 'periodontitis', 'oroantral', 'cracked-tooth', 'endodontic', 'vpi', 'prosthodontic', 'tmd',
+    'ectopic-canine', 'dentigerous-cyst', 'stainless-steel-crown', 'head-neck', 'head-neck-scc', 'head-neck-ameloblastoma', 'head-neck-okc', 'head-neck-mec',
+    'alveolar-bone-graft', 'averaged-jaw', 'orthognathic', 'fixation'];
   const PACK_KEY = 'vivatheca-visit-pack', PACK_MAX = 4;
   const readPack = () => { try { const v = JSON.parse(sessionStorage.getItem(PACK_KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } };
   // Label for a saved view: the pressed button of the viewer's first choice group (e.g. "Both").
