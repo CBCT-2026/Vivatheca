@@ -34,7 +34,9 @@ export function LearnFooter({ t }: { t: Dictionary }) {
 }
 
 // Renders text with [n] markers as numbered superscript links to #src-n.
-export function Cited({ text, label }: { text: string; label: string }) {
+// prefix: the id prefix of the source list the numbers point to ("src" by default; a page with several lists, like
+// /visit-pack, gives each list its own prefix so the links stay unique).
+export function Cited({ text, label, prefix = 'src' }: { text: string; label: string; prefix?: string }) {
   const parts = text.split(/(\[\d+\])/);
   return (
     <>
@@ -44,7 +46,7 @@ export function Cited({ text, label }: { text: string; label: string }) {
         const n = match[1];
         // A comma only when this number follows another with nothing between ("[1][2]" splits with an empty part).
         const more = index >= 2 && parts[index - 1] === '' && /^\[\d+\]$/.test(parts[index - 2]);
-        return <sup key={index} className={more ? 'cite cite-more' : 'cite'}><a href={`#src-${n}`} aria-label={plain(label.replace('{n}', n))}>{n}</a></sup>;
+        return <sup key={index} className={more ? 'cite cite-more' : 'cite'}><a href={`#${prefix}-${n}`} aria-label={plain(label.replace('{n}', n))}>{n}</a></sup>;
       })}
     </>
   );

@@ -8,7 +8,7 @@ import { Cited } from '../learn/chrome';
 import { AfterHydration } from '../script-mount';
 import { visitPackSources } from './sources';
 
-// Visit pack (anatomy apps review #8, 8 Nov 2026): the clinician saves two to four views of a model
+// Visit pack (anatomy apps review #8, 8 Nov 2026; every model since 9 Nov 2026): the clinician saves two to four views of a model
 // ("Add view to visit pack" or the chairside pen in public/share-tools.js) and gets one short page with
 // pitk-checked take-home text, a QR code to the model, the credit and the disclaimers. The pictures live
 // in sessionStorage (this tab only); public/visit-pack/pack.js lays them out. Nothing about the patient is stored.
@@ -40,7 +40,7 @@ export default async function VisitPackPage() {
       <div id="vt-visit-pack" className="vp" data-max="4" data-text={JSON.stringify(words)} data-titles={JSON.stringify(titles)}>
         <div className="vp-empty">
           <p><Ruby text={v.empty} /></p>
-          <a className="button button-compact" href="/models/impacted-wisdom-tooth"><Ruby text={v.emptyLink} /></a>
+          <a className="button button-compact" href="/models"><Ruby text={v.emptyLink} /></a>
         </div>
         <div className="vp-controls" hidden>
           <p className="vp-count" aria-live="polite" />
@@ -56,14 +56,17 @@ export default async function VisitPackPage() {
           </section>
           {slugs.map((slug) => {
             const mt = v.models[slug];
+            const sources = visitPackSources[slug];
+            // Each model's source list has its own id prefix, so the numbers stay unique when several models are on one sheet.
+            const prefix = `src-${slug}`;
             return (
               <section key={slug} className="vp-model" data-vp-model={slug} hidden aria-labelledby={`vp-${slug}`}>
                 <h2 id={`vp-${slug}`}><Ruby text={mt.heading} /></h2>
-                {mt.text.map((p) => <p key={p}><Cited text={p} label={v.citeLabel} /></p>)}
-                <p className="vp-note"><Ruby text={mt.note} /></p>
-                <h3><Ruby text={mt.questionsHeading} /></h3>
-                <ul className="plain-list">{mt.questions.map((q) => <li key={q}><Ruby text={q} /></li>)}</ul>
-                <p><Cited text={mt.questionsSource} label={v.citeLabel} /></p>
+                {mt.text.map((p) => <p key={p}><Cited text={p} label={v.citeLabel} prefix={prefix} /></p>)}
+                <p className="vp-note"><Ruby text={v.note} /></p>
+                <h3><Ruby text={v.questionsHeading} /></h3>
+                <ul className="plain-list">{v.questions.map((q) => <li key={q}><Ruby text={q} /></li>)}</ul>
+                <p><Cited text={v.questionsSource.replace('{n}', String(sources.length))} label={v.citeLabel} prefix={prefix} /></p>
                 <div className="vp-qr" data-vp-qr={slug}>
                   <div className="vp-qr-code" />
                   <div>
@@ -76,7 +79,7 @@ export default async function VisitPackPage() {
                 <p className="vp-legal"><strong><Ruby text={t.disclaimer.notReviewed} /></strong> <Ruby text={t.disclaimer.model} /> <Ruby text={t.disclaimer.site} /> <a href={disclaimerHref}>vivatheca.com{disclaimerHref}</a></p>
                 <p className="vp-legal">© Vivatheca · {titles[slug]} · <a href={licences[slug].href}>{licences[slug].name}</a> · <Ruby text={v.madeWith} /></p>
                 <h3><Ruby text={v.sourcesHeading} /></h3>
-                <ol className="source-list vp-sources" lang="en">{visitPackSources[slug].map((s, i) => <li key={s.text} id={`src-${i + 1}`}>{s.text}{s.href ? <> <a className="url" href={s.href} target="_blank" rel="noreferrer">{s.href.replace('https://', '')}</a></> : null}</li>)}</ol>
+                <ol className="source-list vp-sources" lang="en">{sources.map((s, i) => <li key={s.text} id={`${prefix}-${i + 1}`}>{s.text}{s.href ? <> <a className="url" href={s.href} target="_blank" rel="noreferrer">{s.href.replace('https://', '')}</a></> : null}</li>)}</ol>
               </section>
             );
           })}

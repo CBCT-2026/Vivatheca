@@ -1932,17 +1932,17 @@ const en = {
     description: 'Make one short take-home page for a patient: up to four saved views of a Vivatheca model, plain-language notes with sources, and a QR code to the 3D model.',
     eyebrow: 'For clinicians',
     heading: 'Visit pack',
-    intro: 'Make one short page for a patient to take home: up to four saved views of a model, plain-language notes with their sources, and a QR code that opens the 3D model. It starts with the wisdom tooth model.',
+    intro: 'Make one short page for a patient to take home: up to four saved views of a model, plain-language notes with their sources, and a QR code that opens the 3D model. It works with every model in the collection.',
     howHeading: 'How to make a visit pack',
     how: [
-      'Open the wisdom tooth model and turn it to the view you want to show.',
+      'Open a model and turn it to the view you want to show.',
       'Under “Use this model”, press “Add view to visit pack”. Or press “Draw on it” to add arrows, circles or lines first, then “Add to visit pack”.',
       'Add two to four views, then open the visit pack and print it or save it as a PDF.',
     ],
     privacy: 'The pictures stay only in this browser tab and are deleted when you close it. Nothing is sent to Vivatheca and nothing about the patient is stored. Do not write or draw anything that could identify the patient.',
     preview: 'While Vivatheca is in private preview, the QR code only opens for people who have the site password.',
     empty: 'The visit pack is empty.',
-    emptyLink: 'Open the wisdom tooth model',
+    emptyLink: 'Choose a model',
     count: '{n} of {max} views',
     print: 'Print or save as PDF',
     clear: 'Empty the visit pack',
@@ -1955,6 +1955,17 @@ const en = {
     sourcesHeading: 'Sources',
     citeLabel: 'Source {n}',
     madeWith: 'Made with Vivatheca, free educational 3D models.',
+    // Shared by every model's sheet. {n} in questionsSource is the number of the Shepherd study, which app/visit-pack/sources.ts adds last to every list.
+    note: 'The pictures show a 3D model, not your own X-ray or scan.',
+    questionsHeading: 'Questions you can ask',
+    questions: [
+      'What are my options?',
+      'What are the possible benefits and harms of those options?',
+      'How likely are each of those benefits and harms to happen to me?',
+    ],
+    questionsSource: 'These three questions come from a study. It found that they help people get better facts about their choices.[{n}]',
+    // Take-home text per model: 2 to 4 short cited paragraphs, neutral (what the condition is; the clinician discusses the choices).
+    // [n] points into app/visit-pack/sources.ts. Checked with pitk (tools/patient-text).
     models: {
       'impacted-wisdom-tooth': {
         heading: 'Your lower wisdom tooth',
@@ -1963,14 +1974,166 @@ const en = {
           'A nerve runs inside the lower jaw, below the back teeth. It gives feeling to the lower lip and chin. In some people, the roots of the wisdom tooth are close to this nerve.[2][3]',
           'Not every stuck wisdom tooth needs to come out. Your dentist will talk with you about the choices and what each one could mean for you.[4]',
         ],
-        note: 'The pictures show a 3D model, not your own X-ray or scan.',
-        questionsHeading: 'Questions you can ask',
-        questions: [
-          'What are my options?',
-          'What are the possible benefits and harms of those options?',
-          'How likely are each of those benefits and harms to happen to me?',
+      },
+      'dental-development': {
+        heading: 'Your child’s growing teeth',
+        text: [
+          'Children have 20 baby teeth. From about age 6, the adult teeth start to come through, and the baby teeth fall out one by one.[1][2][3]',
+          'Each adult tooth grows inside the jaw, under a baby tooth. As it moves up, the root of the baby tooth melts away and the baby tooth gets loose.[4][5]',
+          'Every child is different. The usual age for each tooth can vary by a year or more. Your dentist will talk with you about your child’s teeth.[2][3]',
         ],
-        questionsSource: 'These three questions come from a study. It found that they help people get better facts about their choices.[5]',
+      },
+      periodontitis: {
+        heading: 'Your gums and the bone around your teeth',
+        text: [
+          'Gum disease (periodontitis) is a long-lasting disease of the gums. It slowly wears away the bone that holds the teeth. Teeth can then become loose. Some may fall out.[1][2]',
+          'Dentists describe how far it has gone in four stages. Stage I is early. Stage IV is the most advanced.[3]',
+          'Gum disease can be controlled. But lost bone mostly does not grow back. Your dentist will talk with you about the choices and what each one could mean for you.[1][4]',
+        ],
+      },
+      oroantral: {
+        heading: 'The hole between your mouth and your sinus',
+        text: [
+          'Above the upper back teeth is an air space in the cheekbone (the sinus). The roots of these teeth sit very close to it. Some reach into it.[1][2]',
+          'When an upper back tooth comes out, a small hole can form between the mouth and the sinus. Dentists call this an OAC. If it stays open, it can become a lined tunnel (an OAF).[3]',
+          'A small hole often closes by itself. A larger hole, or one that stays open, needs a small operation to close it. Your dentist or surgeon will talk with you about the choices.[3][4]',
+        ],
+      },
+      'cracked-tooth': {
+        heading: 'Your cracked tooth',
+        text: [
+          'A cracked tooth has a crack that starts on the chewing surface and runs down towards the root. The tooth is still in one piece, but the crack can slowly grow.[1][2]',
+          'A cracked tooth does not always hurt. When it does, it is most often with cold or when you bite.[3]',
+          'How a cracked tooth is treated depends on the crack. Your dentist will talk with you about the choices and what each one could mean for you.[3][4]',
+        ],
+      },
+      endodontic: {
+        heading: 'Your tooth with a dead nerve and an abscess',
+        text: [
+          'In the middle of each tooth is the pulp (the nerve and blood vessels). Deep decay can let germs reach it, and the pulp can die.[1]',
+          'The germs then spread out of the root tip into the bone and form a pocket of pus (an abscess). The pus may drain through a small pimple on the gum. This often hurts only a little, or not at all.[1][2]',
+          'There are different ways to treat a tooth like this. Your dentist will talk with you about the choices and what each one could mean for you.[3]',
+        ],
+      },
+      vpi: {
+        heading: 'How your soft palate closes for speech',
+        text: [
+          'The soft palate is the soft back part of the roof of your mouth. When you speak, it lifts up and back. This closes off the nose from the mouth.[1]',
+          'After a cleft palate repair, the soft palate is sometimes too short or does not lift enough. Air and sound then leak into the nose. Speech can sound nasal. This is called velopharyngeal insufficiency (VPI).[2][3]',
+          'How it is treated depends on the cause. Your cleft team will talk with you about the choices. They will explain what each one could mean for you.[4]',
+        ],
+      },
+      prosthodontic: {
+        heading: 'Your lower jaw without teeth',
+        text: [
+          'The bone that holds the teeth is called the ridge. After teeth are lost, the ridge slowly shrinks. This goes on for years and does not grow back by itself.[1][2]',
+          'A low, flat ridge gives a denture little to hold on to, so a lower denture can feel loose.[1]',
+          'A complete denture rests on the gum. An implant overdenture is a denture held by small posts placed in the jaw bone. Your dentist will talk with you about the choices and what each one could mean for you.[3]',
+        ],
+      },
+      tmd: {
+        heading: 'Your jaw joint and jaw muscles',
+        text: [
+          'The jaw joint sits just in front of each ear. You can feel it move when you open your mouth. Muscles in the cheek and at the side of the head move the jaw.[1]',
+          'Jaw problems (TMD) can cause pain in the jaw, face or temple. The jaw may click, or be hard to open wide. TMD is short for temporomandibular disorders.[1][2]',
+          'Many jaw problems last only a short time. They go away on their own. There are many ways to help. Your dentist will talk with you about the choices and what each one could mean for you.[1][3]',
+        ],
+      },
+      'ectopic-canine': {
+        heading: 'Your child’s eye tooth',
+        text: [
+          'The adult eye teeth (canines) in the upper jaw most often come through at about 11 to 12 years. Sometimes one grows towards the roof of the mouth instead. It then cannot come through by itself.[1]',
+          'From about age 9 to 10, the dentist feels for the tooth in the gum on the cheek side. If it cannot be felt, the dentist may take an X-ray to find it.[1][2]',
+          'There are a few ways to help the tooth come through. Your dentist or orthodontist will talk with you about the choices for your child.[1][3]',
+        ],
+      },
+      'dentigerous-cyst': {
+        heading: 'The cyst around a tooth that has not come through',
+        text: [
+          'Before a tooth comes through, a thin soft sac covers its crown. Sometimes fluid builds up in this sac and it grows into a cyst (a dentigerous cyst).[1][2]',
+          'It is most often found around a lower wisdom tooth. It grows slowly and often causes no pain, so it is often first seen on an X-ray.[1][3]',
+          'There are different ways to treat it. Your dentist or surgeon will talk with you about the choices and what each one could mean for you.[4]',
+        ],
+      },
+      'stainless-steel-crown': {
+        heading: 'Your child’s steel crown',
+        text: [
+          'A steel crown is a ready-made metal cap that covers the whole of a baby back tooth. Dentists use one when a baby tooth has large holes from decay, or after treating the nerve inside it.[1][2]',
+          'In studies of baby back teeth, crowns were less likely than fillings to fail badly or to cause pain later. But the studies were not strong, so this is not certain.[3]',
+          'Which choice fits depends on the size of the hole and on your child’s teeth. Your child’s dentist will talk with you about the choices.[1]',
+        ],
+      },
+      'head-neck': {
+        heading: 'Growths in the jaw and the roof of the mouth',
+        text: [
+          'Growths in the jaw and the roof of the mouth come in many kinds. Some are not cancer but can still grow into the bone. Others are cancer.[1]',
+          'Surgeons remove the growth with a rim of healthy tissue around it (a safety margin). The size of the gap left behind depends on the kind of growth and where it is.[2][3][4]',
+          'There are a few ways to close the gap. Your surgeon and team will talk with you about your own case and the choices.[2][3]',
+        ],
+      },
+      'head-neck-scc': {
+        heading: 'Cancer of the gum and jaw bone',
+        text: [
+          'Mouth cancer (squamous cell carcinoma) can start on the gum and grow into the jaw bone under it.[1][2]',
+          'When the cancer has grown into the bone, surgeons remove that part of the jaw with a safety margin. The jaw can be rebuilt with bone from elsewhere in the body, often the lower leg (fibula).[3][4]',
+          'This model follows one published case. Your own treatment is planned for you. Your team will talk with you about the choices.[5]',
+        ],
+      },
+      'head-neck-ameloblastoma': {
+        heading: 'Ameloblastoma of the jaw',
+        text: [
+          'An ameloblastoma is a growth that starts from the cells that form teeth. It is not cancer, but it keeps growing and can hollow out the jaw bone.[1]',
+          'Surgeons remove it with a margin of healthy bone, because it can come back if some is left. Sometimes the lower edge of the jaw can be kept, and a metal plate protects it.[2][3]',
+          'Your surgeon will talk with you about the choices and what each one could mean for you.[2]',
+        ],
+      },
+      'head-neck-okc': {
+        heading: 'A keratocyst in the jaw',
+        text: [
+          'This cyst is a sac in the jaw bone filled with thick fluid. It is not cancer. But it can grow large, and it often comes back after treatment.[1][2]',
+          'Surgeons remove the sac. They often also treat the bone wall around it. This lowers the chance of it coming back.[3]',
+          'Your surgeon will talk with you about the choices. They will explain what each one could mean for you.[3]',
+        ],
+      },
+      'head-neck-mec': {
+        heading: 'A cancer of a spit gland in the roof of the mouth',
+        text: [
+          'Small spit glands line the roof of the mouth. A lump there can be a cancer. It starts in these glands. Its name is mucoepidermoid carcinoma. Most of these cancers grow slowly.[1]',
+          'Surgeons remove the lump. They take a rim of healthy tissue around it too. If the cancer has not grown into the bone, the bone can often be kept.[2][3]',
+          'Your surgeon will talk with you about the choices. They will explain what each one could mean for you.[2]',
+        ],
+      },
+      'alveolar-bone-graft': {
+        heading: 'A bone graft for the cleft in the upper jaw',
+        text: [
+          'Some children are born with a cleft lip and palate. Some of them also have a gap in the upper jaw bone that holds the teeth (an alveolar cleft).[1]',
+          'A bone graft fills this gap with bone, often taken from the hip. It is most often done at about 8 to 11 years, before the adult eye tooth comes through.[2][3]',
+          'The eye tooth can then come down through the new bone. Your cleft team will talk with you about the timing and the choices for your child.[2][4]',
+        ],
+      },
+      'averaged-jaw': {
+        heading: 'A standard adult lower jaw',
+        text: [
+          'This model is the mean shape of a group of adult lower jaws from CT scans. It belongs to no one. It shows a normal jaw, not your own.[1][3]',
+          'Taking a mean smooths out fine detail. So no real jaw looks just like it.[1]',
+          'Your dentist or surgeon may use it to point out parts of the jaw. It can help show where a problem is.[3]',
+        ],
+      },
+      orthognathic: {
+        heading: 'Jaw surgery to line up your jaws',
+        text: [
+          'Dentists sort bites into three groups (Angle’s classes) by how the back teeth meet. In a Class II bite the lower jaw sits back. In a Class III bite it sits forward.[1]',
+          'Braces can move teeth. They cannot move the jaw bones. When the jaws themselves are out of line, jaw surgery (orthognathic surgery) moves one jaw or both.[2][3]',
+          'Small metal plates and screws hold the bone while it heals. Your surgeon and the dentist who fits your braces will talk with you about the choices. They will explain what each one could mean for you.[2][4]',
+        ],
+      },
+      fixation: {
+        heading: 'Plates and screws in the jaw',
+        text: [
+          'After jaw surgery or a broken jaw, the pieces of bone must stay still while they heal. Surgeons often hold them with small metal plates and screws.[1][2]',
+          'The surgeon bends the plate to fit the bone. Short screws on each side of the cut hold it in place. The screws go into the hard outer layer of bone only, away from the tooth roots.[1][3]',
+          'Your surgeon will talk with you about your own case and the choices.',
+        ],
       },
     },
   },

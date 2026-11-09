@@ -2500,17 +2500,17 @@ const vi = withFallback(en, {
     "description": "Tạo một trang ngắn để bệnh nhân mang về: tối đa bốn góc nhìn đã lưu của mô hình Vivatheca, phần giải thích dễ hiểu có nguồn, và mã QR mở mô hình 3D.",
     "eyebrow": "Dành cho nhân viên y tế",
     "heading": "Tài liệu mang về",
-    "intro": "Tạo một trang ngắn để bệnh nhân mang về: tối đa bốn góc nhìn đã lưu của mô hình, phần giải thích dễ hiểu có nguồn, và mã QR mở mô hình 3D. Bắt đầu với mô hình răng khôn.",
+    "intro": "Tạo một trang ngắn để bệnh nhân mang về: tối đa bốn góc nhìn đã lưu của mô hình, phần giải thích dễ hiểu có nguồn, và mã QR mở mô hình 3D. Dùng được với mọi mô hình trong bộ sưu tập.",
     "howHeading": "Cách tạo tài liệu mang về",
     "how": [
-      "Mở mô hình răng khôn và xoay đến góc nhìn bạn muốn cho bệnh nhân xem.",
+      "Mở một mô hình và xoay đến góc nhìn bạn muốn cho bệnh nhân xem.",
       "Trong mục “Dùng mô hình này”, nhấn “Thêm góc nhìn vào tài liệu mang về”. Hoặc nhấn “Vẽ lên hình” để thêm mũi tên, vòng tròn hoặc nét vẽ trước, rồi nhấn “Thêm vào tài liệu mang về”.",
       "Thêm từ hai đến bốn góc nhìn, rồi mở tài liệu mang về và in ra hoặc lưu thành PDF."
     ],
     "privacy": "Các ảnh chỉ nằm trong thẻ trình duyệt này và sẽ bị xóa khi bạn đóng thẻ. Không có gì được gửi đến Vivatheca và không lưu thông tin nào về bệnh nhân. Không viết hoặc vẽ bất cứ điều gì có thể nhận ra bệnh nhân.",
     "preview": "Trong thời gian Vivatheca còn xem trước riêng tư, mã QR chỉ mở được với người có mật khẩu của trang.",
     "empty": "Tài liệu mang về đang trống.",
-    "emptyLink": "Mở mô hình răng khôn",
+    "emptyLink": "Chọn một mô hình",
     "count": "{n} trên {max} góc nhìn",
     "print": "In hoặc lưu thành PDF",
     "clear": "Xóa hết tài liệu mang về",
@@ -2523,6 +2523,15 @@ const vi = withFallback(en, {
     "sourcesHeading": "Nguồn",
     "citeLabel": "Nguồn {n}",
     "madeWith": "Tạo bằng Vivatheca, mô hình 3D giáo dục miễn phí.",
+    "note": "Các hình là mô hình 3D, không phải phim X-quang hay ảnh chụp của chính bạn.",
+    "questionsHeading": "Những câu bạn có thể hỏi",
+    "questions": [
+      "Tôi có những lựa chọn nào?",
+      "Mỗi lựa chọn có thể có lợi ích và tác hại gì?",
+      "Khả năng những lợi ích và tác hại đó xảy ra với tôi là bao nhiêu?"
+    ],
+    "questionsSource": "Ba câu hỏi này đến từ một nghiên cứu cho thấy chúng giúp người bệnh nhận được thông tin tốt hơn về các lựa chọn của mình.[{n}]",
+    // UNREVIEWED DRAFT (AI, from en.ts), like the rest of this file: not yet checked by a fluent clinician. English prevails.
     "models": {
       "impacted-wisdom-tooth": {
         "heading": "Răng khôn hàm dưới của bạn",
@@ -2530,15 +2539,167 @@ const vi = withFallback(en, {
           "Răng khôn là răng cuối cùng ở phía trong cùng của miệng. Đôi khi răng không mọc lên hết được, vì răng bị nghiêng hoặc không đủ chỗ. Nha sĩ gọi đây là răng khôn mọc kẹt (mọc ngầm).[1]",
           "Có một dây thần kinh chạy bên trong xương hàm dưới, bên dưới các răng hàm. Dây thần kinh này cho cảm giác ở môi dưới và cằm. Ở một số người, chân răng khôn nằm gần dây thần kinh này.[2][3]",
           "Không phải răng khôn mọc ngầm nào cũng cần nhổ. Nha sĩ sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[4]"
-        ],
-        "note": "Các hình là mô hình 3D, không phải phim X-quang hay ảnh chụp của chính bạn.",
-        "questionsHeading": "Những câu bạn có thể hỏi",
-        "questions": [
-          "Tôi có những lựa chọn nào?",
-          "Mỗi lựa chọn có thể có lợi ích và tác hại gì?",
-          "Khả năng những lợi ích và tác hại đó xảy ra với tôi là bao nhiêu?"
-        ],
-        "questionsSource": "Ba câu hỏi này đến từ một nghiên cứu cho thấy chúng giúp người bệnh nhận được thông tin tốt hơn về các lựa chọn của mình.[5]"
+        ]
+      },
+      "dental-development": {
+        "heading": "Răng đang mọc của con bạn",
+        "text": [
+          "Trẻ em có 20 răng sữa. Từ khoảng 6 tuổi, răng vĩnh viễn bắt đầu mọc lên và răng sữa lần lượt rụng đi.[1][2][3]",
+          "Mỗi răng vĩnh viễn lớn lên bên trong xương hàm, dưới một răng sữa. Khi răng vĩnh viễn đi lên, chân răng sữa tiêu dần và răng sữa lung lay.[4][5]",
+          "Mỗi trẻ mỗi khác. Tuổi mọc thường gặp của từng răng có thể lệch một năm hoặc hơn. Nha sĩ sẽ trao đổi với bạn về răng của con bạn.[2][3]"
+        ]
+      },
+      "periodontitis": {
+        "heading": "Lợi và xương quanh răng của bạn",
+        "text": [
+          "Bệnh nha chu (viêm nha chu) là bệnh kéo dài của lợi. Theo thời gian, bệnh làm tiêu dần xương giữ răng. Răng có thể trở nên lung lay.[1][2]",
+          "Nha sĩ mô tả mức độ bệnh theo bốn giai đoạn. Giai đoạn I là sớm và giai đoạn IV là nặng.[3]",
+          "Bệnh nha chu có thể được kiểm soát, nhưng xương đã mất hầu như không mọc lại. Nha sĩ sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[1][4]"
+        ]
+      },
+      "oroantral": {
+        "heading": "Lỗ thông giữa miệng và xoang của bạn",
+        "text": [
+          "Phía trên các răng hàm trên là một khoang chứa khí trong xương gò má (xoang hàm). Chân của các răng này nằm rất gần xoang, và một số chân răng chạm vào trong xoang.[1][2]",
+          "Khi nhổ một răng hàm trên, có thể tạo ra một lỗ nhỏ thông giữa miệng và xoang (thông xoang miệng). Nếu lỗ này không đóng lại, nó có thể thành một đường hầm có lớp lót (rò xoang miệng).[3]",
+          "Lỗ nhỏ thường tự đóng. Lỗ lớn hơn, hoặc lỗ không tự đóng, được đóng bằng một phẫu thuật nhỏ. Nha sĩ hoặc bác sĩ phẫu thuật sẽ trao đổi với bạn về các lựa chọn.[3][4]"
+        ]
+      },
+      "cracked-tooth": {
+        "heading": "Răng nứt của bạn",
+        "text": [
+          "Răng nứt có một vết nứt bắt đầu từ mặt nhai và chạy xuống về phía chân răng. Răng vẫn còn nguyên một khối, nhưng vết nứt có thể lan dần.[1][2]",
+          "Răng nứt không phải lúc nào cũng đau. Khi đau, thường là khi gặp lạnh hoặc khi cắn.[3]",
+          "Có nhiều cách điều trị răng nứt, tùy theo vết nứt. Nha sĩ sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[3][4]"
+        ]
+      },
+      "endodontic": {
+        "heading": "Răng của bạn có tủy chết và áp xe",
+        "text": [
+          "Ở giữa mỗi răng là tủy răng (dây thần kinh và mạch máu). Sâu răng sâu có thể để vi khuẩn vào đến tủy, và tủy có thể chết.[1]",
+          "Vi khuẩn sau đó lan từ chóp chân răng vào xương và tạo thành một túi mủ (áp xe). Mủ có thể chảy ra qua một nốt nhỏ trên lợi. Tình trạng này thường chỉ đau ít, hoặc không đau.[1][2]",
+          "Có nhiều cách điều trị một răng như vậy. Nha sĩ sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[3]"
+        ]
+      },
+      "vpi": {
+        "heading": "Cách khẩu cái mềm của bạn đóng lại khi nói",
+        "text": [
+          "Khẩu cái mềm là phần mềm phía sau của vòm miệng. Khi bạn nói, nó nâng lên và ra sau để ngăn cách mũi với miệng.[1]",
+          "Sau khi vá khe hở vòm miệng, khẩu cái mềm đôi khi quá ngắn hoặc không nâng đủ. Không khí và âm thanh khi đó lọt lên mũi, và giọng nói có thể nghe như giọng mũi. Tình trạng này gọi là thiểu năng vòm hầu (VPI).[2][3]",
+          "Có nhiều cách điều trị, tùy theo nguyên nhân. Nhóm điều trị khe hở của bạn sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[4]"
+        ]
+      },
+      "prosthodontic": {
+        "heading": "Hàm dưới không còn răng của bạn",
+        "text": [
+          "Phần xương giữ răng gọi là sống hàm. Sau khi mất răng, sống hàm teo dần. Quá trình này kéo dài nhiều năm và không tự hồi phục.[1][2]",
+          "Sống hàm thấp và phẳng cho hàm giả ít chỗ bám, nên hàm giả dưới có thể bị lỏng.[1]",
+          "Hàm giả toàn phần tựa lên lợi. Hàm phủ trên cấy ghép là hàm giả được giữ bằng các trụ nhỏ đặt trong xương hàm. Nha sĩ sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[3]"
+        ]
+      },
+      "tmd": {
+        "heading": "Khớp hàm và cơ hàm của bạn",
+        "text": [
+          "Khớp hàm (khớp thái dương hàm) nằm ngay trước mỗi tai. Bạn có thể sờ thấy khớp cử động khi há miệng. Các cơ ở má và bên đầu cử động hàm.[1]",
+          "Các rối loạn ở hàm (rối loạn thái dương hàm, TMD) có thể gây đau ở hàm, mặt hoặc thái dương. Hàm có thể kêu lục cục, hoặc khó há to.[1][2]",
+          "Nhiều rối loạn ở hàm chỉ kéo dài một thời gian ngắn rồi tự hết. Có nhiều cách để giúp đỡ. Nha sĩ sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[1][3]"
+        ]
+      },
+      "ectopic-canine": {
+        "heading": "Răng nanh của con bạn",
+        "text": [
+          "Răng nanh vĩnh viễn ở hàm trên thường mọc vào khoảng 11 đến 12 tuổi. Đôi khi một răng nanh lại mọc hướng về vòm miệng và không tự mọc lên được.[1]",
+          "Từ khoảng 9 đến 10 tuổi, nha sĩ sờ tìm răng nanh ở lợi phía má. Nếu không sờ thấy, nha sĩ có thể chụp X-quang để tìm răng.[1][2]",
+          "Có nhiều cách giúp răng nanh mọc lên. Nha sĩ hoặc bác sĩ chỉnh nha sẽ trao đổi với bạn về các lựa chọn cho con bạn.[1][3]"
+        ]
+      },
+      "dentigerous-cyst": {
+        "heading": "Nang quanh răng chưa mọc của bạn",
+        "text": [
+          "Trước khi răng mọc, một túi mềm mỏng bao quanh thân răng. Đôi khi dịch tích lại trong túi này và túi lớn lên thành một nang (nang thân răng).[1][2]",
+          "Nang này hay gặp nhất quanh răng khôn hàm dưới. Nang lớn chậm và thường không đau, nên thường được phát hiện lần đầu trên phim X-quang.[1][3]",
+          "Có nhiều cách điều trị. Nha sĩ hoặc bác sĩ phẫu thuật sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[4]"
+        ]
+      },
+      "stainless-steel-crown": {
+        "heading": "Mão thép của con bạn",
+        "text": [
+          "Mão thép là một chụp kim loại làm sẵn, bọc toàn bộ một răng hàm sữa. Nha sĩ dùng mão thép khi răng sữa có lỗ sâu lớn, hoặc sau khi điều trị tủy răng.[1][2]",
+          "Trong các nghiên cứu về răng hàm sữa, mão ít bị hỏng nặng hoặc gây đau về sau hơn so với trám răng. Chất lượng bằng chứng còn thấp.[3]",
+          "Lựa chọn nào phù hợp tùy vào độ lớn của lỗ sâu và tình trạng răng của con bạn. Nha sĩ của con bạn sẽ trao đổi với bạn về các lựa chọn.[1]"
+        ]
+      },
+      "head-neck": {
+        "heading": "Các khối u ở xương hàm và vòm miệng",
+        "text": [
+          "Khối u ở xương hàm và vòm miệng có nhiều loại. Một số không phải ung thư nhưng vẫn có thể lan vào xương. Một số khác là ung thư.[1]",
+          "Bác sĩ phẫu thuật cắt bỏ khối u cùng một viền mô lành xung quanh (bờ an toàn). Kích thước khoảng trống để lại tùy vào loại khối u và vị trí của nó.[2][3][4]",
+          "Có nhiều cách để đóng khoảng trống này. Nhóm phẫu thuật sẽ trao đổi với bạn về trường hợp của bạn và các lựa chọn.[2][3]"
+        ]
+      },
+      "head-neck-scc": {
+        "heading": "Ung thư ở lợi và xương hàm",
+        "text": [
+          "Ung thư miệng (ung thư biểu mô tế bào vảy) có thể bắt đầu ở lợi và lan vào xương hàm bên dưới.[1][2]",
+          "Khi ung thư đã lan vào xương, bác sĩ phẫu thuật cắt bỏ phần xương hàm đó cùng bờ an toàn. Xương hàm có thể được tái tạo bằng xương lấy từ nơi khác trong cơ thể, thường là xương cẳng chân (xương mác).[3][4]",
+          "Mô hình này dựa trên một ca bệnh đã công bố. Việc điều trị của bạn được lên kế hoạch riêng cho bạn, và nhóm điều trị sẽ trao đổi với bạn về các lựa chọn.[5]"
+        ]
+      },
+      "head-neck-ameloblastoma": {
+        "heading": "U nguyên bào men ở xương hàm",
+        "text": [
+          "U nguyên bào men là khối u bắt nguồn từ các tế bào tạo răng. Nó không phải ung thư, nhưng tiếp tục lớn lên và có thể làm rỗng xương hàm.[1]",
+          "Bác sĩ phẫu thuật cắt bỏ u cùng một bờ xương lành, vì u có thể tái phát nếu còn sót. Đôi khi có thể giữ lại bờ dưới của xương hàm, và một nẹp kim loại bảo vệ phần xương này.[2][3]",
+          "Bác sĩ phẫu thuật sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[2]"
+        ]
+      },
+      "head-neck-okc": {
+        "heading": "Nang sừng ở xương hàm",
+        "text": [
+          "Nang sừng (nang sừng do răng) là một túi trong xương hàm chứa dịch đặc. Nó không phải ung thư, nhưng có thể lớn và thường tái phát sau điều trị.[1][2]",
+          "Bác sĩ phẫu thuật lấy bỏ túi nang. Họ cũng thường xử lý thành xương xung quanh để giảm khả năng tái phát.[3]",
+          "Bác sĩ phẫu thuật sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[3]"
+        ]
+      },
+      "head-neck-mec": {
+        "heading": "Ung thư tuyến nước bọt ở vòm miệng",
+        "text": [
+          "Các tuyến nước bọt nhỏ (tuyến nước bọt phụ) nằm rải rác ở vòm miệng. Một khối u ở đó có thể là ung thư bắt nguồn từ các tuyến này (ung thư biểu mô dạng biểu bì nhầy). Phần lớn các ung thư này phát triển chậm.[1]",
+          "Bác sĩ phẫu thuật cắt bỏ khối u cùng một viền mô lành xung quanh. Nếu ung thư chưa lan vào xương, xương thường có thể được giữ lại.[2][3]",
+          "Bác sĩ phẫu thuật sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[2]"
+        ]
+      },
+      "alveolar-bone-graft": {
+        "heading": "Ghép xương cho khe hở ở hàm trên",
+        "text": [
+          "Một số trẻ sinh ra với khe hở môi và vòm miệng có một khe hở trong xương hàm trên, nơi các răng mọc (khe hở xương ổ răng).[1]",
+          "Ghép xương lấp đầy khe hở này bằng xương, thường lấy từ xương hông. Ghép xương thường được làm vào khoảng 8 đến 11 tuổi, trước khi răng nanh vĩnh viễn mọc.[2][3]",
+          "Răng nanh sau đó có thể mọc xuống qua phần xương mới. Nhóm điều trị khe hở sẽ trao đổi với bạn về thời điểm và các lựa chọn cho con bạn.[2][4]"
+        ]
+      },
+      "averaged-jaw": {
+        "heading": "Một hàm dưới bình thường của người lớn",
+        "text": [
+          "Mô hình này là hình dạng trung bình của một nhóm hàm dưới người lớn từ các phim CT. Nó không thuộc về ai, và cho thấy một hàm bình thường, không phải hàm của bạn.[1][3]",
+          "Lấy trung bình làm mờ các chi tiết nhỏ, nên không có hàm thật nào giống hệt nó.[1]",
+          "Nha sĩ hoặc bác sĩ phẫu thuật có thể dùng nó để chỉ các phần của hàm và giải thích vị trí của vấn đề.[3]"
+        ]
+      },
+      "orthognathic": {
+        "heading": "Phẫu thuật để chỉnh lại hai hàm của bạn",
+        "text": [
+          "Nha sĩ xếp khớp cắn thành ba nhóm (phân loại Angle) theo cách các răng hàm gặp nhau. Ở khớp cắn hạng II, hàm dưới lùi về sau. Ở khớp cắn hạng III, hàm dưới đưa ra trước.[1]",
+          "Niềng răng có thể di chuyển răng, nhưng không di chuyển được xương hàm. Khi chính xương hàm lệch nhau, phẫu thuật hàm (phẫu thuật chỉnh hình xương hàm) di chuyển hàm trên, hàm dưới hoặc cả hai.[2][3]",
+          "Các nẹp và vít titan nhỏ giữ xương trong khi lành. Bác sĩ phẫu thuật và bác sĩ chỉnh nha sẽ trao đổi với bạn về các lựa chọn và ý nghĩa của từng lựa chọn đối với bạn.[2][4]"
+        ]
+      },
+      "fixation": {
+        "heading": "Nẹp và vít trong xương hàm",
+        "text": [
+          "Sau phẫu thuật hàm hoặc gãy xương hàm, các mảnh xương phải nằm yên trong khi lành. Bác sĩ phẫu thuật thường giữ chúng bằng các nẹp và vít titan nhỏ.[1][2]",
+          "Bác sĩ uốn nẹp cho vừa với xương và cố định bằng các vít ngắn ở hai bên đường cắt. Vít chỉ đi vào lớp xương cứng bên ngoài, tránh xa chân răng.[1][3]",
+          "Bác sĩ phẫu thuật sẽ trao đổi với bạn về trường hợp của bạn và các lựa chọn."
+        ]
       }
     }
   }

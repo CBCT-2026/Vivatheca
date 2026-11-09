@@ -60,16 +60,16 @@
   "ja": "d2002058d807"
  },
  "/models/alveolar-bone-graft": {
-  "en": "113e19cb86ee",
-  "ja": "7c669ee33f35"
+  "en": "d5011a7197ad",
+  "ja": "6f019fa031a3"
  },
  "/models/averaged-jaw": {
-  "en": "fe7e8257de53",
-  "ja": "75216d7ede8b"
+  "en": "9620a1a3c34c",
+  "ja": "ec3ab4d3d5c1"
  },
  "/models/impacted-wisdom-tooth": {
   "en": "8ca4f9525f6e",
-  "ja": "af70191a5760"
+  "ja": "994631763434"
  },
  "/models": {
   "en": "91d3f46b3272",
@@ -112,91 +112,91 @@
   "ja": "ee3378fa9208"
  },
  "/visit-pack": {
-  "en": "5430a8d7571b",
-  "ja": "a91d7fdfe922"
+  "en": "028b9858d8f6",
+  "ja": "e195c13dec9f"
  },
  "/cracked-tooth/": {
-  "en": "aead8186988d",
-  "ja": "a3c01d058857"
+  "en": "a722d4a00f27",
+  "ja": "6154fa51c6fb"
  },
  "/dentigerous-cyst/": {
-  "en": "b351923641e0",
-  "ja": "9f7084039232"
+  "en": "413fa675be53",
+  "ja": "de5805d301c9"
  },
  "/development/": {
-  "en": "b4c2463b8ccf",
-  "ja": "22f2c59e7bbe"
+  "en": "c1d5cde79413",
+  "ja": "a8f6760ef692"
  },
  "/ectopic-canine/": {
-  "en": "64b9ea7c305e",
-  "ja": "b52fd6c91e71"
+  "en": "12afaa2beea7",
+  "ja": "b3d1ac2e5038"
  },
  "/endodontic/": {
-  "en": "7453abaf0db3",
-  "ja": "52b4cdcb3f83"
+  "en": "f7f51625d1d9",
+  "ja": "1547e17c0632"
  },
  "/fixation/": {
-  "en": "a4d9213edb4e",
-  "ja": "442708c654f6"
+  "en": "a7eeaf5fc905",
+  "ja": "45811483c307"
  },
  "/head-neck/": {
-  "en": "c96bf076a83d",
-  "ja": "590dfc0e5e92"
+  "en": "cc170e9d6608",
+  "ja": "dd5a2604dbb2"
  },
  "/head-neck/ameloblastoma/": {
-  "en": "eefee21b79b9",
-  "ja": "068c3efa5233"
+  "en": "089e9351315a",
+  "ja": "1a22cfc41d88"
  },
  "/head-neck/mec/": {
-  "en": "959b897b4763",
-  "ja": "1cbe2066aae4"
+  "en": "a075f342f474",
+  "ja": "53a7cc53619b"
  },
  "/head-neck/okc/": {
-  "en": "6945f75fe7e7",
-  "ja": "03910a675824"
+  "en": "c09f60714411",
+  "ja": "12932eb6b560"
  },
  "/head-neck/scc/": {
-  "en": "f947ad3afb12",
-  "ja": "3f2cfd4e2548"
+  "en": "7b9ddab45c82",
+  "ja": "6c0603d3c6d0"
  },
  "/models/impacted-wisdom-tooth/options/": {
-  "en": "8662ed23b3b5",
-  "ja": "c9ad3bd4edaf"
+  "en": "cb3cdcf9ce0c",
+  "ja": "8e83eca8d301"
  },
  "/oroantral/": {
-  "en": "25c46f65492a",
-  "ja": "9d571ad5af9d"
+  "en": "9a0d9e65fbb0",
+  "ja": "b29bc1d1bb50"
  },
  "/orthognathic/": {
-  "en": "425ca084fb33",
-  "ja": "f66b9ace1b26"
+  "en": "c773aee31b80",
+  "ja": "c02e6268db29"
  },
  "/periodontitis/": {
-  "en": "17504709fadb",
-  "ja": "8ccf9f71f9b7"
+  "en": "3342000cd09a",
+  "ja": "81ea9475e55c"
  },
  "/prosthodontic/": {
-  "en": "ce964d2d6024",
-  "ja": "4e997e71f710"
+  "en": "6955a141dbf7",
+  "ja": "011b811cfa0a"
  },
  "/stainless-steel-crown/": {
-  "en": "19d106f7c81b",
-  "ja": "ac0cd115407e"
+  "en": "fa03a76b0043",
+  "ja": "1ec41b9a4fd2"
  },
  "/stainless-steel-crown/kids/": {
   "en": "49a62eedd5dd",
   "ja": "a409ae85c3e4"
  },
  "/tmd/": {
-  "en": "719ea127ee95",
-  "ja": "6ec482bdeafc"
+  "en": "5b8ec3d0ad0f",
+  "ja": "4fccc1376b70"
  },
  "/tmd/sheet/": {
   "en": "eeb44ea26ecc",
   "ja": "eeb44ea26ecc"
  },
  "/vpi/": {
-  "en": "513003ad2776",
-  "ja": "daa0a677e31b"
+  "en": "a95019c9612d",
+  "ja": "d6568190b407"
  }
 }

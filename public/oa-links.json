@@ -1,6 +1,12 @@
 {
- "source": "Unpaywall (https://unpaywall.org), checked 2026-11-06",
+ "source": "Unpaywall (https://unpaywall.org), checked 2026-11-09",
  "links": {
+  "10.1002/14651858.cd004345.pub3": {
+   "url": "https://research.manchester.ac.uk/en/publications/6e3faedf-e862-4810-b711-9bf17212cb11",
+   "version": "published",
+   "host": "repository",
+   "licence": "other-oa"
+  },
   "10.1002/14651858.cd005512.pub3": {
    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/7387869",
    "version": "published",
@@ -19,6 +25,12 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1002/jper.10239": {
+   "url": "https://doi.org/10.1002/jper.10239",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
   "10.1002/jper.17-0721": {
    "url": "https://doi.org/10.1002/jper.17-0721",
    "version": "published",
@@ -31,8 +43,20 @@
    "host": "publisher",
    "licence": null
   },
+  "10.1007/s00432-010-0870-3": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/11828076",
+   "version": "published",
+   "host": "repository",
+   "licence": null
+  },
   "10.1007/s00784-025-06568-y": {
    "url": "https://doi.org/10.1007/s00784-025-06568-y",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.1007/s00784-026-07156-4": {
+   "url": "https://doi.org/10.1007/s00784-026-07156-4",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
@@ -85,17 +109,41 @@
    "host": "repository",
    "licence": null
   },
+  "10.1016/j.jcms.2026.109856": {
+   "url": "https://doi.org/10.1016/j.jcms.2026.109856",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.1016/j.jdent.2024.105130": {
    "url": "https://doi.org/10.1016/j.jdent.2024.105130",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1016/j.jdsr.2020.10.001": {
+   "url": "https://doi.org/10.1016/j.jdsr.2020.10.001",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc-nd"
+  },
   "10.1016/j.joms.2024.06.181": {
    "url": "https://doi.org/10.1016/j.joms.2024.06.181",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by-nc-nd"
+  },
+  "10.1016/j.jormas.2024.102115": {
+   "url": "https://doi.org/10.1016/j.jormas.2024.102115",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc-nd"
+  },
+  "10.1016/j.oooo.2026.05.012": {
+   "url": "https://doi.org/10.1016/j.oooo.2026.05.012",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
   },
   "10.1016/j.pec.2014.05.027": {
    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/5085258",
@@ -109,6 +157,12 @@
    "host": "repository",
    "licence": null
   },
+  "10.1016/j.prosdent.2023.03.002": {
+   "url": "https://doi.org/10.1016/j.prosdent.2023.03.002",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
   "10.1016/j.prosdent.2023.07.023": {
    "url": "https://doi.org/10.1016/j.prosdent.2023.07.023",
    "version": "accepted",
@@ -117,6 +171,30 @@
   },
   "10.1016/j.stlm.2023.100109": {
    "url": "https://doi.org/10.1016/j.stlm.2023.100109",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.1038/s41415-025-8511-z": {
+   "url": "https://doi.org/10.1038/s41415-025-8511-z",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.1038/s41415-025-8892-z": {
+   "url": "https://doi.org/10.1038/s41415-025-8892-z",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.1038/s41592-023-01974-0": {
+   "url": "https://doi.org/10.1038/s41592-023-01974-0",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
+  "10.1038/s41598-026-36461-x": {
+   "url": "https://doi.org/10.1038/s41598-026-36461-x",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
@@ -151,6 +229,12 @@
    "host": "publisher",
    "licence": null
   },
+  "10.1093/dmfr/twad013": {
+   "url": "https://doi.org/10.1093/dmfr/twad013",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
   "10.1093/ejo/cjae065": {
    "url": "https://doi.org/10.1093/ejo/cjae065",
    "version": "published",
@@ -169,8 +253,20 @@
    "host": "repository",
    "licence": null
   },
+  "10.1111/eje.13066": {
+   "url": "https://doi.org/10.1111/eje.13066",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc"
+  },
   "10.1111/j.1365-2591.2006.01180.x": {
    "url": "https://doi.org/10.1111/j.1365-2591.2006.01180.x",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
+  "10.1111/j.1524-4733.2005.04054.x": {
+   "url": "https://doi.org/10.1111/j.1524-4733.2005.04054.x",
    "version": "published",
    "host": "publisher",
    "licence": null
@@ -186,6 +282,36 @@
    "version": "published",
    "host": "publisher",
    "licence": "other-oa"
+  },
+  "10.1111/jcpe.13403": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/8094210",
+   "version": "published",
+   "host": "repository",
+   "licence": null
+  },
+  "10.1111/joa.14237": {
+   "url": "https://doi.org/10.1111/joa.14237",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc-nd"
+  },
+  "10.1111/jopr.13738": {
+   "url": "https://doi.org/10.1111/jopr.13738",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
+  "10.1136/bmj-2023-076227": {
+   "url": "https://doi.org/10.1136/bmj-2023-076227",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
+  "10.1136/bmj.38926.629329.ae": {
+   "url": "https://doi.org/10.1136/bmj.38926.629329.ae",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
   },
   "10.1148/rg.230180": {
    "url": "https://doi.org/10.1148/rg.230180",
@@ -205,6 +331,18 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1155/2020/8861301": {
+   "url": "https://doi.org/10.1155/2020/8861301",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.1155/crid/1080772": {
+   "url": "https://doi.org/10.1155/crid/1080772",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.1155/crid/5525524": {
    "url": "https://doi.org/10.1155/crid/5525524",
    "version": "published",
@@ -216,6 +354,24 @@
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
+  },
+  "10.1155/crid/8934034": {
+   "url": "https://doi.org/10.1155/crid/8934034",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.11607/jop.1151": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/4478082",
+   "version": "accepted",
+   "host": "repository",
+   "licence": null
+  },
+  "10.1177/02692155221133523": {
+   "url": "https://doi.org/10.1177/02692155221133523",
+   "version": "accepted",
+   "host": "repository",
+   "licence": "cc-by-nc-nd"
   },
   "10.1177/1055665617739564": {
    "url": "https://doi.org/10.1177/1055665617739564",
@@ -247,11 +403,29 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1186/s12903-022-02681-6": {
+   "url": "https://doi.org/10.1186/s12903-022-02681-6",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.1186/s12903-023-03673-w": {
+   "url": "https://doi.org/10.1186/s12903-023-03673-w",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.1186/s12903-025-06845-y": {
    "url": "https://doi.org/10.1186/s12903-025-06845-y",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by-nc-nd"
+  },
+  "10.1186/s13005-015-0068-7": {
+   "url": "https://doi.org/10.1186/s13005-015-0068-7",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
   },
   "10.1186/s40644-019-0190-z": {
    "url": "https://doi.org/10.1186/s40644-019-0190-z",
@@ -265,11 +439,23 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.1186/s40902-025-00464-x": {
+   "url": "https://doi.org/10.1186/s40902-025-00464-x",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.1259/dmfr.20140238": {
    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/4277442",
    "version": "published",
    "host": "repository",
    "licence": null
+  },
+  "10.1371/journal.pone.0153322": {
+   "url": "https://doi.org/10.1371/journal.pone.0153322",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
   },
   "10.1371/journal.pone.0186682": {
    "url": "https://doi.org/10.1371/journal.pone.0186682",
@@ -301,14 +487,38 @@
    "host": "publisher",
    "licence": "cc-by-nc"
   },
+  "10.2186/jpr.jpr_d_24_00168": {
+   "url": "https://doi.org/10.2186/jpr.jpr_d_24_00168",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by-nc"
+  },
   "10.2334/josnusd.49.1": {
    "url": "https://doi.org/10.2334/josnusd.49.1",
    "version": "published",
    "host": "publisher",
    "licence": null
   },
+  "10.2522/ptj.20140548": {
+   "url": "https://doi.org/10.2522/ptj.20140548",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
+  },
   "10.3174/ajnr.a1307": {
    "url": "https://doi.org/10.3174/ajnr.a1307",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.3389/froh.2023.1170966": {
+   "url": "https://doi.org/10.3389/froh.2023.1170966",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.3389/froh.2024.1466076": {
+   "url": "https://doi.org/10.3389/froh.2024.1466076",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
@@ -355,11 +565,23 @@
    "host": "publisher",
    "licence": "cc-by"
   },
+  "10.34172/japid.025.3973": {
+   "url": "https://doi.org/10.34172/japid.025.3973",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.4103/0975-5950.69147": {
    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/3304182",
    "version": "published",
    "host": "repository",
    "licence": "cc-by-nc-sa"
+  },
+  "10.4317/medoral.21631": {
+   "url": "https://doi.org/10.4317/medoral.21631",
+   "version": "published",
+   "host": "publisher",
+   "licence": null
   },
   "10.5037/jomr.2010.1102": {
    "url": "https://doi.org/10.5037/jomr.2010.1102",
@@ -379,6 +601,12 @@
    "host": "publisher",
    "licence": "cc-by-nc-nd"
   },
+  "10.5146/tjpath.2022.01573": {
+   "url": "https://doi.org/10.5146/tjpath.2022.01573",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
   "10.7759/cureus.104441": {
    "url": "https://doi.org/10.7759/cureus.104441",
    "version": "published",
@@ -393,6 +621,12 @@
   },
   "10.7759/cureus.31671": {
    "url": "https://doi.org/10.7759/cureus.31671",
+   "version": "published",
+   "host": "publisher",
+   "licence": "cc-by"
+  },
+  "10.7759/cureus.66735": {
+   "url": "https://doi.org/10.7759/cureus.66735",
    "version": "published",
    "host": "publisher",
    "licence": "cc-by"
