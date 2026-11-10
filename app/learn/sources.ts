@@ -130,3 +130,18 @@ export const slicesSources: Source[] = [
   { id: 5, text: 'NiiVue contributors. NiiVue: a WebGL2 medical image viewer. Version 0.69.0, BSD-2-Clause licence. GitHub repository.', href: 'https://github.com/niivue/niivue' },
   { id: 6, text: 'Vivatheca. tools/cbct/voxelize.py: how each virtual scan is made from the model mesh (voxel size, tissue values).', href: 'https://github.com/CBCT-2026/Vivatheca/blob/main/tools/cbct/voxelize.py' },
 ];
+
+// Sources for the student guide to CBCT reports (/learn/cbct-report). Numbers match [n] in t.learnCbct.
+// Checked on PubMed, 10 November 2026. The guide uses no text or data from any patient dataset.
+export const cbctReportSources: Source[] = [
+  { id: 1, text: 'Carter L, Farman AG, Geist J, et al. American Academy of Oral and Maxillofacial Radiology executive opinion statement on performing and interpreting diagnostic cone beam computed tomography. Oral Surg Oral Med Oral Pathol Oral Radiol Endod. 2008;106(4):561-562.', href: 'https://doi.org/10.1016/j.tripleo.2008.07.007' },
+  { id: 2, text: 'American Dental Association Council on Scientific Affairs. The use of cone-beam computed tomography in dentistry: an advisory statement. J Am Dent Assoc. 2012;143(8):899-902.', href: 'https://doi.org/10.14219/jada.archive.2012.0295' },
+  { id: 3, text: 'Tyndall DA, Price JB, Tetradis S, et al. Position statement of the American Academy of Oral and Maxillofacial Radiology on selection criteria for the use of radiology in dental implantology with emphasis on cone beam computed tomography. Oral Surg Oral Med Oral Pathol Oral Radiol. 2012;113(6):817-826.', href: 'https://doi.org/10.1016/j.oooo.2012.03.005' },
+  { id: 4, text: 'Matzen LH, Wenzel A. Efficacy of CBCT for assessment of impacted mandibular third molars: a review, based on a hierarchical model of evidence. Dentomaxillofac Radiol. 2015;44(1):20140189.', href: 'https://doi.org/10.1259/dmfr.20140189' },
+  { id: 5, text: 'Patel S, Brown J, Semper M, Abella F, Mannocci F. European Society of Endodontology position statement: use of cone beam computed tomography in endodontics. Int Endod J. 2019;52(12):1675-1678.', href: 'https://doi.org/10.1111/iej.13187' },
+  { id: 6, text: 'Price JB, Thaw KL, Tyndall DA, Ludlow JB, Padilla RJ. Incidental findings from cone beam computed tomography of the maxillofacial region: a descriptive retrospective study. Clin Oral Implants Res. 2012;23(11):1261-1268.', href: 'https://doi.org/10.1111/j.1600-0501.2011.02299.x' },
+  { id: 7, text: 'Edwards R, Altalibi M, Flores-Mir C. The frequency and nature of incidental findings in cone-beam computed tomographic scans of the head and neck region: a systematic review. J Am Dent Assoc. 2013;144(2):161-170.', href: 'https://doi.org/10.14219/jada.archive.2013.0095' },
+  { id: 8, text: 'Schulze R, Heil U, Gross D, et al. Artefacts in CBCT: a review. Dentomaxillofac Radiol. 2011;40(5):265-273.', href: 'https://doi.org/10.1259/dmfr/30642039' },
+  { id: 9, text: 'Scarfe WC, Farman AG. What is cone-beam CT and how does it work? Dent Clin North Am. 2008;52(4):707-730.', href: 'https://doi.org/10.1016/j.cden.2008.05.005' },
+  { id: 10, text: 'Pauwels R, Jacobs R, Singer SR, Mupparapu M. CBCT-based bone quality assessment: are Hounsfield units applicable? Dentomaxillofac Radiol. 2015;44(1):20140238.', href: 'https://doi.org/10.1259/dmfr.20140238' },
+];

@@ -84,6 +84,11 @@ export default async function LearnPage() {
               <p><Ruby text={l.tools.slices.text} /></p>
               <div className="learn-actions"><a className="button" href="/learn/slices"><Ruby text={l.tools.slices.link} /></a></div>
             </article>
+            <article className="learn-guide">
+              <h3><Ruby text={l.tools.cbctReport.title} /></h3>
+              <p><Ruby text={l.tools.cbctReport.text} /></p>
+              <div className="learn-actions"><a className="button" href="/learn/cbct-report"><Ruby text={l.tools.cbctReport.link} /></a></div>
+            </article>
           </div>
         </section>
 

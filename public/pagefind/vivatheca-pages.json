@@ -23,6 +23,10 @@
   "en": "0cf94dff31fd",
   "ja": "bf9b38b28835"
  },
+ "/learn/cbct-report": {
+  "en": "6c5afa683f43",
+  "ja": "790aade9e2c9"
+ },
  "/learn/cracked-tooth": {
   "en": "5270c4f8ac28",
   "ja": "8e112fcc8dee"
@@ -44,8 +48,8 @@
   "ja": "fc85f3ae52ba"
  },
  "/learn": {
-  "en": "e12c7b712201",
-  "ja": "c17cd9338d02"
+  "en": "34458edc6ec1",
+  "ja": "a922fe4b6de5"
  },
  "/learn/periodontitis": {
   "en": "2a5e94ea2642",
@@ -68,8 +72,8 @@
   "ja": "ec3ab4d3d5c1"
  },
  "/models/impacted-wisdom-tooth": {
-  "en": "8ca4f9525f6e",
-  "ja": "af70191a5760"
+  "en": "1a4cf44e6c21",
+  "ja": "994631763434"
  },
  "/models": {
   "en": "7e783d2bbd77",
@@ -152,24 +156,24 @@
   "ja": "eede4bbd05d9"
  },
  "/head-neck/": {
-  "en": "ea94df57014e",
+  "en": "ae1510cbeffa",
   "ja": "82fe5337b923"
  },
  "/head-neck/ameloblastoma/": {
   "en": "089e9351315a",
-  "ja": "531a263af5b8"
+  "ja": "1a22cfc41d88"
  },
  "/head-neck/mec/": {
-  "en": "e66ce8dec28d",
+  "en": "a075f342f474",
   "ja": "53a7cc53619b"
  },
  "/head-neck/okc/": {
-  "en": "f1e2afddd8c0",
-  "ja": "12932eb6b560"
+  "en": "c09f60714411",
+  "ja": "ef4bd5629b5b"
  },
  "/head-neck/scc/": {
-  "en": "0c1183893208",
-  "ja": "2be1f7ec9881"
+  "en": "e1f87677311f",
+  "ja": "6c0603d3c6d0"
  },
  "/models/impacted-wisdom-tooth/options/": {
   "en": "d9178e90a213",

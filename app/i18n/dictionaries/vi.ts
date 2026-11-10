@@ -149,6 +149,11 @@ const vi = withFallback(en, {
         "title": "Đọc lát cắt CBCT đối chiếu với mô hình",
         "text": "Các lát cắt ngang, đứng ngang và đứng dọc của phim chụp ảo tạo từ mô hình, kèm hình dựng 3D, để luyện đối chiếu hình ảnh với giải phẫu.",
         "link": "Mở trình xem lát cắt"
+      },
+      "cbctReport": {
+        "title": "Báo cáo CBCT nha khoa gồm những gì",
+        "text": "Các phần của báo cáo CBCT, điểm khác nhau với cấy ghép, răng khôn và nội nha, và vì sao phải đọc toàn bộ phim, dựa trên hướng dẫn.",
+        "link": "Mở hướng dẫn"
       }
     },
     "patientsHeading": "Bạn muốn giải thích cho bệnh nhân?",
@@ -649,6 +654,141 @@ const vi = withFallback(en, {
       {
         "q": "Khuyết hổng từ lồi cầu đến vùng răng cửa bên ở một bên thuộc loại Brown nào?",
         "a": "Loại IIc: gồm một răng nanh và lồi cầu.[3]"
+      }
+    ]
+  },
+  "learnCbct": {
+    "metaTitle": "Báo cáo CBCT nha khoa gồm những gì: hướng dẫn cho sinh viên - Vivatheca",
+    "metaDescription": "Các phần của một báo cáo CT chùm tia hình nón, điểm khác nhau theo câu hỏi lâm sàng (cấy ghép, răng khôn hàm dưới, nội nha), phát hiện tình cờ và giới hạn của CBCT, dựa trên hướng dẫn và tuyên bố đồng thuận, dành cho sinh viên nha khoa và y khoa.",
+    "eyebrow": "Hướng dẫn cho sinh viên",
+    "heading": "Báo cáo CBCT nha khoa gồm những gì",
+    "lead": "Phim CT chùm tia hình nón (CBCT) chỉ hữu ích khi có báo cáo. Các hướng dẫn yêu cầu báo cáo bằng văn bản trả lời câu hỏi lâm sàng và đồng thời mô tả toàn bộ thể tích được chụp, không chỉ chiếc răng hay vị trí được yêu cầu.[1][6][7]",
+    "notForUse": "Hướng dẫn này chỉ dùng để học. Đây không phải mẫu báo cáo và không được dùng để đọc hay viết báo cáo phim của bệnh nhân thật.",
+    "openSlices": "Luyện đọc lát cắt",
+    "objectivesHeading": "Sau bài này, bạn có thể",
+    "objectives": [
+      "Liệt kê các phần thường có của một báo cáo CBCT nha khoa.",
+      "Giải thích vì sao phải đọc toàn bộ thể tích được chụp, không chỉ vùng quan tâm.",
+      "Nêu những gì báo cáo bổ sung cho vị trí cấy ghép, răng khôn hàm dưới mọc ngầm và vấn đề nội nha.",
+      "Kể tên các giới hạn chính của CBCT: nhiễu ảnh, độ tương phản mô mềm kém và giá trị xám không phải đơn vị Hounsfield thật."
+    ],
+    "termsHeading": "Thuật ngữ chính",
+    "terms": [
+      {
+        "term": "Trường chụp (FOV)",
+        "text": "Kích thước thể tích được chụp, từ vài răng (nhỏ) đến toàn bộ mặt và nền sọ (lớn). Trường chụp càng lớn thì càng thấy nhiều cấu trúc giải phẫu và càng nhiều điều cần báo cáo.[9]"
+      },
+      {
+        "term": "Voxel",
+        "text": "Đơn vị 3D nhỏ nhất của phim chụp, thường khoảng 0,08 đến 0,4 mm trong CBCT nha khoa. Voxel càng nhỏ thì chi tiết càng rõ.[9]"
+      },
+      {
+        "term": "Mặt cắt ngang, đứng ngang và đứng dọc",
+        "text": "Ba mặt phẳng dùng để đọc phim: lát cắt nằm ngang, lát cắt trước sau và lát cắt hai bên. Câu hỏi về cấy ghép và răng khôn thường được trả lời trên các mặt cắt vuông góc với xương hàm.[3][9]"
+      },
+      {
+        "term": "Vùng quan tâm",
+        "text": "Chiếc răng hoặc vị trí được yêu cầu chụp. Báo cáo trả lời câu hỏi này trước tiên.[1]"
+      },
+      {
+        "term": "Phát hiện tình cờ",
+        "text": "Điều được thấy ngoài câu hỏi lâm sàng, như bệnh xoang, vôi hóa mô mềm hoặc thay đổi ở khớp. Một số cần chuyển khám, một số cần theo dõi và nhiều cái không cần xử trí.[6][7]"
+      },
+      {
+        "term": "Nhiễu ảnh",
+        "text": "Hình ảnh xuất hiện trên phim nhưng không có ở bệnh nhân, như các vệt sọc và dải tối cạnh kim loại hoặc răng có mật độ cao (hiệu ứng cứng hóa chùm tia), hoặc nhòe do cử động.[8]"
+      }
+    ],
+    "partsHeading": "Các phần thường có của một báo cáo",
+    "partsIntro": "Cách viết báo cáo khác nhau giữa các cơ sở và không có mẫu bắt buộc duy nhất. Các phần dưới đây tổng hợp những gì các hướng dẫn và nghiên cứu được trích dẫn ở đây cho rằng báo cáo nên có; thứ tự chỉ là một cách thường gặp, không phải quy tắc.[1][3][6]",
+    "parts": [
+      {
+        "title": "Câu hỏi lâm sàng.",
+        "text": "Vì sao phim được chụp, để người đọc kiểm tra câu trả lời có khớp với câu hỏi. Chỉ nên chụp CBCT khi câu trả lời dự kiến giúp ích cho việc điều trị.[2]"
+      },
+      {
+        "title": "Thông số chụp.",
+        "text": "Ngày chụp, trường chụp, kích thước voxel và mọi giới hạn về chất lượng hình ảnh, như cử động hoặc nhiễu ảnh do kim loại.[8][9]"
+      },
+      {
+        "title": "Trả lời câu hỏi.",
+        "text": "Các phát hiện ở vùng quan tâm, kèm số đo khi câu hỏi cần (xem bảng dưới), và mọi khuyến nghị, như chuyển đến bác sĩ chuyên khoa.[3][4][5]"
+      },
+      {
+        "title": "Xem xét toàn bộ thể tích.",
+        "text": "Kiểm tra mọi cấu trúc trong phim: răng và xương hàm, khớp thái dương hàm, xoang, hốc mũi, đường thở và mọi vôi hóa mô mềm.[1][6][7]"
+      },
+      {
+        "title": "Phát hiện tình cờ.",
+        "text": "Mô tả từng phát hiện và nêu cần chuyển khám, theo dõi hay không cần xử trí.[6][7]"
+      }
+    ],
+    "byQuestionHeading": "Điểm khác nhau theo câu hỏi lâm sàng",
+    "byQuestionColumns": [
+      "Câu hỏi",
+      "Khi nào dùng CBCT",
+      "Báo cáo bổ sung gì"
+    ],
+    "byQuestion": [
+      {
+        "question": "Vị trí cấy ghép nha khoa",
+        "when": "AAOMR khuyến nghị dùng hình ảnh cắt lớp cho mọi vị trí cấy ghép, với CBCT là phương pháp được lựa chọn.[3]",
+        "covers": "Chiều cao và chiều rộng xương tại vị trí, và khoảng cách đến các cấu trúc lân cận như ống răng dưới, lỗ cằm, sàn xoang hàm trên và ống răng cửa.[3]"
+      },
+      {
+        "question": "Răng khôn hàm dưới mọc ngầm",
+        "when": "Phim toàn cảnh hoặc phim quanh chóp là đủ trong đa số trường hợp. CBCT có thể giúp khi phim 2D có dấu hiệu chân răng sát ống thần kinh và kết quả có thể thay đổi điều trị.[4]",
+        "covers": "Vị trí ống răng dưới so với chân răng (trên, dưới, bên cạnh hay giữa các chân) và có xương ngăn cách hay không.[4]"
+      },
+      {
+        "question": "Vấn đề nội nha",
+        "when": "Một số trường hợp chọn lọc mà phim thông thường không đủ, dùng trường chụp nhỏ nhất trả lời được câu hỏi.[5]",
+        "covers": "Thay đổi vùng quanh chóp, hình thái ống tủy, nứt gãy hoặc tiêu chân răng, và liên quan của chân răng với các cấu trúc lân cận.[5]"
+      }
+    ],
+    "evidenceHeading": "Bao nhiêu phim có thêm điều cần báo cáo",
+    "evidenceColumns": [
+      "Nghiên cứu",
+      "Thiết kế",
+      "Kết quả"
+    ],
+    "evidence": [
+      {
+        "study": "Price và cs. 2012[6]",
+        "design": "300 phim CBCT liên tiếp tại một phòng khám trường đại học",
+        "finding": "881 phát hiện tình cờ trên 272 phim (3,2 mỗi phim). Thường gặp nhất là phát hiện ở đường thở (35%), tiếp theo là vôi hóa mô mềm (20%). 16,1% cần chuyển khám hoặc can thiệp và 15,6% cần theo dõi.[6]"
+      },
+      {
+        "study": "Edwards và cs. 2013[7]",
+        "design": "Tổng quan hệ thống, 5 nghiên cứu",
+        "finding": "1,3 đến 2,9 phát hiện tình cờ mỗi phim; 24,6% đến 93,4% số phim có ít nhất một. Phần lớn nằm ngoài răng và xương hàm.[7]"
+      }
+    ],
+    "uncertainHeading": "Những điều chưa chắc chắn",
+    "uncertain": [
+      "Tỷ lệ phát hiện tình cờ khác nhau nhiều giữa các nghiên cứu, do khác bệnh nhân, trường chụp và định nghĩa phát hiện.[7]",
+      "Giá trị xám trong CBCT nha khoa không phải đơn vị Hounsfield đã hiệu chuẩn và khác nhau giữa các máy, nên không nên đánh giá chất lượng xương chỉ dựa vào con số.[10]",
+      "Bằng chứng mức cao cho thấy CBCT cải thiện kết quả cho bệnh nhân vẫn còn hạn chế ở một số mục đích, như phần lớn các ca nhổ răng khôn.[4]"
+    ],
+    "explainHeading": "Giải thích báo cáo CBCT cho bệnh nhân",
+    "explain": [
+      "Trước tiên nói vì sao chụp phim và phim cho thấy gì về câu hỏi đó.[2]",
+      "Giải thích rằng toàn bộ phim đã được kiểm tra nên có thể nhắc đến phát hiện khác, và nhiều phát hiện không cần xử trí.[6][7]",
+      "Nói rõ giới hạn: CBCT cho thấy xương và răng tốt nhưng mô mềm kém, và miếng trám hoặc mão kim loại có thể che khuất chi tiết xung quanh.[8][9]"
+    ],
+    "questionsHeading": "Kiểm tra hiểu biết",
+    "questions": [
+      {
+        "q": "Phim được chụp để lập kế hoạch một trụ cấy ghép. Vì sao báo cáo còn nhắc đến xoang và đường thở?",
+        "a": "Các hướng dẫn yêu cầu đọc và báo cáo toàn bộ thể tích được chụp, không chỉ vùng quan tâm, và phần lớn phát hiện tình cờ nằm ngoài răng và xương hàm.[1][7]"
+      },
+      {
+        "q": "Khi nào răng khôn hàm dưới mọc ngầm cần chụp CBCT trước khi nhổ?",
+        "a": "Đa số trường hợp, phim toàn cảnh hoặc quanh chóp là đủ. CBCT có thể giúp khi phim 2D gợi ý chân răng sát ống thần kinh và kết quả có thể thay đổi kế hoạch.[4]"
+      },
+      {
+        "q": "Vì sao vùng quanh mão kim loại khó đọc?",
+        "a": "Kim loại và vật liệu mật độ cao gây ra vệt sọc và dải tối (nhiễu ảnh do cứng hóa chùm tia), có thể che khuất hoặc giả tạo phát hiện ở gần.[8]"
       }
     ]
   },

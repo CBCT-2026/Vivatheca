@@ -26,6 +26,7 @@ const pages = [
   '/fixation/index.html',
   '/learn/periodontitis',
   '/learn/slices',
+  '/learn/cbct-report',
   '/models/averaged-jaw',
   '/visit-pack',
 ];

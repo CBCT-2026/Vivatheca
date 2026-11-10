@@ -137,6 +137,7 @@ const en = {
     toolsHeading: 'Study tools',
     tools: {
       slices: { title: 'Read CBCT slices against the model', text: 'Axial, coronal and sagittal slices of virtual scans made from the models, with a 3D render, to practise matching imaging to anatomy.', link: 'Open the slice viewer' },
+      cbctReport: { title: 'What a dental CBCT report covers', text: 'The parts of a CBCT report, what changes for implants, third molars and endodontics, and why the whole scan is read, from guidelines.', link: 'Open the guide' },
     },
     patientsHeading: 'Educating patients instead?',
     patientsText: 'The clinician part of Vivatheca has plain-language model pages and a builder for patient information.',
@@ -437,6 +438,72 @@ const en = {
   },
   // Student guide: cracked tooth (/learn/cracked-tooth). [n] marks a source in crackedSources (app/learn/sources.ts).
   // Student tool: virtual CBCT slice viewer (/learn/slices). [n] marks a source in slicesSources (app/learn/sources.ts).
+  // Student guide: what a dental CBCT report covers (/learn/cbct-report). [n] marks a source in cbctReportSources.
+  learnCbct: {
+    metaTitle: 'What a dental CBCT report covers: student guide - Vivatheca',
+    metaDescription: 'The parts of a cone-beam CT report, what changes with the clinical question (implant, third molar, endodontics), incidental findings and the limits of CBCT, from guidelines and position statements, for dental and medical students.',
+    eyebrow: 'Student guide',
+    heading: 'What a dental CBCT report covers',
+    lead: 'A cone-beam CT (CBCT) scan is only as useful as its report. Guidelines expect a written report that answers the clinical question and also covers everything else in the scanned volume, not only the tooth or site that was asked about.[1][6][7]',
+    notForUse: 'This guide is for learning only. It is not a reporting template, and it must not be used to report or interpret a real patient’s scan.',
+    openSlices: 'Practise reading slices',
+    objectivesHeading: 'After this guide you should be able to',
+    objectives: [
+      'List the usual parts of a dental CBCT report.',
+      'Explain why the whole scanned volume must be read, not only the region of interest.',
+      'Say what a report adds for an implant site, an impacted lower third molar and an endodontic problem.',
+      'Name the main limits of CBCT: artefacts, poor soft-tissue contrast and grey values that are not true Hounsfield units.',
+    ],
+    termsHeading: 'Key terms',
+    terms: [
+      { term: 'Field of view (FOV)', text: 'The size of the scanned volume, from a few teeth (small) to the whole face and skull base (large). A larger field of view shows more anatomy, and so more to report.[9]' },
+      { term: 'Voxel', text: 'The smallest 3D element of the scan, usually about 0.08 to 0.4 mm across in dental CBCT. Smaller voxels show finer detail.[9]' },
+      { term: 'Axial, coronal and sagittal', text: 'The three planes the volume is read in: horizontal slices, front-to-back slices and side-to-side slices. Implant and third molar questions are often answered on cross-sections drawn across the jaw.[3][9]' },
+      { term: 'Region of interest', text: 'The tooth or site the scan was requested for. The report answers this question first.[1]' },
+      { term: 'Incidental finding', text: 'Something seen outside the clinical question, such as sinus disease, soft-tissue calcification or a joint change. Some need referral, some need monitoring and many need no action.[6][7]' },
+      { term: 'Artefact', text: 'Something in the image that is not in the patient, such as streaks and dark bands next to metal or dense teeth (beam hardening), or blurring from movement.[8]' },
+    ],
+    partsHeading: 'The usual parts of a report',
+    partsIntro: 'Reports differ between services, and there is no single required template. The parts below bring together what the guidelines and studies cited here say a report should cover; the order is a common one, not a rule.[1][3][6]',
+    parts: [
+      { title: 'Clinical question.', text: 'Why the scan was taken, so the reader can check the answer matches the question. CBCT should only be taken when the expected answer will help care.[2]' },
+      { title: 'Scan details.', text: 'Date, field of view and voxel size, and any limits to image quality, such as movement or metal artefacts.[8][9]' },
+      { title: 'Answer to the question.', text: 'The findings at the region of interest, with measurements where the question needs them (see the table below), and any recommendation, such as referral to a specialist.[3][4][5]' },
+      { title: 'Review of the whole volume.', text: 'Every structure in the scan is checked: teeth and jaws, the jaw joints, sinuses, nasal cavity, airway and any soft-tissue calcifications.[1][6][7]' },
+      { title: 'Incidental findings.', text: 'Each one described, with whether it needs referral, monitoring or no action.[6][7]' },
+    ],
+    byQuestionHeading: 'What changes with the clinical question',
+    byQuestionColumns: ['Question', 'When CBCT is used', 'What the report adds'],
+    byQuestion: [
+      { question: 'Dental implant site', when: 'The AAOMR recommends cross-sectional imaging for every implant site, with CBCT as the method of choice.[3]', covers: 'Bone height and width at the site, and the distance to nearby structures such as the inferior alveolar canal, mental foramen, maxillary sinus floor and incisive canal.[3]' },
+      { question: 'Impacted lower third molar', when: 'Panoramic or periapical images are enough in most cases. CBCT may help when the 2D image shows signs of close contact between the roots and the canal and the result could change treatment.[4]', covers: 'The position of the inferior alveolar canal relative to the roots (above, below, beside or between them) and whether bone separates them.[4]' },
+      { question: 'Endodontic problem', when: 'Selected cases where conventional radiographs are not enough, using the smallest field of view that answers the question.[5]', covers: 'Periapical changes, root canal anatomy, root fractures or resorption, and the relation of roots to nearby structures.[5]' },
+    ],
+    evidenceHeading: 'How often there is something else to report',
+    evidenceColumns: ['Study', 'Design', 'Finding'],
+    evidence: [
+      { study: 'Price et al. 2012[6]', design: '300 consecutive CBCT scans at one university clinic', finding: '881 incidental findings in 272 scans (3.2 per scan). Airway findings were most common (35%), then soft-tissue calcifications (20%). 16.1% needed referral or intervention and 15.6% needed monitoring.[6]' },
+      { study: 'Edwards et al. 2013[7]', design: 'Systematic review, 5 studies', finding: '1.3 to 2.9 incidental findings per scan; 24.6% to 93.4% of scans had at least one. Most were outside the teeth and jaws.[7]' },
+    ],
+    uncertainHeading: 'What is uncertain',
+    uncertain: [
+      'Rates of incidental findings vary widely between studies, because they used different patients, fields of view and definitions of a finding.[7]',
+      'Grey values in dental CBCT are not calibrated Hounsfield units and differ between machines, so bone quality should not be judged from the numbers alone.[10]',
+      'High-level evidence that CBCT improves the outcome for patients is still limited for some uses, such as most third molar removals.[4]',
+    ],
+    explainHeading: 'Explaining a CBCT report to a patient',
+    explain: [
+      'Say why the scan was taken and what it showed for that question first.[2]',
+      'Explain that the whole scan was checked, so other findings may be mentioned, and that many need no action.[6][7]',
+      'Be clear about the limits: CBCT shows bone and teeth well but soft tissues poorly, and metal fillings or crowns can hide nearby detail.[8][9]',
+    ],
+    questionsHeading: 'Check your understanding',
+    questions: [
+      { q: 'A scan was taken to plan one implant. Why does the report also mention the sinuses and airway?', a: 'Guidelines expect the whole scanned volume to be read and reported, not only the region of interest, and most incidental findings lie outside the teeth and jaws.[1][7]' },
+      { q: 'When does an impacted lower third molar need CBCT before removal?', a: 'In most cases a panoramic or periapical image is enough. CBCT may help when the 2D image suggests close contact between the roots and the canal and the result could change the plan.[4]' },
+      { q: 'Why can the area around a metal crown be hard to report?', a: 'Metal and dense materials cause streaks and dark bands (beam hardening artefacts) that can hide or mimic findings nearby.[8]' },
+    ],
+  },
   learnSlices: {
     metaTitle: 'Read CBCT slices against the 3D model: student tool - Vivatheca',
     metaDescription: 'Axial, coronal and sagittal slices of virtual cone-beam CT scans made from Vivatheca’s own 3D models, with a volume render, for students learning to read dental and jaw imaging.',

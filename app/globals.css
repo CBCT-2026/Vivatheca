@@ -930,6 +930,8 @@ html[data-furigana="off"] rt, html[data-furigana="off"] rp { display: none; }
 .learn-table tbody th { color: var(--heading); width: 24%; }
 .learn-uncertain { border: 1px solid color-mix(in srgb, var(--amber-500) 35%, transparent); background: color-mix(in srgb, var(--amber-500) 12%, var(--surface)); border-radius: var(--radius-sm); padding: .75rem 1rem; }
 .learn-uncertain > :first-child { margin-top: 0; }
+/* Citation numbers on the amber "uncertain" box: --accent is 4.38:1 there in light mode (axe colour-contrast). */
+:root:not([data-theme='dark']) .learn-uncertain .cite a { color: var(--cyan-700); }
 .learn-question { border-top: 1px solid var(--line); padding: .75rem 0; }
 .learn-question summary { cursor: pointer; color: var(--heading); font-weight: 720; }
 .learn-question p { margin: .5rem 0 0; }
