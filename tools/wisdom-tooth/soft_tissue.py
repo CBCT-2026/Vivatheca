@@ -33,7 +33,13 @@ from colours import LINEAR  # noqa: E402
 SCALE = 1.7
 PITCH = 0.4                      # grid step in model mm (0.24 mm real)
 # ---------------------------------------------------------------- cited figures (real mm)
-GINGIVA = 0.99      # mean mid-buccal and mid-lingual gingival thickness (ultrasound): Müller et al. 1999
+GINGIVA = 0.99      # mean mid-buccal and mid-lingual gingival thickness (ultrasound): Müller et al. 1999 (reference only)
+# Gum thickness by tooth, front to back, mandible (ultrasound). Measured: central incisor 0.7 (Müller et al. 2000),
+# canine 0.8 and second molar 1.5 (Eger et al. 1996), third molar 2.3 (Müller et al. 2000).
+# DRAWN: lateral incisor,
+# premolars and first molar are straight-line steps between those measured teeth (no per-tooth value used).
+GUM_BY_TOOTH = [0.7, 0.75, 0.8, 0.975, 1.15, 1.325, 1.5, 2.3]   # incisor 1, 2, canine, PM1, PM2, M1, M2, M3
+RETROMOLAR_T = 4.0  # retromolar mucosa thickness, "more than 4 mm on average": Müller et al. 2000
 SUPRACRESTAL = 0.69 + 0.97 + 1.07  # sulcus + epithelial + connective tissue attachment: Gargiulo et al. 1961
 CREST_BELOW_CEJ = 1.5   # healthy alveolar crest below the CEJ, inside 0.4-1.9 mm in health: Hausmann et al. 1991
 KTW = 4.59          # mean width of the gum (keratinised gingiva), incisors to first molars: Lee et al. 2018
@@ -145,6 +151,7 @@ def build(path):
     rise = (SUPRACRESTAL - CREST_BELOW_CEJ) * SCALE
     tooth_list = [(t, CROWN[i]) for i, t in enumerate(teeth)] + [(wisdom, CROWN_M3)]
     curves = CURVE[:len(teeth)] + [CURVE_M3]
+    gums = GUM_BY_TOOTH[:len(teeth)] + [GUM_BY_TOOTH[-1]]
     margins = []
     for t, crown in tooth_list:
         top = t.vertices[:, 1].max()
@@ -182,6 +189,7 @@ def build(path):
     d1 = np.take_along_axis(D, first[None], 0)[0]
     d2 = np.take_along_axis(D, second[None], 0)[0]
     margin = np.array(margins)[first]
+    gum_mm = ndimage.gaussian_filter(np.array(gums)[first], 3.0 / PITCH)
     # Papilla: where two teeth are about equally near (between them), the margin rises by the CEJ curvature.
     between = np.clip(1 - (d2 - d1) / (3.0 * SCALE), 0, 1) * np.exp(-d1 / (4.0 * SCALE))
     margin = margin + between * np.minimum(np.array(curves)[first], np.array(curves)[second]) * SCALE
@@ -194,7 +202,11 @@ def build(path):
     # One continuous soft tissue sheet: gum thickness down to the mucogingival junction, easing to the thinner
     # lining mucosa over 1 mm (real). It is meshed once, then each face is coloured by which band it lies in,
     # so gum and mucosa meet without a gap or step.
-    gum_t = GINGIVA * SCALE * np.clip(0.3 + 0.7 * H / (MARGIN_TAPER * SCALE), 0.3, 1.0)
+    # Behind the last tooth the gum thickens towards the retromolar pad.
+    last = min(t.bounds[0][2] for t, _ in tooth_list)
+    pad = np.clip((last - Z) / (RETROMOLAR * SCALE * 0.6), 0, 1)[None, :]
+    gum_mm = gum_mm * (1 - pad) + RETROMOLAR_T * pad
+    gum_t = gum_mm[:, None, :] * SCALE * np.clip(0.3 + 0.7 * H / (MARGIN_TAPER * SCALE), 0.3, 1.0)
     k = np.clip((H - KTW * SCALE) / (1.0 * SCALE), 0, 1)
     thick = (gum_t * (1 - k) + MUCOSA * SCALE * k) * end
     vox = (dist > 0) & (dist <= thick) & (H >= 0) & (H <= (KTW + MUCOSA_BAND) * SCALE) & zmask
@@ -248,7 +260,7 @@ def save(path, layers):
 
 
 if __name__ == '__main__':
-    report = {'scale': SCALE, 'gingiva_mm': GINGIVA, 'supracrestal_mm': SUPRACRESTAL, 'ktw_mm': KTW,
+    report = {'scale': SCALE, 'gum_by_tooth_mm': GUM_BY_TOOTH, 'retromolar_mm': RETROMOLAR_T, 'supracrestal_mm': SUPRACRESTAL, 'ktw_mm': KTW,
               'mucosa_mm_drawn': MUCOSA, 'mucosa_band_mm_drawn': MUCOSA_BAND}
     for p in sys.argv[1:]:
         r = build(p)

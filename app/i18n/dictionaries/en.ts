@@ -1264,7 +1264,7 @@ const en = {
       'The inferior alveolar nerve (yellow) in the mandibular canal, passing between the third molar roots.[2][6] This is a less common, higher-risk arrangement; more often the canal lies below or beside the roots.[3][7][8] CBCT showed this relationship more accurately than a panoramic X-ray in a meta-analysis of three studies,[5] but a randomised trial found that CBCT before removal did not reduce nerve injury.[9]',
       'The nerve rising to enter the mandibular canal on the inner side of the ramus, near the lingula.[2][4]',
       'Two soft tissue layers you can take off one at a time: the gum (pink), which hugs the necks of the teeth, and the redder lining of the mouth (mucosa) below it. Take both off to see the bone, roots and nerve.',
-      'The gum is about 1 mm thick.[11] Its edge sits 2.7 mm above the edge of the bone,[12] and the bone edge is 1.5 mm below the line where the crown meets the root.[13] The gum band is about 4.6 mm wide,[14] and between teeth the gum rises into a point, following the curve of that line.[10]',
+      'The gum gets thicker towards the back: from 0.7 mm at the front teeth and 0.8 mm at the canine to 1.5 mm at the second molar and 2.3 mm at the wisdom tooth, and over 4 mm behind it.[11][16] Its edge sits 2.7 mm above the edge of the bone,[12] and the bone edge is 1.5 mm below the line where the crown meets the root.[13] The gum band is about 4.6 mm wide,[14] and between teeth the gum rises into a point, following the curve of that line.[10]',
     ],
     normalHeading: 'How the normal was made',
     normalMethod: 'The matched normal is the same jaw, teeth and nerve. Only the wisdom tooth is changed: it is replaced by an upright third molar in line with the second molar, at the same biting level. Its shape is the second molar scaled to 92%, with roots 20% shorter, so the roots stay at least 1.5 mm from the nerve. This is an approximation: real third molars are usually smaller than second molars, with more variable crowns and often fused roots,[10] and the front edge of the ramus still slightly overlaps the back of the crown. An erupted wisdom tooth can still have roots near the nerve; this normal shows one typical arrangement.',
@@ -1279,7 +1279,7 @@ const en = {
     ],
     sourcesHeading: 'Published sources',
     citeLabel: 'Source {n}',
-    sourcesNote: 'Modelled from scratch by CBCT-2026, Vivatheca’s Founder & Director; no third-party or library mesh was used. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies. The gum and lining layers (version 1.4) were added by a Vivatheca build script, sized from the measurements in sources 11 to 15.',
+    sourcesNote: 'Modelled from scratch by CBCT-2026, Vivatheca’s Founder & Director; no third-party or library mesh was used. The sources below support the anatomy and terms the model shows; it was not built from a patient scan or from measurements in these studies. The gum and lining layers (version 1.4) were added by a Vivatheca build script, sized from the measurements in sources 10 to 16. Gum thickness at the lateral incisor, premolars and first molar is filled in evenly between the measured teeth.',
     changelogHeading: 'Change log',
     changelog: [
       { version: '1.4', text: 'Added two soft tissue layers, the gum and the lining of the mouth (mucosa). Each has its own button, so you can take them off one at a time.' },

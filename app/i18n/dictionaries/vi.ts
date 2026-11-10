@@ -1712,7 +1712,7 @@ const vi = withFallback(en, {
       "Dây thần kinh huyệt răng dưới (màu vàng) trong ống thần kinh răng dưới, đi giữa các chân của răng hàm lớn thứ ba.[2][6] Đây là kiểu sắp xếp ít gặp hơn và nguy cơ cao hơn; thường thì ống nằm dưới hoặc cạnh chân răng.[3][7][8] Trong một phân tích gộp ba nghiên cứu, CBCT thể hiện liên quan này chính xác hơn phim toàn cảnh,[5] nhưng một thử nghiệm ngẫu nhiên cho thấy chụp CBCT trước khi nhổ không làm giảm tổn thương thần kinh.[9]",
       "Dây thần kinh đi lên để vào ống thần kinh răng dưới ở mặt trong cành lên, gần lưỡi gà xương hàm dưới.[2][4]",
       "Hai lớp mô mềm có thể gỡ ra từng lớp: lợi (màu hồng) ôm quanh cổ răng, và lớp niêm mạc miệng đỏ hơn ở bên dưới. Gỡ cả hai để thấy xương, chân răng và dây thần kinh.",
-      "Lợi dày khoảng 1 mm.[11] Bờ lợi nằm cao hơn bờ xương 2,7 mm,[12] và bờ xương nằm dưới đường nối giữa thân răng và chân răng 1,5 mm.[13] Dải lợi rộng khoảng 4,6 mm,[14] và giữa các răng, lợi nhô lên thành một đỉnh nhọn theo đường cong của đường nối đó.[10]"
+      "Lợi dày dần về phía sau: 0,7 mm ở răng cửa và 0,8 mm ở răng nanh, đến 1,5 mm ở răng hàm lớn thứ hai và 2,3 mm ở răng khôn, và hơn 4 mm phía sau nó.[11][16] Bờ lợi nằm cao hơn bờ xương 2,7 mm,[12] và bờ xương nằm dưới đường nối giữa thân răng và chân răng 1,5 mm.[13] Dải lợi rộng khoảng 4,6 mm,[14] và giữa các răng, lợi nhô lên thành một đỉnh nhọn theo đường cong của đường nối đó.[10]"
     ],
     "normalHeading": "Cách làm mô hình bình thường",
     "normalMethod": "Mô hình bình thường tương ứng dùng cùng xương hàm, răng và dây thần kinh. Chỉ răng khôn được thay đổi: nó được thay bằng một răng hàm lớn thứ ba mọc thẳng, thẳng hàng với răng hàm lớn thứ hai, cùng mức khớp cắn. Hình dạng là răng hàm lớn thứ hai thu nhỏ còn 92%, chân răng ngắn hơn 20%, để chân răng cách dây thần kinh ít nhất 1,5 mm. Đây là cách làm gần đúng: răng hàm lớn thứ ba thật thường nhỏ hơn răng hàm lớn thứ hai, thân răng biến đổi nhiều hơn và chân răng thường dính nhau,[10] và bờ trước cành lên vẫn hơi chồng lên phía sau thân răng. Răng khôn đã mọc vẫn có thể có chân gần dây thần kinh; mô hình bình thường này thể hiện một kiểu sắp xếp điển hình.",
@@ -1727,7 +1727,7 @@ const vi = withFallback(en, {
     ],
     "sourcesHeading": "Nguồn đã công bố",
     "citeLabel": "Nguồn {n}",
-    "sourcesNote": "Được CBCT-2026, Nhà sáng lập kiêm Giám đốc Vivatheca, dựng từ đầu; không dùng lưới mô hình của bên thứ ba hay thư viện nào. Các nguồn dưới đây hỗ trợ giải phẫu và thuật ngữ mà mô hình thể hiện; mô hình không được làm từ phim chụp bệnh nhân hay từ số đo trong các nghiên cứu này. Các lớp lợi và niêm mạc (phiên bản 1.4) được thêm bằng một tập lệnh dựng của Vivatheca, theo số đo trong các nguồn 11 đến 15.",
+    "sourcesNote": "Được CBCT-2026, Nhà sáng lập kiêm Giám đốc Vivatheca, dựng từ đầu; không dùng lưới mô hình của bên thứ ba hay thư viện nào. Các nguồn dưới đây hỗ trợ giải phẫu và thuật ngữ mà mô hình thể hiện; mô hình không được làm từ phim chụp bệnh nhân hay từ số đo trong các nghiên cứu này. Các lớp lợi và niêm mạc (phiên bản 1.4) được thêm bằng một tập lệnh dựng của Vivatheca, theo số đo trong các nguồn 10 đến 16. Độ dày lợi ở răng cửa bên, răng hàm nhỏ và răng hàm lớn thứ nhất được nội suy đều giữa các răng đã đo.",
     "changelogHeading": "Nhật ký thay đổi",
     "changelog": [
       {
