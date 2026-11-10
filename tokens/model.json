@@ -6,6 +6,7 @@
     "bone":         { "$value": "#E3D3B5", "$description": "Bone" },
     "gum":          { "$value": "#E89A9A", "$description": "Gum, flaps and soft tissue" },
     "lining":       { "$value": "#D98C8C", "$description": "Sinus lining" },
+    "mucosa":       { "$value": "#C96A6A", "$description": "Lining (alveolar) mucosa below the gum: redder and darker than the gum, as the mucogingival junction looks in the mouth (2026-11-10)" },
     "clot":         { "$value": "#8B1E2D", "$description": "Blood clot and fistula tract" },
     "fat":          { "$value": "#F2D16B", "$description": "Buccal fat pad" },
     "graft":        { "$value": "#C9A46B", "$description": "Bone graft" },

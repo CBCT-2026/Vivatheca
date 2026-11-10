@@ -22,7 +22,7 @@
     "i18n:furigana": "node tools/i18n/furigana.mjs",
     "search:index": "node tools/search/build-index.mjs",
     "i18n:status": "node tools/i18n/status.mjs",
-    "slices:build": "python3 tools/cbct/voxelize.py public/models/impacted-molar.glb public/slices/wisdom-tooth.nvol --pitch 0.4 && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-before.nvol --pitch 0.5 --skip fibula,plate,screws && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-after.nvol --pitch 0.5 --skip specimen,lesion,margin",
+    "slices:build": "python3 tools/cbct/voxelize.py public/models/impacted-molar.glb public/slices/wisdom-tooth.nvol --pitch 0.4 --skip gum,mucosa && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-before.nvol --pitch 0.5 --skip fibula,plate,screws && python3 tools/cbct/voxelize.py public/head-neck/models/scc-case.glb public/slices/scc-after.nvol --pitch 0.5 --skip specimen,lesion,margin",
     "test:a11y": "playwright test tests/accessibility.spec.ts",
     "tokens": "node tools/tokens/build.mjs",
     "offline:sw": "node tools/offline/build-sw.mjs",

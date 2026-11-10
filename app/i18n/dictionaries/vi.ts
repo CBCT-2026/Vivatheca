@@ -1710,23 +1710,30 @@ const vi = withFallback(en, {
       "Nửa trái hàm dưới, phần xương phía má được cắt bỏ để thấy chân răng và dây thần kinh.",
       "Răng hàm lớn thứ ba hàm dưới bên trái (răng 38) mọc ngầm nghiêng gần, tựa vào mặt xa của răng hàm lớn thứ hai.[1]",
       "Dây thần kinh huyệt răng dưới (màu vàng) trong ống thần kinh răng dưới, đi giữa các chân của răng hàm lớn thứ ba.[2][6] Đây là kiểu sắp xếp ít gặp hơn và nguy cơ cao hơn; thường thì ống nằm dưới hoặc cạnh chân răng.[3][7][8] Trong một phân tích gộp ba nghiên cứu, CBCT thể hiện liên quan này chính xác hơn phim toàn cảnh,[5] nhưng một thử nghiệm ngẫu nhiên cho thấy chụp CBCT trước khi nhổ không làm giảm tổn thương thần kinh.[9]",
-      "Dây thần kinh đi lên để vào ống thần kinh răng dưới ở mặt trong cành lên, gần lưỡi gà xương hàm dưới.[2][4]"
+      "Dây thần kinh đi lên để vào ống thần kinh răng dưới ở mặt trong cành lên, gần lưỡi gà xương hàm dưới.[2][4]",
+      "Hai lớp mô mềm có thể gỡ ra từng lớp: lợi (màu hồng) ôm quanh cổ răng, và lớp niêm mạc miệng đỏ hơn ở bên dưới. Gỡ cả hai để thấy xương, chân răng và dây thần kinh.",
+      "Lợi dày khoảng 1 mm.[11] Bờ lợi nằm cao hơn bờ xương 2,7 mm,[12] và bờ xương nằm dưới đường nối giữa thân răng và chân răng 1,5 mm.[13] Dải lợi rộng khoảng 4,6 mm,[14] và giữa các răng, lợi nhô lên thành một đỉnh nhọn theo đường cong của đường nối đó.[10]"
     ],
     "normalHeading": "Cách làm mô hình bình thường",
     "normalMethod": "Mô hình bình thường tương ứng dùng cùng xương hàm, răng và dây thần kinh. Chỉ răng khôn được thay đổi: nó được thay bằng một răng hàm lớn thứ ba mọc thẳng, thẳng hàng với răng hàm lớn thứ hai, cùng mức khớp cắn. Hình dạng là răng hàm lớn thứ hai thu nhỏ còn 92%, chân răng ngắn hơn 20%, để chân răng cách dây thần kinh ít nhất 1,5 mm. Đây là cách làm gần đúng: răng hàm lớn thứ ba thật thường nhỏ hơn răng hàm lớn thứ hai, thân răng biến đổi nhiều hơn và chân răng thường dính nhau,[10] và bờ trước cành lên vẫn hơi chồng lên phía sau thân răng. Răng khôn đã mọc vẫn có thể có chân gần dây thần kinh; mô hình bình thường này thể hiện một kiểu sắp xếp điển hình.",
     "simplifiedHeading": "Những gì được đơn giản hóa",
     "simplifications": [
       "Một xương hàm điển hình, không phải phim chụp của bệnh nhân. Xương hàm, chân răng và đường đi của dây thần kinh thật rất khác nhau.[2][7]",
-      "Không thể hiện lợi, dây thần kinh lưỡi, mạch máu và hàm trên.",
+      "Không thể hiện dây thần kinh lưỡi, mạch máu và hàm trên.",
+      "Lợi và niêm mạc là các lớp nhẵn, đều. Lợi thật có bề mặt lấm tấm, và độ dày, độ rộng khác nhau ở mỗi người.[11][14] Niêm mạc được vẽ mỏng hơn lợi vì mô mềm mỏng dần khi qua đường ranh giới lợi,[15] nhưng không dùng một độ dày đo cụ thể nào. Niêm mạc kéo xuống bao xa và mô mềm kết thúc ở đâu phía sau răng cuối là phần vẽ, không phải số đo. Mô mềm che phần xương đã cắt bỏ. Màu lợi và niêm mạc là bản đầu tiên và có thể thay đổi.",
       "Xương đặc. Ống thần kinh răng dưới và các ổ răng không được làm rỗng.",
       "Dây thần kinh là một ống đơn giản hóa. Đoạn ra ở lỗ cằm được thể hiện như một mảnh ngắn riêng, và nhánh răng cửa không được thể hiện.",
       "Tệp STL tính bằng milimét, lớn khoảng 1,7 lần kích thước thật (dài 166 mm), để chân răng và dây thần kinh dễ thấy hơn. Hãy thu nhỏ còn khoảng 60% trong phần mềm cắt lớp để có kích thước thật. Tệp chưa được kiểm tra là khối kín, nên hãy sửa trong phần mềm cắt lớp trước khi in."
     ],
     "sourcesHeading": "Nguồn đã công bố",
     "citeLabel": "Nguồn {n}",
-    "sourcesNote": "Được CBCT-2026, Nhà sáng lập kiêm Giám đốc Vivatheca, dựng từ đầu; không dùng lưới mô hình của bên thứ ba hay thư viện nào. Các nguồn dưới đây hỗ trợ giải phẫu và thuật ngữ mà mô hình thể hiện; mô hình không được làm từ phim chụp bệnh nhân hay từ số đo trong các nghiên cứu này.",
+    "sourcesNote": "Được CBCT-2026, Nhà sáng lập kiêm Giám đốc Vivatheca, dựng từ đầu; không dùng lưới mô hình của bên thứ ba hay thư viện nào. Các nguồn dưới đây hỗ trợ giải phẫu và thuật ngữ mà mô hình thể hiện; mô hình không được làm từ phim chụp bệnh nhân hay từ số đo trong các nghiên cứu này. Các lớp lợi và niêm mạc (phiên bản 1.4) được thêm bằng một tập lệnh dựng của Vivatheca, theo số đo trong các nguồn 11 đến 15.",
     "changelogHeading": "Nhật ký thay đổi",
     "changelog": [
+      {
+        "version": "1.4",
+        "text": "Thêm hai lớp mô mềm: lợi và niêm mạc miệng. Mỗi lớp có nút riêng, nên có thể gỡ ra từng lớp."
+      },
       {
         "version": "1.3",
         "text": "Răng nay có màu trắng như răng thật và dây thần kinh huyệt răng dưới màu vàng. Màu xương không đổi."
@@ -1757,6 +1764,8 @@ const vi = withFallback(en, {
     "group": "Các phần của mô hình",
     "all": "Hiện tất cả các phần",
     "names": {
+      "gum": "Lợi (nướu)",
+      "mucosa": "Niêm mạc miệng",
       "bone": "Xương",
       "teeth": "Răng",
       "canine": "Răng nanh",
