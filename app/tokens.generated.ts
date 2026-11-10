@@ -22,6 +22,7 @@ export const colours = {
     "bone": "#E3D3B5",
     "gum": "#E89A9A",
     "lining": "#D98C8C",
+    "mucosa": "#C96A6A",
     "clot": "#8B1E2D",
     "fat": "#F2D16B",
     "graft": "#C9A46B",

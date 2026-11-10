@@ -24,7 +24,7 @@ export function licenceOf(slug: string) {
 }
 
 export const catalogue: CatalogueModel[] = [
-  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.3', updated: '2026-11-06', icon: 'general-surgery', terms: [{ text: 'Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1. (Winter angulation: mesioangular.)', href: 'https://doi.org/10.5037/jomr.2013.4201' }] },
+  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.4', updated: '2026-11-10', icon: 'general-surgery', terms: [{ text: 'Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1. (Winter angulation: mesioangular.)', href: 'https://doi.org/10.5037/jomr.2013.4201' }] },
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '0.4', updated: '2026-11-05', icon: 'child-care', terms: [{ text: 'AlQahtani SJ, Hector MP, Liversidge HM. Brief communication: the London atlas of human tooth development and eruption. Am J Phys Anthropol. 2010;142(3):481-490.', href: 'https://doi.org/10.1002/ajpa.21258' }] },
   { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '0.1', updated: '2026-11-05', icon: 'mouth', terms: [{ text: 'Papapanou PN, Sanz M, Buduneli N, et al. Periodontitis: consensus report of workgroup 2 of the 2017 World Workshop on the Classification of Periodontal and Peri-Implant Diseases and Conditions. J Periodontol. 2018;89 Suppl 1:S173-S182.', href: 'https://doi.org/10.1002/JPER.17-0721' }] },
   { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '0.2', updated: '2026-11-06', icon: 'general-surgery', terms: [{ text: 'Parvini P, Obreja K, Begic A, et al. Decision-making in closure of oroantral communication and fistula. Int J Implant Dent. 2019;5(1):13.', href: 'https://doi.org/10.1186/s40729-019-0165-7' }] },
@@ -62,9 +62,9 @@ export const wisdomTooth = {
   },
   // Labels for these files are wisdom.files in the dictionaries, in the same order.
   files: [
-    { href: '/models/impacted-molar.glb', size: '0.6 MB' },
+    { href: '/models/impacted-molar.glb', size: '1.4 MB' },
     { href: '/models/vivatheca-wisdom-tooth-impacted-stl.zip', size: '0.6 MB' },
-    { href: '/models/wisdom-tooth-normal.glb', size: '0.6 MB' },
+    { href: '/models/wisdom-tooth-normal.glb', size: '1.4 MB' },
     { href: '/models/vivatheca-wisdom-tooth-normal-stl.zip', size: '0.6 MB' },
   ] satisfies ModelFile[],
   sources: [
@@ -78,7 +78,13 @@ export const wisdomTooth = {
     { text: 'Jun SH, Kim CH, Ahn JS, Padwa BL, Kwon JJ. Anatomical differences in lower third molars visualized by 2D and 3D X-ray imaging: clinical outcomes after extraction. Int J Oral Maxillofac Surg. 2013;42(4):489-496. (Complications were mostly in roots inside or touching the canal; basis for "higher-risk".)', href: 'https://doi.org/10.1016/j.ijom.2012.12.005' },
     { text: 'Ghaeminia H, Gerlach NL, Hoppenreijs TJM, et al. Clinical relevance of cone beam computed tomography in mandibular third molar removal: a multicentre, randomised, controlled trial. J Craniomaxillofac Surg. 2015;43(10):2158-2167. (Conflicting evidence: CBCT before removal did not reduce nerve injury compared with panoramic radiography.)', href: 'https://doi.org/10.1016/j.jcms.2015.10.009' },
     { text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. Chapter on the permanent mandibular molars. (Third molars: smaller than second molars, variable crowns, often fused roots; basis for the note on how the normal was made.)', href: '' },
+    { text: 'Müller HP, Schaller N, Eger T, Heinecke A. Thickness of masticatory mucosa. J Clin Periodontol. 2000;27(6):431-436. (Cheek-side gum 0.7 mm at the lower central incisors to 2.3 mm at the lower third molars; more than 4 mm behind the last molar.)', href: 'https://doi.org/10.1034/j.1600-051x.2000.027006431.x' },
+    { text: 'Gargiulo AW, Wentz FM, Orban B. Dimensions and relations of the dentogingival junction in humans. J Periodontol. 1961;32(3):261-267. (Gum edge 2.73 mm above the bone edge: gum groove 0.69, epithelial attachment 0.97, connective tissue attachment 1.07 mm.)', href: 'https://doi.org/10.1902/jop.1961.32.3.261' },
+    { text: 'Hausmann E, Allen K, Clerehugh V. What alveolar crest level on a bite-wing radiograph represents bone loss? J Periodontol. 1991;62(9):570-572. (Healthy bone edge 0.4 to 1.9 mm below the CEJ; the model uses 1.5 mm.)', href: 'https://doi.org/10.1902/jop.1991.62.9.570' },
+    { text: 'Lee WZ, Ong MMA, Yeo AB. Gingival profiles in a select Asian cohort: a pilot study. J Investig Clin Dent. 2018;9(1):e12269. (Gum band 4.59 mm wide on average, incisors to first molars.)', href: 'https://doi.org/10.1111/jicd.12269' },
+    { text: 'Papapetros D, Nylander K, Kalfas S. Gingival phenotypes and dimensions of the soft periodontal tissues: a cross-sectional clinical and histological study. Clin Oral Investig. 2025;29(12):563. (Soft tissue thins from the gum towards and past the mucogingival junction.)', href: 'https://doi.org/10.1007/s00784-025-06636-3' },
+    { text: 'Eger T, Müller HP, Heinecke A. Ultrasonic determination of gingival thickness: subject variation and influence of tooth type and clinical features. J Clin Periodontol. 1996;23(9):839-845. (Lower jaw gum 0.8 mm at canines to 1.5 mm at second molars.)', href: 'https://doi.org/10.1111/j.1600-051x.1996.tb00621.x' },
   ] satisfies Source[],
-  changelogDates: { '1.3': '2026-11-06', '1.2': '2026-11-06', '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
-  citation: 'CBCT-2026 (Founder & Director). Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.3. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
+  changelogDates: { '1.4': '2026-11-10', '1.3': '2026-11-06', '1.2': '2026-11-06', '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
+  citation: 'CBCT-2026 (Founder & Director). Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.4. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
 };

@@ -12,7 +12,7 @@ type Mode = 'both' | 'impacted' | 'normal';
 type ModelViewerElement = PartsViewer;
 
 // Parts that can be hidden on both models at once (material names in the GLBs).
-const partNames = ['bone', 'nerve red', 'wisdom tooth', 'teeth'];
+const partNames = ['gum', 'mucosa', 'bone', 'nerve red', 'wisdom tooth', 'teeth'];
 
 export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Side }) {
   const { t } = useI18n();
