@@ -1,4 +1,4 @@
-import type { Dictionary } from './en';
+import en, { type Dictionary } from './en';
 
 // Japanese. {漢字|かんじ} marks furigana, shown above the kanji (visitors can hide them).
 // Dental and medical terms follow Japanese dental terminology (日本歯科医学会 用語):
@@ -137,6 +137,7 @@ const ja: Dictionary = {
     toolsHeading: '{学習|がくしゅう}ツール',
     tools: {
       slices: { title: 'CBCTスライスを{模型|もけい}と{見比|みくら}べる', text: '{模型|もけい}から{作|つく}った{仮想|かそう}スキャンの{軸位|じくい}・{冠状|かんじょう}・{矢状|しじょう}{断面|だんめん}と3Dレンダリングで、{画像|がぞう}と{解剖|かいぼう}を{対応|たいおう}させる{練習|れんしゅう}ができます。', link: 'スライスビューアを{開|ひら}く' },
+      cbctReport: en.learn.tools.cbctReport,
     },
     patientsHeading: '{患者|かんじゃ}さんへの{説明|せつめい}に{使|つか}いたい{方|かた}は',
     patientsText: 'Vivathecaの{臨床医|りんしょうい}{向|む}けページには、やさしい{言葉|ことば}の{模型|もけい}ページと{患者|かんじゃ}{説明|せつめい}{資料|しりょう}の{作成|さくせい}ツールがあります。',
@@ -540,6 +541,8 @@ const ja: Dictionary = {
     ],
   },
   // 学生向けツール：仮想CBCTスライスビューア（/learn/slices）。[n] は app/learn/sources.ts の slicesSources。
+  // English only for now (Luke, 10 Nov 2026: no new translation work until resumed).
+  learnCbct: en.learnCbct,
   learnSlices: {
     metaTitle: '3D{模型|もけい}と{見比|みくら}べるCBCTスライス: {学生|がくせい}{向|む}けツール - Vivatheca',
     metaDescription: 'Vivathecaの3D{模型|もけい}から{作|つく}った{仮想|かそう}CBCTの{軸位|じくい}・{冠状|かんじょう}・{矢状|しじょう}{断面|だんめん}とボリュームレンダリング。{歯科|しか}・{顎|あご}の{画像|がぞう}{読影|どくえい}を{学|まな}ぶ{学生|がくせい}{向|む}け。',
