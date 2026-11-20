@@ -27,7 +27,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   await page.getByRole('button', { name: 'Side by side' }).click();
   await expect(page.getByRole('checkbox', { name: 'Turn both together' })).toBeChecked();
 
-  for (const href of ['/models/impacted-molar.glb', '/models/vivatheca-wisdom-tooth-impacted-stl.zip', '/models/wisdom-tooth-normal.glb', '/models/vivatheca-wisdom-tooth-normal-stl.zip']) {
+  for (const href of ['/models/impacted-molar-2026-11.glb', '/models/vivatheca-wisdom-tooth-impacted-stl.zip', '/models/wisdom-tooth-normal.glb', '/models/vivatheca-wisdom-tooth-normal-stl.zip']) {
     await expect(page.locator(`a[href="${href}"][download]`)).toHaveCount(1);
     const response = await page.request.get(href);
     expect(response.status()).toBe(200);
@@ -36,7 +36,7 @@ test('wisdom tooth page compares impacted and normal models with downloads and d
   for (const heading of ['What it shows', 'How the normal was made', 'What is simplified', 'Published sources', 'Change log', 'How to credit']) {
     await expect(page.getByRole('heading', { name: heading })).toBeVisible();
   }
-  await expect(page.locator('.source-list li')).toHaveCount(10);
+  await expect(page.locator('.source-list li')).toHaveCount(17);
   await expect(page.locator('a[href="#src-6"]').first()).toBeVisible();
   await expect(page.locator('.model-disclaimer')).toContainText('Not yet clinically reviewed.');
   await expect(page.locator('.model-disclaimer').getByRole('link', { name: 'Full disclaimer' })).toHaveAttribute('href', '/disclaimer');
