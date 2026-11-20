@@ -1,6 +1,6 @@
 {
  "dictionary": {
-  "total": 1979,
+  "total": 1986,
   "extraInJa": [
    "builder.models.oroantral",
    "builder.models.periodontitis",
@@ -93,12 +93,16 @@
    "learnCbct.questions.2.a",
    "learnCracked.evidence.0.study",
    "learnCracked.evidence.3.study",
-   "learnCracked.evidence.4.study"
+   "learnCracked.evidence.4.study",
+   "wisdom.shows.4",
+   "wisdom.simplifications.5",
+   "wisdom.simplifications.6",
+   "wisdom.changelog.0.text"
   ],
   "byStatus": {
    "reviewed": 0,
    "changed": 0,
-   "unreviewed": 1989
+   "unreviewed": 1996
   },
   "changed": []
  },
