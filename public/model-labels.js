@@ -163,6 +163,7 @@
     [/^\/ectopic-canine\/options\/models\/ortho-after/, { canine: 'canineMax', 'baby-canine': 'babyCanine', 'baby-teeth': 'deciduous', teeth: 'teethUpper', bone: 'maxilla' }],
     [/^\/ectopic-canine\/options\//, { canine: 'caninePdc', attachment: 'attachment', 'removed bone': 'removedBone', 'baby-canine': 'babyCanine', 'baby-teeth': 'deciduous', teeth: 'teethUpper', bone: 'maxilla' }],
     [/^\/models\/impacted-wisdom-tooth\/options\//, { 'wisdom tooth crown': 'm3Crown', 'wisdom tooth roots': 'm3RootsKept', 'wisdom tooth mesial root': 'm3Root', 'removed bone': 'ostectomy', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
+    [/^\/models\/impacted-molar-2026-11\.glb$/, { tooth_38_enamel: 'm3Impacted', nerve: 'ian', mandible: 'mandible', tooth_37_enamel: 'teethLower' }],
     [/^\/models\/impacted-molar\.glb$/, { 'wisdom tooth': 'm3Impacted', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
     [/^\/models\/wisdom-tooth-normal\.glb$/, { 'wisdom tooth (erupted)': 'm3Erupted', nerve: 'ian', 'mandible left': 'mandible', teeth: 'teethLower' }],
     [/^\/models\/averaged-jaw\//, { mandible: 'mandible', teeth_lower: 'teethLower' }],

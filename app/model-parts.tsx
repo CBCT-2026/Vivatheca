@@ -86,19 +86,21 @@ const colourOf = (material?: Material) => {
 
 // Buttons to hide or show each named part on one or more viewers (side-by-side viewers share the choice).
 // `names` lists the parts that get a button, in order; parts missing from the current model are left out.
-export function PartsPanel({ getViewers, names, version }: { getViewers: () => (ModelViewerElement | null)[]; names: string[]; version: number }) {
+// `groups` lets one button drive several materials (a part that is named differently in each model).
+export function PartsPanel({ getViewers, names, version, groups }: { getViewers: () => (ModelViewerElement | null)[]; names: string[]; version: number; groups?: Record<string, string[]> }) {
   const { t } = useI18n();
   const p = t.parts;
   const [hidden, setHidden] = useState<string[]>([]);
   const [present, setPresent] = useState<{ name: string; colour: string }[]>([]);
 
   // Viewers and names are read through a ref, so a new array from the parent on each render does not re-run the effect.
-  const current = useRef({ getViewers, names });
-  useEffect(() => { current.current = { getViewers, names }; });
+  const current = useRef({ getViewers, names, groups });
+  useEffect(() => { current.current = { getViewers, names, groups }; });
+  const members = (key: string) => current.current.groups?.[key] ?? [key];
   const reapply = (list: string[]) => {
     const { getViewers: get, names: ns } = current.current;
     const vs = get();
-    vs.forEach((viewer) => ns.forEach((name) => showPart(viewer, name, !list.includes(name))));
+    vs.forEach((viewer) => ns.forEach((name) => members(name).forEach((m) => showPart(viewer, m, !list.includes(name)))));
   };
 
   // After each model load (version changes), list the parts this model has and keep hidden parts hidden.
@@ -106,9 +108,10 @@ export function PartsPanel({ getViewers, names, version }: { getViewers: () => (
     const { getViewers: get, names: ns } = current.current;
     const vs = get();
     const first = vs.find((v) => v?.model);
-    setPresent(ns.filter((name) => vs.some((v) => materialsNamed(v, name).length)).map((name) => ({ name, colour: colourOf(materialsNamed(first, name)[0]) })));
+    const found = (v: ModelViewerElement | null | undefined, name: string) => members(name).flatMap((m) => materialsNamed(v, m));
+    setPresent(ns.filter((name) => vs.some((v) => found(v, name).length)).map((name) => ({ name, colour: colourOf(found(first, name)[0]) })));
     setHidden((list) => {
-      vs.forEach((viewer) => ns.forEach((name) => { if (list.includes(name)) showPart(viewer, name, false); }));
+      vs.forEach((viewer) => ns.forEach((name) => { if (list.includes(name)) members(name).forEach((m) => showPart(viewer, m, false)); }));
       return list;
     });
   }, [version]);
