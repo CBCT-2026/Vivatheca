@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t.wisdom.title,
     description: t.wisdom.description,
     alternates: { canonical: '/models/impacted-wisdom-tooth' },
-    openGraph: { url: '/models/impacted-wisdom-tooth', images: ['/assets/renders/wisdom-tooth-compare.webp'] },
+    openGraph: { url: '/models/impacted-wisdom-tooth', images: ['/assets/renders/wisdom-tooth-compare-2026-11.webp'] },
   };
 }
 

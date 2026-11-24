@@ -15,7 +15,7 @@ const abgOptions = ['option-implant', 'option-bridge', 'option-denture'];
 
 export const showSpecs: Record<string, ShowSpec> = {
   'impacted-wisdom-tooth': { orbit: '90deg 80deg auto', views: [
-    { id: 'impacted', glb: '/models/impacted-molar.glb', label: 'impacted' },
+    { id: 'impacted', glb: '/models/impacted-molar-2026-11.glb', label: 'impacted' },
     { id: 'normal', glb: '/models/wisdom-tooth-normal.glb', label: 'normal' },
   ] },
   'dental-development': { orbit: '-90deg 80deg auto', views: ['6.5', '7.5', '8.5', '9.5', '10.5', '11.5', '12.5'].map((age) => ({ id: `age-${age}`, glb: `${d}age-${age.replace('.', '-')}.glb`, label: '', age })) },

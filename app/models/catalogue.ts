@@ -24,7 +24,7 @@ export function licenceOf(slug: string) {
 }
 
 export const catalogue: CatalogueModel[] = [
-  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare.webp', version: '1.3', updated: '2026-11-06', icon: 'general-surgery', terms: [{ text: 'Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1. (Winter angulation: mesioangular.)', href: 'https://doi.org/10.5037/jomr.2013.4201' }] },
+  { slug: 'impacted-wisdom-tooth', href: '/models/impacted-wisdom-tooth', image: '/assets/renders/wisdom-tooth-compare-2026-11.webp', version: '1.4', updated: '2026-11-20', icon: 'general-surgery', terms: [{ text: 'Juodzbalys G, Daugela P. Mandibular third molar impaction: review of literature and a proposal of a classification. J Oral Maxillofac Res. 2013;4(2):e1. (Winter angulation: mesioangular.)', href: 'https://doi.org/10.5037/jomr.2013.4201' }] },
   { slug: 'dental-development', href: '/development/', image: '/assets/renders/dental-development.webp', version: '0.4', updated: '2026-11-05', icon: 'child-care', terms: [{ text: 'AlQahtani SJ, Hector MP, Liversidge HM. Brief communication: the London atlas of human tooth development and eruption. Am J Phys Anthropol. 2010;142(3):481-490.', href: 'https://doi.org/10.1002/ajpa.21258' }] },
   { slug: 'periodontitis', href: '/periodontitis/', image: '/assets/renders/periodontitis.webp', version: '0.1', updated: '2026-11-05', icon: 'mouth', terms: [{ text: 'Papapanou PN, Sanz M, Buduneli N, et al. Periodontitis: consensus report of workgroup 2 of the 2017 World Workshop on the Classification of Periodontal and Peri-Implant Diseases and Conditions. J Periodontol. 2018;89 Suppl 1:S173-S182.', href: 'https://doi.org/10.1002/JPER.17-0721' }] },
   { slug: 'oroantral', href: '/oroantral/', image: '/assets/renders/oroantral.webp', version: '0.2', updated: '2026-11-06', icon: 'general-surgery', terms: [{ text: 'Parvini P, Obreja K, Begic A, et al. Decision-making in closure of oroantral communication and fistula. Int J Implant Dent. 2019;5(1):13.', href: 'https://doi.org/10.1186/s40729-019-0165-7' }] },
@@ -53,7 +53,7 @@ export function formatDate(iso: string, intl: string) {
 
 export const wisdomTooth = {
   impacted: {
-    glb: '/models/impacted-molar.glb',
+    glb: '/models/impacted-molar-2026-11.glb',
     stl: '/models/impacted-molar.stl',
   },
   normal: {
@@ -62,7 +62,7 @@ export const wisdomTooth = {
   },
   // Labels for these files are wisdom.files in the dictionaries, in the same order.
   files: [
-    { href: '/models/impacted-molar.glb', size: '0.6 MB' },
+    { href: '/models/impacted-molar-2026-11.glb', size: '1.4 MB' },
     { href: '/models/vivatheca-wisdom-tooth-impacted-stl.zip', size: '0.6 MB' },
     { href: '/models/wisdom-tooth-normal.glb', size: '0.6 MB' },
     { href: '/models/vivatheca-wisdom-tooth-normal-stl.zip', size: '0.6 MB' },
@@ -78,7 +78,14 @@ export const wisdomTooth = {
     { text: 'Jun SH, Kim CH, Ahn JS, Padwa BL, Kwon JJ. Anatomical differences in lower third molars visualized by 2D and 3D X-ray imaging: clinical outcomes after extraction. Int J Oral Maxillofac Surg. 2013;42(4):489-496. (Complications were mostly in roots inside or touching the canal; basis for "higher-risk".)', href: 'https://doi.org/10.1016/j.ijom.2012.12.005' },
     { text: 'Ghaeminia H, Gerlach NL, Hoppenreijs TJM, et al. Clinical relevance of cone beam computed tomography in mandibular third molar removal: a multicentre, randomised, controlled trial. J Craniomaxillofac Surg. 2015;43(10):2158-2167. (Conflicting evidence: CBCT before removal did not reduce nerve injury compared with panoramic radiography.)', href: 'https://doi.org/10.1016/j.jcms.2015.10.009' },
     { text: 'Nelson SJ. Wheeler’s Dental Anatomy, Physiology and Occlusion. 11th ed. St Louis: Elsevier; 2020. Chapter on the permanent mandibular molars. (Third molars: smaller than second molars, variable crowns, often fused roots; basis for the note on how the normal was made.)', href: '' },
+    { text: 'Bergström J, Keilani H, Lundholm C, Rådestad U. Smokeless tobacco (snuff) use and periodontal bone loss. J Clin Periodontol. 2006;33(8):549-554. (Mean distance from the cement-enamel junction to the bone crest 1.06 mm, 95% CI 0.95-1.16, in 38 never-users of snuff; bitewing X-rays.)', href: 'https://doi.org/10.1111/j.1600-051X.2006.00945.x' },
+    { text: 'Hausmann E, Allen K, Clerehugh V. What alveolar crest level on a bite-wing radiograph represents bone loss? J Periodontol. 1991;62(9):570-572. (No bone loss is consistent with 0.4 to 1.9 mm from the cement-enamel junction to the crest, 95% limits.)', href: 'https://doi.org/10.1902/jop.1991.62.9.570' },
+    { text: 'Hadziabdic N, Dzankovic A, Maktouf M, et al. The clinical and radiological evaluation of impacted third molar position, crown and root morphology. Acta Med Acad. 2023;52(2):77-87. (Most lower third molars had two fused roots; the length and crown sizes used for the 38 follow the values in the full text, as recorded in the locked model specification, and were not rechecked against it for this page.)', href: 'https://doi.org/10.5644/ama2006-124.407' },
+    { text: 'Gu L, Zhu C, Chen K, Liu X, Tang Z. Anatomic study of the position of the mandibular canal and corresponding mandibular third molar on cone-beam computed tomography images. Surg Radiol Anat. 2018;40(6):609-614. (1296 third molars: canal between the roots in 0.5%.)', href: 'https://doi.org/10.1007/s00276-017-1928-6' },
+    { text: 'Niroula D, Dahal S, Poudel K, Kumar Singh A, K C K. Classification of impacted third molars on conebeam computed tomography images. J Nepal Health Res Counc. 2025;23(1):170-175. (100 CBCT images: canal between the roots in 23%; the studies differ in how they define the position.)', href: 'https://doi.org/10.33314/jnhrc.v23i01.5607' },
+    { text: 'Wang Y, et al. STS-Tooth: a multi-modal dental dataset for semi-supervised deep learning image segmentation. Sci Data. 2025;12:117. CBCT scan ROI_L_006, CC BY 4.0. (Source of the jaw bone and the canal path; the canal measured about 2.17 mm wide on average, which sets the width of the nerve bundle.)', href: 'https://doi.org/10.1038/s41597-024-04306-9' },
+    { text: 'Dot G, et al. DentalSegmentator: robust open source deep learning-based CT and CBCT image segmentation. J Dent. 2024. (Software that outlined the jaw, teeth and canal in the scan.)', href: 'https://doi.org/10.1016/j.jdent.2024.105130' },
   ] satisfies Source[],
-  changelogDates: { '1.3': '2026-11-06', '1.2': '2026-11-06', '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
-  citation: 'CBCT-2026 (Founder & Director). Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.3. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. Licensed under CC BY-SA 4.0. Accessed [date].',
+  changelogDates: { '1.4': '2026-11-20', '1.3': '2026-11-06', '1.2': '2026-11-06', '1.1': '2026-11-05', '1.0': '2026-11-05' } as Record<string, string>,
+  citation: 'CBCT-2026 (Founder & Director). Vivatheca: Impacted lower wisdom tooth and matched normal, version 1.4. 2026. https://vivatheca.com/models/impacted-wisdom-tooth. The page is licensed under CC BY-SA 4.0; the impacted-model GLB is licensed under CC BY 4.0. Impacted model teeth: University of Dundee, School of Dentistry (Sketchfab), CC BY 4.0, re-posed and uniformly scaled. Impacted model jaw and canal: derived from STS-Tooth CBCT ROI_L_006 (Wang et al., Sci Data 2025, CC BY 4.0), segmented with DentalSegmentator (Dot et al., J Dent 2024, CC BY 4.0), modified. Accessed [date].',
 };

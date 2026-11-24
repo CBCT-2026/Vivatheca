@@ -11,8 +11,15 @@ type Mode = 'both' | 'impacted' | 'normal';
 
 type ModelViewerElement = PartsViewer;
 
-// Parts that can be hidden on both models at once (material names in the GLBs).
-const partNames = ['bone', 'nerve red', 'wisdom tooth', 'teeth'];
+// Parts that can be hidden on both models at once. Each button drives the material names the two GLBs use for it:
+// the normal model has bone, nerve red, wisdom tooth, teeth; the impacted model (2026-11) has mandible,
+// mandible_cut_faces, nerve, artery, vein, enamel and root (all three teeth share enamel and root).
+const partNames = ['bone', 'nerve red', 'artery', 'vein', 'wisdom tooth', 'teeth'];
+const partGroups: Record<string, string[]> = {
+  bone: ['bone', 'mandible', 'mandible_cut_faces'],
+  'nerve red': ['nerve red', 'nerve'],
+  teeth: ['teeth', 'enamel', 'root'],
+};
 
 export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Side }) {
   const { t } = useI18n();
@@ -116,7 +123,7 @@ export function CompareViewer({ impacted, normal }: { impacted: Side; normal: Si
           </figure>
         ))}
       </div>
-      <div className="compare-parts"><PartsPanel getViewers={() => [left, right]} names={partNames} version={loads} /></div>
+      <div className="compare-parts"><PartsPanel getViewers={() => [left, right]} names={partNames} groups={partGroups} version={loads} /></div>
       <p className="model-help compare-help"><Ruby text={c.help} /></p>
     </div>
   );

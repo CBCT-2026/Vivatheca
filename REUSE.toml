@@ -5,7 +5,8 @@
 #   - Website code, build tools and docs: MIT (see LICENSE)
 #   - Vivatheca 3D models, print files, renders and videos: CC BY-SA 4.0 (base meshes from
 #     Z-Anatomy are CC BY-SA 4.0, so everything made from them stays CC BY-SA)
-#     Exception: models built from BodyParts3D (CC BY 4.0), e.g. public/endodontic/ and public/tmd/, are CC BY 4.0
+#     Exception: models built from BodyParts3D (CC BY 4.0), e.g. public/endodontic/ and public/tmd/, are CC BY 4.0,
+#     and so is the impacted wisdom tooth GLB (University of Dundee teeth and STS-Tooth jaw, both CC BY 4.0)
 #   - Clinical images: each keeps its own licence, recorded with the image on its page
 #     (see LICENSES/LicenseRef-Clinical-Image.txt and docs/image-licensing.md)
 #   - Vendored third-party files keep their upstream licence
@@ -103,6 +104,14 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 path = ["public/endodontic/models/**", "public/endodontic/downloads/**", "public/assets/renders/endodontic.webp", "public/videos/endodontic/**", "public/prosthodontic/models/**", "public/prosthodontic/downloads/**", "public/assets/renders/prosthodontic.webp", "public/videos/prosthodontic/**", "public/vpi/models/**", "public/assets/renders/vpi.webp", "public/videos/vpi/**", "public/dentigerous-cyst/models/**", "public/dentigerous-cyst/downloads/**", "public/assets/renders/dentigerous-cyst.webp", "public/videos/dentigerous-cyst/**"]
 precedence = "override"
 SPDX-FileCopyrightText = ["2026 Vivatheca", "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# Impacted wisdom tooth model (version 1.4): only CC BY 4.0 parts, so the GLB and its label anchors are CC BY 4.0.
+# The matched normal and the earlier impacted-molar files stay CC BY-SA 4.0 (the glob above).
+[[annotations]]
+path = ["public/models/impacted-molar-2026-11.glb", "public/model-labels/models/impacted-molar-2026-11.json"]
+precedence = "override"
+SPDX-FileCopyrightText = ["2026 Vivatheca", "Tooth models: University of Dundee, School of Dentistry (Sketchfab), CC BY 4.0", "Mandible, teeth and canal geometry derived from STS-Tooth CBCT ROI_L_006 (Wang et al., Sci Data 2025, CC BY 4.0), segmented with DentalSegmentator (Dot et al., J Dent 2024, CC BY 4.0). Modified: smoothed, filled, recontoured, sockets added, cut with a window"]
 SPDX-License-Identifier = "CC-BY-4.0"
 
 # TMD jaw joints and chewing muscles: built from BodyParts3D (DBCLS, CC BY 4.0) with muscles and discs made by Vivatheca, so CC BY 4.0.
